@@ -7,9 +7,9 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(b'OK')
 
-def run_server():
-    server = HTTPServer(('0.0.0.0', 10000), Handler)
-    server.serve_forever()
+    def do_HEAD(self):
+        self.send_response(200)
+        self.end_headers()
 
 threading.Thread(target=run_server, daemon=True).start()
 import asyncio
