@@ -1553,6 +1553,13 @@ async def reset_handler(message: Message, state: FSMContext):
     await message.answer("🗑 Регистрация удалена. Нажми /start чтобы начать заново.")
 
 # ─── Запуск ───────────────────────────────────────────────────────────────────
+async def load_stock_handler(message: Message):
+    if message.from_user.id not in [466755177]:  # твой admin ID
+        return
+    from update_stock import update_stock
+    update_stock()
+    await message.answer("✅ Остатки загружены!")
+
 async def main():
     init_db()
     register_admin_handlers(dp, bot)
@@ -1561,12 +1568,4 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 
-@dp.message(Command("setstocktest"))
-async def set_stock_test(message: Message):
-    if message.from_user.id not in [466755177]:  # твой ID
-        return
-    con = get_db()
-    con.execute("UPDATE products SET stock = 10")
-    count = con.execute("SELECT COUNT(*) FROM products").fetchone()[0]
-    con.commit(); con.close()
-    await message.answer(f"✅ {count} товаров — остаток 10 шт.")
+
