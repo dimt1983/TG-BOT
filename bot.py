@@ -33,9 +33,8 @@ from aiogram.fsm.storage.memory import MemoryStorage
 
 from admin import register_admin_handlers, notify_new_order
 
-TOKEN = "8371030407:AAHq14AWKFeBuqCtQkDLwoab8qdPuAzH9uM"
-
-bot = Bot(token=TOKEN)
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
+bot = Bot(token=BOT_TOKEN)
 storage = MemoryStorage()
 dp = Dispatcher(storage=storage)
 
