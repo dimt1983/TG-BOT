@@ -999,8 +999,9 @@ def calc_cart_totals(user_id: int):
 # ─── Клавиатуры ──────────────────────────────────────────────────────────────
 main_keyboard = ReplyKeyboardMarkup(
     keyboard=[
-        [KeyboardButton(text="☕ Каталог"),    KeyboardButton(text="🛒 Корзина")],
-        [KeyboardButton(text="📦 Остатки"),    KeyboardButton(text="📞 Контакты")],
+        [KeyboardButton(text="☕ Каталог"),      KeyboardButton(text="🛒 Корзина")],
+        [KeyboardButton(text="⭐ Избранное"),    KeyboardButton(text="📋 Мои заказы")],
+        [KeyboardButton(text="📦 Остатки"),      KeyboardButton(text="📞 Контакты")],
         [KeyboardButton(text="👤 Мой профиль")],
     ],
     resize_keyboard=True
@@ -1104,6 +1105,16 @@ def product_card_keyboard(product_id, category_id, has_recipe_e, has_recipe_f):
     if recipe_row:
         buttons.append(recipe_row)
 
+    # Избранное и уведомление
+    con2 = get_db()
+    in_wish = con2.execute(
+        "SELECT id FROM wishlist WHERE user_id = ? AND product_id = ?",
+        (0, product_id)  # user_id подставляется в хендлере через отдельную функцию
+    )
+    con2.close()
+    buttons.append([
+        InlineKeyboardButton(text="⭐ В избранное", callback_data=f"wish_add_{product_id}"),
+    ])
     buttons.append([InlineKeyboardButton(text="◀ Назад", callback_data=f"cat_{category_id}")])
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
@@ -1118,8 +1129,9 @@ def cart_keyboard(items):
     buttons = [[InlineKeyboardButton(
         text=f"❌ {it['name'][:35]}", callback_data=f"remove_{it['cart_id']}"
     )] for it in items]
-    buttons.append([InlineKeyboardButton(text="✅ Оформить заказ",   callback_data="checkout")])
-    buttons.append([InlineKeyboardButton(text="🗑 Очистить корзину",  callback_data="clear_cart")])
+    buttons.append([InlineKeyboardButton(text="🎁 Ввести промокод",    callback_data="enter_promo")])
+    buttons.append([InlineKeyboardButton(text="✅ Оформить заказ",     callback_data="checkout")])
+    buttons.append([InlineKeyboardButton(text="🗑 Очистить корзину",   callback_data="clear_cart")])
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 # ─── /start и регистрация ─────────────────────────────────────────────────────
@@ -1289,11 +1301,23 @@ async def cat_handler(callback: CallbackQuery):
 @dp.callback_query(F.data.startswith("product_"))
 async def product_handler(callback: CallbackQuery):
     product_id = int(callback.data.split("_")[1])
+    user_id = callback.from_user.id
     con = get_db()
     p = con.execute("SELECT * FROM products WHERE id = ?", (product_id,)).fetchone()
-    con.close()
     if not p:
-        await callback.answer("Товар не найден."); return
+        con.close(); await callback.answer("Товар не найден."); return
+
+    # Проверяем — заказывал ли клиент этот товар (или похожий по базовому имени)
+    base_name = p["name"]
+    for sfx in [" 1 кг", " 200 г", " (8 шт)", " (10 шт)", " (1 шт)"]:
+        base_name = base_name.replace(sfx, "")
+    ordered_before = con.execute("""
+        SELECT COUNT(*) FROM order_items oi
+        JOIN products pr ON oi.product_id = pr.id
+        JOIN orders o ON oi.order_id = o.id
+        WHERE o.user_id = ? AND pr.name LIKE ? AND o.status != 'cancelled'
+    """, (user_id, f"{base_name}%")).fetchone()[0]
+    con.close()
 
     roast_labels = {
         "E": "☕ Эспрессо", "F": "🫖 Фильтр", "EF": "☕🫖 Эспрессо и Фильтр",
@@ -1303,7 +1327,20 @@ async def product_handler(callback: CallbackQuery):
     roast_str = roast_labels.get(p["roast_type"], p["roast_type"] or "")
     weight_str = _variant_label(p)
 
-    text = f"*{p['name']}*\n\n"
+    # Пометки
+    tag = p["tag"] if "tag" in p.keys() else ""
+    prev_price = p["prev_price"] if "prev_price" in p.keys() else 0
+    badges = []
+    if ordered_before:
+        badges.append("🔁 Вы уже заказывали")
+    tag_label = _tag_str(tag or "", prev_price or 0, p["price"]) if tag else ""
+    if tag_label:
+        badges.append(tag_label)
+
+    text = ""
+    if badges:
+        text += " | ".join(badges) + "\n\n"
+    text += f"*{p['name']}*\n\n"
     if p["description"]:
         text += f"🍫 {p['description']}\n\n"
     text += f"🔥 Обжарка: {roast_str}\n"
@@ -1311,14 +1348,25 @@ async def product_handler(callback: CallbackQuery):
         text += f"⚙️ Обработка: {p['process']}\n"
     text += f"📦 Фасовка: {weight_str}\n"
     text += f"💰 Цена: *{p['price']:.0f} ₽*"
-    if p["stock"] <= 5:
+    if p["stock"] == 0:
+        text += "\n\n❌ *Нет в наличии*"
+    elif p["stock"] <= 5:
         text += f"\n⚠️ Осталось: {p['stock']}"
 
-    kb = product_card_keyboard(
-        product_id, p["category_id"],
-        has_recipe_e=bool(p["recipe_e"]),
-        has_recipe_f=bool(p["recipe_f"])
-    )
+    # Если нет в наличии — кнопка «уведомить»
+    if p["stock"] == 0:
+        kb = InlineKeyboardMarkup(inline_keyboard=[
+            [InlineKeyboardButton(text="🔔 Уведомить когда появится",
+                                  callback_data=f"notify_{product_id}")],
+            [InlineKeyboardButton(text="⭐ В избранное", callback_data=f"wish_add_{product_id}")],
+            [InlineKeyboardButton(text="◀ Назад", callback_data=f"cat_{p['category_id']}")],
+        ])
+    else:
+        kb = product_card_keyboard(
+            product_id, p["category_id"],
+            has_recipe_e=bool(p["recipe_e"]),
+            has_recipe_f=bool(p["recipe_f"])
+        )
 
     if p["photo_url"]:
         await callback.message.answer_photo(photo=p["photo_url"], caption=text,
@@ -1425,19 +1473,36 @@ async def clear_cart(callback: CallbackQuery):
     await callback.message.answer("🛒 Корзина очищена.")
 
 # ─── Оформление заказа ───────────────────────────────────────────────────────
+def _user_display(user) -> str:
+    return user["company_name"] if user["user_type"] == "company" else user["name"]
+
+def _user_addr(user) -> str:
+    """Возвращает адрес из профиля — для юрлица actual_address, для физлица address."""
+    addr = None
+    try:
+        addr = user["address"]
+    except Exception:
+        pass
+    if not addr:
+        try:
+            addr = user["actual_address"]
+        except Exception:
+            pass
+    return addr or ""
+
 @dp.callback_query(F.data == "checkout")
 async def checkout_start(callback: CallbackQuery, state: FSMContext):
     user = get_user(callback.from_user.id)
     if user and user["name"] and user["phone"]:
-        display = user["company_name"] if user["user_type"] == "company" else user["name"]
-        addr = user["address"] or user.get("actual_address") or "не указан"
+        display = _user_display(user)
+        addr = _user_addr(user)
         await callback.message.answer(
             f"📋 *Использовать сохранённые данные?*\n\n"
-            f"👤 {display}\n📱 {user['phone']}\n🏠 {addr}",
+            f"👤 {display}\n📱 {user['phone']}\n🏠 {addr or 'адрес не указан'}",
             parse_mode="Markdown",
             reply_markup=InlineKeyboardMarkup(inline_keyboard=[
-                [InlineKeyboardButton(text="✅ Да", callback_data="checkout_saved")],
-                [InlineKeyboardButton(text="✏️ Ввести новые", callback_data="checkout_new")],
+                [InlineKeyboardButton(text="✅ Да, использовать", callback_data="checkout_saved")],
+                [InlineKeyboardButton(text="✏️ Ввести новые данные", callback_data="checkout_new")],
             ])
         )
         await state.set_state(OrderStates.confirm_profile)
@@ -1449,13 +1514,12 @@ async def checkout_start(callback: CallbackQuery, state: FSMContext):
 @dp.callback_query(F.data == "checkout_saved", OrderStates.confirm_profile)
 async def checkout_saved(callback: CallbackQuery, state: FSMContext):
     user = get_user(callback.from_user.id)
-    display = user["company_name"] if user["user_type"] == "company" else user["name"]
-    addr = user["address"] or user.get("actual_address")
+    display = _user_display(user)
+    addr = _user_addr(user)
+    await state.update_data(name=display, phone=user["phone"], address=addr)
     if addr:
-        await state.update_data(name=display, phone=user["phone"], address=addr)
         await create_order(callback.message, callback.from_user.id, state)
     else:
-        await state.update_data(name=display, phone=user["phone"])
         await callback.message.answer("🏠 Введите *адрес доставки*:", parse_mode="Markdown")
         await state.set_state(OrderStates.waiting_address)
     await callback.answer()
@@ -1488,20 +1552,38 @@ async def create_order(message: Message, user_id: int, state: FSMContext):
     if not items:
         await message.answer("Корзина пуста."); await state.clear(); return
 
+    # Промокод поверх объёмной скидки
+    promo_code = data.get("promo_code", "")
+    promo_discount_pct = data.get("promo_discount", 0) / 100 if data.get("promo_discount") else 0
+    if promo_discount_pct > 0:
+        promo_amt = total * promo_discount_pct
+        total = total - promo_amt
+        discount_amt += promo_amt
+    else:
+        promo_amt = 0
+
     con = get_db()
     cur = con.execute(
-        "INSERT INTO orders (user_id, name, phone, address, total, discount) VALUES (?,?,?,?,?,?)",
-        (user_id, data["name"], data["phone"], data["address"], total, discount_amt)
+        "INSERT INTO orders (user_id, name, phone, address, total, discount, promo_code) VALUES (?,?,?,?,?,?,?)",
+        (user_id, data["name"], data["phone"], data["address"], total, discount_amt, promo_code)
     )
     order_id = cur.lastrowid
     for it in items:
-        price_with_disc = it["price"] * (1 - disc_pct)
+        price_with_disc = it["price"] * (1 - disc_pct) * (1 - promo_discount_pct)
         con.execute(
             "INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (?,?,?,?)",
             (order_id, it["product_id"], it["quantity"], price_with_disc)
         )
         con.execute("UPDATE products SET stock = stock - ? WHERE id = ?",
                     (it["quantity"], it["product_id"]))
+
+    # Списываем использование промокода
+    if promo_code:
+        con.execute("""
+            UPDATE promo_codes SET uses_left = uses_left - 1
+            WHERE code = ? AND uses_left > 0 AND uses_left < 999999
+        """, (promo_code,))
+
     con.execute("DELETE FROM cart WHERE user_id = ?", (user_id,))
     con.commit(); con.close()
     update_user_address(user_id, data["address"])
@@ -1511,7 +1593,10 @@ async def create_order(message: Message, user_id: int, state: FSMContext):
         lines.append(f"• {it['name'][:40]}\n  {it['quantity']} × {it['price']:.0f} ₽")
     lines.append(f"\n💰 Сумма: {subtotal:.0f} ₽")
     if disc_pct > 0:
-        lines.append(f"🎁 Скидка {int(disc_pct*100)}%: −{discount_amt:.0f} ₽")
+        lines.append(f"📦 Оптовая скидка {int(disc_pct*100)}%: −{subtotal * disc_pct:.0f} ₽")
+    if promo_amt > 0:
+        lines.append(f"🎁 Промокод {promo_code} ({data['promo_discount']:.0f}%): −{promo_amt:.0f} ₽")
+    if discount_amt > 0:
         lines.append(f"✅ *Итого: {total:.0f} ₽*")
     else:
         lines.append(f"💰 *Итого: {total:.0f} ₽*")
@@ -1542,6 +1627,188 @@ async def stock_handler(message: Message):
     text = "\n".join(lines)
     for i in range(0, len(text), 4000):
         await message.answer(text[i:i+4000], parse_mode="Markdown")
+
+
+# ─── Пометки товаров — теги ───────────────────────────────────────────────────
+TAG_LABELS = {"NEW": "🆕 Новинка", "EXPECTED": "⏳ Ожидается", "SALE": "📉 Снижена цена"}
+
+def _tag_str(tag: str, prev_price: float = 0, price: float = 0) -> str:
+    if tag == "SALE" and prev_price and prev_price != price:
+        return f"📉 Цена снижена (было {prev_price:.0f} ₽)"
+    return TAG_LABELS.get(tag, "")
+
+# ─── Избранное ────────────────────────────────────────────────────────────────
+@dp.message(F.text == "⭐ Избранное")
+async def wishlist_handler(message: Message):
+    user_id = message.from_user.id
+    con = get_db()
+    items = con.execute("""
+        SELECT p.id, p.name, p.price, p.stock, p.tag, p.prev_price
+        FROM wishlist w JOIN products p ON w.product_id = p.id
+        WHERE w.user_id = ?
+    """, (user_id,)).fetchall()
+    con.close()
+    if not items:
+        await message.answer("⭐ Ваш список избранного пуст.\n\nДобавляйте товары кнопкой ⭐ В избранное в карточке товара.")
+        return
+    buttons = []
+    for it in items:
+        status = "✅" if it["stock"] > 0 else "❌"
+        tag = _tag_str(it["tag"] or "", it["prev_price"] or 0, it["price"])
+        tag_str = f" {tag}" if tag else ""
+        buttons.append([InlineKeyboardButton(
+            text=f"{status} {it['name'][:35]} — {it['price']:.0f} ₽{tag_str}",
+            callback_data=f"product_{it['id']}"
+        )])
+        buttons.append([InlineKeyboardButton(
+            text=f"❌ Убрать из избранного",
+            callback_data=f"wish_del_{it['id']}"
+        )])
+    await message.answer("⭐ *Избранное:*", parse_mode="Markdown",
+                         reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+@dp.callback_query(F.data.startswith("wish_add_"))
+async def wish_add(callback: CallbackQuery):
+    product_id = int(callback.data.split("_")[2])
+    user_id = callback.from_user.id
+    con = get_db()
+    try:
+        con.execute("INSERT OR IGNORE INTO wishlist (user_id, product_id) VALUES (?,?)",
+                    (user_id, product_id))
+        con.commit()
+        await callback.answer("⭐ Добавлено в избранное!")
+    except Exception:
+        await callback.answer("Уже в избранном.")
+    con.close()
+
+@dp.callback_query(F.data.startswith("wish_del_"))
+async def wish_del(callback: CallbackQuery):
+    product_id = int(callback.data.split("_")[2])
+    con = get_db()
+    con.execute("DELETE FROM wishlist WHERE user_id = ? AND product_id = ?",
+                (callback.from_user.id, product_id))
+    con.commit(); con.close()
+    await callback.answer("Убрано из избранного.")
+    await wishlist_handler(callback.message)
+
+# ─── Уведомить когда появится ─────────────────────────────────────────────────
+@dp.callback_query(F.data.startswith("notify_"))
+async def notify_available(callback: CallbackQuery):
+    product_id = int(callback.data.split("_")[1])
+    user_id = callback.from_user.id
+    con = get_db()
+    con.execute("INSERT OR IGNORE INTO notify_when_available (user_id, product_id) VALUES (?,?)",
+                (user_id, product_id))
+    con.commit(); con.close()
+    await callback.answer("🔔 Уведомим когда появится!", show_alert=True)
+
+# ─── История заказов ──────────────────────────────────────────────────────────
+@dp.message(F.text == "📋 Мои заказы")
+async def my_orders_handler(message: Message):
+    user_id = message.from_user.id
+    con = get_db()
+    orders = con.execute("""
+        SELECT id, created_at, total, status FROM orders
+        WHERE user_id = ? ORDER BY created_at DESC LIMIT 15
+    """, (user_id,)).fetchall()
+    con.close()
+    if not orders:
+        await message.answer("📋 У вас пока нет заказов."); return
+    status_e = {"new": "🆕", "confirmed": "✅", "done": "📦", "cancelled": "❌"}
+    buttons = [[InlineKeyboardButton(
+        text=f"{status_e.get(o['status'],'?')} №{o['id']} от {o['created_at'][:10]} — {o['total']:.0f} ₽",
+        callback_data=f"myorder_{o['id']}"
+    )] for o in orders]
+    await message.answer("📋 *Ваши заказы:*", parse_mode="Markdown",
+                         reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+@dp.callback_query(F.data.startswith("myorder_"))
+async def my_order_detail(callback: CallbackQuery):
+    order_id = int(callback.data.split("_")[1])
+    user_id = callback.from_user.id
+    con = get_db()
+    o = con.execute("SELECT * FROM orders WHERE id = ? AND user_id = ?",
+                    (order_id, user_id)).fetchone()
+    if not o:
+        await callback.answer("Заказ не найден."); return
+    items = con.execute("""
+        SELECT oi.quantity, oi.price, p.id as product_id, p.name, p.stock
+        FROM order_items oi JOIN products p ON oi.product_id = p.id
+        WHERE oi.order_id = ?
+    """, (order_id,)).fetchall()
+    con.close()
+    status_e = {"new": "🆕 Новый", "confirmed": "✅ Подтверждён",
+                "done": "📦 Выполнен", "cancelled": "❌ Отменён"}
+    lines = [f"📋 *Заказ №{o['id']}*  {status_e.get(o['status'],'')}",
+             f"📅 {o['created_at'][:16]}", ""]
+    for it in items:
+        lines.append(f"• {it['name'][:40]}")
+        lines.append(f"  {it['quantity']} × {it['price']:.0f} ₽ = {it['quantity']*it['price']:.0f} ₽")
+    lines.append(f"\n💰 Итого: *{o['total']:.0f} ₽*")
+    if o["discount"]:
+        lines.append(f"🎁 Скидка: {o['discount']:.0f} ₽")
+    await callback.message.answer(
+        "\n".join(lines), parse_mode="Markdown",
+        reply_markup=InlineKeyboardMarkup(inline_keyboard=[
+            [InlineKeyboardButton(text="🔄 Повторить заказ", callback_data=f"repeat_{order_id}")],
+        ])
+    )
+    await callback.answer()
+
+@dp.callback_query(F.data.startswith("repeat_"))
+async def repeat_order(callback: CallbackQuery):
+    order_id = int(callback.data.split("_")[1])
+    user_id = callback.from_user.id
+    con = get_db()
+    items = con.execute("""
+        SELECT oi.product_id, oi.quantity, p.name, p.stock
+        FROM order_items oi JOIN products p ON oi.product_id = p.id
+        WHERE oi.order_id = ? AND p.stock > 0
+    """, (order_id,)).fetchall()
+    if not items:
+        await callback.answer("😔 Все товары из этого заказа сейчас не в наличии.", show_alert=True)
+        con.close(); return
+    # Очищаем корзину и добавляем товары
+    con.execute("DELETE FROM cart WHERE user_id = ?", (user_id,))
+    added, skipped = [], []
+    for it in items:
+        con.execute("INSERT INTO cart (user_id, product_id, quantity) VALUES (?,?,?)",
+                    (user_id, it["product_id"], it["quantity"]))
+        added.append(it["name"])
+    con.commit(); con.close()
+    await callback.answer(f"✅ {len(added)} товаров добавлено в корзину!")
+    await show_cart(callback.message, user_id)
+
+# ─── Промокод при оформлении ──────────────────────────────────────────────────
+class PromoState(StatesGroup):
+    waiting_promo = State()
+
+@dp.callback_query(F.data == "enter_promo")
+async def enter_promo_start(callback: CallbackQuery, state: FSMContext):
+    await callback.message.answer("🎁 Введите промокод:")
+    await state.set_state(PromoState.waiting_promo); await callback.answer()
+
+@dp.message(PromoState.waiting_promo)
+async def enter_promo_code(message: Message, state: FSMContext):
+    code = message.text.strip().upper()
+    user_id = message.from_user.id
+    con = get_db()
+    promo = con.execute("""
+        SELECT * FROM promo_codes
+        WHERE code = ? AND is_active = 1 AND uses_left > 0
+        AND (user_id IS NULL OR user_id = ?)
+    """, (code, user_id)).fetchone()
+    con.close()
+    if not promo:
+        await message.answer("❌ Промокод не найден или уже использован.")
+        await state.clear(); return
+    await state.update_data(promo_code=code, promo_discount=promo["discount"])
+    await state.set_state(OrderStates.confirm_profile)
+    await message.answer(
+        f"✅ Промокод *{code}* применён — скидка *{promo['discount']:.0f}%*\n\nТеперь оформите заказ.",
+        parse_mode="Markdown"
+    )
+    await state.clear()
 
 # ─── Загрузка остатков из 1С ─────────────────────────────────────────────────
 STOCK_MAP = [
