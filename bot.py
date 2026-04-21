@@ -19,6 +19,7 @@ def run_server():
     server.serve_forever()
 
 threading.Thread(target=run_server, daemon=True).start()
+
 import asyncio
 import sqlite3
 from aiogram import Bot, Dispatcher, F
@@ -40,12 +41,20 @@ dp = Dispatcher(storage=storage)
 
 # ─── FSM ────────────────────────────────────────────────────────────────────
 class RegStates(StatesGroup):
-    waiting_name    = State()
-    waiting_phone   = State()
-    waiting_city    = State()
+    choosing_type       = State()   # физ или юр
+    # Физ лицо
+    waiting_name        = State()
+    waiting_phone       = State()
+    # Юр лицо
+    waiting_company     = State()
+    waiting_inn         = State()
+    waiting_legal_addr  = State()
+    waiting_actual_addr = State()
+    waiting_ur_phone    = State()
+    waiting_email       = State()
 
 class OrderStates(StatesGroup):
-    confirm_profile  = State()   # использовать сохранённые данные?
+    confirm_profile  = State()
     waiting_name     = State()
     waiting_phone    = State()
     waiting_address  = State()
@@ -72,13 +81,19 @@ def init_db():
         );
 
         CREATE TABLE IF NOT EXISTS users (
-            user_id    INTEGER PRIMARY KEY,
-            tg_name    TEXT,
-            name       TEXT,
-            phone      TEXT,
-            city       TEXT,
-            address    TEXT,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+            user_id        INTEGER PRIMARY KEY,
+            tg_name        TEXT,
+            user_type      TEXT DEFAULT 'individual',
+            name           TEXT,
+            phone          TEXT,
+            city           TEXT,
+            address        TEXT,
+            company_name   TEXT,
+            inn            TEXT,
+            legal_address  TEXT,
+            actual_address TEXT,
+            email          TEXT,
+            created_at     DATETIME DEFAULT CURRENT_TIMESTAMP
         );
 
         CREATE TABLE IF NOT EXISTS cart (
@@ -110,6 +125,20 @@ def init_db():
             FOREIGN KEY (product_id) REFERENCES products(id)
         );
     """)
+
+    # Миграция: добавляем новые колонки если их нет
+    existing_columns = [row[1] for row in cur.execute("PRAGMA table_info(users)").fetchall()]
+    new_columns = {
+        "user_type":      "TEXT DEFAULT 'individual'",
+        "company_name":   "TEXT",
+        "inn":            "TEXT",
+        "legal_address":  "TEXT",
+        "actual_address": "TEXT",
+        "email":          "TEXT",
+    }
+    for col_name, col_type in new_columns.items():
+        if col_name not in existing_columns:
+            cur.execute(f"ALTER TABLE users ADD COLUMN {col_name} {col_type}")
 
     cur.execute("SELECT COUNT(*) FROM categories")
     if cur.fetchone()[0] == 0:
@@ -184,16 +213,31 @@ def get_user(user_id: int):
     con.close()
     return u
 
-def save_user(user_id: int, tg_name: str, name: str, phone: str, city: str, address: str = None):
+def save_user_individual(user_id: int, tg_name: str, name: str, phone: str):
     con = get_db()
     con.execute("""
-        INSERT INTO users (user_id, tg_name, name, phone, city, address)
-        VALUES (?,?,?,?,?,?)
+        INSERT INTO users (user_id, tg_name, user_type, name, phone)
+        VALUES (?,?,'individual',?,?)
         ON CONFLICT(user_id) DO UPDATE SET
-            tg_name=excluded.tg_name, name=excluded.name,
-            phone=excluded.phone, city=excluded.city,
-            address=COALESCE(excluded.address, address)
-    """, (user_id, tg_name, name, phone, city, address))
+            tg_name=excluded.tg_name, user_type='individual',
+            name=excluded.name, phone=excluded.phone
+    """, (user_id, tg_name, name, phone))
+    con.commit()
+    con.close()
+
+def save_user_company(user_id: int, tg_name: str, company_name: str, inn: str,
+                      legal_address: str, actual_address: str, phone: str, email: str):
+    con = get_db()
+    con.execute("""
+        INSERT INTO users (user_id, tg_name, user_type, company_name, inn,
+                           legal_address, actual_address, phone, email, name)
+        VALUES (?,?,'company',?,?,?,?,?,?,?)
+        ON CONFLICT(user_id) DO UPDATE SET
+            tg_name=excluded.tg_name, user_type='company',
+            company_name=excluded.company_name, inn=excluded.inn,
+            legal_address=excluded.legal_address, actual_address=excluded.actual_address,
+            phone=excluded.phone, email=excluded.email, name=excluded.company_name
+    """, (user_id, tg_name, company_name, inn, legal_address, actual_address, phone, email, company_name))
     con.commit()
     con.close()
 
@@ -212,6 +256,11 @@ main_keyboard = ReplyKeyboardMarkup(
     ],
     resize_keyboard=True
 )
+
+user_type_keyboard = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text="👤 Физическое лицо", callback_data="reg_individual")],
+    [InlineKeyboardButton(text="🏢 Юридическое лицо", callback_data="reg_company")],
+])
 
 def root_categories_keyboard():
     con = get_db()
@@ -263,43 +312,118 @@ def cart_keyboard(items):
 async def start_handler(message: Message, state: FSMContext):
     user = get_user(message.from_user.id)
     if user:
+        display_name = user['company_name'] if user['user_type'] == 'company' else user['name']
         await message.answer(
-            f"👋 С возвращением, *{user['name']}*! ☕",
+            f"👋 С возвращением, *{display_name}*! ☕",
             parse_mode="Markdown", reply_markup=main_keyboard
         )
     else:
         await message.answer(
             f"👋 Добро пожаловать в *RBR Coffee Shop*!\n\n"
-            "Давай познакомимся. Как тебя зовут?",
-            parse_mode="Markdown"
+            "Для начала выберите тип аккаунта:",
+            parse_mode="Markdown",
+            reply_markup=user_type_keyboard
         )
-        await state.set_state(RegStates.waiting_name)
+        await state.set_state(RegStates.choosing_type)
 
+# --- Выбор типа ---
+@dp.callback_query(F.data == "reg_individual", RegStates.choosing_type)
+async def reg_choose_individual(callback: CallbackQuery, state: FSMContext):
+    await state.update_data(user_type="individual")
+    await callback.message.answer("👤 Введите ваше *имя*:", parse_mode="Markdown")
+    await state.set_state(RegStates.waiting_name)
+    await callback.answer()
+
+@dp.callback_query(F.data == "reg_company", RegStates.choosing_type)
+async def reg_choose_company(callback: CallbackQuery, state: FSMContext):
+    await state.update_data(user_type="company")
+    await callback.message.answer("🏢 Введите *наименование организации*:", parse_mode="Markdown")
+    await state.set_state(RegStates.waiting_company)
+    await callback.answer()
+
+# --- Физ лицо ---
 @dp.message(RegStates.waiting_name)
 async def reg_name(message: Message, state: FSMContext):
     await state.update_data(name=message.text.strip())
-    await message.answer("📱 Введи номер телефона:")
+    await message.answer("📱 Введите *номер телефона*:", parse_mode="Markdown")
     await state.set_state(RegStates.waiting_phone)
 
 @dp.message(RegStates.waiting_phone)
 async def reg_phone(message: Message, state: FSMContext):
-    await state.update_data(phone=message.text.strip())
-    await message.answer("🏙 Введи название своего города:")
-    await state.set_state(RegStates.waiting_city)
-
-@dp.message(RegStates.waiting_city)
-async def reg_city(message: Message, state: FSMContext):
     data = await state.get_data()
-    save_user(
+
+    # Если это регистрация физ лица
+    if data.get("user_type") == "individual":
+        save_user_individual(
+            user_id=message.from_user.id,
+            tg_name=message.from_user.username or "",
+            name=data["name"],
+            phone=message.text.strip()
+        )
+        await state.clear()
+        await message.answer(
+            f"✅ Отлично, *{data['name']}*! Регистрация завершена.\n\n"
+            "Добро пожаловать в магазин ☕",
+            parse_mode="Markdown", reply_markup=main_keyboard
+        )
+    # Если это регистрация юр лица (последний шаг — телефон)
+    elif data.get("user_type") == "company":
+        await state.update_data(phone=message.text.strip())
+        await message.answer("📧 Введите *электронную почту*:", parse_mode="Markdown")
+        await state.set_state(RegStates.waiting_email)
+
+# --- Юр лицо ---
+@dp.message(RegStates.waiting_company)
+async def reg_company(message: Message, state: FSMContext):
+    await state.update_data(company_name=message.text.strip())
+    await message.answer("🔢 Введите *ИНН*:", parse_mode="Markdown")
+    await state.set_state(RegStates.waiting_inn)
+
+@dp.message(RegStates.waiting_inn)
+async def reg_inn(message: Message, state: FSMContext):
+    inn = message.text.strip()
+    if not inn.isdigit() or len(inn) not in (10, 12):
+        await message.answer("⚠️ ИНН должен содержать 10 или 12 цифр. Попробуйте ещё раз:")
+        return
+    await state.update_data(inn=inn)
+    await message.answer("🏢 Введите *юридический адрес*:", parse_mode="Markdown")
+    await state.set_state(RegStates.waiting_legal_addr)
+
+@dp.message(RegStates.waiting_legal_addr)
+async def reg_legal_addr(message: Message, state: FSMContext):
+    await state.update_data(legal_address=message.text.strip())
+    await message.answer("📍 Введите *фактический адрес*:", parse_mode="Markdown")
+    await state.set_state(RegStates.waiting_actual_addr)
+
+@dp.message(RegStates.waiting_actual_addr)
+async def reg_actual_addr(message: Message, state: FSMContext):
+    await state.update_data(actual_address=message.text.strip())
+    await message.answer("📱 Введите *номер телефона*:", parse_mode="Markdown")
+    await state.set_state(RegStates.waiting_ur_phone)
+
+@dp.message(RegStates.waiting_ur_phone)
+async def reg_ur_phone(message: Message, state: FSMContext):
+    await state.update_data(phone=message.text.strip())
+    await message.answer("📧 Введите *электронную почту*:", parse_mode="Markdown")
+    await state.set_state(RegStates.waiting_email)
+
+@dp.message(RegStates.waiting_email)
+async def reg_email(message: Message, state: FSMContext):
+    data = await state.get_data()
+    save_user_company(
         user_id=message.from_user.id,
         tg_name=message.from_user.username or "",
-        name=data["name"],
+        company_name=data["company_name"],
+        inn=data["inn"],
+        legal_address=data["legal_address"],
+        actual_address=data["actual_address"],
         phone=data["phone"],
-        city=message.text.strip()
+        email=message.text.strip()
     )
     await state.clear()
     await message.answer(
-        f"✅ Отлично, *{data['name']}*! Регистрация завершена.\n\nДобро пожаловать в магазин ☕",
+        f"✅ Организация *{data['company_name']}* зарегистрирована!\n\n"
+        "Добро пожаловать в магазин ☕",
         parse_mode="Markdown", reply_markup=main_keyboard
     )
 
@@ -319,14 +443,32 @@ async def profile_handler(message: Message):
         (message.from_user.id,)
     ).fetchone()[0]
     con.close()
+
+    if user["user_type"] == "company":
+        text = (
+            f"🏢 *Профиль организации*\n\n"
+            f"🏢 Наименование: *{user['company_name']}*\n"
+            f"🔢 ИНН: {user['inn']}\n"
+            f"📍 Юр. адрес: {user['legal_address']}\n"
+            f"📍 Факт. адрес: {user['actual_address']}\n"
+            f"📱 Телефон: {user['phone']}\n"
+            f"📧 Email: {user['email']}\n"
+            f"🏠 Адрес доставки: {user['address'] or 'не указан'}\n\n"
+            f"📋 Заказов: *{orders_count}*\n"
+            f"💰 Потрачено: *{total_spent:.0f} ₽*"
+        )
+    else:
+        text = (
+            f"👤 *Мой профиль*\n\n"
+            f"Имя: *{user['name']}*\n"
+            f"📱 Телефон: {user['phone']}\n"
+            f"🏠 Адрес доставки: {user['address'] or 'не указан'}\n\n"
+            f"📋 Заказов: *{orders_count}*\n"
+            f"💰 Потрачено: *{total_spent:.0f} ₽*"
+        )
+
     await message.answer(
-        f"👤 *Мой профиль*\n\n"
-        f"Имя: *{user['name']}*\n"
-        f"📱 Телефон: {user['phone']}\n"
-        f"🏙 Город: {user['city'] or '—'}\n"
-        f"🏠 Адрес: {user['address'] or 'не указан'}\n\n"
-        f"📋 Заказов: *{orders_count}*\n"
-        f"💰 Потрачено: *{total_spent:.0f} ₽*",
+        text,
         parse_mode="Markdown",
         reply_markup=InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="✏️ Изменить данные", callback_data="edit_profile")]
@@ -335,8 +477,11 @@ async def profile_handler(message: Message):
 
 @dp.callback_query(F.data == "edit_profile")
 async def edit_profile(callback: CallbackQuery, state: FSMContext):
-    await callback.message.answer("✏️ Введи новое имя:")
-    await state.set_state(RegStates.waiting_name)
+    await callback.message.answer(
+        "Выберите тип аккаунта:",
+        reply_markup=user_type_keyboard
+    )
+    await state.set_state(RegStates.choosing_type)
     await callback.answer()
 
 # ─── Контакты ────────────────────────────────────────────────────────────────
@@ -479,11 +624,11 @@ async def clear_cart(callback: CallbackQuery):
 async def checkout_start(callback: CallbackQuery, state: FSMContext):
     user = get_user(callback.from_user.id)
     if user and user["name"] and user["phone"]:
-        # Предлагаем использовать сохранённые данные
-        addr_hint = user["address"] or user["city"] or "не указан"
+        display_name = user['company_name'] if user['user_type'] == 'company' else user['name']
+        addr_hint = user["address"] or user.get("actual_address") or "не указан"
         await callback.message.answer(
             f"📋 *Использовать сохранённые данные?*\n\n"
-            f"👤 {user['name']}\n"
+            f"👤 {display_name}\n"
             f"📱 {user['phone']}\n"
             f"🏠 Адрес: {addr_hint}",
             parse_mode="Markdown",
@@ -501,14 +646,13 @@ async def checkout_start(callback: CallbackQuery, state: FSMContext):
 @dp.callback_query(F.data == "checkout_saved", OrderStates.confirm_profile)
 async def checkout_use_saved(callback: CallbackQuery, state: FSMContext):
     user = get_user(callback.from_user.id)
-    if user["address"]:
-        # Всё есть — создаём заказ сразу
-        await state.update_data(
-            name=user["name"], phone=user["phone"], address=user["address"]
-        )
+    display_name = user['company_name'] if user['user_type'] == 'company' else user['name']
+    addr = user["address"] or user.get("actual_address")
+    if addr:
+        await state.update_data(name=display_name, phone=user["phone"], address=addr)
         await create_order(callback.message, callback.from_user.id, state)
     else:
-        await state.update_data(name=user["name"], phone=user["phone"])
+        await state.update_data(name=display_name, phone=user["phone"])
         await callback.message.answer("🏠 Введите *адрес доставки*:", parse_mode="Markdown")
         await state.set_state(OrderStates.waiting_address)
     await callback.answer()
@@ -569,7 +713,6 @@ async def create_order(message: Message, user_id: int, state: FSMContext):
     con.commit()
     con.close()
 
-    # Сохраняем/обновляем адрес в профиле
     update_user_address(user_id, data["address"])
 
     lines = [f"✅ *Заказ №{order_id} оформлен!*\n"]
@@ -611,7 +754,6 @@ async def stock_handler(message: Message):
         await message.answer(text[i:i+4000], parse_mode="Markdown")
 
 # ─── Запуск ──────────────────────────────────────────────────────────────────
-
 async def main():
     init_db()
     register_admin_handlers(dp, bot)
