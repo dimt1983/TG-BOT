@@ -23,7 +23,7 @@ threading.Thread(target=run_server, daemon=True).start()
 import asyncio
 import sqlite3
 from aiogram import Bot, Dispatcher, F
-from aiogram.filters import CommandStart
+from aiogram.filters import CommandStart, Command
 from aiogram.types import (
     Message, ReplyKeyboardMarkup, KeyboardButton,
     InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
@@ -754,6 +754,17 @@ async def stock_handler(message: Message):
         await message.answer(text[i:i+4000], parse_mode="Markdown")
 
 # ─── Запуск ──────────────────────────────────────────────────────────────────
+@dp.message(Command("reset"))
+async def reset_handler(message: Message, state: FSMContext):
+    con = get_db()
+    con.execute("DELETE FROM users WHERE user_id = ?", (message.from_user.id,))
+    con.commit()
+    con.close()
+    await state.clear()
+    await message.answer(
+        "🗑 Регистрация удалена.\n\nНажми /start чтобы зарегистрироваться заново."
+    )
+    
 async def main():
     init_db()
     register_admin_handlers(dp, bot)
