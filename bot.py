@@ -1560,3 +1560,13 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+@dp.message(Command("setstocktest"))
+async def set_stock_test(message: Message):
+    if message.from_user.id not in [466755177]:  # твой ID
+        return
+    con = get_db()
+    con.execute("UPDATE products SET stock = 10")
+    count = con.execute("SELECT COUNT(*) FROM products").fetchone()[0]
+    con.commit(); con.close()
+    await message.answer(f"✅ {count} товаров — остаток 10 шт.")
