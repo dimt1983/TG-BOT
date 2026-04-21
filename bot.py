@@ -612,23 +612,10 @@ async def stock_handler(message: Message):
         await message.answer(text[i:i+4000], parse_mode="Markdown")
 
 # ─── Запуск ──────────────────────────────────────────────────────────────────
-async def handle_ping(request):
-    return web.Response(text="Bot is alive!")
-
-async def start_webserver():
-    app = web.Application()
-    app.router.add_get("/", handle_ping)
-    runner = web.AppRunner(app)
-    await runner.setup()
-    port = int(os.environ.get("PORT", 10000))
-    site = web.TCPSite(runner, "0.0.0.0", port)
-    await site.start()
-    print(f"Web server started on port {port}")
 
 async def main():
     init_db()
     register_admin_handlers(dp, bot)
-    await start_webserver()          # ← добавили
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
