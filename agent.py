@@ -113,7 +113,7 @@ async def ask_claude(system, user, max_tokens=2000):
         return "ANTHROPIC_API_KEY не задан."
     async with aiohttp.ClientSession() as s:
         resp = await s.post(
-            "https://api.anthropic.com/v1/messages",
+            "https://api.proxyapi.ru/anthropic/v1/messages",
             headers={
                 "x-api-key": ANTHROPIC_KEY,
                 "anthropic-version": "2023-06-01",
