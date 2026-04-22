@@ -44,6 +44,14 @@ class AdminStates(StatesGroup):
     waiting_broadcast    = State()
     # Изменение цены с уведомлением
     waiting_price_notify = State()
+    # Индивидуальные скидки
+    waiting_disc_user    = State()
+    waiting_disc_cat     = State()
+    waiting_disc_pct     = State()
+    # Индивидуальный прайс
+    waiting_price_user   = State()
+    waiting_price_prod   = State()
+    waiting_price_val    = State()
 
 # ─── Хелперы ─────────────────────────────────────────────────────────────────
 import os
@@ -98,6 +106,24 @@ def init_admin_db():
             product_id INTEGER NOT NULL,
             UNIQUE(user_id, product_id)
         );
+
+        CREATE TABLE IF NOT EXISTS user_discounts (
+            id           INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id      INTEGER NOT NULL,
+            category     TEXT    NOT NULL DEFAULT 'ALL',
+            discount_pct REAL    NOT NULL,
+            created_at   TEXT    DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE(user_id, category)
+        );
+
+        CREATE TABLE IF NOT EXISTS user_prices (
+            id         INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id    INTEGER NOT NULL,
+            product_id INTEGER NOT NULL,
+            price      REAL    NOT NULL,
+            created_at TEXT    DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE(user_id, product_id)
+        );
     """)
 
     # Миграция products — только если таблица уже существует
@@ -130,6 +156,7 @@ def admin_keyboard():
         [InlineKeyboardButton(text="📋 Все заказы",           callback_data="adm_orders")],
         [InlineKeyboardButton(text="📊 Выгрузка заказов",     callback_data="adm_export")],
         [InlineKeyboardButton(text="👥 Клиенты",              callback_data="adm_clients")],
+        [InlineKeyboardButton(text="💰 Скидки клиентов",      callback_data="adm_discounts")],
         [InlineKeyboardButton(text="🎁 Промокоды",            callback_data="adm_promos")],
         [InlineKeyboardButton(text="📢 Рассылка",             callback_data="adm_broadcast")],
         [InlineKeyboardButton(text="📊 Статистика",           callback_data="adm_stats")],
@@ -885,6 +912,286 @@ async def notify_new_order(bot: Bot, order_id: int, user_name: str, total: float
         except Exception:
             pass
 
+# ─── Скидки клиентов ──────────────────────────────────────────────────────────
+DISCOUNT_CATEGORIES = ["ALL", "☕ Кофе", "🍵 Чай", "🍬 Сиропы", "🥛 Молоко"]
+
+async def adm_discounts(callback: CallbackQuery):
+    con = get_db()
+    discounts = con.execute("""
+        SELECT ud.*, u.name, u.company_name, u.user_type
+        FROM user_discounts ud
+        JOIN users u ON ud.user_id = u.user_id
+        ORDER BY u.name
+    """).fetchall()
+    con.close()
+
+    lines = ["💰 *Индивидуальные скидки клиентов:*\n"]
+    if discounts:
+        for d in discounts:
+            name = d["company_name"] or d["name"]
+            cat = "на всё" if d["category"] == "ALL" else d["category"]
+            lines.append(f"• {name} — {d['discount_pct']:.0f}% ({cat})")
+    else:
+        lines.append("_Скидок пока нет_")
+
+    await callback.message.answer(
+        "\n".join(lines), parse_mode="Markdown",
+        reply_markup=InlineKeyboardMarkup(inline_keyboard=[
+            [InlineKeyboardButton(text="➕ Назначить скидку",      callback_data="adm_disc_new")],
+            [InlineKeyboardButton(text="💲 Индивид. прайс",        callback_data="adm_price_new")],
+            [InlineKeyboardButton(text="📋 Все инд. цены",         callback_data="adm_prices_list")],
+            [InlineKeyboardButton(text="❌ Удалить скидку",        callback_data="adm_disc_del_list")],
+            [InlineKeyboardButton(text="◀ Назад",                  callback_data="adm_back")],
+        ])
+    )
+    await callback.answer()
+
+# ── Назначить скидку ──────────────────────────────────────────────────────────
+async def adm_disc_new_start(callback: CallbackQuery, state: FSMContext):
+    con = get_db()
+    clients = con.execute(
+        "SELECT user_id, name, company_name, user_type FROM users ORDER BY name LIMIT 40"
+    ).fetchall()
+    con.close()
+    if not clients:
+        await callback.message.answer("👥 Клиентов нет.", reply_markup=admin_keyboard())
+        await callback.answer(); return
+    buttons = [[InlineKeyboardButton(
+        text=f"{'🏢' if c['user_type']=='company' else '👤'} {c['company_name'] or c['name']}",
+        callback_data=f"adm_disc_user_{c['user_id']}"
+    )] for c in clients]
+    buttons.append([InlineKeyboardButton(text="◀ Отмена", callback_data="adm_back")])
+    await callback.message.answer(
+        "👤 Выбери клиента для скидки:",
+        reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
+    )
+    await state.set_state(AdminStates.waiting_disc_user)
+    await callback.answer()
+
+async def adm_disc_user_chosen(callback: CallbackQuery, state: FSMContext):
+    user_id = int(callback.data.replace("adm_disc_user_", ""))
+    await state.update_data(disc_user_id=user_id)
+    buttons = [[InlineKeyboardButton(
+        text="🌍 На весь ассортимент" if c == "ALL" else c,
+        callback_data=f"adm_disc_cat_{c}"
+    )] for c in DISCOUNT_CATEGORIES]
+    buttons.append([InlineKeyboardButton(text="◀ Отмена", callback_data="adm_back")])
+    await callback.message.answer(
+        "📂 На какую категорию скидка?",
+        reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
+    )
+    await state.set_state(AdminStates.waiting_disc_cat)
+    await callback.answer()
+
+async def adm_disc_cat_chosen(callback: CallbackQuery, state: FSMContext):
+    cat = callback.data.replace("adm_disc_cat_", "")
+    await state.update_data(disc_cat=cat)
+    cat_label = "весь ассортимент" if cat == "ALL" else cat
+    await callback.message.answer(
+        f"💰 Введи размер скидки в % для категории *{cat_label}*:\n\n"
+        f"Например: `15` для скидки 15%",
+        parse_mode="Markdown"
+    )
+    await state.set_state(AdminStates.waiting_disc_pct)
+    await callback.answer()
+
+async def adm_disc_pct_input(message: Message, state: FSMContext):
+    try:
+        pct = float(message.text.replace(",", "."))
+        if not 1 <= pct <= 99: raise ValueError
+    except ValueError:
+        await message.answer("⚠️ Введи число от 1 до 99."); return
+
+    data = await state.get_data()
+    user_id = data["disc_user_id"]
+    cat = data["disc_cat"]
+
+    con = get_db()
+    u = con.execute("SELECT name, company_name FROM users WHERE user_id = ?", (user_id,)).fetchone()
+    con.execute("""
+        INSERT INTO user_discounts (user_id, category, discount_pct)
+        VALUES (?,?,?)
+        ON CONFLICT(user_id, category) DO UPDATE SET discount_pct=excluded.discount_pct
+    """, (user_id, cat, pct))
+    con.commit(); con.close()
+
+    name = u["company_name"] or u["name"]
+    cat_label = "весь ассортимент" if cat == "ALL" else cat
+    admin_log(message.from_user.id, f"Скидка {name}: {pct:.0f}% на {cat_label}")
+    await message.answer(
+        f"✅ *{name}* — скидка *{pct:.0f}%* на {cat_label}",
+        parse_mode="Markdown", reply_markup=admin_keyboard()
+    )
+    await state.clear()
+
+# ── Удалить скидку ────────────────────────────────────────────────────────────
+async def adm_disc_del_list(callback: CallbackQuery):
+    con = get_db()
+    discounts = con.execute("""
+        SELECT ud.id, ud.category, ud.discount_pct, u.name, u.company_name
+        FROM user_discounts ud JOIN users u ON ud.user_id = u.user_id
+        ORDER BY u.name
+    """).fetchall()
+    con.close()
+    if not discounts:
+        await callback.message.answer("Скидок нет.", reply_markup=admin_keyboard())
+        await callback.answer(); return
+    buttons = [[InlineKeyboardButton(
+        text=f"❌ {d['company_name'] or d['name']} — {d['discount_pct']:.0f}% ({d['category']})",
+        callback_data=f"adm_disc_del_{d['id']}"
+    )] for d in discounts]
+    buttons.append([InlineKeyboardButton(text="◀ Назад", callback_data="adm_discounts")])
+    await callback.message.answer(
+        "❌ Выбери скидку для удаления:",
+        reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
+    )
+    await callback.answer()
+
+async def adm_disc_del(callback: CallbackQuery):
+    disc_id = int(callback.data.replace("adm_disc_del_", ""))
+    con = get_db()
+    con.execute("DELETE FROM user_discounts WHERE id = ?", (disc_id,))
+    con.commit(); con.close()
+    admin_log(callback.from_user.id, f"Удалена скидка id={disc_id}")
+    await callback.message.answer("✅ Скидка удалена.", reply_markup=admin_keyboard())
+    await callback.answer()
+
+# ── Индивидуальный прайс ──────────────────────────────────────────────────────
+async def adm_price_new_start(callback: CallbackQuery, state: FSMContext):
+    con = get_db()
+    clients = con.execute(
+        "SELECT user_id, name, company_name, user_type FROM users ORDER BY name LIMIT 40"
+    ).fetchall()
+    con.close()
+    if not clients:
+        await callback.message.answer("👥 Клиентов нет.", reply_markup=admin_keyboard())
+        await callback.answer(); return
+    buttons = [[InlineKeyboardButton(
+        text=f"{'🏢' if c['user_type']=='company' else '👤'} {c['company_name'] or c['name']}",
+        callback_data=f"adm_price_user_{c['user_id']}"
+    )] for c in clients]
+    buttons.append([InlineKeyboardButton(text="◀ Отмена", callback_data="adm_back")])
+    await callback.message.answer(
+        "👤 Выбери клиента для индив. прайса:",
+        reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
+    )
+    await state.set_state(AdminStates.waiting_price_user)
+    await callback.answer()
+
+async def adm_price_user_chosen(callback: CallbackQuery, state: FSMContext):
+    user_id = int(callback.data.replace("adm_price_user_", ""))
+    await state.update_data(price_user_id=user_id)
+    await callback.message.answer(
+        "📦 Введи *название товара* (или его часть) для поиска:\n\n"
+        "Например: `Классика` или `Бразилия Серрадо`",
+        parse_mode="Markdown"
+    )
+    await state.set_state(AdminStates.waiting_price_prod)
+    await callback.answer()
+
+async def adm_price_prod_input(message: Message, state: FSMContext):
+    search = message.text.strip()
+    con = get_db()
+    products = con.execute(
+        "SELECT id, name, price FROM products WHERE name LIKE ? ORDER BY name LIMIT 20",
+        (f"%{search}%",)
+    ).fetchall()
+    con.close()
+    if not products:
+        await message.answer(f"😔 Товаров с «{search}» не найдено. Попробуй ещё раз:"); return
+    buttons = [[InlineKeyboardButton(
+        text=f"{p['name'][:45]} — {p['price']:.0f}₽",
+        callback_data=f"adm_price_prod_{p['id']}"
+    )] for p in products]
+    buttons.append([InlineKeyboardButton(text="◀ Отмена", callback_data="adm_back")])
+    await message.answer(
+        f"Найдено {len(products)} товаров. Выбери:",
+        reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
+    )
+    await state.set_state(AdminStates.waiting_price_prod)
+
+async def adm_price_prod_chosen(callback: CallbackQuery, state: FSMContext):
+    prod_id = int(callback.data.replace("adm_price_prod_", ""))
+    await state.update_data(price_prod_id=prod_id)
+    con = get_db()
+    p = con.execute("SELECT name, price FROM products WHERE id = ?", (prod_id,)).fetchone()
+    con.close()
+    await callback.message.answer(
+        f"💰 Базовая цена *{p['name']}*: {p['price']:.0f} ₽\n\n"
+        f"Введи индивидуальную цену (₽):",
+        parse_mode="Markdown"
+    )
+    await state.set_state(AdminStates.waiting_price_val)
+    await callback.answer()
+
+async def adm_price_val_input(message: Message, state: FSMContext):
+    try:
+        price = float(message.text.replace(",", "."))
+        if price <= 0: raise ValueError
+    except ValueError:
+        await message.answer("⚠️ Введи положительное число."); return
+
+    data = await state.get_data()
+    user_id = data["price_user_id"]
+    prod_id = data["price_prod_id"]
+
+    con = get_db()
+    u = con.execute("SELECT name, company_name FROM users WHERE user_id = ?", (user_id,)).fetchone()
+    p = con.execute("SELECT name FROM products WHERE id = ?", (prod_id,)).fetchone()
+    con.execute("""
+        INSERT INTO user_prices (user_id, product_id, price)
+        VALUES (?,?,?)
+        ON CONFLICT(user_id, product_id) DO UPDATE SET price=excluded.price
+    """, (user_id, prod_id, price))
+    con.commit(); con.close()
+
+    name = u["company_name"] or u["name"]
+    admin_log(message.from_user.id, f"Инд. цена {name}: {p['name']} = {price:.0f}₽")
+    await message.answer(
+        f"✅ *{name}*\n{p['name']}\n💰 Инд. цена: *{price:.0f} ₽*",
+        parse_mode="Markdown", reply_markup=admin_keyboard()
+    )
+    await state.clear()
+
+# ── Список всех индив. цен ────────────────────────────────────────────────────
+async def adm_prices_list(callback: CallbackQuery):
+    con = get_db()
+    prices = con.execute("""
+        SELECT up.price, u.name, u.company_name, p.name as prod_name, up.id
+        FROM user_prices up
+        JOIN users u ON up.user_id = u.user_id
+        JOIN products p ON up.product_id = p.id
+        ORDER BY u.name, p.name
+        LIMIT 50
+    """).fetchall()
+    con.close()
+    if not prices:
+        await callback.message.answer("Индивидуальных цен нет.", reply_markup=admin_keyboard())
+        await callback.answer(); return
+    lines = ["💲 *Индивидуальные цены:*\n"]
+    for pr in prices:
+        name = pr["company_name"] or pr["name"]
+        lines.append(f"• {name}: {pr['prod_name'][:35]} — *{pr['price']:.0f} ₽*")
+    buttons = [[InlineKeyboardButton(
+        text=f"❌ {(pr['company_name'] or pr['name'])[:20]}: {pr['prod_name'][:25]}",
+        callback_data=f"adm_price_del_{pr['id']}"
+    )] for pr in prices]
+    buttons.append([InlineKeyboardButton(text="◀ Назад", callback_data="adm_discounts")])
+    await callback.message.answer(
+        "\n".join(lines), parse_mode="Markdown",
+        reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
+    )
+    await callback.answer()
+
+async def adm_price_del(callback: CallbackQuery):
+    price_id = int(callback.data.replace("adm_price_del_", ""))
+    con = get_db()
+    con.execute("DELETE FROM user_prices WHERE id = ?", (price_id,))
+    con.commit(); con.close()
+    await callback.message.answer("✅ Индив. цена удалена.", reply_markup=admin_keyboard())
+    await callback.answer()
+
+
 # ─── Регистрация хендлеров ────────────────────────────────────────────────────
 def register_admin_handlers(dp: Dispatcher, bot: Bot):
     init_admin_db()
@@ -937,3 +1244,21 @@ def register_admin_handlers(dp: Dispatcher, bot: Bot):
     dp.message.register(lambda m, s: adm_broadcast_send(m, s, bot), AdminStates.waiting_broadcast)
 
     dp.callback_query.register(adm_log_view, F.data == "adm_log")
+
+    # ── Скидки ────────────────────────────────────────────────────────────────
+    dp.callback_query.register(adm_discounts,       F.data == "adm_discounts")
+    dp.callback_query.register(adm_disc_new_start,  F.data == "adm_disc_new")
+    dp.callback_query.register(adm_disc_user_chosen, F.data.startswith("adm_disc_user_"), AdminStates.waiting_disc_user)
+    dp.callback_query.register(adm_disc_cat_chosen,  F.data.startswith("adm_disc_cat_"),  AdminStates.waiting_disc_cat)
+    dp.message.register(adm_disc_pct_input,          AdminStates.waiting_disc_pct)
+    dp.callback_query.register(adm_disc_del_list,   F.data == "adm_disc_del_list")
+    dp.callback_query.register(adm_disc_del,        F.data.startswith("adm_disc_del_"))
+
+    # ── Индив. прайс ──────────────────────────────────────────────────────────
+    dp.callback_query.register(adm_price_new_start,  F.data == "adm_price_new")
+    dp.callback_query.register(adm_price_user_chosen, F.data.startswith("adm_price_user_"), AdminStates.waiting_price_user)
+    dp.message.register(adm_price_prod_input,         AdminStates.waiting_price_prod)
+    dp.callback_query.register(adm_price_prod_chosen, F.data.startswith("adm_price_prod_"), AdminStates.waiting_price_prod)
+    dp.message.register(adm_price_val_input,          AdminStates.waiting_price_val)
+    dp.callback_query.register(adm_prices_list,      F.data == "adm_prices_list")
+    dp.callback_query.register(adm_price_del,        F.data.startswith("adm_price_del_"))
