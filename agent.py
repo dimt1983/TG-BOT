@@ -36,9 +36,120 @@ dp  = Dispatcher(storage=MemoryStorage())
 # ─── Keep-alive сервер ────────────────────────────────────────────────────────
 class _Handler(BaseHTTPRequestHandler):
     def do_GET(self):
+        if self.path == "/":
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b"OK")
+        elif self.path == "/api/stats":
+            self._serve_stats()
+        elif self.path == "/api/lowstock":
+            self._serve_lowstock()
+        elif self.path == "/api/top":
+            self._serve_top()
+        elif self.path == "/api/orders":
+            self._serve_orders()
+        else:
+            self.send_response(404)
+            self.end_headers()
+
+    def do_OPTIONS(self):
         self.send_response(200)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, OPTIONS")
         self.end_headers()
-        self.wfile.write(b"OK")
+
+    def _send_json(self, data):
+        body = json.dumps(data, ensure_ascii=False).encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def _serve_stats(self):
+        week_ago = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
+        month_ago = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d")
+        try:
+            orders_week = db_query(
+                "SELECT COUNT(*) as cnt, COALESCE(SUM(total),0) as rev "
+                "FROM orders WHERE created_at>=? AND status!='cancelled'", (week_ago,)
+            )
+            orders_month = db_query(
+                "SELECT COUNT(*) as cnt, COALESCE(SUM(total),0) as rev "
+                "FROM orders WHERE created_at>=? AND status!='cancelled'", (month_ago,)
+            )
+            new_clients = db_query(
+                "SELECT COUNT(*) as c FROM users WHERE created_at>=?", (week_ago,)
+            )
+            clients_total = db_query("SELECT COUNT(*) as c FROM users")
+            low = db_query("SELECT COUNT(*) as c FROM products WHERE stock>0 AND stock<=5")
+            out = db_query("SELECT COUNT(*) as c FROM products WHERE stock=0")
+            weekly = []
+            for i in range(6, -1, -1):
+                day = (datetime.now() - timedelta(days=i)).strftime("%Y-%m-%d")
+                day_next = (datetime.now() - timedelta(days=i-1)).strftime("%Y-%m-%d")
+                day_label = (datetime.now() - timedelta(days=i)).strftime("%a")
+                day_labels = {"Mon":"Пн","Tue":"Вт","Wed":"Ср","Thu":"Чт",
+                              "Fri":"Пт","Sat":"Сб","Sun":"Вс"}
+                r = db_query(
+                    "SELECT COUNT(*) as cnt, COALESCE(SUM(total),0) as rev "
+                    "FROM orders WHERE created_at>=? AND created_at<? AND status!='cancelled'",
+                    (day, day_next)
+                )
+                weekly.append({
+                    "day": day_labels.get(day_label, day_label),
+                    "orders": r[0]["cnt"] if r else 0,
+                    "revenue": r[0]["rev"] if r else 0,
+                })
+            self._send_json({
+                "revenue_week": orders_week[0]["rev"] if orders_week else 0,
+                "revenue_month": orders_month[0]["rev"] if orders_month else 0,
+                "orders_week": orders_week[0]["cnt"] if orders_week else 0,
+                "orders_month": orders_month[0]["cnt"] if orders_month else 0,
+                "clients_total": clients_total[0]["c"] if clients_total else 0,
+                "new_clients_week": new_clients[0]["c"] if new_clients else 0,
+                "out_of_stock": out[0]["c"] if out else 0,
+                "low_stock": low[0]["c"] if low else 0,
+                "weekly_chart": weekly,
+            })
+        except Exception as e:
+            self._send_json({"error": str(e)})
+
+    def _serve_lowstock(self):
+        try:
+            data = db_query(
+                "SELECT name, stock FROM products "
+                "WHERE stock<=5 AND stock>0 ORDER BY stock LIMIT 20"
+            )
+            self._send_json(data)
+        except Exception as e:
+            self._send_json({"error": str(e)})
+
+    def _serve_top(self):
+        try:
+            data = db_query(
+                "SELECT p.name, SUM(oi.quantity) as qty, "
+                "SUM(oi.quantity*oi.price) as revenue "
+                "FROM order_items oi JOIN products p ON oi.product_id=p.id "
+                "JOIN orders o ON oi.order_id=o.id WHERE o.status!='cancelled' "
+                "GROUP BY p.id ORDER BY revenue DESC LIMIT 10"
+            )
+            self._send_json(data)
+        except Exception as e:
+            self._send_json({"error": str(e)})
+
+    def _serve_orders(self):
+        try:
+            data = db_query(
+                "SELECT o.id, o.created_at, o.total, o.status, "
+                "o.name, o.phone "
+                "FROM orders o ORDER BY o.created_at DESC LIMIT 10"
+            )
+            self._send_json(data)
+        except Exception as e:
+            self._send_json({"error": str(e)})
+
     def log_message(self, *a):
         pass
 
