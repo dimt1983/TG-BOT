@@ -2491,6 +2491,32 @@ async def reset_handler(message: Message, state: FSMContext):
     await state.clear()
     await message.answer("🗑 Регистрация удалена. Нажми /start чтобы начать заново.")
 
+@dp.message(Command("resetdb"))
+async def resetdb_handler(message: Message, state: FSMContext):
+    """Полный сброс БД — только для админов."""
+    from admin import ADMIN_IDS
+    if message.from_user.id not in ADMIN_IDS:
+        await message.answer("⛔ Нет доступа.")
+        return
+
+    await message.answer("⏳ Удаляю базу данных и создаю заново...")
+    await state.clear()
+
+    import os
+    try:
+        os.remove(DB_PATH)
+    except FileNotFoundError:
+        pass
+
+    init_db()
+    await message.answer(
+        "✅ База данных пересоздана!\n\n"
+        "Все категории и товары загружены заново.\n"
+        "Клиенты, заказы и остатки сброшены.\n\n"
+        "Теперь запусти /loadstock чтобы загрузить остатки.",
+        reply_markup=main_keyboard
+    )
+
 # ─── Запуск ───────────────────────────────────────────────────────────────────
 async def main():
     init_db()
