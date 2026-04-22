@@ -908,7 +908,7 @@ async def check_alerts():
 # ─── Запуск ───────────────────────────────────────────────────────────────────
 async def main():
     init_db()
-    # Автоматически загружаем каталог если БД пуста
+    # Загружаем каталог если БД пуста
     cnt = (db_query("SELECT COUNT(*) as c FROM products") or [{"c":0}])[0]["c"]
     if cnt == 0:
         con = get_db()
@@ -935,21 +935,16 @@ async def main():
             )
         con.commit()
         con.close()
-        cnt = (db_query("SELECT COUNT(*) as c FROM products") or [{"c":0}])[0]["c"]
 
-    mode = "Claude API (proxyapi.ru)" if ANTHROPIC_KEY else "резервный режим"
-    for admin_id in ADMIN_IDS:
-        try:
-            await bot.send_message(
-                admin_id,
-                f"*Roastberry Agent* запущен!\nТоваров: *{cnt}* | Режим: {mode}",
-                parse_mode="Markdown",
-            )
-        except Exception:
-            pass
+    # Запускаем Telegram бота — если упадёт, HTTP сервер продолжит работать
     asyncio.create_task(check_alerts())
-    # drop_pending_updates=True решает конфликт getUpdates
-    await dp.start_polling(bot, drop_pending_updates=True)
+    try:
+        await dp.start_polling(bot, drop_pending_updates=True)
+    except Exception as e:
+        print(f"Bot polling error: {e}")
+        # Держим процесс живым для HTTP сервера
+        while True:
+            await asyncio.sleep(60)
 
 
 if __name__ == "__main__":
