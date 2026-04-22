@@ -902,14 +902,10 @@ async def check_alerts():
 
 # ─── Запуск ───────────────────────────────────────────────────────────────────
 async def main():
-    # Удаляем вебхук и сбрасываем pending updates чтобы избежать конфликта
-    await bot.delete_webhook(drop_pending_updates=True)
-
     init_db()
     # Автоматически загружаем каталог если БД пуста
     cnt = (db_query("SELECT COUNT(*) as c FROM products") or [{"c":0}])[0]["c"]
     if cnt == 0:
-        # Загружаем каталог автоматически
         con = get_db()
         con.execute("DELETE FROM products")
         con.execute("DELETE FROM categories")
@@ -947,7 +943,8 @@ async def main():
         except Exception:
             pass
     asyncio.create_task(check_alerts())
-    await dp.start_polling(bot)
+    # drop_pending_updates=True решает конфликт getUpdates
+    await dp.start_polling(bot, drop_pending_updates=True)
 
 
 if __name__ == "__main__":
