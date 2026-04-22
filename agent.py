@@ -34,136 +34,108 @@ bot = Bot(token=AGENT_TOKEN)
 dp  = Dispatcher(storage=MemoryStorage())
 
 # ─── Keep-alive сервер ────────────────────────────────────────────────────────
-class _Handler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        if self.path == "/":
-            self.send_response(200)
-            self.send_header("Access-Control-Allow-Origin", "*")
-            self.end_headers()
-            self.wfile.write(b"OK")
-        elif self.path == "/api/stats":
-            self._serve_stats()
-        elif self.path == "/api/lowstock":
-            self._serve_lowstock()
-        elif self.path == "/api/top":
-            self._serve_top()
-        elif self.path == "/api/orders":
-            self._serve_orders()
-        else:
-            self.send_response(404)
-            self.end_headers()
-
-    def do_OPTIONS(self):
-        self.send_response(200)
-        self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Methods", "GET, OPTIONS")
-        self.end_headers()
-
-    def _send_json(self, data):
-        body = json.dumps(data, ensure_ascii=False).encode("utf-8")
-        self.send_response(200)
-        self.send_header("Content-Type", "application/json; charset=utf-8")
-        self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Content-Length", str(len(body)))
-        self.end_headers()
-        self.wfile.write(body)
-
-    def _serve_stats(self):
-        week_ago = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
-        month_ago = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d")
-        try:
-            init_db()  # убеждаемся что БД существует
-            orders_week = db_query(
-                "SELECT COUNT(*) as cnt, COALESCE(SUM(total),0) as rev "
-                "FROM orders WHERE created_at>=? AND status!='cancelled'", (week_ago,)
-            )
-            orders_month = db_query(
-                "SELECT COUNT(*) as cnt, COALESCE(SUM(total),0) as rev "
-                "FROM orders WHERE created_at>=? AND status!='cancelled'", (month_ago,)
-            )
-            new_clients = db_query(
-                "SELECT COUNT(*) as c FROM users WHERE created_at>=?", (week_ago,)
-            )
-            clients_total = db_query("SELECT COUNT(*) as c FROM users")
-            low = db_query("SELECT COUNT(*) as c FROM products WHERE stock>0 AND stock<=5")
-            out = db_query("SELECT COUNT(*) as c FROM products WHERE stock=0")
-            weekly = []
-            for i in range(6, -1, -1):
-                day = (datetime.now() - timedelta(days=i)).strftime("%Y-%m-%d")
-                day_next = (datetime.now() - timedelta(days=i-1)).strftime("%Y-%m-%d")
-                day_label = (datetime.now() - timedelta(days=i)).strftime("%a")
-                day_labels = {"Mon":"Пн","Tue":"Вт","Wed":"Ср","Thu":"Чт",
-                              "Fri":"Пт","Sat":"Сб","Sun":"Вс"}
-                r = db_query(
-                    "SELECT COUNT(*) as cnt, COALESCE(SUM(total),0) as rev "
-                    "FROM orders WHERE created_at>=? AND created_at<? AND status!='cancelled'",
-                    (day, day_next)
-                )
-                weekly.append({
-                    "day": day_labels.get(day_label, day_label),
-                    "orders": r[0]["cnt"] if r else 0,
-                    "revenue": r[0]["rev"] if r else 0,
-                })
-            self._send_json({
-                "revenue_week": orders_week[0]["rev"] if orders_week else 0,
-                "revenue_month": orders_month[0]["rev"] if orders_month else 0,
-                "orders_week": orders_week[0]["cnt"] if orders_week else 0,
-                "orders_month": orders_month[0]["cnt"] if orders_month else 0,
-                "clients_total": clients_total[0]["c"] if clients_total else 0,
-                "new_clients_week": new_clients[0]["c"] if new_clients else 0,
-                "out_of_stock": out[0]["c"] if out else 0,
-                "low_stock": low[0]["c"] if low else 0,
-                "weekly_chart": weekly,
-            })
-        except Exception as e:
-            self._send_json({"error": str(e)})
-
-    def _serve_lowstock(self):
-        try:
-            data = db_query(
-                "SELECT name, stock FROM products "
-                "WHERE stock<=5 AND stock>0 ORDER BY stock LIMIT 20"
-            )
-            self._send_json(data)
-        except Exception as e:
-            self._send_json({"error": str(e)})
-
-    def _serve_top(self):
-        try:
-            data = db_query(
-                "SELECT p.name, SUM(oi.quantity) as qty, "
-                "SUM(oi.quantity*oi.price) as revenue "
-                "FROM order_items oi JOIN products p ON oi.product_id=p.id "
-                "JOIN orders o ON oi.order_id=o.id WHERE o.status!='cancelled' "
-                "GROUP BY p.id ORDER BY revenue DESC LIMIT 10"
-            )
-            self._send_json(data)
-        except Exception as e:
-            self._send_json({"error": str(e)})
-
-    def _serve_orders(self):
-        try:
-            data = db_query(
-                "SELECT o.id, o.created_at, o.total, o.status, "
-                "o.name, o.phone "
-                "FROM orders o ORDER BY o.created_at DESC LIMIT 10"
-            )
-            self._send_json(data)
-        except Exception as e:
-            self._send_json({"error": str(e)})
-
-    def log_message(self, *a):
-        pass
-
-def _run_server():
-    port = int(os.environ.get("PORT", os.environ.get("AGENT_PORT", 8080)))
+async def handle_request(reader, writer):
+    """Простой async HTTP сервер."""
     try:
-        server = HTTPServer(("0.0.0.0", port), _Handler)
-        server.serve_forever()
-    except Exception as e:
-        print(f"HTTP server error: {e}")
+        data = await asyncio.wait_for(reader.read(1024), timeout=5.0)
+        request = data.decode("utf-8", errors="ignore")
+        path = "/"
+        if request:
+            first_line = request.split("\n")[0]
+            parts = first_line.split(" ")
+            if len(parts) >= 2:
+                path = parts[1].split("?")[0]
 
-threading.Thread(target=_run_server, daemon=True).start()
+        if path == "/":
+            body = b"OK"
+            status = "200 OK"
+            ctype = "text/plain"
+        elif path == "/api/stats":
+            body = json.dumps(_get_stats(), ensure_ascii=False).encode("utf-8")
+            status = "200 OK"
+            ctype = "application/json"
+        elif path == "/api/lowstock":
+            body = json.dumps(_get_lowstock(), ensure_ascii=False).encode("utf-8")
+            status = "200 OK"
+            ctype = "application/json"
+        elif path == "/api/top":
+            body = json.dumps(_get_top(), ensure_ascii=False).encode("utf-8")
+            status = "200 OK"
+            ctype = "application/json"
+        elif path == "/api/orders":
+            body = json.dumps(_get_orders(), ensure_ascii=False).encode("utf-8")
+            status = "200 OK"
+            ctype = "application/json"
+        else:
+            body = b"Not Found"
+            status = "404 Not Found"
+            ctype = "text/plain"
+
+        response = (
+            f"HTTP/1.1 {status}\r\n"
+            f"Content-Type: {ctype}; charset=utf-8\r\n"
+            f"Access-Control-Allow-Origin: *\r\n"
+            f"Content-Length: {len(body)}\r\n"
+            f"Connection: close\r\n"
+            f"\r\n"
+        ).encode("utf-8") + body
+        writer.write(response)
+        await writer.drain()
+    except Exception as e:
+        pass
+    finally:
+        writer.close()
+
+def _get_stats():
+    week_ago = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
+    month_ago = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d")
+    try:
+        init_db()
+        ow = db_query("SELECT COUNT(*) as cnt, COALESCE(SUM(total),0) as rev FROM orders WHERE created_at>=? AND status!='cancelled'", (week_ago,))
+        om = db_query("SELECT COUNT(*) as cnt, COALESCE(SUM(total),0) as rev FROM orders WHERE created_at>=? AND status!='cancelled'", (month_ago,))
+        nc = db_query("SELECT COUNT(*) as c FROM users WHERE created_at>=?", (week_ago,))
+        ct = db_query("SELECT COUNT(*) as c FROM users")
+        lw = db_query("SELECT COUNT(*) as c FROM products WHERE stock>0 AND stock<=5")
+        ot = db_query("SELECT COUNT(*) as c FROM products WHERE stock=0")
+        weekly = []
+        for i in range(6, -1, -1):
+            day = (datetime.now() - timedelta(days=i)).strftime("%Y-%m-%d")
+            day_next = (datetime.now() - timedelta(days=i-1)).strftime("%Y-%m-%d")
+            dl = (datetime.now() - timedelta(days=i)).strftime("%a")
+            day_labels = {"Mon":"Пн","Tue":"Вт","Wed":"Ср","Thu":"Чт","Fri":"Пт","Sat":"Сб","Sun":"Вс"}
+            r = db_query("SELECT COUNT(*) as cnt, COALESCE(SUM(total),0) as rev FROM orders WHERE created_at>=? AND created_at<? AND status!='cancelled'", (day, day_next))
+            weekly.append({"day": day_labels.get(dl, dl), "orders": r[0]["cnt"] if r else 0, "revenue": r[0]["rev"] if r else 0})
+        return {
+            "revenue_week": ow[0]["rev"] if ow else 0,
+            "revenue_month": om[0]["rev"] if om else 0,
+            "orders_week": ow[0]["cnt"] if ow else 0,
+            "orders_month": om[0]["cnt"] if om else 0,
+            "clients_total": ct[0]["c"] if ct else 0,
+            "new_clients_week": nc[0]["c"] if nc else 0,
+            "out_of_stock": ot[0]["c"] if ot else 0,
+            "low_stock": lw[0]["c"] if lw else 0,
+            "weekly_chart": weekly,
+        }
+    except Exception as e:
+        return {"error": str(e)}
+
+def _get_lowstock():
+    try:
+        return db_query("SELECT name, stock FROM products WHERE stock<=5 AND stock>0 ORDER BY stock LIMIT 20")
+    except Exception as e:
+        return []
+
+def _get_top():
+    try:
+        return db_query("SELECT p.name, SUM(oi.quantity) as qty, SUM(oi.quantity*oi.price) as revenue FROM order_items oi JOIN products p ON oi.product_id=p.id JOIN orders o ON oi.order_id=o.id WHERE o.status!='cancelled' GROUP BY p.id ORDER BY revenue DESC LIMIT 10")
+    except Exception as e:
+        return []
+
+def _get_orders():
+    try:
+        return db_query("SELECT id, created_at, total, status, name, phone FROM orders ORDER BY created_at DESC LIMIT 10")
+    except Exception as e:
+        return []
 
 # ─── БД ───────────────────────────────────────────────────────────────────────
 def init_db():
@@ -907,6 +879,10 @@ async def check_alerts():
 
 # ─── Запуск ───────────────────────────────────────────────────────────────────
 async def main():
+    port = int(os.environ.get("PORT", os.environ.get("AGENT_PORT", 8080)))
+    server = await asyncio.start_server(handle_request, "0.0.0.0", port)
+    print(f"HTTP server started on port {port}")
+
     init_db()
     # Загружаем каталог если БД пуста
     cnt = (db_query("SELECT COUNT(*) as c FROM products") or [{"c":0}])[0]["c"]
@@ -942,9 +918,12 @@ async def main():
         await dp.start_polling(bot, drop_pending_updates=True)
     except Exception as e:
         print(f"Bot polling error: {e}")
-        # Держим процесс живым для HTTP сервера
-        while True:
-            await asyncio.sleep(60)
+    finally:
+        await asyncio.sleep(0)
+
+    # Держим HTTP сервер живым
+    async with server:
+        await server.serve_forever()
 
 
 if __name__ == "__main__":
