@@ -72,6 +72,7 @@ class _Handler(BaseHTTPRequestHandler):
         week_ago = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
         month_ago = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d")
         try:
+            init_db()  # убеждаемся что БД существует
             orders_week = db_query(
                 "SELECT COUNT(*) as cnt, COALESCE(SUM(total),0) as rev "
                 "FROM orders WHERE created_at>=? AND status!='cancelled'", (week_ago,)
@@ -156,7 +157,11 @@ class _Handler(BaseHTTPRequestHandler):
 
 def _run_server():
     port = int(os.environ.get("PORT", os.environ.get("AGENT_PORT", 8080)))
-    HTTPServer(("0.0.0.0", port), _Handler).serve_forever()
+    try:
+        server = HTTPServer(("0.0.0.0", port), _Handler)
+        server.serve_forever()
+    except Exception as e:
+        print(f"HTTP server error: {e}")
 
 threading.Thread(target=_run_server, daemon=True).start()
 
