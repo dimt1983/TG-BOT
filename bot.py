@@ -1038,6 +1038,37 @@ def init_db():
             FOREIGN KEY (order_id)   REFERENCES orders(id),
             FOREIGN KEY (product_id) REFERENCES products(id)
         );
+
+        CREATE TABLE IF NOT EXISTS wishlist (
+            id         INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id    INTEGER NOT NULL,
+            product_id INTEGER NOT NULL,
+            UNIQUE(user_id, product_id)
+        );
+
+        CREATE TABLE IF NOT EXISTS notify_when_available (
+            id         INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id    INTEGER NOT NULL,
+            product_id INTEGER NOT NULL,
+            UNIQUE(user_id, product_id)
+        );
+
+        CREATE TABLE IF NOT EXISTS promo_codes (
+            id         INTEGER PRIMARY KEY AUTOINCREMENT,
+            code       TEXT    NOT NULL UNIQUE,
+            discount   REAL    NOT NULL,
+            uses_left  INTEGER NOT NULL DEFAULT 1,
+            user_id    INTEGER,
+            is_active  INTEGER NOT NULL DEFAULT 1,
+            created_at TEXT    DEFAULT CURRENT_TIMESTAMP
+        );
+
+        CREATE TABLE IF NOT EXISTS admin_log (
+            id         INTEGER PRIMARY KEY AUTOINCREMENT,
+            admin_id   INTEGER NOT NULL,
+            action     TEXT    NOT NULL,
+            created_at TEXT    NOT NULL
+        );
     """)
 
     # Миграция users
@@ -1498,13 +1529,6 @@ def product_card_keyboard(product_id, category_id, has_recipe_e, has_recipe_f):
     if recipe_row:
         buttons.append(recipe_row)
 
-    # Избранное и уведомление
-    con2 = get_db()
-    in_wish = con2.execute(
-        "SELECT id FROM wishlist WHERE user_id = ? AND product_id = ?",
-        (0, product_id)  # user_id подставляется в хендлере через отдельную функцию
-    )
-    con2.close()
     buttons.append([
         InlineKeyboardButton(text="⭐ В избранное", callback_data=f"wish_add_{product_id}"),
     ])
