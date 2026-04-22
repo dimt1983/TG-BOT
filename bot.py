@@ -1696,7 +1696,6 @@ async def show_products_for_cat(message: Message, cat_name: str, back_kb, state:
             callback_data=f"product_{p['id']}"
         )])
 
-    # Разбиваем на страницы по 20 товаров если много
     display = buttons[:40]
     section_label = cat_name.split(" — ")[-1] if " — " in cat_name else cat_name
     await message.answer(
@@ -1705,6 +1704,8 @@ async def show_products_for_cat(message: Message, cat_name: str, back_kb, state:
         reply_markup=InlineKeyboardMarkup(inline_keyboard=display)
     )
     await state.clear()
+    await message.answer("Выберите товар из списка выше ☝️ или вернитесь назад:",
+                         reply_markup=main_keyboard)
 
 # ─── Шаг 1: вход в каталог ───────────────────────────────────────────────────
 @dp.message(F.text == "☕ Каталог")
@@ -1771,7 +1772,25 @@ async def nav_section(message: Message, state: FSMContext):
         await message.answer("🛍 Выберите раздел:", reply_markup=catalog_top_kb)
         return
 
-    # ── КОФЕ: финальные категории ─────────────────────────────────────────────
+    # ── КОФЕ: Моносорта → выбор типа обжарки ────────────────────────────────
+    if section == "☕ Кофе" and text == "Моносорта":
+        await state.set_state(NavStates.in_subsection)
+        await state.update_data(nav_brand="Моносорта")
+        roast_kb = make_reply_kb(["☕ Эспрессо", "🫖 Фильтр", "☕🫖 Универсальный"])
+        await message.answer("*Моносорта* — выберите тип обжарки:",
+                             parse_mode="Markdown", reply_markup=roast_kb)
+        return
+
+    # ── КОФЕ: Смеси → выбор типа обжарки ────────────────────────────────────
+    if section == "☕ Кофе" and text == "Смеси":
+        await state.set_state(NavStates.in_subsection)
+        await state.update_data(nav_brand="Смеси")
+        roast_kb = make_reply_kb(["☕ Эспрессо блэнд", "🫖 Фильтр блэнд"])
+        await message.answer("*Смеси* — выберите тип:", parse_mode="Markdown",
+                             reply_markup=roast_kb)
+        return
+
+    # ── КОФЕ: остальные разделы — сразу товары ───────────────────────────────
     if section == "☕ Кофе" and text in COFFEE_SECTIONS:
         await state.clear()
         await show_products_for_cat(message, text, coffee_kb, state)
@@ -1812,6 +1831,89 @@ async def nav_subsection(message: Message, state: FSMContext):
         await message.answer("🍵 Выберите бренд:", reply_markup=tea_brands_kb)
         return
 
+    # ── Тип обжарки кофе (Моносорта/Смеси) ──────────────────────────────────
+    if brand == "Моносорта":
+        roast_map = {
+            "☕ Эспрессо":       "E",
+            "🫖 Фильтр":         "F",
+            "☕🫖 Универсальный": "EF",
+        }
+        if text in roast_map:
+            roast_code = roast_map[text]
+            # Ищем товары в категории Моносорта с нужным типом обжарки
+            con = get_db()
+            cat = con.execute("SELECT id FROM categories WHERE name = ?", ("Моносорта",)).fetchone()
+            if cat:
+                prods = con.execute(
+                    "SELECT * FROM products WHERE category_id = ? AND stock > 0 AND roast_type = ? ORDER BY name",
+                    (cat["id"], roast_code)
+                ).fetchall()
+            else:
+                prods = []
+            con.close()
+            roast_kb = make_reply_kb(["☕ Эспрессо", "🫖 Фильтр", "☕🫖 Универсальный"])
+            if not prods:
+                await message.answer(f"😔 Нет товаров для обжарки {text}",
+                                     reply_markup=roast_kb)
+                return
+            seen = {}
+            for p in prods:
+                base = p["name"].replace(" 1 кг","").replace(" 200 г","")
+                if base not in seen:
+                    seen[base] = p
+            buttons = [[InlineKeyboardButton(
+                text=f"{base[:50]} — {p['price']:.0f} ₽" if p["price"] else base[:50],
+                callback_data=f"product_{p['id']}"
+            )] for base, p in seen.items()]
+            await state.clear()
+            await message.answer(
+                f"*Моносорта {text}* — {len(seen)} позиций:",
+                parse_mode="Markdown",
+                reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
+            )
+            await message.answer("Выберите товар ☝️", reply_markup=main_keyboard)
+        return
+
+    if brand == "Смеси":
+        blend_map = {
+            "☕ Эспрессо блэнд": "BE",
+            "🫖 Фильтр блэнд":   "BF",
+        }
+        if text in blend_map:
+            blend_code = blend_map[text]
+            con = get_db()
+            cat = con.execute("SELECT id FROM categories WHERE name = ?", ("Смеси",)).fetchone()
+            if cat:
+                prods = con.execute(
+                    "SELECT * FROM products WHERE category_id = ? AND stock > 0 AND roast_type = ? ORDER BY name",
+                    (cat["id"], blend_code)
+                ).fetchall()
+            else:
+                prods = []
+            con.close()
+            blend_kb = make_reply_kb(["☕ Эспрессо блэнд", "🫖 Фильтр блэнд"])
+            if not prods:
+                await message.answer(f"😔 Нет товаров для {text}", reply_markup=blend_kb)
+                return
+            seen = {}
+            for p in prods:
+                base = p["name"].replace(" 1 кг","").replace(" 200 г","")
+                if base not in seen:
+                    seen[base] = p
+            buttons = [[InlineKeyboardButton(
+                text=f"{base[:50]} — {p['price']:.0f} ₽" if p["price"] else base[:50],
+                callback_data=f"product_{p['id']}"
+            )] for base, p in seen.items()]
+            await state.clear()
+            await message.answer(
+                f"*Смеси {text}* — {len(seen)} позиций:",
+                parse_mode="Markdown",
+                reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
+            )
+            await message.answer("Выберите товар ☝️", reply_markup=main_keyboard)
+        return
+
+    # ── Формат чая ────────────────────────────────────────────────────────────
     formats = TEA_FORMATS.get(brand, [])
     if text in formats:
         cat_name = f"{brand} — {text}"
@@ -1883,21 +1985,33 @@ async def product_handler(callback: CallbackQuery):
     """, (user_id, f"{base_name}%")).fetchone()[0]
     con.close()
 
+    # Безопасно читаем все поля (некоторые могут отсутствовать у старых записей)
+    keys = p.keys()
+    roast_type  = p["roast_type"]  if "roast_type"  in keys else ""
+    description = p["description"] if "description" in keys else ""
+    recipe_e    = p["recipe_e"]    if "recipe_e"    in keys else None
+    recipe_f    = p["recipe_f"]    if "recipe_f"    in keys else None
+    process     = p["process"]     if "process"     in keys else ""
+    weight_g    = p["weight_g"]    if "weight_g"    in keys else 1000
+    photo_url   = p["photo_url"]   if "photo_url"   in keys else None
+    tag         = p["tag"]         if "tag"         in keys else ""
+    prev_price  = p["prev_price"]  if "prev_price"  in keys else 0
+    stock       = p["stock"]
+    price       = p["price"]
+
     roast_labels = {
         "E": "☕ Эспрессо", "F": "🫖 Фильтр", "EF": "☕🫖 Эспрессо и Фильтр",
         "BE": "☕ Блэнд эспрессо", "BF": "🫖 Блэнд фильтр",
         "Drip": "💧 Drip-пакет", "Nespresso": "💊 Nespresso"
     }
-    roast_str = roast_labels.get(p["roast_type"], p["roast_type"] or "")
+    roast_str = roast_labels.get(roast_type, roast_type or "")
     weight_str = _variant_label(p)
 
     # Пометки
-    tag = p["tag"] if "tag" in p.keys() else ""
-    prev_price = p["prev_price"] if "prev_price" in p.keys() else 0
     badges = []
     if ordered_before:
         badges.append("🔁 Вы уже заказывали")
-    tag_label = _tag_str(tag or "", prev_price or 0, p["price"]) if tag else ""
+    tag_label = _tag_str(tag or "", prev_price or 0, price) if tag else ""
     if tag_label:
         badges.append(tag_label)
 
@@ -1905,20 +2019,21 @@ async def product_handler(callback: CallbackQuery):
     if badges:
         text += " | ".join(badges) + "\n\n"
     text += f"*{p['name']}*\n\n"
-    if p["description"]:
-        text += f"🍫 {p['description']}\n\n"
-    text += f"🔥 Обжарка: {roast_str}\n"
-    if p["process"] and p["roast_type"] not in ("Drip", "Nespresso"):
-        text += f"⚙️ Обработка: {p['process']}\n"
+    if description:
+        text += f"🍫 {description}\n\n"
+    if roast_str:
+        text += f"🔥 Обжарка: {roast_str}\n"
+    if process and roast_type not in ("Drip", "Nespresso", ""):
+        text += f"⚙️ Обработка: {process}\n"
     text += f"📦 Фасовка: {weight_str}\n"
-    text += f"💰 Цена: *{p['price']:.0f} ₽*"
-    if p["stock"] == 0:
+    text += f"💰 Цена: *{price:.0f} ₽*" if price else f"💰 Цена: уточняйте"
+    if stock == 0:
         text += "\n\n❌ *Нет в наличии*"
-    elif p["stock"] <= 5:
-        text += f"\n⚠️ Осталось: {p['stock']}"
+    elif stock <= 5:
+        text += f"\n⚠️ Осталось: {stock}"
 
     # Если нет в наличии — кнопка «уведомить»
-    if p["stock"] == 0:
+    if stock == 0:
         kb = InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(text="🔔 Уведомить когда появится",
                                   callback_data=f"notify_{product_id}")],
@@ -1928,12 +2043,12 @@ async def product_handler(callback: CallbackQuery):
     else:
         kb = product_card_keyboard(
             product_id, p["category_id"],
-            has_recipe_e=bool(p["recipe_e"]),
-            has_recipe_f=bool(p["recipe_f"])
+            has_recipe_e=bool(recipe_e),
+            has_recipe_f=bool(recipe_f)
         )
 
-    if p["photo_url"]:
-        await callback.message.answer_photo(photo=p["photo_url"], caption=text,
+    if photo_url:
+        await callback.message.answer_photo(photo=photo_url, caption=text,
                                             parse_mode="Markdown", reply_markup=kb)
     else:
         await callback.message.answer(text, parse_mode="Markdown", reply_markup=kb)
@@ -2455,6 +2570,275 @@ STOCK_MAP = [
     ('Гватемала Уетенанго% (1 шт)',                31),
     ('Эфиопия Бомбе% (1 шт)',                      33),
     ('Эфиопия Иргачиф% (1 шт)',                   292),
+
+    # ── ALTHAUS ───────────────────────────────────────────────────────────────
+    ('ALTHAUS Ассам Молти Кап%',                   49),
+    ('ALTHAUS Сенча Сенпай зел 15%',                4),
+    ('ALTHAUS Жасминовый Тинг Юань 15%',            2),
+    ('ALTHAUS Грюн Матинэ зел аром 15%',            6),
+    ('ALTHAUS Ред Фрут Фраш%',                      6),
+    ('ALTHAUS Благородная Ромашка%',                7),
+    ('ALTHAUS Нежная Мята трав%',                   3),
+    ('ALTHAUS Горные Травы чёрн 15%',               6),
+    ('ALTHAUS Молочный Улун зел 15%',               4),
+    ('ALTHAUS Ройбуш Ванильная Карамель 15%',       6),
+    ('ALTHAUS Ассам Меленг чёрн пакет%',           16),
+    ('ALTHAUS Ройал Эрл Грей%',                     8),
+    ('ALTHAUS Сенча Сенпай зел пакет%',            10),
+    ('ALTHAUS Жасмин Тинг Юань зел аром 20%',      10),
+    ('ALTHAUS Грюн Матинэ зел аром 20%',            6),
+    ('ALTHAUS Ромашковый луг%',                    12),
+    ('ALTHAUS Чистая Мята%',                        9),
+    ('ALTHAUS Уайлд Бэрриз%',                       5),
+    ('ALTHAUS Женьшеневое Равновесие%',             4),
+    ('ALTHAUS Персидское Яблоко%',                  6),
+    ('ALTHAUS Ройбуш Ваниль пакет%',               5),
+    ('ALTHAUS Ассам Меленг чёрн лист%',             9),
+    ('ALTHAUS Молочный Улун зел лист%',             4),
+    ('ALTHAUS Сенча Сенпай зел лист%',              5),
+    ('ALTHAUS Ройбуш Ванильная Карамель лист%',     3),
+    ('ALTHAUS Ред Фрут Флаш%',                      7),
+    ('ALTHAUS Горные Травы чёрн лист%',             9),
+    ('ALTHAUS Японская Липа%',                      8),
+    ('ALTHAUS Лемон Минт%',                         7),
+
+    # ── NIKTEA ────────────────────────────────────────────────────────────────
+    ('NIKTEA Кения Сапфир%',                       52),
+    ('NIKTEA Эрл Грей Ультрамарин%',               35),
+    ('NIKTEA Ориентал Блум%',                      36),
+    ('NIKTEA Молочный Улун зел аром 25%',          20),
+    ('NIKTEA Красная поляна%',                     14),
+    ('NIKTEA Фрут Маджента%',                      15),
+    ('NIKTEA Ройбуш Оранж%',                       10),
+    ('NIKTEA Горный Чабрец%',                      24),
+    ('NIKTEA Релакс%',                             16),
+    ('NIKTEA Энерджи%',                            22),
+    ('NIKTEA Эрл Грей пирамидки%',                  5),
+    ('NIKTEA Сибирский сбор пирамидки%',            7),
+    ('NIKTEA Молочный Улун пирамидки%',            11),
+    ('NIKTEA Имбирный Тропик%',                    11),
+    ('NIKTEA Русский Завтрак%',                    10),
+    ('NIKTEA Лесная Медитация%',                   13),
+    ('NIKTEA Клубничная Панна-Котта%',             15),
+    ('NIKTEA Королевский Завтрак%',                14),
+    ('NIKTEA Сенча Классик зел для чайника%',      14),
+    ('NIKTEA Молочный Улун зел аром для чайника%',  3),
+    ('NIKTEA Ягодный Коктейль%',                    2),
+
+    # ── RBR TEA ───────────────────────────────────────────────────────────────
+    ('RBR TEA Вишневый сад%',                       8),
+    ('RBR TEA Габа Алишань%',                       8),
+    ('RBR TEA Гречишный%',                          9),
+    ('RBR TEA Дикий пуэр%',                         1),
+    ('RBR TEA Екатерина Великая%',                  6),
+    ('RBR TEA Зеленый с жасмином%',                12),
+    ('RBR TEA Лапсанг%',                            1),
+    ('RBR TEA Лунный сад%',                         6),
+    ('RBR TEA Масала%',                             3),
+    ('RBR TEA Молочный улун%',                      2),
+    ('RBR TEA Облепиховый сбор иван-чай%',          5),
+    ('RBR TEA Облепиховый сбор чёрн%',              7),
+    ('RBR TEA Ройбуш апельсин%',                    5),
+    ('RBR TEA Сенча%',                              7),
+    ('RBR TEA Фруктовая смесь Банан%',              8),
+    ('RBR TEA Фруктовая смесь Наглый%',             4),
+
+    # ── Китайский чай ─────────────────────────────────────────────────────────
+    ('Китайский чай Иван-чай Теплый Вечер%',       13),
+    ('Китайский чай Иван-чай с ромашкой%',         23),
+    ('Китайский чай Зеленый с мятой%',              9),
+    ('Китайский чай Тропический Микс%',            10),
+    ('Китайский чай Улун Да Хун Пао%',              6),
+    ('Китайский чай Улун Молочный%',                5),
+    ('Китайский чай Улун Те Гуанинь%',              8),
+    ('Китайский чай Пуэр с чабрецом%',              4),
+    ('Китайский чай Черный Дянь Хун%',             14),
+    ('Китайский чай Черный Цейлон%',                6),
+    ('Китайский чай Ассам%',                        2),
+    ('Китайский чай Матча%',                        1),
+    ('Китайский чай Зеленый Люй Чжу%',             10),
+
+    # ── Restoranica ───────────────────────────────────────────────────────────
+    ('Restoranica TOGO Чайный Глинтвейн%',        257),
+    ('Restoranica TOGO Манго с апельсином%',       222),
+    ('Restoranica TOGO Медовое яблоко%',           193),
+    ('Restoranica TOGO Иван-Чай с малиной%',       173),
+    ('Restoranica TOGO Малина с мятой%',           154),
+    ('Restoranica TOGO Ройбуш с апельсином%',      156),
+    ('Restoranica TOGO Яблоко с можжевельником%',  162),
+    ('Restoranica TOGO Ассам с шиповником%',       108),
+    ('Restoranica TOGO Кедровый с чагой%',         121),
+    ('Restoranica TOGO Голубая Масала%',           122),
+    ('Restoranica TOGO Китайский улун%',           109),
+    ('Restoranica TOGO Королевский бергамот%',     125),
+    ('Restoranica TOGO Цейлон с клубникой%',       106),
+    ('Restoranica TOGO Улун с жасмином%',           52),
+    ('Restoranica TOGO Иммунный%',                  57),
+    ('Restoranica TOGO Черный со смородиной%',     145),
+    ('Restoranica TOGO Молочный улун с мандарином%', 50),
+    ('Restoranica RESTA Апельсин Манго%',           32),
+    ('Restoranica RESTA Апельсин Ройбуш%',          37),
+    ('Restoranica RESTA Голубая масала%',           45),
+    ('Restoranica RESTA Иммунный%',                 27),
+    ('Restoranica RESTA Кедровый%',                 38),
+    ('Restoranica RESTA Киви Клубника%',            52),
+    ('Restoranica RESTA Лесные ягоды%',             36),
+    ('Restoranica RESTA Мята Малина%',              27),
+    ('Restoranica RESTA Пряный глинтвейн%',         15),
+    ('Restoranica RESTA Пуэр%',                     50),
+    ('Restoranica RESTA Сладкая клубника%',         39),
+    ('Restoranica RESTA Смородиновый%',             20),
+    ('Restoranica RESTA Шиповник Чабрец%',          21),
+    ('Restoranica RESTA Эрлберг%',                  49),
+    ('Restoranica RESTA Яблоко Можжевельник%',      51),
+    ('Restoranica ICEDTEA Клубника и киви%',       151),
+    ('Restoranica ICEDTEA Малиновый мохито%',      135),
+    ('Restoranica ICEDTEA Манго и апельсин%',      100),
+    ('Restoranica ICEDTEA Маракуйя%',              123),
+    ('Restoranica ICEDTEA Спелая смородина%',      186),
+
+    # ── BOTANIKA ──────────────────────────────────────────────────────────────
+    ('Сироп BOTANIKA Арбуз%',                      12),
+    ('Сироп BOTANIKA Бабл Гам%',                    9),
+    ('Сироп BOTANIKA Банан Желтый%',               13),
+    ('Сироп BOTANIKA Ваниль%',                      7),
+    ('Сироп BOTANIKA Вишня%',                       2),
+    ('Сироп BOTANIKA Гранат%',                      3),
+    ('Сироп BOTANIKA Грейпфрут Розовый%',           2),
+    ('Сироп BOTANIKA Гренадин%',                    2),
+    ('Сироп BOTANIKA Груша Сортовая%',              5),
+    ('Сироп BOTANIKA Дыня Зеленая%',                6),
+    ('Сироп BOTANIKA Дыня 1%',                     13),
+    ('Сироп BOTANIKA Ежевика%',                     8),
+    ('Сироп BOTANIKA Зеленое Яблоко%',              4),
+    ('Сироп BOTANIKA Имбирный Пряник%',             4),
+    ('Сироп BOTANIKA Имбирь%',                      5),
+    ('Сироп BOTANIKA Карамель Соленая%',           12),
+    ('Сироп BOTANIKA Карамель 1%',                 11),
+    ('Сироп BOTANIKA Киви%',                        5),
+    ('Сироп BOTANIKA Кленовый%',                    3),
+    ('Сироп BOTANIKA Клубника%',                    2),
+    ('Сироп BOTANIKA Клюква%',                      6),
+    ('Сироп BOTANIKA Кокос%',                       8),
+    ('Сироп BOTANIKA Корина%',                      3),
+    ('Сироп BOTANIKA Лаванда%',                     6),
+    ('Сироп BOTANIKA Лайм%',                        5),
+    ('Сироп BOTANIKA Лесной Орех%',                 4),
+    ('Сироп BOTANIKA Лимон%',                       6),
+    ('Сироп BOTANIKA Малина%',                      4),
+    ('Сироп BOTANIKA Манго%',                       6),
+    ('Сироп BOTANIKA Мандарин%',                    3),
+    ('Сироп BOTANIKA Мед%',                         8),
+    ('Сироп BOTANIKA Миндаль%',                     7),
+    ('Сироп BOTANIKA Мохито%',                      3),
+    ('Сироп BOTANIKA Мята Зеленая%',                9),
+    ('Сироп BOTANIKA Облепиха%',                    4),
+    ('Сироп BOTANIKA Персик%',                      6),
+    ('Сироп BOTANIKA Попкорн%',                     7),
+    ('Сироп BOTANIKA Тархун%',                     10),
+    ('Сироп BOTANIKA Черная Смородина%',            3),
+    ('Сироп BOTANIKA Шоколад%',                     5),
+    ('Сироп BOTANIKA Амаретто%',                    6),
+    ('Сироп BOTANIKA Айриш Крем%',                  6),
+    ('Сироп BOTANIKA Апельсин%',                    4),
+    ('Сироп BOTANIKA Арахисовое%',                  4),
+
+    # ── Herbarista ────────────────────────────────────────────────────────────
+    ('Сироп Herbarista Арахисовое%',                6),
+    ('Сироп Herbarista Бабл Гам%',                 11),
+    ('Сироп Herbarista Банан%',                     8),
+    ('Сироп Herbarista Бурбонская Ваниль%',         8),
+    ('Сироп Herbarista Вишня%',                    11),
+    ('Сироп Herbarista Груша со специями%',         6),
+    ('Сироп Herbarista Дыня%',                     11),
+    ('Сироп Herbarista Ежевика%',                  11),
+    ('Сироп Herbarista Имбирный пряник%',           11),
+    ('Сироп Herbarista Ирландский Крем%',           11),
+    ('Сироп Herbarista Карамель Двойного%',          9),
+    ('Сироп Herbarista Кленовый%',                   5),
+    ('Сироп Herbarista Кокос%',                      8),
+    ('Сироп Herbarista Конопляная%',                 6),
+    ('Сироп Herbarista Корица%',                     5),
+    ('Сироп Herbarista Красный Апельсин%',           6),
+    ('Сироп Herbarista Лаванда%',                    5),
+    ('Сироп Herbarista Лайм%',                       6),
+    ('Сироп Herbarista Лесной орех%',               10),
+    ('Сироп Herbarista Макадамия%',                  6),
+    ('Сироп Herbarista Малина%',                     9),
+    ('Сироп Herbarista Миндаль%',                    6),
+    ('Сироп Herbarista Мята%',                       1),
+    ('Сироп Herbarista Попкорн%',                   10),
+    ('Сироп Herbarista Сгущенное%',                  7),
+    ('Сироп Herbarista Сливочная Ириска%',           9),
+    ('Сироп Herbarista Тропический%',                5),
+    ('Сироп Herbarista Тыква%',                      6),
+    ('Сироп Herbarista Фисташка%',                   8),
+    ('Сироп Herbarista Черная смородина%',           11),
+    ('Сироп Herbarista Шоколадный трюфель%',         5),
+    ('Сироп Herbarista Эвкалипт%',                   4),
+
+    # ── SweetShot ─────────────────────────────────────────────────────────────
+    ('Сироп SweetShot Амаретто%',                   4),
+    ('Сироп SweetShot Бабл Гам%',                   4),
+    ('Сироп SweetShot Блю Курасао%',                2),
+    ('Сироп SweetShot Ваниль%',                     7),
+    ('Сироп SweetShot Вишня%',                      2),
+    ('Сироп SweetShot Гренадин%',                   4),
+    ('Сироп SweetShot Груша%',                      6),
+    ('Сироп SweetShot Дыня%',                       3),
+    ('Сироп SweetShot Желтый Банан%',               4),
+    ('Сироп SweetShot Зеленая Мята%',               5),
+    ('Сироп SweetShot Зеленое яблоко%',             7),
+    ('Сироп SweetShot Имбирный%',                   8),
+    ('Сироп SweetShot Карамель 1%',                 5),
+    ('Сироп SweetShot Кленовый%',                   5),
+    ('Сироп SweetShot Клубника%',                  12),
+    ('Сироп SweetShot Кокос%',                      8),
+    ('Сироп SweetShot Лаванда%',                    2),
+    ('Сироп SweetShot Лесной Орех%',                6),
+    ('Сироп SweetShot Личи%',                      10),
+    ('Сироп SweetShot Малина%',                    10),
+    ('Сироп SweetShot Манго%',                      8),
+    ('Сироп SweetShot Маракуйя%',                   5),
+    ('Сироп SweetShot Миндаль%',                    1),
+    ('Сироп SweetShot Мохито%',                     4),
+    ('Сироп SweetShot Соленая Карамель%',           5),
+    ('Сироп SweetShot Тархун%',                     8),
+    ('Сироп SweetShot Фисташка%',                   1),
+    ('Сироп SweetShot Шоколад%',                    3),
+
+    # ── BARLINE ───────────────────────────────────────────────────────────────
+    ('Сироп BARLINE Базилик%',                      4),
+    ('Сироп BARLINE Земляника%',                    4),
+    ('Сироп BARLINE Макадамия%',                    2),
+    ('Сироп BARLINE Мандарин%',                     3),
+    ('Сироп BARLINE Можжевельник%',                 5),
+    ('Сироп BARLINE Огурец%',                       1),
+    ('Сироп BARLINE Сангрия%',                      6),
+    ('Сироп BARLINE Тирамису%',                     2),
+    ('Сироп BARLINE Фундук%',                       1),
+    ('Топпинг BARLINE Банан%',                      3),
+    ('Топпинг BARLINE Ваниль%',                     3),
+    ('Топпинг BARLINE Карамель%',                   3),
+    ('Топпинг BARLINE Лесные Ягоды%',               4),
+    ('Топпинг BARLINE Шоколад%',                   10),
+
+    # ── Кордиал и другие ──────────────────────────────────────────────────────
+    ('Кордиал BARBACKS Голубика%',                  3),
+    ('Кордиал BARBACKS Роза%',                      1),
+    ('Кордиал CLAVIS Персик%',                      2),
+    ('Кордиал CLAVIS Юдзу%',                        2),
+    ('Сироп MONIN%',                                3),
+    ('Сироп VEDRENNE%',                             2),
+    ('Топпинг Icedream Груша%',                     5),
+    ('Топпинг Icedream Персик%',                    1),
+
+    # ── Молоко ────────────────────────────────────────────────────────────────
+    ('Green Milk Банановый%',                     101),
+    ('Green Milk Кокосовый%',                     128),
+    ('Green Milk Миндальный%',                    170),
+    ('Green Milk Соевый%',                         24),
+    ('Green Milk Фундучный%',                      18),
 ]
 
 @dp.message(Command("loadstock"))
