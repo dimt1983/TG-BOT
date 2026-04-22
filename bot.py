@@ -75,6 +75,12 @@ class OrderStates(StatesGroup):
     waiting_phone    = State()
     waiting_address  = State()
 
+class NavStates(StatesGroup):
+    """FSM для навигации по каталогу через Reply-кнопки."""
+    in_catalog   = State()   # выбор раздела (Кофе/Чай/Сиропы/Молоко)
+    in_section   = State()   # подраздел (бренд чая, тип кофе...)
+    in_subsection = State()  # формат (пакет/лист/для чайника)
+
 # ─── БД ──────────────────────────────────────────────────────────────────────
 CATALOG = {
     # ── МОНОСОРТА ──────────────────────────────────────────────────────────
@@ -1187,14 +1193,56 @@ def _seed_catalog(cur):
             p["price_unit"], nesp_parent
         ))
 
-    # ── ЧАЙ ──────────────────────────────────────────────────────────────────
-    for brand, products in TEA_PRODUCTS.items():
-        cat_id = tea_ids[brand]
-        for name, stock in products:
+    # ── ЧАЙ — с подкатегориями по формату ───────────────────────────────────
+    # Структура: Бренд → Формат → товары
+    # Для каждого бренда создаём подкатегории форматов
+
+    # Маппинг: (бренд, ключевые слова в названии) → формат
+    def _tea_format(brand, name):
+        n = name.lower()
+        if brand == "ALTHAUS":
+            if "15х" in name or "15*" in name: return "Для чайника"
+            if "20х" in name or "20*" in name: return "Пакетированный"
+            return "Листовой"
+        if brand == "NIKTEA":
+            if "пирамид" in n or "pyra" in n: return "Пирамидки"
+            if "20*" in name or "20х" in name or "для чайника" in n: return "Для чайника"
+            return "Пакетированный"
+        if brand in ("RBR TEA", "Китайский чай"):
+            return "Листовой"
+        if brand == "Restoranica":
+            if "TOGO" in name: return "TOGO-350"
+            if "RESTA" in name: return "RESTA-650"
+            if "ICEDTEA" in name: return "ICEDTEA-400"
+            return "Прочее"
+        return "Основной"
+
+    tea_format_ids = {}  # (brand, format) → cat_id
+    for brand in TEA_BRANDS:
+        brand_cat_id = tea_ids[brand]
+        # Определяем форматы для этого бренда
+        brand_formats = set()
+        for name, stock in TEA_PRODUCTS[brand]:
+            fmt = _tea_format(brand, name)
+            brand_formats.add(fmt)
+        # Создаём подкатегории форматов
+        for fmt in sorted(brand_formats):
             cur.execute(
-                "INSERT INTO products (name, stock, price, category_id) VALUES (?,?,0,?)",
-                (name, stock, cat_id)
+                "INSERT INTO categories (name, parent_id) VALUES (?, ?)",
+                (f"{brand} — {fmt}", brand_cat_id)
             )
+            tea_format_ids[(brand, fmt)] = cur.lastrowid
+
+    # Вставляем товары в нужный формат
+    for brand, products in TEA_PRODUCTS.items():
+        for name, stock in products:
+            fmt = _tea_format(brand, name)
+            cat_id = tea_format_ids.get((brand, fmt))
+            if cat_id:
+                cur.execute(
+                    "INSERT INTO products (name, stock, price, category_id) VALUES (?,?,0,?)",
+                    (name, stock, cat_id)
+                )
 
     # ── СИРОПЫ ───────────────────────────────────────────────────────────────
     for brand, products in SYRUP_PRODUCTS.items():
@@ -1293,6 +1341,47 @@ main_keyboard = ReplyKeyboardMarkup(
     ],
     resize_keyboard=True
 )
+
+def make_reply_kb(buttons: list, back: bool = True) -> ReplyKeyboardMarkup:
+    """Создаёт Reply-клавиатуру из списка строк. По 2 кнопки в ряд."""
+    rows = []
+    row = []
+    for btn in buttons:
+        row.append(KeyboardButton(text=btn))
+        if len(row) == 2:
+            rows.append(row)
+            row = []
+    if row:
+        rows.append(row)
+    if back:
+        rows.append([KeyboardButton(text="◀ Назад")])
+    return ReplyKeyboardMarkup(keyboard=rows, resize_keyboard=True)
+
+# ── Каталог верхнего уровня ──────────────────────────────────────────────────
+CATALOG_TOP = ["☕ Кофе", "🍵 Чай", "🍬 Сиропы", "🥛 Молоко"]
+catalog_top_kb = make_reply_kb(CATALOG_TOP)
+
+# ── Подразделы КОФЕ ───────────────────────────────────────────────────────────
+COFFEE_SECTIONS = ["Моносорта", "Микролоты Black Edition", "Микролоты Борщ Edition",
+                   "Смеси", "Drip", "Nespresso"]
+coffee_kb = make_reply_kb(COFFEE_SECTIONS)
+
+# ── Бренды ЧАЯ ────────────────────────────────────────────────────────────────
+TEA_BRANDS = ["ALTHAUS", "NIKTEA", "RBR TEA", "Китайский чай", "Restoranica"]
+tea_brands_kb = make_reply_kb(TEA_BRANDS)
+
+# ── Форматы чая по бренду ─────────────────────────────────────────────────────
+TEA_FORMATS = {
+    "ALTHAUS":       ["Для чайника", "Листовой", "Пакетированный"],
+    "NIKTEA":        ["Для чайника", "Пакетированный", "Пирамидки"],
+    "RBR TEA":       ["Листовой"],
+    "Китайский чай": ["Листовой"],
+    "Restoranica":   ["ICEDTEA-400", "RESTA-650", "TOGO-350"],
+}
+
+# ── Бренды СИРОПОВ ────────────────────────────────────────────────────────────
+SYRUP_BRANDS = ["BOTANIKA", "Herbarista", "SweetShot", "BARLINE", "Кордиал и другие"]
+syrup_brands_kb = make_reply_kb(SYRUP_BRANDS)
 
 user_type_keyboard = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text="👤 Физическое лицо", callback_data="reg_individual")],
@@ -1563,78 +1652,213 @@ async def contacts_handler(message: Message):
         parse_mode="Markdown"
     )
 
-# ─── Каталог ─────────────────────────────────────────────────────────────────
-@dp.message(F.text == "☕ Каталог")
-async def catalog_handler(message: Message):
-    await message.answer("☕ *Каталог Roastberry*\n\nВыберите раздел:",
-                         parse_mode="Markdown", reply_markup=root_categories_keyboard())
+# ─── Навигация по каталогу через Reply-кнопки ────────────────────────────────
 
-@dp.callback_query(F.data == "back_root")
-async def back_root(callback: CallbackQuery):
-    await callback.message.answer("🛍 *Каталог Roastberry*\n\nВыберите раздел:",
-                                  parse_mode="Markdown", reply_markup=root_categories_keyboard())
+def get_products_by_cat_name(cat_name: str):
+    """Возвращает товары по имени категории из БД."""
+    con = get_db()
+    cat = con.execute("SELECT id FROM categories WHERE name = ?", (cat_name,)).fetchone()
+    if not cat:
+        con.close()
+        return [], 0
+    products = con.execute(
+        "SELECT * FROM products WHERE category_id = ? AND stock > 0 ORDER BY name",
+        (cat["id"],)
+    ).fetchall()
+    cat_id = cat["id"]
+    con.close()
+    return products, cat_id
+
+async def show_products_for_cat(message: Message, cat_name: str, back_kb, state: FSMContext):
+    """Показывает инлайн-список товаров для финальной категории.
+    Для чая ищет по имени вида 'ALTHAUS — Пакетированный'.
+    Для кофе/сиропов ищет по прямому имени категории."""
+    products, cat_id = get_products_by_cat_name(cat_name)
+    if not products:
+        await message.answer(f"😔 В разделе *{cat_name}* пока нет товаров в наличии.",
+                             parse_mode="Markdown", reply_markup=back_kb)
+        return
+
+    # Группируем по базовому названию (убираем фасовку из имени)
+    seen = {}
+    for p in products:
+        base = p["name"]
+        for sfx in [" 1 кг", " 200 г", " (8 шт)", " (10 шт)", " (1 шт)"]:
+            base = base.replace(sfx, "")
+        if base not in seen:
+            seen[base] = p
+
+    buttons = []
+    for base, p in seen.items():
+        price_str = f" — {p['price']:.0f} ₽" if p["price"] else ""
+        buttons.append([InlineKeyboardButton(
+            text=f"{base[:52]}{price_str}",
+            callback_data=f"product_{p['id']}"
+        )])
+
+    # Разбиваем на страницы по 20 товаров если много
+    display = buttons[:40]
+    section_label = cat_name.split(" — ")[-1] if " — " in cat_name else cat_name
+    await message.answer(
+        f"*{section_label}* — {len(seen)} позиций:",
+        parse_mode="Markdown",
+        reply_markup=InlineKeyboardMarkup(inline_keyboard=display)
+    )
+    await state.clear()
+
+# ─── Шаг 1: вход в каталог ───────────────────────────────────────────────────
+@dp.message(F.text == "☕ Каталог")
+async def catalog_handler(message: Message, state: FSMContext):
+    await state.set_state(NavStates.in_catalog)
+    await state.update_data(nav_path=[])
+    await message.answer(
+        "🛍 *Каталог Roastberry*\n\nВыберите раздел:",
+        parse_mode="Markdown",
+        reply_markup=catalog_top_kb
+    )
+
+# ─── Шаг 2: выбор раздела (Кофе/Чай/Сиропы/Молоко) ─────────────────────────
+@dp.message(NavStates.in_catalog)
+async def nav_top(message: Message, state: FSMContext):
+    text = message.text.strip()
+
+    if text == "◀ Назад":
+        await state.clear()
+        await message.answer("Главное меню:", reply_markup=main_keyboard)
+        return
+
+    if text == "☕ Кофе":
+        await state.set_state(NavStates.in_section)
+        await state.update_data(nav_section="☕ Кофе")
+        await message.answer("☕ *Кофе* — выберите раздел:", parse_mode="Markdown",
+                             reply_markup=coffee_kb)
+
+    elif text == "🍵 Чай":
+        await state.set_state(NavStates.in_section)
+        await state.update_data(nav_section="🍵 Чай")
+        await message.answer("🍵 *Чай* — выберите бренд:", parse_mode="Markdown",
+                             reply_markup=tea_brands_kb)
+
+    elif text == "🍬 Сиропы":
+        await state.set_state(NavStates.in_section)
+        await state.update_data(nav_section="🍬 Сиропы")
+        await message.answer("🍬 *Сиропы* — выберите бренд:", parse_mode="Markdown",
+                             reply_markup=syrup_brands_kb)
+
+    elif text == "🥛 Молоко":
+        # Молоко — сразу товары
+        await state.clear()
+        products, cat_id = get_products_by_cat_name("🥛 Молоко")
+        if not products:
+            await message.answer("😔 Молоко временно недоступно.", reply_markup=main_keyboard)
+            return
+        buttons = [[InlineKeyboardButton(
+            text=p["name"], callback_data=f"product_{p['id']}"
+        )] for p in products]
+        buttons.append([InlineKeyboardButton(text="◀ Назад", callback_data="nav_back_top")])
+        await message.answer("🥛 *Молоко Green Milk:*", parse_mode="Markdown",
+                             reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+# ─── Шаг 3: выбор подраздела (бренд чая / раздел кофе) ──────────────────────
+@dp.message(NavStates.in_section)
+async def nav_section(message: Message, state: FSMContext):
+    text = message.text.strip()
+    data = await state.get_data()
+    section = data.get("nav_section", "")
+
+    if text == "◀ Назад":
+        await state.set_state(NavStates.in_catalog)
+        await message.answer("🛍 Выберите раздел:", reply_markup=catalog_top_kb)
+        return
+
+    # ── КОФЕ: финальные категории ─────────────────────────────────────────────
+    if section == "☕ Кофе" and text in COFFEE_SECTIONS:
+        await state.clear()
+        await show_products_for_cat(message, text, coffee_kb, state)
+        return
+
+    # ── ЧАЙ: выбор бренда → формат ───────────────────────────────────────────
+    if section == "🍵 Чай" and text in TEA_BRANDS:
+        formats = TEA_FORMATS.get(text, [])
+        if len(formats) == 1:
+            # Только один формат — сразу товары
+            await state.clear()
+            cat_name = f"{text} — {formats[0]}"
+            await show_products_for_cat(message, cat_name, tea_brands_kb, state)
+        else:
+            await state.set_state(NavStates.in_subsection)
+            await state.update_data(nav_brand=text)
+            fmt_kb = make_reply_kb(formats)
+            await message.answer(f"*{text}* — выберите формат:", parse_mode="Markdown",
+                                 reply_markup=fmt_kb)
+        return
+
+    # ── СИРОПЫ: финальные категории ───────────────────────────────────────────
+    if section == "🍬 Сиропы" and text in SYRUP_BRANDS:
+        await state.clear()
+        await show_products_for_cat(message, text, syrup_brands_kb, state)
+        return
+
+# ─── Шаг 4: выбор формата чая → товары ───────────────────────────────────────
+@dp.message(NavStates.in_subsection)
+async def nav_subsection(message: Message, state: FSMContext):
+    text = message.text.strip()
+    data = await state.get_data()
+    brand = data.get("nav_brand", "")
+
+    if text == "◀ Назад":
+        await state.set_state(NavStates.in_section)
+        await state.update_data(nav_section="🍵 Чай")
+        await message.answer("🍵 Выберите бренд:", reply_markup=tea_brands_kb)
+        return
+
+    formats = TEA_FORMATS.get(brand, [])
+    if text in formats:
+        cat_name = f"{brand} — {text}"
+        back_kb = make_reply_kb(formats)
+        await state.clear()
+        await show_products_for_cat(message, cat_name, back_kb, state)
+
+# ─── Инлайн-кнопка "назад" из товаров молока ─────────────────────────────────
+@dp.callback_query(F.data == "nav_back_top")
+async def nav_back_top(callback: CallbackQuery, state: FSMContext):
+    await state.set_state(NavStates.in_catalog)
+    await callback.message.answer("🛍 Выберите раздел:", reply_markup=catalog_top_kb)
     await callback.answer()
 
-CAT_DESC = {
-    "☕ Кофе": "Зерновой кофе, дрип-пакеты и капсулы Nespresso.",
-    "🍵 Чай": "Чай от ведущих брендов — ALTHAUS, NIKTEA, RBR TEA и другие.",
-    "🍬 Сиропы": "Сиропы и топпинги — BOTANIKA, Herbarista, SweetShot, BARLINE.",
-    "🥛 Молоко": "Растительное молоко Green Milk — соевое, миндальное, кокосовое.",
-    "Моносорта": "Кофе из одного региона и фермы.",
-    "Микролоты Black Edition": "⚫ Редкие партии с высоким Q-score.",
-    "Микролоты Борщ Edition": "🟣 Эксклюзивная коллекция с необычными обработками.",
-    "Смеси": "🎨 Авторские блэнды для эспрессо и фильтра.",
-    "Drip": "💧 Дрип-пакеты — кофе в дорогу без оборудования.",
-    "Nespresso": "💊 Капсулы для машин Nespresso Original.",
-    "ALTHAUS": "Немецкий бренд — классика для ресторанов и кафе.",
-    "NIKTEA": "Профессиональная чайная линейка для HoReCa.",
-    "RBR TEA": "Авторская коллекция чая от Roastberry.",
-    "Китайский чай": "Традиционные китайские чаи — пуэры, улуны, зелёные.",
-    "Restoranica": "Чай для ресторанов — TOGO, RESTA, ICEDTEA форматы.",
-    "BOTANIKA": "Сиропы 1л — широкий ассортимент для любого меню.",
-    "Herbarista": "Премиальные сиропы 0.7л с натуральными компонентами.",
-    "SweetShot": "Сиропы 1л в стеклянной бутылке.",
-    "BARLINE": "Сиропы и топпинги для баристы.",
-    "Кордиал и другие": "Кордиалы, редкие сиропы и топпинги.",
-}
+# ─── Старый обработчик inline cat_ (для совместимости) ───────────────────────
+@dp.callback_query(F.data == "back_root")
+async def back_root(callback: CallbackQuery, state: FSMContext):
+    await state.set_state(NavStates.in_catalog)
+    await callback.message.answer("🛍 *Каталог Roastberry*\n\nВыберите раздел:",
+                                  parse_mode="Markdown", reply_markup=catalog_top_kb)
+    await callback.answer()
 
 @dp.callback_query(F.data.startswith("cat_"))
-async def cat_handler(callback: CallbackQuery):
+async def cat_handler(callback: CallbackQuery, state: FSMContext):
+    """Обратная совместимость с инлайн-кнопками."""
     cat_id = int(callback.data.split("_")[1])
     con = get_db()
     cat = con.execute("SELECT * FROM categories WHERE id = ?", (cat_id,)).fetchone()
-    # Проверяем — есть ли подкатегории
     has_subcats = con.execute(
         "SELECT COUNT(*) FROM categories WHERE parent_id = ?", (cat_id,)
     ).fetchone()[0]
     con.close()
+    if not cat:
+        await callback.answer("Раздел не найден."); return
 
     if has_subcats:
-        # Показываем подкатегории
-        desc = CAT_DESC.get(cat["name"], "")
-        await callback.message.answer(
-            f"*{cat['name']}*\n_{desc}_" if desc else f"*{cat['name']}*",
-            parse_mode="Markdown",
-            reply_markup=subcategories_keyboard(cat_id)
-        )
+        await callback.message.answer(f"*{cat['name']}*", parse_mode="Markdown",
+                                      reply_markup=subcategories_keyboard(cat_id))
     else:
-        # Показываем товары
         kb, count = products_keyboard(cat_id)
         if count == 0:
-            con2 = get_db()
-            parent = con2.execute("SELECT parent_id FROM categories WHERE id = ?", (cat_id,)).fetchone()
-            con2.close()
-            back_kb = subcategories_keyboard(parent["parent_id"]) if parent and parent["parent_id"] else root_categories_keyboard()
             await callback.message.answer(
-                f"😔 В разделе *{cat['name']}* пока нет товаров в наличии.",
-                parse_mode="Markdown", reply_markup=back_kb
-            )
+                f"😔 В разделе *{cat['name']}* пока нет товаров.",
+                parse_mode="Markdown", reply_markup=main_keyboard)
         else:
-            desc = CAT_DESC.get(cat["name"], "")
-            await callback.message.answer(
-                f"*{cat['name']}*\n_{desc}_" if desc else f"*{cat['name']}*",
-                parse_mode="Markdown", reply_markup=kb
-            )
+            await callback.message.answer(f"*{cat['name']}*", parse_mode="Markdown",
+                                          reply_markup=kb)
     await callback.answer()
 
 # ─── Карточка товара ─────────────────────────────────────────────────────────
