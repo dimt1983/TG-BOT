@@ -913,14 +913,7 @@ async def main():
         con.close()
 
     # Запускаем Telegram бота — если упадёт, HTTP сервер продолжит работать
-    asyncio.create_task(check_alerts())
-    try:
-        await dp.start_polling(bot, drop_pending_updates=True)
-    except Exception as e:
-        print(f"Bot polling error: {e}")
-    finally:
-        await asyncio.sleep(0)
-
+    print("HTTP server running, Telegram disabled temporarily")
     # Держим HTTP сервер живым
     async with server:
         await server.serve_forever()
