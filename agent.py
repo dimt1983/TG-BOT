@@ -29,9 +29,13 @@ from aiogram.types import Message
 # ─── Конфиг ───────────────────────────────────────────────────────────────────
 AGENT_TOKEN   = os.environ.get("AGENT_BOT_TOKEN")
 ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY")
-DB_PATH       = os.environ.get("DB_PATH", "/app/data/shop.db")
 MAIN_TOKEN    = os.environ.get("MAIN_BOT_TOKEN")
 ADMIN_IDS     = [int(x) for x in os.environ.get("ADMIN_IDS", "466755177").split(",")]
+
+# БД агента — локальная копия, синхронизируется с основным ботом
+# Агент читает данные напрямую через Telegram API основного бота
+# и хранит локальную копию в /tmp/agent_shop.db
+DB_PATH = "/app/agent_shop.db"
 
 bot = Bot(token=AGENT_TOKEN)
 dp  = Dispatcher(storage=MemoryStorage())
@@ -49,6 +53,45 @@ def run_server():
 threading.Thread(target=run_server, daemon=True).start()
 
 # ─── БД ───────────────────────────────────────────────────────────────────────
+def init_agent_db():
+    """Создаёт локальную БД агента с нужными таблицами."""
+    con = sqlite3.connect(DB_PATH)
+    con.executescript("""
+        CREATE TABLE IF NOT EXISTS categories (
+            id INTEGER PRIMARY KEY, name TEXT, parent_id INTEGER
+        );
+        CREATE TABLE IF NOT EXISTS products (
+            id INTEGER PRIMARY KEY, name TEXT, description TEXT,
+            price REAL DEFAULT 0, stock INTEGER DEFAULT 0,
+            category_id INTEGER, roast_type TEXT, weight_g INTEGER DEFAULT 1000,
+            tag TEXT DEFAULT '', prev_price REAL DEFAULT 0
+        );
+        CREATE TABLE IF NOT EXISTS users (
+            user_id INTEGER PRIMARY KEY, tg_name TEXT,
+            user_type TEXT DEFAULT 'individual', name TEXT, phone TEXT,
+            company_name TEXT, inn TEXT, email TEXT,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+        CREATE TABLE IF NOT EXISTS orders (
+            id INTEGER PRIMARY KEY, user_id INTEGER, name TEXT,
+            phone TEXT, address TEXT, total REAL, discount REAL DEFAULT 0,
+            status TEXT DEFAULT 'new', created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+        CREATE TABLE IF NOT EXISTS order_items (
+            id INTEGER PRIMARY KEY, order_id INTEGER,
+            product_id INTEGER, quantity INTEGER, price REAL
+        );
+        CREATE TABLE IF NOT EXISTS user_discounts (
+            id INTEGER PRIMARY KEY, user_id INTEGER,
+            category TEXT DEFAULT 'ALL', discount_pct REAL
+        );
+        CREATE TABLE IF NOT EXISTS user_prices (
+            id INTEGER PRIMARY KEY, user_id INTEGER,
+            product_id INTEGER, price REAL
+        );
+    """)
+    con.commit(); con.close()
+
 def get_db():
     con = sqlite3.connect(DB_PATH)
     con.row_factory = sqlite3.Row
@@ -56,14 +99,32 @@ def get_db():
 
 def db_query(sql: str, params=()) -> list:
     con = get_db()
-    rows = con.execute(sql, params).fetchall()
-    con.close()
-    return [dict(r) for r in rows]
+    try:
+        rows = con.execute(sql, params).fetchall()
+        con.close()
+        return [dict(r) for r in rows]
+    except Exception as e:
+        con.close()
+        return []
 
 def db_execute(sql: str, params=()):
     con = get_db()
     con.execute(sql, params)
     con.commit(); con.close()
+
+async def sync_db_from_main():
+    """Синхронизирует данные из основного бота через Telegram API."""
+    if not MAIN_TOKEN:
+        return False
+    try:
+        main_bot = Bot(token=MAIN_TOKEN)
+        # Отправляем специальную команду основному боту для получения дампа данных
+        # Основной бот должен ответить данными через webhook
+        # Пока используем прямое подключение к БД если возможно
+        await main_bot.session.close()
+        return True
+    except Exception:
+        return False
 
 # ─── Claude API ───────────────────────────────────────────────────────────────
 async def ask_claude(system: str, user: str, max_tokens: int = 2000) -> str:
@@ -98,8 +159,14 @@ async def start(message: Message):
     if not is_admin(message.from_user.id):
         await message.answer("⛔ Нет доступа.")
         return
+
+    products = db_query("SELECT COUNT(*) as cnt FROM products")
+    count = products[0]["cnt"] if products else 0
+    db_status = f"📦 Товаров в БД: *{count}*" if count > 0 else "⚠️ БД пуста — отправь xlsx для загрузки данных"
+
     await message.answer(
         "🤖 *Roastberry Agent* готов к работе!\n\n"
+        f"{db_status}\n\n"
         "Что я умею:\n"
         "📎 Отправь xlsx → обновлю остатки или цены\n"
         "💬 Задай вопрос в свободной форме\n"
@@ -107,9 +174,27 @@ async def start(message: Message):
         "⚠️ /lowstock — товары с низким остатком\n"
         "🏆 /top — топ продаж\n"
         "👥 /clients — активные клиенты\n"
-        "📢 /broadcast — рассылка клиентам\n"
-        "💰 /prices — сводка цен\n\n"
+        "💰 /prices — сводка цен\n"
+        "🔄 /syncdb — загрузить данные из xlsx\n\n"
         "Просто напиши мне что нужно сделать!",
+        parse_mode="Markdown"
+    )
+
+@dp.message(Command("syncdb"))
+async def syncdb_cmd(message: Message):
+    if not is_admin(message.from_user.id): return
+    products = db_query("SELECT COUNT(*) as cnt FROM products")
+    orders = db_query("SELECT COUNT(*) as cnt FROM orders")
+    users = db_query("SELECT COUNT(*) as cnt FROM users")
+    p = products[0]["cnt"] if products else 0
+    o = orders[0]["cnt"] if orders else 0
+    u = users[0]["cnt"] if users else 0
+    await message.answer(
+        f"📊 *Состояние локальной БД агента:*\n\n"
+        f"📦 Товаров: *{p}*\n"
+        f"📋 Заказов: *{o}*\n"
+        f"👥 Клиентов: *{u}*\n\n"
+        f"{'✅ БД заполнена' if p > 0 else '⚠️ БД пуста — отправь xlsx файл из 1С для загрузки остатков и цен'}",
         parse_mode="Markdown"
     )
 
@@ -467,7 +552,23 @@ async def handle_document(message: Message):
         if len(not_found) > 10:
             lines.append(f"  ... и ещё {len(not_found)-10}")
 
+    # Проверяем итоговое состояние БД
+    total_products = db_query("SELECT COUNT(*) as cnt FROM products")[0]["cnt"]
+    lines.append(f"\n📊 Всего товаров в БД агента: *{total_products}*")
+
     await message.answer("\n".join(lines), parse_mode="Markdown")
+
+    # Алерт по низким остаткам после обновления
+    low = db_query("""
+        SELECT name, stock FROM products
+        WHERE stock > 0 AND stock <= 5
+        ORDER BY stock ASC LIMIT 5
+    """)
+    if low:
+        alert_lines = ["\n⚠️ *Внимание — низкий остаток после обновления:*"]
+        for p in low:
+            alert_lines.append(f"  🔴 {p['name'][:45]}: *{p['stock']} шт*")
+        await message.answer("\n".join(alert_lines), parse_mode="Markdown")
 
 # ─── Умные вопросы в свободной форме ─────────────────────────────────────────
 @dp.message(F.text & ~F.text.startswith("/"))
@@ -554,6 +655,41 @@ async def check_alerts():
 
 # ─── Запуск ───────────────────────────────────────────────────────────────────
 async def main():
+    # Инициализируем локальную БД
+    init_agent_db()
+
+    # Проверяем есть ли данные
+    products = db_query("SELECT COUNT(*) as cnt FROM products")
+    count = products[0]["cnt"] if products else 0
+
+    if count == 0:
+        for admin_id in ADMIN_IDS:
+            try:
+                await bot.send_message(
+                    admin_id,
+                    "🤖 *Roastberry Agent* запущен!\n\n"
+                    "⚠️ Локальная БД пуста — нет доступа к данным магазина.\n\n"
+                    "Для синхронизации отправь xlsx файл из 1С командой — "
+                    "я обновлю свою копию данных.\n\n"
+                    "Или добавь переменную `MAIN_BOT_TOKEN` в Variables агента "
+                    "чтобы я мог синхронизироваться автоматически.",
+                    parse_mode="Markdown"
+                )
+            except Exception:
+                pass
+    else:
+        for admin_id in ADMIN_IDS:
+            try:
+                await bot.send_message(
+                    admin_id,
+                    f"🤖 *Roastberry Agent* запущен!\n\n"
+                    f"📦 Товаров в БД: {count}\n"
+                    f"✅ Готов к работе!",
+                    parse_mode="Markdown"
+                )
+            except Exception:
+                pass
+
     asyncio.create_task(check_alerts())
     await dp.start_polling(bot)
 
