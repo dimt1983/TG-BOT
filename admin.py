@@ -46,8 +46,10 @@ class AdminStates(StatesGroup):
     waiting_price_notify = State()
 
 # ─── Хелперы ─────────────────────────────────────────────────────────────────
+import os
+DB_PATH = os.environ.get("DB_PATH", "/app/data/shop.db")
 def get_db():
-    con = sqlite3.connect("shop.db")
+    con = sqlite3.connect(DB_PATH)
     con.row_factory = sqlite3.Row
     return con
 
@@ -98,19 +100,22 @@ def init_admin_db():
         );
     """)
 
-    # Миграция products — новые поля
-    prod_cols = [r[1] for r in con.execute("PRAGMA table_info(products)").fetchall()]
-    for col, typ in [
-        ("tag",        "TEXT DEFAULT ''"),    # NEW / EXPECTED / SALE / ''
-        ("prev_price", "REAL DEFAULT 0"),
-    ]:
-        if col not in prod_cols:
-            con.execute(f"ALTER TABLE products ADD COLUMN {col} {typ}")
+    # Миграция products — только если таблица уже существует
+    tables = [r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()]
 
-    # Миграция orders — промокод
-    order_cols = [r[1] for r in con.execute("PRAGMA table_info(orders)").fetchall()]
-    if "promo_code" not in order_cols:
-        con.execute("ALTER TABLE orders ADD COLUMN promo_code TEXT DEFAULT ''")
+    if "products" in tables:
+        prod_cols = [r[1] for r in con.execute("PRAGMA table_info(products)").fetchall()]
+        for col, typ in [
+            ("tag",        "TEXT DEFAULT ''"),
+            ("prev_price", "REAL DEFAULT 0"),
+        ]:
+            if col not in prod_cols:
+                con.execute(f"ALTER TABLE products ADD COLUMN {col} {typ}")
+
+    if "orders" in tables:
+        order_cols = [r[1] for r in con.execute("PRAGMA table_info(orders)").fetchall()]
+        if "promo_code" not in order_cols:
+            con.execute("ALTER TABLE orders ADD COLUMN promo_code TEXT DEFAULT ''")
 
     con.commit(); con.close()
 
