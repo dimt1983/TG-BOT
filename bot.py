@@ -36,6 +36,8 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from admin import register_admin_handlers, notify_new_order
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
+DB_PATH = os.environ.get("DB_PATH", "/app/data/shop.db")
+os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
 bot = Bot(token=BOT_TOKEN)
 storage = MemoryStorage()
 dp = Dispatcher(storage=storage)
@@ -726,7 +728,7 @@ NESPRESSO_PRODUCTS = [
 
 
 def init_db():
-    con = sqlite3.connect("shop.db")
+    con = sqlite3.connect(DB_PATH)
     cur = con.cursor()
     cur.executescript("""
         CREATE TABLE IF NOT EXISTS categories (
@@ -927,7 +929,7 @@ def _seed_catalog(cur):
 
 
 def get_db():
-    con = sqlite3.connect("shop.db")
+    con = sqlite3.connect(DB_PATH)
     con.row_factory = sqlite3.Row
     return con
 
