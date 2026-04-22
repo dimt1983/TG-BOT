@@ -155,7 +155,7 @@ class _Handler(BaseHTTPRequestHandler):
         pass
 
 def _run_server():
-    port = int(os.environ.get("AGENT_PORT", 10001))
+    port = int(os.environ.get("PORT", os.environ.get("AGENT_PORT", 8080)))
     HTTPServer(("0.0.0.0", port), _Handler).serve_forever()
 
 threading.Thread(target=_run_server, daemon=True).start()
@@ -902,6 +902,9 @@ async def check_alerts():
 
 # ─── Запуск ───────────────────────────────────────────────────────────────────
 async def main():
+    # Удаляем вебхук и сбрасываем pending updates чтобы избежать конфликта
+    await bot.delete_webhook(drop_pending_updates=True)
+
     init_db()
     # Автоматически загружаем каталог если БД пуста
     cnt = (db_query("SELECT COUNT(*) as c FROM products") or [{"c":0}])[0]["c"]
