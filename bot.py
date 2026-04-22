@@ -727,6 +727,241 @@ NESPRESSO_PRODUCTS = [
 ]
 
 
+# ─── ЧАЙ ─────────────────────────────────────────────────────────────────────
+TEA_PRODUCTS = {
+    "ALTHAUS": [
+        ("ALTHAUS Ассам Молти Кап 15х4г", 49),
+        ("ALTHAUS Сенча Сенпай зел 15х4г", 4),
+        ("ALTHAUS Жасминовый Тинг Юань 15х4г", 2),
+        ("ALTHAUS Грюн Матинэ зел аром 15х4г", 6),
+        ("ALTHAUS Ред Фрут Фраш фрукт 15х4г", 6),
+        ("ALTHAUS Благородная Ромашка трав 15х3г", 7),
+        ("ALTHAUS Нежная Мята трав 15х3г", 3),
+        ("ALTHAUS Горные Травы чёрн 15х4г", 6),
+        ("ALTHAUS Молочный Улун зел 15х4г", 4),
+        ("ALTHAUS Ройбуш Ванильная Карамель 15х4г", 6),
+        ("ALTHAUS Ассам Меленг чёрн пакет 20х1.75г", 16),
+        ("ALTHAUS Ройал Эрл Грей чёрн аром 20х1.75г", 8),
+        ("ALTHAUS Сенча Сенпай зел пакет 20х1.75г", 10),
+        ("ALTHAUS Жасмин Тинг Юань зел аром 20х1.75г", 10),
+        ("ALTHAUS Грюн Матинэ зел аром 20х1.75г", 6),
+        ("ALTHAUS Ромашковый луг трав 20х1.75г", 12),
+        ("ALTHAUS Чистая Мята трав 20х1.75г", 9),
+        ("ALTHAUS Уайлд Бэрриз фрукт 20х2.5г", 5),
+        ("ALTHAUS Женьшеневое Равновесие трав 20х1.75г", 4),
+        ("ALTHAUS Персидское Яблоко фрукт 20х2.5г", 6),
+        ("ALTHAUS Ройбуш Ваниль пакет 20х1.75г", 5),
+        ("ALTHAUS Ассам Меленг чёрн лист 250г", 9),
+        ("ALTHAUS Молочный Улун зел лист 250г", 4),
+        ("ALTHAUS Сенча Сенпай зел лист 250г", 5),
+        ("ALTHAUS Ройбуш Ванильная Карамель лист 250г", 3),
+        ("ALTHAUS Ред Фрут Флаш фрукт лист 250г", 7),
+        ("ALTHAUS Горные Травы чёрн лист 250г", 9),
+        ("ALTHAUS Японская Липа трав 75г", 8),
+        ("ALTHAUS Лемон Минт трав 150г", 7),
+    ],
+    "NIKTEA": [
+        ("NIKTEA Кения Сапфир чёрн пакет 25х2г", 52),
+        ("NIKTEA Эрл Грей Ультрамарин чёрн аром 25х2г", 35),
+        ("NIKTEA Ориентал Блум зел пакет 25х2г", 36),
+        ("NIKTEA Молочный Улун зел аром 25х2г", 20),
+        ("NIKTEA Красная поляна пакет 25х1.75г", 14),
+        ("NIKTEA Фрут Маджента фрукт аром 25х2г", 15),
+        ("NIKTEA Ройбуш Оранж аром 25х2г", 10),
+        ("NIKTEA Горный Чабрец чёрн пакет 25х2г", 24),
+        ("NIKTEA Релакс пакет 21х1.3г", 16),
+        ("NIKTEA Энерджи зел аром 21х1.5г", 22),
+        ("NIKTEA Эрл Грей пирамидки 15х2.7г", 5),
+        ("NIKTEA Сибирский сбор пирамидки 15х2.7г", 7),
+        ("NIKTEA Молочный Улун пирамидки 15х2.7г", 11),
+        ("NIKTEA Имбирный Тропик пирамидки 15х2.7г", 11),
+        ("NIKTEA Русский Завтрак пирамидки 15х2.7г", 10),
+        ("NIKTEA Лесная Медитация трав пирамидки 15х2.7г", 13),
+        ("NIKTEA Клубничная Панна-Котта пирамидки 15х2.7г", 15),
+        ("NIKTEA Королевский Завтрак для чайника 20х4г", 14),
+        ("NIKTEA Сенча Классик зел для чайника 20х4г", 14),
+        ("NIKTEA Молочный Улун зел аром для чайника 20х4г", 3),
+        ("NIKTEA Ягодный Коктейль аром для чайника 20х4г", 2),
+    ],
+    "RBR TEA": [
+        ("RBR TEA Вишневый сад 250г", 8),
+        ("RBR TEA Габа Алишань улун 250г", 8),
+        ("RBR TEA Гречишный чай 250г", 9),
+        ("RBR TEA Екатерина Великая чёрн 250г", 6),
+        ("RBR TEA Зеленый с жасмином 250г", 12),
+        ("RBR TEA Лунный сад 250г", 6),
+        ("RBR TEA Масала чёрн индийский 250г", 3),
+        ("RBR TEA Молочный улун 250г", 2),
+        ("RBR TEA Облепиховый сбор иван-чай 250г", 5),
+        ("RBR TEA Облепиховый сбор чёрн 250г", 7),
+        ("RBR TEA Ройбуш апельсин 250г", 5),
+        ("RBR TEA Сенча 250г", 7),
+        ("RBR TEA Фруктовая смесь Банан Бамбук 250г", 8),
+        ("RBR TEA Фруктовая смесь Наглый фрукт 250г", 4),
+    ],
+    "Китайский чай": [
+        ("Китайский чай Иван-чай Теплый Вечер 200г", 13),
+        ("Китайский чай Иван-чай с ромашкой 200г", 23),
+        ("Китайский чай Зеленый с мятой 200г", 9),
+        ("Китайский чай Тропический Микс 200г", 10),
+        ("Китайский чай Улун Да Хун Пао 200г", 6),
+        ("Китайский чай Улун Молочный 200г", 5),
+        ("Китайский чай Улун Те Гуанинь 200г", 8),
+        ("Китайский чай Пуэр с чабрецом 200г", 4),
+        ("Китайский чай Черный Дянь Хун 200г", 14),
+        ("Китайский чай Черный Цейлон 200г", 6),
+        ("Китайский чай Ассам 200г", 2),
+        ("Китайский чай Матча молотый 200г", 1),
+        ("Китайский чай Зеленый Люй Чжу 200г", 10),
+    ],
+    "Restoranica": [
+        ("Restoranica TOGO Чайный Глинтвейн 30пак", 257),
+        ("Restoranica TOGO Манго с апельсином 60пак", 222),
+        ("Restoranica TOGO Медовое яблоко с имбирем 30пак", 193),
+        ("Restoranica TOGO Иван-Чай с малиной 36пак", 173),
+        ("Restoranica TOGO Малина с мятой 36пак", 154),
+        ("Restoranica TOGO Ройбуш с апельсином 60пак", 156),
+        ("Restoranica TOGO Яблоко с можжевельником 60пак", 162),
+        ("Restoranica TOGO Ассам с шиповником 36пак", 108),
+        ("Restoranica TOGO Кедровый с чагой 30пак", 121),
+        ("Restoranica TOGO Голубая Масала 36пак", 122),
+        ("Restoranica TOGO Китайский улун с земляникой 30пак", 109),
+        ("Restoranica TOGO Королевский бергамот 60пак", 125),
+        ("Restoranica TOGO Цейлон с клубникой 60пак", 106),
+        ("Restoranica TOGO Улун с жасмином 100пак", 52),
+        ("Restoranica TOGO Иммунный с облепихой 30пак", 57),
+        ("Restoranica TOGO Черный со смородиной 30пак", 145),
+        ("Restoranica TOGO Молочный улун с мандарином 60пак", 50),
+        ("Restoranica RESTA Апельсин Манго 30пак", 32),
+        ("Restoranica RESTA Апельсин Ройбуш 30пак", 37),
+        ("Restoranica RESTA Голубая масала 30пак", 45),
+        ("Restoranica RESTA Иммунный 30пак", 27),
+        ("Restoranica RESTA Кедровый с чагой 30пак", 38),
+        ("Restoranica RESTA Киви Клубника 30пак", 52),
+        ("Restoranica RESTA Лесные ягоды 30пак", 36),
+        ("Restoranica RESTA Мята Малина 30пак", 27),
+        ("Restoranica RESTA Пряный глинтвейн 30пак", 15),
+        ("Restoranica RESTA Пуэр Саган дайля 30пак", 50),
+        ("Restoranica RESTA Сладкая клубника 30пак", 39),
+        ("Restoranica RESTA Смородиновый черный 30пак", 20),
+        ("Restoranica RESTA Шиповник Чабрец 30пак", 21),
+        ("Restoranica RESTA Эрлберг 30пак", 49),
+        ("Restoranica RESTA Яблоко Можжевельник 30пак", 51),
+        ("Restoranica ICEDTEA Клубника и киви 50пак", 151),
+        ("Restoranica ICEDTEA Малиновый мохито 50пак", 135),
+        ("Restoranica ICEDTEA Манго и апельсин 50пак", 100),
+        ("Restoranica ICEDTEA Маракуйя Тропик 50пак", 123),
+        ("Restoranica ICEDTEA Спелая смородина 50пак", 186),
+    ],
+}
+
+# ─── СИРОПЫ ──────────────────────────────────────────────────────────────────
+SYRUP_PRODUCTS = {
+    "BOTANIKA": [
+        ("Сироп BOTANIKA Арбуз 1л", 12), ("Сироп BOTANIKA Бабл Гам 1л", 9),
+        ("Сироп BOTANIKA Банан Желтый 1л", 13), ("Сироп BOTANIKA Ваниль 1л", 7),
+        ("Сироп BOTANIKA Вишня 1л", 2), ("Сироп BOTANIKA Гранат 1л", 3),
+        ("Сироп BOTANIKA Грейпфрут Розовый 1л", 2), ("Сироп BOTANIKA Гренадин 1л", 2),
+        ("Сироп BOTANIKA Груша Сортовая 1л", 5), ("Сироп BOTANIKA Дыня 1л", 13),
+        ("Сироп BOTANIKA Дыня Зеленая 1л", 6), ("Сироп BOTANIKA Ежевика 1л", 8),
+        ("Сироп BOTANIKA Зеленое Яблоко 1л", 4), ("Сироп BOTANIKA Имбирный Пряник 1л", 4),
+        ("Сироп BOTANIKA Имбирь 1л", 5), ("Сироп BOTANIKA Карамель 1л", 11),
+        ("Сироп BOTANIKA Карамель Соленая 1л", 12), ("Сироп BOTANIKA Киви 1л", 5),
+        ("Сироп BOTANIKA Кленовый 1л", 3), ("Сироп BOTANIKA Клубника 1л", 2),
+        ("Сироп BOTANIKA Клюква 1л", 6), ("Сироп BOTANIKA Кокос 1л", 8),
+        ("Сироп BOTANIKA Корица 1л", 3), ("Сироп BOTANIKA Лаванда 1л", 6),
+        ("Сироп BOTANIKA Лайм 1л", 5), ("Сироп BOTANIKA Лесной Орех 1л", 4),
+        ("Сироп BOTANIKA Лимон 1л", 6), ("Сироп BOTANIKA Малина 1л", 4),
+        ("Сироп BOTANIKA Манго 1л", 6), ("Сироп BOTANIKA Мандарин 1л", 3),
+        ("Сироп BOTANIKA Мед 1л", 8), ("Сироп BOTANIKA Миндаль 1л", 7),
+        ("Сироп BOTANIKA Мохито 1л", 3), ("Сироп BOTANIKA Мята Зеленая 1л", 9),
+        ("Сироп BOTANIKA Облепиха 1л", 4), ("Сироп BOTANIKA Персик 1л", 6),
+        ("Сироп BOTANIKA Попкорн 1л", 7), ("Сироп BOTANIKA Тархун 1л", 10),
+        ("Сироп BOTANIKA Черная Смородина 1л", 3), ("Сироп BOTANIKA Шоколад 1л", 5),
+        ("Сироп BOTANIKA Амаретто 1л", 6), ("Сироп BOTANIKA Айриш Крем 1л", 6),
+        ("Сироп BOTANIKA Апельсин 1л", 4), ("Сироп BOTANIKA Арахисовое масло 1л", 4),
+    ],
+    "Herbarista": [
+        ("Сироп Herbarista Арахисовое Масло 0.7л", 6),
+        ("Сироп Herbarista Бабл Гам 0.7л", 11),
+        ("Сироп Herbarista Банан 0.7л", 8),
+        ("Сироп Herbarista Бурбонская Ваниль 0.7л", 8),
+        ("Сироп Herbarista Вишня с Виноградной косточкой 0.7л", 11),
+        ("Сироп Herbarista Груша со специями 0.7л", 6),
+        ("Сироп Herbarista Дыня 0.7л", 11),
+        ("Сироп Herbarista Ежевика с листьями 0.7л", 11),
+        ("Сироп Herbarista Имбирный пряник 0.7л", 11),
+        ("Сироп Herbarista Ирландский Крем 0.7л", 11),
+        ("Сироп Herbarista Карамель Двойного Обжига 0.7л", 9),
+        ("Сироп Herbarista Кленовый с Каштаном 0.7л", 5),
+        ("Сироп Herbarista Кокос с мякотью 0.7л", 8),
+        ("Сироп Herbarista Конопляная Халва 0.7л", 6),
+        ("Сироп Herbarista Корица 0.7л", 5),
+        ("Сироп Herbarista Красный Апельсин 0.7л", 6),
+        ("Сироп Herbarista Лаванда 0.7л", 5),
+        ("Сироп Herbarista Лайм 0.7л", 6),
+        ("Сироп Herbarista Лесной орех 0.7л", 10),
+        ("Сироп Herbarista Макадамия 0.7л", 6),
+        ("Сироп Herbarista Малина с листьями 0.7л", 9),
+        ("Сироп Herbarista Миндаль 0.7л", 6),
+        ("Сироп Herbarista Мята 0.7л", 1),
+        ("Сироп Herbarista Попкорн 0.7л", 10),
+        ("Сироп Herbarista Сгущенное молоко 0.7л", 7),
+        ("Сироп Herbarista Сливочная Ириска 0.7л", 9),
+        ("Сироп Herbarista Тропический Микс 0.7л", 5),
+        ("Сироп Herbarista Тыква 0.7л", 6),
+        ("Сироп Herbarista Фисташка 0.7л", 8),
+        ("Сироп Herbarista Черная смородина с листьями 0.7л", 11),
+        ("Сироп Herbarista Шоколадный трюфель 0.7л", 5),
+        ("Сироп Herbarista Эвкалипт и Мята 0.7л", 4),
+    ],
+    "SweetShot": [
+        ("Сироп SweetShot Амаретто 1л", 4), ("Сироп SweetShot Бабл Гам 1л", 4),
+        ("Сироп SweetShot Блю Курасао 1л", 2), ("Сироп SweetShot Ваниль 1л", 7),
+        ("Сироп SweetShot Вишня 1л", 2), ("Сироп SweetShot Гренадин 1л", 4),
+        ("Сироп SweetShot Груша 1л", 6), ("Сироп SweetShot Дыня 1л", 3),
+        ("Сироп SweetShot Желтый Банан 1л", 4), ("Сироп SweetShot Зеленая Мята 1л", 5),
+        ("Сироп SweetShot Зеленое яблоко 1л", 7), ("Сироп SweetShot Имбирный пряник 1л", 8),
+        ("Сироп SweetShot Карамель 1л", 5), ("Сироп SweetShot Кленовый 1л", 5),
+        ("Сироп SweetShot Клубника 1л", 12), ("Сироп SweetShot Кокос 1л", 8),
+        ("Сироп SweetShot Лаванда 1л", 2), ("Сироп SweetShot Лесной Орех 1л", 6),
+        ("Сироп SweetShot Личи 1л", 10), ("Сироп SweetShot Малина 1л", 10),
+        ("Сироп SweetShot Манго 1л", 8), ("Сироп SweetShot Маракуйя 1л", 5),
+        ("Сироп SweetShot Миндаль 1л", 1), ("Сироп SweetShot Мохито 1л", 4),
+        ("Сироп SweetShot Соленая Карамель 1л", 5), ("Сироп SweetShot Тархун 1л", 8),
+        ("Сироп SweetShot Фисташка 1л", 1), ("Сироп SweetShot Шоколад 1л", 3),
+    ],
+    "BARLINE": [
+        ("Сироп BARLINE Базилик 1л", 4), ("Сироп BARLINE Земляника 1л", 4),
+        ("Сироп BARLINE Макадамия 1л", 2), ("Сироп BARLINE Мандарин 1л", 3),
+        ("Сироп BARLINE Можжевельник 1л", 5), ("Сироп BARLINE Огурец 1л", 1),
+        ("Сироп BARLINE Сангрия 1л", 6), ("Сироп BARLINE Тирамису 1л", 2),
+        ("Сироп BARLINE Фундук 1л", 1), ("Топпинг BARLINE Банан 1кг", 3),
+        ("Топпинг BARLINE Ваниль 1кг", 3), ("Топпинг BARLINE Карамель 1кг", 3),
+        ("Топпинг BARLINE Лесные Ягоды 1кг", 4), ("Топпинг BARLINE Шоколад 1кг", 10),
+    ],
+    "Кордиал и другие": [
+        ("Кордиал BARBACKS Голубика Васильки Черёмуха 0.75л", 3),
+        ("Кордиал BARBACKS Роза Ревень Грейпфрут 0.75л", 1),
+        ("Кордиал CLAVIS Персик Ханибуш Лайм 0.75л", 2),
+        ("Кордиал CLAVIS Юдзу Бамбук Лемонграсс 0.75л", 2),
+        ("Сироп MONIN Розовый Грейпфрут 1л", 3),
+        ("Сироп VEDRENNE Персик 1л", 2),
+        ("Топпинг Icedream Груша 1200мл", 5),
+        ("Топпинг Icedream Персик 1200мл", 1),
+    ],
+}
+
+# ─── МОЛОКО ──────────────────────────────────────────────────────────────────
+MILK_PRODUCTS = [
+    ("Green Milk Банановый напиток соевый 1л", 101),
+    ("Green Milk Кокосовый напиток соевый 1л", 128),
+    ("Green Milk Миндальный напиток соевый 1л", 170),
+    ("Green Milk Соевый напиток 1л", 24),
+    ("Green Milk Фундучный напиток соевый 1л", 18),
+]
+
+
 def init_db():
     con = sqlite3.connect(DB_PATH)
     cur = con.cursor()
@@ -829,12 +1064,37 @@ def init_db():
 
 
 def _seed_catalog(cur):
-    """Заполняет категории и товары из CATALOG, DRIP_PRODUCTS, NESPRESSO_PRODUCTS."""
-    # Корневые категории
+    """Заполняет категории и товары из всех справочников."""
+
+    # ── Верхний уровень ──────────────────────────────────────────────────────
+    top = {}
+    for name in ["☕ Кофе", "🍵 Чай", "🍬 Сиропы", "🥛 Молоко"]:
+        cur.execute("INSERT INTO categories (name, parent_id) VALUES (?, NULL)", (name,))
+        top[name] = cur.lastrowid
+
+    # ── Подкатегории КОФЕ ────────────────────────────────────────────────────
     section_ids = {}
+    coffee_parent = top["☕ Кофе"]
     for section in ["Моносорта", "Микролоты Black Edition", "Микролоты Борщ Edition", "Смеси", "Drip", "Nespresso"]:
-        cur.execute("INSERT INTO categories (name, parent_id) VALUES (?, NULL)", (section,))
+        cur.execute("INSERT INTO categories (name, parent_id) VALUES (?, ?)", (section, coffee_parent))
         section_ids[section] = cur.lastrowid
+
+    # ── Подкатегории ЧАЯ ─────────────────────────────────────────────────────
+    tea_parent = top["🍵 Чай"]
+    tea_ids = {}
+    for brand in ["ALTHAUS", "NIKTEA", "RBR TEA", "Китайский чай", "Restoranica"]:
+        cur.execute("INSERT INTO categories (name, parent_id) VALUES (?, ?)", (brand, tea_parent))
+        tea_ids[brand] = cur.lastrowid
+
+    # ── Подкатегории СИРОПОВ ──────────────────────────────────────────────────
+    syrup_parent = top["🍬 Сиропы"]
+    syrup_ids = {}
+    for brand in ["BOTANIKA", "Herbarista", "SweetShot", "BARLINE", "Кордиал и другие"]:
+        cur.execute("INSERT INTO categories (name, parent_id) VALUES (?, ?)", (brand, syrup_parent))
+        syrup_ids[brand] = cur.lastrowid
+
+    # Молоко — товары сразу в категории без подкатегорий
+    milk_parent = top["🥛 Молоко"]
 
     # Зерновой кофе из CATALOG
     for section_name, products in CATALOG.items():
@@ -927,6 +1187,31 @@ def _seed_catalog(cur):
             p["price_unit"], nesp_parent
         ))
 
+    # ── ЧАЙ ──────────────────────────────────────────────────────────────────
+    for brand, products in TEA_PRODUCTS.items():
+        cat_id = tea_ids[brand]
+        for name, stock in products:
+            cur.execute(
+                "INSERT INTO products (name, stock, price, category_id) VALUES (?,?,0,?)",
+                (name, stock, cat_id)
+            )
+
+    # ── СИРОПЫ ───────────────────────────────────────────────────────────────
+    for brand, products in SYRUP_PRODUCTS.items():
+        cat_id = syrup_ids[brand]
+        for name, stock in products:
+            cur.execute(
+                "INSERT INTO products (name, stock, price, category_id) VALUES (?,?,0,?)",
+                (name, stock, cat_id)
+            )
+
+    # ── МОЛОКО ───────────────────────────────────────────────────────────────
+    for name, stock in MILK_PRODUCTS:
+        cur.execute(
+            "INSERT INTO products (name, stock, price, category_id) VALUES (?,?,0,?)",
+            (name, stock, milk_parent)
+        )
+
 
 def get_db():
     con = sqlite3.connect(DB_PATH)
@@ -1017,17 +1302,26 @@ user_type_keyboard = InlineKeyboardMarkup(inline_keyboard=[
 ROAST_EMOJI = {"E": "☕", "F": "🫖", "EF": "☕🫖", "BE": "☕", "BF": "🫖", "Drip": "💧", "Nespresso": "💊"}
 
 def root_categories_keyboard():
+    """Верхний уровень: Кофе, Чай, Сиропы, Молоко."""
     con = get_db()
     cats = con.execute("SELECT * FROM categories WHERE parent_id IS NULL").fetchall()
     con.close()
-    icons = {"Моносорта": "🌍", "Микролоты Black Edition": "⚫", "Микролоты Борщ Edition": "🟣",
-             "Смеси": "🎨", "Drip": "💧", "Nespresso": "💊"}
     return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(
-            text=f"{icons.get(c['name'], '☕')} {c['name']}",
-            callback_data=f"cat_{c['id']}"
-        )] for c in cats
+        [InlineKeyboardButton(text=c["name"], callback_data=f"cat_{c['id']}")]
+        for c in cats
     ])
+
+def subcategories_keyboard(parent_id):
+    """Подкатегории внутри раздела (например, бренды чая/сиропов или разделы кофе)."""
+    con = get_db()
+    parent = con.execute("SELECT * FROM categories WHERE id = ?", (parent_id,)).fetchone()
+    cats = con.execute("SELECT * FROM categories WHERE parent_id = ?", (parent_id,)).fetchall()
+    con.close()
+    buttons = [[InlineKeyboardButton(text=c["name"], callback_data=f"cat_{c['id']}")]
+               for c in cats]
+    # Кнопка назад — к верхнему уровню
+    buttons.append([InlineKeyboardButton(text="◀ Назад", callback_data="back_root")])
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 def products_keyboard(category_id):
     con = get_db()
@@ -1055,7 +1349,15 @@ def products_keyboard(category_id):
             text=f"{emoji} {base[:45]}",
             callback_data=f"product_{p['id']}"
         )])
-    buttons.append([InlineKeyboardButton(text="◀ Назад", callback_data="back_root")])
+    # Кнопка "Назад" — к подкатегориям родителя
+    con2 = get_db()
+    cat = con2.execute("SELECT parent_id FROM categories WHERE id = ?", (category_id,)).fetchone()
+    con2.close()
+    if cat and cat["parent_id"]:
+        back_cb = f"cat_{cat['parent_id']}"
+    else:
+        back_cb = "back_root"
+    buttons.append([InlineKeyboardButton(text="◀ Назад", callback_data=back_cb)])
     return InlineKeyboardMarkup(inline_keyboard=buttons), len(products)
 
 def product_card_keyboard(product_id, category_id, has_recipe_e, has_recipe_f):
@@ -1269,34 +1571,70 @@ async def catalog_handler(message: Message):
 
 @dp.callback_query(F.data == "back_root")
 async def back_root(callback: CallbackQuery):
-    await callback.message.answer("☕ *Каталог Roastberry*\n\nВыберите раздел:",
+    await callback.message.answer("🛍 *Каталог Roastberry*\n\nВыберите раздел:",
                                   parse_mode="Markdown", reply_markup=root_categories_keyboard())
     await callback.answer()
+
+CAT_DESC = {
+    "☕ Кофе": "Зерновой кофе, дрип-пакеты и капсулы Nespresso.",
+    "🍵 Чай": "Чай от ведущих брендов — ALTHAUS, NIKTEA, RBR TEA и другие.",
+    "🍬 Сиропы": "Сиропы и топпинги — BOTANIKA, Herbarista, SweetShot, BARLINE.",
+    "🥛 Молоко": "Растительное молоко Green Milk — соевое, миндальное, кокосовое.",
+    "Моносорта": "Кофе из одного региона и фермы.",
+    "Микролоты Black Edition": "⚫ Редкие партии с высоким Q-score.",
+    "Микролоты Борщ Edition": "🟣 Эксклюзивная коллекция с необычными обработками.",
+    "Смеси": "🎨 Авторские блэнды для эспрессо и фильтра.",
+    "Drip": "💧 Дрип-пакеты — кофе в дорогу без оборудования.",
+    "Nespresso": "💊 Капсулы для машин Nespresso Original.",
+    "ALTHAUS": "Немецкий бренд — классика для ресторанов и кафе.",
+    "NIKTEA": "Профессиональная чайная линейка для HoReCa.",
+    "RBR TEA": "Авторская коллекция чая от Roastberry.",
+    "Китайский чай": "Традиционные китайские чаи — пуэры, улуны, зелёные.",
+    "Restoranica": "Чай для ресторанов — TOGO, RESTA, ICEDTEA форматы.",
+    "BOTANIKA": "Сиропы 1л — широкий ассортимент для любого меню.",
+    "Herbarista": "Премиальные сиропы 0.7л с натуральными компонентами.",
+    "SweetShot": "Сиропы 1л в стеклянной бутылке.",
+    "BARLINE": "Сиропы и топпинги для баристы.",
+    "Кордиал и другие": "Кордиалы, редкие сиропы и топпинги.",
+}
 
 @dp.callback_query(F.data.startswith("cat_"))
 async def cat_handler(callback: CallbackQuery):
     cat_id = int(callback.data.split("_")[1])
     con = get_db()
     cat = con.execute("SELECT * FROM categories WHERE id = ?", (cat_id,)).fetchone()
+    # Проверяем — есть ли подкатегории
+    has_subcats = con.execute(
+        "SELECT COUNT(*) FROM categories WHERE parent_id = ?", (cat_id,)
+    ).fetchone()[0]
     con.close()
 
-    kb, count = products_keyboard(cat_id)
-    if count == 0:
-        await callback.message.answer(f"😔 В разделе «{cat['name']}» пока нет товаров в наличии.",
-                                      reply_markup=root_categories_keyboard())
-    else:
-        desc = {
-            "Моносорта": "Моносорта — кофе из одного региона и фермы.",
-            "Микролоты Black Edition": "⚫ Премиальные микролоты — редкие партии с высоким Q-score.",
-            "Микролоты Борщ Edition": "🟣 Эксклюзивная коллекция — необычные обработки и вкусовые профили.",
-            "Смеси": "🎨 Авторские купажи — сбалансированные блэнды для эспрессо и фильтра.",
-            "Drip": "💧 Дрип-пакеты — кофе в дорогу, без оборудования.",
-            "Nespresso": "💊 Капсулы Nespresso Original — для машин Nespresso.",
-        }.get(cat["name"], "")
+    if has_subcats:
+        # Показываем подкатегории
+        desc = CAT_DESC.get(cat["name"], "")
         await callback.message.answer(
-            f"*{cat['name']}*\n_{desc}_",
-            parse_mode="Markdown", reply_markup=kb
+            f"*{cat['name']}*\n_{desc}_" if desc else f"*{cat['name']}*",
+            parse_mode="Markdown",
+            reply_markup=subcategories_keyboard(cat_id)
         )
+    else:
+        # Показываем товары
+        kb, count = products_keyboard(cat_id)
+        if count == 0:
+            con2 = get_db()
+            parent = con2.execute("SELECT parent_id FROM categories WHERE id = ?", (cat_id,)).fetchone()
+            con2.close()
+            back_kb = subcategories_keyboard(parent["parent_id"]) if parent and parent["parent_id"] else root_categories_keyboard()
+            await callback.message.answer(
+                f"😔 В разделе *{cat['name']}* пока нет товаров в наличии.",
+                parse_mode="Markdown", reply_markup=back_kb
+            )
+        else:
+            desc = CAT_DESC.get(cat["name"], "")
+            await callback.message.answer(
+                f"*{cat['name']}*\n_{desc}_" if desc else f"*{cat['name']}*",
+                parse_mode="Markdown", reply_markup=kb
+            )
     await callback.answer()
 
 # ─── Карточка товара ─────────────────────────────────────────────────────────
