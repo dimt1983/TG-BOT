@@ -1773,9 +1773,25 @@ def get_products_by_cat_name(cat_name: str):
     con.close()
     return products, cat_id
 
-def build_product_list_kb(products_list: list, user_id: int) -> InlineKeyboardMarkup:
-    """Строит клавиатуру списка товаров со счётчиками корзины."""
-    # Получаем корзину пользователя
+def get_base_name(name: str) -> str:
+    """Убирает фасовку из названия."""
+    for sfx in [" 1 кг", " 200 г", " (8 шт)", " (10 шт)", " (1 шт)"]:
+        name = name.replace(sfx, "")
+    return name.strip()
+
+def get_size_label(name: str) -> str:
+    """Возвращает метку фасовки из названия."""
+    if "200 г" in name: return "200 г"
+    if "1 кг" in name: return "1 кг"
+    if "(8 шт)" in name: return "8 шт"
+    if "(10 шт)" in name: return "10 шт"
+    if "(1 шт)" in name: return "1 шт"
+    return ""
+
+def build_product_list_kb(products_list: list, user_id: int,
+                           expanded_base: str = None) -> InlineKeyboardMarkup:
+    """Строит клавиатуру списка товаров.
+    expanded_base — базовое название товара у которого раскрыты варианты фасовки."""
     con = get_db()
     cart_rows = con.execute(
         "SELECT product_id, quantity FROM cart WHERE user_id = ?", (user_id,)
@@ -1783,30 +1799,79 @@ def build_product_list_kb(products_list: list, user_id: int) -> InlineKeyboardMa
     con.close()
     cart = {r["product_id"]: r["quantity"] for r in cart_rows}
 
-    buttons = []
+    # Группируем по базовому имени — собираем все варианты фасовки
+    groups = {}  # base_name -> list of products
+    order = []
     for p in products_list:
-        pid = p["id"]
-        price_str = f" — {p['price']:.0f} ₽" if p["price"] else ""
-        name_str = p["name"]
-        for sfx in [" 1 кг", " 200 г", " (8 шт)", " (10 шт)", " (1 шт)"]:
-            name_str = name_str.replace(sfx, "")
-        qty = cart.get(pid, 0)
-        # Строка с названием товара
-        buttons.append([InlineKeyboardButton(
-            text=f"{name_str[:50]}{price_str}",
-            callback_data=f"product_{pid}"
-        )])
-        # Строка со счётчиком
-        if qty > 0:
-            buttons.append([
-                InlineKeyboardButton(text="➖", callback_data=f"qminus_{pid}"),
-                InlineKeyboardButton(text=f"🛒 {qty} шт", callback_data=f"qview_{pid}"),
-                InlineKeyboardButton(text="➕", callback_data=f"qplus_{pid}"),
-            ])
+        base = get_base_name(p["name"])
+        if base not in groups:
+            groups[base] = []
+            order.append(base)
+        groups[base].append(p)
+
+    buttons = []
+    for base in order:
+        variants = groups[base]
+        is_expanded = (base == expanded_base)
+        has_in_cart = any(cart.get(p["id"], 0) > 0 for p in variants)
+        total_qty = sum(cart.get(p["id"], 0) for p in variants)
+
+        if len(variants) == 1:
+            # Один вариант — показываем сразу со счётчиком в одну строку
+            p = variants[0]
+            pid = p["id"]
+            price_str = f" — {p['price']:.0f}₽" if p["price"] else ""
+            qty = cart.get(pid, 0)
+            if qty > 0:
+                buttons.append([
+                    InlineKeyboardButton(text=f"{base[:38]}{price_str}", callback_data=f"product_{pid}"),
+                    InlineKeyboardButton(text="➖", callback_data=f"qminus_{pid}"),
+                    InlineKeyboardButton(text=f"{qty}", callback_data=f"qview_{pid}"),
+                    InlineKeyboardButton(text="➕", callback_data=f"qplus_{pid}"),
+                ])
+            else:
+                buttons.append([
+                    InlineKeyboardButton(text=f"{base[:42]}{price_str}", callback_data=f"product_{pid}"),
+                    InlineKeyboardButton(text="➕", callback_data=f"qplus_{pid}"),
+                ])
         else:
-            buttons.append([
-                InlineKeyboardButton(text="➕ В корзину", callback_data=f"qplus_{pid}"),
-            ])
+            # Несколько вариантов фасовки
+            if is_expanded:
+                # Раскрытое состояние — показываем все варианты + кнопку свернуть
+                buttons.append([
+                    InlineKeyboardButton(
+                        text=f"▼ {base[:45]}" + (f" 🛒{total_qty}" if total_qty > 0 else ""),
+                        callback_data=f"collapse_{base[:40]}"
+                    )
+                ])
+                for p in variants:
+                    pid = p["id"]
+                    size = get_size_label(p["name"])
+                    price_str = f" — {p['price']:.0f}₽" if p["price"] else ""
+                    qty = cart.get(pid, 0)
+                    label = f"  {size}{price_str}" if size else f"  {p['name'][:30]}{price_str}"
+                    if qty > 0:
+                        buttons.append([
+                            InlineKeyboardButton(text=label, callback_data=f"product_{pid}"),
+                            InlineKeyboardButton(text="➖", callback_data=f"qminus_{pid}"),
+                            InlineKeyboardButton(text=f"{qty}", callback_data=f"qview_{pid}"),
+                            InlineKeyboardButton(text="➕", callback_data=f"qplus_{pid}"),
+                        ])
+                    else:
+                        buttons.append([
+                            InlineKeyboardButton(text=label, callback_data=f"product_{pid}"),
+                            InlineKeyboardButton(text="➕", callback_data=f"qplus_{pid}"),
+                        ])
+            else:
+                # Свёрнутое состояние — одна кнопка с названием
+                cart_info = f" 🛒{total_qty}" if total_qty > 0 else " ›"
+                buttons.append([
+                    InlineKeyboardButton(
+                        text=f"{base[:48]}{cart_info}",
+                        callback_data=f"expand_{base[:40]}"
+                    )
+                ])
+
     return InlineKeyboardMarkup(inline_keyboard=buttons[:80])
 
 
@@ -2304,21 +2369,32 @@ async def qminus_handler(callback: CallbackQuery):
 async def qview_handler(callback: CallbackQuery):
     await callback.answer("🛒 Нажмите «Корзина» чтобы посмотреть весь заказ")
 
+@dp.callback_query(F.data.startswith("expand_"))
+async def expand_handler(callback: CallbackQuery):
+    """Раскрывает варианты фасовки для товара."""
+    base_name = callback.data[7:]  # убираем "expand_"
+    await _rebuild_list_with_expanded(callback, base_name)
+    await callback.answer()
 
-async def _refresh_product_list_kb(callback: CallbackQuery, product_id: int, user_id: int):
-    """Перестраивает клавиатуру списка товаров после изменения корзины."""
+@dp.callback_query(F.data.startswith("collapse_"))
+async def collapse_handler(callback: CallbackQuery):
+    """Сворачивает варианты фасовки."""
+    await _rebuild_list_with_expanded(callback, None)
+    await callback.answer()
+
+async def _rebuild_list_with_expanded(callback: CallbackQuery, expanded_base):
+    """Перестраивает список с нужным раскрытым товаром."""
     try:
-        # Получаем текущую клавиатуру и восстанавливаем список товаров из неё
         current_kb = callback.message.reply_markup
         if not current_kb:
             return
-        # Собираем product_id из текущих кнопок
+        # Собираем все product_id из текущей клавиатуры
         pids = []
         seen_pids = set()
         for row in current_kb.inline_keyboard:
             for btn in row:
                 if btn.callback_data:
-                    for prefix in ["qplus_", "qminus_", "qview_", "product_"]:
+                    for prefix in ["qplus_","qminus_","qview_","product_"]:
                         if btn.callback_data.startswith(prefix):
                             try:
                                 pid = int(btn.callback_data.split("_")[1])
@@ -2330,7 +2406,6 @@ async def _refresh_product_list_kb(callback: CallbackQuery, product_id: int, use
                             break
         if not pids:
             return
-        # Загружаем товары из БД
         con = get_db()
         products_list = []
         for pid in pids:
@@ -2338,10 +2413,50 @@ async def _refresh_product_list_kb(callback: CallbackQuery, product_id: int, use
             if row:
                 products_list.append(row)
         con.close()
-        new_kb = build_product_list_kb(products_list, user_id)
+        new_kb = build_product_list_kb(products_list, callback.from_user.id, expanded_base)
         await callback.message.edit_reply_markup(reply_markup=new_kb)
     except Exception:
-        pass  # Если редактирование не удалось — не страшно
+        pass
+
+
+async def _refresh_product_list_kb(callback: CallbackQuery, product_id: int, user_id: int):
+    """Перестраивает клавиатуру списка товаров после изменения корзины."""
+    try:
+        current_kb = callback.message.reply_markup
+        if not current_kb:
+            return
+        pids = []
+        seen_pids = set()
+        expanded_base = None
+        # Определяем текущий раскрытый товар (строка с ▼)
+        for row in current_kb.inline_keyboard:
+            for btn in row:
+                if btn.callback_data and btn.callback_data.startswith("collapse_"):
+                    expanded_base = btn.callback_data[9:]
+                if btn.callback_data:
+                    for prefix in ["qplus_","qminus_","qview_","product_"]:
+                        if btn.callback_data.startswith(prefix):
+                            try:
+                                pid = int(btn.callback_data.split("_")[1])
+                                if pid not in seen_pids:
+                                    seen_pids.add(pid)
+                                    pids.append(pid)
+                            except Exception:
+                                pass
+                            break
+        if not pids:
+            return
+        con = get_db()
+        products_list = []
+        for pid in pids:
+            row = con.execute("SELECT * FROM products WHERE id=?", (pid,)).fetchone()
+            if row:
+                products_list.append(row)
+        con.close()
+        new_kb = build_product_list_kb(products_list, user_id, expanded_base)
+        await callback.message.edit_reply_markup(reply_markup=new_kb)
+    except Exception:
+        pass
 
 
 @dp.message(F.text == "🛒 Корзина")
