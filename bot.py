@@ -1813,7 +1813,6 @@ def build_product_list_kb(products_list: list, user_id: int,
     for base in order:
         variants = groups[base]
         is_expanded = (base == expanded_base)
-        has_in_cart = any(cart.get(p["id"], 0) > 0 for p in variants)
         total_qty = sum(cart.get(p["id"], 0) for p in variants)
 
         if len(variants) == 1:
@@ -1824,23 +1823,24 @@ def build_product_list_kb(products_list: list, user_id: int,
             qty = cart.get(pid, 0)
             if qty > 0:
                 buttons.append([
-                    InlineKeyboardButton(text=f"{base[:38]}{price_str}", callback_data=f"product_{pid}"),
-                    InlineKeyboardButton(text="➖", callback_data=f"qminus_{pid}"),
-                    InlineKeyboardButton(text=f"{qty}", callback_data=f"qview_{pid}"),
-                    InlineKeyboardButton(text="➕", callback_data=f"qplus_{pid}"),
+                    InlineKeyboardButton(text=f"{base[:36]}{price_str}", callback_data=f"product_{pid}"),
+                    InlineKeyboardButton(text="[ - ]", callback_data=f"qminus_{pid}"),
+                    InlineKeyboardButton(text=f" {qty} ", callback_data=f"qview_{pid}"),
+                    InlineKeyboardButton(text="[ + ]", callback_data=f"qplus_{pid}"),
                 ])
             else:
                 buttons.append([
-                    InlineKeyboardButton(text=f"{base[:42]}{price_str}", callback_data=f"product_{pid}"),
-                    InlineKeyboardButton(text="➕", callback_data=f"qplus_{pid}"),
+                    InlineKeyboardButton(text=f"{base[:40]}{price_str}", callback_data=f"product_{pid}"),
+                    InlineKeyboardButton(text="[ + ]", callback_data=f"qplus_{pid}"),
                 ])
         else:
             # Несколько вариантов фасовки
             if is_expanded:
-                # Раскрытое состояние — показываем все варианты + кнопку свернуть
+                # Раскрытое состояние
+                cart_str = f" [{total_qty} шт]" if total_qty > 0 else ""
                 buttons.append([
                     InlineKeyboardButton(
-                        text=f"▼ {base[:45]}" + (f" 🛒{total_qty}" if total_qty > 0 else ""),
+                        text=f"▼ {base[:42]}{cart_str}",
                         callback_data=f"collapse_{base[:40]}"
                     )
                 ])
@@ -1849,25 +1849,25 @@ def build_product_list_kb(products_list: list, user_id: int,
                     size = get_size_label(p["name"])
                     price_str = f" — {p['price']:.0f}₽" if p["price"] else ""
                     qty = cart.get(pid, 0)
-                    label = f"  {size}{price_str}" if size else f"  {p['name'][:30]}{price_str}"
+                    label = f"  {size}{price_str}" if size else f"  {p['name'][:28]}{price_str}"
                     if qty > 0:
                         buttons.append([
                             InlineKeyboardButton(text=label, callback_data=f"product_{pid}"),
-                            InlineKeyboardButton(text="➖", callback_data=f"qminus_{pid}"),
-                            InlineKeyboardButton(text=f"{qty}", callback_data=f"qview_{pid}"),
-                            InlineKeyboardButton(text="➕", callback_data=f"qplus_{pid}"),
+                            InlineKeyboardButton(text="[ - ]", callback_data=f"qminus_{pid}"),
+                            InlineKeyboardButton(text=f" {qty} ", callback_data=f"qview_{pid}"),
+                            InlineKeyboardButton(text="[ + ]", callback_data=f"qplus_{pid}"),
                         ])
                     else:
                         buttons.append([
                             InlineKeyboardButton(text=label, callback_data=f"product_{pid}"),
-                            InlineKeyboardButton(text="➕", callback_data=f"qplus_{pid}"),
+                            InlineKeyboardButton(text="[ + ]", callback_data=f"qplus_{pid}"),
                         ])
             else:
-                # Свёрнутое состояние — одна кнопка с названием
-                cart_info = f" 🛒{total_qty}" if total_qty > 0 else " ›"
+                # Свёрнутое состояние
+                cart_str = f" [{total_qty} шт]" if total_qty > 0 else " ›"
                 buttons.append([
                     InlineKeyboardButton(
-                        text=f"{base[:48]}{cart_info}",
+                        text=f"{base[:46]}{cart_str}",
                         callback_data=f"expand_{base[:40]}"
                     )
                 ])
@@ -1950,12 +1950,9 @@ async def nav_top(message: Message, state: FSMContext):
         if not products:
             await message.answer("😔 Молоко временно недоступно.", reply_markup=main_keyboard)
             return
-        buttons = [[InlineKeyboardButton(
-            text=p["name"], callback_data=f"product_{p['id']}"
-        )] for p in products]
-        buttons.append([InlineKeyboardButton(text="◀ Назад", callback_data="nav_back_top")])
-        await message.answer("🥛 *Молоко Green Milk:*", parse_mode="Markdown",
-                             reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+        kb = build_product_list_kb(list(products), message.from_user.id)
+        await message.answer("🥛 *Молоко Green Milk:*", parse_mode="Markdown", reply_markup=kb)
+        await message.answer("Нажмите [ + ] чтобы добавить в корзину:", reply_markup=main_keyboard)
 
 # ─── Шаг 3: выбор подраздела (бренд чая / раздел кофе) ──────────────────────
 @dp.message(NavStates.in_section)
@@ -2037,7 +2034,6 @@ async def nav_subsection(message: Message, state: FSMContext):
         }
         if text in roast_map:
             roast_code = roast_map[text]
-            # Ищем товары в категории Моносорта с нужным типом обжарки
             con = get_db()
             cat = con.execute("SELECT id FROM categories WHERE name = ?", ("Моносорта",)).fetchone()
             if cat:
@@ -2053,22 +2049,14 @@ async def nav_subsection(message: Message, state: FSMContext):
                 await message.answer(f"😔 Нет товаров для обжарки {text}",
                                      reply_markup=roast_kb)
                 return
-            seen = {}
-            for p in prods:
-                base = p["name"].replace(" 1 кг","").replace(" 200 г","")
-                if base not in seen:
-                    seen[base] = p
-            buttons = [[InlineKeyboardButton(
-                text=f"{base[:50]} — {p['price']:.0f} ₽" if p["price"] else base[:50],
-                callback_data=f"product_{p['id']}"
-            )] for base, p in seen.items()]
             await state.clear()
+            kb = build_product_list_kb(list(prods), message.from_user.id)
             await message.answer(
-                f"*Моносорта {text}* — {len(seen)} позиций:",
+                f"*Моносорта {text}* — {len(prods)} позиций:",
                 parse_mode="Markdown",
-                reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
+                reply_markup=kb
             )
-            await message.answer("Выберите товар ☝️", reply_markup=main_keyboard)
+            await message.answer("Нажмите [ + ] чтобы добавить в корзину:", reply_markup=main_keyboard)
         return
 
     if brand == "Смеси":
@@ -2092,22 +2080,14 @@ async def nav_subsection(message: Message, state: FSMContext):
             if not prods:
                 await message.answer(f"😔 Нет товаров для {text}", reply_markup=blend_kb)
                 return
-            seen = {}
-            for p in prods:
-                base = p["name"].replace(" 1 кг","").replace(" 200 г","")
-                if base not in seen:
-                    seen[base] = p
-            buttons = [[InlineKeyboardButton(
-                text=f"{base[:50]} — {p['price']:.0f} ₽" if p["price"] else base[:50],
-                callback_data=f"product_{p['id']}"
-            )] for base, p in seen.items()]
             await state.clear()
+            kb = build_product_list_kb(list(prods), message.from_user.id)
             await message.answer(
-                f"*Смеси {text}* — {len(seen)} позиций:",
+                f"*Смеси {text}* — {len(prods)} позиций:",
                 parse_mode="Markdown",
-                reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
+                reply_markup=kb
             )
-            await message.answer("Выберите товар ☝️", reply_markup=main_keyboard)
+            await message.answer("Нажмите [ + ] чтобы добавить в корзину:", reply_markup=main_keyboard)
         return
 
     # ── Формат чая ────────────────────────────────────────────────────────────
@@ -2150,14 +2130,20 @@ async def cat_handler(callback: CallbackQuery, state: FSMContext):
         await callback.message.answer(f"*{cat['name']}*", parse_mode="Markdown",
                                       reply_markup=subcategories_keyboard(cat_id))
     else:
-        kb, count = products_keyboard(cat_id)
-        if count == 0:
+        con2 = get_db()
+        prods = con2.execute(
+            "SELECT * FROM products WHERE category_id = ? AND stock > 0 ORDER BY name",
+            (cat_id,)
+        ).fetchall()
+        con2.close()
+        if not prods:
             await callback.message.answer(
                 f"😔 В разделе *{cat['name']}* пока нет товаров.",
                 parse_mode="Markdown", reply_markup=main_keyboard)
         else:
-            await callback.message.answer(f"*{cat['name']}*", parse_mode="Markdown",
-                                          reply_markup=kb)
+            kb = build_product_list_kb(list(prods), callback.from_user.id)
+            await callback.message.answer(f"*{cat['name']}*", parse_mode="Markdown", reply_markup=kb)
+            await callback.message.answer("Нажмите [ + ] чтобы добавить в корзину:", reply_markup=main_keyboard)
     await callback.answer()
 
 # ─── Карточка товара ─────────────────────────────────────────────────────────
