@@ -1773,17 +1773,52 @@ def get_products_by_cat_name(cat_name: str):
     con.close()
     return products, cat_id
 
+def build_product_list_kb(products_list: list, user_id: int) -> InlineKeyboardMarkup:
+    """Строит клавиатуру списка товаров со счётчиками корзины."""
+    # Получаем корзину пользователя
+    con = get_db()
+    cart_rows = con.execute(
+        "SELECT product_id, quantity FROM cart WHERE user_id = ?", (user_id,)
+    ).fetchall()
+    con.close()
+    cart = {r["product_id"]: r["quantity"] for r in cart_rows}
+
+    buttons = []
+    for p in products_list:
+        pid = p["id"]
+        price_str = f" — {p['price']:.0f} ₽" if p["price"] else ""
+        name_str = p["name"]
+        for sfx in [" 1 кг", " 200 г", " (8 шт)", " (10 шт)", " (1 шт)"]:
+            name_str = name_str.replace(sfx, "")
+        qty = cart.get(pid, 0)
+        # Строка с названием товара
+        buttons.append([InlineKeyboardButton(
+            text=f"{name_str[:50]}{price_str}",
+            callback_data=f"product_{pid}"
+        )])
+        # Строка со счётчиком
+        if qty > 0:
+            buttons.append([
+                InlineKeyboardButton(text="➖", callback_data=f"qminus_{pid}"),
+                InlineKeyboardButton(text=f"🛒 {qty} шт", callback_data=f"qview_{pid}"),
+                InlineKeyboardButton(text="➕", callback_data=f"qplus_{pid}"),
+            ])
+        else:
+            buttons.append([
+                InlineKeyboardButton(text="➕ В корзину", callback_data=f"qplus_{pid}"),
+            ])
+    return InlineKeyboardMarkup(inline_keyboard=buttons[:80])
+
+
 async def show_products_for_cat(message: Message, cat_name: str, back_kb, state: FSMContext):
-    """Показывает инлайн-список товаров для финальной категории.
-    Для чая ищет по имени вида 'ALTHAUS — Пакетированный'.
-    Для кофе/сиропов ищет по прямому имени категории."""
+    """Показывает инлайн-список товаров для финальной категории со счётчиками."""
     products, cat_id = get_products_by_cat_name(cat_name)
     if not products:
         await message.answer(f"😔 В разделе *{cat_name}* пока нет товаров в наличии.",
                              parse_mode="Markdown", reply_markup=back_kb)
         return
 
-    # Группируем по базовому названию (убираем фасовку из имени)
+    # Дедупликация по базовому имени
     seen = {}
     for p in products:
         base = p["name"]
@@ -1791,24 +1826,17 @@ async def show_products_for_cat(message: Message, cat_name: str, back_kb, state:
             base = base.replace(sfx, "")
         if base not in seen:
             seen[base] = p
+    products_list = list(seen.values())[:40]
 
-    buttons = []
-    for base, p in seen.items():
-        price_str = f" — {p['price']:.0f} ₽" if p["price"] else ""
-        buttons.append([InlineKeyboardButton(
-            text=f"{base[:52]}{price_str}",
-            callback_data=f"product_{p['id']}"
-        )])
-
-    display = buttons[:40]
     section_label = cat_name.split(" — ")[-1] if " — " in cat_name else cat_name
+    kb = build_product_list_kb(products_list, message.from_user.id)
     await message.answer(
-        f"*{section_label}* — {len(seen)} позиций:",
+        f"*{section_label}* — {len(products_list)} позиций:",
         parse_mode="Markdown",
-        reply_markup=InlineKeyboardMarkup(inline_keyboard=display)
+        reply_markup=kb
     )
     await state.clear()
-    await message.answer("Выберите товар из списка выше ☝️ или вернитесь назад:",
+    await message.answer("Нажмите ➕ чтобы добавить в корзину:",
                          reply_markup=main_keyboard)
 
 # ─── Шаг 1: вход в каталог ───────────────────────────────────────────────────
@@ -2221,6 +2249,100 @@ async def add_to_cart(callback: CallbackQuery):
                     (user_id, product_id))
     con.commit(); con.close()
     await callback.answer(f"✅ «{p['name'][:30]}» добавлен в корзину!")
+
+# ─── Счётчик товаров в списке ────────────────────────────────────────────────
+@dp.callback_query(F.data.startswith("qplus_"))
+async def qplus_handler(callback: CallbackQuery):
+    product_id = int(callback.data.split("_")[1])
+    user_id = callback.from_user.id
+    con = get_db()
+    p = con.execute("SELECT * FROM products WHERE id = ?", (product_id,)).fetchone()
+    if not p or p["stock"] <= 0:
+        con.close()
+        await callback.answer("😔 Нет в наличии", show_alert=True)
+        return
+    existing = con.execute(
+        "SELECT id, quantity FROM cart WHERE user_id=? AND product_id=?",
+        (user_id, product_id)
+    ).fetchone()
+    if existing:
+        con.execute("UPDATE cart SET quantity=quantity+1 WHERE id=?", (existing["id"],))
+    else:
+        con.execute("INSERT INTO cart (user_id, product_id, quantity) VALUES (?,?,1)",
+                    (user_id, product_id))
+    con.commit()
+    qty = con.execute(
+        "SELECT quantity FROM cart WHERE user_id=? AND product_id=?",
+        (user_id, product_id)
+    ).fetchone()["quantity"]
+    con.close()
+    # Обновляем клавиатуру — перестраиваем текущую
+    await _refresh_product_list_kb(callback, product_id, user_id)
+    await callback.answer(f"✅ {qty} шт в корзине")
+
+
+@dp.callback_query(F.data.startswith("qminus_"))
+async def qminus_handler(callback: CallbackQuery):
+    product_id = int(callback.data.split("_")[1])
+    user_id = callback.from_user.id
+    con = get_db()
+    existing = con.execute(
+        "SELECT id, quantity FROM cart WHERE user_id=? AND product_id=?",
+        (user_id, product_id)
+    ).fetchone()
+    if existing:
+        if existing["quantity"] > 1:
+            con.execute("UPDATE cart SET quantity=quantity-1 WHERE id=?", (existing["id"],))
+        else:
+            con.execute("DELETE FROM cart WHERE id=?", (existing["id"],))
+    con.commit(); con.close()
+    await _refresh_product_list_kb(callback, product_id, user_id)
+    await callback.answer("Убрано из корзины")
+
+
+@dp.callback_query(F.data.startswith("qview_"))
+async def qview_handler(callback: CallbackQuery):
+    await callback.answer("🛒 Нажмите «Корзина» чтобы посмотреть весь заказ")
+
+
+async def _refresh_product_list_kb(callback: CallbackQuery, product_id: int, user_id: int):
+    """Перестраивает клавиатуру списка товаров после изменения корзины."""
+    try:
+        # Получаем текущую клавиатуру и восстанавливаем список товаров из неё
+        current_kb = callback.message.reply_markup
+        if not current_kb:
+            return
+        # Собираем product_id из текущих кнопок
+        pids = []
+        seen_pids = set()
+        for row in current_kb.inline_keyboard:
+            for btn in row:
+                if btn.callback_data:
+                    for prefix in ["qplus_", "qminus_", "qview_", "product_"]:
+                        if btn.callback_data.startswith(prefix):
+                            try:
+                                pid = int(btn.callback_data.split("_")[1])
+                                if pid not in seen_pids:
+                                    seen_pids.add(pid)
+                                    pids.append(pid)
+                            except Exception:
+                                pass
+                            break
+        if not pids:
+            return
+        # Загружаем товары из БД
+        con = get_db()
+        products_list = []
+        for pid in pids:
+            row = con.execute("SELECT * FROM products WHERE id=?", (pid,)).fetchone()
+            if row:
+                products_list.append(row)
+        con.close()
+        new_kb = build_product_list_kb(products_list, user_id)
+        await callback.message.edit_reply_markup(reply_markup=new_kb)
+    except Exception:
+        pass  # Если редактирование не удалось — не страшно
+
 
 @dp.message(F.text == "🛒 Корзина")
 async def cart_btn(message: Message):
