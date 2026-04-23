@@ -66,6 +66,10 @@ async def handle_request(reader, writer):
             body = json.dumps(_get_orders(), ensure_ascii=False).encode("utf-8")
             status = "200 OK"
             ctype = "application/json"
+        elif path == "/health":
+            body = json.dumps({"status":"ok","products":_count_products()}, ensure_ascii=False).encode("utf-8")
+            status = "200 OK"
+            ctype = "application/json"
         else:
             body = b"Not Found"
             status = "404 Not Found"
@@ -85,6 +89,14 @@ async def handle_request(reader, writer):
         pass
     finally:
         writer.close()
+
+def _count_products():
+    try:
+        r = db_query("SELECT COUNT(*) as c FROM products")
+        return r[0]["c"] if r else 0
+    except Exception:
+        return 0
+
 
 def _get_stats():
     week_ago = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
@@ -857,6 +869,53 @@ async def cmd_initdb(message: Message):
         parse_mode="Markdown"
     )
 
+async def sync_loop():
+    """Синхронизация с основным ботом каждые 5 минут."""
+    main_api = os.environ.get("MAIN_BOT_API", "")
+    if not main_api:
+        print("MAIN_BOT_API not set, sync disabled")
+        return
+    while True:
+        await asyncio.sleep(300)  # каждые 5 минут
+        try:
+            async with aiohttp.ClientSession() as s:
+                r = await s.get(main_api + "/sync", timeout=aiohttp.ClientTimeout(total=10))
+                if r.status == 200:
+                    data = await r.json()
+                    con = get_db()
+                    # Синхронизируем заказы
+                    for o in data.get("orders", []):
+                        con.execute(
+                            "INSERT OR REPLACE INTO orders "
+                            "(id,user_id,name,phone,address,total,discount,status,created_at) "
+                            "VALUES (?,?,?,?,?,?,?,?,?)",
+                            (o["id"],o.get("user_id",0),o.get("name",""),o.get("phone",""),
+                             o.get("address",""),o.get("total",0),o.get("discount",0),
+                             o.get("status","new"),o.get("created_at",""))
+                        )
+                    # Синхронизируем клиентов
+                    for u in data.get("users", []):
+                        con.execute(
+                            "INSERT OR REPLACE INTO users "
+                            "(user_id,tg_name,user_type,name,phone,company_name,created_at) "
+                            "VALUES (?,?,?,?,?,?,?)",
+                            (u["user_id"],u.get("tg_name",""),u.get("user_type","individual"),
+                             u.get("name",""),u.get("phone",""),u.get("company_name",""),
+                             u.get("created_at",""))
+                        )
+                    # Синхронизируем товары (остатки и цены)
+                    for p in data.get("products", []):
+                        con.execute(
+                            "UPDATE products SET stock=?, price=? WHERE name=?",
+                            (p.get("stock",0), p.get("price",0), p.get("name",""))
+                        )
+                    con.commit()
+                    con.close()
+                    print(f"Sync OK: {len(data.get('orders',[]))} orders, {len(data.get('users',[]))} users")
+        except Exception as e:
+            print(f"Sync error: {e}")
+
+
 async def check_alerts():
     while True:
         await asyncio.sleep(3600)
@@ -912,9 +971,17 @@ async def main():
         con.commit()
         con.close()
 
-    # Запускаем Telegram бота — если упадёт, HTTP сервер продолжит работать
-    print("HTTP server running, Telegram disabled temporarily")
-    # Держим HTTP сервер живым
+    # Запускаем Telegram бота параллельно с HTTP сервером
+    print(f"HTTP server started, launching Telegram bot...")
+    asyncio.create_task(check_alerts())
+    asyncio.create_task(sync_loop())
+
+    try:
+        await dp.start_polling(bot, drop_pending_updates=True)
+    except Exception as e:
+        print(f"Bot polling error: {e}")
+
+    # Если бот упал — держим HTTP живым
     async with server:
         await server.serve_forever()
 

@@ -1303,6 +1303,66 @@ def get_user(user_id: int):
     con.close()
     return u
 
+def get_user_price(user_id: int, product_id: int, base_price: float,
+                   category_name: str = "") -> tuple:
+    """Возвращает (цена, скидка_пцт, тип) для конкретного клиента и товара.
+
+    Приоритет:
+    1. Индивид. цена на товар
+    2. Персональная скидка на категорию
+    3. Персональная скидка на весь ассортимент (ALL)
+    4. Базовая цена без изменений
+    """
+    con = get_db()
+
+    # 1. Индивид. цена на товар
+    up = con.execute(
+        "SELECT price FROM user_prices WHERE user_id = ? AND product_id = ?",
+        (user_id, product_id)
+    ).fetchone()
+    if up:
+        con.close()
+        return up["price"], 0.0, "individual"
+
+    # 2. Скидка на категорию
+    if category_name:
+        ud_cat = con.execute(
+            "SELECT discount_pct FROM user_discounts WHERE user_id = ? AND category = ?",
+            (user_id, category_name)
+        ).fetchone()
+        if ud_cat:
+            pct = ud_cat["discount_pct"] / 100
+            con.close()
+            return round(base_price * (1 - pct)), pct, "category"
+
+    # 3. Скидка на всё
+    ud_all = con.execute(
+        "SELECT discount_pct FROM user_discounts WHERE user_id = ? AND category = 'ALL'",
+        (user_id,)
+    ).fetchone()
+    if ud_all:
+        pct = ud_all["discount_pct"] / 100
+        con.close()
+        return round(base_price * (1 - pct)), pct, "all"
+
+    con.close()
+    return base_price, 0.0, "base"
+
+def get_category_top_name(category_id: int) -> str:
+    """Возвращает имя корневой категории товара (Кофе/Чай/Сиропы/Молоко)."""
+    con = get_db()
+    cat = con.execute("SELECT name, parent_id FROM categories WHERE id = ?", (category_id,)).fetchone()
+    if not cat:
+        con.close(); return ""
+    if cat["parent_id"] is None:
+        con.close(); return cat["name"]
+    # Идём вверх по иерархии
+    parent = con.execute("SELECT name, parent_id FROM categories WHERE id = ?", (cat["parent_id"],)).fetchone()
+    con.close()
+    if parent and parent["parent_id"] is None:
+        return parent["name"]
+    return cat["name"]
+
 def save_user_individual(user_id, tg_name, name, phone):
     con = get_db()
     con.execute("""
@@ -1337,13 +1397,13 @@ def update_user_address(user_id, address):
 def calc_cart_totals(user_id: int):
     """
     Возвращает (items, subtotal, discount_pct, discount_amt, total, total_kg)
-    Для Drip/Nespresso вес не учитывается в кг (они не кг-товары).
+    Учитывает индивидуальные цены и персональные скидки клиента.
     Для зерна weight_g=1000 → 1 кг, weight_g=200 → 0.2 кг.
     """
     con = get_db()
     items = con.execute("""
         SELECT c.id as cart_id, c.quantity, p.id as product_id,
-               p.name, p.price, p.weight_g, p.roast_type
+               p.name, p.price, p.weight_g, p.roast_type, p.category_id
         FROM cart c JOIN products p ON c.product_id = p.id
         WHERE c.user_id = ?
     """, (user_id,)).fetchall()
@@ -1351,16 +1411,36 @@ def calc_cart_totals(user_id: int):
 
     subtotal = 0.0
     total_kg = 0.0
+    items_with_price = []
+
     for it in items:
-        subtotal += it["price"] * it["quantity"]
-        # Считаем вес только для зернового кофе (не Drip/Nespresso)
+        cat_name = get_category_top_name(it["category_id"])
+        user_price, disc_pct_item, price_type = get_user_price(
+            user_id, it["product_id"], it["price"], cat_name
+        )
+        subtotal += user_price * it["quantity"]
         if it["roast_type"] not in ("Drip", "Nespresso"):
             total_kg += (it["weight_g"] / 1000.0) * it["quantity"]
+        # Сохраняем эффективную цену для показа в корзине
+        items_with_price.append({
+            **dict(it),
+            "effective_price": user_price,
+            "price_type": price_type,
+        })
 
-    disc_pct = get_discount(total_kg)
+    # Объёмная скидка — только если у клиента нет персональных скидок/цен
+    has_personal = any(
+        it.get("price_type", "base") != "base"
+        for it in items_with_price
+    )
+    if has_personal:
+        # Персональные цены — объёмная скидка не применяется
+        disc_pct = 0.0
+    else:
+        disc_pct = get_discount(total_kg)
     discount_amt = subtotal * disc_pct
     total = subtotal - discount_amt
-    return items, subtotal, disc_pct, discount_amt, total, total_kg
+    return items_with_price, subtotal, disc_pct, discount_amt, total, total_kg, has_personal
 
 # ─── Клавиатуры ──────────────────────────────────────────────────────────────
 main_keyboard = ReplyKeyboardMarkup(
@@ -2050,7 +2130,17 @@ async def product_handler(callback: CallbackQuery):
     if process and roast_type not in ("Drip", "Nespresso", ""):
         text += f"⚙️ Обработка: {process}\n"
     text += f"📦 Фасовка: {weight_str}\n"
-    text += f"💰 Цена: *{price:.0f} ₽*" if price else f"💰 Цена: уточняйте"
+    # Персональная цена
+    user_price, disc_pct, price_type = get_user_price(
+        user_id, product_id, price,
+        get_category_top_name(p["category_id"])
+    )
+    if price_type == "individual":
+        text += f"💰 Ваша цена: *{user_price:.0f} ₽* 🏷"
+    elif price_type in ("category", "all"):
+        text += f"💰 Цена: ~~{price:.0f}~~ *{user_price:.0f} ₽* (-{int(disc_pct*100)}%)"
+    else:
+        text += f"💰 Цена: *{price:.0f} ₽*" if price else "💰 Цена: уточняйте"
     if stock == 0:
         text += "\n\n❌ *Нет в наличии*"
     elif stock <= 5:
@@ -2137,17 +2227,26 @@ async def cart_btn(message: Message):
     await show_cart(message, message.from_user.id)
 
 async def show_cart(message: Message, user_id: int):
-    items, subtotal, disc_pct, discount_amt, total, total_kg = calc_cart_totals(user_id)
+    items, subtotal, disc_pct, discount_amt, total, total_kg, has_personal = calc_cart_totals(user_id)
     if not items:
         await message.answer("🛒 Ваша корзина пуста."); return
 
     lines = ["🛒 *Ваша корзина:*\n"]
     for it in items:
-        unit = _variant_label(it) if False else ""
-        lines.append(f"• {it['name'][:40]}\n  {it['quantity']} × {it['price']:.0f} ₽ = {it['price']*it['quantity']:.0f} ₽")
+        ep = it.get("effective_price", it["price"])
+        pt = it.get("price_type", "base")
+        price_label = f"{ep:.0f} ₽"
+        if pt == "individual":
+            price_label += " 🏷"
+        elif pt in ("category", "all"):
+            price_label += " 🎁"
+        lines.append(f"• {it['name'][:40]}\n  {it['quantity']} × {price_label} = {ep*it['quantity']:.0f} ₽")
 
     lines.append(f"\n💰 Сумма: {subtotal:.0f} ₽")
-    if disc_pct > 0:
+    if has_personal:
+        lines.append(f"\n🏷 Применены персональные цены")
+        lines.append(f"💰 *Итого: {total:.0f} ₽*")
+    elif disc_pct > 0:
         lines.append(f"📦 Зерно в корзине: {total_kg:.1f} кг")
         lines.append(f"🎁 Скидка {int(disc_pct*100)}%: −{discount_amt:.0f} ₽")
         lines.append(f"✅ *Итого: {total:.0f} ₽*")
@@ -2251,19 +2350,20 @@ async def order_address(message: Message, state: FSMContext):
 
 async def create_order(message: Message, user_id: int, state: FSMContext):
     data = await state.get_data()
-    items, subtotal, disc_pct, discount_amt, total, total_kg = calc_cart_totals(user_id)
+    items, subtotal, disc_pct, discount_amt, total, total_kg, has_personal = calc_cart_totals(user_id)
     if not items:
         await message.answer("Корзина пуста."); await state.clear(); return
 
-    # Промокод поверх объёмной скидки
+    # Промокод — только если нет персональных скидок/цен
     promo_code = data.get("promo_code", "")
-    promo_discount_pct = data.get("promo_discount", 0) / 100 if data.get("promo_discount") else 0
-    if promo_discount_pct > 0:
-        promo_amt = total * promo_discount_pct
-        total = total - promo_amt
-        discount_amt += promo_amt
-    else:
-        promo_amt = 0
+    promo_discount_pct = 0.0
+    promo_amt = 0.0
+    if not has_personal and data.get("promo_discount"):
+        promo_discount_pct = data.get("promo_discount", 0) / 100
+        if promo_discount_pct > 0:
+            promo_amt = total * promo_discount_pct
+            total = total - promo_amt
+            discount_amt += promo_amt
 
     con = get_db()
     cur = con.execute(
@@ -2272,7 +2372,9 @@ async def create_order(message: Message, user_id: int, state: FSMContext):
     )
     order_id = cur.lastrowid
     for it in items:
-        price_with_disc = it["price"] * (1 - disc_pct) * (1 - promo_discount_pct)
+        ep = it.get("effective_price", it["price"])
+        # Цена уже включает персональную скидку, объёмная и промо не суммируются
+        price_with_disc = ep * (1 - disc_pct) * (1 - promo_discount_pct)
         con.execute(
             "INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (?,?,?,?)",
             (order_id, it["product_id"], it["quantity"], price_with_disc)
@@ -2925,10 +3027,60 @@ async def resetdb_handler(message: Message, state: FSMContext):
         reply_markup=main_keyboard
     )
 
+
+# ─── Sync API для агента ──────────────────────────────────────────────────────
+import threading
+from http.server import BaseHTTPRequestHandler, HTTPServer as _HTTPServer
+import json as _json
+
+class _SyncHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        if self.path != "/sync":
+            self.send_response(404); self.end_headers(); return
+        try:
+            con = get_db()
+            orders = con.execute(
+                "SELECT id,user_id,name,phone,address,total,discount,status,created_at "
+                "FROM orders ORDER BY id DESC LIMIT 200"
+            ).fetchall()
+            users = con.execute(
+                "SELECT user_id,tg_name,user_type,name,phone,company_name,created_at "
+                "FROM users ORDER BY user_id DESC LIMIT 500"
+            ).fetchall()
+            products = con.execute(
+                "SELECT name,price,stock FROM products ORDER BY name"
+            ).fetchall()
+            con.close()
+            data = {
+                "orders":   [dict(r) for r in orders],
+                "users":    [dict(r) for r in users],
+                "products": [dict(r) for r in products],
+            }
+            body = _json.dumps(data, ensure_ascii=False).encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+        except Exception as e:
+            self.send_response(500); self.end_headers()
+            self.wfile.write(str(e).encode())
+
+    def log_message(self, *a): pass
+
+def _run_sync_server():
+    port = int(os.environ.get("SYNC_PORT", 8081))
+    try:
+        _HTTPServer(("0.0.0.0", port), _SyncHandler).serve_forever()
+    except Exception as e:
+        print(f"Sync server error: {e}")
+
 # ─── Запуск ───────────────────────────────────────────────────────────────────
 async def main():
     init_db()
     register_admin_handlers(dp, bot)
+    threading.Thread(target=_run_sync_server, daemon=True).start()
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
