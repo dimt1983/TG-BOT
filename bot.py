@@ -2298,16 +2298,33 @@ async def checkout_start(callback: CallbackQuery, state: FSMContext):
     if user and user["name"] and user["phone"]:
         display = _user_display(user)
         addr = _user_addr(user)
-        await callback.message.answer(
-            f"📋 *Использовать сохранённые данные?*\n\n"
-            f"👤 {display}\n📱 {user['phone']}\n🏠 {addr or 'адрес не указан'}",
-            parse_mode="Markdown",
-            reply_markup=InlineKeyboardMarkup(inline_keyboard=[
-                [InlineKeyboardButton(text="✅ Да, использовать", callback_data="checkout_saved")],
-                [InlineKeyboardButton(text="✏️ Ввести новые данные", callback_data="checkout_new")],
-            ])
-        )
-        await state.set_state(OrderStates.confirm_profile)
+        if addr:
+            # Адрес есть — сразу оформляем без лишних вопросов
+            await state.update_data(name=display, phone=user["phone"], address=addr)
+            await state.set_state(OrderStates.confirm_profile)
+            await callback.message.answer(
+                f"📋 *Оформить заказ?*\n\n"
+                f"👤 {display}\n"
+                f"📱 {user['phone']}\n"
+                f"🏠 {addr}",
+                parse_mode="Markdown",
+                reply_markup=InlineKeyboardMarkup(inline_keyboard=[
+                    [InlineKeyboardButton(text="✅ Подтвердить заказ", callback_data="checkout_saved")],
+                    [InlineKeyboardButton(text="✏️ Изменить данные", callback_data="checkout_new")],
+                ])
+            )
+        else:
+            # Данные есть но адреса нет — спрашиваем только адрес
+            await state.update_data(name=display, phone=user["phone"])
+            await state.set_state(OrderStates.confirm_profile)
+            await callback.message.answer(
+                f"📋 *Оформление заказа*\n\n"
+                f"👤 {display}\n"
+                f"📱 {user['phone']}\n\n"
+                f"🏠 Введите адрес доставки:",
+                parse_mode="Markdown",
+            )
+            await state.set_state(OrderStates.waiting_address)
     else:
         await callback.message.answer("📝 Введите ваше *имя*:", parse_mode="Markdown")
         await state.set_state(OrderStates.waiting_name)
@@ -2345,7 +2362,10 @@ async def order_phone(message: Message, state: FSMContext):
 
 @dp.message(OrderStates.waiting_address)
 async def order_address(message: Message, state: FSMContext):
-    await state.update_data(address=message.text.strip())
+    address = message.text.strip()
+    await state.update_data(address=address)
+    # Сохраняем адрес в профиль пользователя
+    update_user_address(message.from_user.id, address)
     await create_order(message, message.from_user.id, state)
 
 async def create_order(message: Message, user_id: int, state: FSMContext):
