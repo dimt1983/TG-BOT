@@ -1799,8 +1799,7 @@ def build_product_list_kb(products_list: list, user_id: int,
     con.close()
     cart = {r["product_id"]: r["quantity"] for r in cart_rows}
 
-    # Группируем по базовому имени — собираем все варианты фасовки
-    groups = {}  # base_name -> list of products
+    groups = {}
     order = []
     for p in products_list:
         base = get_base_name(p["name"])
@@ -1816,27 +1815,29 @@ def build_product_list_kb(products_list: list, user_id: int,
         total_qty = sum(cart.get(p["id"], 0) for p in variants)
 
         if len(variants) == 1:
-            # Один вариант — показываем сразу со счётчиком в одну строку
             p = variants[0]
             pid = p["id"]
             price_str = f" — {p['price']:.0f}₽" if p["price"] else ""
             qty = cart.get(pid, 0)
             if qty > 0:
+                # [Название — цена]  [- 2 +]
                 buttons.append([
-                    InlineKeyboardButton(text=f"{base[:36]}{price_str}", callback_data=f"product_{pid}"),
-                    InlineKeyboardButton(text="[ - ]", callback_data=f"qminus_{pid}"),
-                    InlineKeyboardButton(text=f" {qty} ", callback_data=f"qview_{pid}"),
-                    InlineKeyboardButton(text="[ + ]", callback_data=f"qplus_{pid}"),
+                    InlineKeyboardButton(text=f"{base[:40]}{price_str}", callback_data=f"product_{pid}"),
+                    InlineKeyboardButton(text=f"−  {qty}  +", callback_data=f"qview_{pid}"),
+                ])
+                # Скрытые обработчики — нажатие на "- N +" не работает само по себе,
+                # поэтому добавляем отдельные невидимые кнопки только когда qty > 0
+                buttons.append([
+                    InlineKeyboardButton(text=f"  −  убрать 1", callback_data=f"qminus_{pid}"),
+                    InlineKeyboardButton(text=f"  +  добавить ещё", callback_data=f"qplus_{pid}"),
                 ])
             else:
                 buttons.append([
-                    InlineKeyboardButton(text=f"{base[:40]}{price_str}", callback_data=f"product_{pid}"),
-                    InlineKeyboardButton(text="[ + ]", callback_data=f"qplus_{pid}"),
+                    InlineKeyboardButton(text=f"{base[:44]}{price_str}", callback_data=f"product_{pid}"),
+                    InlineKeyboardButton(text="+ добавить", callback_data=f"qplus_{pid}"),
                 ])
         else:
-            # Несколько вариантов фасовки
             if is_expanded:
-                # Раскрытое состояние
                 cart_str = f" [{total_qty} шт]" if total_qty > 0 else ""
                 buttons.append([
                     InlineKeyboardButton(
@@ -1853,17 +1854,18 @@ def build_product_list_kb(products_list: list, user_id: int,
                     if qty > 0:
                         buttons.append([
                             InlineKeyboardButton(text=label, callback_data=f"product_{pid}"),
-                            InlineKeyboardButton(text="[ - ]", callback_data=f"qminus_{pid}"),
-                            InlineKeyboardButton(text=f" {qty} ", callback_data=f"qview_{pid}"),
-                            InlineKeyboardButton(text="[ + ]", callback_data=f"qplus_{pid}"),
+                            InlineKeyboardButton(text=f"−  {qty}  +", callback_data=f"qview_{pid}"),
+                        ])
+                        buttons.append([
+                            InlineKeyboardButton(text=f"  −  убрать 1", callback_data=f"qminus_{pid}"),
+                            InlineKeyboardButton(text=f"  +  добавить ещё", callback_data=f"qplus_{pid}"),
                         ])
                     else:
                         buttons.append([
                             InlineKeyboardButton(text=label, callback_data=f"product_{pid}"),
-                            InlineKeyboardButton(text="[ + ]", callback_data=f"qplus_{pid}"),
+                            InlineKeyboardButton(text="+ добавить", callback_data=f"qplus_{pid}"),
                         ])
             else:
-                # Свёрнутое состояние
                 cart_str = f" [{total_qty} шт]" if total_qty > 0 else " ›"
                 buttons.append([
                     InlineKeyboardButton(
@@ -1872,7 +1874,7 @@ def build_product_list_kb(products_list: list, user_id: int,
                     )
                 ])
 
-    return InlineKeyboardMarkup(inline_keyboard=buttons[:80])
+    return InlineKeyboardMarkup(inline_keyboard=buttons[:100])
 
 
 async def show_products_for_cat(message: Message, cat_name: str, back_kb, state: FSMContext):
