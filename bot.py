@@ -3202,15 +3202,12 @@ async def load_stock_handler(message: Message):
 
 
 # ─── Загрузка остатков из Excel-файла (с Claude-сопоставлением) ─────────────
-import io as _io
-import openpyxl as _openpyxl
 
 _CLAUDE_URL = "https://api.proxyapi.ru/anthropic/v1/messages"
-_CLAUDE_KEY = os.environ.get("ANTHROPIC_API_KEY", "").strip()
 _CLAUDE_MODEL = "claude-haiku-4-5-20251001"
 
 
-async def _claude_match(rows: list[dict], db_names: list[str]) -> list[dict]:
+async def _claude_match(rows: list, db_names: list) -> list:
     """
     Спрашиваем Claude: сопоставить названия из xlsx с названиями товаров в БД.
     rows: [{"name": "...", "stock": 631, "price": 2015}, ...]
@@ -3218,13 +3215,14 @@ async def _claude_match(rows: list[dict], db_names: list[str]) -> list[dict]:
     Возвращает список matches: [{"source_name":"...","bot_name":"...","stock":N,"price":P}]
     """
     import aiohttp
-    if not _CLAUDE_KEY:
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    if not api_key:
         return []
 
     matches = []
     chunk_size = 30
     headers = {
-        "x-api-key": _CLAUDE_KEY,
+        "x-api-key": api_key,
         "anthropic-version": "2023-06-01",
         "content-type": "application/json",
     }
@@ -3286,13 +3284,16 @@ async def admin_xlsx_handler(message: Message):
     if not doc.file_name or not doc.file_name.lower().endswith(".xlsx"):
         return  # Игнорируем не-xlsx документы
 
+    import io
+    import openpyxl
+
     await message.answer("📂 Читаю файл...")
     try:
         file = await bot.get_file(doc.file_id)
-        buf = _io.BytesIO()
+        buf = io.BytesIO()
         await bot.download_file(file.file_path, buf)
         buf.seek(0)
-        wb = _openpyxl.load_workbook(buf, read_only=True, data_only=True)
+        wb = openpyxl.load_workbook(buf, read_only=True, data_only=True)
         ws = wb.active
     except Exception as e:
         await message.answer(f"⚠️ Не удалось открыть файл: {e}")
