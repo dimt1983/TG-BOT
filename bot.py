@@ -3176,6 +3176,7 @@ STOCK_MAP = [
 
 @dp.message(Command("loadstock"))
 async def load_stock_handler(message: Message):
+    """Старый способ — по жёстко прописанному STOCK_MAP."""
     from admin import ADMIN_IDS
     if message.from_user.id not in ADMIN_IDS:
         return
@@ -3198,6 +3199,200 @@ async def load_stock_handler(message: Message):
         text += f"\n\n❌ Не найдено ({len(not_found)}):\n"
         text += "\n".join(f"• {n}" for n in not_found)
     await message.answer(text, parse_mode="Markdown")
+
+
+# ─── Загрузка остатков из Excel-файла (с Claude-сопоставлением) ─────────────
+import io as _io
+import openpyxl as _openpyxl
+
+_CLAUDE_URL = "https://api.proxyapi.ru/anthropic/v1/messages"
+_CLAUDE_KEY = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+_CLAUDE_MODEL = "claude-haiku-4-5-20251001"
+
+
+async def _claude_match(rows: list[dict], db_names: list[str]) -> list[dict]:
+    """
+    Спрашиваем Claude: сопоставить названия из xlsx с названиями товаров в БД.
+    rows: [{"name": "...", "stock": 631, "price": 2015}, ...]
+    db_names: список реальных имён в shop.db
+    Возвращает список matches: [{"source_name":"...","bot_name":"...","stock":N,"price":P}]
+    """
+    import aiohttp
+    if not _CLAUDE_KEY:
+        return []
+
+    matches = []
+    chunk_size = 30
+    headers = {
+        "x-api-key": _CLAUDE_KEY,
+        "anthropic-version": "2023-06-01",
+        "content-type": "application/json",
+    }
+
+    for i in range(0, len(rows), chunk_size):
+        chunk = rows[i:i+chunk_size]
+        chunk_text = "\n".join(
+            f"{r['name']} | stock={r.get('stock','?')} | price={r.get('price','?')}"
+            for r in chunk
+        )
+        db_str = "\n".join(db_names[:200])
+        system = (
+            "Помощник магазина кофе Roastberry. Сопоставь названия товаров из 1С "
+            "с реальными названиями в БД магазина. Отвечай ТОЛЬКО валидным JSON "
+            "без markdown, без ```. Один объект."
+        )
+        prompt = (
+            "Названия из 1С (с остатком и ценой):\n" + chunk_text +
+            "\n\nНазвания в БД магазина:\n" + db_str +
+            '\n\nВерни строго JSON: {"matches":[{"source_name":"<из 1С>","bot_name":"<из БД, точное совпадение>",'
+            '"stock":<число или null>,"price":<число или null>}]}\n'
+            "Если не нашёл соответствия — bot_name=null. Используй ТОЛЬКО названия из списка БД."
+        )
+        try:
+            async with aiohttp.ClientSession() as sess:
+                async with sess.post(
+                    _CLAUDE_URL,
+                    headers=headers,
+                    json={
+                        "model": _CLAUDE_MODEL,
+                        "max_tokens": 4000,
+                        "system": system,
+                        "messages": [{"role": "user", "content": prompt}],
+                    },
+                    timeout=aiohttp.ClientTimeout(total=120),
+                ) as r:
+                    data = await r.json()
+            text = ""
+            for block in data.get("content", []):
+                if block.get("type") == "text":
+                    text += block.get("text", "")
+            text = text.strip()
+            if text.startswith("```"):
+                text = "\n".join(text.split("\n")[1:-1])
+            parsed = _json.loads(text)
+            matches.extend(parsed.get("matches", []))
+        except Exception as e:
+            print(f"Claude match error: {e}")
+    return matches
+
+
+@dp.message(F.document)
+async def admin_xlsx_handler(message: Message):
+    """Админ присылает xlsx — обновляем остатки/цены с Claude-сопоставлением."""
+    from admin import ADMIN_IDS
+    if message.from_user.id not in ADMIN_IDS:
+        return
+    doc = message.document
+    if not doc.file_name or not doc.file_name.lower().endswith(".xlsx"):
+        return  # Игнорируем не-xlsx документы
+
+    await message.answer("📂 Читаю файл...")
+    try:
+        file = await bot.get_file(doc.file_id)
+        buf = _io.BytesIO()
+        await bot.download_file(file.file_path, buf)
+        buf.seek(0)
+        wb = _openpyxl.load_workbook(buf, read_only=True, data_only=True)
+        ws = wb.active
+    except Exception as e:
+        await message.answer(f"⚠️ Не удалось открыть файл: {e}")
+        return
+
+    # Парсим: первая колонка — название, ищем числа в остальных
+    skip_words = ["итого", "всего", "параметры", "период", "номенклатура",
+                  "количество", "ведомость", "конечный остаток"]
+    rows = []
+    for row in ws.iter_rows(values_only=True):
+        if not row or not row[0] or not isinstance(row[0], str) or len(row[0]) < 4:
+            continue
+        name = row[0].strip()
+        if any(s in name.lower() for s in skip_words) and len(name) < 40:
+            continue
+        nums = [round(float(c), 2) for c in row[1:] if isinstance(c, (int, float))]
+        if not nums:
+            continue
+        # Эвристика: если 1 число — это остаток. Если 2 — цена и остаток. Если больше — берём последнее как остаток.
+        item = {"name": name, "stock": int(nums[-1])}
+        if len(nums) >= 2:
+            item["price"] = float(nums[-2])
+        rows.append(item)
+
+    if not rows:
+        await message.answer("Данных в файле не нашёл.")
+        return
+
+    await message.answer(f"📊 Найдено {len(rows)} строк. Сопоставляю через Claude...")
+
+    # Берём актуальные названия из БД
+    con = get_db()
+    db_products = con.execute("SELECT id, name, price, stock FROM products").fetchall()
+    con.close()
+    if not db_products:
+        await message.answer("⚠️ В БД нет товаров. Сделай /resetdb сначала.")
+        return
+    db_names = [p["name"] for p in db_products]
+    db_index = {p["name"]: p for p in db_products}
+
+    # Сопоставление
+    matches = await _claude_match(rows, db_names)
+    if not matches:
+        await message.answer("⚠️ Claude не вернул сопоставлений. Проверь ANTHROPIC_API_KEY.")
+        return
+
+    # Применяем
+    upd_stock = upd_price = skipped = 0
+    not_found_names = []
+    con = get_db()
+    for m in matches:
+        bot_name = m.get("bot_name")
+        if not bot_name:
+            not_found_names.append(m.get("source_name", "?"))
+            skipped += 1
+            continue
+        product = db_index.get(bot_name)
+        if not product:
+            # Fuzzy fallback — ищем по подстроке
+            for n, p in db_index.items():
+                if bot_name.lower() in n.lower() or n.lower() in bot_name.lower():
+                    product = p
+                    break
+        if not product:
+            not_found_names.append(f"{m.get('source_name','?')} → {bot_name}")
+            skipped += 1
+            continue
+        pid = product["id"]
+        if m.get("stock") is not None:
+            try:
+                con.execute("UPDATE products SET stock = ? WHERE id = ?",
+                            (int(m["stock"]), pid))
+                upd_stock += 1
+            except (TypeError, ValueError):
+                pass
+        if m.get("price") and float(m["price"]) > 0:
+            try:
+                con.execute(
+                    "UPDATE products SET prev_price = price, price = ? WHERE id = ?",
+                    (float(m["price"]), pid)
+                )
+                upd_price += 1
+            except (TypeError, ValueError):
+                pass
+    con.commit(); con.close()
+
+    lines = [
+        "✅ *Обновление завершено*",
+        f"📦 Остатков обновлено: *{upd_stock}*",
+        f"💰 Цен обновлено: *{upd_price}*",
+        f"⚠️ Пропущено: *{skipped}*",
+    ]
+    if not_found_names:
+        lines.append(f"\nНе сопоставлено ({len(not_found_names)}):")
+        for nf in not_found_names[:8]:
+            lines.append(f"  • {nf[:60]}")
+        if len(not_found_names) > 8:
+            lines.append(f"  ... и ещё {len(not_found_names)-8}")
+    await message.answer("\n".join(lines), parse_mode="Markdown")
+
 
 # ─── Сброс ───────────────────────────────────────────────────────────────────
 @dp.message(Command("reset"))
