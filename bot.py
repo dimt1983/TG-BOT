@@ -3276,27 +3276,12 @@ class _SyncHandler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         """
-        POST /orders — создание заказа внешним агентом (wahelp-agent).
-
-        Ожидает JSON:
-        {
-          "client_phone": "79001234567",
-          "client_name": "ООО Ромашка",    # опционально
-          "address": "Москва, ул. ...",     # опционально
-          "comment": "доставка до 15",      # опционально
-          "source": "whatsapp",             # опционально
-          "items": [
-            {"product_name": "Бразилия Серрадо 1 кг", "quantity": 5},
-            ...
-          ]
-        }
-
-        Заголовок: Authorization: Bearer <API_ORDERS_TOKEN>
+        POST /orders         — создание заказа внешним агентом
+        POST /update_stock   — массовое обновление остатков и/или цен
+        POST /update_prices  — синоним /update_stock
+        Все требуют Authorization: Bearer <API_ORDERS_TOKEN>
         """
-        if self.path != "/orders":
-            self.send_response(404); self.end_headers(); return
-
-        # 1. Проверка токена
+        # Сначала общая проверка токена для всех POST-эндпоинтов
         expected_token = os.environ.get("API_ORDERS_TOKEN", "")
         if not expected_token:
             self._reply_json(500, {"error": "API_ORDERS_TOKEN not configured"})
@@ -3306,7 +3291,7 @@ class _SyncHandler(BaseHTTPRequestHandler):
             self._reply_json(401, {"error": "unauthorized"})
             return
 
-        # 2. Парсим тело запроса
+        # Парсим тело
         try:
             length = int(self.headers.get("Content-Length", 0))
             raw = self.rfile.read(length) if length > 0 else b"{}"
@@ -3315,6 +3300,113 @@ class _SyncHandler(BaseHTTPRequestHandler):
             self._reply_json(400, {"error": f"bad json: {e}"})
             return
 
+        # Роутинг
+        if self.path == "/update_stock" or self.path == "/update_prices":
+            return self._handle_update_stock(payload)
+        if self.path == "/orders":
+            return self._handle_create_order(payload)
+        self._reply_json(404, {"error": "unknown endpoint"})
+        return
+
+    def _handle_update_stock(self, payload):
+        """
+        Массовое обновление остатков и/или цен.
+
+        Ожидает JSON:
+        {
+          "items": [
+            {"product_name": "Бразилия Серрадо 1 кг", "stock": 631, "price": 2015},
+            {"product_name": "Уганда Вугар Элгон 1 кг", "stock": 10},
+            ...
+          ],
+          "fuzzy": true   // опционально, если name не точное — пробовать LIKE
+        }
+
+        Возвращает статистику что обновилось / что не нашлось.
+        """
+        items = payload.get("items") or []
+        fuzzy = bool(payload.get("fuzzy", True))
+        if not isinstance(items, list) or not items:
+            self._reply_json(400, {"error": "items required"})
+            return
+
+        try:
+            con = get_db()
+            updated_stock = 0
+            updated_price = 0
+            not_found = []
+
+            for it in items:
+                name = str(it.get("product_name", "")).strip()
+                if not name:
+                    continue
+
+                stock = it.get("stock")
+                price = it.get("price")
+
+                # Сначала точное совпадение
+                row = con.execute(
+                    "SELECT id, name FROM products WHERE name = ?", (name,)
+                ).fetchone()
+
+                # Если не нашли точно и разрешён fuzzy — пробуем LIKE
+                if row is None and fuzzy:
+                    rows = con.execute(
+                        "SELECT id, name FROM products WHERE name LIKE ?",
+                        (f"%{name}%",)
+                    ).fetchall()
+                    if len(rows) == 1:
+                        row = rows[0]
+
+                if row is None:
+                    not_found.append(name)
+                    continue
+
+                pid = row["id"]
+                if stock is not None:
+                    try:
+                        con.execute(
+                            "UPDATE products SET stock = ? WHERE id = ?",
+                            (int(float(stock)), pid)
+                        )
+                        updated_stock += 1
+                    except (TypeError, ValueError):
+                        pass
+                if price is not None:
+                    try:
+                        price_f = float(price)
+                        if price_f > 0:
+                            con.execute(
+                                "UPDATE products SET prev_price = price, price = ? "
+                                "WHERE id = ?",
+                                (price_f, pid)
+                            )
+                            updated_price += 1
+                    except (TypeError, ValueError):
+                        pass
+
+            con.commit()
+            con.close()
+
+            self._reply_json(200, {
+                "status": "ok",
+                "updated_stock": updated_stock,
+                "updated_price": updated_price,
+                "not_found_count": len(not_found),
+                "not_found_sample": not_found[:20],
+            })
+            return
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            self._reply_json(500, {"error": str(e)})
+            return
+
+    def _handle_create_order(self, payload):
+        """
+        Создание заказа от внешнего агента (wahelp-agent).
+        Логика та же что была раньше — выделена в отдельный метод.
+        """
         phone = str(payload.get("client_phone", "")).strip()
         items = payload.get("items") or []
         if not phone or not items:

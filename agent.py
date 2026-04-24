@@ -564,18 +564,72 @@ async def handle_xlsx(message: Message):
     con.commit()
     con.close()
 
+    # ── Отправляем эти же обновления в bot.py (основной магазин) ──────────────
+    main_api = os.environ.get("MAIN_BOT_API", "").strip().rstrip("/")
+    api_token = os.environ.get("API_ORDERS_TOKEN", "").strip()
+    pushed_stock = pushed_price = push_not_found = 0
+    push_error = None
+
+    if main_api and api_token and matches:
+        # Готовим payload — берём только matches с bot_name (значит сопоставление успешно)
+        push_items = []
+        for m in matches:
+            if not m.get("bot_name") or m.get("confidence") == "low":
+                continue
+            entry = {"product_name": m["bot_name"]}
+            if m.get("stock") is not None:
+                entry["stock"] = int(m["stock"])
+            if m.get("price") and m["price"] > 0:
+                entry["price"] = float(m["price"])
+            if "stock" in entry or "price" in entry:
+                push_items.append(entry)
+
+        if push_items:
+            try:
+                async with aiohttp.ClientSession() as sess:
+                    async with sess.post(
+                        main_api + "/update_stock",
+                        headers={"Authorization": f"Bearer {api_token}",
+                                 "Content-Type": "application/json"},
+                        json={"items": push_items, "fuzzy": True},
+                        timeout=aiohttp.ClientTimeout(total=30),
+                    ) as r:
+                        resp_text = await r.text()
+                        if r.status == 200:
+                            data = json.loads(resp_text)
+                            pushed_stock = data.get("updated_stock", 0)
+                            pushed_price = data.get("updated_price", 0)
+                            push_not_found = data.get("not_found_count", 0)
+                        else:
+                            push_error = f"HTTP {r.status}: {resp_text[:200]}"
+            except Exception as e:
+                push_error = str(e)[:200]
+    elif not main_api or not api_token:
+        push_error = "MAIN_BOT_API или API_ORDERS_TOKEN не настроены"
+
     total_now = (db_query("SELECT COUNT(*) as c FROM products") or [{"c":0}])[0]["c"]
     type_labels = {"stock": "остатки", "prices": "цены", "both": "остатки и цены"}
     lines = [
         "Обновление завершено!\n",
         f"Тип: {type_labels.get(file_type, file_type)}",
-        f"Остатков обновлено: *{upd_stock}*",
-        f"Цен обновлено: *{upd_price}*",
-        f"Пропущено: *{skipped}*",
-        f"Всего товаров в БД: *{total_now}*",
+        f"📊 *Зеркало (агент):*",
+        f"  • Остатков: {upd_stock}",
+        f"  • Цен: {upd_price}",
+        f"  • Пропущено: {skipped}",
+        "",
+        f"🛒 *Основной магазин (bot.py):*",
     ]
+    if push_error:
+        lines.append(f"  ⚠️ Не отправлено: {push_error}")
+    else:
+        lines.append(f"  • Остатков: {pushed_stock}")
+        lines.append(f"  • Цен: {pushed_price}")
+        if push_not_found:
+            lines.append(f"  • Не нашли: {push_not_found} (имена в bot.py отличаются)")
+    lines.append("")
+    lines.append(f"Всего товаров в зеркале: *{total_now}*")
     if not_found:
-        lines.append(f"\nНе сопоставлено ({len(not_found)}):")
+        lines.append(f"\nClaude не сопоставил ({len(not_found)}):")
         for nf in not_found[:8]:
             lines.append(f"  - {nf[:50]}")
         if len(not_found) > 8:
