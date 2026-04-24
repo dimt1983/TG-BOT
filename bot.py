@@ -3542,6 +3542,121 @@ async def _notify_external_order(order_id, client_name, phone, address,
         except Exception as e:
             print(f"Admin notify failed for {admin_id}: {e}")
 
+
+# ─── /bug и /feedback — отправка отзыва тестировщиком ────────────────────────
+# Сообщения летят в Telegram-чат TEST_FEEDBACK_CHAT_ID (тот же, что shadow).
+# Пользователь пишет /bug описание, можно прикрепить фото/скрин к следующему
+# сообщению — оно тоже попадёт в чат.
+
+TEST_FEEDBACK_CHAT_ID = os.environ.get("TEST_FEEDBACK_CHAT_ID", "")
+
+
+class FeedbackStates(StatesGroup):
+    waiting_screenshot = State()
+
+
+@dp.message(Command(commands=["bug", "feedback"]))
+async def cmd_bug(message: Message, state: FSMContext):
+    """Принять описание бага и сохранить его в state, ждать скрин опционально."""
+    # Достаём текст после команды
+    text = (message.text or "").strip()
+    # Отсекаем саму команду
+    parts = text.split(maxsplit=1)
+    description = parts[1].strip() if len(parts) > 1 else ""
+
+    if not description:
+        await message.answer(
+            "🐞 Опишите проблему одним сообщением, например:\n"
+            "<code>/bug в корзине не работает кнопка −</code>\n\n"
+            "После отправки описания можно прикрепить скриншот следующим сообщением (опционально).",
+            parse_mode="HTML",
+        )
+        return
+
+    if not TEST_FEEDBACK_CHAT_ID:
+        await message.answer("Сервис отзывов пока не настроен. Сообщите администратору.")
+        return
+
+    # Кто пишет
+    user = get_user(message.from_user.id)
+    if user:
+        who = (
+            user["company_name"]
+            if user["user_type"] == "company"
+            else user["name"]
+        ) or message.from_user.full_name
+    else:
+        who = message.from_user.full_name or f"id{message.from_user.id}"
+
+    username = f"@{message.from_user.username}" if message.from_user.username else ""
+    header = (
+        f"🐞 <b>FEEDBACK</b>\n"
+        f"От: <b>{who}</b> {username} (id {message.from_user.id})\n\n"
+        f"{description}"
+    )
+    try:
+        sent = await bot.send_message(
+            TEST_FEEDBACK_CHAT_ID, header, parse_mode="HTML"
+        )
+        # Запомним id сообщения, чтобы привязать к нему возможный скрин
+        await state.update_data(
+            feedback_chat_id=TEST_FEEDBACK_CHAT_ID,
+            feedback_reply_to=sent.message_id,
+        )
+        await state.set_state(FeedbackStates.waiting_screenshot)
+        await message.answer(
+            "✅ Спасибо! Записали.\n"
+            "Если хотите прикрепить скрин — пришлите его следующим сообщением. "
+            "Или пропустите этот шаг командой /skip."
+        )
+    except Exception as e:
+        print(f"Feedback send failed: {e}")
+        await message.answer("⚠️ Не удалось отправить отзыв, попробуйте позже.")
+
+
+@dp.message(Command(commands=["skip"]), FeedbackStates.waiting_screenshot)
+async def cmd_skip_screenshot(message: Message, state: FSMContext):
+    await state.clear()
+    await message.answer("Ок, без скрина. Спасибо за отзыв!")
+
+
+@dp.message(FeedbackStates.waiting_screenshot, F.photo)
+async def feedback_photo(message: Message, state: FSMContext):
+    data = await state.get_data()
+    chat_id = data.get("feedback_chat_id")
+    reply_to = data.get("feedback_reply_to")
+    if not chat_id:
+        await state.clear()
+        return
+    try:
+        # Пересылаем самую большую версию фото
+        photo_id = message.photo[-1].file_id
+        caption = (message.caption or "").strip()
+        await bot.send_photo(
+            chat_id=chat_id,
+            photo=photo_id,
+            caption=f"📎 Скрин к отзыву\n{caption}".strip(),
+            reply_to_message_id=reply_to,
+        )
+        await message.answer("✅ Скрин приложен. Спасибо!")
+    except Exception as e:
+        print(f"Feedback photo send failed: {e}")
+        await message.answer("⚠️ Скрин не удалось приложить, но текст отзыва уже отправлен.")
+    finally:
+        await state.clear()
+
+
+@dp.message(FeedbackStates.waiting_screenshot)
+async def feedback_no_photo(message: Message, state: FSMContext):
+    """Если в режиме ожидания скрина пришло что-то кроме фото и /skip — сбрасываем."""
+    await state.clear()
+    # Дальше обработчик этого сообщения не перехватит, пользователь продолжит работу
+    # Мы просто молча выходим из состояния feedback. Перебросить сообщение
+    # штатному обработчику нельзя без гимнастики, поэтому даём подсказку.
+    await message.answer(
+        "Отзыв уже отправлен. Если хотели приложить скрин — пришлите /bug ещё раз."
+    )
+
 def _run_sync_server():
     port = int(os.environ.get("SYNC_PORT", 8081))
     try:
