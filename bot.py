@@ -1808,20 +1808,10 @@ def build_product_list_kb(products_list: list, user_id: int,
             order.append(base)
         groups[base].append(p)
 
-    # Сортируем варианты внутри группы: 1 кг первым, потом 200 г
-    for base in groups:
-        groups[base].sort(key=lambda p: (
-            0 if "1 кг" in p["name"] else
-            1 if "200 г" in p["name"] else 2
-        ))
-
     buttons = []
     for base in order:
         variants = groups[base]
-        # Ключ для expand/collapse — используем base без обрезки
-        # чтобы не было коллизий между похожими названиями
-        expand_key = base
-        is_expanded = (expand_key == expanded_base)
+        is_expanded = (base == expanded_base)
         total_qty = sum(cart.get(p["id"], 0) for p in variants)
 
         if len(variants) == 1:
@@ -1830,13 +1820,16 @@ def build_product_list_kb(products_list: list, user_id: int,
             price_str = f" — {p['price']:.0f}₽" if p["price"] else ""
             qty = cart.get(pid, 0)
             if qty > 0:
+                # [Название — цена]  [- 2 +]
                 buttons.append([
                     InlineKeyboardButton(text=f"{base[:40]}{price_str}", callback_data=f"product_{pid}"),
                     InlineKeyboardButton(text=f"−  {qty}  +", callback_data=f"qview_{pid}"),
                 ])
+                # Скрытые обработчики — нажатие на "- N +" не работает само по себе,
+                # поэтому добавляем отдельные невидимые кнопки только когда qty > 0
                 buttons.append([
-                    InlineKeyboardButton(text="  −  убрать 1", callback_data=f"qminus_{pid}"),
-                    InlineKeyboardButton(text="  +  добавить ещё", callback_data=f"qplus_{pid}"),
+                    InlineKeyboardButton(text=f"  −  убрать 1", callback_data=f"qminus_{pid}"),
+                    InlineKeyboardButton(text=f"  +  добавить ещё", callback_data=f"qplus_{pid}"),
                 ])
             else:
                 buttons.append([
@@ -1849,7 +1842,7 @@ def build_product_list_kb(products_list: list, user_id: int,
                 buttons.append([
                     InlineKeyboardButton(
                         text=f"▼ {base[:42]}{cart_str}",
-                        callback_data=f"collapse_{expand_key}"
+                        callback_data=f"collapse_{base[:40]}"
                     )
                 ])
                 for p in variants:
@@ -1864,8 +1857,8 @@ def build_product_list_kb(products_list: list, user_id: int,
                             InlineKeyboardButton(text=f"−  {qty}  +", callback_data=f"qview_{pid}"),
                         ])
                         buttons.append([
-                            InlineKeyboardButton(text="  −  убрать 1", callback_data=f"qminus_{pid}"),
-                            InlineKeyboardButton(text="  +  добавить ещё", callback_data=f"qplus_{pid}"),
+                            InlineKeyboardButton(text=f"  −  убрать 1", callback_data=f"qminus_{pid}"),
+                            InlineKeyboardButton(text=f"  +  добавить ещё", callback_data=f"qplus_{pid}"),
                         ])
                     else:
                         buttons.append([
@@ -1877,7 +1870,7 @@ def build_product_list_kb(products_list: list, user_id: int,
                 buttons.append([
                     InlineKeyboardButton(
                         text=f"{base[:46]}{cart_str}",
-                        callback_data=f"expand_{expand_key}"
+                        callback_data=f"expand_{base[:40]}"
                     )
                 ])
 
@@ -3319,7 +3312,235 @@ class _SyncHandler(BaseHTTPRequestHandler):
             self.send_response(500); self.end_headers()
             self.wfile.write(str(e).encode())
 
+    def do_POST(self):
+        """
+        POST /orders — создание заказа внешним агентом (wahelp-agent).
+
+        Ожидает JSON:
+        {
+          "client_phone": "79001234567",
+          "client_name": "ООО Ромашка",    # опционально
+          "address": "Москва, ул. ...",     # опционально
+          "comment": "доставка до 15",      # опционально
+          "source": "whatsapp",             # опционально
+          "items": [
+            {"product_name": "Бразилия Серрадо 1 кг", "quantity": 5},
+            ...
+          ]
+        }
+
+        Заголовок: Authorization: Bearer <API_ORDERS_TOKEN>
+        """
+        if self.path != "/orders":
+            self.send_response(404); self.end_headers(); return
+
+        # 1. Проверка токена
+        expected_token = os.environ.get("API_ORDERS_TOKEN", "")
+        if not expected_token:
+            self._reply_json(500, {"error": "API_ORDERS_TOKEN not configured"})
+            return
+        auth = self.headers.get("Authorization", "")
+        if auth != f"Bearer {expected_token}":
+            self._reply_json(401, {"error": "unauthorized"})
+            return
+
+        # 2. Парсим тело запроса
+        try:
+            length = int(self.headers.get("Content-Length", 0))
+            raw = self.rfile.read(length) if length > 0 else b"{}"
+            payload = _json.loads(raw.decode("utf-8"))
+        except Exception as e:
+            self._reply_json(400, {"error": f"bad json: {e}"})
+            return
+
+        phone = str(payload.get("client_phone", "")).strip()
+        items = payload.get("items") or []
+        if not phone or not items:
+            self._reply_json(400, {"error": "client_phone and items required"})
+            return
+
+        # 3. Создаём заказ
+        try:
+            con = get_db()
+
+            # Ищем клиента по телефону — нормализуем в цифры
+            norm_phone = "".join(ch for ch in phone if ch.isdigit())
+            user = None
+            if norm_phone:
+                rows = con.execute(
+                    "SELECT user_id, name, phone, company_name FROM users"
+                ).fetchall()
+                for r in rows:
+                    r_norm = "".join(ch for ch in (r["phone"] or "") if ch.isdigit())
+                    if r_norm and r_norm.endswith(norm_phone[-10:]):
+                        user = r
+                        break
+
+            # Если клиента нет — заводим заглушку
+            if user is None:
+                fallback_name = payload.get("client_name") or "WhatsApp клиент"
+                # Отрицательный user_id чтобы не конфликтовать с Telegram ID
+                new_uid = -(abs(hash(norm_phone)) % (10**9))
+                con.execute(
+                    "INSERT OR IGNORE INTO users "
+                    "(user_id, tg_name, user_type, name, phone) "
+                    "VALUES (?,?,?,?,?)",
+                    (new_uid, "whatsapp", "company", fallback_name, phone)
+                )
+                user_id = new_uid
+                client_name = fallback_name
+            else:
+                user_id = user["user_id"]
+                client_name = user["company_name"] or user["name"] or "Клиент"
+
+            # Проверяем товары и считаем total
+            total = 0.0
+            resolved_items = []
+            missing = []
+            for it in items:
+                name = str(it.get("product_name", "")).strip()
+                try:
+                    qty = float(it.get("quantity", 0) or 0)
+                except (TypeError, ValueError):
+                    qty = 0
+                if not name or qty <= 0:
+                    continue
+                prod = con.execute(
+                    "SELECT id, name, price FROM products WHERE name = ?", (name,)
+                ).fetchone()
+                if prod is None:
+                    missing.append(name)
+                    continue
+                line_price = (prod["price"] or 0) * qty
+                total += line_price
+                resolved_items.append({
+                    "product_id": prod["id"],
+                    "product_name": prod["name"],
+                    "price": prod["price"] or 0,
+                    "quantity": qty,
+                })
+
+            if missing:
+                con.close()
+                self._reply_json(400, {
+                    "error": "some products not found",
+                    "missing": missing,
+                })
+                return
+            if not resolved_items:
+                con.close()
+                self._reply_json(400, {"error": "no valid items"})
+                return
+
+            # Собираем адрес с комментарием в одно поле
+            address = str(payload.get("address", "")).strip()
+            comment = str(payload.get("comment", "")).strip()
+            full_address = address
+            if comment:
+                full_address = f"{address} | {comment}".strip(" |")
+
+            # Применяем скидку по весу (как в обычном заказе)
+            total_kg = 0.0
+            for ri in resolved_items:
+                nl = ri["product_name"].lower()
+                if "1 кг" in nl or "1кг" in nl:
+                    total_kg += ri["quantity"]
+                elif "200 г" in nl or "200г" in nl:
+                    total_kg += ri["quantity"] * 0.2
+            discount_pct = get_discount(total_kg)
+            total_after = total * (1 - discount_pct)
+
+            cur = con.execute(
+                "INSERT INTO orders "
+                "(user_id, name, phone, address, total, discount, status) "
+                "VALUES (?,?,?,?,?,?,?)",
+                (user_id, client_name, phone, full_address,
+                 total_after, discount_pct, "new")
+            )
+            order_id = cur.lastrowid
+
+            # Позиции заказа
+            for ri in resolved_items:
+                con.execute(
+                    "INSERT INTO order_items "
+                    "(order_id, product_id, quantity, price) "
+                    "VALUES (?,?,?,?)",
+                    (order_id, ri["product_id"], ri["quantity"], ri["price"])
+                )
+
+            con.commit()
+            con.close()
+
+            # Уведомление админу через основной event loop aiogram
+            source = payload.get("source", "WhatsApp")
+            try:
+                if _MAIN_LOOP is not None:
+                    asyncio.run_coroutine_threadsafe(
+                        _notify_external_order(
+                            order_id, client_name, phone, full_address,
+                            total_after, discount_pct, resolved_items, source,
+                        ),
+                        _MAIN_LOOP,
+                    )
+            except Exception as e:
+                print(f"Notify error: {e}")
+
+            self._reply_json(200, {
+                "status": "ok",
+                "order_id": order_id,
+                "total": total_after,
+                "discount_pct": discount_pct,
+                "items_count": len(resolved_items),
+            })
+
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            self._reply_json(500, {"error": str(e)})
+
+    def _reply_json(self, code, obj):
+        body = _json.dumps(obj, ensure_ascii=False).encode("utf-8")
+        self.send_response(code)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
     def log_message(self, *a): pass
+
+
+async def _notify_external_order(order_id, client_name, phone, address,
+                                 total, discount_pct, items, source):
+    """
+    Отправить уведомление админам о заказе из внешнего канала (WhatsApp и т.п.).
+    Использует существующий notify_new_order если он подходит,
+    иначе шлёт простое сообщение напрямую.
+    """
+    from admin import ADMIN_IDS
+    lines = [
+        f"🆕 Новый заказ #{order_id} ({source})",
+        f"Клиент: {client_name}",
+        f"Телефон: {phone}",
+    ]
+    if address:
+        lines.append(f"Адрес: {address}")
+    lines.append("")
+    lines.append("Позиции:")
+    for it in items:
+        lines.append(f"  • {it['product_name']} × {it['quantity']:g} = "
+                     f"{it['price'] * it['quantity']:.0f} ₽")
+    lines.append("")
+    if discount_pct > 0:
+        lines.append(f"Скидка: {int(discount_pct*100)}%")
+    lines.append(f"Итого: {total:.0f} ₽")
+
+    text = "\n".join(lines)
+    for admin_id in ADMIN_IDS:
+        try:
+            await bot.send_message(admin_id, text)
+        except Exception as e:
+            print(f"Admin notify failed for {admin_id}: {e}")
 
 def _run_sync_server():
     port = int(os.environ.get("SYNC_PORT", 8081))
@@ -3329,7 +3550,13 @@ def _run_sync_server():
         print(f"Sync server error: {e}")
 
 # ─── Запуск ───────────────────────────────────────────────────────────────────
+# Храним главный event loop, чтобы HTTP-обработчик (другой поток) мог
+# вызывать асинхронные функции — например, уведомление админа о заказе.
+_MAIN_LOOP = None
+
 async def main():
+    global _MAIN_LOOP
+    _MAIN_LOOP = asyncio.get_running_loop()
     init_db()
     register_admin_handlers(dp, bot)
     threading.Thread(target=_run_sync_server, daemon=True).start()
