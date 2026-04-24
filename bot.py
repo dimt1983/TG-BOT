@@ -1792,12 +1792,11 @@ def build_product_list_kb(products_list: list, user_id: int,
                            expanded_base: str = None) -> InlineKeyboardMarkup:
     """
     Строит плоский список товаров.
-    Каждая фасовка — отдельная строка:
-        [Название (200 г) — 435₽]  [+ добавить]
-    Если уже в корзине:
-        [Название (200 г) — 435₽]  [−] [2] [+]
-
-    Параметр expanded_base оставлен для обратной совместимости, не используется.
+    Не в корзине:
+        [Название · 2015₽] [➕]
+    В корзине:
+        [Название · 2015₽]
+        [−] [2 шт] [+]
     """
     con = get_db()
     cart_rows = con.execute(
@@ -1806,19 +1805,32 @@ def build_product_list_kb(products_list: list, user_id: int,
     con.close()
     cart = {r["product_id"]: r["quantity"] for r in cart_rows}
 
+    def _short_name(name: str) -> str:
+        """Сжимаем название убирая лишние пробелы и слова."""
+        s = name.strip()
+        # Унификация фасовок
+        s = s.replace(" 1 кг", " 1кг").replace(" 200 г", " 200г")
+        s = s.replace(" (8 шт)", " ×8").replace(" (10 шт)", " ×10").replace(" (1 шт)", "")
+        # Лишние пробелы
+        while "  " in s:
+            s = s.replace("  ", " ")
+        return s
+
     buttons = []
     for p in products_list:
         pid = p["id"]
-        name = p["name"]
-        # Название урезаем до 45 символов — Telegram режет длинные кнопки
-        short_name = name[:45]
-        price_str = f" — {p['price']:.0f}₽" if p["price"] else ""
-        label = f"{short_name}{price_str}"
+        name = _short_name(p["name"])
+        price = p["price"] or 0
+        # Урезаем название чтобы вместе с ценой влезло ~32 символа
+        price_part = f" · {price:.0f}₽" if price else ""
+        avail_for_name = 32 - len(price_part)
+        if len(name) > avail_for_name:
+            name = name[:avail_for_name - 1] + "…"
+        label = f"{name}{price_part}"
         qty = cart.get(pid, 0)
 
         if qty > 0:
-            # Строка 1: название + цена (кликабельна для карточки)
-            # Строка 2: компактный контрол  [−]  qty  [+]
+            # 2 строки: имя + цена, и счётчик
             buttons.append([
                 InlineKeyboardButton(text=label, callback_data=f"product_{pid}"),
             ])
@@ -1828,10 +1840,10 @@ def build_product_list_kb(products_list: list, user_id: int,
                 InlineKeyboardButton(text="+", callback_data=f"qplus_{pid}"),
             ])
         else:
-            # Одна строка: название и кнопка "+ добавить"
+            # 1 строка: имя+цена занимает почти всю ширину, маленький ➕ справа
             buttons.append([
                 InlineKeyboardButton(text=label, callback_data=f"product_{pid}"),
-                InlineKeyboardButton(text="+ добавить", callback_data=f"qplus_{pid}"),
+                InlineKeyboardButton(text="➕", callback_data=f"qplus_{pid}"),
             ])
 
     return InlineKeyboardMarkup(inline_keyboard=buttons)
