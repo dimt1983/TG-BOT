@@ -1790,8 +1790,15 @@ def get_size_label(name: str) -> str:
 
 def build_product_list_kb(products_list: list, user_id: int,
                            expanded_base: str = None) -> InlineKeyboardMarkup:
-    """Строит клавиатуру списка товаров.
-    expanded_base — базовое название товара у которого раскрыты варианты фасовки."""
+    """
+    Строит плоский список товаров.
+    Каждая фасовка — отдельная строка:
+        [Название (200 г) — 435₽]  [+ добавить]
+    Если уже в корзине:
+        [Название (200 г) — 435₽]  [−] [2] [+]
+
+    Параметр expanded_base оставлен для обратной совместимости, не используется.
+    """
     con = get_db()
     cart_rows = con.execute(
         "SELECT product_id, quantity FROM cart WHERE user_id = ?", (user_id,)
@@ -1799,82 +1806,35 @@ def build_product_list_kb(products_list: list, user_id: int,
     con.close()
     cart = {r["product_id"]: r["quantity"] for r in cart_rows}
 
-    groups = {}
-    order = []
-    for p in products_list:
-        base = get_base_name(p["name"])
-        if base not in groups:
-            groups[base] = []
-            order.append(base)
-        groups[base].append(p)
-
     buttons = []
-    for base in order:
-        variants = groups[base]
-        is_expanded = (base == expanded_base)
-        total_qty = sum(cart.get(p["id"], 0) for p in variants)
+    for p in products_list:
+        pid = p["id"]
+        name = p["name"]
+        # Название урезаем до 45 символов — Telegram режет длинные кнопки
+        short_name = name[:45]
+        price_str = f" — {p['price']:.0f}₽" if p["price"] else ""
+        label = f"{short_name}{price_str}"
+        qty = cart.get(pid, 0)
 
-        if len(variants) == 1:
-            p = variants[0]
-            pid = p["id"]
-            price_str = f" — {p['price']:.0f}₽" if p["price"] else ""
-            qty = cart.get(pid, 0)
-            if qty > 0:
-                # [Название — цена]  [- 2 +]
-                buttons.append([
-                    InlineKeyboardButton(text=f"{base[:40]}{price_str}", callback_data=f"product_{pid}"),
-                    InlineKeyboardButton(text=f"−  {qty}  +", callback_data=f"qview_{pid}"),
-                ])
-                # Скрытые обработчики — нажатие на "- N +" не работает само по себе,
-                # поэтому добавляем отдельные невидимые кнопки только когда qty > 0
-                buttons.append([
-                    InlineKeyboardButton(text=f"  −  убрать 1", callback_data=f"qminus_{pid}"),
-                    InlineKeyboardButton(text=f"  +  добавить ещё", callback_data=f"qplus_{pid}"),
-                ])
-            else:
-                buttons.append([
-                    InlineKeyboardButton(text=f"{base[:44]}{price_str}", callback_data=f"product_{pid}"),
-                    InlineKeyboardButton(text="+ добавить", callback_data=f"qplus_{pid}"),
-                ])
+        if qty > 0:
+            # Строка 1: название + цена (кликабельна для карточки)
+            # Строка 2: компактный контрол  [−]  qty  [+]
+            buttons.append([
+                InlineKeyboardButton(text=label, callback_data=f"product_{pid}"),
+            ])
+            buttons.append([
+                InlineKeyboardButton(text="−", callback_data=f"qminus_{pid}"),
+                InlineKeyboardButton(text=f"{qty} шт", callback_data=f"product_{pid}"),
+                InlineKeyboardButton(text="+", callback_data=f"qplus_{pid}"),
+            ])
         else:
-            if is_expanded:
-                cart_str = f" [{total_qty} шт]" if total_qty > 0 else ""
-                buttons.append([
-                    InlineKeyboardButton(
-                        text=f"▼ {base[:42]}{cart_str}",
-                        callback_data=f"collapse_{base[:40]}"
-                    )
-                ])
-                for p in variants:
-                    pid = p["id"]
-                    size = get_size_label(p["name"])
-                    price_str = f" — {p['price']:.0f}₽" if p["price"] else ""
-                    qty = cart.get(pid, 0)
-                    label = f"  {size}{price_str}" if size else f"  {p['name'][:28]}{price_str}"
-                    if qty > 0:
-                        buttons.append([
-                            InlineKeyboardButton(text=label, callback_data=f"product_{pid}"),
-                            InlineKeyboardButton(text=f"−  {qty}  +", callback_data=f"qview_{pid}"),
-                        ])
-                        buttons.append([
-                            InlineKeyboardButton(text=f"  −  убрать 1", callback_data=f"qminus_{pid}"),
-                            InlineKeyboardButton(text=f"  +  добавить ещё", callback_data=f"qplus_{pid}"),
-                        ])
-                    else:
-                        buttons.append([
-                            InlineKeyboardButton(text=label, callback_data=f"product_{pid}"),
-                            InlineKeyboardButton(text="+ добавить", callback_data=f"qplus_{pid}"),
-                        ])
-            else:
-                cart_str = f" [{total_qty} шт]" if total_qty > 0 else " ›"
-                buttons.append([
-                    InlineKeyboardButton(
-                        text=f"{base[:46]}{cart_str}",
-                        callback_data=f"expand_{base[:40]}"
-                    )
-                ])
+            # Одна строка: название и кнопка "+ добавить"
+            buttons.append([
+                InlineKeyboardButton(text=label, callback_data=f"product_{pid}"),
+                InlineKeyboardButton(text="+ добавить", callback_data=f"qplus_{pid}"),
+            ])
 
-    return InlineKeyboardMarkup(inline_keyboard=buttons[:100])
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 
 async def show_products_for_cat(message: Message, cat_name: str, back_kb, state: FSMContext):
@@ -1885,15 +1845,8 @@ async def show_products_for_cat(message: Message, cat_name: str, back_kb, state:
                              parse_mode="Markdown", reply_markup=back_kb)
         return
 
-    # Дедупликация по базовому имени
-    seen = {}
-    for p in products:
-        base = p["name"]
-        for sfx in [" 1 кг", " 200 г", " (8 шт)", " (10 шт)", " (1 шт)"]:
-            base = base.replace(sfx, "")
-        if base not in seen:
-            seen[base] = p
-    products_list = list(seen.values())[:40]
+    # Плоский список без дедупликации — каждая фасовка отдельной строкой
+    products_list = list(products)[:40]
 
     section_label = cat_name.split(" — ")[-1] if " — " in cat_name else cat_name
     kb = build_product_list_kb(products_list, message.from_user.id)
@@ -2504,18 +2457,27 @@ def _user_display(user) -> str:
     return user["company_name"] if user["user_type"] == "company" else user["name"]
 
 def _user_addr(user) -> str:
-    """Возвращает адрес из профиля — для юрлица actual_address, для физлица address."""
-    addr = None
+    """Возвращает адрес из профиля.
+    Для юрлица — actual_address приоритетнее, для физлица — address."""
+    user_type = None
     try:
-        addr = user["address"]
+        user_type = user["user_type"]
     except Exception:
         pass
-    if not addr:
+
+    def _get(field):
         try:
-            addr = user["actual_address"]
+            val = user[field]
+            return val or ""
         except Exception:
-            pass
-    return addr or ""
+            return ""
+
+    if user_type == "company":
+        # Юрлицо: сначала actual_address, потом address как fallback
+        return _get("actual_address") or _get("address")
+    else:
+        # Физлицо: address, потом actual_address
+        return _get("address") or _get("actual_address")
 
 @dp.callback_query(F.data == "checkout")
 async def checkout_start(callback: CallbackQuery, state: FSMContext):
