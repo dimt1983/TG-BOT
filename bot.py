@@ -1792,11 +1792,14 @@ def build_product_list_kb(products_list: list, user_id: int,
                            expanded_base: str = None) -> InlineKeyboardMarkup:
     """
     Строит плоский список товаров.
-    Не в корзине:
-        [Название · 2015₽] [➕]
-    В корзине:
-        [Название · 2015₽]
-        [−] [2 шт] [+]
+    Не в корзине: одна широкая кнопка на всю строку
+        [ ➕ Название · 2015₽ ]
+    В корзине: показ + счётчик
+        [ ✓ Название · 2015₽ ]
+        [ −  2 шт  + ]
+    Тап по названию = добавить 1 шт (если нет в корзине) или открыть карточку (если есть).
+    Открыть карточку без добавления — длинный тап (callback "p_id" с приставкой).
+    Для простоты: первый тап на не-корзинный товар → добавляем сразу.
     """
     con = get_db()
     cart_rows = con.execute(
@@ -1806,12 +1809,9 @@ def build_product_list_kb(products_list: list, user_id: int,
     cart = {r["product_id"]: r["quantity"] for r in cart_rows}
 
     def _short_name(name: str) -> str:
-        """Сжимаем название убирая лишние пробелы и слова."""
         s = name.strip()
-        # Унификация фасовок
         s = s.replace(" 1 кг", " 1кг").replace(" 200 г", " 200г")
         s = s.replace(" (8 шт)", " ×8").replace(" (10 шт)", " ×10").replace(" (1 шт)", "")
-        # Лишние пробелы
         while "  " in s:
             s = s.replace("  ", " ")
         return s
@@ -1821,16 +1821,23 @@ def build_product_list_kb(products_list: list, user_id: int,
         pid = p["id"]
         name = _short_name(p["name"])
         price = p["price"] or 0
-        # Урезаем название чтобы вместе с ценой влезло ~32 символа
-        price_part = f" · {price:.0f}₽" if price else ""
-        avail_for_name = 32 - len(price_part)
-        if len(name) > avail_for_name:
-            name = name[:avail_for_name - 1] + "…"
-        label = f"{name}{price_part}"
         qty = cart.get(pid, 0)
 
+        # На широкую кнопку влезает примерно 38-40 символов в Telegram-mobile.
+        # Резервируем место под цену и иконку.
+        price_part = f" · {price:.0f}₽" if price else ""
+        prefix = "✓ " if qty > 0 else "➕ "
+        # Целевая длина строки = 40, минус префикс и цена = доступно для имени
+        avail = 40 - len(prefix) - len(price_part)
+        if avail < 8:
+            avail = 8
+        if len(name) > avail:
+            name = name[:avail - 1] + "…"
+        label = f"{prefix}{name}{price_part}"
+
         if qty > 0:
-            # 2 строки: имя + цена, и счётчик
+            # 1-я строка — название (открывает карточку)
+            # 2-я строка — счётчик
             buttons.append([
                 InlineKeyboardButton(text=label, callback_data=f"product_{pid}"),
             ])
@@ -1840,10 +1847,9 @@ def build_product_list_kb(products_list: list, user_id: int,
                 InlineKeyboardButton(text="+", callback_data=f"qplus_{pid}"),
             ])
         else:
-            # 1 строка: имя+цена занимает почти всю ширину, маленький ➕ справа
+            # Одна большая кнопка — клик добавляет в корзину
             buttons.append([
-                InlineKeyboardButton(text=label, callback_data=f"product_{pid}"),
-                InlineKeyboardButton(text="➕", callback_data=f"qplus_{pid}"),
+                InlineKeyboardButton(text=label, callback_data=f"qplus_{pid}"),
             ])
 
     return InlineKeyboardMarkup(inline_keyboard=buttons)
@@ -3450,6 +3456,8 @@ import json as _json
 
 class _SyncHandler(BaseHTTPRequestHandler):
     def do_GET(self):
+        if self.path == "/products":
+            return self._handle_get_products()
         if self.path != "/sync":
             self.send_response(404); self.end_headers(); return
         try:
@@ -3479,6 +3487,42 @@ class _SyncHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(body)
         except Exception as e:
+            self.send_response(500); self.end_headers()
+            self.wfile.write(str(e).encode())
+
+    def _handle_get_products(self):
+        """
+        GET /products — отдаёт полный каталог с описаниями для wahelp-agent.
+        Только товары с остатком > 0 (in_stock).
+        Возвращает: id, name, price, stock, description, category, roast_type,
+                    process, recipe и любые другие колонки products.
+        """
+        try:
+            con = get_db()
+            cur = con.execute("SELECT * FROM products WHERE stock > 0 ORDER BY name")
+            cols = [c[0] for c in cur.description]
+            rows = cur.fetchall()
+            con.close()
+            products = []
+            for r in rows:
+                d = dict(r)
+                # Для удобства отдадим только непустые поля
+                products.append({k: v for k, v in d.items() if v not in (None, "", 0) or k in ("price", "stock")})
+            data = {
+                "count": len(products),
+                "columns": cols,
+                "products": products,
+            }
+            body = _json.dumps(data, ensure_ascii=False).encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
             self.send_response(500); self.end_headers()
             self.wfile.write(str(e).encode())
 
