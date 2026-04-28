@@ -1087,6 +1087,8 @@ def init_db():
         ("description", "TEXT"), ("recipe_e", "TEXT"), ("recipe_f", "TEXT"),
         ("roast_type", "TEXT"), ("process", "TEXT"), ("weight_g", "INTEGER DEFAULT 1000"),
         ("photo_url", "TEXT"),
+        ("price_10kg", "REAL DEFAULT 0"),  # цена при заказе от 10 кг (-10%)
+        ("price_25kg", "REAL DEFAULT 0"),  # цена при заказе от 25 кг (-20%)
     ]:
         if col not in prod_cols:
             cur.execute(f"ALTER TABLE products ADD COLUMN {col} {typ}")
@@ -3292,15 +3294,117 @@ async def _claude_match(rows: list, db_names: list) -> list:
     return matches
 
 
+def _detect_file_type(filename: str, ws) -> str:
+    """
+    Определяет что за файл по имени и структуре.
+    Возвращает: 'price' | 'stock' | 'unknown'
+    """
+    fn = (filename or "").lower()
+    if any(k in fn for k in ["прайс", "цен", "price"]):
+        return "price"
+    if any(k in fn for k in ["остатк", "склад", "stock"]):
+        return "stock"
+    # Эвристика по структуре: если в первых 10 строках есть слова про цены/прайс
+    keywords_price = ["прайс", "цен", "базовый", "скидка"]
+    for i, row in enumerate(ws.iter_rows(values_only=True)):
+        if i > 10:
+            break
+        for cell in row:
+            if isinstance(cell, str):
+                low = cell.lower()
+                if any(k in low for k in keywords_price):
+                    return "price"
+    return "stock"  # дефолт — остатки
+
+
+def _parse_price_xlsx(ws):
+    """
+    Парсит прайс с тремя колонками цен (базовая, 10кг, 25кг).
+
+    Структура файла Roastberry:
+        Колонка D (3) — название товара
+        Колонка 37    — базовая цена (1.Базовый прайс-лист → Цена)
+        Колонка 42    — цена при заказе от 10 кг
+        Колонка 47    — цена при заказе от 25 кг
+
+    Если структура не совпадает — fallback: имя в первом текстовом столбце,
+    цена — первое осмысленное число (50-100000) в строке.
+    """
+    rows = []
+    skip_words = ["итого", "всего", "параметры", "период", "ведомость",
+                  "изменение цен", "товар", "базовый прайс"]
+
+    # Сначала пробуем «строгий» формат (известные позиции колонок)
+    expected_idx = {"name": 3, "price": 37, "price_10kg": 42, "price_25kg": 47}
+
+    for row in ws.iter_rows(values_only=True):
+        if not row or len(row) < 4:
+            continue
+        name_cell = row[expected_idx["name"]] if len(row) > expected_idx["name"] else None
+        if not isinstance(name_cell, str) or len(name_cell.strip()) < 4:
+            continue
+        name = name_cell.strip()
+        if any(s in name.lower() for s in skip_words) and len(name) < 40:
+            continue
+
+        def _safe(idx):
+            if len(row) <= idx:
+                return None
+            v = row[idx]
+            if isinstance(v, (int, float)) and 50 < v < 100000:
+                return float(v)
+            return None
+
+        price_base = _safe(expected_idx["price"])
+        if price_base is None:
+            # fallback — первое разумное число
+            for v in row[4:]:
+                if isinstance(v, (int, float)) and 50 < v < 100000:
+                    price_base = float(v)
+                    break
+            if price_base is None:
+                continue
+
+        item = {"name": name, "price": price_base}
+        p10 = _safe(expected_idx["price_10kg"])
+        p25 = _safe(expected_idx["price_25kg"])
+        if p10:
+            item["price_10kg"] = p10
+        if p25:
+            item["price_25kg"] = p25
+        rows.append(item)
+
+    return rows
+
+
+def _parse_stock_xlsx(ws):
+    """Парсинг остатков — последнее число в строке = остаток."""
+    skip_words = ["итого", "всего", "параметры", "период", "номенклатура",
+                  "количество", "ведомость", "конечный остаток"]
+    rows = []
+    for row in ws.iter_rows(values_only=True):
+        if not row or not row[0] or not isinstance(row[0], str) or len(row[0]) < 4:
+            continue
+        name = row[0].strip()
+        if any(s in name.lower() for s in skip_words) and len(name) < 40:
+            continue
+        nums = [round(float(c), 2) for c in row[1:] if isinstance(c, (int, float))]
+        if not nums:
+            continue
+        item = {"name": name, "stock": int(nums[-1])}
+        rows.append(item)
+    return rows
+
+
 @dp.message(F.document)
 async def admin_xlsx_handler(message: Message):
-    """Админ присылает xlsx — обновляем остатки/цены с Claude-сопоставлением."""
+    """Админ присылает xlsx — обновляем остатки или цены с Claude-сопоставлением."""
     from admin import ADMIN_IDS
     if message.from_user.id not in ADMIN_IDS:
         return
     doc = message.document
     if not doc.file_name or not doc.file_name.lower().endswith(".xlsx"):
-        return  # Игнорируем не-xlsx документы
+        return
 
     import io
     import openpyxl
@@ -3317,51 +3421,61 @@ async def admin_xlsx_handler(message: Message):
         await message.answer(f"⚠️ Не удалось открыть файл: {e}")
         return
 
-    # Парсим: первая колонка — название, ищем числа в остальных
-    skip_words = ["итого", "всего", "параметры", "период", "номенклатура",
-                  "количество", "ведомость", "конечный остаток"]
-    rows = []
-    for row in ws.iter_rows(values_only=True):
-        if not row or not row[0] or not isinstance(row[0], str) or len(row[0]) < 4:
-            continue
-        name = row[0].strip()
-        if any(s in name.lower() for s in skip_words) and len(name) < 40:
-            continue
-        nums = [round(float(c), 2) for c in row[1:] if isinstance(c, (int, float))]
-        if not nums:
-            continue
-        # Эвристика: если 1 число — это остаток. Если 2 — цена и остаток. Если больше — берём последнее как остаток.
-        item = {"name": name, "stock": int(nums[-1])}
-        if len(nums) >= 2:
-            item["price"] = float(nums[-2])
-        rows.append(item)
+    # Определяем тип файла
+    file_type = _detect_file_type(doc.file_name, ws)
+
+    # Файл нужно перечитать — после ws.iter_rows() в read_only режиме
+    # курсор не сбрасывается. Загружаем заново.
+    buf.seek(0)
+    wb = openpyxl.load_workbook(buf, read_only=True, data_only=True)
+    ws = wb.active
+
+    if file_type == "price":
+        rows = _parse_price_xlsx(ws)
+        type_label = "прайс (цены)"
+    else:
+        rows = _parse_stock_xlsx(ws)
+        type_label = "остатки"
 
     if not rows:
-        await message.answer("Данных в файле не нашёл.")
+        await message.answer(
+            f"⚠️ Не нашёл подходящих данных. Тип определён как: {type_label}.\n"
+            "Проверь формат файла."
+        )
         return
 
-    await message.answer(f"📊 Найдено {len(rows)} строк. Сопоставляю через Claude...")
+    await message.answer(
+        f"📊 Тип файла: *{type_label}*\n"
+        f"Найдено {len(rows)} строк. Сопоставляю через Claude...",
+        parse_mode="Markdown"
+    )
 
     # Берём актуальные названия из БД
     con = get_db()
-    db_products = con.execute("SELECT id, name, price, stock FROM products").fetchall()
+    db_products = con.execute(
+        "SELECT id, name, price FROM products"
+    ).fetchall()
     con.close()
     if not db_products:
-        await message.answer("⚠️ В БД нет товаров. Сделай /resetdb сначала.")
+        await message.answer("⚠️ В БД нет товаров.")
         return
     db_names = [p["name"] for p in db_products]
     db_index = {p["name"]: p for p in db_products}
 
-    # Сопоставление
     matches = await _claude_match(rows, db_names)
     if not matches:
         await message.answer("⚠️ Claude не вернул сопоставлений. Проверь ANTHROPIC_API_KEY.")
         return
 
     # Применяем
-    upd_stock = upd_price = skipped = 0
+    upd_stock = upd_price = upd_price_10 = upd_price_25 = skipped = 0
     not_found_names = []
     con = get_db()
+
+    # Индексируем источник по source_name для дополнения данных из rows (Claude
+    # мог не передать price_10kg/price_25kg, забираем из rows напрямую)
+    rows_by_name = {r["name"]: r for r in rows}
+
     for m in matches:
         bot_name = m.get("bot_name")
         if not bot_name:
@@ -3370,7 +3484,6 @@ async def admin_xlsx_handler(message: Message):
             continue
         product = db_index.get(bot_name)
         if not product:
-            # Fuzzy fallback — ищем по подстроке
             for n, p in db_index.items():
                 if bot_name.lower() in n.lower() or n.lower() in bot_name.lower():
                     product = p
@@ -3379,37 +3492,74 @@ async def admin_xlsx_handler(message: Message):
             not_found_names.append(f"{m.get('source_name','?')} → {bot_name}")
             skipped += 1
             continue
+
         pid = product["id"]
-        if m.get("stock") is not None:
+        # Достаём оригинальную строку из rows (там трёхуровневые цены)
+        src_row = rows_by_name.get(m.get("source_name", ""), {})
+
+        # Stock — только если файл с остатками
+        if file_type == "stock" and m.get("stock") is not None:
             try:
                 con.execute("UPDATE products SET stock = ? WHERE id = ?",
                             (int(m["stock"]), pid))
                 upd_stock += 1
             except (TypeError, ValueError):
                 pass
-        if m.get("price") and float(m["price"]) > 0:
-            try:
-                con.execute(
-                    "UPDATE products SET prev_price = price, price = ? WHERE id = ?",
-                    (float(m["price"]), pid)
-                )
-                upd_price += 1
-            except (TypeError, ValueError):
-                pass
-    con.commit(); con.close()
 
-    lines = [
-        "✅ *Обновление завершено*",
-        f"📦 Остатков обновлено: *{upd_stock}*",
-        f"💰 Цен обновлено: *{upd_price}*",
-        f"⚠️ Пропущено: *{skipped}*",
-    ]
+        # Цены — только если файл прайса
+        if file_type == "price":
+            base_price = m.get("price") or src_row.get("price")
+            if base_price and float(base_price) > 0:
+                try:
+                    con.execute(
+                        "UPDATE products SET prev_price = price, price = ? WHERE id = ?",
+                        (float(base_price), pid)
+                    )
+                    upd_price += 1
+                except (TypeError, ValueError):
+                    pass
+
+            p10 = src_row.get("price_10kg")
+            if p10 and float(p10) > 0:
+                try:
+                    con.execute(
+                        "UPDATE products SET price_10kg = ? WHERE id = ?",
+                        (float(p10), pid)
+                    )
+                    upd_price_10 += 1
+                except (TypeError, ValueError):
+                    pass
+
+            p25 = src_row.get("price_25kg")
+            if p25 and float(p25) > 0:
+                try:
+                    con.execute(
+                        "UPDATE products SET price_25kg = ? WHERE id = ?",
+                        (float(p25), pid)
+                    )
+                    upd_price_25 += 1
+                except (TypeError, ValueError):
+                    pass
+
+    con.commit()
+    con.close()
+
+    lines = ["✅ *Обновление завершено*", f"Тип: *{type_label}*"]
+    if file_type == "stock":
+        lines.append(f"📦 Остатков обновлено: *{upd_stock}*")
+    else:
+        lines.append(f"💰 Базовых цен: *{upd_price}*")
+        lines.append(f"💰 Цен от 10 кг: *{upd_price_10}*")
+        lines.append(f"💰 Цен от 25 кг: *{upd_price_25}*")
+    lines.append(f"⚠️ Пропущено: *{skipped}*")
+
     if not_found_names:
         lines.append(f"\nНе сопоставлено ({len(not_found_names)}):")
         for nf in not_found_names[:8]:
             lines.append(f"  • {nf[:60]}")
         if len(not_found_names) > 8:
             lines.append(f"  ... и ещё {len(not_found_names)-8}")
+
     await message.answer("\n".join(lines), parse_mode="Markdown")
 
 
