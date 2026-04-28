@@ -3294,6 +3294,71 @@ async def _claude_match(rows: list, db_names: list) -> list:
     return matches
 
 
+async def _claude_categorize(rows: list, cat_tree_str: str) -> dict:
+    """
+    Просим Claude назначить категории новым товарам.
+    rows: [{"name": "...", "stock": ...}, ...]
+    cat_tree_str: дерево категорий в виде "  [id] Имя"
+    Возвращает: {"имя товара": id_категории, ...}
+    """
+    import aiohttp
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    if not api_key or not rows:
+        return {}
+
+    headers = {
+        "x-api-key": api_key,
+        "anthropic-version": "2023-06-01",
+        "content-type": "application/json",
+    }
+    result = {}
+    chunk_size = 30
+    system = (
+        "Помощник магазина кофе. Раскладывай новые товары по существующим "
+        "категориям. Отвечай ТОЛЬКО валидным JSON без markdown."
+    )
+    for i in range(0, len(rows), chunk_size):
+        chunk = rows[i:i+chunk_size]
+        names_text = "\n".join(f"- {r['name']}" for r in chunk)
+        prompt = (
+            "Доступные категории (в формате [id] Имя):\n" + cat_tree_str +
+            "\n\nНовые товары:\n" + names_text +
+            '\n\nВерни строго JSON вида: '
+            '{"assignments":[{"name":"<имя товара>","category_id":<число>}]}\n'
+            "Используй только id из списка категорий выше. Для подкатегорий — "
+            "выбирай самый специфичный (если есть Кофе/Моносорта — назначай "
+            "Моносорта, не Кофе). Если ничего не подходит — category_id=null."
+        )
+        try:
+            async with aiohttp.ClientSession() as sess:
+                async with sess.post(
+                    _CLAUDE_URL,
+                    headers=headers,
+                    json={
+                        "model": _CLAUDE_MODEL,
+                        "max_tokens": 4000,
+                        "system": system,
+                        "messages": [{"role": "user", "content": prompt}],
+                    },
+                    timeout=aiohttp.ClientTimeout(total=120),
+                ) as r:
+                    data = await r.json()
+            text = ""
+            for block in data.get("content", []):
+                if block.get("type") == "text":
+                    text += block.get("text", "")
+            text = text.strip()
+            if text.startswith("```"):
+                text = "\n".join(text.split("\n")[1:-1])
+            parsed = _json.loads(text)
+            for a in parsed.get("assignments", []):
+                if a.get("name") and a.get("category_id"):
+                    result[a["name"]] = int(a["category_id"])
+        except Exception as e:
+            print(f"Claude categorize error: {e}")
+    return result
+
+
 def _detect_file_type(filename: str, ws) -> str:
     """
     Определяет что за файл по имени и структуре.
@@ -3456,90 +3521,149 @@ async def admin_xlsx_handler(message: Message):
         "SELECT id, name, price FROM products"
     ).fetchall()
     con.close()
-    if not db_products:
-        await message.answer("⚠️ В БД нет товаров.")
+
+    if not db_products and file_type == "price":
+        await message.answer("⚠️ В БД нет товаров. Сначала загрузи остатки.")
         return
+
     db_names = [p["name"] for p in db_products]
     db_index = {p["name"]: p for p in db_products}
 
-    matches = await _claude_match(rows, db_names)
-    if not matches:
+    # Сопоставление через Claude (если в БД уже есть товары)
+    matches = await _claude_match(rows, db_names) if db_products else []
+    if db_products and not matches:
         await message.answer("⚠️ Claude не вернул сопоставлений. Проверь ANTHROPIC_API_KEY.")
         return
 
+    matches_by_source = {m.get("source_name", ""): m for m in matches}
+
     # Применяем
     upd_stock = upd_price = upd_price_10 = upd_price_25 = skipped = 0
-    not_found_names = []
+    created_new = 0
+    not_found_names = []     # для прайса — товары без матча
+    rows_to_create = []      # для stock — новые товары
+
     con = get_db()
 
-    # Индексируем источник по source_name для дополнения данных из rows (Claude
-    # мог не передать price_10kg/price_25kg, забираем из rows напрямую)
-    rows_by_name = {r["name"]: r for r in rows}
+    for r in rows:
+        src_name = r["name"]
+        m = matches_by_source.get(src_name, {})
+        bot_name = m.get("bot_name") if m else None
 
-    for m in matches:
-        bot_name = m.get("bot_name")
-        if not bot_name:
-            not_found_names.append(m.get("source_name", "?"))
-            skipped += 1
-            continue
-        product = db_index.get(bot_name)
-        if not product:
-            for n, p in db_index.items():
-                if bot_name.lower() in n.lower() or n.lower() in bot_name.lower():
-                    product = p
-                    break
-        if not product:
-            not_found_names.append(f"{m.get('source_name','?')} → {bot_name}")
-            skipped += 1
-            continue
+        product = None
+        if bot_name:
+            product = db_index.get(bot_name)
+            if not product:
+                # Fuzzy fallback по подстроке
+                for n, p in db_index.items():
+                    if bot_name.lower() in n.lower() or n.lower() in bot_name.lower():
+                        product = p
+                        break
 
-        pid = product["id"]
-        # Достаём оригинальную строку из rows (там трёхуровневые цены)
-        src_row = rows_by_name.get(m.get("source_name", ""), {})
+        if product:
+            pid = product["id"]
 
-        # Stock — только если файл с остатками
-        if file_type == "stock" and m.get("stock") is not None:
+            # Stock — обновляем существующий
+            if file_type == "stock" and r.get("stock") is not None:
+                try:
+                    con.execute("UPDATE products SET stock = ? WHERE id = ?",
+                                (int(r["stock"]), pid))
+                    upd_stock += 1
+                except (TypeError, ValueError):
+                    pass
+
+            # Цены — обновляем существующий
+            if file_type == "price":
+                base_price = r.get("price")
+                if base_price and float(base_price) > 0:
+                    try:
+                        con.execute(
+                            "UPDATE products SET prev_price = price, price = ? WHERE id = ?",
+                            (float(base_price), pid)
+                        )
+                        upd_price += 1
+                    except (TypeError, ValueError):
+                        pass
+
+                p10 = r.get("price_10kg")
+                if p10 and float(p10) > 0:
+                    try:
+                        con.execute(
+                            "UPDATE products SET price_10kg = ? WHERE id = ?",
+                            (float(p10), pid)
+                        )
+                        upd_price_10 += 1
+                    except (TypeError, ValueError):
+                        pass
+
+                p25 = r.get("price_25kg")
+                if p25 and float(p25) > 0:
+                    try:
+                        con.execute(
+                            "UPDATE products SET price_25kg = ? WHERE id = ?",
+                            (float(p25), pid)
+                        )
+                        upd_price_25 += 1
+                    except (TypeError, ValueError):
+                        pass
+        else:
+            # Не нашли в БД
+            if file_type == "stock":
+                rows_to_create.append(r)
+            else:
+                not_found_names.append(src_name)
+                skipped += 1
+
+    # Для остатков — создаём новые товары через Claude-категоризацию
+    if file_type == "stock" and rows_to_create:
+        all_cats = con.execute(
+            "SELECT id, name, parent_id FROM categories"
+        ).fetchall()
+        cat_dict = {c["id"]: dict(c) for c in all_cats}
+
+        # Готовим описание дерева категорий для Claude
+        cat_tree_lines = []
+        for c in all_cats:
+            if c["parent_id"] is None:
+                cat_tree_lines.append(f"  [{c['id']}] {c['name']}")
+                for sub in all_cats:
+                    if sub["parent_id"] == c["id"]:
+                        cat_tree_lines.append(f"    [{sub['id']}] {sub['name']}")
+        cat_tree_str = "\n".join(cat_tree_lines)
+
+        await message.answer(
+            f"➕ Найдено {len(rows_to_create)} новых позиций. Угадываю категории через Claude..."
+        )
+
+        new_assignments = await _claude_categorize(rows_to_create, cat_tree_str)
+
+        # Категория-fallback "Прочее"
+        cur = con.cursor()
+        prochee_id = None
+        for c in all_cats:
+            if c["name"].lower().endswith("прочее"):
+                prochee_id = c["id"]
+                break
+        if not prochee_id:
+            cur.execute(
+                "INSERT INTO categories (name, parent_id) VALUES (?, NULL)",
+                ("📦 Прочее",)
+            )
+            prochee_id = cur.lastrowid
+
+        for r in rows_to_create:
+            cat_id = new_assignments.get(r["name"])
+            if not cat_id or cat_id not in cat_dict:
+                cat_id = prochee_id
             try:
-                con.execute("UPDATE products SET stock = ? WHERE id = ?",
-                            (int(m["stock"]), pid))
-                upd_stock += 1
-            except (TypeError, ValueError):
-                pass
-
-        # Цены — только если файл прайса
-        if file_type == "price":
-            base_price = m.get("price") or src_row.get("price")
-            if base_price and float(base_price) > 0:
-                try:
-                    con.execute(
-                        "UPDATE products SET prev_price = price, price = ? WHERE id = ?",
-                        (float(base_price), pid)
-                    )
-                    upd_price += 1
-                except (TypeError, ValueError):
-                    pass
-
-            p10 = src_row.get("price_10kg")
-            if p10 and float(p10) > 0:
-                try:
-                    con.execute(
-                        "UPDATE products SET price_10kg = ? WHERE id = ?",
-                        (float(p10), pid)
-                    )
-                    upd_price_10 += 1
-                except (TypeError, ValueError):
-                    pass
-
-            p25 = src_row.get("price_25kg")
-            if p25 and float(p25) > 0:
-                try:
-                    con.execute(
-                        "UPDATE products SET price_25kg = ? WHERE id = ?",
-                        (float(p25), pid)
-                    )
-                    upd_price_25 += 1
-                except (TypeError, ValueError):
-                    pass
+                cur.execute(
+                    "INSERT INTO products (name, stock, category_id, price) "
+                    "VALUES (?, ?, ?, 0)",
+                    (r["name"], int(r.get("stock") or 0), cat_id)
+                )
+                created_new += 1
+            except Exception as e:
+                print(f"Insert new product failed for {r['name']}: {e}")
 
     con.commit()
     con.close()
@@ -3547,14 +3671,17 @@ async def admin_xlsx_handler(message: Message):
     lines = ["✅ *Обновление завершено*", f"Тип: *{type_label}*"]
     if file_type == "stock":
         lines.append(f"📦 Остатков обновлено: *{upd_stock}*")
+        if created_new:
+            lines.append(f"🆕 Создано новых позиций: *{created_new}*")
     else:
         lines.append(f"💰 Базовых цен: *{upd_price}*")
         lines.append(f"💰 Цен от 10 кг: *{upd_price_10}*")
         lines.append(f"💰 Цен от 25 кг: *{upd_price_25}*")
-    lines.append(f"⚠️ Пропущено: *{skipped}*")
+    if skipped:
+        lines.append(f"⚠️ Пропущено: *{skipped}*")
 
     if not_found_names:
-        lines.append(f"\nНе сопоставлено ({len(not_found_names)}):")
+        lines.append(f"\nНе нашли в БД ({len(not_found_names)}):")
         for nf in not_found_names[:8]:
             lines.append(f"  • {nf[:60]}")
         if len(not_found_names) > 8:
