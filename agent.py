@@ -970,26 +970,6 @@ async def sync_loop():
             print(f"Sync error: {e}")
 
 
-async def check_alerts():
-    while True:
-        await asyncio.sleep(3600)
-        try:
-            low = db_query(
-                "SELECT name, stock FROM products WHERE stock>0 AND stock<=3 ORDER BY stock LIMIT 10"
-            )
-            if low:
-                lines = ["Алерт: критически низкий остаток!\n"]
-                for p in low:
-                    lines.append(f"  {p['name'][:45]}: *{p['stock']} шт*")
-                text = "\n".join(lines)
-                for admin_id in ADMIN_IDS:
-                    try:
-                        await bot.send_message(admin_id, text, parse_mode="Markdown")
-                    except Exception:
-                        pass
-        except Exception:
-            pass
-
 # ─── Запуск ───────────────────────────────────────────────────────────────────
 async def main():
     port = int(os.environ.get("PORT", os.environ.get("AGENT_PORT", 8080)))
@@ -1027,7 +1007,6 @@ async def main():
 
     # Запускаем Telegram бота параллельно с HTTP сервером
     print(f"HTTP server started, launching Telegram bot...")
-    asyncio.create_task(check_alerts())
     asyncio.create_task(sync_loop())
 
     try:
@@ -1042,5 +1021,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-  # v2
-  
