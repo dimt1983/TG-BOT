@@ -1,24 +1,7 @@
-from aiohttp import web
 import os
 import threading
-from http.server import HTTPServer, BaseHTTPRequestHandler
-
-class Handler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(200)
-        self.end_headers()
-        self.wfile.write(b'OK')
-    def do_HEAD(self):
-        self.send_response(200)
-        self.end_headers()
-    def log_message(self, format, *args):
-        pass
-
-def run_server():
-    port = int(os.environ.get("PORT", 10000))
-    server = HTTPServer(("0.0.0.0", port), Handler)
-    server.serve_forever()
-
+# TMA-static server: раздаёт healthcheck "/" + Mini App "/tma/*"
+from tma_static_server import run_server
 threading.Thread(target=run_server, daemon=True).start()
 
 import asyncio
@@ -4257,6 +4240,12 @@ async def main():
     _MAIN_LOOP = asyncio.get_running_loop()
     init_db()
     register_admin_handlers(dp, bot)
+    # TMA: команда /shop, обработка web_app_data, Telegram Payments
+    try:
+        from tma_handler import register_tma_handlers
+        register_tma_handlers(dp, bot, get_db, notify_new_order)
+    except Exception as e:
+        print(f"[TMA] не удалось зарегистрировать обработчики: {e}")
     threading.Thread(target=_run_sync_server, daemon=True).start()
     await dp.start_polling(bot)
 

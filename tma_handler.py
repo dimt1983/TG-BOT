@@ -1,0 +1,363 @@
+"""
+tma_handler.py — интеграция Telegram Mini App с ботом.
+
+Что делает:
+1. Регистрирует команду /shop и кнопку «🛍️ Магазин» открывающие Mini App
+2. Принимает данные корзины из TMA через F.web_app_data
+3. Создаёт заказ в той же БД, что и обычный flow бота
+4. Уведомляет админа через notify_new_order
+
+Подключение к bot.py — одной строкой:
+    from tma_handler import register_tma_handlers
+    register_tma_handlers(dp, bot, get_db, notify_new_order)
+"""
+import json
+import logging
+import os
+from typing import Callable
+
+from aiogram import Dispatcher, Bot, F
+from aiogram.filters import Command
+from aiogram.types import (
+    Message, WebAppInfo, KeyboardButton, ReplyKeyboardMarkup,
+    InlineKeyboardMarkup, InlineKeyboardButton, MenuButtonWebApp,
+    LabeledPrice, PreCheckoutQuery,
+)
+
+log = logging.getLogger(__name__)
+
+# URL твоего Mini App. Должен быть HTTPS на продакшене.
+# Для теста — обычная http-страница работает только через Telegram Desktop.
+TMA_URL = os.environ.get("TMA_URL", "https://roastberry-tma.up.railway.app/")
+
+# ID админа для уведомлений (может быть не задан — тогда notify_new_order возьмёт сам)
+ADMIN_ID = int(os.environ.get("ADMIN_ID", "0") or 0)
+
+# Provider token для Telegram Payments (получается у платёжного провайдера через @BotFather)
+# Тестовый токен ЮKassa: формат "1744374395:TEST:..."
+# Боевой: получить в @BotFather → /mybots → твой бот → Payments → выбрать провайдера
+PAYMENTS_PROVIDER_TOKEN = os.environ.get("PAYMENTS_PROVIDER_TOKEN", "")
+PAYMENTS_CURRENCY = os.environ.get("PAYMENTS_CURRENCY", "RUB")
+
+
+# ============================================================
+# 1. Команды и кнопки для запуска Mini App
+# ============================================================
+
+def shop_keyboard() -> ReplyKeyboardMarkup:
+    """Reply-клавиатура с кнопкой запуска TMA как WebApp."""
+    return ReplyKeyboardMarkup(
+        keyboard=[[KeyboardButton(
+            text="🛍️ Магазин (приложение)",
+            web_app=WebAppInfo(url=TMA_URL),
+        )]],
+        resize_keyboard=True,
+    )
+
+
+def shop_inline_button() -> InlineKeyboardMarkup:
+    """Inline-кнопка для прикрепления к любому сообщению."""
+    return InlineKeyboardMarkup(inline_keyboard=[[
+        InlineKeyboardButton(
+            text="🛍️ Открыть магазин",
+            web_app=WebAppInfo(url=TMA_URL),
+        )
+    ]])
+
+
+# ============================================================
+# 2. Преобразование данных из TMA → запись заказа в БД
+# ============================================================
+
+def find_product_id(con, item_name: str, fasovka: str):
+    """Ищем товар в БД по имени + фасовке. Возвращаем id или None."""
+    # имя в TMA — без явной указки 1кг/200г, фасовка отдельно. В БД имя обычно с фасовкой.
+    # пробуем разные варианты
+    candidates = [
+        f"{item_name} {fasovka}",
+        f"{item_name} - {fasovka}",
+        item_name,
+    ]
+    # маленькая нормализация фасовки
+    fas_g = fasovka.replace(" ", "").lower()
+    if fas_g == "1кг":
+        candidates.append(f"{item_name} 1 кг")
+    elif fas_g.endswith("г"):
+        candidates.append(f"{item_name} {fas_g[:-1]} г")
+
+    for q in candidates:
+        row = con.execute("SELECT id FROM products WHERE name = ? LIMIT 1", (q,)).fetchone()
+        if row:
+            return row[0] if not hasattr(row, "keys") else row["id"]
+    # last resort — поиск по LIKE
+    like = f"%{item_name}%{fas_g[:3]}%"
+    row = con.execute("SELECT id FROM products WHERE name LIKE ? LIMIT 1", (like,)).fetchone()
+    if row:
+        return row[0] if not hasattr(row, "keys") else row["id"]
+    return None
+
+
+def create_order_from_tma(con, user_id: int, payload: dict) -> int:
+    """
+    Создаёт заказ из payload, который пришёл из TMA.
+    Возвращает order_id.
+
+    payload формат:
+    {
+      "type": "order",
+      "items": [{"id":..,"name":..,"fasovka":..,"price":..,"qty":..,"category":..}],
+      "subtotal": 1234, "discount_pct": 0.10, "saved": 123, "total": 1111,
+      "totalKg": 12.5,
+      "contact": {"name":"Иван","phone":"...","address":"..."}  // опционально
+    }
+    """
+    items = payload.get("items", [])
+    contact = payload.get("contact") or {}
+    subtotal = sum(it["price"] * it["qty"] for it in items)
+    total_kg = payload.get("totalKg") or sum(
+        (parse_kg(it.get("fasovka", "")) or 0) * it["qty"] for it in items
+    )
+    discount_pct = 0.20 if total_kg >= 25 else 0.10 if total_kg >= 10 else 0
+    discount_amt = round(subtotal * discount_pct)
+    total = subtotal - discount_amt
+
+    # Создаём шапку заказа
+    cur = con.execute(
+        """INSERT INTO orders (user_id, name, phone, address, total, discount, status)
+           VALUES (?, ?, ?, ?, ?, ?, 'new')""",
+        (
+            user_id,
+            contact.get("name") or "Клиент TMA",
+            contact.get("phone") or "",
+            contact.get("address") or "уточнить при подтверждении",
+            total,
+            discount_amt,
+        ),
+    )
+    order_id = cur.lastrowid
+
+    # Позиции
+    for it in items:
+        pid = find_product_id(con, it["name"], it.get("fasovka", ""))
+        if pid is None:
+            # фоллбек: создаём «заглушку»-товар чтобы FK не падал
+            cur2 = con.execute(
+                "INSERT INTO products (name, description, price, stock) VALUES (?, ?, ?, 0)",
+                (f"{it['name']} ({it.get('fasovka','')})", "Из Mini App", it["price"]),
+            )
+            pid = cur2.lastrowid
+            log.warning(f"TMA: товар не найден в БД, создан заглушка id={pid}: {it['name']}")
+        con.execute(
+            "INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (?, ?, ?, ?)",
+            (order_id, pid, it["qty"], it["price"]),
+        )
+        # Списание остатка (если есть колонка)
+        try:
+            con.execute("UPDATE products SET stock = stock - ? WHERE id = ?", (it["qty"], pid))
+        except Exception:
+            pass
+
+    con.commit()
+    return order_id
+
+
+def parse_kg(fasovka_str: str) -> float | None:
+    import re
+    m = re.search(r"(\d+(?:\.\d+)?)\s*(кг|г)", fasovka_str.lower())
+    if not m:
+        return None
+    v = float(m.group(1))
+    if m.group(2) == "г":
+        v /= 1000
+    return v
+
+
+# ============================================================
+# 3. Telegram Payments: создание Invoice
+# ============================================================
+
+async def send_payment_invoice(bot: Bot, chat_id: int, order_id: int, items: list, total: float):
+    """
+    Отправляет инвойс через Telegram Payments.
+    Если PAYMENTS_PROVIDER_TOKEN не задан — присылает заглушку с инструкцией.
+    """
+    if not PAYMENTS_PROVIDER_TOKEN:
+        await bot.send_message(
+            chat_id,
+            f"💳 <b>Онлайн-оплата</b>\n\n"
+            f"Заказ №{order_id} принят.\n"
+            f"Платёжный провайдер пока не настроен (нужен токен в env <code>PAYMENTS_PROVIDER_TOKEN</code>).\n"
+            f"Менеджер свяжется и пришлёт ссылку на оплату вручную.\n\n"
+            f"💰 К оплате: <b>{total:.0f} ₽</b>",
+            parse_mode="HTML",
+        )
+        return
+
+    # Формируем prices: тут разрешено указывать максимум 100 элементов
+    # Простейший вариант — одна строка "Заказ №X"
+    prices = [LabeledPrice(label=f"Заказ Roastberry №{order_id}", amount=int(total * 100))]
+    # Можно детализировать по позициям (если total <= sum of items)
+    # detailed = [LabeledPrice(label=it["name"][:32], amount=int(it["price"] * it["qty"] * 100))
+    #             for it in items[:99]]
+    # if abs(sum(p.amount for p in detailed) - prices[0].amount) < 100:
+    #     prices = detailed
+
+    try:
+        await bot.send_invoice(
+            chat_id=chat_id,
+            title=f"Заказ Roastberry №{order_id}",
+            description=f"{len(items)} позиций · доставка по согласованию",
+            payload=f"order_{order_id}",
+            provider_token=PAYMENTS_PROVIDER_TOKEN,
+            currency=PAYMENTS_CURRENCY,
+            prices=prices,
+            need_name=False,
+            need_phone_number=False,
+            need_email=False,
+            need_shipping_address=False,
+            is_flexible=False,
+            start_parameter=f"pay_{order_id}",
+        )
+    except Exception as e:
+        log.exception("TMA: ошибка отправки инвойса")
+        await bot.send_message(chat_id, f"⚠️ Не удалось отправить счёт: {e}")
+
+
+# ============================================================
+# 4. Регистрация хендлеров
+# ============================================================
+
+def register_tma_handlers(
+    dp: Dispatcher,
+    bot: Bot,
+    get_db: Callable,
+    notify_new_order: Callable | None = None,
+):
+    """
+    Подключает к существующему боту:
+    - команду /shop (открывает Mini App)
+    - обработчик F.web_app_data (принимает заказ из TMA)
+    - кнопку MenuButton → запуск Mini App из меню рядом с полем ввода
+    """
+
+    # ── /shop — отправляем сообщение с кнопкой открытия Mini App ──────────────
+    @dp.message(Command("shop"))
+    async def cmd_shop(message: Message):
+        await message.answer(
+            "🛍️ <b>Магазин Roastberry</b>\n\n"
+            "Открой удобный каталог в приложении: фото, описания, рецепты, корзина "
+            "и автоматический подсчёт скидки от веса.",
+            reply_markup=shop_keyboard(),
+            parse_mode="HTML",
+        )
+        # И inline-кнопкой тоже
+        await message.answer(
+            "Или открой здесь:",
+            reply_markup=shop_inline_button(),
+        )
+
+    # ── Получение данных из TMA через web_app_data ────────────────────────────
+    @dp.message(F.web_app_data)
+    async def handle_webapp_data(message: Message):
+        raw = message.web_app_data.data
+        try:
+            payload = json.loads(raw)
+        except json.JSONDecodeError:
+            await message.answer("❌ Получены некорректные данные из приложения.")
+            return
+
+        if payload.get("type") != "order":
+            await message.answer(f"📨 Получены данные: {raw[:200]}")
+            return
+
+        items = payload.get("items", [])
+        if not items:
+            await message.answer("⚠️ Корзина пуста.")
+            return
+
+        # Создаём заказ
+        try:
+            con = get_db()
+            order_id = create_order_from_tma(con, message.from_user.id, payload)
+            con.close()
+        except Exception as e:
+            log.exception("TMA: ошибка создания заказа")
+            await message.answer(f"❌ Ошибка при оформлении заказа: {e}")
+            return
+
+        # Считаем итог для ответа
+        subtotal = sum(it["price"] * it["qty"] for it in items)
+        kg = sum((parse_kg(it.get("fasovka", "")) or 0) * it["qty"] for it in items)
+        disc_pct = 0.20 if kg >= 25 else 0.10 if kg >= 10 else 0
+        saved = round(subtotal * disc_pct)
+        total = subtotal - saved
+
+        lines = [f"✅ <b>Заказ №{order_id} оформлен!</b>\n"]
+        for it in items[:15]:
+            lines.append(f"• {it['name'][:48]}\n  <i>{it['qty']} × {it['price']} ₽ ({it.get('fasovka','')})</i>")
+        if len(items) > 15:
+            lines.append(f"... и ещё {len(items) - 15} позиций")
+        lines.append(f"\n💰 Сумма: {subtotal:.0f} ₽")
+        lines.append(f"⚖️ Вес кофе: {kg:.2f} кг")
+        if saved:
+            lines.append(f"🎁 Скидка {int(disc_pct*100)}%: −{saved} ₽")
+        lines.append(f"\n💳 <b>К оплате: {total:.0f} ₽</b>")
+        lines.append("\n📞 Менеджер свяжется для подтверждения деталей доставки.")
+        await message.answer("\n".join(lines), parse_mode="HTML")
+
+        # Уведомление админу
+        if notify_new_order:
+            try:
+                user_name = message.from_user.full_name or "TMA-клиент"
+                await notify_new_order(bot, order_id, user_name, total)
+            except Exception as e:
+                log.warning(f"TMA: не удалось уведомить админа: {e}")
+
+        # Если выбрана онлайн-оплата — присылаем Telegram Invoice
+        if payload.get("payment_method") == "online":
+            await send_payment_invoice(bot, message.chat.id, order_id, items, total)
+
+    # ── Telegram Payments: pre-checkout (обязательно отвечать в течение 10 сек) ─
+    @dp.pre_checkout_query()
+    async def pre_checkout(query: PreCheckoutQuery):
+        # Простейшая проверка: всегда соглашаемся, если payload корректный
+        await bot.answer_pre_checkout_query(query.id, ok=True)
+
+    # ── Telegram Payments: успешная оплата ────────────────────────────────────
+    @dp.message(F.successful_payment)
+    async def on_successful_payment(message: Message):
+        sp = message.successful_payment
+        # payload — это invoice_payload, который мы отдаём через order_id
+        order_id = sp.invoice_payload.replace("order_", "") if sp.invoice_payload else "?"
+        try:
+            con = get_db()
+            con.execute("UPDATE orders SET status = 'paid' WHERE id = ?", (order_id,))
+            con.commit(); con.close()
+        except Exception:
+            pass
+        await message.answer(
+            f"✅ <b>Оплата получена</b>\n\n"
+            f"Заказ №{order_id} оплачен на сумму {sp.total_amount/100:.0f} {sp.currency}.\n"
+            f"Передаём заказ на сборку 📦",
+            parse_mode="HTML",
+        )
+
+    # ── Установить MenuButton (кнопка слева от поля ввода) ────────────────────
+    async def setup_menu_button():
+        try:
+            await bot.set_chat_menu_button(
+                menu_button=MenuButtonWebApp(
+                    text="🛍️ Магазин",
+                    web_app=WebAppInfo(url=TMA_URL),
+                )
+            )
+            log.info(f"TMA menu button установлен: {TMA_URL}")
+        except Exception as e:
+            log.warning(f"TMA: не удалось установить menu button: {e}")
+
+    # Запустим установку при старте поллинга
+    @dp.startup()
+    async def _on_startup():
+        await setup_menu_button()
+
+    log.info(f"TMA handlers зарегистрированы. URL: {TMA_URL}")
