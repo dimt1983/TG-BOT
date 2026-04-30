@@ -79,9 +79,9 @@ body {
 /* Product card */
 .product-card { background: var(--section); border-radius: var(--radius); padding: 12px; margin-bottom: 10px; display: flex; gap: 12px; box-shadow: var(--shadow); cursor: pointer; transition: transform 0.15s; }
 .product-card:active { transform: scale(0.98); }
-.product-photo { width: 88px; height: 88px; border-radius: 12px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 36px; color: white; position: relative; overflow: hidden; background-size: cover; background-position: center; }
-.product-photo .overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(62,39,35,0.55), rgba(111,78,55,0.25)); }
-.product-photo .ico { position: relative; z-index: 1; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3)); }
+.product-photo { width: 88px; height: 88px; border-radius: 12px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: linear-gradient(135deg, #f5f1ec 0%, #efe9e1 100%); border: 1px solid rgba(111,78,55,0.1); }
+.product-photo img.logo-mark { width: 70%; height: 70%; object-fit: contain; }
+.product-photo .cat-badge { position: absolute; top: 4px; right: 4px; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.15); }
 .product-info { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; }
 .product-name { font-weight: 700; font-size: 14px; line-height: 1.3; margin-bottom: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .product-meta { font-size: 11px; color: var(--hint); margin-bottom: 6px; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
@@ -115,9 +115,9 @@ body {
 .sheet { position: fixed; bottom: 0; left: 0; right: 0; max-width: 480px; margin: 0 auto; background: var(--bg); border-radius: 24px 24px 0 0; padding: 0 0 max(120px, calc(env(safe-area-inset-bottom) + 100px)); transform: translateY(100%); transition: transform 0.3s; max-height: 92vh; overflow-y: auto; z-index: 201; }
 .sheet.show { transform: translateY(0); }
 .sheet-handle { width: 40px; height: 4px; background: rgba(0,0,0,0.2); border-radius: 2px; margin: 8px auto 12px; }
-.sheet-photo { width: 100%; aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; font-size: 96px; color: white; position: relative; overflow: hidden; background-size: cover; background-position: center; }
-.sheet-photo .decor { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(62,39,35,0.4) 0%, transparent 50%, rgba(0,0,0,0.3) 100%); }
-.sheet-photo .ico { position: relative; z-index: 1; filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4)); }
+.sheet-photo { width: 100%; aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: linear-gradient(135deg, #f5f1ec 0%, #efe9e1 50%, #e8dfd4 100%); }
+.sheet-photo img.logo-mark { max-width: 50%; max-height: 70%; object-fit: contain; }
+.sheet-photo .cat-badge-lg { position: absolute; top: 16px; right: 16px; padding: 6px 14px; border-radius: 20px; color: white; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .sheet-content { padding: 20px; }
 .sheet-title { font-size: 22px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.3px; }
 .sheet-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
@@ -155,8 +155,8 @@ body {
 .cart-empty h3 { font-size: 20px; margin-bottom: 8px; font-weight: 800; }
 .cart-empty p { color: var(--hint); font-size: 14px; }
 .cart-item { background: var(--section); border-radius: var(--radius); padding: 12px; margin-bottom: 10px; display: flex; gap: 12px; align-items: center; box-shadow: var(--shadow); }
-.cart-item .photo { width: 64px; height: 64px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 28px; color: white; background-size: cover; background-position: center; flex-shrink: 0; }
-.cart-item .photo .overlay { width: 100%; height: 100%; background: rgba(62,39,35,0.4); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+.cart-item .photo { width: 64px; height: 64px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: linear-gradient(135deg, #f5f1ec 0%, #efe9e1 100%); border: 1px solid rgba(111,78,55,0.1); overflow: hidden; }
+.cart-item .photo img.logo-mark { width: 70%; height: 70%; object-fit: contain; }
 .cart-item .info { flex: 1; min-width: 0; }
 .cart-item .info .nm { font-size: 13px; font-weight: 700; line-height: 1.3; margin-bottom: 4px; }
 .cart-item .info .fs { font-size: 11px; color: var(--hint); }
@@ -487,9 +487,6 @@ function productCard(p) {
   const cat = DATA.categories.find(c => c.id === p.category);
   const inCart = cart.some(c => c.id === p.id);
   const minPrice = Math.min(...p.fasovka.map(f => f.price));
-  const photoStyle = p.photo
-    ? `background-image: url('${p.photo}'); background-color: ${cat.color};`
-    : `background: linear-gradient(135deg, ${cat.color}, ${shadeColor(cat.color, -25)});`;
   const tags = (p.tags || []).slice(0, 2).map(t => {
     let cls = '';
     if (t === 'Хит') cls = 'hit';
@@ -498,9 +495,11 @@ function productCard(p) {
     else if (t.includes('Borщ') || t.includes('Борщ')) cls = 'borq';
     return `<span class="product-tag ${cls}">${t}</span>`;
   }).join('');
-  const showIcon = !p.photo;
   return `<div class="product-card" onclick="openProduct('${p.id}')">
-    <div class="product-photo" style="${photoStyle}">${p.photo ? '' : '<span class="overlay"></span><span class="ico">' + cat.icon + '</span>'}</div>
+    <div class="product-photo">
+      <img class="logo-mark" src="assets/logo_mark.png" alt="">
+      <span class="cat-badge" style="background:${cat.color}">${cat.icon}</span>
+    </div>
     <div class="product-info">
       <div>
         <div class="product-name">${p.name}</div>
@@ -581,9 +580,6 @@ function closeSheet() {
 function renderSheet() {
   const p = currentProduct;
   const cat = DATA.categories.find(c => c.id === p.category);
-  const photoStyle = p.photo
-    ? `background-image: url('${p.photo}'); background-color: ${cat.color};`
-    : `background: linear-gradient(135deg, ${cat.color}, ${shadeColor(cat.color, -30)});`;
   const tags = (p.tags || []).map(t => {
     let cls = '';
     if (t === 'Хит') cls = 'hit';
@@ -610,7 +606,10 @@ function renderSheet() {
   document.getElementById('add-cart-btn').textContent = `🛒 В корзину · ${totalPrice} ₽`;
 
   document.getElementById('sheet-content').innerHTML = `
-    <div class="sheet-photo" style="${photoStyle}"><span class="decor"></span>${p.photo ? '' : '<span class="ico">' + cat.icon + '</span>'}</div>
+    <div class="sheet-photo">
+      <img class="logo-mark" src="assets/logo_full.png" alt="Roastberry">
+      <span class="cat-badge-lg" style="background:${cat.color}">${cat.icon} ${cat.name}</span>
+    </div>
     <div class="sheet-content">
       <div class="sheet-title">${p.name}</div>
       <div class="sheet-meta">${tags}</div>
@@ -702,11 +701,8 @@ function renderCart() {
 
   c.innerHTML = progress + cart.map((it, i) => {
     const cat = DATA.categories.find(c => c.id === it.category);
-    const photoStyle = it.photo
-      ? `background-image: url('${it.photo}');`
-      : `background: linear-gradient(135deg, ${cat.color}, ${shadeColor(cat.color, -25)});`;
     return `<div class="cart-item">
-      <div class="photo" style="${photoStyle}">${it.photo ? '' : '<div class="overlay">' + cat.icon + '</div>'}</div>
+      <div class="photo"><img class="logo-mark" src="assets/logo_mark.png" alt=""></div>
       <div class="info">
         <div class="nm">${it.name}</div>
         <div class="fs">${it.fasovka}</div>
