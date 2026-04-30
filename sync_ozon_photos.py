@@ -79,40 +79,99 @@ def fetch_info_batch(product_ids: list[int]) -> list[dict]:
 
 
 # ========== Матчинг ==========
-def normalize(s: str) -> str:
-    s = s.lower()
-    # удалим знаки препинания, кавычки, лишние пробелы
-    s = re.sub(r'[^\w\s]', ' ', s)
-    s = re.sub(r'\s+', ' ', s).strip()
-    return s
+# offer_id у Ozon вида: RB-E-БРАЗИЛИЯ СЕРРАДО, 1 кг   |  RBR-F-КЕНИЯ АА, 1кг
+# Префикс: RB|RBR + - + (E|F|BE|BF) + - + ИМЯ + , + ФАСОВКА
+
+OFFER_RE = re.compile(r'^(RB[R]?)-([A-Z]{1,3})-\s*(.+?)\s*,\s*(.+)$')
 
 
-def name_keywords(s: str) -> set[str]:
-    """Ключевые слова для матчинга (страна / регион / тип обработки / вес)."""
-    n = normalize(s)
-    words = [w for w in n.split() if len(w) >= 3]
-    return set(words)
+def parse_offer_id(offer_id: str) -> dict | None:
+    """Парсит RB-E-ИМЯ, фасовка → {prefix, type, name, fasovka}."""
+    if not offer_id:
+        return None
+    m = OFFER_RE.match(offer_id.strip())
+    if not m:
+        return None
+    return {
+        "prefix": m.group(1),
+        "type": m.group(2),       # E / F / BE / BF
+        "name": m.group(3).strip(),
+        "fasovka": m.group(4).strip(),
+    }
+
+
+def normalize_words(s: str) -> set[str]:
+    s = s.upper()
+    # ru → латинизированные эквиваленты
+    repl = {
+        "ИРГАЧЕФФЕ": "ИРГАЧИФ", "ИРГАЧИФФ": "ИРГАЧИФ", "YIRGACHEFFE": "ИРГАЧИФ",
+        "BRAZIL": "БРАЗИЛИЯ", "COLOMBIA": "КОЛУМБИЯ", "KENYA": "КЕНИЯ",
+        "ETHIOPIA": "ЭФИОПИЯ", "HONDURAS": "ГОНДУРАС",
+        "УЭУЕТЭНАНГО": "УЕУЕТЕНАНГО", "УЭУЭТЕНАНГО": "УЕУЕТЕНАНГО", "УЕТЕНАНГО": "УЕУЕТЕНАНГО",
+        "DECAFFEINATED": "ДЕКАФ", "DECAF": "ДЕКАФ",
+    }
+    s = re.sub(r'[^\w\s]+', ' ', s)
+    out = set()
+    for w in s.split():
+        if len(w) < 2:
+            continue
+        out.add(repl.get(w, w))
+    noise = {"СУХОЙ", "МЫТЫЙ", "ХАНИ", "ГР", "1", "2", "3", "4", "ОБЖАРКА",
+             "ТЕМНАЯ", "СВЕТЛАЯ", "ROASTERS", "RB", "RBR",
+             "АРАБИКА", "100", "СВЕЖЕОБЖАРЕННЫЙ", "ЗЕРНОВОЙ",
+             "В", "ЗЕРНАХ", "КОФЕ", "УПАКОВКА", "СМЕСЬ"}
+    return out - noise
 
 
 def match_score(tma_name: str, ozon_name: str) -> float:
-    """Простой Jaccard-индекс ключевых слов."""
-    a = name_keywords(tma_name)
-    b = name_keywords(ozon_name)
+    a = normalize_words(tma_name)
+    b = normalize_words(ozon_name)
     if not a or not b:
         return 0.0
     inter = len(a & b)
-    union = len(a | b)
-    return inter / union if union else 0.0
+    return inter / max(len(a), len(b))
 
 
-def find_best_match(tma_product: dict, ozon_items: list[dict]) -> tuple[dict | None, float]:
-    best, score = None, 0.0
+def parse_fasovka(s: str) -> str | None:
+    """'1 кг' / '200 г' / '1кг' → нормализованный."""
+    if not s:
+        return None
+    m = re.search(r'(\d+(?:[\.,]\d+)?)\s*(кг|г|шт|мл|л)', s.lower())
+    if not m:
+        return None
+    v = float(m.group(1).replace(',', '.'))
+    u = m.group(2)
+    if u == 'кг':
+        return f"{v:g} кг"
+    if u == 'г':
+        return f"{int(v)} г"
+    return f"{v:g} {u}"
+
+
+def find_best_match(tma_product: dict, ozon_items: list[dict], threshold: float = 0.4):
+    """Возвращает (best_item, score, matched_fasovka)."""
+    tma_name = tma_product["name"]
+    tma_fasovkas = [parse_fasovka(f.get("size", "")) for f in tma_product.get("fasovka", [])]
+    tma_fasovkas = [f for f in tma_fasovkas if f]
+
+    best, score, fas = None, 0.0, None
     for o in ozon_items:
-        oname = o.get("name", "") or ""
-        s = match_score(tma_product["name"], oname)
+        # 1. Используем offer_id если получится распарсить
+        parsed = parse_offer_id(o.get("offer_id", ""))
+        if parsed:
+            s = match_score(tma_name, parsed["name"])
+            ofas = parse_fasovka(parsed["fasovka"])
+            # бонус если фасовка совпадает с одной из TMA
+            if ofas in tma_fasovkas:
+                s += 0.2
+        else:
+            s = match_score(tma_name, o.get("name", ""))
+            ofas = None
         if s > score:
-            best, score = o, s
-    return best, score
+            best, score, fas = o, s, ofas
+    if score < threshold:
+        return None, score, None
+    return best, score, fas
 
 
 # ========== Загрузка картинок ==========
@@ -159,68 +218,88 @@ def main():
     matches = []
     photo_count = 0
     skipped = 0
-    threshold = 0.30  # минимум совпадения, ниже — считаем что не нашли
 
     # Для матчинга нам нужны имена Ozon-товаров
     ozon_named = []
     for o in info:
         if not o:
             continue
-        name = o.get("name", "")
-        offer = o.get("offer_id", "")
-        product_id = o.get("id") or o.get("product_id")
-        images = o.get("images") or []
-        # У Ozon картинки могут быть в разных форматах
-        if isinstance(images, dict):
-            images = list(images.values()) if images else []
-        first_img = None
-        for im in images:
-            if isinstance(im, str):
-                first_img = im
-                break
-            if isinstance(im, dict):
-                first_img = im.get("file_name") or im.get("file") or im.get("url")
-                if first_img:
-                    break
+        # Главное фото — это primary_image (то что в выдаче на маркетплейсе)
+        primary = o.get("primary_image") or []
+        if isinstance(primary, list):
+            main_img = primary[0] if primary else None
+        elif isinstance(primary, str):
+            main_img = primary
+        else:
+            main_img = None
+        # Если primary_image нет — берём первое из images
+        if not main_img:
+            images = o.get("images") or []
+            if isinstance(images, dict):
+                images = list(images.values()) if images else []
+            for im in images:
+                if isinstance(im, str):
+                    main_img = im; break
+                if isinstance(im, dict):
+                    main_img = im.get("file_name") or im.get("file") or im.get("url")
+                    if main_img: break
         ozon_named.append({
-            "name": name,
-            "offer_id": offer,
-            "product_id": product_id,
-            "first_img": first_img,
-            "all_images": images,
+            "name": o.get("name", ""),
+            "offer_id": o.get("offer_id", ""),
+            "product_id": o.get("id") or o.get("product_id"),
+            "first_img": main_img,
         })
 
+    # === Greedy-матчинг: каждый Ozon-товар идёт только в ОДИН TMA-товар (с лучшим score) ===
+    # 1. Считаем все возможные пары (tma, ozon, score) с фасовкой-бонусом
+    # 2. Сортируем по score
+    # 3. Жадно назначаем — пропуская уже занятые tma и ozon
+    pairs = []
     for p in tma_products:
-        if p["category"] != "coffee" and p["category"] != "tea":
-            # Кофе и чай — приоритет. Сиропы/молоко — потом
+        if p["category"] != "coffee":
             continue
+        for o in ozon_named:
+            best_score, ofas = 0.0, None
+            parsed = parse_offer_id(o.get("offer_id", ""))
+            if parsed:
+                s = match_score(p["name"], parsed["name"])
+                of = parse_fasovka(parsed["fasovka"])
+                tma_fas = [parse_fasovka(f.get("size","")) for f in p.get("fasovka",[])]
+                tma_fas = [f for f in tma_fas if f]
+                if of in tma_fas:
+                    s += 0.3
+                ofas = of
+            else:
+                s = match_score(p["name"], o.get("name",""))
+            if s >= 0.5:
+                pairs.append((s, p["id"], o["offer_id"], p, o, ofas))
 
-        best, score = find_best_match(p, ozon_named)
-        if not best or score < threshold:
-            skipped += 1
+    pairs.sort(reverse=True, key=lambda x: x[0])
+
+    used_tma = set()
+    used_ozon = set()
+    for score, tma_id, ozon_offer, p, o, ofas in pairs:
+        if tma_id in used_tma or ozon_offer in used_ozon:
             continue
+        used_tma.add(tma_id)
+        used_ozon.add(ozon_offer)
 
         matches.append({
-            "tma_id": p["id"],
-            "tma_name": p["name"],
-            "ozon_offer": best["offer_id"],
-            "ozon_pid": best["product_id"],
-            "ozon_name": best["name"],
-            "score": round(score, 2),
-            "photo_url": best["first_img"],
+            "tma_id": p["id"], "tma_name": p["name"],
+            "ozon_offer": o["offer_id"], "ozon_pid": o["product_id"],
+            "ozon_name": o["name"], "score": round(score, 2),
+            "photo_url": o["first_img"], "matched_fasovka": ofas,
         })
 
-        # Скачивание фото
-        if best["first_img"]:
+        if o["first_img"]:
             dest = PHOTOS_DIR / f"{p['id']}.jpg"
-            if not dest.exists() or dest.stat().st_size < 1000:
-                if download_image(best["first_img"], dest):
-                    photo_count += 1
-                    p["photo"] = f"photos/products/{p['id']}.jpg"
-                    p["ozon_offer_id"] = best["offer_id"]
-            else:
+            # Всегда перекачиваем — даже если файл существует (потому что URL мог измениться)
+            if download_image(o["first_img"], dest):
+                photo_count += 1
                 p["photo"] = f"photos/products/{p['id']}.jpg"
-                p["ozon_offer_id"] = best["offer_id"]
+                p["ozon_offer_id"] = o["offer_id"]
+
+    skipped = sum(1 for p in tma_products if p["category"] == "coffee" and p["id"] not in used_tma)
 
     # Сохраняем mapping.csv для проверки
     import csv
@@ -239,7 +318,7 @@ def main():
 
     # Отчёт
     print(f"\n=== Результат ===")
-    print(f"Матчей выше {threshold}: {len(matches)}")
+    print(f"Матчей: {len(matches)}")
     print(f"Фото скачано: {photo_count}")
     print(f"Не сматчены: {skipped}")
     print(f"\nMapping → {MAPPING_CSV}")
