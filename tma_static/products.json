@@ -136,7 +136,8 @@
       ],
       "stock": 25,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/c-бразилия_серрадо.jpg",
+      "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г"
     },
     {
       "id": "c-бразилия_серрадо_дарк",
@@ -161,7 +162,8 @@
       ],
       "stock": 25,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/c-бразилия_серрадо_дарк.jpg",
+      "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г"
     },
     {
       "id": "c-бразилия_сан_рафаель",
@@ -186,7 +188,8 @@
       ],
       "stock": 25,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/c-бразилия_сан_рафаель.jpg",
+      "ozon_offer_id": "RB-E-БРАЗИЛИЯ SAN RAFAEL, 200 г"
     },
     {
       "id": "c-уганда_вугар_элгон",
@@ -236,7 +239,8 @@
       ],
       "stock": 25,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/c-танзания_аа.jpg",
+      "ozon_offer_id": "RBR-F-КЕНИЯ АА, 1кг"
     },
     {
       "id": "c-руанда_нямашеки_хиллс",
@@ -286,7 +290,8 @@
       ],
       "stock": 25,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/c-бразилия_серрадо_жёлтый_бурбон.jpg",
+      "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г"
     },
     {
       "id": "c-гватемала_декаф",
@@ -311,7 +316,8 @@
       ],
       "stock": 25,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/c-гватемала_декаф.jpg",
+      "ozon_offer_id": "RB-F-ГВАТЕМАЛА УЭУЭТЕНАНГО, 200г"
     },
     {
       "id": "c-гондурас_сан_николас",
@@ -336,7 +342,8 @@
       ],
       "stock": 25,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/c-гондурас_сан_николас.jpg",
+      "ozon_offer_id": "RB-E-HONDURAS SAN NICOLAS, 200 г"
     },
     {
       "id": "c-руанда_мутетели",
@@ -436,7 +443,8 @@
       ],
       "stock": 25,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/c-кения_аа.jpg",
+      "ozon_offer_id": "RBR-F-КЕНИЯ АА, 1кг"
     },
     {
       "id": "c-кения_аб_центральная_провинция",
@@ -461,7 +469,8 @@
       ],
       "stock": 25,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/c-кения_аб_центральная_провинция.jpg",
+      "ozon_offer_id": "RB-F-KENYA AA, 200 г"
     },
     {
       "id": "c-колумбия_андино",
@@ -486,7 +495,8 @@
       ],
       "stock": 25,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/c-колумбия_андино.jpg",
+      "ozon_offer_id": "RBR-F-КОЛУМБИЯ АНДИНО, 1 кг"
     },
     {
       "id": "c-никарагуа_марагаджип",
@@ -561,7 +571,8 @@
       ],
       "stock": 25,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/c-эфиопия_лиму_гр_2.jpg",
+      "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг"
     },
     {
       "id": "c-эфиопия_сидамо_гр_2_гуджи",
@@ -586,7 +597,8 @@
       ],
       "stock": 25,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/c-эфиопия_сидамо_гр_2_гуджи.jpg",
+      "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг"
     },
     {
       "id": "c-эфиопия_арича_гр_3",
@@ -611,7 +623,8 @@
       ],
       "stock": 25,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/c-эфиопия_арича_гр_3.jpg",
+      "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг"
     },
     {
       "id": "c-эфиопия_milk",
@@ -636,7 +649,8 @@
       ],
       "stock": 25,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/c-эфиопия_milk.jpg",
+      "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг"
     },
     {
       "id": "c-эфиопия_иргачиф_гр_4",
@@ -661,7 +675,8 @@
       ],
       "stock": 25,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/c-эфиопия_иргачиф_гр_4.jpg",
+      "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг"
     },
     {
       "id": "c-эфиопия_ададо",
@@ -688,7 +703,8 @@
       "tags": [
         "Black Edition"
       ],
-      "photo": null
+      "photo": "photos/products/c-эфиопия_ададо.jpg",
+      "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг"
     },
     {
       "id": "c-эфиопия_белойя_гр_2",
@@ -715,7 +731,8 @@
       "tags": [
         "Black Edition"
       ],
-      "photo": null
+      "photo": "photos/products/c-эфиопия_белойя_гр_2.jpg",
+      "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг"
     },
     {
       "id": "c-эфиопия_челелекту_гр_1",
@@ -742,7 +759,8 @@
       "tags": [
         "Black Edition"
       ],
-      "photo": null
+      "photo": "photos/products/c-эфиопия_челелекту_гр_1.jpg",
+      "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг"
     },
     {
       "id": "c-колумбия_клаудиа_колменарес",
@@ -769,7 +787,8 @@
       "tags": [
         "Black Edition"
       ],
-      "photo": null
+      "photo": "photos/products/c-колумбия_клаудиа_колменарес.jpg",
+      "ozon_offer_id": "RB-E-COLOMBIA ANDINO, 1 кг"
     },
     {
       "id": "c-эфиопия_челчеле_гр_1",
@@ -796,7 +815,8 @@
       "tags": [
         "Black Edition"
       ],
-      "photo": null
+      "photo": "photos/products/c-эфиопия_челчеле_гр_1.jpg",
+      "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг"
     },
     {
       "id": "c-экваториальный_блэнд",
@@ -850,7 +870,8 @@
       "tags": [
         "Borщ Edition"
       ],
-      "photo": null
+      "photo": "photos/products/c-эфиопия_арича_гр_1.jpg",
+      "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг"
     },
     {
       "id": "c-колумбия_хайро_арсила_натуральная",
@@ -877,7 +898,8 @@
       "tags": [
         "Borщ Edition"
       ],
-      "photo": null
+      "photo": "photos/products/c-колумбия_хайро_арсила_натуральная.jpg",
+      "ozon_offer_id": "RB-E-COLOMBIA ANDINO, 1 кг"
     },
     {
       "id": "c-колумбия_гонзало_кармона",
@@ -904,7 +926,8 @@
       "tags": [
         "Borщ Edition"
       ],
-      "photo": null
+      "photo": "photos/products/c-колумбия_гонзало_кармона.jpg",
+      "ozon_offer_id": "RB-E-COLOMBIA ANDINO, 1 кг"
     },
     {
       "id": "c-классика",
@@ -931,7 +954,8 @@
       "tags": [
         "Бленд"
       ],
-      "photo": null
+      "photo": "photos/products/c-классика.jpg",
+      "ozon_offer_id": "RB-BE-КЛАССИКА, 1 кг"
     },
     {
       "id": "c-биттер",
@@ -958,7 +982,8 @@
       "tags": [
         "Бленд"
       ],
-      "photo": null
+      "photo": "photos/products/c-биттер.jpg",
+      "ozon_offer_id": "RB-BE-БИТТЕР, 200 г"
     },
     {
       "id": "c-хани",
@@ -1012,7 +1037,8 @@
       "tags": [
         "Бленд"
       ],
-      "photo": null
+      "photo": "photos/products/c-венеция.jpg",
+      "ozon_offer_id": "RB-BE-ВЕНЕЦИЯ, 200 г"
     },
     {
       "id": "c-лунго",
@@ -1039,7 +1065,8 @@
       "tags": [
         "Бленд"
       ],
-      "photo": null
+      "photo": "photos/products/c-лунго.jpg",
+      "ozon_offer_id": "RB-BF-ЛУНГО, 1 кг"
     },
     {
       "id": "c-drip-бразилия_сертао_жёлтый_бурбон",
@@ -1095,7 +1122,8 @@
         "Удобно",
         "CHOCOLATE"
       ],
-      "photo": null
+      "photo": "photos/products/c-drip-гватемала_уетенанго.jpg",
+      "ozon_offer_id": "RB-F-ГВАТЕМАЛА УЭУЭТЕНАНГО, 200г"
     },
     {
       "id": "c-drip-гватемала_финка_медина",
@@ -1207,7 +1235,8 @@
         "Удобно",
         "FLOWER"
       ],
-      "photo": null
+      "photo": "photos/products/c-drip-эфиопия_иргачиф__drip_.jpg",
+      "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг"
     },
     {
       "id": "c-drip-кения_аа__drip_",
@@ -1235,7 +1264,8 @@
         "Удобно",
         "FLOWER"
       ],
-      "photo": null
+      "photo": "photos/products/c-drip-кения_аа__drip_.jpg",
+      "ozon_offer_id": "RBR-F-КЕНИЯ АА, 1кг"
     },
     {
       "id": "c-drip-колумбия_клаудиа_колменарес__drip_",
@@ -1291,7 +1321,8 @@
         "Удобно",
         "FRUIT"
       ],
-      "photo": null
+      "photo": "photos/products/c-drip-эфиопия_бомбе.jpg",
+      "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг"
     },
     {
       "id": "c-drip-кения_моунт_с",
@@ -1319,7 +1350,8 @@
         "Удобно",
         "FRUIT"
       ],
-      "photo": null
+      "photo": "photos/products/c-drip-кения_моунт_с.jpg",
+      "ozon_offer_id": "RB-F-KENYA AA, 200 г"
     },
     {
       "id": "c-drip-колумбия_супремо__drip_",
@@ -1430,7 +1462,8 @@
       "tags": [
         "Капсулы"
       ],
-      "photo": null
+      "photo": "photos/products/c-nesp-бразилия_серрадо__nespresso_.jpg",
+      "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г"
     },
     {
       "id": "c-nesp-бразилия_пибери",
@@ -1457,7 +1490,8 @@
       "tags": [
         "Капсулы"
       ],
-      "photo": null
+      "photo": "photos/products/c-nesp-бразилия_пибери.jpg",
+      "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г"
     },
     {
       "id": "c-nesp-колумбия__nespresso_",
@@ -1484,7 +1518,8 @@
       "tags": [
         "Капсулы"
       ],
-      "photo": null
+      "photo": "photos/products/c-nesp-колумбия__nespresso_.jpg",
+      "ozon_offer_id": "RB-E-COLOMBIA ANDINO, 1 кг"
     },
     {
       "id": "c-nesp-эфиопия_сидамо__nespresso_",
