@@ -10,13 +10,16 @@ tma_static_server.py — раздача Mini App статики на том же
     threading.Thread(target=run_server, daemon=True).start()
 """
 import os
+import json
 import threading
 import mimetypes
+import time
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import unquote
 
 PORT = int(os.environ.get("PORT", 10000))
 TMA_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tma_static")
+PRICE_SYNC_ENABLED = os.environ.get("BISHOP_PRICE_SYNC", "1") != "0"
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -27,6 +30,29 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/" or path == "":
             self._send(200, b"OK", "text/plain")
             return
+
+        # /tma/products.json — динамически с актуальными ценами от Bishop
+        if path == "/tma/products.json" and PRICE_SYNC_ENABLED:
+            try:
+                with open(os.path.join(TMA_ROOT, "products.json"), encoding="utf-8") as f:
+                    data = json.load(f)
+                try:
+                    from live_prices_api import merge_into_products
+                    updated, stats = merge_into_products(data["products"])
+                    data["products"] = updated
+                    data["_price_sync"] = {
+                        "matched": stats["matched"],
+                        "source": "bishop",
+                        "loaded_at": stats["meta"].get("loaded_at"),
+                    }
+                except Exception as e:
+                    data["_price_sync"] = {"error": str(e)}
+                body = json.dumps(data, ensure_ascii=False).encode("utf-8")
+                self._send(200, body, "application/json", {"Cache-Control": "no-cache, max-age=60"})
+                return
+            except Exception as e:
+                # на случай чего фолбэк на статику
+                pass
 
         # /tma/* — статика приложения
         if path.startswith("/tma/") or path == "/tma":
