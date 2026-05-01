@@ -261,7 +261,7 @@ body {
     </div>
   </div>
 
-  <!-- ============ CATEGORY (подкатегории + список) ============ -->
+  <!-- ============ CATEGORY (подкатегории-плитки) ============ -->
   <div class="screen" id="screen-category">
     <header class="header">
       <button class="back-btn" onclick="goTo('home')">‹ Назад</button>
@@ -271,9 +271,20 @@ body {
       </div>
     </header>
     <div class="subcat-tiles" id="subcat-tiles"></div>
+  </div>
+
+  <!-- ============ SUBCATEGORY (отдельный экран со списком товаров) ============ -->
+  <div class="screen" id="screen-subcategory">
+    <header class="header">
+      <button class="back-btn" onclick="goTo('category')">‹ Назад</button>
+      <h1 id="subcat-title">Подкатегория</h1>
+      <div class="actions">
+        <button class="icon-btn" onclick="goTo('cart')">🛒<span class="badge" id="cart-badge-3" style="display:none">0</span></button>
+      </div>
+    </header>
     <div class="section">
-      <div class="section-h"><h3 id="cat-list-title">Все товары</h3><span id="cat-count">—</span></div>
-      <div id="cat-products-list"></div>
+      <div class="section-h"><h3 id="subcat-list-title">Товары</h3><span id="subcat-count">—</span></div>
+      <div id="subcat-products-list"></div>
     </div>
   </div>
 
@@ -562,17 +573,24 @@ function renderSubcatRow() {
   }).join('');
   c.innerHTML = all + items;
 }
-function setSubcat(id) { currentSubcat = id; renderSubcatRow(); renderCatProducts(); window.scrollTo({top: 0, behavior: 'smooth'}); }
+function setSubcat(id) {
+  currentSubcat = id;
+  // Открываем отдельный экран со списком товаров
+  goTo('subcategory');
+  renderSubcatProducts();
+}
 
-function renderCatProducts() {
+function renderSubcatProducts() {
   let list = DATA.products.filter(p => p.category === currentCat);
   if (currentSubcat !== 'all') list = list.filter(p => p.subcategory === currentSubcat);
-  document.getElementById('cat-count').textContent = list.length + ' товаров';
+  document.getElementById('subcat-count').textContent = list.length + ' товаров';
   const sub = DATA.subcategories.find(s => s.id === currentSubcat);
-  document.getElementById('cat-list-title').textContent = sub ? sub.name : 'Все товары';
-  document.getElementById('cat-products-list').innerHTML = list.length
+  document.getElementById('subcat-title').textContent = sub ? sub.name : 'Все товары';
+  document.getElementById('subcat-list-title').textContent = sub ? sub.name : 'Все товары';
+  document.getElementById('subcat-products-list').innerHTML = list.length
     ? list.map(p => productCard(p)).join('')
     : '<div class="cart-empty"><div class="big">🍃</div><h3>Пусто</h3><p>В этой подкатегории пока нет товаров.</p></div>';
+  window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
 // === Поиск (на главном экране) ===
@@ -696,7 +714,7 @@ function addToCart() {
 // === Корзина ===
 function renderCartBadge() {
   const total = cart.reduce((s, i) => s + i.qty, 0);
-  ['cart-badge', 'cart-badge-2', 'tab-cart-badge'].forEach(id => {
+  ['cart-badge', 'cart-badge-2', 'cart-badge-3', 'tab-cart-badge'].forEach(id => {
     const e = document.getElementById(id);
     if (e) { e.textContent = total; e.style.display = total ? 'flex' : 'none'; }
   });
@@ -941,7 +959,8 @@ function goTo(scr) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('screen-' + scr).classList.add('active');
   document.querySelectorAll('.tabbar-btn').forEach(b => b.classList.remove('active'));
-  const tab = scr === 'category' ? 'home' : scr;
+  // Bottom-nav подсвечивает home для category/subcategory
+  const tab = (scr === 'category' || scr === 'subcategory') ? 'home' : scr;
   const btn = document.querySelector(`[data-screen="${tab}"]`);
   if (btn) btn.classList.add('active');
   if (scr === 'cart') renderCart();
