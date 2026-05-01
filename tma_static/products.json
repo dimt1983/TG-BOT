@@ -5577,7 +5577,7 @@
       "country": "SweetShot",
       "roast": "",
       "process": "",
-      "description": "Сироп линейки SweetShot.",
+      "description": "Пластиковая бутылка, объем - 1 л.",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
@@ -5587,7 +5587,8 @@
         }
       ],
       "stock": 4,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_sweetshot_ваниль_1л.jpg"
     },
     {
       "id": "s-сироп_sweetshot_вишня_1л",
@@ -5617,7 +5618,7 @@
       "country": "SweetShot",
       "roast": "",
       "process": "",
-      "description": "Сироп линейки SweetShot.",
+      "description": "Пластиковая бутылка, объем - 1 л.",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
@@ -5629,7 +5630,8 @@
       "stock": 6,
       "tags": [
         "Хит"
-      ]
+      ],
+      "photo": "photos/products/s-сироп_sweetshot_гренадин_1л.jpg"
     },
     {
       "id": "s-сироп_sweetshot_груша_1л",
@@ -5679,7 +5681,7 @@
       "country": "SweetShot",
       "roast": "",
       "process": "",
-      "description": "Сироп линейки SweetShot.",
+      "description": "Стеклянная бутылка, объем - 1 л.",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
@@ -5689,7 +5691,8 @@
         }
       ],
       "stock": 4,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_sweetshot_желтый_банан_1л.jpg"
     },
     {
       "id": "s-сироп_sweetshot_зеленая_мята_1л",
@@ -5759,7 +5762,7 @@
       "country": "SweetShot",
       "roast": "",
       "process": "",
-      "description": "Сироп линейки SweetShot.",
+      "description": "Пластиковая бутылка, объем - 1 л.",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
@@ -5771,7 +5774,8 @@
       "stock": 19,
       "tags": [
         "Хит"
-      ]
+      ],
+      "photo": "photos/products/s-сироп_sweetshot_карамель_1л.jpg"
     },
     {
       "id": "s-сироп_sweetshot_кленовый_1л",
@@ -5801,7 +5805,7 @@
       "country": "SweetShot",
       "roast": "",
       "process": "",
-      "description": "Сироп линейки SweetShot.",
+      "description": "Пластиковая бутылка, объем - 1 л.",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
@@ -5811,7 +5815,8 @@
         }
       ],
       "stock": 1,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_sweetshot_клубника_1л.jpg"
     },
     {
       "id": "s-сироп_sweetshot_кокос_1л",
@@ -5821,7 +5826,7 @@
       "country": "SweetShot",
       "roast": "",
       "process": "",
-      "description": "Сироп линейки SweetShot.",
+      "description": "Пластиковая бутылка, объем - 1 л.",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
@@ -5831,7 +5836,8 @@
         }
       ],
       "stock": 1,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_sweetshot_кокос_1л.jpg"
     },
     {
       "id": "s-сироп_sweetshot_лаванда_1л",
@@ -5861,7 +5867,7 @@
       "country": "SweetShot",
       "roast": "",
       "process": "",
-      "description": "Сироп линейки SweetShot.",
+      "description": "Стеклянная бутылка, объем - 1 л.",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
@@ -5871,7 +5877,8 @@
         }
       ],
       "stock": 5,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_sweetshot_лесной_орех_1л.jpg"
     },
     {
       "id": "s-сироп_sweetshot_личи_1л",
@@ -5901,7 +5908,7 @@
       "country": "SweetShot",
       "roast": "",
       "process": "",
-      "description": "Сироп линейки SweetShot.",
+      "description": "Пластиковая бутылка, объем - 1 л.",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
@@ -5911,7 +5918,8 @@
         }
       ],
       "stock": 10,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_sweetshot_малина_1л.jpg"
     },
     {
       "id": "s-сироп_sweetshot_манго_1л",
@@ -5941,7 +5949,7 @@
       "country": "SweetShot",
       "roast": "",
       "process": "",
-      "description": "Сироп линейки SweetShot.",
+      "description": "Пластиковая бутылка, объем - 1 л.",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
@@ -5951,7 +5959,8 @@
         }
       ],
       "stock": 2,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_sweetshot_маракуйя_1л.jpg"
     },
     {
       "id": "s-сироп_sweetshot_миндаль_1л",
@@ -5961,7 +5970,7 @@
       "country": "SweetShot",
       "roast": "",
       "process": "",
-      "description": "Сироп линейки SweetShot.",
+      "description": "Пластиковая бутылка, объем - 1 л.",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
@@ -5971,7 +5980,8 @@
         }
       ],
       "stock": 1,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_sweetshot_миндаль_1л.jpg"
     },
     {
       "id": "s-сироп_sweetshot_мохито_1л",
@@ -6001,7 +6011,7 @@
       "country": "SweetShot",
       "roast": "",
       "process": "",
-      "description": "Сироп линейки SweetShot.",
+      "description": "Пластиковая бутылка, объем - 1 л.",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
@@ -6013,7 +6023,8 @@
       "stock": 3,
       "tags": [
         "Хит"
-      ]
+      ],
+      "photo": "photos/products/s-сироп_sweetshot_соленая_карамель_1л.jpg"
     },
     {
       "id": "s-сироп_sweetshot_тархун_1л",
@@ -6063,7 +6074,7 @@
       "country": "SweetShot",
       "roast": "",
       "process": "",
-      "description": "Сироп линейки SweetShot.",
+      "description": "Стеклянная бутылка, объем - 1 л.",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
@@ -6073,7 +6084,8 @@
         }
       ],
       "stock": 5,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_sweetshot_шоколад_1л.jpg"
     },
     {
       "id": "s-сироп_barline_базилик_1л",
