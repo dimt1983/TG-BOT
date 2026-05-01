@@ -3484,7 +3484,8 @@
         }
       ],
       "stock": 52,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_улун_с_жасмином_100пак.jpg"
     },
     {
       "id": "t-restoranica_togo_иммунный_с_облепихой_30пак",
@@ -3588,7 +3589,8 @@
         }
       ],
       "stock": 33,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_resta_апельсин_ройбуш_30пак.jpg"
     },
     {
       "id": "t-restoranica_resta_голубая_масала_30пак",
@@ -3713,7 +3715,8 @@
         }
       ],
       "stock": 18,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_resta_мята_малина_30пак.jpg"
     },
     {
       "id": "t-restoranica_resta_пряный_глинтвейн_30пак",
@@ -3796,7 +3799,8 @@
         }
       ],
       "stock": 15,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_resta_смородиновый_черный_30пак.jpg"
     },
     {
       "id": "t-restoranica_resta_шиповник_чабрец_30пак",
@@ -3837,7 +3841,8 @@
         }
       ],
       "stock": 45,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_resta_эрлберг_30пак.jpg"
     },
     {
       "id": "t-restoranica_resta_яблоко_можжевельник_30пак",
@@ -9142,7 +9147,7 @@
       ],
       "stock": 190,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg"
     },
     {
       "id": "t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100",
