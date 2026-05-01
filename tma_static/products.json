@@ -122,19 +122,19 @@
       "name": "RBR_TEA · 📄 Листовой"
     },
     {
-      "id": "tea_restoranica_iced",
+      "id": "tea_tasteabrew_iced",
       "parent": "tea",
-      "name": "RESTORANICA · 🧊 Iced"
+      "name": "Tasteabrew · 🧊 Iced"
     },
     {
-      "id": "tea_restoranica_loose",
+      "id": "tea_tasteabrew_loose",
       "parent": "tea",
-      "name": "RESTORANICA · 📄 Листовой"
+      "name": "Tasteabrew · 📄 Листовой"
     },
     {
-      "id": "tea_restoranica_togo",
+      "id": "tea_tasteabrew_togo",
       "parent": "tea",
-      "name": "RESTORANICA · 📦 To Go"
+      "name": "Tasteabrew · 📦 To Go"
     },
     {
       "id": "tea_китайский_чай_loose",
@@ -3178,9 +3178,9 @@
     {
       "id": "t-restoranica_togo_чайный_глинтвейн_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Чайный Глинтвейн 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Чайный Глинтвейн 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3193,14 +3193,15 @@
         }
       ],
       "stock": 213,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg"
     },
     {
       "id": "t-restoranica_togo_манго_с_апельсином_60пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Манго с апельсином 60пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Манго с апельсином 60пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3213,14 +3214,15 @@
         }
       ],
       "stock": 190,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg"
     },
     {
       "id": "t-restoranica_togo_медовое_яблоко_с_имбирем_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Медовое яблоко с имбирем 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Медовое яблоко с имбирем 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3233,14 +3235,15 @@
         }
       ],
       "stock": 202,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_медовое_яблоко_с_имбирем_30пак.jpg"
     },
     {
       "id": "t-restoranica_togo_иван-чай_с_малиной_36пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Иван-Чай с малиной 36пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Иван-Чай с малиной 36пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3253,14 +3256,15 @@
         }
       ],
       "stock": 185,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_иван-чай_с_малиной_36пак.jpg"
     },
     {
       "id": "t-restoranica_togo_малина_с_мятой_36пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Малина с мятой 36пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Малина с мятой 36пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3273,14 +3277,15 @@
         }
       ],
       "stock": 147,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg"
     },
     {
       "id": "t-restoranica_togo_ройбуш_с_апельсином_60пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Ройбуш с апельсином 60пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Ройбуш с апельсином 60пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3293,14 +3298,15 @@
         }
       ],
       "stock": 119,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_ройбуш_с_апельсином_60пак.jpg"
     },
     {
       "id": "t-restoranica_togo_яблоко_с_можжевельником_60пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Яблоко с можжевельником 60пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Яблоко с можжевельником 60пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3313,14 +3319,15 @@
         }
       ],
       "stock": 133,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_яблоко_с_можжевельником_60пак.jpg"
     },
     {
       "id": "t-restoranica_togo_ассам_с_шиповником_36пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Ассам с шиповником 36пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Ассам с шиповником 36пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3333,14 +3340,15 @@
         }
       ],
       "stock": 99,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_ассам_с_шиповником_36пак.jpg"
     },
     {
       "id": "t-restoranica_togo_кедровый_с_чагой_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Кедровый с чагой 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Кедровый с чагой 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3353,14 +3361,15 @@
         }
       ],
       "stock": 102,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg"
     },
     {
       "id": "t-restoranica_togo_голубая_масала_36пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Голубая Масала 36пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Голубая Масала 36пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3373,14 +3382,15 @@
         }
       ],
       "stock": 115,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_голубая_масала_36пак.jpg"
     },
     {
       "id": "t-restoranica_togo_китайский_улун_с_земляникой_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Китайский улун с земляникой 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Китайский улун с земляникой 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3393,14 +3403,15 @@
         }
       ],
       "stock": 145,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg"
     },
     {
       "id": "t-restoranica_togo_королевский_бергамот_60пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Королевский бергамот 60пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Королевский бергамот 60пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3413,14 +3424,15 @@
         }
       ],
       "stock": 91,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_королевский_бергамот_60пак.jpg"
     },
     {
       "id": "t-restoranica_togo_цейлон_с_клубникой_60пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Цейлон с клубникой 60пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Цейлон с клубникой 60пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3433,14 +3445,15 @@
         }
       ],
       "stock": 92,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg"
     },
     {
       "id": "t-restoranica_togo_улун_с_жасмином_100пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Улун с жасмином 100пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Улун с жасмином 100пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3458,9 +3471,9 @@
     {
       "id": "t-restoranica_togo_иммунный_с_облепихой_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Иммунный с облепихой 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Иммунный с облепихой 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3473,14 +3486,15 @@
         }
       ],
       "stock": 57,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_иммунный_с_облепихой_30пак.jpg"
     },
     {
       "id": "t-restoranica_togo_черный_со_смородиной_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Черный со смородиной 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Черный со смородиной 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3493,14 +3507,15 @@
         }
       ],
       "stock": 134,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
     },
     {
       "id": "t-restoranica_togo_молочный_улун_с_мандарином_60пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_togo",
-      "name": "Restoranica TOGO Молочный улун с мандарином 60пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_togo",
+      "name": "Tasteabrew TOGO Молочный улун с мандарином 60пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3513,14 +3528,15 @@
         }
       ],
       "stock": 95,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_togo_молочный_улун_с_мандарином_60пак.jpg"
     },
     {
       "id": "t-restoranica_resta_апельсин_манго_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
-      "name": "Restoranica RESTA Апельсин Манго 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_loose",
+      "name": "Tasteabrew RESTA Апельсин Манго 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3533,14 +3549,15 @@
         }
       ],
       "stock": 28,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_resta_апельсин_манго_30пак.jpg"
     },
     {
       "id": "t-restoranica_resta_апельсин_ройбуш_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
-      "name": "Restoranica RESTA Апельсин Ройбуш 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_loose",
+      "name": "Tasteabrew RESTA Апельсин Ройбуш 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3558,9 +3575,9 @@
     {
       "id": "t-restoranica_resta_голубая_масала_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
-      "name": "Restoranica RESTA Голубая масала 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_loose",
+      "name": "Tasteabrew RESTA Голубая масала 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3573,14 +3590,15 @@
         }
       ],
       "stock": 41,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_resta_голубая_масала_30пак.jpg"
     },
     {
       "id": "t-restoranica_resta_иммунный_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
-      "name": "Restoranica RESTA Иммунный 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_loose",
+      "name": "Tasteabrew RESTA Иммунный 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3593,14 +3611,15 @@
         }
       ],
       "stock": 17,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_resta_иммунный_30пак.jpg"
     },
     {
       "id": "t-restoranica_resta_кедровый_с_чагой_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
-      "name": "Restoranica RESTA Кедровый с чагой 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_loose",
+      "name": "Tasteabrew RESTA Кедровый с чагой 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3613,14 +3632,15 @@
         }
       ],
       "stock": 34,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_resta_кедровый_с_чагой_30пак.jpg"
     },
     {
       "id": "t-restoranica_resta_киви_клубника_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
-      "name": "Restoranica RESTA Киви Клубника 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_loose",
+      "name": "Tasteabrew RESTA Киви Клубника 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3633,14 +3653,15 @@
         }
       ],
       "stock": 48,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_resta_киви_клубника_30пак.jpg"
     },
     {
       "id": "t-restoranica_resta_лесные_ягоды_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
-      "name": "Restoranica RESTA Лесные ягоды 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_loose",
+      "name": "Tasteabrew RESTA Лесные ягоды 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3653,14 +3674,15 @@
         }
       ],
       "stock": 32,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_resta_лесные_ягоды_30пак.jpg"
     },
     {
       "id": "t-restoranica_resta_мята_малина_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
-      "name": "Restoranica RESTA Мята Малина 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_loose",
+      "name": "Tasteabrew RESTA Мята Малина 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3678,9 +3700,9 @@
     {
       "id": "t-restoranica_resta_пряный_глинтвейн_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
-      "name": "Restoranica RESTA Пряный глинтвейн 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_loose",
+      "name": "Tasteabrew RESTA Пряный глинтвейн 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3693,14 +3715,15 @@
         }
       ],
       "stock": 6,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_resta_пряный_глинтвейн_30пак.jpg"
     },
     {
       "id": "t-restoranica_resta_пуэр_саган_дайля_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
-      "name": "Restoranica RESTA Пуэр Саган дайля 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_loose",
+      "name": "Tasteabrew RESTA Пуэр Саган дайля 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3713,14 +3736,15 @@
         }
       ],
       "stock": 50,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_resta_пуэр_саган_дайля_30пак.jpg"
     },
     {
       "id": "t-restoranica_resta_сладкая_клубника_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
-      "name": "Restoranica RESTA Сладкая клубника 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_loose",
+      "name": "Tasteabrew RESTA Сладкая клубника 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3733,14 +3757,15 @@
         }
       ],
       "stock": 35,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_resta_сладкая_клубника_30пак.jpg"
     },
     {
       "id": "t-restoranica_resta_смородиновый_черный_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
-      "name": "Restoranica RESTA Смородиновый черный 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_loose",
+      "name": "Tasteabrew RESTA Смородиновый черный 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3758,9 +3783,9 @@
     {
       "id": "t-restoranica_resta_шиповник_чабрец_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
-      "name": "Restoranica RESTA Шиповник Чабрец 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_loose",
+      "name": "Tasteabrew RESTA Шиповник Чабрец 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3773,14 +3798,15 @@
         }
       ],
       "stock": 17,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_resta_шиповник_чабрец_30пак.jpg"
     },
     {
       "id": "t-restoranica_resta_эрлберг_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
-      "name": "Restoranica RESTA Эрлберг 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_loose",
+      "name": "Tasteabrew RESTA Эрлберг 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3798,9 +3824,9 @@
     {
       "id": "t-restoranica_resta_яблоко_можжевельник_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
-      "name": "Restoranica RESTA Яблоко Можжевельник 30пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_loose",
+      "name": "Tasteabrew RESTA Яблоко Можжевельник 30пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3813,14 +3839,15 @@
         }
       ],
       "stock": 47,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_resta_яблоко_можжевельник_30пак.jpg"
     },
     {
       "id": "t-restoranica_icedtea_клубника_и_киви_50пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_iced",
-      "name": "Restoranica ICEDTEA Клубника и киви 50пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_iced",
+      "name": "Tasteabrew ICEDTEA Клубника и киви 50пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3833,14 +3860,15 @@
         }
       ],
       "stock": 117,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
     },
     {
       "id": "t-restoranica_icedtea_малиновый_мохито_50пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_iced",
-      "name": "Restoranica ICEDTEA Малиновый мохито 50пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_iced",
+      "name": "Tasteabrew ICEDTEA Малиновый мохито 50пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3853,14 +3881,15 @@
         }
       ],
       "stock": 106,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg"
     },
     {
       "id": "t-restoranica_icedtea_манго_и_апельсин_50пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_iced",
-      "name": "Restoranica ICEDTEA Манго и апельсин 50пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_iced",
+      "name": "Tasteabrew ICEDTEA Манго и апельсин 50пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3873,14 +3902,15 @@
         }
       ],
       "stock": 91,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg"
     },
     {
       "id": "t-restoranica_icedtea_маракуйя_тропик_50пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_iced",
-      "name": "Restoranica ICEDTEA Маракуйя Тропик 50пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_iced",
+      "name": "Tasteabrew ICEDTEA Маракуйя Тропик 50пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3893,14 +3923,15 @@
         }
       ],
       "stock": 104,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
     },
     {
       "id": "t-restoranica_icedtea_спелая_смородина_50пак",
       "category": "tea",
-      "subcategory": "tea_restoranica_iced",
-      "name": "Restoranica ICEDTEA Спелая смородина 50пак",
-      "country": "Restoranica",
+      "subcategory": "tea_tasteabrew_iced",
+      "name": "Tasteabrew ICEDTEA Спелая смородина 50пак",
+      "country": "Tasteabrew",
       "roast": "",
       "process": "",
       "description": "Чай линейки Restoranica.",
@@ -3913,7 +3944,8 @@
         }
       ],
       "stock": 162,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg"
     },
     {
       "id": "s-сироп_botanika_арбуз_1л",
@@ -8971,7 +9003,7 @@
     {
       "id": "t-чай_tasteabrew_resta_650_для_чайника_молочный_улун",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
+      "subcategory": "tea_tasteabrew_loose",
       "name": "Чай Tasteabrew RESTA-650 для чайника \"Молочный улун Мандарин\" (30)",
       "country": "RESTORANICA",
       "roast": "",
@@ -8987,12 +9019,12 @@
       ],
       "stock": 19,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/t-чай_tasteabrew_resta_650_для_чайника_молочный_улун.jpg"
     },
     {
       "id": "t-набор_tasteabrew_ассорти_19_",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
+      "subcategory": "tea_tasteabrew_loose",
       "name": "Набор Tasteabrew \"Ассорти 19\"",
       "country": "RESTORANICA",
       "roast": "",
@@ -9013,7 +9045,7 @@
     {
       "id": "t-набор_tasteabrew_с_новым_годом_и_рождеством_",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
+      "subcategory": "tea_tasteabrew_loose",
       "name": "Набор Tasteabrew \"С НОВЫМ ГОДОМ И РОЖДЕСТВОМ\"",
       "country": "RESTORANICA",
       "roast": "",
@@ -9029,12 +9061,12 @@
       ],
       "stock": 5,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/t-набор_tasteabrew_с_новым_годом_и_рождеством_.jpg"
     },
     {
       "id": "t-набор_tasteabrew_согревающий_сет_",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
+      "subcategory": "tea_tasteabrew_loose",
       "name": "Набор Tasteabrew \"Согревающий сет\"",
       "country": "RESTORANICA",
       "roast": "",
@@ -9050,12 +9082,12 @@
       ],
       "stock": 1,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/t-набор_tasteabrew_согревающий_сет_.jpg"
     },
     {
       "id": "t-чай_tasteabrew_togo_350_гун_тин_и_саган_дайля_100_",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
+      "subcategory": "tea_tasteabrew_loose",
       "name": "Чай Tasteabrew TOGO-350 \"Гун Тин и Саган Дайля\" (100)",
       "country": "RESTORANICA",
       "roast": "",
@@ -9071,12 +9103,12 @@
       ],
       "stock": 120,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/t-чай_tasteabrew_togo_350_гун_тин_и_саган_дайля_100_.jpg"
     },
     {
       "id": "t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
+      "subcategory": "tea_tasteabrew_loose",
       "name": "Чай Tasteabrew TOGO-350 \"Имунный с облепихой\" (30)",
       "country": "RESTORANICA",
       "roast": "",
@@ -9097,7 +9129,7 @@
     {
       "id": "t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
+      "subcategory": "tea_tasteabrew_loose",
       "name": "Чай Tasteabrew TOGO-350 \"Улун с цветами жасмина\" (100)",
       "country": "RESTORANICA",
       "roast": "",
@@ -9113,12 +9145,12 @@
       ],
       "stock": 36,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100.jpg"
     },
     {
       "id": "t-сито_для_чая_30_шт_",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
+      "subcategory": "tea_tasteabrew_loose",
       "name": "Сито для чая (30 шт)",
       "country": "RESTORANICA",
       "roast": "",
@@ -9134,12 +9166,12 @@
       ],
       "stock": 1740,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
     },
     {
       "id": "t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
+      "subcategory": "tea_tasteabrew_loose",
       "name": "Стакан двухслойный Tasteabrew 350 мл 25/400 мл (25 шт.)",
       "country": "RESTORANICA",
       "roast": "",
@@ -9155,12 +9187,12 @@
       ],
       "stock": 625,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg"
     },
     {
       "id": "t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_",
       "category": "tea",
-      "subcategory": "tea_restoranica_loose",
+      "subcategory": "tea_tasteabrew_loose",
       "name": "Стакан прозрачный Tasteabrew 400/500 мл (45 шт)",
       "country": "RESTORANICA",
       "roast": "",
@@ -9176,7 +9208,7 @@
       ],
       "stock": 1080,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg"
     },
     {
       "id": "t-желтый_хуо_шань_хуан_я_180_желтые_почки_с_горы_хуа",
