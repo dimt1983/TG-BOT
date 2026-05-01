@@ -545,7 +545,6 @@ function openCategory(catId) {
   const cat = DATA.categories.find(c => c.id === catId);
   document.getElementById('cat-title').textContent = cat.icon + ' ' + cat.name;
   renderSubcatRow();
-  renderCatProducts();
   goTo('category');
 }
 
