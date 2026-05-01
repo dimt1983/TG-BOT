@@ -2643,7 +2643,7 @@
       "country": "RBR TEA",
       "roast": "",
       "process": "",
-      "description": "Чай линейки RBR TEA.",
+      "description": "Чай черный, лепестки розы, листья ежевики, вишня, аромат вишни. 250&nbsp;г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -2653,7 +2653,8 @@
         }
       ],
       "stock": 8,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-rbr_tea_вишневый_сад_250г.jpg"
     },
     {
       "id": "t-rbr_tea_габа_алишань_улун_250г",
@@ -2743,7 +2744,7 @@
       "country": "RBR TEA",
       "roast": "",
       "process": "",
-      "description": "Чай линейки RBR TEA.",
+      "description": "Мелисса, яблоко, лемонграсс, лимонная вербена, листья крапивы жгучей, корень одуванчика, листья роз, лимонный мирт, цветы мальвы, шалфей, масло растительное. 50&nbsp;г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -2753,7 +2754,8 @@
         }
       ],
       "stock": 6,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-rbr_tea_лунный_сад_250г.jpg"
     },
     {
       "id": "t-rbr_tea_масала_чёрн_индийский_250г",
@@ -2783,7 +2785,7 @@
       "country": "RBR TEA",
       "roast": "",
       "process": "",
-      "description": "Чай линейки RBR TEA.",
+      "description": "Чай зеленый (улун). Китай. 250&nbsp;г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -2793,7 +2795,8 @@
         }
       ],
       "stock": 17,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-rbr_tea_молочный_улун_250г.jpg"
     },
     {
       "id": "t-rbr_tea_облепиховый_сбор_иван-чай_250г",
@@ -2843,7 +2846,7 @@
       "country": "RBR TEA",
       "roast": "",
       "process": "",
-      "description": "Чай линейки RBR TEA.",
+      "description": "Ройбуш, апельсиновая цедра, лепестки апельсина, аромат апельсина. 250&nbsp;г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -2853,7 +2856,8 @@
         }
       ],
       "stock": 5,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-rbr_tea_ройбуш_апельсин_250г.jpg"
     },
     {
       "id": "t-rbr_tea_сенча_250г",
@@ -2863,7 +2867,7 @@
       "country": "RBR TEA",
       "roast": "",
       "process": "",
-      "description": "Чай линейки RBR TEA.",
+      "description": "Чай зеленый. Япония. 250&nbsp;г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -2873,7 +2877,8 @@
         }
       ],
       "stock": 21,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-rbr_tea_сенча_250г.jpg"
     },
     {
       "id": "t-rbr_tea_фруктовая_смесь_банан_бамбук_250г",
@@ -8924,7 +8929,7 @@
       "country": "RBR TEA",
       "roast": "",
       "process": "",
-      "description": "",
+      "description": "Чай черный. Китай. 100&nbsp;г.",
       "recipe_e": "",
       "recipe_f": "",
       "fasovka": [
@@ -8935,7 +8940,7 @@
       ],
       "stock": 1,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/t-rb_tea_лапсанг_сушонг_250_г.jpg"
     },
     {
       "id": "t-rb_tea_облепиховый_сбор_на_черном_чае_250_г_ассам_",
@@ -8966,7 +8971,7 @@
       "country": "RBR TEA",
       "roast": "",
       "process": "",
-      "description": "",
+      "description": "Чай черный. Индия. 250 г.",
       "recipe_e": "",
       "recipe_f": "",
       "fasovka": [
@@ -8977,7 +8982,7 @@
       ],
       "stock": 24,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/t-rb_tea_черный_чай_с_чабрецом_250_г_ассам.jpg"
     },
     {
       "id": "t-rb_tea_эрл_грей_250_г_черный_чай",
@@ -8987,7 +8992,7 @@
       "country": "RBR TEA",
       "roast": "",
       "process": "",
-      "description": "",
+      "description": "Чай черный, аромат бергамота. 250&nbsp;г.",
       "recipe_e": "",
       "recipe_f": "",
       "fasovka": [
@@ -8998,7 +9003,7 @@
       ],
       "stock": 24,
       "tags": [],
-      "photo": null
+      "photo": "photos/products/t-rb_tea_эрл_грей_250_г_черный_чай.jpg"
     },
     {
       "id": "t-чай_tasteabrew_resta_650_для_чайника_молочный_улун",
