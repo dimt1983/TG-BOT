@@ -31,7 +31,8 @@ body {
   font-size: 15px;
   line-height: 1.4;
   overscroll-behavior-y: contain;
-  padding-bottom: calc(180px + env(safe-area-inset-bottom));
+  /* Большой нижний отступ + динамическая поправка через JS под Telegram-bar */
+  padding-bottom: calc(220px + env(safe-area-inset-bottom) + var(--tg-bottom-extra, 0px));
 }
 .app { max-width: 480px; margin: 0 auto; min-height: 100vh; position: relative; }
 
@@ -111,7 +112,7 @@ body {
 .product-add.in-cart { background: var(--success); }
 
 /* Bottom nav */
-.tabbar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--section); display: flex; max-width: 480px; margin: 0 auto; padding: 8px 0 max(8px, env(safe-area-inset-bottom)); border-top: 1px solid rgba(0,0,0,0.05); z-index: 100; }
+.tabbar { position: fixed; bottom: var(--tg-bottom-extra, 0px); left: 0; right: 0; background: var(--section); display: flex; max-width: 480px; margin: 0 auto; padding: 8px 0 max(12px, env(safe-area-inset-bottom)); border-top: 1px solid rgba(0,0,0,0.05); z-index: 100; }
 .tabbar-btn { flex: 1; background: none; border: none; padding: 6px 4px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px; color: var(--hint); font-size: 11px; font-weight: 600; position: relative; }
 .tabbar-btn .ico { font-size: 22px; line-height: 1; }
 .tabbar-btn.active { color: var(--primary); }
@@ -441,7 +442,21 @@ body {
 
 <script>
 let tg = window.Telegram?.WebApp;
-if (tg) { try { tg.expand(); tg.ready(); } catch(e){} }
+if (tg) {
+  try { tg.expand(); tg.ready(); } catch(e){}
+  // Динамическая поправка под Telegram-bar внизу (где @bot_username)
+  function adjustBottomInset() {
+    try {
+      const winH = window.innerHeight;
+      const tgH = tg.viewportStableHeight || tg.viewportHeight || winH;
+      const extra = Math.max(0, winH - tgH);
+      document.documentElement.style.setProperty('--tg-bottom-extra', extra + 'px');
+    } catch(e){}
+  }
+  adjustBottomInset();
+  try { tg.onEvent && tg.onEvent('viewportChanged', adjustBottomInset); } catch(e){}
+  window.addEventListener('resize', adjustBottomInset);
+}
 
 let DATA = null;
 let cart = JSON.parse(localStorage.getItem('rb_cart') || '[]');
