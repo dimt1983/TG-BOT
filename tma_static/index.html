@@ -69,12 +69,23 @@ body {
 .top-cat .label .name { font-size: 18px; font-weight: 800; letter-spacing: -0.3px; }
 .top-cat .label .meta { font-size: 11px; opacity: 0.85; margin-top: 2px; }
 
-/* Subcategory chips */
+/* Subcategory chips (старая) */
 .subcat-list { padding: 0 16px; margin-bottom: 16px; }
 .subcat-row { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
 .subcat-row::-webkit-scrollbar { display: none; }
 .subcat-chip { flex-shrink: 0; padding: 8px 16px; border-radius: 18px; background: var(--section); border: 2px solid transparent; font-size: 13px; font-weight: 600; white-space: nowrap; cursor: pointer; box-shadow: var(--shadow); color: var(--text); }
 .subcat-chip.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+/* Subcategory tiles (новая, плитками) */
+.subcat-tiles { padding: 0 16px 14px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.subcat-tile { aspect-ratio: 1.6; border-radius: var(--radius); overflow: hidden; cursor: pointer; position: relative; box-shadow: var(--shadow); border: none; padding: 0; transition: transform 0.15s; background-color: var(--primary); background-size: cover; background-position: center; text-align: left; }
+.subcat-tile:active { transform: scale(0.97); }
+.subcat-tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.78) 100%); }
+.subcat-tile .label { position: absolute; left: 12px; right: 12px; bottom: 10px; z-index: 2; color: white; }
+.subcat-tile .name { font-size: 14px; font-weight: 800; line-height: 1.15; letter-spacing: -0.2px; }
+.subcat-tile .meta { font-size: 11px; opacity: 0.85; margin-top: 3px; }
+.subcat-tile.all { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+.subcat-tile.active { box-shadow: 0 0 0 3px var(--accent), var(--shadow); }
 
 /* Product card */
 .product-card { background: var(--section); border-radius: var(--radius); padding: 12px; margin-bottom: 10px; display: flex; gap: 12px; box-shadow: var(--shadow); cursor: pointer; transition: transform 0.15s; }
@@ -259,9 +270,7 @@ body {
         <button class="icon-btn" onclick="goTo('cart')">🛒<span class="badge" id="cart-badge-2" style="display:none">0</span></button>
       </div>
     </header>
-    <div class="subcat-list">
-      <div class="subcat-row" id="subcat-row"></div>
-    </div>
+    <div class="subcat-tiles" id="subcat-tiles"></div>
     <div class="section">
       <div class="section-h"><h3 id="cat-list-title">Все товары</h3><span id="cat-count">—</span></div>
       <div id="cat-products-list"></div>
@@ -531,9 +540,27 @@ function openCategory(catId) {
 
 function renderSubcatRow() {
   const subs = DATA.subcategories.filter(s => s.parent === currentCat);
-  const all = `<button class="subcat-chip ${currentSubcat==='all'?'active':''}" onclick="setSubcat('all')">Все</button>`;
-  const items = subs.map(s => `<button class="subcat-chip ${currentSubcat===s.id?'active':''}" onclick="setSubcat('${s.id}')">${s.name}</button>`).join('');
-  document.getElementById('subcat-row').innerHTML = all + items;
+  const c = document.getElementById('subcat-tiles');
+  const all = `<button class="subcat-tile all ${currentSubcat==='all'?'active':''}" onclick="setSubcat('all')">
+    <div class="label">
+      <div class="name">📋 Все товары</div>
+      <div class="meta">${DATA.products.filter(p=>p.category===currentCat).length} позиций</div>
+    </div>
+  </button>`;
+  const items = subs.map(s => {
+    // Берём первое фото из товаров этой подкатегории как cover
+    const firstWithPhoto = DATA.products.find(p => p.subcategory === s.id && p.photo);
+    const cover = firstWithPhoto ? firstWithPhoto.photo : '';
+    const cnt = DATA.products.filter(p => p.subcategory === s.id).length;
+    const bg = cover ? `background-image: url('${cover}'); background-color: ${DATA.categories.find(c=>c.id===currentCat).color};` : '';
+    return `<button class="subcat-tile ${currentSubcat===s.id?'active':''}" style="${bg}" onclick="setSubcat('${s.id}')">
+      <div class="label">
+        <div class="name">${s.name}</div>
+        <div class="meta">${cnt} позиций</div>
+      </div>
+    </button>`;
+  }).join('');
+  c.innerHTML = all + items;
 }
 function setSubcat(id) { currentSubcat = id; renderSubcatRow(); renderCatProducts(); window.scrollTo({top: 0, behavior: 'smooth'}); }
 
