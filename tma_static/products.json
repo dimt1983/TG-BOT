@@ -1518,7 +1518,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Чёрный листовой чай, Индия. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -1528,7 +1528,9 @@
         }
       ],
       "stock": 49,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_ассам_молти_кап_15х4г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_сенча_сенпай_зел_15х4г",
@@ -1538,7 +1540,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Зелёный Sencha Senpai. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -1548,7 +1550,9 @@
         }
       ],
       "stock": 4,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_сенча_сенпай_зел_15х4г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_жасминовый_тинг_юань_15х4г",
@@ -1558,7 +1562,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Зелёный с цветами жасмина. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -1568,7 +1572,9 @@
         }
       ],
       "stock": 2,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_жасминовый_тинг_юань_15х4г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_грюн_матинэ_зел_аром_15х4г",
@@ -1658,7 +1664,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Чёрный с травами. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -1668,7 +1674,9 @@
         }
       ],
       "stock": 6,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_горные_травы_чёрн_15х4г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_молочный_улун_зел_15х4г",
@@ -1678,7 +1686,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Зелёный молочный улун. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -1688,7 +1696,9 @@
         }
       ],
       "stock": 4,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_молочный_улун_зел_15х4г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_ройбуш_ванильная_карамель_15х4г",
@@ -1698,7 +1708,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Чёрный с карамелью и кусочками карамели. 200г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -1708,7 +1718,9 @@
         }
       ],
       "stock": 6,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_ройбуш_ванильная_карамель_15х4г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_ассам_меленг_чёрн_пакет_20х1_75г",
@@ -1718,7 +1730,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Чёрный листовой чай, Индия. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -1728,7 +1740,9 @@
         }
       ],
       "stock": 16,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_ассам_меленг_чёрн_пакет_20х1_75г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_ройал_эрл_грей_чёрн_аром_20х1_75г",
@@ -1758,7 +1772,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Зелёный Sencha Senpai. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -1768,7 +1782,9 @@
         }
       ],
       "stock": 10,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_сенча_сенпай_зел_пакет_20х1_75г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_жасмин_тинг_юань_зел_аром_20х1_75г",
@@ -1778,7 +1794,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Зелёный с цветами жасмина. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -1788,7 +1804,9 @@
         }
       ],
       "stock": 10,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_жасмин_тинг_юань_зел_аром_20х1_75г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_грюн_матинэ_зел_аром_20х1_75г",
@@ -1818,7 +1836,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Цветки ромашки. 75г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -1828,7 +1846,9 @@
         }
       ],
       "stock": 12,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_ромашковый_луг_трав_20х1_75г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_чистая_мята_трав_20х1_75г",
@@ -1898,7 +1918,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Зелёный с яблочным листом. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -1908,7 +1928,9 @@
         }
       ],
       "stock": 6,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_персидское_яблоко_фрукт_20х2_5г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_ройбуш_ваниль_пакет_20х1_75г",
@@ -1918,7 +1940,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Зелёный с ягодами, клубникой, ванилью. 200г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -1928,7 +1950,9 @@
         }
       ],
       "stock": 5,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_ройбуш_ваниль_пакет_20х1_75г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_ассам_меленг_чёрн_лист_250г",
@@ -1938,7 +1962,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Чёрный листовой чай, Индия. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -1948,7 +1972,9 @@
         }
       ],
       "stock": 9,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_ассам_меленг_чёрн_лист_250г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_молочный_улун_зел_лист_250г",
@@ -1958,7 +1984,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Зелёный молочный улун. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -1968,7 +1994,9 @@
         }
       ],
       "stock": 4,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_молочный_улун_зел_лист_250г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_сенча_сенпай_зел_лист_250г",
@@ -1978,7 +2006,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Зелёный Sencha Senpai. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -1988,7 +2016,9 @@
         }
       ],
       "stock": 5,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_сенча_сенпай_зел_лист_250г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_ройбуш_ванильная_карамель_лист_250г",
@@ -2038,7 +2068,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Чёрный с травами. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -2048,7 +2078,9 @@
         }
       ],
       "stock": 9,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_японская_липа_трав_75г",
@@ -2058,7 +2090,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Цветки липы. 75г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -2068,7 +2100,9 @@
         }
       ],
       "stock": 8,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_японская_липа_трав_75г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-althaus_лемон_минт_трав_150г",
@@ -2078,7 +2112,7 @@
       "country": "ALTHAUS",
       "roast": "",
       "process": "",
-      "description": "Чай линейки ALTHAUS.",
+      "description": "Лемонграсс, мелисса, лимонная вербена. 150г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -2088,7 +2122,9 @@
         }
       ],
       "stock": 7,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-althaus_лемон_минт_трав_150г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-niktea_кения_сапфир_чёрн_пакет_25х2г",
@@ -2158,7 +2194,7 @@
       "country": "NIKTEA",
       "roast": "",
       "process": "",
-      "description": "Чай линейки NIKTEA.",
+      "description": "Зелёный молочный улун, Китай. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -2168,7 +2204,9 @@
         }
       ],
       "stock": 20,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-niktea_молочный_улун_зел_аром_25х2г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-niktea_красная_поляна_пакет_25х1_75г",
@@ -2298,7 +2336,7 @@
       "country": "NIKTEA",
       "roast": "",
       "process": "",
-      "description": "Чай линейки NIKTEA.",
+      "description": "Чёрный с эфирами бергамота — Earl Grey Special. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -2308,7 +2346,9 @@
         }
       ],
       "stock": 5,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-niktea_эрл_грей_пирамидки_15х2_7г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-niktea_сибирский_сбор_пирамидки_15х2_7г",
@@ -2338,7 +2378,7 @@
       "country": "NIKTEA",
       "roast": "",
       "process": "",
-      "description": "Чай линейки NIKTEA.",
+      "description": "Зелёный молочный улун, Китай. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -2348,7 +2388,9 @@
         }
       ],
       "stock": 11,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-niktea_молочный_улун_пирамидки_15х2_7г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-niktea_имбирный_тропик_пирамидки_15х2_7г",
@@ -2458,7 +2500,7 @@
       "country": "NIKTEA",
       "roast": "",
       "process": "",
-      "description": "Чай линейки NIKTEA.",
+      "description": "Зелёный Sencha Classic, Япония. 250г.",
       "recipe_e": "",
       "recipe_f": "Прогрей чайник кипятком. 3-5 г чая на 250 мл воды 85-95°C. Настаивай 2-4 минуты.",
       "fasovka": [
@@ -2468,7 +2510,9 @@
         }
       ],
       "stock": 14,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/t-niktea_сенча_классик_зел_для_чайника_20х4г.jpg",
+      "_source": "alephtrade"
     },
     {
       "id": "t-niktea_молочный_улун_зел_аром_для_чайника_20х4г",
