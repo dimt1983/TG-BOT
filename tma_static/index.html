@@ -641,6 +641,15 @@ function renderSheet() {
   const hasE = p.recipe_e && p.recipe_e.trim();
   const hasF = p.recipe_f && p.recipe_f.trim();
   const hasDesc = p.description && p.description.trim();
+  // Для кофе — три таба (Описание / Эспрессо-рецепт / Фильтр-рецепт).
+  // Для остальных категорий — два (Описание / Рецепт), без разделения на эспрессо/фильтр.
+  const isCoffee = p.category === 'coffee';
+  const recipeAny = p.recipe_f || p.recipe_e || '';
+  const hasRecipe = recipeAny.trim().length > 0;
+
+  // Если currentTab невалиден для текущей категории — переключаем на безопасный
+  if (!isCoffee && (currentTab === 'recipe_e' || currentTab === 'recipe_f')) currentTab = hasRecipe ? 'recipe' : 'desc';
+  if (isCoffee && currentTab === 'recipe') currentTab = hasE ? 'recipe_e' : (hasF ? 'recipe_f' : 'desc');
 
   let tabContent = '';
   if (currentTab === 'desc') {
@@ -649,6 +658,8 @@ function renderSheet() {
     tabContent = hasE ? `<p>${p.recipe_e}</p>` : `<div class="tab-empty">Рецепт эспрессо пока не указан</div>`;
   } else if (currentTab === 'recipe_f') {
     tabContent = hasF ? `<p>${p.recipe_f}</p>` : `<div class="tab-empty">Рецепт фильтра пока не указан</div>`;
+  } else if (currentTab === 'recipe') {
+    tabContent = hasRecipe ? `<p>${recipeAny}</p>` : `<div class="tab-empty">Рецепт пока не указан</div>`;
   }
 
   const totalPrice = currentFasovka.price * currentQty;
@@ -672,8 +683,12 @@ function renderSheet() {
 
       <div class="tabs">
         <button class="tab-btn ${currentTab==='desc'?'active':''}" onclick="setTab('desc')">📖 Описание</button>
-        <button class="tab-btn ${currentTab==='recipe_e'?'active':''}" onclick="setTab('recipe_e')" ${hasE?'':'disabled'}>☕ Эспрессо</button>
-        <button class="tab-btn ${currentTab==='recipe_f'?'active':''}" onclick="setTab('recipe_f')" ${hasF?'':'disabled'}>💧 Фильтр</button>
+        ${isCoffee ? `
+          <button class="tab-btn ${currentTab==='recipe_e'?'active':''}" onclick="setTab('recipe_e')" ${hasE?'':'disabled'}>☕ Эспрессо-рецепт</button>
+          <button class="tab-btn ${currentTab==='recipe_f'?'active':''}" onclick="setTab('recipe_f')" ${hasF?'':'disabled'}>💧 Фильтр-рецепт</button>
+        ` : `
+          <button class="tab-btn ${currentTab==='recipe'?'active':''}" onclick="setTab('recipe')" ${hasRecipe?'':'disabled'}>📜 Рецепт</button>
+        `}
       </div>
       <div class="tab-content">${tabContent}</div>
 
