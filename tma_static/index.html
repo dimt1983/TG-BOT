@@ -31,7 +31,7 @@ body {
   font-size: 15px;
   line-height: 1.4;
   overscroll-behavior-y: contain;
-  padding-bottom: 80px;
+  padding-bottom: calc(110px + env(safe-area-inset-bottom));
 }
 .app { max-width: 480px; margin: 0 auto; min-height: 100vh; position: relative; }
 
