@@ -57,31 +57,6 @@
       "name": "💊 Капсулы Nespresso"
     },
     {
-      "id": "tea_althaus",
-      "parent": "tea",
-      "name": "🌸 ALTHAUS"
-    },
-    {
-      "id": "tea_niktea",
-      "parent": "tea",
-      "name": "🍃 NIKTEA"
-    },
-    {
-      "id": "tea_rbr_tea",
-      "parent": "tea",
-      "name": "☕ RBR TEA"
-    },
-    {
-      "id": "tea_китайский_чай",
-      "parent": "tea",
-      "name": "🐉 Китайский чай"
-    },
-    {
-      "id": "tea_restoranica",
-      "parent": "tea",
-      "name": "🍽️ Restoranica"
-    },
-    {
       "id": "syr_botanika",
       "parent": "syrup",
       "name": "🌿 BOTANIKA"
@@ -110,6 +85,61 @@
       "id": "milk_main",
       "parent": "milk",
       "name": "🥛 Растительное"
+    },
+    {
+      "id": "tea_althaus_cup",
+      "parent": "tea",
+      "name": "ALTHAUS · 🍵 На чашку"
+    },
+    {
+      "id": "tea_althaus_loose",
+      "parent": "tea",
+      "name": "ALTHAUS · 📄 Листовой"
+    },
+    {
+      "id": "tea_althaus_pot",
+      "parent": "tea",
+      "name": "ALTHAUS · 🫖 На чайник"
+    },
+    {
+      "id": "tea_niktea_cup",
+      "parent": "tea",
+      "name": "NIKTEA · 🍵 На чашку"
+    },
+    {
+      "id": "tea_niktea_pot",
+      "parent": "tea",
+      "name": "NIKTEA · 🫖 На чайник"
+    },
+    {
+      "id": "tea_niktea_pyr",
+      "parent": "tea",
+      "name": "NIKTEA · 🔺 Пирамидки"
+    },
+    {
+      "id": "tea_rbr_tea_loose",
+      "parent": "tea",
+      "name": "RBR_TEA · 📄 Листовой"
+    },
+    {
+      "id": "tea_restoranica_iced",
+      "parent": "tea",
+      "name": "RESTORANICA · 🧊 Iced"
+    },
+    {
+      "id": "tea_restoranica_loose",
+      "parent": "tea",
+      "name": "RESTORANICA · 📄 Листовой"
+    },
+    {
+      "id": "tea_restoranica_togo",
+      "parent": "tea",
+      "name": "RESTORANICA · 📦 To Go"
+    },
+    {
+      "id": "tea_китайский_чай_loose",
+      "parent": "tea",
+      "name": "КИТАЙСКИЙ_ЧАЙ · 📄 Листовой"
     }
   ],
   "products": [
@@ -1513,7 +1543,7 @@
     {
       "id": "t-althaus_ассам_молти_кап_15х4г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_pot",
       "name": "ALTHAUS Ассам Молти Кап 15х4г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1535,7 +1565,7 @@
     {
       "id": "t-althaus_сенча_сенпай_зел_15х4г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_pot",
       "name": "ALTHAUS Сенча Сенпай зел 15х4г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1557,7 +1587,7 @@
     {
       "id": "t-althaus_жасминовый_тинг_юань_15х4г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_pot",
       "name": "ALTHAUS Жасминовый Тинг Юань 15х4г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1579,7 +1609,7 @@
     {
       "id": "t-althaus_грюн_матинэ_зел_аром_15х4г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_pot",
       "name": "ALTHAUS Грюн Матинэ зел аром 15х4г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1599,7 +1629,7 @@
     {
       "id": "t-althaus_ред_фрут_фраш_фрукт_15х4г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_pot",
       "name": "ALTHAUS Ред Фрут Фраш фрукт 15х4г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1619,7 +1649,7 @@
     {
       "id": "t-althaus_благородная_ромашка_трав_15х3г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_pot",
       "name": "ALTHAUS Благородная Ромашка трав 15х3г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1639,7 +1669,7 @@
     {
       "id": "t-althaus_нежная_мята_трав_15х3г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_pot",
       "name": "ALTHAUS Нежная Мята трав 15х3г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1659,7 +1689,7 @@
     {
       "id": "t-althaus_горные_травы_чёрн_15х4г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_pot",
       "name": "ALTHAUS Горные Травы чёрн 15х4г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1681,7 +1711,7 @@
     {
       "id": "t-althaus_молочный_улун_зел_15х4г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_pot",
       "name": "ALTHAUS Молочный Улун зел 15х4г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1703,7 +1733,7 @@
     {
       "id": "t-althaus_ройбуш_ванильная_карамель_15х4г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_pot",
       "name": "ALTHAUS Ройбуш Ванильная Карамель 15х4г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1725,7 +1755,7 @@
     {
       "id": "t-althaus_ассам_меленг_чёрн_пакет_20х1_75г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_cup",
       "name": "ALTHAUS Ассам Меленг чёрн пакет 20х1.75г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1747,7 +1777,7 @@
     {
       "id": "t-althaus_ройал_эрл_грей_чёрн_аром_20х1_75г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_cup",
       "name": "ALTHAUS Ройал Эрл Грей чёрн аром 20х1.75г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1767,7 +1797,7 @@
     {
       "id": "t-althaus_сенча_сенпай_зел_пакет_20х1_75г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_cup",
       "name": "ALTHAUS Сенча Сенпай зел пакет 20х1.75г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1789,7 +1819,7 @@
     {
       "id": "t-althaus_жасмин_тинг_юань_зел_аром_20х1_75г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_cup",
       "name": "ALTHAUS Жасмин Тинг Юань зел аром 20х1.75г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1811,7 +1841,7 @@
     {
       "id": "t-althaus_грюн_матинэ_зел_аром_20х1_75г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_cup",
       "name": "ALTHAUS Грюн Матинэ зел аром 20х1.75г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1831,7 +1861,7 @@
     {
       "id": "t-althaus_ромашковый_луг_трав_20х1_75г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_cup",
       "name": "ALTHAUS Ромашковый луг трав 20х1.75г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1853,7 +1883,7 @@
     {
       "id": "t-althaus_чистая_мята_трав_20х1_75г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_cup",
       "name": "ALTHAUS Чистая Мята трав 20х1.75г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1873,7 +1903,7 @@
     {
       "id": "t-althaus_уайлд_бэрриз_фрукт_20х2_5г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_cup",
       "name": "ALTHAUS Уайлд Бэрриз фрукт 20х2.5г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1893,7 +1923,7 @@
     {
       "id": "t-althaus_женьшеневое_равновесие_трав_20х1_75г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_cup",
       "name": "ALTHAUS Женьшеневое Равновесие трав 20х1.75г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1913,7 +1943,7 @@
     {
       "id": "t-althaus_персидское_яблоко_фрукт_20х2_5г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_cup",
       "name": "ALTHAUS Персидское Яблоко фрукт 20х2.5г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1935,7 +1965,7 @@
     {
       "id": "t-althaus_ройбуш_ваниль_пакет_20х1_75г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_cup",
       "name": "ALTHAUS Ройбуш Ваниль пакет 20х1.75г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1957,7 +1987,7 @@
     {
       "id": "t-althaus_ассам_меленг_чёрн_лист_250г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_loose",
       "name": "ALTHAUS Ассам Меленг чёрн лист 250г",
       "country": "ALTHAUS",
       "roast": "",
@@ -1979,7 +2009,7 @@
     {
       "id": "t-althaus_молочный_улун_зел_лист_250г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_loose",
       "name": "ALTHAUS Молочный Улун зел лист 250г",
       "country": "ALTHAUS",
       "roast": "",
@@ -2001,7 +2031,7 @@
     {
       "id": "t-althaus_сенча_сенпай_зел_лист_250г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_loose",
       "name": "ALTHAUS Сенча Сенпай зел лист 250г",
       "country": "ALTHAUS",
       "roast": "",
@@ -2023,7 +2053,7 @@
     {
       "id": "t-althaus_ройбуш_ванильная_карамель_лист_250г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_loose",
       "name": "ALTHAUS Ройбуш Ванильная Карамель лист 250г",
       "country": "ALTHAUS",
       "roast": "",
@@ -2043,7 +2073,7 @@
     {
       "id": "t-althaus_ред_фрут_флаш_фрукт_лист_250г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_loose",
       "name": "ALTHAUS Ред Фрут Флаш фрукт лист 250г",
       "country": "ALTHAUS",
       "roast": "",
@@ -2063,7 +2093,7 @@
     {
       "id": "t-althaus_горные_травы_чёрн_лист_250г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_loose",
       "name": "ALTHAUS Горные Травы чёрн лист 250г",
       "country": "ALTHAUS",
       "roast": "",
@@ -2085,7 +2115,7 @@
     {
       "id": "t-althaus_японская_липа_трав_75г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_loose",
       "name": "ALTHAUS Японская Липа трав 75г",
       "country": "ALTHAUS",
       "roast": "",
@@ -2107,7 +2137,7 @@
     {
       "id": "t-althaus_лемон_минт_трав_150г",
       "category": "tea",
-      "subcategory": "tea_althaus",
+      "subcategory": "tea_althaus_loose",
       "name": "ALTHAUS Лемон Минт трав 150г",
       "country": "ALTHAUS",
       "roast": "",
@@ -2129,7 +2159,7 @@
     {
       "id": "t-niktea_кения_сапфир_чёрн_пакет_25х2г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_cup",
       "name": "NIKTEA Кения Сапфир чёрн пакет 25х2г",
       "country": "NIKTEA",
       "roast": "",
@@ -2149,7 +2179,7 @@
     {
       "id": "t-niktea_эрл_грей_ультрамарин_чёрн_аром_25х2г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_cup",
       "name": "NIKTEA Эрл Грей Ультрамарин чёрн аром 25х2г",
       "country": "NIKTEA",
       "roast": "",
@@ -2169,7 +2199,7 @@
     {
       "id": "t-niktea_ориентал_блум_зел_пакет_25х2г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_cup",
       "name": "NIKTEA Ориентал Блум зел пакет 25х2г",
       "country": "NIKTEA",
       "roast": "",
@@ -2189,7 +2219,7 @@
     {
       "id": "t-niktea_молочный_улун_зел_аром_25х2г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_cup",
       "name": "NIKTEA Молочный Улун зел аром 25х2г",
       "country": "NIKTEA",
       "roast": "",
@@ -2211,7 +2241,7 @@
     {
       "id": "t-niktea_красная_поляна_пакет_25х1_75г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_cup",
       "name": "NIKTEA Красная поляна пакет 25х1.75г",
       "country": "NIKTEA",
       "roast": "",
@@ -2231,7 +2261,7 @@
     {
       "id": "t-niktea_фрут_маджента_фрукт_аром_25х2г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_cup",
       "name": "NIKTEA Фрут Маджента фрукт аром 25х2г",
       "country": "NIKTEA",
       "roast": "",
@@ -2251,7 +2281,7 @@
     {
       "id": "t-niktea_ройбуш_оранж_аром_25х2г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_cup",
       "name": "NIKTEA Ройбуш Оранж аром 25х2г",
       "country": "NIKTEA",
       "roast": "",
@@ -2271,7 +2301,7 @@
     {
       "id": "t-niktea_горный_чабрец_чёрн_пакет_25х2г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_cup",
       "name": "NIKTEA Горный Чабрец чёрн пакет 25х2г",
       "country": "NIKTEA",
       "roast": "",
@@ -2291,7 +2321,7 @@
     {
       "id": "t-niktea_релакс_пакет_21х1_3г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_cup",
       "name": "NIKTEA Релакс пакет 21х1.3г",
       "country": "NIKTEA",
       "roast": "",
@@ -2311,7 +2341,7 @@
     {
       "id": "t-niktea_энерджи_зел_аром_21х1_5г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_cup",
       "name": "NIKTEA Энерджи зел аром 21х1.5г",
       "country": "NIKTEA",
       "roast": "",
@@ -2331,7 +2361,7 @@
     {
       "id": "t-niktea_эрл_грей_пирамидки_15х2_7г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_pyr",
       "name": "NIKTEA Эрл Грей пирамидки 15х2.7г",
       "country": "NIKTEA",
       "roast": "",
@@ -2353,7 +2383,7 @@
     {
       "id": "t-niktea_сибирский_сбор_пирамидки_15х2_7г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_pyr",
       "name": "NIKTEA Сибирский сбор пирамидки 15х2.7г",
       "country": "NIKTEA",
       "roast": "",
@@ -2373,7 +2403,7 @@
     {
       "id": "t-niktea_молочный_улун_пирамидки_15х2_7г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_pyr",
       "name": "NIKTEA Молочный Улун пирамидки 15х2.7г",
       "country": "NIKTEA",
       "roast": "",
@@ -2395,7 +2425,7 @@
     {
       "id": "t-niktea_имбирный_тропик_пирамидки_15х2_7г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_pyr",
       "name": "NIKTEA Имбирный Тропик пирамидки 15х2.7г",
       "country": "NIKTEA",
       "roast": "",
@@ -2415,7 +2445,7 @@
     {
       "id": "t-niktea_русский_завтрак_пирамидки_15х2_7г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_pyr",
       "name": "NIKTEA Русский Завтрак пирамидки 15х2.7г",
       "country": "NIKTEA",
       "roast": "",
@@ -2435,7 +2465,7 @@
     {
       "id": "t-niktea_лесная_медитация_трав_пирамидки_15х2_7г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_pyr",
       "name": "NIKTEA Лесная Медитация трав пирамидки 15х2.7г",
       "country": "NIKTEA",
       "roast": "",
@@ -2455,7 +2485,7 @@
     {
       "id": "t-niktea_клубничная_панна-котта_пирамидки_15х2_7г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_pyr",
       "name": "NIKTEA Клубничная Панна-Котта пирамидки 15х2.7г",
       "country": "NIKTEA",
       "roast": "",
@@ -2475,7 +2505,7 @@
     {
       "id": "t-niktea_королевский_завтрак_для_чайника_20х4г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_pot",
       "name": "NIKTEA Королевский Завтрак для чайника 20х4г",
       "country": "NIKTEA",
       "roast": "",
@@ -2495,7 +2525,7 @@
     {
       "id": "t-niktea_сенча_классик_зел_для_чайника_20х4г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_pot",
       "name": "NIKTEA Сенча Классик зел для чайника 20х4г",
       "country": "NIKTEA",
       "roast": "",
@@ -2517,7 +2547,7 @@
     {
       "id": "t-niktea_молочный_улун_зел_аром_для_чайника_20х4г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_pot",
       "name": "NIKTEA Молочный Улун зел аром для чайника 20х4г",
       "country": "NIKTEA",
       "roast": "",
@@ -2537,7 +2567,7 @@
     {
       "id": "t-niktea_ягодный_коктейль_аром_для_чайника_20х4г",
       "category": "tea",
-      "subcategory": "tea_niktea",
+      "subcategory": "tea_niktea_pot",
       "name": "NIKTEA Ягодный Коктейль аром для чайника 20х4г",
       "country": "NIKTEA",
       "roast": "",
@@ -2557,7 +2587,7 @@
     {
       "id": "t-rbr_tea_вишневый_сад_250г",
       "category": "tea",
-      "subcategory": "tea_rbr_tea",
+      "subcategory": "tea_rbr_tea_loose",
       "name": "RBR TEA Вишневый сад 250г",
       "country": "RBR TEA",
       "roast": "",
@@ -2577,7 +2607,7 @@
     {
       "id": "t-rbr_tea_габа_алишань_улун_250г",
       "category": "tea",
-      "subcategory": "tea_rbr_tea",
+      "subcategory": "tea_rbr_tea_loose",
       "name": "RBR TEA Габа Алишань улун 250г",
       "country": "RBR TEA",
       "roast": "",
@@ -2597,7 +2627,7 @@
     {
       "id": "t-rbr_tea_гречишный_чай_250г",
       "category": "tea",
-      "subcategory": "tea_rbr_tea",
+      "subcategory": "tea_rbr_tea_loose",
       "name": "RBR TEA Гречишный чай 250г",
       "country": "RBR TEA",
       "roast": "",
@@ -2617,7 +2647,7 @@
     {
       "id": "t-rbr_tea_екатерина_великая_чёрн_250г",
       "category": "tea",
-      "subcategory": "tea_rbr_tea",
+      "subcategory": "tea_rbr_tea_loose",
       "name": "RBR TEA Екатерина Великая чёрн 250г",
       "country": "RBR TEA",
       "roast": "",
@@ -2637,7 +2667,7 @@
     {
       "id": "t-rbr_tea_зеленый_с_жасмином_250г",
       "category": "tea",
-      "subcategory": "tea_rbr_tea",
+      "subcategory": "tea_rbr_tea_loose",
       "name": "RBR TEA Зеленый с жасмином 250г",
       "country": "RBR TEA",
       "roast": "",
@@ -2657,7 +2687,7 @@
     {
       "id": "t-rbr_tea_лунный_сад_250г",
       "category": "tea",
-      "subcategory": "tea_rbr_tea",
+      "subcategory": "tea_rbr_tea_loose",
       "name": "RBR TEA Лунный сад 250г",
       "country": "RBR TEA",
       "roast": "",
@@ -2677,7 +2707,7 @@
     {
       "id": "t-rbr_tea_масала_чёрн_индийский_250г",
       "category": "tea",
-      "subcategory": "tea_rbr_tea",
+      "subcategory": "tea_rbr_tea_loose",
       "name": "RBR TEA Масала чёрн индийский 250г",
       "country": "RBR TEA",
       "roast": "",
@@ -2697,7 +2727,7 @@
     {
       "id": "t-rbr_tea_молочный_улун_250г",
       "category": "tea",
-      "subcategory": "tea_rbr_tea",
+      "subcategory": "tea_rbr_tea_loose",
       "name": "RBR TEA Молочный улун 250г",
       "country": "RBR TEA",
       "roast": "",
@@ -2717,7 +2747,7 @@
     {
       "id": "t-rbr_tea_облепиховый_сбор_иван-чай_250г",
       "category": "tea",
-      "subcategory": "tea_rbr_tea",
+      "subcategory": "tea_rbr_tea_loose",
       "name": "RBR TEA Облепиховый сбор иван-чай 250г",
       "country": "RBR TEA",
       "roast": "",
@@ -2737,7 +2767,7 @@
     {
       "id": "t-rbr_tea_облепиховый_сбор_чёрн_250г",
       "category": "tea",
-      "subcategory": "tea_rbr_tea",
+      "subcategory": "tea_rbr_tea_loose",
       "name": "RBR TEA Облепиховый сбор чёрн 250г",
       "country": "RBR TEA",
       "roast": "",
@@ -2757,7 +2787,7 @@
     {
       "id": "t-rbr_tea_ройбуш_апельсин_250г",
       "category": "tea",
-      "subcategory": "tea_rbr_tea",
+      "subcategory": "tea_rbr_tea_loose",
       "name": "RBR TEA Ройбуш апельсин 250г",
       "country": "RBR TEA",
       "roast": "",
@@ -2777,7 +2807,7 @@
     {
       "id": "t-rbr_tea_сенча_250г",
       "category": "tea",
-      "subcategory": "tea_rbr_tea",
+      "subcategory": "tea_rbr_tea_loose",
       "name": "RBR TEA Сенча 250г",
       "country": "RBR TEA",
       "roast": "",
@@ -2797,7 +2827,7 @@
     {
       "id": "t-rbr_tea_фруктовая_смесь_банан_бамбук_250г",
       "category": "tea",
-      "subcategory": "tea_rbr_tea",
+      "subcategory": "tea_rbr_tea_loose",
       "name": "RBR TEA Фруктовая смесь Банан Бамбук 250г",
       "country": "RBR TEA",
       "roast": "",
@@ -2817,7 +2847,7 @@
     {
       "id": "t-rbr_tea_фруктовая_смесь_наглый_фрукт_250г",
       "category": "tea",
-      "subcategory": "tea_rbr_tea",
+      "subcategory": "tea_rbr_tea_loose",
       "name": "RBR TEA Фруктовая смесь Наглый фрукт 250г",
       "country": "RBR TEA",
       "roast": "",
@@ -2837,7 +2867,7 @@
     {
       "id": "t-китайский_чай_иван-чай_теплый_вечер_200г",
       "category": "tea",
-      "subcategory": "tea_китайский_чай",
+      "subcategory": "tea_китайский_чай_loose",
       "name": "Китайский чай Иван-чай Теплый Вечер 200г",
       "country": "Китайский чай",
       "roast": "",
@@ -2857,7 +2887,7 @@
     {
       "id": "t-китайский_чай_иван-чай_с_ромашкой_200г",
       "category": "tea",
-      "subcategory": "tea_китайский_чай",
+      "subcategory": "tea_китайский_чай_loose",
       "name": "Китайский чай Иван-чай с ромашкой 200г",
       "country": "Китайский чай",
       "roast": "",
@@ -2877,7 +2907,7 @@
     {
       "id": "t-китайский_чай_зеленый_с_мятой_200г",
       "category": "tea",
-      "subcategory": "tea_китайский_чай",
+      "subcategory": "tea_китайский_чай_loose",
       "name": "Китайский чай Зеленый с мятой 200г",
       "country": "Китайский чай",
       "roast": "",
@@ -2897,7 +2927,7 @@
     {
       "id": "t-китайский_чай_тропический_микс_200г",
       "category": "tea",
-      "subcategory": "tea_китайский_чай",
+      "subcategory": "tea_китайский_чай_loose",
       "name": "Китайский чай Тропический Микс 200г",
       "country": "Китайский чай",
       "roast": "",
@@ -2917,7 +2947,7 @@
     {
       "id": "t-китайский_чай_улун_да_хун_пао_200г",
       "category": "tea",
-      "subcategory": "tea_китайский_чай",
+      "subcategory": "tea_китайский_чай_loose",
       "name": "Китайский чай Улун Да Хун Пао 200г",
       "country": "Китайский чай",
       "roast": "",
@@ -2937,7 +2967,7 @@
     {
       "id": "t-китайский_чай_улун_молочный_200г",
       "category": "tea",
-      "subcategory": "tea_китайский_чай",
+      "subcategory": "tea_китайский_чай_loose",
       "name": "Китайский чай Улун Молочный 200г",
       "country": "Китайский чай",
       "roast": "",
@@ -2957,7 +2987,7 @@
     {
       "id": "t-китайский_чай_улун_те_гуанинь_200г",
       "category": "tea",
-      "subcategory": "tea_китайский_чай",
+      "subcategory": "tea_китайский_чай_loose",
       "name": "Китайский чай Улун Те Гуанинь 200г",
       "country": "Китайский чай",
       "roast": "",
@@ -2977,7 +3007,7 @@
     {
       "id": "t-китайский_чай_пуэр_с_чабрецом_200г",
       "category": "tea",
-      "subcategory": "tea_китайский_чай",
+      "subcategory": "tea_китайский_чай_loose",
       "name": "Китайский чай Пуэр с чабрецом 200г",
       "country": "Китайский чай",
       "roast": "",
@@ -2997,7 +3027,7 @@
     {
       "id": "t-китайский_чай_черный_дянь_хун_200г",
       "category": "tea",
-      "subcategory": "tea_китайский_чай",
+      "subcategory": "tea_китайский_чай_loose",
       "name": "Китайский чай Черный Дянь Хун 200г",
       "country": "Китайский чай",
       "roast": "",
@@ -3017,7 +3047,7 @@
     {
       "id": "t-китайский_чай_черный_цейлон_200г",
       "category": "tea",
-      "subcategory": "tea_китайский_чай",
+      "subcategory": "tea_китайский_чай_loose",
       "name": "Китайский чай Черный Цейлон 200г",
       "country": "Китайский чай",
       "roast": "",
@@ -3037,7 +3067,7 @@
     {
       "id": "t-китайский_чай_ассам_200г",
       "category": "tea",
-      "subcategory": "tea_китайский_чай",
+      "subcategory": "tea_китайский_чай_loose",
       "name": "Китайский чай Ассам 200г",
       "country": "Китайский чай",
       "roast": "",
@@ -3057,7 +3087,7 @@
     {
       "id": "t-китайский_чай_матча_молотый_200г",
       "category": "tea",
-      "subcategory": "tea_китайский_чай",
+      "subcategory": "tea_китайский_чай_loose",
       "name": "Китайский чай Матча молотый 200г",
       "country": "Китайский чай",
       "roast": "",
@@ -3077,7 +3107,7 @@
     {
       "id": "t-китайский_чай_зеленый_люй_чжу_200г",
       "category": "tea",
-      "subcategory": "tea_китайский_чай",
+      "subcategory": "tea_китайский_чай_loose",
       "name": "Китайский чай Зеленый Люй Чжу 200г",
       "country": "Китайский чай",
       "roast": "",
@@ -3097,7 +3127,7 @@
     {
       "id": "t-restoranica_togo_чайный_глинтвейн_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Чайный Глинтвейн 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3117,7 +3147,7 @@
     {
       "id": "t-restoranica_togo_манго_с_апельсином_60пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Манго с апельсином 60пак",
       "country": "Restoranica",
       "roast": "",
@@ -3137,7 +3167,7 @@
     {
       "id": "t-restoranica_togo_медовое_яблоко_с_имбирем_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Медовое яблоко с имбирем 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3157,7 +3187,7 @@
     {
       "id": "t-restoranica_togo_иван-чай_с_малиной_36пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Иван-Чай с малиной 36пак",
       "country": "Restoranica",
       "roast": "",
@@ -3177,7 +3207,7 @@
     {
       "id": "t-restoranica_togo_малина_с_мятой_36пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Малина с мятой 36пак",
       "country": "Restoranica",
       "roast": "",
@@ -3197,7 +3227,7 @@
     {
       "id": "t-restoranica_togo_ройбуш_с_апельсином_60пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Ройбуш с апельсином 60пак",
       "country": "Restoranica",
       "roast": "",
@@ -3217,7 +3247,7 @@
     {
       "id": "t-restoranica_togo_яблоко_с_можжевельником_60пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Яблоко с можжевельником 60пак",
       "country": "Restoranica",
       "roast": "",
@@ -3237,7 +3267,7 @@
     {
       "id": "t-restoranica_togo_ассам_с_шиповником_36пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Ассам с шиповником 36пак",
       "country": "Restoranica",
       "roast": "",
@@ -3257,7 +3287,7 @@
     {
       "id": "t-restoranica_togo_кедровый_с_чагой_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Кедровый с чагой 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3277,7 +3307,7 @@
     {
       "id": "t-restoranica_togo_голубая_масала_36пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Голубая Масала 36пак",
       "country": "Restoranica",
       "roast": "",
@@ -3297,7 +3327,7 @@
     {
       "id": "t-restoranica_togo_китайский_улун_с_земляникой_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Китайский улун с земляникой 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3317,7 +3347,7 @@
     {
       "id": "t-restoranica_togo_королевский_бергамот_60пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Королевский бергамот 60пак",
       "country": "Restoranica",
       "roast": "",
@@ -3337,7 +3367,7 @@
     {
       "id": "t-restoranica_togo_цейлон_с_клубникой_60пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Цейлон с клубникой 60пак",
       "country": "Restoranica",
       "roast": "",
@@ -3357,7 +3387,7 @@
     {
       "id": "t-restoranica_togo_улун_с_жасмином_100пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Улун с жасмином 100пак",
       "country": "Restoranica",
       "roast": "",
@@ -3377,7 +3407,7 @@
     {
       "id": "t-restoranica_togo_иммунный_с_облепихой_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Иммунный с облепихой 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3397,7 +3427,7 @@
     {
       "id": "t-restoranica_togo_черный_со_смородиной_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Черный со смородиной 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3417,7 +3447,7 @@
     {
       "id": "t-restoranica_togo_молочный_улун_с_мандарином_60пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_togo",
       "name": "Restoranica TOGO Молочный улун с мандарином 60пак",
       "country": "Restoranica",
       "roast": "",
@@ -3437,7 +3467,7 @@
     {
       "id": "t-restoranica_resta_апельсин_манго_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_loose",
       "name": "Restoranica RESTA Апельсин Манго 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3457,7 +3487,7 @@
     {
       "id": "t-restoranica_resta_апельсин_ройбуш_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_loose",
       "name": "Restoranica RESTA Апельсин Ройбуш 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3477,7 +3507,7 @@
     {
       "id": "t-restoranica_resta_голубая_масала_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_loose",
       "name": "Restoranica RESTA Голубая масала 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3497,7 +3527,7 @@
     {
       "id": "t-restoranica_resta_иммунный_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_loose",
       "name": "Restoranica RESTA Иммунный 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3517,7 +3547,7 @@
     {
       "id": "t-restoranica_resta_кедровый_с_чагой_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_loose",
       "name": "Restoranica RESTA Кедровый с чагой 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3537,7 +3567,7 @@
     {
       "id": "t-restoranica_resta_киви_клубника_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_loose",
       "name": "Restoranica RESTA Киви Клубника 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3557,7 +3587,7 @@
     {
       "id": "t-restoranica_resta_лесные_ягоды_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_loose",
       "name": "Restoranica RESTA Лесные ягоды 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3577,7 +3607,7 @@
     {
       "id": "t-restoranica_resta_мята_малина_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_loose",
       "name": "Restoranica RESTA Мята Малина 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3597,7 +3627,7 @@
     {
       "id": "t-restoranica_resta_пряный_глинтвейн_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_loose",
       "name": "Restoranica RESTA Пряный глинтвейн 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3617,7 +3647,7 @@
     {
       "id": "t-restoranica_resta_пуэр_саган_дайля_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_loose",
       "name": "Restoranica RESTA Пуэр Саган дайля 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3637,7 +3667,7 @@
     {
       "id": "t-restoranica_resta_сладкая_клубника_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_loose",
       "name": "Restoranica RESTA Сладкая клубника 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3657,7 +3687,7 @@
     {
       "id": "t-restoranica_resta_смородиновый_черный_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_loose",
       "name": "Restoranica RESTA Смородиновый черный 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3677,7 +3707,7 @@
     {
       "id": "t-restoranica_resta_шиповник_чабрец_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_loose",
       "name": "Restoranica RESTA Шиповник Чабрец 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3697,7 +3727,7 @@
     {
       "id": "t-restoranica_resta_эрлберг_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_loose",
       "name": "Restoranica RESTA Эрлберг 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3717,7 +3747,7 @@
     {
       "id": "t-restoranica_resta_яблоко_можжевельник_30пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_loose",
       "name": "Restoranica RESTA Яблоко Можжевельник 30пак",
       "country": "Restoranica",
       "roast": "",
@@ -3737,7 +3767,7 @@
     {
       "id": "t-restoranica_icedtea_клубника_и_киви_50пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_iced",
       "name": "Restoranica ICEDTEA Клубника и киви 50пак",
       "country": "Restoranica",
       "roast": "",
@@ -3757,7 +3787,7 @@
     {
       "id": "t-restoranica_icedtea_малиновый_мохито_50пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_iced",
       "name": "Restoranica ICEDTEA Малиновый мохито 50пак",
       "country": "Restoranica",
       "roast": "",
@@ -3777,7 +3807,7 @@
     {
       "id": "t-restoranica_icedtea_манго_и_апельсин_50пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_iced",
       "name": "Restoranica ICEDTEA Манго и апельсин 50пак",
       "country": "Restoranica",
       "roast": "",
@@ -3797,7 +3827,7 @@
     {
       "id": "t-restoranica_icedtea_маракуйя_тропик_50пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_iced",
       "name": "Restoranica ICEDTEA Маракуйя Тропик 50пак",
       "country": "Restoranica",
       "roast": "",
@@ -3817,7 +3847,7 @@
     {
       "id": "t-restoranica_icedtea_спелая_смородина_50пак",
       "category": "tea",
-      "subcategory": "tea_restoranica",
+      "subcategory": "tea_restoranica_iced",
       "name": "Restoranica ICEDTEA Спелая смородина 50пак",
       "country": "Restoranica",
       "roast": "",
@@ -3872,7 +3902,9 @@
         }
       ],
       "stock": 9,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_botanika_бабл_гам_1л.jpg",
+      "_source": "https://botanikastories.ru/product/babl-gam/"
     },
     {
       "id": "s-сироп_botanika_банан_желтый_1л",
@@ -3892,7 +3924,9 @@
         }
       ],
       "stock": 13,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg",
+      "_source": "https://botanikastories.ru/product/zhyoltyj-banan/"
     },
     {
       "id": "s-сироп_botanika_ваниль_1л",
@@ -3972,7 +4006,9 @@
         }
       ],
       "stock": 2,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_botanika_грейпфрут_розовый_1л.jpg",
+      "_source": "https://botanikastories.ru/product/grejpfrut-rozovyj/"
     },
     {
       "id": "s-сироп_botanika_гренадин_1л",
@@ -4014,7 +4050,9 @@
         }
       ],
       "stock": 5,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_botanika_груша_сортовая_1л.jpg",
+      "_source": "https://botanikastories.ru/product/grusha-sortovaya/"
     },
     {
       "id": "s-сироп_botanika_дыня_1л",
@@ -4054,7 +4092,9 @@
         }
       ],
       "stock": 6,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_botanika_дыня_зеленая_1л.jpg",
+      "_source": "https://botanikastories.ru/product/zelenaya-dynya/"
     },
     {
       "id": "s-сироп_botanika_ежевика_1л",
@@ -4094,7 +4134,9 @@
         }
       ],
       "stock": 4,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_botanika_зеленое_яблоко_1л.jpg",
+      "_source": "https://botanikastories.ru/product/zelyonoe-yabloko/"
     },
     {
       "id": "s-сироп_botanika_имбирный_пряник_1л",
@@ -4114,7 +4156,9 @@
         }
       ],
       "stock": 4,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_botanika_имбирный_пряник_1л.jpg",
+      "_source": "https://botanikastories.ru/product/imbirnyj-pryanik-2/"
     },
     {
       "id": "s-сироп_botanika_имбирь_1л",
@@ -4178,7 +4222,9 @@
       "stock": 12,
       "tags": [
         "Хит"
-      ]
+      ],
+      "photo": "photos/products/s-сироп_botanika_карамель_соленая_1л.jpg",
+      "_source": "https://botanikastories.ru/product/solenaya-karamel/"
     },
     {
       "id": "s-сироп_botanika_киви_1л",
@@ -4358,7 +4404,9 @@
         }
       ],
       "stock": 4,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg",
+      "_source": "https://botanikastories.ru/product/lesnoj-oreh/"
     },
     {
       "id": "s-сироп_botanika_лимон_1л",
@@ -4518,7 +4566,9 @@
         }
       ],
       "stock": 9,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg",
+      "_source": "https://botanikastories.ru/product/zelyonaya-myata/"
     },
     {
       "id": "s-сироп_botanika_облепиха_1л",
@@ -4618,7 +4668,9 @@
         }
       ],
       "stock": 3,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_botanika_черная_смородина_1л.jpg",
+      "_source": "https://botanikastories.ru/product/chernaya-smorodina-2/"
     },
     {
       "id": "s-сироп_botanika_шоколад_1л",
@@ -4678,7 +4730,9 @@
         }
       ],
       "stock": 6,
-      "tags": []
+      "tags": [],
+      "photo": "photos/products/s-сироп_botanika_айриш_крем_1л.jpg",
+      "_source": "https://botanikastories.ru/product/ajrish-krem/"
     },
     {
       "id": "s-сироп_botanika_апельсин_1л",
