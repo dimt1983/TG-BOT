@@ -275,6 +275,19 @@ def register_tma_handlers(
             await message.answer("⚠️ Корзина пуста.")
             return
 
+        # Определяем, новый ли это клиент (по отсутствию прежних заказов)
+        is_new_client = False
+        try:
+            con = get_db()
+            prior = con.execute(
+                "SELECT 1 FROM orders WHERE user_id = ? LIMIT 1",
+                (message.from_user.id,),
+            ).fetchone()
+            is_new_client = not prior
+            con.close()
+        except Exception:
+            pass
+
         # Создаём заказ
         try:
             con = get_db()
@@ -302,16 +315,52 @@ def register_tma_handlers(
         if saved:
             lines.append(f"🎁 Скидка {int(disc_pct*100)}%: −{saved} ₽")
         lines.append(f"\n💳 <b>К оплате: {total:.0f} ₽</b>")
+        lines.append(
+            "\n📦 <b>Сроки</b>\n"
+            "  • Сборка и обжарка: 1–2 рабочих дня\n"
+            "  • Пермь — курьер/самовывоз: 1–2 дня\n"
+            "  • Регионы СДЭК: 3–7 рабочих дней"
+        )
         lines.append("\n📞 Менеджер свяжется для подтверждения деталей доставки.")
         await message.answer("\n".join(lines), parse_mode="HTML")
 
-        # Уведомление админу
+        # Уведомление админам — новый заказ
         if notify_new_order:
             try:
                 user_name = message.from_user.full_name or "TMA-клиент"
                 await notify_new_order(bot, order_id, user_name, total)
             except Exception as e:
-                log.warning(f"TMA: не удалось уведомить админа: {e}")
+                log.warning(f"TMA: не удалось уведомить админа о заказе: {e}")
+
+        # Уведомление админам — новый клиент (первый заказ)
+        if is_new_client:
+            try:
+                from admin import ADMIN_IDS
+                contact = payload.get("contact") or {}
+                consent = payload.get("consent") or {}
+                u = message.from_user
+                uname = f"@{u.username}" if u.username else "—"
+                consent_str = (
+                    f"v{consent.get('version','?')} от {consent.get('signedAt','—')[:19]}"
+                    if consent else "не подписано"
+                )
+                txt = (
+                    f"🆕 <b>Новая регистрация клиента</b>\n\n"
+                    f"👤 {u.full_name} ({uname})\n"
+                    f"🆔 tg_id: <code>{u.id}</code>\n"
+                    f"📞 {contact.get('phone','—')}\n"
+                    f"🏠 {contact.get('address','—')}\n"
+                    f"📜 Согласие на обработку ПД: {consent_str}\n\n"
+                    f"💼 Тип: {contact.get('type','individual')}\n"
+                    f"🛒 Первый заказ: №{order_id} на {total:.0f} ₽"
+                )
+                for aid in ADMIN_IDS:
+                    try:
+                        await bot.send_message(aid, txt, parse_mode="HTML")
+                    except Exception as e:
+                        log.warning(f"TMA: не уведомили {aid} о новом клиенте: {e}")
+            except Exception as e:
+                log.warning(f"TMA: ошибка уведомления о новом клиенте: {e}")
 
         # Если выбрана онлайн-оплата — присылаем Telegram Invoice
         if payload.get("payment_method") == "online":

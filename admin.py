@@ -17,7 +17,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 
 # ─── Настройки ───────────────────────────────────────────────────────────────
-ADMIN_IDS = [466755177]
+ADMIN_IDS = [466755177, 1403852636]  # Дмитрий, Алёна
 
 # ─── FSM ─────────────────────────────────────────────────────────────────────
 class AdminStates(StatesGroup):
@@ -649,11 +649,26 @@ async def adm_set_status(callback: CallbackQuery, bot: Bot):
                    "cancelled": "❌ Отменён"}.get(new_status, new_status)
     await callback.message.answer(f"Заказ №{order_id} → {status_text}",
                                   reply_markup=admin_keyboard())
+    # Развёрнутые сообщения клиенту со сроками доставки
+    client_msg = {
+        "confirmed": (
+            f"✅ *Заказ №{order_id} подтверждён*\n\n"
+            f"Взяли в работу. Свежеобжаренный кофе будет готов через 1–2 рабочих дня.\n\n"
+            f"📦 _Сроки доставки:_\n"
+            f"• Пермь — курьер/самовывоз: 1–2 дня\n"
+            f"• Регионы СДЭК: 3–7 рабочих дней"
+        ),
+        "done": (
+            f"🎉 *Заказ №{order_id} выполнен*\n\n"
+            f"Спасибо, что выбрали Roastberry! Если будет что обсудить — пишите этим же сообщением."
+        ),
+        "cancelled": (
+            f"❌ *Заказ №{order_id} отменён*\n\n"
+            f"Если это ошибка — напишите нам. При оплате — вернём средства в течение 3 рабочих дней."
+        ),
+    }.get(new_status, f"📦 *Статус заказа №{order_id}*\n\n{status_text}")
     try:
-        await bot.send_message(
-            o["user_id"],
-            f"📦 *Статус заказа №{order_id}*\n\n{status_text}", parse_mode="Markdown"
-        )
+        await bot.send_message(o["user_id"], client_msg, parse_mode="Markdown")
     except Exception:
         pass
     admin_log(callback.from_user.id, f"Статус заказа №{order_id}: {new_status}")
