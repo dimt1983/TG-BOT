@@ -218,6 +218,24 @@ body {
 .form-row.error input, .form-row.error textarea { border-color: var(--danger); }
 .form-row .err { color: var(--danger); font-size: 11px; margin-top: 4px; display: none; }
 .form-row.error .err { display: block; }
+
+/* Согласие на обработку ПД */
+.consent-card { background: var(--section); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 12px; box-shadow: var(--shadow); display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
+.consent-card .cb { flex-shrink: 0; width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--primary); background: var(--bg); display: flex; align-items: center; justify-content: center; font-size: 14px; color: white; transition: background 0.15s; margin-top: 1px; }
+.consent-card.checked .cb { background: var(--primary); }
+.consent-card .txt { font-size: 13px; line-height: 1.4; color: var(--text); }
+.consent-card .txt a { color: var(--primary); text-decoration: underline; font-weight: 600; }
+.consent-card.error { box-shadow: 0 0 0 2px var(--danger), var(--shadow); }
+
+.consent-doc { background: var(--section); border-radius: var(--radius); padding: 18px 16px; box-shadow: var(--shadow); font-size: 13px; line-height: 1.55; }
+.consent-doc h3 { font-size: 16px; font-weight: 800; margin: 18px 0 8px; letter-spacing: -0.2px; }
+.consent-doc h3:first-child { margin-top: 0; }
+.consent-doc p { margin-bottom: 10px; }
+.consent-doc ul { padding-left: 20px; margin-bottom: 10px; }
+.consent-doc li { margin-bottom: 4px; }
+.consent-status { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 700; }
+.consent-status.signed { background: rgba(46,125,50,0.12); color: #2e7d32; }
+.consent-status.unsigned { background: rgba(198,40,40,0.12); color: #c62828; }
 .form-tabs { display: flex; gap: 6px; margin-bottom: 16px; background: var(--section); padding: 4px; border-radius: 12px; }
 .form-tab { flex: 1; padding: 10px 8px; border: none; background: transparent; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; color: var(--hint); }
 .form-tab.active { background: var(--primary); color: white; }
@@ -411,6 +429,11 @@ body {
 
       <div id="checkout-summary" style="margin: 14px 0;"></div>
 
+      <div class="consent-card" id="checkout-consent" onclick="onCheckoutConsentClick()">
+        <div class="cb" id="checkout-cb-icon"></div>
+        <div class="txt">Я согласен с обработкой персональных данных. <a href="#" onclick="event.stopPropagation();openConsent('checkout');return false;">Прочитать соглашение</a></div>
+      </div>
+
       <button class="btn-primary success" id="confirm-order-btn" onclick="confirmOrder()">🚀 Подтвердить заказ</button>
     </div>
   </div>
@@ -431,6 +454,59 @@ body {
   <div class="screen" id="screen-profile">
     <header class="header"><h1>Профиль</h1><div></div></header>
     <div class="section" id="profile-content"></div>
+  </div>
+
+  <!-- ============ СОГЛАСИЕ НА ОБРАБОТКУ ПД ============ -->
+  <div class="screen" id="screen-consent">
+    <header class="header">
+      <button class="back-btn" onclick="closeConsent()">‹ Назад</button>
+      <h1>Согласие</h1>
+      <div></div>
+    </header>
+    <div class="section">
+      <div class="consent-doc">
+        <h3>Согласие на обработку персональных данных</h3>
+        <p>Принимая настоящее согласие, я (далее — «Субъект персональных данных») в соответствии с Федеральным законом № 152-ФЗ от 27.07.2006 «О персональных данных» даю своё согласие <b>ИП Тиунов Дмитрий Михайлович</b> (бренд «Roastberry», далее — «Оператор») на обработку моих персональных данных.</p>
+
+        <h3>1. Какие данные обрабатываются</h3>
+        <ul>
+          <li>фамилия, имя, отчество;</li>
+          <li>номер телефона, адрес электронной почты;</li>
+          <li>адрес доставки;</li>
+          <li>для юридических лиц — наименование, ИНН, юридический адрес, контактное лицо;</li>
+          <li>идентификатор учётной записи Telegram (id, username, first_name);</li>
+          <li>сведения о заказах: состав, сумма, дата, способ оплаты.</li>
+        </ul>
+
+        <h3>2. Цели обработки</h3>
+        <ul>
+          <li>оформление, выполнение и доставка заказов;</li>
+          <li>информирование о статусе заказа и об акциях бренда;</li>
+          <li>обратная связь и поддержка клиентов;</li>
+          <li>исполнение требований налогового и бухгалтерского учёта.</li>
+        </ul>
+
+        <h3>3. Действия с данными</h3>
+        <p>Сбор, запись, систематизация, накопление, хранение, уточнение, использование, передача (включая трансграничную в случае необходимости), обезличивание, блокирование, удаление и уничтожение — как автоматизированно, так и без использования средств автоматизации.</p>
+
+        <h3>4. Третьи лица</h3>
+        <p>Оператор вправе передавать данные службам доставки (СДЭК, Почта России, курьерским сервисам), платёжным системам и облачным провайдерам — исключительно в объёме, необходимом для исполнения заказа.</p>
+
+        <h3>5. Срок действия и отзыв</h3>
+        <p>Согласие действует 5 лет либо до его отзыва. Отозвать согласие можно письменным обращением на e-mail <a href="mailto:dimt1983@gmail.com">dimt1983@gmail.com</a> или по телефону, указанному в боте. После отзыва Оператор прекращает обработку и удаляет данные в течение 30 дней, кроме сведений, которые обязан хранить по закону.</p>
+
+        <h3>6. Подтверждение</h3>
+        <p>Нажимая кнопку «Подписать согласие», Субъект подтверждает дееспособность, достоверность указанных данных и факт ознакомления с настоящим согласием.</p>
+      </div>
+
+      <div class="consent-card" id="consent-checkbox" onclick="toggleConsentCheck()">
+        <div class="cb" id="consent-cb-icon">✓</div>
+        <div class="txt">Я ознакомился с текстом и даю согласие на обработку персональных данных согласно Федеральному закону № 152-ФЗ.</div>
+      </div>
+
+      <button class="btn-primary success" id="consent-sign-btn" onclick="signConsent()" disabled>Подписать согласие</button>
+      <div id="consent-already" style="display:none; text-align:center; padding:14px; color:var(--hint); font-size:13px"></div>
+    </div>
   </div>
 </div>
 
@@ -460,6 +536,9 @@ if (tg) {
 
 let DATA = null;
 let cart = JSON.parse(localStorage.getItem('rb_cart') || '[]');
+const CONSENT_VERSION = '1.0';
+let consentState = JSON.parse(localStorage.getItem('rb_consent') || 'null');
+let consentReturnTo = 'profile';
 let currentCat = null;       // 'coffee' | 'tea' | ...
 let currentSubcat = 'all';   // ID L2-подкатегории (или 'all')
 let currentParent = null;    // текущий родитель для рендера тайлов (категория или L1-подкатегория)
@@ -962,6 +1041,7 @@ function checkout() {
       [tgUser.first_name, tgUser.last_name].filter(Boolean).join(' ');
   }
   renderCheckoutSummary();
+  refreshCheckoutConsent();
 }
 
 function setFormType(t) {
@@ -1052,6 +1132,12 @@ function confirmOrder() {
     toast('⚠️ Заполните обязательные поля');
     return;
   }
+  if (!consentSigned()) {
+    document.getElementById('checkout-consent').classList.add('error');
+    toast('⚠️ Подпишите согласие на обработку ПД');
+    openConsent('checkout');
+    return;
+  }
   if (!cart.length) {
     toast('Корзина пуста');
     goTo('cart');
@@ -1071,6 +1157,7 @@ function confirmOrder() {
     totalKg: parseFloat(t.totalKg.toFixed(3)),
     contact: getContact(),
     payment_method: payMethod,
+    consent: consentState,
   };
 
   if (tg?.sendData) {
@@ -1087,6 +1174,89 @@ function confirmOrder() {
       renderCart(); renderCartBadge();
       goTo('home');
     }, 1500);
+  }
+}
+
+// === Согласие на обработку персональных данных ===
+function consentSigned() {
+  return consentState && consentState.version === CONSENT_VERSION;
+}
+
+function openConsent(returnTo) {
+  consentReturnTo = returnTo || 'profile';
+  goTo('consent');
+  renderConsentScreen();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function closeConsent() {
+  goTo(consentReturnTo);
+  if (consentReturnTo === 'profile') renderProfile();
+  if (consentReturnTo === 'checkout') refreshCheckoutConsent();
+}
+
+function renderConsentScreen() {
+  const cb = document.getElementById('consent-checkbox');
+  const btn = document.getElementById('consent-sign-btn');
+  const already = document.getElementById('consent-already');
+  if (consentSigned()) {
+    cb.style.display = 'none';
+    btn.style.display = 'none';
+    const dt = new Date(consentState.signedAt).toLocaleString('ru-RU', {dateStyle:'long', timeStyle:'short'});
+    already.style.display = 'block';
+    already.innerHTML = `<span class="consent-status signed">✓ Подписано</span><br><br>${dt} · версия ${consentState.version}`;
+  } else {
+    cb.style.display = 'flex';
+    btn.style.display = 'block';
+    already.style.display = 'none';
+    cb.classList.remove('checked');
+    document.getElementById('consent-cb-icon').textContent = '';
+    btn.disabled = true;
+  }
+}
+
+function toggleConsentCheck() {
+  const cb = document.getElementById('consent-checkbox');
+  const checked = !cb.classList.contains('checked');
+  cb.classList.toggle('checked', checked);
+  document.getElementById('consent-cb-icon').textContent = checked ? '✓' : '';
+  document.getElementById('consent-sign-btn').disabled = !checked;
+}
+
+function signConsent() {
+  if (!document.getElementById('consent-checkbox').classList.contains('checked')) {
+    toast('Поставьте галочку, чтобы подписать');
+    return;
+  }
+  const tgUser = tg?.initDataUnsafe?.user;
+  consentState = {
+    version: CONSENT_VERSION,
+    signedAt: new Date().toISOString(),
+    tgId: tgUser?.id || null,
+    tgUsername: tgUser?.username || null,
+  };
+  localStorage.setItem('rb_consent', JSON.stringify(consentState));
+  if (tg?.HapticFeedback) tg.HapticFeedback.notificationOccurred('success');
+  toast('✅ Согласие подписано');
+  setTimeout(closeConsent, 600);
+}
+
+function refreshCheckoutConsent() {
+  const card = document.getElementById('checkout-consent');
+  const icon = document.getElementById('checkout-cb-icon');
+  if (consentSigned()) {
+    card.classList.add('checked');
+    card.classList.remove('error');
+    icon.textContent = '✓';
+  } else {
+    card.classList.remove('checked');
+    icon.textContent = '';
+  }
+}
+
+function onCheckoutConsentClick() {
+  if (!consentSigned()) {
+    openConsent('checkout');
   }
 }
 
@@ -1108,6 +1278,10 @@ function renderProfile() {
       <div class="profile-row"><span class="key">Заказов</span><span class="val">0</span></div>
       <div class="profile-row"><span class="key">Бонусов</span><span class="val">0</span></div>
     </div>
+    <button class="profile-action" onclick="openConsent('profile')">
+      <span><span class="ico">📜</span>Согласие на обработку ПД</span>
+      <span class="consent-status ${consentSigned() ? 'signed' : 'unsigned'}">${consentSigned() ? '✓ Подписано' : 'Требуется'}</span>
+    </button>
     <button class="profile-action" onclick="toast('Скоро будет!')"><span><span class="ico">📞</span>Контакты доставки</span><span class="arr">›</span></button>
     <button class="profile-action" onclick="toast('Скоро будет!')"><span><span class="ico">🏠</span>Адреса</span><span class="arr">›</span></button>
     <button class="profile-action" onclick="toast('Скоро будет!')"><span><span class="ico">🏢</span>Стать корпоративным</span><span class="arr">›</span></button>
