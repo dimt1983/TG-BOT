@@ -865,15 +865,36 @@ function renderSheet() {
   const hasE = p.recipe_e && p.recipe_e.trim();
   const hasF = p.recipe_f && p.recipe_f.trim();
   const hasDesc = p.description && p.description.trim();
-  // Для кофе — три таба (Описание / Эспрессо-рецепт / Фильтр-рецепт).
-  // Для остальных категорий — два (Описание / Рецепт), без разделения на эспрессо/фильтр.
   const isCoffee = p.category === 'coffee';
+
+  // Контекст: Эспрессо-папка → только E-рецепт, Фильтр/Блэк/Борщ → только F-рецепт.
+  // В остальных контекстах (drip/капсулы/прочее/all) — общий «Рецепт».
+  const ctx = currentSubcat || '';
+  const subs = (p.subcategories || [p.subcategory] || []);
+  const inEspresso = ctx.startsWith('coffee_espresso')
+    || (ctx === 'all' && subs.some(s => s && s.startsWith('coffee_espresso')));
+  const inFilter = ctx.startsWith('coffee_filter')
+    || ctx === 'coffee_black' || ctx === 'coffee_borshch'
+    || (ctx === 'all' && subs.some(s => s && (s.startsWith('coffee_filter') || s === 'coffee_black' || s === 'coffee_borshch')));
+
+  // Какие табы показываем
+  const showRecipeE = isCoffee && inEspresso && !inFilter;
+  const showRecipeF = isCoffee && inFilter && !inEspresso;
+  const showRecipeBoth = isCoffee && !showRecipeE && !showRecipeF;  // напр., карточка из «Хитов» / «Все товары»
   const recipeAny = p.recipe_f || p.recipe_e || '';
   const hasRecipe = recipeAny.trim().length > 0;
 
-  // Если currentTab невалиден для текущей категории — переключаем на безопасный
-  if (!isCoffee && (currentTab === 'recipe_e' || currentTab === 'recipe_f')) currentTab = hasRecipe ? 'recipe' : 'desc';
-  if (isCoffee && currentTab === 'recipe') currentTab = hasE ? 'recipe_e' : (hasF ? 'recipe_f' : 'desc');
+  // Нормализация текущего таба
+  if (showRecipeE) {
+    if (currentTab === 'recipe_f' || currentTab === 'recipe') currentTab = hasE ? 'recipe_e' : 'desc';
+  } else if (showRecipeF) {
+    if (currentTab === 'recipe_e' || currentTab === 'recipe') currentTab = hasF ? 'recipe_f' : 'desc';
+  } else if (showRecipeBoth) {
+    if (currentTab === 'recipe') currentTab = hasE ? 'recipe_e' : (hasF ? 'recipe_f' : 'desc');
+  } else {
+    // не-кофе: переключаемся на 'recipe'
+    if (currentTab === 'recipe_e' || currentTab === 'recipe_f') currentTab = hasRecipe ? 'recipe' : 'desc';
+  }
 
   let tabContent = '';
   if (currentTab === 'desc') {
@@ -907,12 +928,13 @@ function renderSheet() {
 
       <div class="tabs">
         <button class="tab-btn ${currentTab==='desc'?'active':''}" onclick="setTab('desc')">📖 Описание</button>
-        ${isCoffee ? `
+        ${showRecipeE ? `<button class="tab-btn ${currentTab==='recipe_e'?'active':''}" onclick="setTab('recipe_e')" ${hasE?'':'disabled'}>☕ Эспрессо-рецепт</button>` : ''}
+        ${showRecipeF ? `<button class="tab-btn ${currentTab==='recipe_f'?'active':''}" onclick="setTab('recipe_f')" ${hasF?'':'disabled'}>💧 Фильтр-рецепт</button>` : ''}
+        ${showRecipeBoth ? `
           <button class="tab-btn ${currentTab==='recipe_e'?'active':''}" onclick="setTab('recipe_e')" ${hasE?'':'disabled'}>☕ Эспрессо-рецепт</button>
           <button class="tab-btn ${currentTab==='recipe_f'?'active':''}" onclick="setTab('recipe_f')" ${hasF?'':'disabled'}>💧 Фильтр-рецепт</button>
-        ` : `
-          <button class="tab-btn ${currentTab==='recipe'?'active':''}" onclick="setTab('recipe')" ${hasRecipe?'':'disabled'}>📜 Рецепт</button>
-        `}
+        ` : ''}
+        ${!isCoffee ? `<button class="tab-btn ${currentTab==='recipe'?'active':''}" onclick="setTab('recipe')" ${hasRecipe?'':'disabled'}>📜 Рецепт</button>` : ''}
       </div>
       <div class="tab-content">${tabContent}</div>
 
