@@ -621,7 +621,7 @@ const TEA_BRANDS = [
   { prefix: 'tea_althaus_',       img: 'assets/tile_tea_althaus.jpg',    color: '#2C5F4F' },
   { prefix: 'tea_niktea_',        img: 'assets/tile_tea_niktea.jpg',     color: '#E3B12C' },
   { prefix: 'tea_tasteabrew_',    img: 'assets/tile_tea_tasteabrew.jpg', color: '#86BA41' },
-  { prefix: 'tea_rbr_tea_',       img: 'assets/tile_tea_rbr.jpg',        color: '#6F4E37' },
+  { prefix: 'tea_rbr_tea_',       img: 'assets/tile_tea_rbr.jpg',        color: '#E25F5F' },
   { prefix: 'tea_китайский_чай_', img: 'assets/tile_tea_chinese.jpg',    color: '#C9A66B' },
 ];
 
@@ -653,9 +653,13 @@ function renderSubcatRow() {
       labelHtml = `<div class="label only-meta"><div class="meta">${cnt} позиций</div></div>`;
       extraClass = ' custom';
     } else if (brand) {
-      // Бренд: тайл показывает логотип, в лейбле — только часть после «·» (фасовка)
+      // Бренд: тайл показывает логотип, в лейбле — только часть после «·»
+      // (фасовка) без эмодзи
       const parts = s.name.split('·').map(x => x.trim());
-      const fasLabel = parts.length > 1 ? parts.slice(1).join(' · ') : s.name;
+      const fasLabel = (parts.length > 1 ? parts.slice(1).join(' · ') : s.name)
+        .replace(/\p{Extended_Pictographic}/gu, '')
+        .replace(/\s+/g, ' ')
+        .trim();
       bg = `background-image: url('${brand.img}'); background-color: ${brand.color};`;
       labelHtml = `<div class="label">
         <div class="name">${fasLabel}</div>
