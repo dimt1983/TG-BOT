@@ -96,6 +96,10 @@ body {
 .subcat-tile.custom::after { background: linear-gradient(180deg, transparent 65%, rgba(0,0,0,0.45) 100%); }
 .subcat-tile.custom .label.only-meta { left: 10px; right: 10px; bottom: 8px; }
 .subcat-tile.custom .label.only-meta .meta { font-size: 11px; font-weight: 700; opacity: 0.95; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+/* Брендовые тайлы чая — лого на картинке, фасовка ниже на полупрозрачной плашке */
+.subcat-tile.brand::after { background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.55) 100%); }
+.subcat-tile.brand .label .name { font-size: 13px; font-weight: 700; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+.subcat-tile.brand .label .meta { font-size: 10.5px; opacity: 0.9; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
 
 /* Product card */
 .product-card { background: var(--section); border-radius: var(--radius); padding: 12px; margin-bottom: 10px; display: flex; gap: 12px; box-shadow: var(--shadow); cursor: pointer; transition: transform 0.15s; }
@@ -600,15 +604,30 @@ function categoryBack() {
   }
 }
 
-// Кастомные тайлы (брендовый цвет + готовая картинка-обложка с надписью)
+// Кастомные тайлы — фиксированные брендовые надписи + цвет
 const CUSTOM_TILES = {
-  coffee_espresso:      { img: 'assets/tile_espresso.jpg', color: '#E25F5F' },
-  coffee_filter:        { img: 'assets/tile_filter.jpg',   color: '#A0AE1A' },
-  coffee_black:         { img: 'assets/tile_black.jpg',    color: '#121212' },
-  coffee_borshch:       { img: 'assets/tile_borshch.jpg',  color: '#F8CDD5' },
-  coffee_other:         { img: 'assets/tile_other.jpg',    color: '#5C3921' },
-  coffee_drip_capsules: { img: 'assets/tile_drip.jpg',     color: '#1E4D2E' },
+  // Кофе — слово уже на картинке, метка скрывается до счётчика
+  coffee_espresso:      { img: 'assets/tile_espresso.jpg', color: '#E25F5F', mode: 'full' },
+  coffee_filter:        { img: 'assets/tile_filter.jpg',   color: '#A0AE1A', mode: 'full' },
+  coffee_black:         { img: 'assets/tile_black.jpg',    color: '#121212', mode: 'full' },
+  coffee_borshch:       { img: 'assets/tile_borshch.jpg',  color: '#F8CDD5', mode: 'full' },
+  coffee_other:         { img: 'assets/tile_other.jpg',    color: '#5C3921', mode: 'full' },
+  coffee_drip_capsules: { img: 'assets/tile_drip.jpg',     color: '#1E4D2E', mode: 'full' },
 };
+
+// Бренд-логотипы для чая: префикс ID → tile + цвет
+// Когда тайл «бренд», показываем над лейблом только фасовку (часть после «·»)
+const TEA_BRANDS = [
+  { prefix: 'tea_althaus_',       img: 'assets/tile_tea_althaus.jpg',    color: '#2C5F4F' },
+  { prefix: 'tea_niktea_',        img: 'assets/tile_tea_niktea.jpg',     color: '#E3B12C' },
+  { prefix: 'tea_tasteabrew_',    img: 'assets/tile_tea_tasteabrew.jpg', color: '#86BA41' },
+  { prefix: 'tea_rbr_tea_',       img: 'assets/tile_tea_rbr.jpg',        color: '#6F4E37' },
+  { prefix: 'tea_китайский_чай_', img: 'assets/tile_tea_chinese.jpg',    color: '#C9A66B' },
+];
+
+function teaBrandTile(subId) {
+  return TEA_BRANDS.find(b => subId.startsWith(b.prefix)) || null;
+}
 
 function renderSubcatRow() {
   const subs = DATA.subcategories.filter(s => s.parent === currentParent);
@@ -627,25 +646,32 @@ function renderSubcatRow() {
   const items = subs.map(s => {
     const cnt = countProductsInSub(s.id);
     const custom = CUSTOM_TILES[s.id];
-    let bg, labelHtml;
+    const brand = !custom ? teaBrandTile(s.id) : null;
+    let bg, labelHtml, extraClass = '';
     if (custom) {
       bg = `background-image: url('${custom.img}'); background-color: ${custom.color};`;
-      // Слово (Эспрессо/Фильтр) уже отрисовано на картинке — выводим только счётчик мелко
       labelHtml = `<div class="label only-meta"><div class="meta">${cnt} позиций</div></div>`;
+      extraClass = ' custom';
+    } else if (brand) {
+      // Бренд: тайл показывает логотип, в лейбле — только часть после «·» (фасовка)
+      const parts = s.name.split('·').map(x => x.trim());
+      const fasLabel = parts.length > 1 ? parts.slice(1).join(' · ') : s.name;
+      bg = `background-image: url('${brand.img}'); background-color: ${brand.color};`;
+      labelHtml = `<div class="label">
+        <div class="name">${fasLabel}</div>
+        <div class="meta">${cnt} позиций</div>
+      </div>`;
+      extraClass = ' brand';
     } else {
-      const firstWithPhoto = DATA.products.find(p => productInSub(p, s.id) && p.photo)
-        || DATA.products.find(p => descendantOf(p, s.id) && p.photo);
-      const cover = firstWithPhoto ? firstWithPhoto.photo : '';
+      // Дефолт — категорийный цвет (без фото товаров)
       const catColor = DATA.categories.find(c => c.id === currentCat).color;
-      bg = cover
-        ? `background-image: url('${cover}'); background-color: ${catColor};`
-        : `background: ${catColor};`;
+      bg = `background: ${catColor};`;
       labelHtml = `<div class="label">
         <div class="name">${s.name}</div>
         <div class="meta">${cnt} позиций</div>
       </div>`;
     }
-    return `<button class="subcat-tile${custom ? ' custom' : ''}" style="${bg}" onclick="setSubcat('${s.id}')">
+    return `<button class="subcat-tile${extraClass}" style="${bg}" onclick="setSubcat('${s.id}')">
       ${labelHtml}
     </button>`;
   }).join('');
