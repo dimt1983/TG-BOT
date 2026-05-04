@@ -27,36 +27,6 @@
   ],
   "subcategories": [
     {
-      "id": "моносорта",
-      "parent": "coffee",
-      "name": "🌍 Моносорта"
-    },
-    {
-      "id": "микролоты_black_edition",
-      "parent": "coffee",
-      "name": "🖤 Микролоты Black"
-    },
-    {
-      "id": "микролоты_борщ_edition",
-      "parent": "coffee",
-      "name": "🍅 Микролоты Борщ"
-    },
-    {
-      "id": "смеси",
-      "parent": "coffee",
-      "name": "🎨 Смеси"
-    },
-    {
-      "id": "drip",
-      "parent": "coffee",
-      "name": "💧 Дрип-пакеты"
-    },
-    {
-      "id": "nespresso",
-      "parent": "coffee",
-      "name": "💊 Капсулы Nespresso"
-    },
-    {
       "id": "syr_botanika",
       "parent": "syrup",
       "name": "🌿 BOTANIKA"
@@ -155,13 +125,73 @@
       "id": "tea_niktea_loose",
       "parent": "tea",
       "name": "Tea Niktea Loose"
+    },
+    {
+      "id": "coffee_espresso",
+      "parent": "coffee",
+      "name": "☕ Эспрессо"
+    },
+    {
+      "id": "coffee_filter",
+      "parent": "coffee",
+      "name": "💧 Фильтр"
+    },
+    {
+      "id": "coffee_black",
+      "parent": "coffee",
+      "name": "🖤 Блэк"
+    },
+    {
+      "id": "coffee_borshch",
+      "parent": "coffee",
+      "name": "🍅 Борщ"
+    },
+    {
+      "id": "coffee_other",
+      "parent": "coffee",
+      "name": "📦 Прочее"
+    },
+    {
+      "id": "coffee_drip_capsules",
+      "parent": "coffee",
+      "name": "💊 Дрипы / Капсулы"
+    },
+    {
+      "id": "coffee_espresso_mono",
+      "parent": "coffee_espresso",
+      "name": "🌍 Моносорт"
+    },
+    {
+      "id": "coffee_espresso_microlot",
+      "parent": "coffee_espresso",
+      "name": "✨ Микролот"
+    },
+    {
+      "id": "coffee_espresso_blend",
+      "parent": "coffee_espresso",
+      "name": "🎨 Смесь"
+    },
+    {
+      "id": "coffee_filter_mono",
+      "parent": "coffee_filter",
+      "name": "🌍 Моносорт"
+    },
+    {
+      "id": "coffee_filter_microlot",
+      "parent": "coffee_filter",
+      "name": "✨ Микролот"
+    },
+    {
+      "id": "coffee_filter_blend",
+      "parent": "coffee_filter",
+      "name": "🎨 Смесь"
     }
   ],
   "products": [
     {
       "id": "c-бразилия_серрадо",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_espresso_mono",
       "name": "Бразилия Серрадо",
       "country": "Бразилия",
       "roast": "E",
@@ -187,7 +217,7 @@
     {
       "id": "c-бразилия_серрадо_дарк",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_espresso_mono",
       "name": "Бразилия Серрадо Дарк",
       "country": "Бразилия",
       "roast": "E",
@@ -213,7 +243,7 @@
     {
       "id": "c-бразилия_сан_рафаель",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_espresso_mono",
       "name": "Бразилия Сан Рафаель",
       "country": "Бразилия",
       "roast": "E",
@@ -239,7 +269,7 @@
     {
       "id": "c-уганда_вугар_элгон",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_espresso_mono",
       "name": "Уганда Вугар Элгон",
       "country": "Уганда",
       "roast": "E",
@@ -263,7 +293,7 @@
     {
       "id": "c-танзания_аа",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_filter_mono",
       "name": "Танзания АА",
       "country": "Танзания",
       "roast": "F",
@@ -287,7 +317,7 @@
     {
       "id": "c-руанда_нямашеки_хиллс",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_espresso_mono",
       "name": "Руанда Нямашеки Хиллс",
       "country": "Руанда",
       "roast": "EF",
@@ -306,12 +336,16 @@
         }
       ],
       "stock": 25,
-      "tags": []
+      "tags": [],
+      "subcategories": [
+        "coffee_espresso_mono",
+        "coffee_filter_mono"
+      ]
     },
     {
       "id": "c-бразилия_серрадо_жёлтый_бурбон",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_filter_mono",
       "name": "Бразилия Серрадо Жёлтый Бурбон",
       "country": "Бразилия",
       "roast": "F",
@@ -337,7 +371,7 @@
     {
       "id": "c-гватемала_декаф",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_espresso_mono",
       "name": "Гватемала Декаф",
       "country": "Гватемала",
       "roast": "E",
@@ -363,7 +397,7 @@
     {
       "id": "c-гондурас_сан_николас",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_espresso_mono",
       "name": "Гондурас Сан Николас",
       "country": "Гондурас",
       "roast": "E",
@@ -389,7 +423,7 @@
     {
       "id": "c-руанда_мутетели",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_filter_mono",
       "name": "Руанда Мутетели",
       "country": "Руанда",
       "roast": "F",
@@ -413,7 +447,7 @@
     {
       "id": "c-перу_гр_1",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_espresso_mono",
       "name": "Перу гр.1",
       "country": "Перу",
       "roast": "E",
@@ -437,7 +471,7 @@
     {
       "id": "c-перу_монте_верде",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_filter_mono",
       "name": "Перу Монте Верде",
       "country": "Перу",
       "roast": "F",
@@ -461,7 +495,7 @@
     {
       "id": "c-кения_аа",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_filter_mono",
       "name": "Кения АА",
       "country": "Кения",
       "roast": "F",
@@ -487,7 +521,7 @@
     {
       "id": "c-кения_аб_центральная_провинция",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_espresso_mono",
       "name": "Кения АБ Центральная провинция",
       "country": "Кения",
       "roast": "EF",
@@ -508,12 +542,16 @@
       "stock": 3,
       "tags": [],
       "photo": "photos/products/c-кения_аб_центральная_провинция.jpg",
-      "ozon_offer_id": "RB-F-KENYA AA, 200 г"
+      "ozon_offer_id": "RB-F-KENYA AA, 200 г",
+      "subcategories": [
+        "coffee_espresso_mono",
+        "coffee_filter_mono"
+      ]
     },
     {
       "id": "c-колумбия_андино",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_espresso_mono",
       "name": "Колумбия Андино",
       "country": "Колумбия",
       "roast": "EF",
@@ -534,12 +572,16 @@
       "stock": 4,
       "tags": [],
       "photo": "photos/products/c-колумбия_андино.jpg",
-      "ozon_offer_id": "RBR-F-КОЛУМБИЯ АНДИНО, 1 кг"
+      "ozon_offer_id": "RBR-F-КОЛУМБИЯ АНДИНО, 1 кг",
+      "subcategories": [
+        "coffee_espresso_mono",
+        "coffee_filter_mono"
+      ]
     },
     {
       "id": "c-никарагуа_марагаджип",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_espresso_mono",
       "name": "Никарагуа Марагаджип",
       "country": "Никарагуа",
       "roast": "E",
@@ -563,7 +605,7 @@
     {
       "id": "c-уганда_рувензор",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_espresso_mono",
       "name": "Уганда Рувензор",
       "country": "Уганда",
       "roast": "E",
@@ -587,7 +629,7 @@
     {
       "id": "c-эфиопия_лиму_гр_2",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_filter_mono",
       "name": "Эфиопия Лиму гр.2",
       "country": "Эфиопия",
       "roast": "F",
@@ -613,7 +655,7 @@
     {
       "id": "c-эфиопия_сидамо_гр_2_гуджи",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_espresso_mono",
       "name": "Эфиопия Сидамо гр.2 Гуджи",
       "country": "Эфиопия",
       "roast": "EF",
@@ -634,12 +676,16 @@
       "stock": 34,
       "tags": [],
       "photo": "photos/products/c-эфиопия_сидамо_гр_2_гуджи.jpg",
-      "ozon_offer_id": "RBR-E-СИДАМО Гр.4"
+      "ozon_offer_id": "RBR-E-СИДАМО Гр.4",
+      "subcategories": [
+        "coffee_espresso_mono",
+        "coffee_filter_mono"
+      ]
     },
     {
       "id": "c-эфиопия_арича_гр_3",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_espresso_mono",
       "name": "Эфиопия Арича гр.3",
       "country": "Эфиопия",
       "roast": "E",
@@ -665,7 +711,7 @@
     {
       "id": "c-эфиопия_milk",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_espresso_mono",
       "name": "Эфиопия Milk",
       "country": "Эфиопия",
       "roast": "E",
@@ -689,7 +735,7 @@
     {
       "id": "c-эфиопия_иргачиф_гр_4",
       "category": "coffee",
-      "subcategory": "моносорта",
+      "subcategory": "coffee_espresso_mono",
       "name": "Эфиопия Иргачиф гр.4",
       "country": "Эфиопия",
       "roast": "E",
@@ -715,7 +761,7 @@
     {
       "id": "c-эфиопия_ададо",
       "category": "coffee",
-      "subcategory": "микролоты_black_edition",
+      "subcategory": "coffee_black",
       "name": "Эфиопия Ададо",
       "country": "Эфиопия",
       "roast": "F",
@@ -741,7 +787,7 @@
     {
       "id": "c-эфиопия_белойя_гр_2",
       "category": "coffee",
-      "subcategory": "микролоты_black_edition",
+      "subcategory": "coffee_black",
       "name": "Эфиопия Белойя гр.2",
       "country": "Эфиопия",
       "roast": "F",
@@ -767,7 +813,7 @@
     {
       "id": "c-эфиопия_челелекту_гр_1",
       "category": "coffee",
-      "subcategory": "микролоты_black_edition",
+      "subcategory": "coffee_black",
       "name": "Эфиопия Челелекту гр.1",
       "country": "Эфиопия",
       "roast": "F",
@@ -793,7 +839,7 @@
     {
       "id": "c-колумбия_клаудиа_колменарес",
       "category": "coffee",
-      "subcategory": "микролоты_black_edition",
+      "subcategory": "coffee_black",
       "name": "Колумбия Клаудиа Колменарес",
       "country": "Колумбия",
       "roast": "F",
@@ -821,7 +867,7 @@
     {
       "id": "c-эфиопия_челчеле_гр_1",
       "category": "coffee",
-      "subcategory": "микролоты_black_edition",
+      "subcategory": "coffee_black",
       "name": "Эфиопия Челчеле гр.1",
       "country": "Эфиопия",
       "roast": "F",
@@ -847,7 +893,7 @@
     {
       "id": "c-экваториальный_блэнд",
       "category": "coffee",
-      "subcategory": "микролоты_борщ_edition",
+      "subcategory": "coffee_borshch",
       "name": "Экваториальный блэнд",
       "country": "Экваториальный",
       "roast": "F",
@@ -873,7 +919,7 @@
     {
       "id": "c-эфиопия_арича_гр_1",
       "category": "coffee",
-      "subcategory": "микролоты_борщ_edition",
+      "subcategory": "coffee_borshch",
       "name": "Эфиопия Арича гр.1",
       "country": "Эфиопия",
       "roast": "F",
@@ -899,7 +945,7 @@
     {
       "id": "c-колумбия_хайро_арсила_натуральная",
       "category": "coffee",
-      "subcategory": "микролоты_борщ_edition",
+      "subcategory": "coffee_borshch",
       "name": "Колумбия Хайро Арсила Натуральная",
       "country": "Колумбия",
       "roast": "F",
@@ -927,7 +973,7 @@
     {
       "id": "c-колумбия_гонзало_кармона",
       "category": "coffee",
-      "subcategory": "микролоты_борщ_edition",
+      "subcategory": "coffee_borshch",
       "name": "Колумбия Гонзало Кармона",
       "country": "Колумбия",
       "roast": "F",
@@ -955,7 +1001,7 @@
     {
       "id": "c-классика",
       "category": "coffee",
-      "subcategory": "смеси",
+      "subcategory": "coffee_espresso_blend",
       "name": "КЛАССИКА",
       "country": "КЛАССИКА",
       "roast": "BE",
@@ -983,7 +1029,7 @@
     {
       "id": "c-биттер",
       "category": "coffee",
-      "subcategory": "смеси",
+      "subcategory": "coffee_espresso_blend",
       "name": "БИТТЕР",
       "country": "БИТТЕР",
       "roast": "BE",
@@ -1011,7 +1057,7 @@
     {
       "id": "c-хани",
       "category": "coffee",
-      "subcategory": "смеси",
+      "subcategory": "coffee_espresso_blend",
       "name": "ХАНИ",
       "country": "ХАНИ",
       "roast": "BE",
@@ -1037,7 +1083,7 @@
     {
       "id": "c-венеция",
       "category": "coffee",
-      "subcategory": "смеси",
+      "subcategory": "coffee_espresso_blend",
       "name": "ВЕНЕЦИЯ",
       "country": "ВЕНЕЦИЯ",
       "roast": "BE",
@@ -1065,7 +1111,7 @@
     {
       "id": "c-лунго",
       "category": "coffee",
-      "subcategory": "смеси",
+      "subcategory": "coffee_filter_blend",
       "name": "ЛУНГО",
       "country": "ЛУНГО",
       "roast": "BF",
@@ -1093,7 +1139,7 @@
     {
       "id": "c-drip-бразилия_сертао_жёлтый_бурбон",
       "category": "coffee",
-      "subcategory": "drip",
+      "subcategory": "coffee_drip_capsules",
       "name": "Бразилия Сертао Жёлтый Бурбон",
       "country": "CHOCOLATE",
       "roast": "Дрип",
@@ -1120,7 +1166,7 @@
     {
       "id": "c-drip-гватемала_уетенанго",
       "category": "coffee",
-      "subcategory": "drip",
+      "subcategory": "coffee_drip_capsules",
       "name": "Гватемала Уетенанго",
       "country": "CHOCOLATE",
       "roast": "Дрип",
@@ -1149,7 +1195,7 @@
     {
       "id": "c-drip-гватемала_финка_медина",
       "category": "coffee",
-      "subcategory": "drip",
+      "subcategory": "coffee_drip_capsules",
       "name": "Гватемала Финка Медина",
       "country": "CHOCOLATE",
       "roast": "Дрип",
@@ -1176,7 +1222,7 @@
     {
       "id": "c-drip-коста-рика_тарразу_ла_пастора",
       "category": "coffee",
-      "subcategory": "drip",
+      "subcategory": "coffee_drip_capsules",
       "name": "Коста-Рика Тарразу Ла Пастора",
       "country": "CHOCOLATE",
       "roast": "Дрип",
@@ -1203,7 +1249,7 @@
     {
       "id": "c-drip-колумбия_питалито_без_кофеина",
       "category": "coffee",
-      "subcategory": "drip",
+      "subcategory": "coffee_drip_capsules",
       "name": "Колумбия Питалито Без Кофеина",
       "country": "CHOCOLATE",
       "roast": "Дрип",
@@ -1230,7 +1276,7 @@
     {
       "id": "c-drip-эфиопия_иргачиф__drip_",
       "category": "coffee",
-      "subcategory": "drip",
+      "subcategory": "coffee_drip_capsules",
       "name": "Эфиопия Иргачиф (Drip)",
       "country": "FLOWER",
       "roast": "Дрип",
@@ -1259,7 +1305,7 @@
     {
       "id": "c-drip-кения_аа__drip_",
       "category": "coffee",
-      "subcategory": "drip",
+      "subcategory": "coffee_drip_capsules",
       "name": "Кения АА (Drip)",
       "country": "FLOWER",
       "roast": "Дрип",
@@ -1286,7 +1332,7 @@
     {
       "id": "c-drip-колумбия_клаудиа_колменарес__drip_",
       "category": "coffee",
-      "subcategory": "drip",
+      "subcategory": "coffee_drip_capsules",
       "name": "Колумбия Клаудиа Колменарес (Drip)",
       "country": "FRUIT",
       "roast": "Дрип",
@@ -1313,7 +1359,7 @@
     {
       "id": "c-drip-эфиопия_бомбе",
       "category": "coffee",
-      "subcategory": "drip",
+      "subcategory": "coffee_drip_capsules",
       "name": "Эфиопия Бомбе",
       "country": "FRUIT",
       "roast": "Дрип",
@@ -1340,7 +1386,7 @@
     {
       "id": "c-drip-кения_моунт_с",
       "category": "coffee",
-      "subcategory": "drip",
+      "subcategory": "coffee_drip_capsules",
       "name": "Кения Моунт С",
       "country": "FRUIT",
       "roast": "Дрип",
@@ -1367,7 +1413,7 @@
     {
       "id": "c-drip-колумбия_супремо__drip_",
       "category": "coffee",
-      "subcategory": "drip",
+      "subcategory": "coffee_drip_capsules",
       "name": "Колумбия Супремо (Drip)",
       "country": "FRUIT",
       "roast": "Дрип",
@@ -1394,7 +1440,7 @@
     {
       "id": "c-drip-колумбия_ла_кумбре",
       "category": "coffee",
-      "subcategory": "drip",
+      "subcategory": "coffee_drip_capsules",
       "name": "Колумбия Ла Кумбре",
       "country": "FRUIT",
       "roast": "Дрип",
@@ -1421,7 +1467,7 @@
     {
       "id": "c-drip-колумбия_гонзало_кармона__drip_",
       "category": "coffee",
-      "subcategory": "drip",
+      "subcategory": "coffee_drip_capsules",
       "name": "Колумбия Гонзало Кармона (Drip)",
       "country": "FUNKI",
       "roast": "Дрип",
@@ -1448,7 +1494,7 @@
     {
       "id": "c-nesp-бразилия_серрадо__nespresso_",
       "category": "coffee",
-      "subcategory": "nespresso",
+      "subcategory": "coffee_drip_capsules",
       "name": "Бразилия Серрадо (Nespresso)",
       "country": "CHOCOLATE",
       "roast": "Nespresso",
@@ -1476,7 +1522,7 @@
     {
       "id": "c-nesp-бразилия_пибери",
       "category": "coffee",
-      "subcategory": "nespresso",
+      "subcategory": "coffee_drip_capsules",
       "name": "Бразилия Пибери",
       "country": "CHOCOLATE",
       "roast": "Nespresso",
@@ -1504,7 +1550,7 @@
     {
       "id": "c-nesp-колумбия__nespresso_",
       "category": "coffee",
-      "subcategory": "nespresso",
+      "subcategory": "coffee_drip_capsules",
       "name": "Колумбия (Nespresso)",
       "country": "FRUIT",
       "roast": "Nespresso",
@@ -1532,7 +1578,7 @@
     {
       "id": "c-nesp-эфиопия_сидамо__nespresso_",
       "category": "coffee",
-      "subcategory": "nespresso",
+      "subcategory": "coffee_drip_capsules",
       "name": "Эфиопия Сидамо (Nespresso)",
       "country": "FLOWER",
       "roast": "Nespresso",

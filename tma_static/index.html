@@ -25,7 +25,11 @@
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html, body { height: 100%; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern", "liga", "calt", "ss01";
   background: var(--bg);
   color: var(--text);
   font-size: 15px;
@@ -88,6 +92,10 @@ body {
 .subcat-tile .meta { font-size: 11px; opacity: 0.85; margin-top: 3px; }
 .subcat-tile.all { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
 .subcat-tile.active { box-shadow: 0 0 0 3px var(--accent), var(--shadow); }
+/* Кастомные брендовые тайлы — слово уже на картинке, не затемняем */
+.subcat-tile.custom::after { background: linear-gradient(180deg, transparent 65%, rgba(0,0,0,0.45) 100%); }
+.subcat-tile.custom .label.only-meta { left: 10px; right: 10px; bottom: 8px; }
+.subcat-tile.custom .label.only-meta .meta { font-size: 11px; font-weight: 700; opacity: 0.95; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
 
 /* Product card */
 .product-card { background: var(--section); border-radius: var(--radius); padding: 12px; margin-bottom: 10px; display: flex; gap: 12px; box-shadow: var(--shadow); cursor: pointer; transition: transform 0.15s; }
@@ -266,7 +274,7 @@ body {
   <!-- ============ CATEGORY (подкатегории-плитки) ============ -->
   <div class="screen" id="screen-category">
     <header class="header">
-      <button class="back-btn" onclick="goTo('home')">‹ Назад</button>
+      <button class="back-btn" onclick="categoryBack()">‹ Назад</button>
       <h1 id="cat-title">Категория</h1>
       <div class="actions">
         <button class="icon-btn" onclick="goTo('cart')">🛒<span class="badge" id="cart-badge-2" style="display:none">0</span></button>
@@ -449,11 +457,37 @@ if (tg) {
 let DATA = null;
 let cart = JSON.parse(localStorage.getItem('rb_cart') || '[]');
 let currentCat = null;       // 'coffee' | 'tea' | ...
-let currentSubcat = 'all';
+let currentSubcat = 'all';   // ID L2-подкатегории (или 'all')
+let currentParent = null;    // текущий родитель для рендера тайлов (категория или L1-подкатегория)
 let currentProduct = null;
 let currentFasovka = null;
 let currentQty = 1;
 let currentTab = 'desc';
+
+// Принадлежит ли товар данной (под)категории — учёт массива subcategories для EF-сортов
+function productInSub(p, subId) {
+  return p.subcategory === subId || (p.subcategories || []).includes(subId);
+}
+
+// Допустимые фасовки в данной (под)категории.
+// subId может быть либо текущей подкатегорией, либо 'all'/null —
+// тогда применяем правила исходя из subcategory самого товара.
+function allowedFasovka(p, subId) {
+  const effective = (subId && subId !== 'all') ? subId : p.subcategory;
+  const subs = p.subcategories || [p.subcategory];
+  const isBlackOrBorsch = effective === 'coffee_black' || effective === 'coffee_borshch'
+    || subs.includes('coffee_black') || subs.includes('coffee_borshch');
+  const isMicrolot = effective === 'coffee_espresso_microlot' || effective === 'coffee_filter_microlot';
+  if (isBlackOrBorsch) {
+    const f = p.fasovka.filter(x => /200\s*г/i.test(x.size));
+    return f.length ? f : p.fasovka;
+  }
+  if (isMicrolot) {
+    const f = p.fasovka.filter(x => /1\s*кг/i.test(x.size));
+    return f.length ? f : p.fasovka;
+  }
+  return p.fasovka;
+}
 
 async function load() {
   const r = await fetch('products.json?v=' + Date.now());
@@ -508,10 +542,11 @@ function renderHits() {
   document.getElementById('hits-list').innerHTML = list.map(p => productCard(p)).join('') || '<div style="color:var(--hint);font-size:13px;padding:8px">Нет хитов</div>';
 }
 
-function productCard(p) {
+function productCard(p, subContext) {
   const cat = DATA.categories.find(c => c.id === p.category);
   const inCart = cart.some(c => c.id === p.id);
-  const minPrice = Math.min(...p.fasovka.map(f => f.price));
+  const fasList = allowedFasovka(p, subContext || currentSubcat);
+  const minPrice = Math.min(...fasList.map(f => f.price));
   const tags = (p.tags || []).slice(0, 2).map(t => {
     let cls = '';
     if (t === 'Хит') cls = 'hit';
@@ -535,16 +570,17 @@ function productCard(p) {
         </div>
       </div>
       <div class="product-bottom">
-        <div class="product-price">${p.fasovka.length > 1 ? '<span class="from">от</span>' : ''}${minPrice} ₽</div>
+        <div class="product-price">${fasList.length > 1 ? '<span class="from">от</span>' : ''}${minPrice} ₽</div>
         <button class="product-add ${inCart ? 'in-cart' : ''}" onclick="event.stopPropagation(); openProduct('${p.id}')">${inCart ? '✓' : '+'}</button>
       </div>
     </div>
   </div>`;
 }
 
-// === Категория с подкатегориями ===
+// === Категория с подкатегориями (поддержка вложенности) ===
 function openCategory(catId) {
   currentCat = catId;
+  currentParent = catId;
   currentSubcat = 'all';
   const cat = DATA.categories.find(c => c.id === catId);
   document.getElementById('cat-title').textContent = cat.icon + ' ' + cat.name;
@@ -552,46 +588,120 @@ function openCategory(catId) {
   goTo('category');
 }
 
+// Кнопка «‹ Назад» на экране категории/тайлов
+function categoryBack() {
+  if (currentParent && currentParent !== currentCat) {
+    // Поднимаемся на уровень выше внутри иерархии
+    const parentSub = DATA.subcategories.find(s => s.id === currentParent);
+    currentParent = parentSub ? parentSub.parent : currentCat;
+    renderSubcatRow();
+  } else {
+    goTo('home');
+  }
+}
+
+// Кастомные тайлы (брендовый цвет + готовая картинка-обложка с надписью)
+const CUSTOM_TILES = {
+  coffee_espresso: { img: 'assets/tile_espresso.jpg', color: '#E25F5F', textOnImg: true },
+  coffee_filter:   { img: 'assets/tile_filter.jpg',   color: '#A0AE1A', textOnImg: true },
+};
+
 function renderSubcatRow() {
-  const subs = DATA.subcategories.filter(s => s.parent === currentCat);
+  const subs = DATA.subcategories.filter(s => s.parent === currentParent);
   const c = document.getElementById('subcat-tiles');
-  const all = `<button class="subcat-tile all ${currentSubcat==='all'?'active':''}" onclick="setSubcat('all')">
+  const totalCount = DATA.products.filter(p =>
+    p.category === currentCat
+    && (currentParent === currentCat
+        || hasDescendantMatch(p, currentParent))
+  ).length;
+  const all = `<button class="subcat-tile all" onclick="openAllInParent()">
     <div class="label">
       <div class="name">📋 Все товары</div>
-      <div class="meta">${DATA.products.filter(p=>p.category===currentCat).length} позиций</div>
+      <div class="meta">${totalCount} позиций</div>
     </div>
   </button>`;
   const items = subs.map(s => {
-    // Берём первое фото из товаров этой подкатегории как cover
-    const firstWithPhoto = DATA.products.find(p => p.subcategory === s.id && p.photo);
-    const cover = firstWithPhoto ? firstWithPhoto.photo : '';
-    const cnt = DATA.products.filter(p => p.subcategory === s.id).length;
-    const bg = cover ? `background-image: url('${cover}'); background-color: ${DATA.categories.find(c=>c.id===currentCat).color};` : '';
-    return `<button class="subcat-tile ${currentSubcat===s.id?'active':''}" style="${bg}" onclick="setSubcat('${s.id}')">
-      <div class="label">
+    const cnt = countProductsInSub(s.id);
+    const custom = CUSTOM_TILES[s.id];
+    let bg, labelHtml;
+    if (custom) {
+      bg = `background-image: url('${custom.img}'); background-color: ${custom.color};`;
+      // Слово (Эспрессо/Фильтр) уже отрисовано на картинке — выводим только счётчик мелко
+      labelHtml = `<div class="label only-meta"><div class="meta">${cnt} позиций</div></div>`;
+    } else {
+      const firstWithPhoto = DATA.products.find(p => productInSub(p, s.id) && p.photo)
+        || DATA.products.find(p => descendantOf(p, s.id) && p.photo);
+      const cover = firstWithPhoto ? firstWithPhoto.photo : '';
+      const catColor = DATA.categories.find(c => c.id === currentCat).color;
+      bg = cover
+        ? `background-image: url('${cover}'); background-color: ${catColor};`
+        : `background: ${catColor};`;
+      labelHtml = `<div class="label">
         <div class="name">${s.name}</div>
         <div class="meta">${cnt} позиций</div>
-      </div>
+      </div>`;
+    }
+    return `<button class="subcat-tile${custom ? ' custom' : ''}" style="${bg}" onclick="setSubcat('${s.id}')">
+      ${labelHtml}
     </button>`;
   }).join('');
   c.innerHTML = all + items;
 }
+
+// Считает товары, попадающие в подкатегорию или любого её потомка
+function countProductsInSub(subId) {
+  return DATA.products.filter(p =>
+    p.category === currentCat && (productInSub(p, subId) || descendantOf(p, subId))
+  ).length;
+}
+
+function descendantOf(p, parentId) {
+  const children = DATA.subcategories.filter(s => s.parent === parentId);
+  return children.some(ch => productInSub(p, ch.id) || descendantOf(p, ch.id));
+}
+
+function hasDescendantMatch(p, parentId) {
+  return productInSub(p, parentId) || descendantOf(p, parentId);
+}
+
 function setSubcat(id) {
+  // Если у выбранной подкатегории есть дети — drill-down (тайлы L2)
+  const hasChildren = DATA.subcategories.some(s => s.parent === id);
+  if (hasChildren) {
+    currentParent = id;
+    renderSubcatRow();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    return;
+  }
+  // Иначе — список товаров
   currentSubcat = id;
-  // Открываем отдельный экран со списком товаров
+  goTo('subcategory');
+  renderSubcatProducts();
+}
+
+// Кнопка «Все товары» — показывает всё что лежит под текущим parent (включая потомков)
+function openAllInParent() {
+  currentSubcat = currentParent === currentCat ? 'all' : currentParent;
   goTo('subcategory');
   renderSubcatProducts();
 }
 
 function renderSubcatProducts() {
-  let list = DATA.products.filter(p => p.category === currentCat);
-  if (currentSubcat !== 'all') list = list.filter(p => p.subcategory === currentSubcat);
+  let list;
+  if (currentSubcat === 'all') {
+    list = DATA.products.filter(p => p.category === currentCat);
+  } else {
+    list = DATA.products.filter(p =>
+      p.category === currentCat
+      && (productInSub(p, currentSubcat) || descendantOf(p, currentSubcat))
+    );
+  }
   document.getElementById('subcat-count').textContent = list.length + ' товаров';
   const sub = DATA.subcategories.find(s => s.id === currentSubcat);
   document.getElementById('subcat-title').textContent = sub ? sub.name : 'Все товары';
   document.getElementById('subcat-list-title').textContent = sub ? sub.name : 'Все товары';
   document.getElementById('subcat-products-list').innerHTML = list.length
-    ? list.map(p => productCard(p)).join('')
+    ? list.map(p => productCard(p, currentSubcat)).join('')
     : '<div class="cart-empty"><div class="big">🍃</div><h3>Пусто</h3><p>В этой подкатегории пока нет товаров.</p></div>';
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
@@ -611,7 +721,8 @@ function onSearch() {
 function openProduct(pid) {
   currentProduct = DATA.products.find(p => p.id === pid);
   if (!currentProduct) return;
-  currentFasovka = currentProduct.fasovka[0];
+  const fasList = allowedFasovka(currentProduct, currentSubcat);
+  currentFasovka = fasList[0];
   currentQty = 1;
   // Выбираем активный таб: если есть recipe_e — эспрессо, иначе фильтр, иначе описание
   currentTab = 'desc';
@@ -694,8 +805,8 @@ function renderSheet() {
 
       <div style="margin-top:18px;font-size:13px;font-weight:700;color:var(--hint)">Фасовка</div>
       <div class="fasovka-options">
-        ${p.fasovka.map((f, i) => `
-          <div class="fasovka-opt ${f === currentFasovka ? 'selected' : ''}" onclick="selectFasovka(${i})">
+        ${allowedFasovka(p, currentSubcat).map((f, i) => `
+          <div class="fasovka-opt ${f.size === currentFasovka.size ? 'selected' : ''}" onclick="selectFasovka(${i})">
             <div class="size">${f.size}</div>
             <div class="price">${f.price} ₽</div>
           </div>`).join('')}
@@ -712,7 +823,7 @@ function renderSheet() {
   `;
 }
 function setTab(t) { currentTab = t; renderSheet(); }
-function selectFasovka(i) { currentFasovka = currentProduct.fasovka[i]; renderSheet(); }
+function selectFasovka(i) { currentFasovka = allowedFasovka(currentProduct, currentSubcat)[i]; renderSheet(); }
 function changeQty(d) { currentQty = Math.max(1, currentQty + d); renderSheet(); }
 
 function addToCart() {
