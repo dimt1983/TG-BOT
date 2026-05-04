@@ -13,6 +13,7 @@ import os
 import json
 import threading
 import mimetypes
+import sqlite3
 import time
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import unquote
@@ -20,6 +21,44 @@ from urllib.parse import unquote
 PORT = int(os.environ.get("PORT", 10000))
 TMA_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tma_static")
 PRICE_SYNC_ENABLED = os.environ.get("BISHOP_PRICE_SYNC", "1") != "0"
+
+# /sync — снимок БД для внешних агентов (Девид и т.д.).
+# Доступ только с Authorization: Bearer <API_ORDERS_TOKEN>.
+DB_PATH = os.environ.get("DB_PATH", "/app/data/shop.db")
+API_ORDERS_TOKEN = os.environ.get("API_ORDERS_TOKEN", "")
+
+
+def _check_bearer(handler) -> bool:
+    """True, если в Authorization есть валидный Bearer-токен."""
+    if not API_ORDERS_TOKEN:
+        return False
+    auth = handler.headers.get("Authorization", "")
+    return auth == f"Bearer {API_ORDERS_TOKEN}"
+
+
+def _read_sync_snapshot() -> dict:
+    """Читает orders/users/products из shop.db, как _SyncHandler в bot.py."""
+    con = sqlite3.connect(DB_PATH)
+    con.row_factory = sqlite3.Row
+    try:
+        orders = con.execute(
+            "SELECT id,user_id,name,phone,address,total,discount,status,created_at "
+            "FROM orders ORDER BY id DESC LIMIT 200"
+        ).fetchall()
+        users = con.execute(
+            "SELECT user_id,tg_name,user_type,name,phone,company_name,created_at "
+            "FROM users ORDER BY user_id DESC LIMIT 500"
+        ).fetchall()
+        products = con.execute(
+            "SELECT name,price,stock FROM products ORDER BY name"
+        ).fetchall()
+    finally:
+        con.close()
+    return {
+        "orders":   [dict(r) for r in orders],
+        "users":    [dict(r) for r in users],
+        "products": [dict(r) for r in products],
+    }
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -29,6 +68,19 @@ class Handler(BaseHTTPRequestHandler):
         # Healthcheck
         if path == "/" or path == "":
             self._send(200, b"OK", "text/plain")
+            return
+
+        # /sync — публичный снимок БД для агентов, защищён Bearer-токеном
+        if path == "/sync":
+            if not _check_bearer(self):
+                self._send(401, b'{"error":"unauthorized"}', "application/json")
+                return
+            try:
+                data = _read_sync_snapshot()
+                body = json.dumps(data, ensure_ascii=False).encode("utf-8")
+                self._send(200, body, "application/json; charset=utf-8")
+            except Exception as e:
+                self._send(500, str(e).encode(), "text/plain")
             return
 
         # /tma/products.json — динамически с актуальными ценами от Bishop
