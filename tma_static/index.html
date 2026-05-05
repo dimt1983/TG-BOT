@@ -278,7 +278,7 @@ body {
     </div>
 
     <div class="hero">
-      <div class="hero-card" id="hero-card">
+      <div class="hero-card" id="hero-card" onclick="document.getElementById('top-cats').scrollIntoView({behavior:'smooth', block:'start'})">
         <div class="eyebrow">Опт-скидки</div>
         <h2>От 10 кг — 10%, от 25 кг — 20%</h2>
         <p>Корзина считает скидку автоматически по весу зерна.</p>
@@ -1053,8 +1053,12 @@ function renderCart() {
 }
 
 function changeCartQty(i, d) {
-  cart[i].qty = Math.max(1, cart[i].qty + d);
-  if (cart[i].qty === 0) cart.splice(i, 1);
+  const newQty = cart[i].qty + d;
+  if (newQty <= 0) {
+    cart.splice(i, 1);
+  } else {
+    cart[i].qty = newQty;
+  }
   localStorage.setItem('rb_cart', JSON.stringify(cart));
   renderCart(); renderCartBadge();
 }
