@@ -74,6 +74,10 @@ body {
 .top-cat .label { position: absolute; left: 14px; bottom: 12px; right: 14px; z-index: 2; color: white; text-align: left; }
 .top-cat .label .name { font-size: 18px; font-weight: 800; letter-spacing: -0.3px; }
 .top-cat .label .meta { font-size: 11px; opacity: 0.85; margin-top: 2px; }
+/* Брендовые тайлы топ-категорий — название уже на изображении, оверлей мягче */
+.top-cat.branded::after { background: linear-gradient(180deg, transparent 70%, rgba(0,0,0,0.55) 100%); }
+.top-cat.branded .label { left: 10px; right: 10px; bottom: 8px; }
+.top-cat.branded .label .meta { font-size: 11px; font-weight: 700; opacity: 0.95; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
 
 /* Subcategory chips (старая) */
 .subcat-list { padding: 0 16px; margin-bottom: 16px; }
@@ -584,12 +588,12 @@ async function load() {
   renderProfile();
 }
 
-// Маппинг фото для категорий
-const CAT_PHOTOS = {
-  coffee: 'assets/cat_coffee.jpg',
-  tea: 'assets/cat_tea.jpg',
-  syrup: 'assets/cat_syrup.jpg',
-  milk: 'assets/cat_milk.jpg',
+// Брендовые тайлы для топ-категорий (солидный цвет + надпись, без фото товаров)
+const CAT_TILES = {
+  coffee: 'assets/tile_cat_coffee.jpg',
+  tea:    'assets/tile_cat_tea.jpg',
+  syrup:  'assets/tile_cat_syrup.jpg',
+  milk:   'assets/tile_cat_milk.jpg',
 };
 function shadeColor(col, amt) {
   const usePound = col[0] === '#';
@@ -604,15 +608,16 @@ function shadeColor(col, amt) {
 function renderTopCats() {
   const c = document.getElementById('top-cats');
   c.innerHTML = DATA.categories.map((cat) => {
-    const photo = CAT_PHOTOS[cat.id];
+    const tile = CAT_TILES[cat.id];
     const subCount = DATA.subcategories.filter(s => s.parent === cat.id).length;
     const prodCount = DATA.products.filter(p => p.category === cat.id).length;
-    const bg = photo
-      ? `background-image: url('${photo}'); background-color: ${cat.color};`
+    const bg = tile
+      ? `background-image: url('${tile}'); background-color: ${cat.color};`
       : `background: linear-gradient(135deg, ${cat.color}, ${shadeColor(cat.color, -25)});`;
-    return `<button class="top-cat" style="${bg}" onclick="openCategory('${cat.id}')">
+    // На брендовом тайле название уже отрисовано — показываем только метаданные мелким шрифтом
+    return `<button class="top-cat${tile ? ' branded' : ''}" style="${bg}" onclick="openCategory('${cat.id}')">
       <div class="label">
-        <div class="name">${cat.name}</div>
+        ${tile ? '' : `<div class="name">${cat.name}</div>`}
         <div class="meta">${prodCount} товаров · ${subCount} разделов</div>
       </div>
     </button>`;
@@ -685,13 +690,22 @@ function categoryBack() {
 
 // Кастомные тайлы — фиксированные брендовые надписи + цвет
 const CUSTOM_TILES = {
-  // Кофе — слово уже на картинке, метка скрывается до счётчика
+  // Кофе
   coffee_espresso:      { img: 'assets/tile_espresso.jpg', color: '#E25F5F', mode: 'full' },
   coffee_filter:        { img: 'assets/tile_filter.jpg',   color: '#A0AE1A', mode: 'full' },
   coffee_black:         { img: 'assets/tile_black.jpg',    color: '#121212', mode: 'full' },
   coffee_borshch:       { img: 'assets/tile_borshch.jpg',  color: '#F8CDD5', mode: 'full' },
   coffee_other:         { img: 'assets/tile_other.jpg',    color: '#5C3921', mode: 'full' },
   coffee_drip_capsules: { img: 'assets/tile_drip.jpg',     color: '#1E4D2E', mode: 'full' },
+  // Сиропы — бренды
+  syr_botanika:         { img: 'assets/tile_syr_botanika.jpg',   color: '#3F704F', mode: 'full' },
+  syr_herbarista:       { img: 'assets/tile_syr_herbarista.jpg', color: '#7AB955', mode: 'full' },
+  syr_sweetshot:        { img: 'assets/tile_syr_sweetshot.jpg',  color: '#DC4D6A', mode: 'full' },
+  syr_barline:          { img: 'assets/tile_syr_barline.jpg',    color: '#8B4513', mode: 'full' },
+  'syr_кордиал_и_другие': { img: 'assets/tile_syr_kordial.jpg',  color: '#A83D5C', mode: 'full' },
+  syr_other:            { img: 'assets/tile_syr_other.jpg',      color: '#6E5C4F', mode: 'full' },
+  // Молоко
+  milk_main:            { img: 'assets/tile_milk_main.jpg',      color: '#5DADE2', mode: 'full' },
 };
 
 // Бренд-логотипы для чая: префикс ID → tile + цвет
