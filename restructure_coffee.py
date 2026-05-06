@@ -49,7 +49,15 @@ def assign(p: dict) -> list[str]:
     sub = p.get("subcategory", "")
     subs = p.get("subcategories") or [sub]
     roast = (p.get("roast") or "").upper()
+    pid = p.get("id", "")
     out = []
+
+    # Прямо заведённые оптовые 1кг-микролоты (id-префикс c-mlot-) —
+    # распределяем по обжарке независимо от текущего subcategory.
+    if pid.startswith("c-mlot-"):
+        if "E" in roast: return ["coffee_espresso_microlot"]
+        if "F" in roast: return ["coffee_filter_microlot"]
+        return ["coffee_other"]
 
     is_black = sub == "микролоты_black_edition" or "coffee_black" in subs
     is_borshch = sub == "микролоты_борщ_edition" or "coffee_borshch" in subs
@@ -63,6 +71,12 @@ def assign(p: dict) -> list[str]:
         return ["coffee_black"]
     if is_borshch:
         return ["coffee_borshch"]
+
+    # Прямо-указанные микролоты (заведённые отдельными SKU) — не трогаем
+    if sub == "coffee_espresso_microlot":
+        return ["coffee_espresso_microlot"]
+    if sub == "coffee_filter_microlot":
+        return ["coffee_filter_microlot"]
 
     if sub in ("drip", "nespresso") or "coffee_drip_capsules" in subs:
         return ["coffee_drip_capsules"]
@@ -89,9 +103,13 @@ def assign(p: dict) -> list[str]:
 def main():
     data = json.loads(PRODUCTS.read_text(encoding="utf-8"))
 
-    # 1. Заменяем все subcategories с parent=coffee на новые L1+L2
+    # 1. Заменяем все coffee-related subcategories новыми (по id, чтобы
+    #    повторные прогоны не плодили дубликаты L2-уровня).
+    new_ids = {s["id"] for s in NEW_SUBS}
+    new_parents = {"coffee"} | new_ids  # L1 (parent=coffee) и L2 (parent=coffee_*)
     data["subcategories"] = [
-        s for s in data["subcategories"] if s.get("parent") != "coffee"
+        s for s in data["subcategories"]
+        if s["id"] not in new_ids and s.get("parent") not in new_parents
     ]
     data["subcategories"].extend(NEW_SUBS)
 

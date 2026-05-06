@@ -133,69 +133,9 @@
       "name": "Tea Niktea Loose"
     },
     {
-      "id": "coffee_espresso_mono",
-      "parent": "coffee_espresso",
-      "name": "🌍 Моносорт"
-    },
-    {
-      "id": "coffee_espresso_microlot",
-      "parent": "coffee_espresso",
-      "name": "✨ Микролот"
-    },
-    {
-      "id": "coffee_espresso_blend",
-      "parent": "coffee_espresso",
-      "name": "🎨 Смесь"
-    },
-    {
-      "id": "coffee_filter_mono",
-      "parent": "coffee_filter",
-      "name": "🌍 Моносорт"
-    },
-    {
-      "id": "coffee_filter_microlot",
-      "parent": "coffee_filter",
-      "name": "✨ Микролот"
-    },
-    {
-      "id": "coffee_filter_blend",
-      "parent": "coffee_filter",
-      "name": "🎨 Смесь"
-    },
-    {
       "id": "consulting_courses",
       "parent": "consulting",
       "name": "📚 Roastberry Academy"
-    },
-    {
-      "id": "coffee_espresso_mono",
-      "parent": "coffee_espresso",
-      "name": "🌍 Моносорт"
-    },
-    {
-      "id": "coffee_espresso_microlot",
-      "parent": "coffee_espresso",
-      "name": "✨ Микролот"
-    },
-    {
-      "id": "coffee_espresso_blend",
-      "parent": "coffee_espresso",
-      "name": "🎨 Смесь"
-    },
-    {
-      "id": "coffee_filter_mono",
-      "parent": "coffee_filter",
-      "name": "🌍 Моносорт"
-    },
-    {
-      "id": "coffee_filter_microlot",
-      "parent": "coffee_filter",
-      "name": "✨ Микролот"
-    },
-    {
-      "id": "coffee_filter_blend",
-      "parent": "coffee_filter",
-      "name": "🎨 Смесь"
     },
     {
       "id": "coffee_espresso",
