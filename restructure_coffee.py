@@ -54,16 +54,15 @@ def assign(p: dict) -> list[str]:
     is_black = sub == "микролоты_black_edition" or "coffee_black" in subs
     is_borshch = sub == "микролоты_борщ_edition" or "coffee_borshch" in subs
 
+    # Black/Борщ Edition — это retail-линейка с 200 г паками. Лежат ТОЛЬКО
+    # в своих топ-папках. Микролот-папки (Эспрессо/Микролот, Фильтр/Микролот)
+    # — для оптовых 1 кг-микролотов (Бразилия SL28 / Судан Руме / Фазенда
+    # Лагуинья / Гонзало Кармана и т.п. — те что в stocks под «микролоты
+    # под фильтр / эспрессо»). Их добавим отдельными SKU.
     if is_black:
-        out = ["coffee_black"]
-        if "E" in roast: out.append("coffee_espresso_microlot")
-        if "F" in roast: out.append("coffee_filter_microlot")
-        return out
+        return ["coffee_black"]
     if is_borshch:
-        out = ["coffee_borshch"]
-        if "E" in roast: out.append("coffee_espresso_microlot")
-        if "F" in roast: out.append("coffee_filter_microlot")
-        return out
+        return ["coffee_borshch"]
 
     if sub in ("drip", "nespresso") or "coffee_drip_capsules" in subs:
         return ["coffee_drip_capsules"]
