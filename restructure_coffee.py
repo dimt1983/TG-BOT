@@ -42,35 +42,46 @@ NEW_SUBS = [
 
 
 def assign(p: dict) -> list[str]:
-    """Возвращает список subcategories ID для данного товара."""
+    """Возвращает список subcategories ID. Идемпотентна: работает и
+    с исходными значениями ('микролоты_black_edition' и т.п.) и с уже
+    переписанными ('coffee_black' и т.п.) — чтобы повторный прогон
+    не валил всё в coffee_other."""
     sub = p.get("subcategory", "")
+    subs = p.get("subcategories") or [sub]
     roast = (p.get("roast") or "").upper()
     out = []
 
-    # Black / Борщ — отдельные секции, не зависят от roast
-    if sub == "микролоты_black_edition":
-        return ["coffee_black"]
-    if sub == "микролоты_борщ_edition":
-        return ["coffee_borshch"]
+    is_black = sub == "микролоты_black_edition" or "coffee_black" in subs
+    is_borshch = sub == "микролоты_борщ_edition" or "coffee_borshch" in subs
 
-    # Дрип-пакеты и капсулы — общая секция
-    if sub in ("drip", "nespresso"):
+    if is_black:
+        out = ["coffee_black"]
+        if "E" in roast: out.append("coffee_espresso_microlot")
+        if "F" in roast: out.append("coffee_filter_microlot")
+        return out
+    if is_borshch:
+        out = ["coffee_borshch"]
+        if "E" in roast: out.append("coffee_espresso_microlot")
+        if "F" in roast: out.append("coffee_filter_microlot")
+        return out
+
+    if sub in ("drip", "nespresso") or "coffee_drip_capsules" in subs:
         return ["coffee_drip_capsules"]
 
-    # Моносорта — в Эспрессо/Моно и/или Фильтр/Моно по roast
-    if sub == "моносорта":
-        if "E" in roast:
-            out.append("coffee_espresso_mono")
-        if "F" in roast:
-            out.append("coffee_filter_mono")
+    is_mono = (sub == "моносорта"
+               or "coffee_espresso_mono" in subs
+               or "coffee_filter_mono" in subs)
+    if is_mono:
+        if "E" in roast: out.append("coffee_espresso_mono")
+        if "F" in roast: out.append("coffee_filter_mono")
         return out or ["coffee_other"]
 
-    # Смеси — по roast (B+E или B+F)
-    if sub == "смеси":
-        if "E" in roast:
-            out.append("coffee_espresso_blend")
-        if "F" in roast:
-            out.append("coffee_filter_blend")
+    is_blend = (sub == "смеси"
+                or "coffee_espresso_blend" in subs
+                or "coffee_filter_blend" in subs)
+    if is_blend:
+        if "E" in roast: out.append("coffee_espresso_blend")
+        if "F" in roast: out.append("coffee_filter_blend")
         return out or ["coffee_other"]
 
     return ["coffee_other"]

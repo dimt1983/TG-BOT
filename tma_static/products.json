@@ -133,6 +133,41 @@
       "name": "Tea Niktea Loose"
     },
     {
+      "id": "coffee_espresso_mono",
+      "parent": "coffee_espresso",
+      "name": "🌍 Моносорт"
+    },
+    {
+      "id": "coffee_espresso_microlot",
+      "parent": "coffee_espresso",
+      "name": "✨ Микролот"
+    },
+    {
+      "id": "coffee_espresso_blend",
+      "parent": "coffee_espresso",
+      "name": "🎨 Смесь"
+    },
+    {
+      "id": "coffee_filter_mono",
+      "parent": "coffee_filter",
+      "name": "🌍 Моносорт"
+    },
+    {
+      "id": "coffee_filter_microlot",
+      "parent": "coffee_filter",
+      "name": "✨ Микролот"
+    },
+    {
+      "id": "coffee_filter_blend",
+      "parent": "coffee_filter",
+      "name": "🎨 Смесь"
+    },
+    {
+      "id": "consulting_courses",
+      "parent": "consulting",
+      "name": "📚 Roastberry Academy"
+    },
+    {
       "id": "coffee_espresso",
       "parent": "coffee",
       "name": "☕ Эспрессо"
@@ -191,11 +226,6 @@
       "id": "coffee_filter_blend",
       "parent": "coffee_filter",
       "name": "🎨 Смесь"
-    },
-    {
-      "id": "consulting_courses",
-      "parent": "consulting",
-      "name": "📚 Roastberry Academy"
     }
   ],
   "products": [
@@ -794,7 +824,11 @@
       "tags": [
         "Black Edition"
       ],
-      "photo": "photos/products/c-эфиопия_ададо.jpg"
+      "photo": "photos/products/c-эфиопия_ададо.jpg",
+      "subcategories": [
+        "coffee_black",
+        "coffee_filter_microlot"
+      ]
     },
     {
       "id": "c-эфиопия_белойя_гр_2",
@@ -821,7 +855,11 @@
       "tags": [
         "Black Edition"
       ],
-      "photo": "photos/products/c-эфиопия_белойя_гр_2.jpg"
+      "photo": "photos/products/c-эфиопия_белойя_гр_2.jpg",
+      "subcategories": [
+        "coffee_black",
+        "coffee_filter_microlot"
+      ]
     },
     {
       "id": "c-эфиопия_челелекту_гр_1",
@@ -848,7 +886,11 @@
       "tags": [
         "Black Edition"
       ],
-      "photo": "photos/products/c-эфиопия_челелекту_гр_1.jpg"
+      "photo": "photos/products/c-эфиопия_челелекту_гр_1.jpg",
+      "subcategories": [
+        "coffee_black",
+        "coffee_filter_microlot"
+      ]
     },
     {
       "id": "c-колумбия_клаудиа_колменарес",
@@ -876,7 +918,11 @@
         "Black Edition"
       ],
       "photo": "photos/products/c-колумбия_клаудиа_колменарес.jpg",
-      "ozon_offer_id": "RB-F-COLOMBIA ANDINO, 1 кг"
+      "ozon_offer_id": "RB-F-COLOMBIA ANDINO, 1 кг",
+      "subcategories": [
+        "coffee_black",
+        "coffee_filter_microlot"
+      ]
     },
     {
       "id": "c-эфиопия_челчеле_гр_1",
@@ -903,7 +949,11 @@
       "tags": [
         "Black Edition"
       ],
-      "photo": "photos/products/c-эфиопия_челчеле_гр_1.jpg"
+      "photo": "photos/products/c-эфиопия_челчеле_гр_1.jpg",
+      "subcategories": [
+        "coffee_black",
+        "coffee_filter_microlot"
+      ]
     },
     {
       "id": "c-экваториальный_блэнд",
@@ -929,6 +979,10 @@
       "stock": 25,
       "tags": [
         "Borщ Edition"
+      ],
+      "subcategories": [
+        "coffee_borshch",
+        "coffee_filter_microlot"
       ]
     },
     {
@@ -955,6 +1009,10 @@
       "stock": 5,
       "tags": [
         "Borщ Edition"
+      ],
+      "subcategories": [
+        "coffee_borshch",
+        "coffee_filter_microlot"
       ]
     },
     {
@@ -983,7 +1041,11 @@
         "Borщ Edition"
       ],
       "photo": "photos/products/c-колумбия_хайро_арсила_натуральная.jpg",
-      "ozon_offer_id": "RB-F- COLOMBIA ANDINO, 200 г"
+      "ozon_offer_id": "RB-F- COLOMBIA ANDINO, 200 г",
+      "subcategories": [
+        "coffee_borshch",
+        "coffee_filter_microlot"
+      ]
     },
     {
       "id": "c-колумбия_гонзало_кармона",
@@ -1011,7 +1073,11 @@
         "Borщ Edition"
       ],
       "photo": "photos/products/c-колумбия_гонзало_кармона.jpg",
-      "ozon_offer_id": "RB-E-COLOMBIA ANDINO, 200 г"
+      "ozon_offer_id": "RB-E-COLOMBIA ANDINO, 200 г",
+      "subcategories": [
+        "coffee_borshch",
+        "coffee_filter_microlot"
+      ]
     },
     {
       "id": "c-классика",
