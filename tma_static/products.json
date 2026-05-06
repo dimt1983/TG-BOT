@@ -9842,6 +9842,90 @@
         "course"
       ],
       "photo": null
+    },
+    {
+      "id": "c-mlot-brazil-sl28-hani-anaerob",
+      "name": "Бразилия SL28 Хани анаэробная 1кг",
+      "category": "coffee",
+      "subcategory": "coffee_filter_microlot",
+      "country": "Бразилия",
+      "roast": "F",
+      "process": "Хани, анаэробная",
+      "tags": [
+        "Микролот"
+      ],
+      "stock": 2,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 3200
+        }
+      ],
+      "description": "Редкий сорт SL28 в Бразилии, ферментирован в honey-обработке с анаэробной фазой. Сложный фруктовый профиль с винными нотами."
+    },
+    {
+      "id": "c-mlot-brazil-sudan-rume-anaerob",
+      "name": "Бразилия Судан Руме анаэробная 1кг",
+      "category": "coffee",
+      "subcategory": "coffee_filter_microlot",
+      "country": "Бразилия",
+      "roast": "F",
+      "process": "Натуральный, анаэробный",
+      "altitude": "1380–1430 м",
+      "tags": [
+        "Микролот"
+      ],
+      "stock": 6,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 3500
+        }
+      ],
+      "description": "Карму-ди-Минас, фазенда Сантуарио Сулл. Разновидность Судан Руме. В аромате — миндаль, фундук, цукаты, молочный шоколад. Во вкусе — цветочный мёд, цукаты из цитрусов, молочный шоколад с орехами.",
+      "photo": "photos/products/c-mlot-brazil-sudan-rume-anaerob.jpg"
+    },
+    {
+      "id": "c-mlot-brazil-fazenda-laguinha",
+      "name": "Бразилия Фазенда Лагуинья мундо анаэробная 1кг",
+      "category": "coffee",
+      "subcategory": "coffee_filter_microlot",
+      "country": "Бразилия",
+      "roast": "F",
+      "process": "Натуральный, анаэробный",
+      "altitude": "1000–1200 м",
+      "tags": [
+        "Микролот"
+      ],
+      "stock": 4,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 3300
+        }
+      ],
+      "description": "Карму-да-Кашуэра, фазенда Лагуинья. Разновидность Катуаи. В аромате — сухофрукты, цитрусовые, сливочная карамель. Во вкусе — сливочная карамель, ликёр, ваниль, шоколад с орехами."
+    },
+    {
+      "id": "c-mlot-efiopia-chelchele-washed-espresso",
+      "name": "Эфиопия Челчеле гр.1 мытый эспрессо 1кг",
+      "category": "coffee",
+      "subcategory": "coffee_espresso_microlot",
+      "country": "Эфиопия",
+      "roast": "E",
+      "process": "Мытый",
+      "altitude": "1900–2100 м",
+      "tags": [
+        "Микролот"
+      ],
+      "stock": 4,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2863
+        }
+      ],
+      "description": "Регион Гедео. Эспрессо-обжарка мытой обработки — отличается от фильтр-варианта Челчеле (тот сухой натуральный). Чистый цитрусовый кислый профиль, цветочный аромат."
     }
   ]
 }
