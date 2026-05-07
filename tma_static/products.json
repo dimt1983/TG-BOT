@@ -9908,15 +9908,14 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 875
+          "price": 650
         }
       ],
       "stock": 6,
       "tags": [
         "микролот"
       ],
-      "photo": null,
-      "_price_locked": true
+      "photo": null
     },
     {
       "id": "c-колумбия_пачамама_2",
@@ -9957,7 +9956,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1485
+          "price": 1050
         }
       ],
       "stock": 6,
@@ -9965,8 +9964,7 @@
         "микролот",
         "анаэробная"
       ],
-      "photo": null,
-      "_price_locked": true
+      "photo": null
     },
     {
       "id": "c-колумбия_маракуйя_2",
@@ -10008,7 +10006,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1820
+          "price": 1265
         }
       ],
       "stock": 6,
@@ -10017,8 +10015,7 @@
         "инфьюз",
         "маракуйя"
       ],
-      "photo": null,
-      "_price_locked": true
+      "photo": null
     }
   ]
 }

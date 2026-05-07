@@ -201,14 +201,19 @@ def merge_into_products(tma_products: list[dict]) -> tuple[list[dict], dict]:
             short = name.split()[0] if name else ""
             match = by_name.get(short)
         if not match:
-            # fuzzy match
+            # fuzzy match — порог высокий, иначе позиции которых нет в xlsx-прайсе
+            # сваливаются на чужие имена и получают чужие цены (например все
+            # Эфиопии сматчатся в первую попавшуюся «Эфиопия X»). Порог 0.75 —
+            # достаточно мягкий чтобы поймать «Колумбия Андино» vs «Колумбия
+            # Андино мытый» (score 1.0), но отсечь «Эфиопия Иргачиф гр.4» vs
+            # «Эфиопия Иргач Адада гр.1» (score 0.67).
             best_key, best_score = None, 0.0
             for k in by_name.keys():
                 s = _match_score(name, k)
                 if s > best_score:
                     best_score = s
                     best_key = k
-            if best_score >= 0.5:
+            if best_score >= 0.75:
                 match = by_name[best_key]
 
         if match:
