@@ -913,7 +913,8 @@
       "tags": [
         "Black Edition"
       ],
-      "photo": "photos/products/c-эфиопия_ададо.jpg"
+      "photo": "photos/products/c-эфиопия_ададо.jpg",
+      "pair_id": "эфиопия_ададо"
     },
     {
       "id": "c-эфиопия_белойя_гр_2",
@@ -940,7 +941,8 @@
       "tags": [
         "Black Edition"
       ],
-      "photo": "photos/products/c-эфиопия_белойя_гр_2.jpg"
+      "photo": "photos/products/c-эфиопия_белойя_гр_2.jpg",
+      "pair_id": "эфиопия_белойя_гр_2"
     },
     {
       "id": "c-эфиопия_челелекту_гр_1",
@@ -967,7 +969,8 @@
       "tags": [
         "Black Edition"
       ],
-      "photo": "photos/products/c-эфиопия_челелекту_гр_1.jpg"
+      "photo": "photos/products/c-эфиопия_челелекту_гр_1.jpg",
+      "pair_id": "эфиопия_челелекту_гр_1"
     },
     {
       "id": "c-колумбия_клаудиа_колменарес",
@@ -995,7 +998,8 @@
         "Black Edition"
       ],
       "photo": "photos/products/c-колумбия_клаудиа_колменарес.jpg",
-      "ozon_offer_id": "RB-F-COLOMBIA ANDINO, 1 кг"
+      "ozon_offer_id": "RB-F-COLOMBIA ANDINO, 1 кг",
+      "pair_id": "колумбия_клаудиа_колменарес"
     },
     {
       "id": "c-эфиопия_челчеле_гр_1",
@@ -1022,7 +1026,8 @@
       "tags": [
         "Black Edition"
       ],
-      "photo": "photos/products/c-эфиопия_челчеле_гр_1.jpg"
+      "photo": "photos/products/c-эфиопия_челчеле_гр_1.jpg",
+      "pair_id": "эфиопия_челчеле_гр_1"
     },
     {
       "id": "c-экваториальный_блэнд",
@@ -1048,7 +1053,8 @@
       "stock": 25,
       "tags": [
         "Borщ Edition"
-      ]
+      ],
+      "pair_id": "экваториальный_блэнд"
     },
     {
       "id": "c-эфиопия_арича_гр_1",
@@ -1074,7 +1080,8 @@
       "stock": 5,
       "tags": [
         "Borщ Edition"
-      ]
+      ],
+      "pair_id": "эфиопия_арича_гр_1"
     },
     {
       "id": "c-колумбия_хайро_арсила_натуральная",
@@ -1102,7 +1109,8 @@
         "Borщ Edition"
       ],
       "photo": "photos/products/c-колумбия_хайро_арсила_натуральная.jpg",
-      "ozon_offer_id": "RB-F- COLOMBIA ANDINO, 200 г"
+      "ozon_offer_id": "RB-F- COLOMBIA ANDINO, 200 г",
+      "pair_id": "колумбия_хайро_арсила"
     },
     {
       "id": "c-колумбия_гонзало_кармона",
@@ -1130,7 +1138,8 @@
         "Borщ Edition"
       ],
       "photo": "photos/products/c-колумбия_гонзало_кармона.jpg",
-      "ozon_offer_id": "RB-E-COLOMBIA ANDINO, 200 г"
+      "ozon_offer_id": "RB-E-COLOMBIA ANDINO, 200 г",
+      "pair_id": "колумбия_гонзало_кармона"
     },
     {
       "id": "c-классика",
@@ -9924,7 +9933,8 @@
       "photo": "photos/products/c-mlot-brazil-sl28-hani-anaerob.jpg",
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
-      "batch": "1"
+      "batch": "1",
+      "pair_id": "бразилия_sl28"
     },
     {
       "id": "c-mlot-brazil-sudan-rume-anaerob",
@@ -9949,7 +9959,8 @@
       "photo": "photos/products/c-mlot-brazil-sudan-rume-anaerob.jpg",
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
-      "batch": "1"
+      "batch": "1",
+      "pair_id": "бразилия_судан_руме"
     },
     {
       "id": "c-mlot-brazil-fazenda-laguinha",
@@ -9974,7 +9985,8 @@
       "photo": "photos/products/c-mlot-brazil-fazenda-laguinha.jpg",
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
-      "batch": "1"
+      "batch": "1",
+      "pair_id": "бразилия_фазенда_лагуинья"
     },
     {
       "id": "c-mlot-efiopia-chelchele-washed-espresso",
@@ -9999,7 +10011,8 @@
       "photo": "photos/products/c-mlot-efiopia-chelchele-washed-espresso.jpg",
       "roast_descr": "обжарка под эспрессо",
       "roast_date": "07.05.2026",
-      "batch": "1"
+      "batch": "1",
+      "pair_id": "эфиопия_челчеле_гр_1"
     },
     {
       "id": "c-колумбия_кастильо_2",
@@ -10031,7 +10044,8 @@
       "altitude": "1450м",
       "variety": "Кастильо",
       "roast_date": "07.05.2026",
-      "batch": "1"
+      "batch": "1",
+      "pair_id": "колумбия_кастильо"
     },
     {
       "id": "c-колумбия_кастильо_3",
@@ -10054,7 +10068,8 @@
       "tags": [
         "микролот"
       ],
-      "photo": null
+      "photo": null,
+      "pair_id": "колумбия_кастильо"
     },
     {
       "id": "c-колумбия_пачамама_2",
@@ -10082,7 +10097,8 @@
       "photo": "photos/products/c-колумбия_пачамама_2.jpg",
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
-      "batch": "1"
+      "batch": "1",
+      "pair_id": "колумбия_пачамама"
     },
     {
       "id": "c-колумбия_пачамама_3",
@@ -10106,7 +10122,8 @@
         "микролот",
         "анаэробная"
       ],
-      "photo": null
+      "photo": null,
+      "pair_id": "колумбия_пачамама"
     },
     {
       "id": "c-колумбия_маракуйя_2",
@@ -10135,7 +10152,8 @@
       "photo": "photos/products/c-колумбия_маракуйя_2.jpg",
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
-      "batch": "1"
+      "batch": "1",
+      "pair_id": "колумбия_маракуйя"
     },
     {
       "id": "c-колумбия_маракуйя_3",
@@ -10160,7 +10178,8 @@
         "инфьюз",
         "маракуйя"
       ],
-      "photo": null
+      "photo": null,
+      "pair_id": "колумбия_маракуйя"
     }
   ]
 }
