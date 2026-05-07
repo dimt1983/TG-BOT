@@ -9934,7 +9934,7 @@
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "pair_id": "бразилия_sl28"
+      "pair_id": "бразилия_sl28_хани_анаэроб"
     },
     {
       "id": "c-mlot-brazil-sudan-rume-anaerob",
@@ -9960,7 +9960,7 @@
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "pair_id": "бразилия_судан_руме"
+      "pair_id": "бразилия_судан_руме_анаэроб"
     },
     {
       "id": "c-mlot-brazil-fazenda-laguinha",
@@ -9986,7 +9986,7 @@
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "pair_id": "бразилия_фазенда_лагуинья"
+      "pair_id": "бразилия_фазенда_лагуинья_мундо_анаэроб"
     },
     {
       "id": "c-mlot-efiopia-chelchele-washed-espresso",
@@ -10180,6 +10180,156 @@
       ],
       "photo": null,
       "pair_id": "колумбия_маракуйя"
+    },
+    {
+      "id": "c-китай_симао_гр_1_мытый",
+      "category": "coffee",
+      "subcategory": "coffee_espresso_mono",
+      "name": "Китай Симао гр.1 мытый",
+      "country": "Китай",
+      "roast": "E F",
+      "process": "Мытая",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 435
+        },
+        {
+          "size": "1 кг",
+          "price": 2015
+        }
+      ],
+      "stock": 0,
+      "tags": [],
+      "photo": "photos/products/c-китай_симао_гр_1_мытый.jpg",
+      "roast_descr": "обжарка под эспрессо",
+      "roast_date": "07.05.2026",
+      "batch": "1"
+    },
+    {
+      "id": "c-classica_1",
+      "category": "coffee",
+      "subcategory": "coffee_espresso_blend",
+      "name": "CLASSICA #1",
+      "country": "",
+      "roast": "BE",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 425
+        },
+        {
+          "size": "1 кг",
+          "price": 1975
+        }
+      ],
+      "stock": 0,
+      "tags": [],
+      "photo": "photos/products/c-classica_1.jpg",
+      "roast_descr": "эспрессо-смесь",
+      "roast_date": "07.05.2026",
+      "batch": "1"
+    },
+    {
+      "id": "c-хани_2",
+      "category": "coffee",
+      "subcategory": "coffee_espresso_blend",
+      "name": "ХАНИ",
+      "country": "",
+      "roast": "BE",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 435
+        },
+        {
+          "size": "1 кг",
+          "price": 2015
+        }
+      ],
+      "stock": 0,
+      "tags": [],
+      "photo": "photos/products/c-хани_2.jpg",
+      "roast_descr": "эспрессо-смесь",
+      "roast_date": "07.05.2026",
+      "batch": "1"
+    },
+    {
+      "id": "c-бразилия_sl28_хани_анаэробная",
+      "category": "coffee",
+      "subcategory": "coffee_borshch",
+      "name": "Бразилия SL28 Хани анаэробная",
+      "country": "Бразилия",
+      "roast": "F",
+      "process": "Анаэробная хани",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 780
+        }
+      ],
+      "stock": 0,
+      "tags": [],
+      "photo": null,
+      "pair_id": "бразилия_sl28_хани_анаэроб"
+    },
+    {
+      "id": "c-бразилия_судан_руме_анаэробная",
+      "category": "coffee",
+      "subcategory": "coffee_borshch",
+      "name": "Бразилия Судан Руме анаэробная",
+      "country": "Бразилия",
+      "roast": "F",
+      "process": "Анаэробная",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 780
+        }
+      ],
+      "stock": 0,
+      "tags": [],
+      "photo": null,
+      "pair_id": "бразилия_судан_руме_анаэроб"
+    },
+    {
+      "id": "c-бразилия_фазенда_лагуинья_мундо_анаэробная",
+      "category": "coffee",
+      "subcategory": "coffee_borshch",
+      "name": "Бразилия Фазенда Лагуинья мундо анаэробная",
+      "country": "Бразилия",
+      "roast": "F",
+      "process": "Анаэробная",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 780
+        }
+      ],
+      "stock": 0,
+      "tags": [],
+      "photo": null,
+      "pair_id": "бразилия_фазенда_лагуинья_мундо_анаэроб"
     }
   ]
 }
