@@ -1167,7 +1167,10 @@
         "Бленд"
       ],
       "photo": "photos/products/c-классика.jpg",
-      "ozon_offer_id": "RB-BE-КЛАССИКА, 1 кг"
+      "ozon_offer_id": "RB-BE-КЛАССИКА, 1 кг",
+      "roast_descr": "эспрессо-смесь",
+      "roast_date": "07.05.2026",
+      "batch": "1"
     },
     {
       "id": "c-биттер",
@@ -1195,7 +1198,10 @@
         "Бленд"
       ],
       "photo": "photos/products/c-биттер.jpg",
-      "ozon_offer_id": "RB-BE-БИТТЕР, 1 кг"
+      "ozon_offer_id": "RB-BE-БИТТЕР, 1 кг",
+      "roast_descr": "эспрессо-смесь",
+      "roast_date": "07.05.2026",
+      "batch": "1"
     },
     {
       "id": "c-хани",
@@ -1221,7 +1227,11 @@
       "stock": 27,
       "tags": [
         "Бленд"
-      ]
+      ],
+      "roast_descr": "эспрессо-смесь",
+      "roast_date": "07.05.2026",
+      "batch": "1",
+      "photo": "photos/products/c-хани.jpg"
     },
     {
       "id": "c-венеция",
@@ -1249,7 +1259,10 @@
         "Бленд"
       ],
       "photo": "photos/products/c-венеция.jpg",
-      "ozon_offer_id": "RB-BE-ВЕНЕЦИЯ, 1 кг"
+      "ozon_offer_id": "RB-BE-ВЕНЕЦИЯ, 1 кг",
+      "roast_descr": "эспрессо-смесь",
+      "roast_date": "07.05.2026",
+      "batch": "1"
     },
     {
       "id": "c-лунго",
@@ -1277,7 +1290,10 @@
         "Бленд"
       ],
       "photo": "photos/products/c-лунго.jpg",
-      "ozon_offer_id": "RB-BF-ЛУНГО, 200 г"
+      "ozon_offer_id": "RB-BF-ЛУНГО, 200 г",
+      "roast_descr": "фильтр-смесь",
+      "roast_date": "07.05.2026",
+      "batch": "1"
     },
     {
       "id": "c-drip-бразилия_сертао_жёлтый_бурбон",
