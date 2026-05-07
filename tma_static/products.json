@@ -769,7 +769,15 @@
       "stock": 1,
       "tags": [],
       "photo": "photos/products/c-эфиопия_арича_гр_3.jpg",
-      "ozon_offer_id": "RB-F-ETHIOPIA YIRGACHEFFE Gr.2, 1 кг"
+      "ozon_offer_id": "RB-F-ETHIOPIA YIRGACHEFFE Gr.2, 1 кг",
+      "aroma": "Персик, жасмин",
+      "taste": "Молочный шоколад, миндаль",
+      "region": "-",
+      "altitude": "-",
+      "variety": "-",
+      "roast_descr": "Средняя",
+      "roast_date": "07.05.2026",
+      "batch": "1"
     },
     {
       "id": "c-эфиопия_milk",
