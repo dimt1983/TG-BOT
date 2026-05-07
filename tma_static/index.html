@@ -167,6 +167,8 @@ body {
 .fasovka-options { display: flex; gap: 8px; margin: 16px 0; }
 .fasovka-opt { flex: 1; padding: 12px; border-radius: 14px; border: 2px solid transparent; background: var(--section); cursor: pointer; text-align: center; transition: all 0.15s; }
 .fasovka-opt.selected { border-color: var(--primary); background: rgba(111,78,55,0.08); }
+.fasovka-opt.on-request { opacity: 0.7; border-style: dashed; border-color: var(--hint); }
+.fasovka-opt.on-request .price { font-size: 13px; color: var(--hint); font-weight: 600; }
 .fasovka-opt .size { font-size: 12px; color: var(--hint); }
 .fasovka-opt .price { font-size: 17px; font-weight: 800; color: var(--primary-dark); margin-top: 2px; }
 .qty-row { display: flex; align-items: center; gap: 12px; margin: 16px 0; }
@@ -576,6 +578,34 @@ function allowedFasovka(p, subId) {
   return p.fasovka;
 }
 
+// Для микролота на детальной странице — собираем фасовки из ВСЕХ карточек
+// с тем же pair_id. Если 200г или 1кг отсутствует — добавляем псевдо-фасовку
+// с флагом on_request (показывается «по запросу», ведёт в @bot).
+function detailFasovka(p) {
+  // Не-микролоты — работают как раньше через массив p.fasovka
+  const microSubs = ['coffee_espresso_microlot','coffee_filter_microlot','coffee_black','coffee_borshch'];
+  if (!p.pair_id || !microSubs.includes(p.subcategory)) {
+    return p.fasovka.map(f => ({...f, _source_id: p.id, _photo: p.photo}));
+  }
+  // Собираем все карточки с тем же pair_id
+  const cards = DATA.products.filter(x => x.pair_id === p.pair_id);
+  const out = [];
+  // 1кг сначала, потом 200г — сортируем по фасовке
+  const all = [];
+  cards.forEach(c => (c.fasovka || []).forEach(f => {
+    all.push({...f, _source_id: c.id, _photo: c.photo, _stock: c.stock});
+  }));
+  // Нормализуем: один размер только один раз. 1кг приоритет.
+  const byKg = all.find(f => /1\s*кг/i.test(f.size));
+  const byG  = all.find(f => /200\s*г/i.test(f.size));
+  if (byKg) out.push(byKg);
+  if (byG) out.push(byG);
+  // Если одной фасовки нет — добавляем on_request
+  if (!byKg) out.unshift({size: '1 кг', price: null, on_request: true, _source_id: null});
+  if (!byG)  out.push   ({size: '200 г', price: null, on_request: true, _source_id: null});
+  return out;
+}
+
 async function load() {
   const r = await fetch('products.json?v=' + Date.now());
   DATA = await r.json();
@@ -848,8 +878,10 @@ function onSearch() {
 function openProduct(pid) {
   currentProduct = DATA.products.find(p => p.id === pid);
   if (!currentProduct) return;
-  const fasList = allowedFasovka(currentProduct, currentSubcat);
-  currentFasovka = fasList[0];
+  const fasList = detailFasovka(currentProduct);
+  // Дефолт: первая «реальная» (не on_request) фасовка которая есть в этой карточке
+  const ownFas = fasList.find(f => f._source_id === currentProduct.id) || fasList.find(f => !f.on_request) || fasList[0];
+  currentFasovka = ownFas;
   currentQty = 1;
   // Выбираем активный таб: если есть recipe_e — эспрессо, иначе фильтр, иначе описание
   currentTab = 'desc';
@@ -921,11 +953,18 @@ function renderSheet() {
     tabContent = hasRecipe ? `<p>${recipeAny}</p>` : `<div class="tab-empty">Рецепт пока не указан</div>`;
   }
 
-  const totalPrice = currentFasovka.price * currentQty;
-  document.getElementById('add-cart-btn').textContent = `🛒 В корзину · ${totalPrice} ₽`;
+  const totalPrice = currentFasovka.on_request ? 0 : (currentFasovka.price || 0) * currentQty;
+  const cartBtn = document.getElementById('add-cart-btn');
+  if (currentFasovka.on_request) {
+    cartBtn.textContent = `✉️ Спросить в боте`;
+  } else {
+    cartBtn.textContent = `🛒 В корзину · ${totalPrice} ₽`;
+  }
 
-  const heroImg = p.photo
-    ? `<img src="${p.photo}" alt="" onerror="this.onerror=null;this.src='assets/logo_full.png';this.classList.add('logo-mark')">`
+  // Фото: если в текущей фасовке указан _photo — берём его, иначе общее p.photo
+  const heroPhoto = currentFasovka._photo || p.photo;
+  const heroImg = heroPhoto
+    ? `<img src="${heroPhoto}" alt="" onerror="this.onerror=null;this.src='assets/logo_full.png';this.classList.add('logo-mark')">`
     : `<img class="logo-mark" src="assets/logo_full.png" alt="Roastberry">`;
   document.getElementById('sheet-content').innerHTML = `
     <div class="sheet-photo">${heroImg}</div>
@@ -954,10 +993,10 @@ function renderSheet() {
 
       <div style="margin-top:18px;font-size:13px;font-weight:700;color:var(--hint)">Фасовка</div>
       <div class="fasovka-options">
-        ${allowedFasovka(p, currentSubcat).map((f, i) => `
-          <div class="fasovka-opt ${f.size === currentFasovka.size ? 'selected' : ''}" onclick="selectFasovka(${i})">
+        ${detailFasovka(p).map((f, i) => `
+          <div class="fasovka-opt ${f.size === currentFasovka.size ? 'selected' : ''}${f.on_request ? ' on-request' : ''}" onclick="selectFasovka(${i})">
             <div class="size">${f.size}</div>
-            <div class="price">${f.price} ₽</div>
+            <div class="price">${f.on_request ? 'по запросу' : (f.price + ' ₽')}</div>
           </div>`).join('')}
       </div>
 
@@ -972,15 +1011,26 @@ function renderSheet() {
   `;
 }
 function setTab(t) { currentTab = t; renderSheet(); }
-function selectFasovka(i) { currentFasovka = allowedFasovka(currentProduct, currentSubcat)[i]; renderSheet(); }
+function selectFasovka(i) { currentFasovka = detailFasovka(currentProduct)[i]; renderSheet(); }
 function changeQty(d) { currentQty = Math.max(1, currentQty + d); renderSheet(); }
 
 function addToCart() {
+  // Если выбрана фасовка которой нет в наличии — открываем чат с ботом
+  if (currentFasovka.on_request) {
+    const text = `Здравствуйте! Можно ${currentProduct.name}, фасовка ${currentFasovka.size}?`;
+    const botName = (window.tg && tg.initDataUnsafe && tg.initDataUnsafe.start_param) || 'rcr_btb_bot';
+    const url = `https://t.me/${botName}?text=${encodeURIComponent(text)}`;
+    if (tg?.openTelegramLink) tg.openTelegramLink(url); else window.open(url, '_blank');
+    return;
+  }
+  // ID той карточки, чьей фасовкой пользуемся (для пары — может отличаться от currentProduct.id)
+  const sourceId = currentFasovka._source_id || currentProduct.id;
+  const sourceCard = DATA.products.find(x => x.id === sourceId) || currentProduct;
   cart.push({
-    id: currentProduct.id, name: currentProduct.name,
+    id: sourceId, name: sourceCard.name,
     fasovka: currentFasovka.size, price: currentFasovka.price,
-    qty: currentQty, category: currentProduct.category,
-    photo: currentProduct.photo || null,
+    qty: currentQty, category: sourceCard.category,
+    photo: currentFasovka._photo || sourceCard.photo || null,
   });
   localStorage.setItem('rb_cart', JSON.stringify(cart));
   renderCartBadge();
