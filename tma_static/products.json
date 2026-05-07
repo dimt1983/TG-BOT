@@ -9961,6 +9961,153 @@
         "новинка"
       ],
       "photo": null
+    },
+    {
+      "id": "c-колумбия_кастильо_2",
+      "category": "coffee",
+      "subcategory": "coffee_filter_microlot",
+      "name": "Колумбия Кастильо",
+      "country": "Колумбия",
+      "roast": "",
+      "process": "мытая",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2847
+        }
+      ],
+      "stock": 2,
+      "tags": [
+        "микролот",
+        "фильтр"
+      ],
+      "photo": null
+    },
+    {
+      "id": "c-колумбия_кастильо_3",
+      "category": "coffee",
+      "subcategory": "coffee_black",
+      "name": "Колумбия Кастильо",
+      "country": "Колумбия",
+      "roast": "",
+      "process": "мытая",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 875
+        }
+      ],
+      "stock": 6,
+      "tags": [
+        "микролот"
+      ],
+      "photo": null
+    },
+    {
+      "id": "c-колумбия_пачамама_2",
+      "category": "coffee",
+      "subcategory": "coffee_filter_microlot",
+      "name": "Колумбия Пачамама",
+      "country": "Колумбия",
+      "roast": "",
+      "process": "натуральная анаэробная",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 4842
+        }
+      ],
+      "stock": 2,
+      "tags": [
+        "микролот",
+        "фильтр",
+        "анаэробная"
+      ],
+      "photo": null
+    },
+    {
+      "id": "c-колумбия_пачамама_3",
+      "category": "coffee",
+      "subcategory": "coffee_borshch",
+      "name": "Колумбия Пачамама",
+      "country": "Колумбия",
+      "roast": "",
+      "process": "натуральная анаэробная",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 1485
+        }
+      ],
+      "stock": 6,
+      "tags": [
+        "микролот",
+        "анаэробная"
+      ],
+      "photo": null
+    },
+    {
+      "id": "c-колумбия_маракуйя_2",
+      "category": "coffee",
+      "subcategory": "coffee_filter_microlot",
+      "name": "Колумбия Маракуйя",
+      "country": "Колумбия",
+      "roast": "",
+      "process": "хани инфьюз",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 5922
+        }
+      ],
+      "stock": 2,
+      "tags": [
+        "микролот",
+        "фильтр",
+        "инфьюз",
+        "маракуйя"
+      ],
+      "photo": null
+    },
+    {
+      "id": "c-колумбия_маракуйя_3",
+      "category": "coffee",
+      "subcategory": "coffee_borshch",
+      "name": "Колумбия Маракуйя",
+      "country": "Колумбия",
+      "roast": "",
+      "process": "хани инфьюз",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 1820
+        }
+      ],
+      "stock": 6,
+      "tags": [
+        "микролот",
+        "инфьюз",
+        "маракуйя"
+      ],
+      "photo": null
     }
   ]
 }
