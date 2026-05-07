@@ -1652,10 +1652,10 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 515.0
+          "price": 998.0
         }
       ],
-      "stock": 9,
+      "stock": 4,
       "tags": [],
       "photo": "photos/products/t-althaus_сенча_сенпай_зел_15х4г.jpg",
       "_source": "alephtrade"
@@ -1784,10 +1784,10 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 2320.0
+          "price": 998.0
         }
       ],
-      "stock": 5,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/t-althaus_горные_травы_чёрн_15х4г.jpg",
       "_source": "alephtrade"
@@ -1806,7 +1806,7 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 4490.0
+          "price": 1630.0
         }
       ],
       "stock": 4,
@@ -1850,10 +1850,10 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 2250.0
+          "price": 515.0
         }
       ],
-      "stock": 6,
+      "stock": 15,
       "tags": [],
       "photo": "photos/products/t-althaus_ассам_меленг_чёрн_пакет_20х1_75г.jpg",
       "_source": "alephtrade"
@@ -1894,10 +1894,10 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 2215.0
+          "price": 515.0
         }
       ],
-      "stock": 4,
+      "stock": 9,
       "tags": [],
       "photo": "photos/products/t-althaus_сенча_сенпай_зел_пакет_20х1_75г.jpg",
       "_source": "alephtrade"
@@ -2090,10 +2090,10 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 515.0
+          "price": 2250.0
         }
       ],
-      "stock": 15,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/t-althaus_ассам_меленг_чёрн_лист_250г.jpg",
       "_source": "alephtrade"
@@ -2112,7 +2112,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1630.0
+          "price": 4490.0
         }
       ],
       "stock": 4,
@@ -2134,7 +2134,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 998.0
+          "price": 2215.0
         }
       ],
       "stock": 4,
@@ -2198,10 +2198,10 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 998.0
+          "price": 2320.0
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg",
       "_source": "alephtrade"
@@ -3058,10 +3058,10 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1025.0
+          "price": 721.0
         }
       ],
-      "stock": 9,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/t-китайский_чай_тропический_микс_200г.jpg"
     },
@@ -5553,10 +5553,10 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 980.0
+          "price": 530.0
         }
       ],
-      "stock": 8,
+      "stock": 1,
       "tags": []
     },
     {
@@ -6397,10 +6397,10 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 659.0
+          "price": 1300.0
         }
       ],
-      "stock": 8,
+      "stock": 1,
       "tags": []
     },
     {
@@ -8783,10 +8783,10 @@
       "fasovka": [
         {
           "size": "500х2г",
-          "price": 2300.0
+          "price": 185.0
         }
       ],
-      "stock": 0,
+      "stock": 37,
       "tags": [],
       "photo": null
     },
