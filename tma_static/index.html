@@ -127,6 +127,28 @@ body {
 .product-add:active { transform: scale(0.9); }
 .product-add.in-cart { background: var(--success); }
 
+/* Favorite star */
+.fav-star { position: absolute; top: 6px; right: 6px; width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.85); display: flex; align-items: center; justify-content: center; font-size: 16px; cursor: pointer; z-index: 2; box-shadow: 0 1px 3px rgba(0,0,0,0.15); transition: transform 0.1s; }
+.fav-star:active { transform: scale(0.85); }
+.fav-star.on { background: rgba(255,193,7,0.95); }
+.fav-star.on::before { content: "★"; color: white; }
+.fav-star:not(.on)::before { content: "☆"; color: #999; }
+.sheet-fav { position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.92); display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; z-index: 10; box-shadow: 0 2px 6px rgba(0,0,0,0.18); }
+.sheet-fav.on { background: rgba(255,193,7,0.95); color: white; }
+
+/* Order history card */
+.order-card { background: var(--section); border-radius: var(--radius); padding: 14px; margin-bottom: 10px; box-shadow: var(--shadow); }
+.order-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.order-id { font-weight: 800; font-size: 15px; }
+.order-date { font-size: 12px; color: var(--hint); }
+.order-status { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 8px; background: rgba(111,78,55,0.1); color: var(--primary); }
+.order-status.done { background: rgba(46,125,50,0.12); color: var(--success); }
+.order-items { font-size: 13px; color: #555; line-height: 1.5; margin-bottom: 10px; }
+.order-foot { display: flex; justify-content: space-between; align-items: center; }
+.order-total { font-weight: 800; font-size: 15px; color: var(--primary-dark); }
+.btn-repeat { background: var(--primary); color: white; border: none; border-radius: 10px; padding: 8px 14px; font-size: 13px; font-weight: 700; cursor: pointer; }
+.btn-repeat:active { transform: scale(0.97); }
+
 /* Bottom nav */
 .tabbar { position: sticky; bottom: 0; background: var(--section); display: flex; max-width: 480px; margin: 0 auto; padding: 8px 0 max(12px, env(safe-area-inset-bottom)); border-top: 1px solid rgba(0,0,0,0.05); z-index: 100; flex-shrink: 0; width: 100%; }
 .tabbar-btn { flex: 1; background: none; border: none; padding: 6px 4px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px; color: var(--hint); font-size: 11px; font-weight: 600; position: relative; }
@@ -447,13 +469,17 @@ body {
   <!-- ============ ЗАКАЗЫ ============ -->
   <div class="screen" id="screen-orders">
     <header class="header"><h1>Заказы</h1><div></div></header>
-    <div class="section">
-      <div class="cart-empty">
-        <div class="big">📭</div>
-        <h3>Заказов пока нет</h3>
-        <p>Здесь появится история. Сделайте первый заказ — мы будем держать вас в курсе статуса.</p>
-      </div>
-    </div>
+    <div class="section" id="orders-content"></div>
+  </div>
+
+  <!-- ============ ИЗБРАННОЕ ============ -->
+  <div class="screen" id="screen-favorites">
+    <header class="header">
+      <button class="back-btn" onclick="goTo('profile')">‹ Профиль</button>
+      <h1>Избранное</h1>
+      <div></div>
+    </header>
+    <div class="section" id="favorites-content"></div>
   </div>
 
   <!-- ============ ПРОФИЛЬ ============ -->
@@ -542,6 +568,8 @@ if (tg) {
 
 let DATA = null;
 let cart = JSON.parse(localStorage.getItem('rb_cart') || '[]');
+let favorites = JSON.parse(localStorage.getItem('rb_favorites') || '[]'); // массив pid
+let myOrders = null; // загружается лениво
 const CONSENT_VERSION = '1.0';
 let consentState = JSON.parse(localStorage.getItem('rb_consent') || 'null');
 let consentReturnTo = 'profile';
@@ -686,8 +714,12 @@ function productCard(p, subContext) {
   const img = p.photo
     ? `<img src="${p.photo}" alt="" onerror="this.onerror=null;this.src='assets/logo_mark.png';this.classList.add('logo-mark')">`
     : `<img class="logo-mark" src="assets/logo_mark.png" alt="">`;
+  const isFav = favorites.includes(p.id);
   return `<div class="product-card" onclick="openProduct('${p.id}')">
-    <div class="product-photo">${img}</div>
+    <div class="product-photo">
+      <div class="fav-star ${isFav ? 'on' : ''}" onclick="event.stopPropagation(); toggleFavorite('${p.id}')"></div>
+      ${img}
+    </div>
     <div class="product-info">
       <div>
         <div class="product-name">${p.name}</div>
@@ -977,8 +1009,12 @@ function renderSheet() {
   const heroImg = heroPhoto
     ? `<img src="${heroPhoto}" alt="" onerror="this.onerror=null;this.src='assets/logo_full.png';this.classList.add('logo-mark')">`
     : `<img class="logo-mark" src="assets/logo_full.png" alt="Roastberry">`;
+  const isFav = favorites.includes(p.id);
   document.getElementById('sheet-content').innerHTML = `
-    <div class="sheet-photo">${heroImg}</div>
+    <div class="sheet-photo" style="position:relative">
+      <div class="sheet-fav ${isFav ? 'on' : ''}" onclick="toggleFavorite('${p.id}', true)">${isFav ? '★' : '☆'}</div>
+      ${heroImg}
+    </div>
     <div class="sheet-content">
       <div class="sheet-title">${p.name}</div>
       <div class="sheet-meta">${tags}</div>
@@ -1361,6 +1397,131 @@ function onCheckoutConsentClick() {
   }
 }
 
+// === Избранное ===
+function toggleFavorite(pid, refreshSheet = false) {
+  const idx = favorites.indexOf(pid);
+  if (idx >= 0) {
+    favorites.splice(idx, 1);
+    toast('Убрано из избранного');
+  } else {
+    favorites.push(pid);
+    toast('★ В избранном');
+  }
+  localStorage.setItem('rb_favorites', JSON.stringify(favorites));
+  // Обновляем все карточки в DOM
+  document.querySelectorAll(`.fav-star[onclick*="'${pid}'"]`).forEach(el => {
+    if (favorites.includes(pid)) el.classList.add('on');
+    else el.classList.remove('on');
+  });
+  if (refreshSheet && currentProduct && currentProduct.id === pid) renderSheet();
+  // Если открыт экран избранного — перерисовать
+  if (document.getElementById('screen-favorites').classList.contains('active')) renderFavorites();
+}
+
+function renderFavorites() {
+  const items = favorites.map(pid => DATA.products.find(p => p.id === pid)).filter(Boolean);
+  const root = document.getElementById('favorites-content');
+  if (!items.length) {
+    root.innerHTML = `<div class="cart-empty">
+      <div class="big">⭐</div>
+      <h3>Избранное пусто</h3>
+      <p>Откройте карточку товара и нажмите ★, чтобы добавить сюда.</p>
+    </div>`;
+    return;
+  }
+  root.innerHTML = items.map(p => productCard(p, p.subcategory)).join('');
+}
+
+// === История заказов ===
+async function loadMyOrders(force = false) {
+  const tgUser = tg?.initDataUnsafe?.user;
+  if (!tgUser?.id) return null;
+  if (myOrders && !force) return myOrders;
+  try {
+    const r = await fetch(`/tma/api/my_orders?tg_id=${tgUser.id}`);
+    if (!r.ok) return null;
+    const j = await r.json();
+    myOrders = j.orders || [];
+    return myOrders;
+  } catch (e) { return null; }
+}
+
+async function renderOrders() {
+  const root = document.getElementById('orders-content');
+  const tgUser = tg?.initDataUnsafe?.user;
+  if (!tgUser?.id) {
+    root.innerHTML = `<div class="cart-empty">
+      <div class="big">🔑</div>
+      <h3>Нужен Telegram</h3>
+      <p>Откройте магазин из бота — тогда история заказов будет привязана к вашему аккаунту.</p>
+    </div>`;
+    return;
+  }
+  root.innerHTML = `<div style="text-align:center;padding:40px;color:var(--hint)">Загружаем…</div>`;
+  const orders = await loadMyOrders(true);
+  if (!orders) {
+    root.innerHTML = `<div class="cart-empty"><div class="big">⚠️</div><h3>Не удалось загрузить</h3><p>Попробуйте позже.</p></div>`;
+    return;
+  }
+  if (!orders.length) {
+    root.innerHTML = `<div class="cart-empty">
+      <div class="big">📭</div>
+      <h3>Заказов пока нет</h3>
+      <p>Здесь появится история. Сделайте первый заказ — мы будем держать вас в курсе статуса.</p>
+    </div>`;
+    return;
+  }
+  const STATUS_LABELS = {new:'Новый', confirmed:'Подтверждён', paid:'Оплачен', shipped:'В пути', delivered:'Доставлен', completed:'Завершён', cancelled:'Отменён'};
+  root.innerHTML = orders.map(o => {
+    const date = (o.created_at || '').slice(0, 16).replace('T',' ');
+    const itemsHtml = (o.items || []).map(i => {
+      const fas = i.fasovka === 200 ? '200 г' : (i.fasovka === 1000 ? '1 кг' : (i.fasovka + ' г'));
+      return `<div>· ${i.product_name || ''} — ${fas} × ${i.quantity}</div>`;
+    }).join('');
+    const status = (o.status || 'new').toLowerCase();
+    const statusCls = ['delivered','completed','paid'].includes(status) ? 'done' : '';
+    return `<div class="order-card">
+      <div class="order-head">
+        <div><div class="order-id">Заказ #${o.id}</div><div class="order-date">${date}</div></div>
+        <div class="order-status ${statusCls}">${STATUS_LABELS[status] || status}</div>
+      </div>
+      <div class="order-items">${itemsHtml}</div>
+      <div class="order-foot">
+        <div class="order-total">${Math.round(o.total)} ₽</div>
+        <button class="btn-repeat" onclick='repeatOrder(${o.id})'>🔁 Повторить</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function repeatOrder(orderId) {
+  const order = (myOrders || []).find(o => o.id === orderId);
+  if (!order) return;
+  let added = 0, missed = 0;
+  for (const it of order.items || []) {
+    // Ищем в каталоге по имени товара
+    const name = (it.product_name || '').trim().toLowerCase();
+    const p = DATA.products.find(x => x.name.trim().toLowerCase() === name);
+    if (!p) { missed++; continue; }
+    // Подбираем фасовку
+    const fasSize = it.fasovka === 200 ? '200 г' : (it.fasovka === 1000 ? '1 кг' : '');
+    const fas = (p.fasovka || []).find(f => f.size === fasSize) || (p.fasovka || [])[0];
+    if (!fas) { missed++; continue; }
+    cart.push({
+      id: p.id, name: p.name,
+      fasovka: fas.size, price: fas.price,
+      qty: it.quantity || 1,
+      photo: fas.photo || p.photo || null,
+    });
+    added++;
+  }
+  localStorage.setItem('rb_cart', JSON.stringify(cart));
+  renderCartBadge();
+  if (missed) toast(`В корзину: ${added}. Не найдено: ${missed}`);
+  else toast(`✓ Добавлено в корзину: ${added}`);
+  goTo('cart');
+}
+
 // === Профиль ===
 function renderProfile() {
   const tgUser = tg?.initDataUnsafe?.user;
@@ -1376,9 +1537,11 @@ function renderProfile() {
         </div>
       </div>
       <div class="profile-row"><span class="key">Тип</span><span class="val">Физ. лицо</span></div>
-      <div class="profile-row"><span class="key">Заказов</span><span class="val">0</span></div>
+      <div class="profile-row"><span class="key">Избранных</span><span class="val">${favorites.length}</span></div>
       <div class="profile-row"><span class="key">Бонусов</span><span class="val">0</span></div>
     </div>
+    <button class="profile-action" onclick="goTo('favorites')"><span><span class="ico">⭐</span>Избранное</span><span class="arr">${favorites.length ? favorites.length + ' ›' : '›'}</span></button>
+    <button class="profile-action" onclick="goTo('orders')"><span><span class="ico">📦</span>История заказов</span><span class="arr">›</span></button>
     <button class="profile-action" onclick="openConsent('profile')">
       <span><span class="ico">📜</span>Согласие на обработку ПД</span>
       <span class="consent-status ${consentSigned() ? 'signed' : 'unsigned'}">${consentSigned() ? '✓ Подписано' : 'Требуется'}</span>
@@ -1397,12 +1560,16 @@ function goTo(scr) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('screen-' + scr).classList.add('active');
   document.querySelectorAll('.tabbar-btn').forEach(b => b.classList.remove('active'));
-  // Bottom-nav подсвечивает home для category/subcategory
-  const tab = (scr === 'category' || scr === 'subcategory') ? 'home' : scr;
+  // Bottom-nav подсвечивает home для category/subcategory, profile для favorites
+  let tab = scr;
+  if (scr === 'category' || scr === 'subcategory') tab = 'home';
+  if (scr === 'favorites') tab = 'profile';
   const btn = document.querySelector(`[data-screen="${tab}"]`);
   if (btn) btn.classList.add('active');
   if (scr === 'cart') renderCart();
   if (scr === 'profile') renderProfile();
+  if (scr === 'favorites') renderFavorites();
+  if (scr === 'orders') renderOrders();
   window.scrollTo(0, 0);
 }
 

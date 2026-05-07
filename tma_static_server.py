@@ -83,6 +83,45 @@ class Handler(BaseHTTPRequestHandler):
                 self._send(500, str(e).encode(), "text/plain")
             return
 
+        # /tma/api/my_orders?tg_id=XXX — история заказов пользователя
+        if path == "/tma/api/my_orders":
+            from urllib.parse import urlparse, parse_qs
+            qs = parse_qs(urlparse(self.path).query)
+            tg_id = qs.get("tg_id", [""])[0]
+            if not tg_id or not tg_id.isdigit():
+                self._send(400, b'{"error":"tg_id required"}', "application/json")
+                return
+            try:
+                con = sqlite3.connect(DB_PATH)
+                con.row_factory = sqlite3.Row
+                try:
+                    orders = con.execute(
+                        "SELECT id,total,total_kg,discount,status,comment,created_at "
+                        "FROM orders WHERE user_id=? ORDER BY id DESC LIMIT 50",
+                        (int(tg_id),)
+                    ).fetchall()
+                    out = []
+                    for o in orders:
+                        items = con.execute(
+                            "SELECT product_name,fasovka,quantity,price "
+                            "FROM order_items WHERE order_id=? ORDER BY id",
+                            (o["id"],)
+                        ).fetchall()
+                        out.append({
+                            "id": o["id"], "total": o["total"], "total_kg": o["total_kg"],
+                            "discount": o["discount"], "status": o["status"],
+                            "comment": o["comment"], "created_at": o["created_at"],
+                            "items": [dict(i) for i in items],
+                        })
+                finally:
+                    con.close()
+                body = json.dumps({"orders": out}, ensure_ascii=False).encode("utf-8")
+                self._send(200, body, "application/json; charset=utf-8",
+                           {"Cache-Control": "no-cache"})
+            except Exception as e:
+                self._send(500, json.dumps({"error": str(e)}).encode(), "application/json")
+            return
+
         # /tma/products.json — динамически с актуальными ценами от Bishop
         if path == "/tma/products.json" and PRICE_SYNC_ENABLED:
             try:
