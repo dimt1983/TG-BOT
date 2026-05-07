@@ -553,9 +553,6 @@ body {
 <div class="sheet" id="sheet">
   <div class="sheet-handle"></div>
   <div id="sheet-content"></div>
-  <div class="sticky-cta" id="sticky-cta" style="display:none">
-    <button class="btn-primary" id="add-cart-btn" onclick="addToCart()">🛒 В корзину</button>
-  </div>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -931,12 +928,10 @@ function openProduct(pid) {
   renderSheet();
   document.getElementById('modal-bg').classList.add('show');
   document.getElementById('sheet').classList.add('show');
-  document.getElementById('sticky-cta').style.display = 'block';
 }
 function closeSheet() {
   document.getElementById('modal-bg').classList.remove('show');
   document.getElementById('sheet').classList.remove('show');
-  document.getElementById('sticky-cta').style.display = 'none';
 }
 
 function renderSheet() {
@@ -997,12 +992,6 @@ function renderSheet() {
   }
 
   const totalPrice = currentFasovka.on_request ? 0 : (currentFasovka.price || 0) * currentQty;
-  const cartBtn = document.getElementById('add-cart-btn');
-  if (currentFasovka.on_request) {
-    cartBtn.textContent = `✉️ Спросить в боте`;
-  } else {
-    cartBtn.textContent = `🛒 В корзину · ${totalPrice} ₽`;
-  }
 
   // Фото: если в текущей фасовке указан _photo — берём его, иначе общее p.photo
   const heroPhoto = currentFasovka._photo || p.photo;
@@ -1054,6 +1043,8 @@ function renderSheet() {
         <button class="qty-btn" onclick="changeQty(1)">+</button>
         <span style="margin-left:auto;font-weight:800;font-size:17px;color:var(--primary-dark)">${totalPrice} ₽</span>
       </div>
+
+      <button class="btn-primary" style="margin-top:14px" onclick="addToCart()">${currentFasovka.on_request ? '✉️ Спросить в боте' : '🛒 В корзину · ' + totalPrice + ' ₽'}</button>
     </div>
   `;
 }
