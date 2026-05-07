@@ -9915,7 +9915,8 @@
       "tags": [
         "микролот"
       ],
-      "photo": null
+      "photo": null,
+      "_price_locked": true
     },
     {
       "id": "c-колумбия_пачамама_2",
@@ -9964,7 +9965,8 @@
         "микролот",
         "анаэробная"
       ],
-      "photo": null
+      "photo": null,
+      "_price_locked": true
     },
     {
       "id": "c-колумбия_маракуйя_2",
@@ -10015,7 +10017,8 @@
         "инфьюз",
         "маракуйя"
       ],
-      "photo": null
+      "photo": null,
+      "_price_locked": true
     }
   ]
 }

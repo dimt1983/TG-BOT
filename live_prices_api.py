@@ -186,6 +186,14 @@ def merge_into_products(tma_products: list[dict]) -> tuple[list[dict], dict]:
             out.append(p)
             continue
 
+        # Карточка помечена как ручная цена — live-merge её не трогает.
+        # Это позволяет Bishop'у/Дмитрию задавать цены, которых нет в xlsx
+        # (например пересчитанные по новому коэффициенту), и они не перетрутся
+        # старыми значениями fuzzy-матча.
+        if p.get("_price_locked"):
+            out.append(p)
+            continue
+
         # exact match
         name = p["name"].upper().strip()
         match = by_name.get(name)
