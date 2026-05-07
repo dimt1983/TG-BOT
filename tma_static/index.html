@@ -664,7 +664,17 @@ function productCard(p, subContext) {
   const cat = DATA.categories.find(c => c.id === p.category);
   const inCart = cart.some(c => c.id === p.id);
   const fasList = allowedFasovka(p, subContext || currentSubcat);
-  const minPrice = Math.min(...fasList.map(f => f.price));
+  // В Эспрессо/Фильтр (любая 1кг-папка) приоритет — цена за 1кг.
+  // В Блэк/Борщ — цена за 200г. Иначе — минимальная.
+  const ctxSub = subContext || currentSubcat || p.subcategory || '';
+  const want1kg = ctxSub.startsWith('coffee_espresso') || ctxSub.startsWith('coffee_filter');
+  const want200 = ctxSub === 'coffee_black' || ctxSub === 'coffee_borshch';
+  let displayFas = null;
+  if (want1kg) displayFas = fasList.find(f => /1\s*кг/i.test(f.size));
+  else if (want200) displayFas = fasList.find(f => /200\s*г/i.test(f.size));
+  if (!displayFas) displayFas = fasList.reduce((a,b) => (a.price <= b.price ? a : b), fasList[0]);
+  const minPrice = displayFas.price;
+  const displaySize = displayFas.size;
   const tags = (p.tags || []).slice(0, 2).map(t => {
     let cls = '';
     if (t === 'Хит') cls = 'hit';
@@ -688,7 +698,7 @@ function productCard(p, subContext) {
         </div>
       </div>
       <div class="product-bottom">
-        <div class="product-price">${fasList.length > 1 ? '<span class="from">от</span>' : ''}${minPrice} ₽</div>
+        <div class="product-price">${minPrice} ₽<span class="from" style="margin-left:6px">/ ${displaySize}</span></div>
         <button class="product-add ${inCart ? 'in-cart' : ''}" onclick="event.stopPropagation(); openProduct('${p.id}')">${inCart ? '✓' : '+'}</button>
       </div>
     </div>
