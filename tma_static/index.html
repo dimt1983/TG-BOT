@@ -585,7 +585,7 @@ function detailFasovka(p) {
   // Не-микролоты — работают как раньше через массив p.fasovka
   const microSubs = ['coffee_espresso_microlot','coffee_filter_microlot','coffee_black','coffee_borshch'];
   if (!p.pair_id || !microSubs.includes(p.subcategory)) {
-    return p.fasovka.map(f => ({...f, _source_id: p.id, _photo: p.photo}));
+    return p.fasovka.map(f => ({...f, _source_id: p.id, _photo: f.photo || p.photo}));
   }
   // Собираем все карточки с тем же pair_id
   const cards = DATA.products.filter(x => x.pair_id === p.pair_id);
@@ -889,8 +889,9 @@ function openProduct(pid) {
   currentProduct = DATA.products.find(p => p.id === pid);
   if (!currentProduct) return;
   const fasList = detailFasovka(currentProduct);
-  // Дефолт: первая «реальная» (не on_request) фасовка которая есть в этой карточке
-  const ownFas = fasList.find(f => f._source_id === currentProduct.id) || fasList.find(f => !f.on_request) || fasList[0];
+  // Дефолт: 1 кг (если есть и не on_request), иначе первая реальная, иначе первая
+  const defKg = fasList.find(f => /1\s*кг/i.test(f.size) && !f.on_request);
+  const ownFas = defKg || fasList.find(f => !f.on_request) || fasList[0];
   currentFasovka = ownFas;
   currentQty = 1;
   // Выбираем активный таб: если есть recipe_e — эспрессо, иначе фильтр, иначе описание
