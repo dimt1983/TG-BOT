@@ -2,3 +2,4 @@ aiogram==3.4.1
 aiohttp==3.9.5
 openpyxl
 anthropic==0.39.0
+httpx==0.27.2
