@@ -134,24 +134,26 @@ class Handler(BaseHTTPRequestHandler):
                 con = sqlite3.connect(DB_PATH)
                 con.row_factory = sqlite3.Row
                 try:
+                    # Узнаём какие колонки реально есть в orders/order_items
+                    ord_cols = {r[1] for r in con.execute("PRAGMA table_info(orders)").fetchall()}
+                    it_cols = {r[1] for r in con.execute("PRAGMA table_info(order_items)").fetchall()}
+                    base_cols = ["id", "total", "status", "created_at"]
+                    extra_cols = [c for c in ("total_kg", "discount", "comment") if c in ord_cols]
+                    sel = ",".join(base_cols + extra_cols)
                     orders = con.execute(
-                        "SELECT id,total,total_kg,discount,status,comment,created_at "
-                        "FROM orders WHERE user_id=? ORDER BY id DESC LIMIT 50",
+                        f"SELECT {sel} FROM orders WHERE user_id=? ORDER BY id DESC LIMIT 50",
                         (int(tg_id),)
                     ).fetchall()
+                    item_base = ["quantity", "price"]
+                    item_extra = [c for c in ("product_name", "fasovka") if c in it_cols]
+                    item_sel = ",".join(item_base + item_extra)
                     out = []
                     for o in orders:
                         items = con.execute(
-                            "SELECT product_name,fasovka,quantity,price "
-                            "FROM order_items WHERE order_id=? ORDER BY id",
+                            f"SELECT {item_sel} FROM order_items WHERE order_id=? ORDER BY id",
                             (o["id"],)
                         ).fetchall()
-                        out.append({
-                            "id": o["id"], "total": o["total"], "total_kg": o["total_kg"],
-                            "discount": o["discount"], "status": o["status"],
-                            "comment": o["comment"], "created_at": o["created_at"],
-                            "items": [dict(i) for i in items],
-                        })
+                        out.append({**dict(o), "items": [dict(i) for i in items]})
                 finally:
                     con.close()
                 body = json.dumps({"orders": out}, ensure_ascii=False).encode("utf-8")

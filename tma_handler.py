@@ -245,12 +245,39 @@ async def process_tma_order(
     except Exception as e:
         log.warning(f"TMA-HTTP: не удалось отправить подтверждение клиенту {user_id}: {e}")
 
-    # Уведомление админам
-    if notify_new_order:
-        try:
-            await notify_new_order(bot, order_id, user_full_name or "TMA-клиент", total)
-        except Exception as e:
-            log.warning(f"TMA-HTTP: не уведомили админа: {e}")
+    # Уведомление админам — полное, со всем составом заказа
+    try:
+        from admin import ADMIN_IDS
+        contact = payload.get("contact") or {}
+        pay = payload.get("payment_method") or "—"
+        adm_lines = [
+            f"🔔 <b>Новый заказ №{order_id}</b>",
+            f"👤 {user_full_name} (id <code>{user_id}</code>)",
+            f"📞 {contact.get('phone','—')}",
+            f"🏠 {contact.get('address','—')}",
+        ]
+        if contact.get("type") == "company" and contact.get("company_name"):
+            adm_lines.append(f"🏢 {contact['company_name']} · ИНН {contact.get('inn','—')}")
+        if contact.get("comment"):
+            adm_lines.append(f"💬 {contact['comment']}")
+        adm_lines.append("\n📦 <b>Состав:</b>")
+        for it in items[:25]:
+            adm_lines.append(f"• {it['name'][:50]} — {it.get('fasovka','')} × {it['qty']} = {it['price']*it['qty']:.0f} ₽")
+        if len(items) > 25:
+            adm_lines.append(f"... и ещё {len(items) - 25} позиций")
+        adm_lines.append(f"\n⚖️ {kg:.2f} кг   💰 {subtotal:.0f} ₽")
+        if saved:
+            adm_lines.append(f"🎁 Скидка {int(disc_pct*100)}%: −{saved} ₽")
+        adm_lines.append(f"💳 <b>К оплате: {total:.0f} ₽</b> · оплата: {pay}")
+        adm_lines.append(f"\n/admin → Все заказы → №{order_id}")
+        adm_text = "\n".join(adm_lines)
+        for aid in ADMIN_IDS:
+            try:
+                await bot.send_message(aid, adm_text, parse_mode="HTML")
+            except Exception as e:
+                log.warning(f"TMA-HTTP: не уведомили админа {aid}: {e}")
+    except Exception as e:
+        log.warning(f"TMA-HTTP: ошибка уведомления админам: {e}")
 
     # Уведомление о новом клиенте
     if is_new_client:
