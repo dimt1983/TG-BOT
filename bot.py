@@ -4246,6 +4246,17 @@ async def main():
         register_tma_handlers(dp, bot, get_db, notify_new_order)
     except Exception as e:
         print(f"[TMA] не удалось зарегистрировать обработчики: {e}")
+    # TMA: HTTP /tma/api/order — приём заказов из Mini App минуя web_app_data
+    # (sendData не работает если TMA открыт через menu button или прямую ссылку).
+    try:
+        from tma_static_server import set_tma_api_handler
+        set_tma_api_handler(
+            bot=bot, get_db=get_db, notify_new_order=notify_new_order,
+            main_loop=_MAIN_LOOP, bot_token=os.environ.get("BOT_TOKEN", ""),
+        )
+        print("[TMA] HTTP-приём заказов /tma/api/order активирован")
+    except Exception as e:
+        print(f"[TMA] не удалось включить HTTP-приём заказов: {e}")
     threading.Thread(target=_run_sync_server, daemon=True).start()
     await dp.start_polling(bot)
 

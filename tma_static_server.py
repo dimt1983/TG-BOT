@@ -15,8 +15,11 @@ import threading
 import mimetypes
 import sqlite3
 import time
+import asyncio
+import hmac
+import hashlib
 from http.server import HTTPServer, BaseHTTPRequestHandler
-from urllib.parse import unquote
+from urllib.parse import unquote, parse_qsl
 
 PORT = int(os.environ.get("PORT", 10000))
 TMA_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tma_static")
@@ -26,6 +29,42 @@ PRICE_SYNC_ENABLED = os.environ.get("BISHOP_PRICE_SYNC", "1") != "0"
 # Доступ только с Authorization: Bearer <API_ORDERS_TOKEN>.
 DB_PATH = os.environ.get("DB_PATH", "/app/data/shop.db")
 API_ORDERS_TOKEN = os.environ.get("API_ORDERS_TOKEN", "")
+
+# Контекст для /tma/api/order — заполняется из bot.py через set_tma_api_handler.
+# Содержит {"bot", "get_db", "notify_new_order", "loop", "bot_token"}.
+_TMA_CTX = None
+
+
+def set_tma_api_handler(bot, get_db, notify_new_order, main_loop, bot_token):
+    """Регистрирует контекст для обработки POST /tma/api/order.
+    Вызывается из bot.py после init event-loop'а."""
+    global _TMA_CTX
+    _TMA_CTX = {
+        "bot": bot, "get_db": get_db, "notify_new_order": notify_new_order,
+        "loop": main_loop, "bot_token": bot_token,
+    }
+
+
+def verify_tma_init_data(init_data: str, bot_token: str) -> dict | None:
+    """Проверяет hash в Telegram WebApp initData. Возвращает user-dict или None.
+    Спецификация: https://core.telegram.org/bots/webapps#validating-data-received-via-the-mini-app
+    """
+    if not init_data or not bot_token:
+        return None
+    try:
+        parsed = dict(parse_qsl(init_data, keep_blank_values=True))
+        received_hash = parsed.pop("hash", "")
+        if not received_hash:
+            return None
+        data_check = "\n".join(f"{k}={parsed[k]}" for k in sorted(parsed.keys()))
+        secret = hmac.new(b"WebAppData", bot_token.encode(), hashlib.sha256).digest()
+        calc = hmac.new(secret, data_check.encode(), hashlib.sha256).hexdigest()
+        if not hmac.compare_digest(calc, received_hash):
+            return None
+        user_json = parsed.get("user", "")
+        return json.loads(user_json) if user_json else None
+    except Exception:
+        return None
 
 
 def _check_bearer(handler) -> bool:
@@ -185,6 +224,61 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_HEAD(self):
         self.send_response(200)
+        self.end_headers()
+
+    def do_POST(self):
+        path = unquote(self.path.split("?", 1)[0])
+        if path == "/tma/api/order":
+            self._handle_tma_order()
+            return
+        self._send(404, b"Not found", "text/plain")
+
+    def _handle_tma_order(self):
+        if _TMA_CTX is None:
+            self._send(503, json.dumps({"ok": False, "error": "API не инициализирован"}).encode(), "application/json")
+            return
+        # Валидация initData
+        init_data = self.headers.get("X-Tma-InitData", "")
+        user = verify_tma_init_data(init_data, _TMA_CTX["bot_token"])
+        if not user or not user.get("id"):
+            self._send(401, json.dumps({"ok": False, "error": "Откройте магазин из Telegram (initData невалидна)"}, ensure_ascii=False).encode("utf-8"), "application/json; charset=utf-8")
+            return
+        # Тело
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            body = self.rfile.read(length) if length > 0 else b""
+            payload = json.loads(body.decode("utf-8")) if body else {}
+        except Exception as e:
+            self._send(400, json.dumps({"ok": False, "error": f"bad json: {e}"}, ensure_ascii=False).encode("utf-8"), "application/json; charset=utf-8")
+            return
+
+        # Запускаем async-обработчик в основном event-loop боте
+        full_name = " ".join(filter(None, [user.get("first_name"), user.get("last_name")])) or user.get("username") or "TMA-клиент"
+        try:
+            from tma_handler import process_tma_order
+            fut = asyncio.run_coroutine_threadsafe(
+                process_tma_order(
+                    payload, int(user["id"]), full_name,
+                    _TMA_CTX["get_db"], _TMA_CTX["bot"], _TMA_CTX["notify_new_order"]
+                ),
+                _TMA_CTX["loop"]
+            )
+            result = fut.result(timeout=20)
+        except ValueError as e:
+            self._send(400, json.dumps({"ok": False, "error": str(e)}, ensure_ascii=False).encode("utf-8"), "application/json; charset=utf-8")
+            return
+        except Exception as e:
+            self._send(500, json.dumps({"ok": False, "error": f"server error: {e}"}, ensure_ascii=False).encode("utf-8"), "application/json; charset=utf-8")
+            return
+
+        self._send(200, json.dumps({"ok": True, **result}, ensure_ascii=False).encode("utf-8"), "application/json; charset=utf-8")
+
+    def do_OPTIONS(self):
+        # CORS preflight для /tma/api/order
+        self.send_response(204)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, X-Tma-InitData, Authorization")
         self.end_headers()
 
     def log_message(self, format, *args):

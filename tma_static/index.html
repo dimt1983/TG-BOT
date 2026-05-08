@@ -1292,20 +1292,41 @@ function confirmOrder() {
     consent: consentState,
   };
 
-  if (tg?.sendData) {
-    tg.sendData(JSON.stringify(payload));
-    if (tg.HapticFeedback) tg.HapticFeedback.notificationOccurred('success');
-    toast(`🎉 Заказ на ${t.total} ₽ отправлен!`);
-    setTimeout(() => tg.close && tg.close(), 800);
-  } else {
-    toast(`🎉 Демо-заказ на ${t.total} ₽ — открой в Telegram для отправки`);
-    console.log('[TMA] Order payload:', payload);
-    setTimeout(() => {
-      cart = [];
-      localStorage.removeItem('rb_cart');
-      renderCart(); renderCartBadge();
-      goTo('home');
-    }, 1500);
+  submitOrderHttp(payload, t.total);
+}
+
+// Отправка заказа через HTTP POST на /tma/api/order — независимо от способа
+// открытия TMA (menu button / inline / reply / прямая ссылка).
+async function submitOrderHttp(payload, displayTotal) {
+  const initData = tg?.initData || '';
+  if (!initData) {
+    toast('⚠️ Откройте магазин из Telegram (нет initData)');
+    return;
+  }
+  const btn = document.getElementById('confirm-order-btn');
+  if (btn) { btn.disabled = true; btn.textContent = '⏳ Отправляем...'; }
+  try {
+    const r = await fetch('/tma/api/order', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'X-Tma-InitData': initData},
+      body: JSON.stringify(payload),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || !j.ok) {
+      const err = j.error || ('HTTP ' + r.status);
+      toast('❌ ' + err);
+      if (btn) { btn.disabled = false; btn.textContent = '🚀 Подтвердить заказ'; }
+      return;
+    }
+    if (tg?.HapticFeedback) tg.HapticFeedback.notificationOccurred('success');
+    toast(`🎉 Заказ #${j.order_id} на ${Math.round(j.total || displayTotal)} ₽ оформлен!`);
+    cart = []; localStorage.removeItem('rb_cart');
+    renderCart(); renderCartBadge();
+    myOrders = null; // сбросим кеш истории
+    setTimeout(() => goTo('orders'), 1200);
+  } catch (e) {
+    toast('Сеть недоступна: ' + e.message);
+    if (btn) { btn.disabled = false; btn.textContent = '🚀 Подтвердить заказ'; }
   }
 }
 

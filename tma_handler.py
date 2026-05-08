@@ -173,6 +173,117 @@ def parse_kg(fasovka_str: str) -> float | None:
 
 
 # ============================================================
+# 2b. Полный пайплайн обработки заказа из TMA (HTTP-вариант)
+# ============================================================
+
+async def process_tma_order(
+    payload: dict,
+    user_id: int,
+    user_full_name: str,
+    get_db,
+    bot: Bot,
+    notify_new_order=None,
+) -> dict:
+    """Создаёт заказ из payload (формат как в web_app_data), пишет в БД,
+    шлёт подтверждение пользователю и уведомления админам.
+
+    Возвращает {"order_id": int, "total": float, "is_new_client": bool}.
+    Бросает ValueError если payload некорректный.
+    """
+    if payload.get("type") != "order":
+        raise ValueError("type != 'order'")
+    items = payload.get("items", [])
+    if not items:
+        raise ValueError("Корзина пуста")
+
+    # Новый ли клиент
+    is_new_client = False
+    try:
+        con = get_db()
+        prior = con.execute(
+            "SELECT 1 FROM orders WHERE user_id=? LIMIT 1", (user_id,)
+        ).fetchone()
+        is_new_client = not prior
+        con.close()
+    except Exception:
+        pass
+
+    # Создаём заказ
+    con = get_db()
+    order_id = create_order_from_tma(con, user_id, payload)
+    con.close()
+
+    # Считаем итог
+    subtotal = sum(it["price"] * it["qty"] for it in items)
+    kg = sum((parse_kg(it.get("fasovka", "")) or 0) * it["qty"] for it in items)
+    disc_pct = 0.20 if kg >= 25 else 0.10 if kg >= 10 else 0
+    saved = round(subtotal * disc_pct)
+    total = subtotal - saved
+
+    # Сообщение покупателю
+    lines = [f"✅ <b>Заказ №{order_id} оформлен!</b>\n"]
+    for it in items[:15]:
+        lines.append(
+            f"• {it['name'][:48]}\n  <i>{it['qty']} × {it['price']} ₽ ({it.get('fasovka','')})</i>"
+        )
+    if len(items) > 15:
+        lines.append(f"... и ещё {len(items) - 15} позиций")
+    lines.append(f"\n💰 Сумма: {subtotal:.0f} ₽")
+    lines.append(f"⚖️ Вес кофе: {kg:.2f} кг")
+    if saved:
+        lines.append(f"🎁 Скидка {int(disc_pct*100)}%: −{saved} ₽")
+    lines.append(f"\n💳 <b>К оплате: {total:.0f} ₽</b>")
+    lines.append(
+        "\n📦 <b>Сроки</b>\n"
+        "  • Сборка и обжарка: 1–2 рабочих дня\n"
+        "  • Пермь — курьер/самовывоз: 1–2 дня\n"
+        "  • Регионы СДЭК: 3–7 рабочих дней"
+    )
+    lines.append("\n📞 Менеджер свяжется для подтверждения деталей доставки.")
+    try:
+        await bot.send_message(user_id, "\n".join(lines), parse_mode="HTML")
+    except Exception as e:
+        log.warning(f"TMA-HTTP: не удалось отправить подтверждение клиенту {user_id}: {e}")
+
+    # Уведомление админам
+    if notify_new_order:
+        try:
+            await notify_new_order(bot, order_id, user_full_name or "TMA-клиент", total)
+        except Exception as e:
+            log.warning(f"TMA-HTTP: не уведомили админа: {e}")
+
+    # Уведомление о новом клиенте
+    if is_new_client:
+        try:
+            from admin import ADMIN_IDS
+            contact = payload.get("contact") or {}
+            consent = payload.get("consent") or {}
+            consent_str = (
+                f"v{consent.get('version','?')} от {consent.get('signedAt','—')[:19]}"
+                if consent else "не подписано"
+            )
+            txt = (
+                f"🆕 <b>Новая регистрация клиента</b>\n\n"
+                f"👤 {user_full_name}\n"
+                f"🆔 tg_id: <code>{user_id}</code>\n"
+                f"📞 {contact.get('phone','—')}\n"
+                f"🏠 {contact.get('address','—')}\n"
+                f"📜 Согласие на обработку ПД: {consent_str}\n\n"
+                f"💼 Тип: {contact.get('type','individual')}\n"
+                f"🛒 Первый заказ: №{order_id} на {total:.0f} ₽"
+            )
+            for aid in ADMIN_IDS:
+                try:
+                    await bot.send_message(aid, txt, parse_mode="HTML")
+                except Exception as e:
+                    log.warning(f"TMA-HTTP: не уведомили {aid} о новом клиенте: {e}")
+        except Exception as e:
+            log.warning(f"TMA-HTTP: ошибка блока «новый клиент»: {e}")
+
+    return {"order_id": order_id, "total": total, "is_new_client": is_new_client}
+
+
+# ============================================================
 # 3. Telegram Payments: создание Invoice
 # ============================================================
 
