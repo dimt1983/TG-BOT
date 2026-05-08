@@ -52,14 +52,23 @@ body {
 .search-box { padding: 8px 16px 12px; }
 .search-box input { width: 100%; padding: 12px 16px; border-radius: 16px; border: none; background: var(--section); font-size: 15px; box-shadow: var(--shadow); outline: none; }
 
-.hero { padding: 0 16px; margin-bottom: 16px; }
-.hero-card { border-radius: var(--radius-lg); padding: 24px; color: white; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; min-height: 180px; display: flex; flex-direction: column; justify-content: flex-end; background-size: cover; background-position: center; }
+.hero { padding: 0 16px; margin-bottom: 4px; overflow: hidden; }
+.hero-track { display: flex; transition: transform 0.38s cubic-bezier(0.25,0.46,0.45,0.94); }
+.hero-card { min-width: 100%; flex-shrink: 0; border-radius: var(--radius-lg); padding: 24px; color: white; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; min-height: 180px; display: flex; flex-direction: column; justify-content: flex-end; background-size: cover; background-position: center; }
 .hero-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(62,39,35,0.85) 0%, rgba(111,78,55,0.6) 60%, rgba(0,0,0,0.4) 100%); }
 .hero-card > * { position: relative; z-index: 1; }
 .hero-card .eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.85; margin-bottom: 6px; }
 .hero-card h2 { font-size: 24px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.5px; }
 .hero-card p { font-size: 13px; opacity: 0.9; }
 .hero-card .cta { margin-top: 14px; display: inline-flex; align-self: flex-start; background: var(--accent); color: var(--primary-dark); padding: 10px 20px; border-radius: 12px; font-weight: 800; font-size: 13px; }
+.hero-card.rental-card::before { background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(13,92,89,0.5) 60%, rgba(0,0,0,0.35) 100%); }
+.hero-card.rental-card .cta { background: #1FB6B0; color: white; }
+.hero-dots { display: flex; justify-content: center; gap: 6px; margin: 10px 0 12px; }
+.hero-dot { width: 6px; height: 6px; border-radius: 3px; background: rgba(111,78,55,0.2); transition: all 0.3s; cursor: pointer; border: none; padding: 0; }
+.hero-dot.active { width: 18px; background: var(--primary); }
+/* Consulting tile */
+.top-cat-consulting { background: linear-gradient(135deg, #4a3f8a 0%, #1d1545 100%) !important; }
+.top-cat-consulting .top-cat-deco { position: absolute; right: 4px; top: 50%; transform: translateY(-60%); font-size: 66px; opacity: 0.18; z-index: 1; line-height: 1; pointer-events: none; user-select: none; }
 
 .section { padding: 0 16px; margin-bottom: 24px; }
 .section-h { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding: 0 4px; }
@@ -321,11 +330,23 @@ body {
     </div>
 
     <div class="hero">
-      <div class="hero-card" id="hero-card" onclick="document.getElementById('top-cats').scrollIntoView({behavior:'smooth', block:'start'})">
-        <div class="eyebrow">Опт-скидки</div>
-        <h2>От 10 кг — 10%, от 25 кг — 20%</h2>
-        <p>Корзина считает скидку автоматически по весу зерна.</p>
-        <div class="cta">К каталогу →</div>
+      <div class="hero-track" id="hero-track">
+        <div class="hero-card" id="hero-card" onclick="document.getElementById('top-cats').scrollIntoView({behavior:'smooth', block:'start'})">
+          <div class="eyebrow">Опт-скидки</div>
+          <h2>От 10 кг — 10%, от 25 кг — 20%</h2>
+          <p>Корзина считает скидку автоматически по весу зерна.</p>
+          <div class="cta">К каталогу →</div>
+        </div>
+        <div class="hero-card rental-card" style="background-image:url('assets/nimbus_hero.jpg')" onclick="openRentalKP()">
+          <div class="eyebrow">Аренда оборудования</div>
+          <h2>NIMBUS V.4 + WPM ZD-18</h2>
+          <p>Дуэт мечты для вашей точки — без вложений в покупку.</p>
+          <div class="cta">Получить КП →</div>
+        </div>
+      </div>
+      <div class="hero-dots">
+        <button class="hero-dot active" onclick="heroGoTo(0)"></button>
+        <button class="hero-dot" onclick="heroGoTo(1)"></button>
       </div>
     </div>
 
@@ -335,7 +356,7 @@ body {
     </div>
 
     <div class="section">
-      <div class="section-h"><h3>Хиты продаж</h3><span id="hits-count">—</span></div>
+      <div class="section-h"><h3 id="recent-title">Ранее заказывали</h3><span id="hits-count">—</span></div>
       <div id="hits-list"></div>
     </div>
   </div>
@@ -796,13 +817,42 @@ function detailFasovka(p) {
 async function load() {
   const r = await fetch('products.json?v=' + Date.now());
   DATA = await r.json();
-  // Hero — фасад RB-кофейни
-  const hero = document.getElementById('hero-card');
-  hero.style.backgroundImage = `url('assets/hero_facade.jpg')`;
+  document.getElementById('hero-card').style.backgroundImage = `url('assets/hero_facade.jpg')`;
   renderTopCats();
   renderHits();
   renderCartBadge();
   renderProfile();
+  heroStartAuto();
+}
+
+// === Hero carousel ===
+let _heroSlide = 0;
+let _heroTimer = null;
+function heroGoTo(idx) {
+  _heroSlide = ((idx % 2) + 2) % 2;
+  document.getElementById('hero-track').style.transform = `translateX(-${_heroSlide * 100}%)`;
+  document.querySelectorAll('.hero-dot').forEach((d, i) => d.classList.toggle('active', i === _heroSlide));
+}
+function heroStartAuto() {
+  clearInterval(_heroTimer);
+  _heroTimer = setInterval(() => heroGoTo(_heroSlide + 1), 5000);
+}
+(function() {
+  const track = document.getElementById('hero-track');
+  if (!track) return;
+  let sx = 0;
+  track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, {passive: true});
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) > 44) { heroGoTo(_heroSlide + (dx < 0 ? 1 : -1)); heroStartAuto(); }
+  }, {passive: true});
+})();
+
+function openRentalKP() {
+  const bot = window.tg?.initDataUnsafe?.start_param || 'rcr_btb_bot';
+  const url = `https://t.me/${bot}?start=rental_kp`;
+  if (tg?.openTelegramLink) tg.openTelegramLink(url);
+  else window.open(url, '_blank');
 }
 
 // Брендовые тайлы для топ-категорий (солидный цвет + надпись, без фото товаров)
@@ -828,10 +878,18 @@ function renderTopCats() {
     const tile = CAT_TILES[cat.id];
     const subCount = DATA.subcategories.filter(s => s.parent === cat.id).length;
     const prodCount = DATA.products.filter(p => p.category === cat.id).length;
+    if (cat.id === 'consulting') {
+      return `<button class="top-cat top-cat-consulting" onclick="openCategory('consulting')">
+        <span class="top-cat-deco">🎓</span>
+        <div class="label">
+          <div class="name">Консалтинг</div>
+          <div class="meta">${prodCount} курсов</div>
+        </div>
+      </button>`;
+    }
     const bg = tile
       ? `background-image: url('${tile}'); background-color: ${cat.color};`
       : `background: linear-gradient(135deg, ${cat.color}, ${shadeColor(cat.color, -25)});`;
-    // На брендовом тайле название уже отрисовано — показываем только метаданные мелким шрифтом
     return `<button class="top-cat${tile ? ' branded' : ''}" style="${bg}" onclick="openCategory('${cat.id}')">
       <div class="label">
         ${tile ? '' : `<div class="name">${cat.name}</div>`}
@@ -841,10 +899,41 @@ function renderTopCats() {
   }).join('');
 }
 
-function renderHits() {
-  const list = DATA.products.filter(p => (p.tags || []).includes('Хит') || (p.tags || []).includes('Black Edition')).slice(0, 5);
-  document.getElementById('hits-count').textContent = list.length + ' топ';
-  document.getElementById('hits-list').innerHTML = list.map(p => productCard(p)).join('') || '<div style="color:var(--hint);font-size:13px;padding:8px">Нет хитов</div>';
+async function renderHits() {
+  const titleEl = document.getElementById('recent-title');
+  const countEl = document.getElementById('hits-count');
+  const listEl  = document.getElementById('hits-list');
+
+  // Пробуем показать историю конкретного пользователя
+  const orders = await loadMyOrders();
+  if (orders && orders.length > 0) {
+    const seen = new Set();
+    const recent = [];
+    for (const order of orders) {
+      for (const item of (order.items || [])) {
+        const name = item.product_name;
+        if (name && !seen.has(name)) {
+          seen.add(name);
+          const prod = DATA.products.find(p => p.name === name);
+          if (prod) recent.push(prod);
+        }
+        if (recent.length >= 5) break;
+      }
+      if (recent.length >= 5) break;
+    }
+    if (recent.length > 0) {
+      if (titleEl) titleEl.textContent = 'Ранее заказывали';
+      if (countEl) countEl.textContent = recent.length + ' позиций';
+      listEl.innerHTML = recent.map(p => productCard(p)).join('');
+      return;
+    }
+  }
+
+  // Fallback — хиты продаж
+  const hits = DATA.products.filter(p => (p.tags || []).includes('Хит') || (p.tags || []).includes('Black Edition')).slice(0, 5);
+  if (titleEl) titleEl.textContent = 'Хиты продаж';
+  if (countEl) countEl.textContent = hits.length + ' топ';
+  listEl.innerHTML = hits.map(p => productCard(p)).join('') || '<div style="color:var(--hint);font-size:13px;padding:8px">Нет хитов</div>';
 }
 
 function productCard(p, subContext) {
