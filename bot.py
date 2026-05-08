@@ -9,8 +9,8 @@ import sqlite3
 from aiogram import Bot, Dispatcher, F
 from aiogram.filters import CommandStart, Command
 from aiogram.types import (
-    Message, ReplyKeyboardMarkup, KeyboardButton,
-    InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+    Message, ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove,
+    InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, WebAppInfo,
 )
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
@@ -41,6 +41,8 @@ def get_discount(total_kg: float) -> float:
     return 0.0
 
 # ─── FSM ─────────────────────────────────────────────────────────────────────
+# RegStates — оставлено на запас (вход не предлагается из /start, заказы
+# оформляются через TMA, но обработчики живы для совместимости).
 class RegStates(StatesGroup):
     choosing_type       = State()
     waiting_name        = State()
@@ -51,18 +53,6 @@ class RegStates(StatesGroup):
     waiting_actual_addr = State()
     waiting_ur_phone    = State()
     waiting_email       = State()
-
-class OrderStates(StatesGroup):
-    confirm_profile  = State()
-    waiting_name     = State()
-    waiting_phone    = State()
-    waiting_address  = State()
-
-class NavStates(StatesGroup):
-    """FSM для навигации по каталогу через Reply-кнопки."""
-    in_catalog   = State()   # выбор раздела (Кофе/Чай/Сиропы/Молоко)
-    in_section   = State()   # подраздел (бренд чая, тип кофе...)
-    in_subsection = State()  # формат (пакет/лист/для чайника)
 
 # ─── БД ──────────────────────────────────────────────────────────────────────
 CATALOG = {
@@ -1070,8 +1060,6 @@ def init_db():
         ("description", "TEXT"), ("recipe_e", "TEXT"), ("recipe_f", "TEXT"),
         ("roast_type", "TEXT"), ("process", "TEXT"), ("weight_g", "INTEGER DEFAULT 1000"),
         ("photo_url", "TEXT"),
-        ("price_10kg", "REAL DEFAULT 0"),  # цена при заказе от 10 кг (-10%)
-        ("price_25kg", "REAL DEFAULT 0"),  # цена при заказе от 25 кг (-20%)
     ]:
         if col not in prod_cols:
             cur.execute(f"ALTER TABLE products ADD COLUMN {col} {typ}")
@@ -1428,45 +1416,25 @@ def calc_cart_totals(user_id: int):
     return items_with_price, subtotal, disc_pct, discount_amt, total, total_kg, has_personal
 
 # ─── Клавиатуры ──────────────────────────────────────────────────────────────
-main_keyboard = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton(text="☕ Каталог"),      KeyboardButton(text="🛒 Корзина")],
-        [KeyboardButton(text="⭐ Избранное"),    KeyboardButton(text="📋 Мои заказы")],
-        [KeyboardButton(text="📦 Остатки"),      KeyboardButton(text="📞 Контакты")],
-        [KeyboardButton(text="👤 Мой профиль")],
-    ],
-    resize_keyboard=True
-)
+# В чате — только одна Reply-кнопка для запуска Mini App.
+# Если TMA_URL не задан — показываем чистый чат без клавы.
+TMA_URL = os.environ.get("TMA_URL", "")
+if TMA_URL:
+    main_keyboard = ReplyKeyboardMarkup(
+        keyboard=[[KeyboardButton(
+            text="🛍 Открыть магазин",
+            web_app=WebAppInfo(url=TMA_URL),
+        )]],
+        resize_keyboard=True,
+    )
+else:
+    main_keyboard = ReplyKeyboardRemove()
 
-def make_reply_kb(buttons: list, back: bool = True) -> ReplyKeyboardMarkup:
-    """Создаёт Reply-клавиатуру из списка строк. По 2 кнопки в ряд."""
-    rows = []
-    row = []
-    for btn in buttons:
-        row.append(KeyboardButton(text=btn))
-        if len(row) == 2:
-            rows.append(row)
-            row = []
-    if row:
-        rows.append(row)
-    if back:
-        rows.append([KeyboardButton(text="◀ Назад")])
-    return ReplyKeyboardMarkup(keyboard=rows, resize_keyboard=True)
-
-# ── Каталог верхнего уровня ──────────────────────────────────────────────────
-CATALOG_TOP = ["☕ Кофе", "🍵 Чай", "🍬 Сиропы", "🥛 Молоко"]
-catalog_top_kb = make_reply_kb(CATALOG_TOP)
-
-# ── Подразделы КОФЕ ───────────────────────────────────────────────────────────
+# Константы данных (используются _seed_catalog для seed при первой инициализации БД)
+CATALOG_TOP     = ["☕ Кофе", "🍵 Чай", "🍬 Сиропы", "🥛 Молоко"]
 COFFEE_SECTIONS = ["Моносорта", "Микролоты Black Edition", "Микролоты Борщ Edition",
                    "Смеси", "Drip", "Nespresso"]
-coffee_kb = make_reply_kb(COFFEE_SECTIONS)
-
-# ── Бренды ЧАЯ ────────────────────────────────────────────────────────────────
-TEA_BRANDS = ["ALTHAUS", "NIKTEA", "RBR TEA", "Китайский чай", "Restoranica"]
-tea_brands_kb = make_reply_kb(TEA_BRANDS)
-
-# ── Форматы чая по бренду ─────────────────────────────────────────────────────
+TEA_BRANDS      = ["ALTHAUS", "NIKTEA", "RBR TEA", "Китайский чай", "Restoranica"]
 TEA_FORMATS = {
     "ALTHAUS":       ["Для чайника", "Листовой", "Пакетированный"],
     "NIKTEA":        ["Для чайника", "Пакетированный", "Пирамидки"],
@@ -1474,162 +1442,18 @@ TEA_FORMATS = {
     "Китайский чай": ["Листовой"],
     "Restoranica":   ["ICEDTEA-400", "RESTA-650", "TOGO-350"],
 }
-
-# ── Бренды СИРОПОВ ────────────────────────────────────────────────────────────
 SYRUP_BRANDS = ["BOTANIKA", "Herbarista", "SweetShot", "BARLINE", "Кордиал и другие"]
-syrup_brands_kb = make_reply_kb(SYRUP_BRANDS)
 
-user_type_keyboard = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text="👤 Физическое лицо", callback_data="reg_individual")],
-    [InlineKeyboardButton(text="🏢 Юридическое лицо", callback_data="reg_company")],
-])
-
-ROAST_EMOJI = {"E": "☕", "F": "🫖", "EF": "☕🫖", "BE": "☕", "BF": "🫖", "Drip": "💧", "Nespresso": "💊"}
-
-def root_categories_keyboard():
-    """Верхний уровень: Кофе, Чай, Сиропы, Молоко."""
-    con = get_db()
-    cats = con.execute("SELECT * FROM categories WHERE parent_id IS NULL").fetchall()
-    con.close()
-    return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text=c["name"], callback_data=f"cat_{c['id']}")]
-        for c in cats
-    ])
-
-def subcategories_keyboard(parent_id):
-    """Подкатегории внутри раздела (например, бренды чая/сиропов или разделы кофе)."""
-    con = get_db()
-    parent = con.execute("SELECT * FROM categories WHERE id = ?", (parent_id,)).fetchone()
-    cats = con.execute("SELECT * FROM categories WHERE parent_id = ?", (parent_id,)).fetchall()
-    con.close()
-    buttons = [[InlineKeyboardButton(text=c["name"], callback_data=f"cat_{c['id']}")]
-               for c in cats]
-    # Кнопка назад — к верхнему уровню
-    buttons.append([InlineKeyboardButton(text="◀ Назад", callback_data="back_root")])
-    return InlineKeyboardMarkup(inline_keyboard=buttons)
-
-def products_keyboard(category_id):
-    con = get_db()
-    products = con.execute(
-        "SELECT * FROM products WHERE category_id = ? AND stock > 0 ORDER BY name",
-        (category_id,)
-    ).fetchall()
-    cat = con.execute("SELECT * FROM categories WHERE id = ?", (category_id,)).fetchone()
-    con.close()
-
-    # Группируем по базовому названию (без " 1 кг" / " 200 г" / " (8 шт)" etc.)
-    seen_base = {}
-    for p in products:
-        base = p["name"]
-        for suffix in [" 1 кг", " 200 г", " (8 шт)", " (10 шт)", " (1 шт)"]:
-            base = base.replace(suffix, "")
-        if base not in seen_base:
-            seen_base[base] = p  # первый вариант этого товара
-
-    buttons = []
-    for base, p in seen_base.items():
-        roast = p["roast_type"] or ""
-        emoji = ROAST_EMOJI.get(roast, "☕")
-        buttons.append([InlineKeyboardButton(
-            text=f"{emoji} {base[:45]}",
-            callback_data=f"product_{p['id']}"
-        )])
-    # Кнопка "Назад" — к подкатегориям родителя
-    con2 = get_db()
-    cat = con2.execute("SELECT parent_id FROM categories WHERE id = ?", (category_id,)).fetchone()
-    con2.close()
-    if cat and cat["parent_id"]:
-        back_cb = f"cat_{cat['parent_id']}"
-    else:
-        back_cb = "back_root"
-    buttons.append([InlineKeyboardButton(text="◀ Назад", callback_data=back_cb)])
-    return InlineKeyboardMarkup(inline_keyboard=buttons), len(products)
-
-def product_card_keyboard(product_id, category_id, has_recipe_e, has_recipe_f):
-    """Клавиатура карточки товара с кнопками фасовки, рецептов, фото."""
-    con = get_db()
-    p = con.execute("SELECT * FROM products WHERE id = ?", (product_id,)).fetchone()
-    con.close()
-
-    # Ищем альтернативные фасовки этого товара
-    base_name = p["name"]
-    for suffix in [" 1 кг", " 200 г", " (8 шт)", " (10 шт)", " (1 шт)"]:
-        base_name = base_name.replace(suffix, "")
-
-    con = get_db()
-    variants = con.execute(
-        "SELECT * FROM products WHERE name LIKE ? AND category_id = ? AND stock > 0 ORDER BY weight_g",
-        (f"{base_name}%", category_id)
-    ).fetchall()
-    con.close()
-
-    buttons = []
-
-    # Кнопки фасовок
-    if len(variants) > 1:
-        size_row = []
-        for v in variants:
-            label = _variant_label(v)
-            marker = "✅ " if v["id"] == product_id else ""
-            size_row.append(InlineKeyboardButton(
-                text=f"{marker}{label} — {v['price']:.0f} ₽",
-                callback_data=f"product_{v['id']}"
-            ))
-        # По 2 кнопки в ряд
-        for i in range(0, len(size_row), 2):
-            buttons.append(size_row[i:i+2])
-
-    # Кнопки действий
-    action_row = [InlineKeyboardButton(text="➕ В корзину", callback_data=f"add_{product_id}")]
-    if p["photo_url"]:
-        action_row.append(InlineKeyboardButton(text="📸 Фото", callback_data=f"photo_{product_id}"))
-    buttons.append(action_row)
-
-    # Рецепты
-    recipe_row = []
-    if has_recipe_e:
-        recipe_row.append(InlineKeyboardButton(text="☕ Рецепт эспрессо", callback_data=f"recipe_e_{product_id}"))
-    if has_recipe_f:
-        recipe_row.append(InlineKeyboardButton(text="🫖 Рецепт фильтр", callback_data=f"recipe_f_{product_id}"))
-    if recipe_row:
-        buttons.append(recipe_row)
-
-    buttons.append([
-        InlineKeyboardButton(text="⭐ В избранное", callback_data=f"wish_add_{product_id}"),
-    ])
-    buttons.append([InlineKeyboardButton(text="◀ Назад", callback_data=f"cat_{category_id}")])
-    return InlineKeyboardMarkup(inline_keyboard=buttons)
-
-def _variant_label(v) -> str:
-    if v["roast_type"] == "Drip":
-        return f"{v['weight_g']} шт" if v["weight_g"] > 1 else "1 шт"
-    if v["roast_type"] == "Nespresso":
-        return f"{v['weight_g']} шт" if v["weight_g"] > 1 else "1 шт"
-    return f"{v['weight_g']} г" if v["weight_g"] < 1000 else "1 кг"
-
-def cart_keyboard(items):
-    buttons = [[InlineKeyboardButton(
-        text=f"❌ {it['name'][:35]}", callback_data=f"remove_{it['cart_id']}"
-    )] for it in items]
-    buttons.append([InlineKeyboardButton(text="🎁 Ввести промокод",    callback_data="enter_promo")])
-    buttons.append([InlineKeyboardButton(text="✅ Оформить заказ",     callback_data="checkout")])
-    buttons.append([InlineKeyboardButton(text="🗑 Очистить корзину",   callback_data="clear_cart")])
-    return InlineKeyboardMarkup(inline_keyboard=buttons)
-
-# ─── /start и регистрация ─────────────────────────────────────────────────────
+# ─── /start ──────────────────────────────────────────────────────────────────
 @dp.message(CommandStart())
 async def start_handler(message: Message, state: FSMContext):
-    user = get_user(message.from_user.id)
-    if user:
-        display = user["company_name"] if user["user_type"] == "company" else user["name"]
-        await message.answer(f"👋 С возвращением, *{display}*! ☕",
-                             parse_mode="Markdown", reply_markup=main_keyboard)
-    else:
-        await message.answer(
-            "👋 Добро пожаловать в *Roastberry Coffee*!\n\nВыберите тип аккаунта:",
-            parse_mode="Markdown", reply_markup=user_type_keyboard
-        )
-        await state.set_state(RegStates.choosing_type)
+    await state.clear()
+    text = (
+        "👋 *Roastberry Coffee*\n\n"
+        "Магазин — в приложении (кнопка ниже). "
+        "Можно задать вопрос текстом — отвечу что знаю про каталог, заказы и доставку."
+    )
+    await message.answer(text, parse_mode="Markdown", reply_markup=main_keyboard)
 
 @dp.callback_query(F.data == "reg_individual", RegStates.choosing_type)
 async def reg_individual(callback: CallbackQuery, state: FSMContext):
@@ -1708,1122 +1532,6 @@ async def reg_email(message: Message, state: FSMContext):
     await state.clear()
     await message.answer(f"✅ *{data['company_name']}* — регистрация завершена! ☕",
                          parse_mode="Markdown", reply_markup=main_keyboard)
-
-# ─── Профиль ─────────────────────────────────────────────────────────────────
-@dp.message(F.text == "👤 Мой профиль")
-async def profile_handler(message: Message):
-    user = get_user(message.from_user.id)
-    if not user:
-        await message.answer("Вы не зарегистрированы. Нажмите /start"); return
-    if user["user_type"] == "company":
-        text = (f"🏢 *{user['company_name']}*\n"
-                f"ИНН: {user['inn']}\n"
-                f"📱 {user['phone']} | 📧 {user['email']}\n"
-                f"Юр. адрес: {user['legal_address']}\n"
-                f"Факт. адрес: {user['actual_address']}")
-    else:
-        text = (f"👤 *{user['name']}*\n"
-                f"📱 {user['phone']}\n"
-                f"🏠 {user['address'] or 'адрес не указан'}")
-    await message.answer(text, parse_mode="Markdown")
-
-# ─── Контакты ─────────────────────────────────────────────────────────────────
-@dp.message(F.text == "📞 Контакты")
-async def contacts_handler(message: Message):
-    await message.answer(
-        "📞 *Roastberry Coffee*\n\n"
-        "🌐 roastberry.coffee\n"
-        "📦 Доставка по всей России (СДЭК)\n\n"
-        "💰 *Система скидок:*\n"
-        "• от 10 кг зерна — скидка 10%\n"
-        "• от 25 кг зерна — скидка 20%\n"
-        "• от 100 кг — спецпрайс (свяжитесь с нами)",
-        parse_mode="Markdown"
-    )
-
-# ─── Навигация по каталогу через Reply-кнопки ────────────────────────────────
-
-def get_products_by_cat_name(cat_name: str):
-    """Возвращает товары по имени категории из БД."""
-    con = get_db()
-    cat = con.execute("SELECT id FROM categories WHERE name = ?", (cat_name,)).fetchone()
-    if not cat:
-        con.close()
-        return [], 0
-    products = con.execute(
-        "SELECT * FROM products WHERE category_id = ? AND stock > 0 ORDER BY name",
-        (cat["id"],)
-    ).fetchall()
-    cat_id = cat["id"]
-    con.close()
-    return products, cat_id
-
-def get_base_name(name: str) -> str:
-    """Убирает фасовку из названия."""
-    for sfx in [" 1 кг", " 200 г", " (8 шт)", " (10 шт)", " (1 шт)"]:
-        name = name.replace(sfx, "")
-    return name.strip()
-
-def get_size_label(name: str) -> str:
-    """Возвращает метку фасовки из названия."""
-    if "200 г" in name: return "200 г"
-    if "1 кг" in name: return "1 кг"
-    if "(8 шт)" in name: return "8 шт"
-    if "(10 шт)" in name: return "10 шт"
-    if "(1 шт)" in name: return "1 шт"
-    return ""
-
-def build_product_list_kb(products_list: list, user_id: int,
-                           expanded_base: str = None) -> InlineKeyboardMarkup:
-    """
-    Строит плоский список товаров.
-    Не в корзине: одна широкая кнопка на всю строку
-        [ ➕ Название · 2015₽ ]
-    В корзине: показ + счётчик
-        [ ✓ Название · 2015₽ ]
-        [ −  2 шт  + ]
-    Тап по названию = добавить 1 шт (если нет в корзине) или открыть карточку (если есть).
-    Открыть карточку без добавления — длинный тап (callback "p_id" с приставкой).
-    Для простоты: первый тап на не-корзинный товар → добавляем сразу.
-    """
-    con = get_db()
-    cart_rows = con.execute(
-        "SELECT product_id, quantity FROM cart WHERE user_id = ?", (user_id,)
-    ).fetchall()
-    con.close()
-    cart = {r["product_id"]: r["quantity"] for r in cart_rows}
-
-    def _short_name(name: str) -> str:
-        s = name.strip()
-        s = s.replace(" 1 кг", " 1кг").replace(" 200 г", " 200г")
-        s = s.replace(" (8 шт)", " ×8").replace(" (10 шт)", " ×10").replace(" (1 шт)", "")
-        while "  " in s:
-            s = s.replace("  ", " ")
-        return s
-
-    buttons = []
-    for p in products_list:
-        pid = p["id"]
-        name = _short_name(p["name"])
-        price = p["price"] or 0
-        qty = cart.get(pid, 0)
-
-        # На широкую кнопку влезает примерно 38-40 символов в Telegram-mobile.
-        # Резервируем место под цену и иконку.
-        price_part = f" · {price:.0f}₽" if price else ""
-        prefix = "✓ " if qty > 0 else "➕ "
-        # Целевая длина строки = 40, минус префикс и цена = доступно для имени
-        avail = 40 - len(prefix) - len(price_part)
-        if avail < 8:
-            avail = 8
-        if len(name) > avail:
-            name = name[:avail - 1] + "…"
-        label = f"{prefix}{name}{price_part}"
-
-        if qty > 0:
-            # 1-я строка — название (открывает карточку)
-            # 2-я строка — счётчик
-            buttons.append([
-                InlineKeyboardButton(text=label, callback_data=f"product_{pid}"),
-            ])
-            buttons.append([
-                InlineKeyboardButton(text="−", callback_data=f"qminus_{pid}"),
-                InlineKeyboardButton(text=f"{qty} шт", callback_data=f"product_{pid}"),
-                InlineKeyboardButton(text="+", callback_data=f"qplus_{pid}"),
-            ])
-        else:
-            # Одна большая кнопка — клик добавляет в корзину
-            buttons.append([
-                InlineKeyboardButton(text=label, callback_data=f"qplus_{pid}"),
-            ])
-
-    return InlineKeyboardMarkup(inline_keyboard=buttons)
-
-
-async def show_products_for_cat(message: Message, cat_name: str, back_kb, state: FSMContext):
-    """Показывает инлайн-список товаров для финальной категории со счётчиками."""
-    products, cat_id = get_products_by_cat_name(cat_name)
-    if not products:
-        await message.answer(f"😔 В разделе *{cat_name}* пока нет товаров в наличии.",
-                             parse_mode="Markdown", reply_markup=back_kb)
-        return
-
-    # Плоский список без дедупликации — каждая фасовка отдельной строкой
-    products_list = list(products)[:40]
-
-    section_label = cat_name.split(" — ")[-1] if " — " in cat_name else cat_name
-    kb = build_product_list_kb(products_list, message.from_user.id)
-    await message.answer(
-        f"*{section_label}* — {len(products_list)} позиций:",
-        parse_mode="Markdown",
-        reply_markup=kb
-    )
-    await state.clear()
-    await message.answer("Нажмите ➕ чтобы добавить в корзину:",
-                         reply_markup=main_keyboard)
-
-# ─── Шаг 1: вход в каталог ───────────────────────────────────────────────────
-@dp.message(F.text == "☕ Каталог")
-async def catalog_handler(message: Message, state: FSMContext):
-    await state.set_state(NavStates.in_catalog)
-    await state.update_data(nav_path=[])
-    await message.answer(
-        "🛍 *Каталог Roastberry*\n\nВыберите раздел:",
-        parse_mode="Markdown",
-        reply_markup=catalog_top_kb
-    )
-
-# ─── Шаг 2: выбор раздела (Кофе/Чай/Сиропы/Молоко) ─────────────────────────
-@dp.message(NavStates.in_catalog)
-async def nav_top(message: Message, state: FSMContext):
-    text = message.text.strip()
-
-    if text == "◀ Назад":
-        await state.clear()
-        await message.answer("Главное меню:", reply_markup=main_keyboard)
-        return
-
-    if text == "☕ Кофе":
-        await state.set_state(NavStates.in_section)
-        await state.update_data(nav_section="☕ Кофе")
-        await message.answer("☕ *Кофе* — выберите раздел:", parse_mode="Markdown",
-                             reply_markup=coffee_kb)
-
-    elif text == "🍵 Чай":
-        await state.set_state(NavStates.in_section)
-        await state.update_data(nav_section="🍵 Чай")
-        await message.answer("🍵 *Чай* — выберите бренд:", parse_mode="Markdown",
-                             reply_markup=tea_brands_kb)
-
-    elif text == "🍬 Сиропы":
-        await state.set_state(NavStates.in_section)
-        await state.update_data(nav_section="🍬 Сиропы")
-        await message.answer("🍬 *Сиропы* — выберите бренд:", parse_mode="Markdown",
-                             reply_markup=syrup_brands_kb)
-
-    elif text == "🥛 Молоко":
-        # Молоко — сразу товары
-        await state.clear()
-        products, cat_id = get_products_by_cat_name("🥛 Молоко")
-        if not products:
-            await message.answer("😔 Молоко временно недоступно.", reply_markup=main_keyboard)
-            return
-        kb = build_product_list_kb(list(products), message.from_user.id)
-        await message.answer("🥛 *Молоко Green Milk:*", parse_mode="Markdown", reply_markup=kb)
-        await message.answer("Нажмите [ + ] чтобы добавить в корзину:", reply_markup=main_keyboard)
-
-# ─── Шаг 3: выбор подраздела (бренд чая / раздел кофе) ──────────────────────
-@dp.message(NavStates.in_section)
-async def nav_section(message: Message, state: FSMContext):
-    text = message.text.strip()
-    data = await state.get_data()
-    section = data.get("nav_section", "")
-
-    if text == "◀ Назад":
-        await state.set_state(NavStates.in_catalog)
-        await message.answer("🛍 Выберите раздел:", reply_markup=catalog_top_kb)
-        return
-
-    # ── КОФЕ: Моносорта → выбор типа обжарки ────────────────────────────────
-    if section == "☕ Кофе" and text == "Моносорта":
-        await state.set_state(NavStates.in_subsection)
-        await state.update_data(nav_brand="Моносорта")
-        roast_kb = make_reply_kb(["☕ Эспрессо", "🫖 Фильтр", "☕🫖 Универсальный"])
-        await message.answer("*Моносорта* — выберите тип обжарки:",
-                             parse_mode="Markdown", reply_markup=roast_kb)
-        return
-
-    # ── КОФЕ: Смеси → выбор типа обжарки ────────────────────────────────────
-    if section == "☕ Кофе" and text == "Смеси":
-        await state.set_state(NavStates.in_subsection)
-        await state.update_data(nav_brand="Смеси")
-        roast_kb = make_reply_kb(["☕ Эспрессо блэнд", "🫖 Фильтр блэнд"])
-        await message.answer("*Смеси* — выберите тип:", parse_mode="Markdown",
-                             reply_markup=roast_kb)
-        return
-
-    # ── КОФЕ: остальные разделы — сразу товары ───────────────────────────────
-    if section == "☕ Кофе" and text in COFFEE_SECTIONS:
-        await state.clear()
-        await show_products_for_cat(message, text, coffee_kb, state)
-        return
-
-    # ── ЧАЙ: выбор бренда → формат ───────────────────────────────────────────
-    if section == "🍵 Чай" and text in TEA_BRANDS:
-        formats = TEA_FORMATS.get(text, [])
-        if len(formats) == 1:
-            # Только один формат — сразу товары
-            await state.clear()
-            cat_name = f"{text} — {formats[0]}"
-            await show_products_for_cat(message, cat_name, tea_brands_kb, state)
-        else:
-            await state.set_state(NavStates.in_subsection)
-            await state.update_data(nav_brand=text)
-            fmt_kb = make_reply_kb(formats)
-            await message.answer(f"*{text}* — выберите формат:", parse_mode="Markdown",
-                                 reply_markup=fmt_kb)
-        return
-
-    # ── СИРОПЫ: финальные категории ───────────────────────────────────────────
-    if section == "🍬 Сиропы" and text in SYRUP_BRANDS:
-        await state.clear()
-        await show_products_for_cat(message, text, syrup_brands_kb, state)
-        return
-
-# ─── Шаг 4: выбор формата чая → товары ───────────────────────────────────────
-@dp.message(NavStates.in_subsection)
-async def nav_subsection(message: Message, state: FSMContext):
-    text = message.text.strip()
-    data = await state.get_data()
-    brand = data.get("nav_brand", "")
-
-    if text == "◀ Назад":
-        await state.set_state(NavStates.in_section)
-        await state.update_data(nav_section="🍵 Чай")
-        await message.answer("🍵 Выберите бренд:", reply_markup=tea_brands_kb)
-        return
-
-    # ── Тип обжарки кофе (Моносорта/Смеси) ──────────────────────────────────
-    if brand == "Моносорта":
-        roast_map = {
-            "☕ Эспрессо":       "E",
-            "🫖 Фильтр":         "F",
-            "☕🫖 Универсальный": "EF",
-        }
-        if text in roast_map:
-            roast_code = roast_map[text]
-            con = get_db()
-            cat = con.execute("SELECT id FROM categories WHERE name = ?", ("Моносорта",)).fetchone()
-            if cat:
-                prods = con.execute(
-                    "SELECT * FROM products WHERE category_id = ? AND stock > 0 AND roast_type = ? ORDER BY name",
-                    (cat["id"], roast_code)
-                ).fetchall()
-            else:
-                prods = []
-            con.close()
-            roast_kb = make_reply_kb(["☕ Эспрессо", "🫖 Фильтр", "☕🫖 Универсальный"])
-            if not prods:
-                await message.answer(f"😔 Нет товаров для обжарки {text}",
-                                     reply_markup=roast_kb)
-                return
-            await state.clear()
-            kb = build_product_list_kb(list(prods), message.from_user.id)
-            await message.answer(
-                f"*Моносорта {text}* — {len(prods)} позиций:",
-                parse_mode="Markdown",
-                reply_markup=kb
-            )
-            await message.answer("Нажмите [ + ] чтобы добавить в корзину:", reply_markup=main_keyboard)
-        return
-
-    if brand == "Смеси":
-        blend_map = {
-            "☕ Эспрессо блэнд": "BE",
-            "🫖 Фильтр блэнд":   "BF",
-        }
-        if text in blend_map:
-            blend_code = blend_map[text]
-            con = get_db()
-            cat = con.execute("SELECT id FROM categories WHERE name = ?", ("Смеси",)).fetchone()
-            if cat:
-                prods = con.execute(
-                    "SELECT * FROM products WHERE category_id = ? AND stock > 0 AND roast_type = ? ORDER BY name",
-                    (cat["id"], blend_code)
-                ).fetchall()
-            else:
-                prods = []
-            con.close()
-            blend_kb = make_reply_kb(["☕ Эспрессо блэнд", "🫖 Фильтр блэнд"])
-            if not prods:
-                await message.answer(f"😔 Нет товаров для {text}", reply_markup=blend_kb)
-                return
-            await state.clear()
-            kb = build_product_list_kb(list(prods), message.from_user.id)
-            await message.answer(
-                f"*Смеси {text}* — {len(prods)} позиций:",
-                parse_mode="Markdown",
-                reply_markup=kb
-            )
-            await message.answer("Нажмите [ + ] чтобы добавить в корзину:", reply_markup=main_keyboard)
-        return
-
-    # ── Формат чая ────────────────────────────────────────────────────────────
-    formats = TEA_FORMATS.get(brand, [])
-    if text in formats:
-        cat_name = f"{brand} — {text}"
-        back_kb = make_reply_kb(formats)
-        await state.clear()
-        await show_products_for_cat(message, cat_name, back_kb, state)
-
-# ─── Инлайн-кнопка "назад" из товаров молока ─────────────────────────────────
-@dp.callback_query(F.data == "nav_back_top")
-async def nav_back_top(callback: CallbackQuery, state: FSMContext):
-    await state.set_state(NavStates.in_catalog)
-    await callback.message.answer("🛍 Выберите раздел:", reply_markup=catalog_top_kb)
-    await callback.answer()
-
-# ─── Старый обработчик inline cat_ (для совместимости) ───────────────────────
-@dp.callback_query(F.data == "back_root")
-async def back_root(callback: CallbackQuery, state: FSMContext):
-    await state.set_state(NavStates.in_catalog)
-    await callback.message.answer("🛍 *Каталог Roastberry*\n\nВыберите раздел:",
-                                  parse_mode="Markdown", reply_markup=catalog_top_kb)
-    await callback.answer()
-
-@dp.callback_query(F.data.startswith("cat_"))
-async def cat_handler(callback: CallbackQuery, state: FSMContext):
-    """Обратная совместимость с инлайн-кнопками."""
-    cat_id = int(callback.data.split("_")[1])
-    con = get_db()
-    cat = con.execute("SELECT * FROM categories WHERE id = ?", (cat_id,)).fetchone()
-    has_subcats = con.execute(
-        "SELECT COUNT(*) FROM categories WHERE parent_id = ?", (cat_id,)
-    ).fetchone()[0]
-    con.close()
-    if not cat:
-        await callback.answer("Раздел не найден."); return
-
-    if has_subcats:
-        await callback.message.answer(f"*{cat['name']}*", parse_mode="Markdown",
-                                      reply_markup=subcategories_keyboard(cat_id))
-    else:
-        con2 = get_db()
-        prods = con2.execute(
-            "SELECT * FROM products WHERE category_id = ? AND stock > 0 ORDER BY name",
-            (cat_id,)
-        ).fetchall()
-        con2.close()
-        if not prods:
-            await callback.message.answer(
-                f"😔 В разделе *{cat['name']}* пока нет товаров.",
-                parse_mode="Markdown", reply_markup=main_keyboard)
-        else:
-            kb = build_product_list_kb(list(prods), callback.from_user.id)
-            await callback.message.answer(f"*{cat['name']}*", parse_mode="Markdown", reply_markup=kb)
-            await callback.message.answer("Нажмите [ + ] чтобы добавить в корзину:", reply_markup=main_keyboard)
-    await callback.answer()
-
-# ─── Карточка товара ─────────────────────────────────────────────────────────
-@dp.callback_query(F.data.startswith("product_"))
-async def product_handler(callback: CallbackQuery):
-    product_id = int(callback.data.split("_")[1])
-    user_id = callback.from_user.id
-    con = get_db()
-    p = con.execute("SELECT * FROM products WHERE id = ?", (product_id,)).fetchone()
-    if not p:
-        con.close(); await callback.answer("Товар не найден."); return
-
-    # Проверяем — заказывал ли клиент этот товар (или похожий по базовому имени)
-    base_name = p["name"]
-    for sfx in [" 1 кг", " 200 г", " (8 шт)", " (10 шт)", " (1 шт)"]:
-        base_name = base_name.replace(sfx, "")
-    ordered_before = con.execute("""
-        SELECT COUNT(*) FROM order_items oi
-        JOIN products pr ON oi.product_id = pr.id
-        JOIN orders o ON oi.order_id = o.id
-        WHERE o.user_id = ? AND pr.name LIKE ? AND o.status != 'cancelled'
-    """, (user_id, f"{base_name}%")).fetchone()[0]
-    con.close()
-
-    # Безопасно читаем все поля (некоторые могут отсутствовать у старых записей)
-    keys = p.keys()
-    roast_type  = p["roast_type"]  if "roast_type"  in keys else ""
-    description = p["description"] if "description" in keys else ""
-    recipe_e    = p["recipe_e"]    if "recipe_e"    in keys else None
-    recipe_f    = p["recipe_f"]    if "recipe_f"    in keys else None
-    process     = p["process"]     if "process"     in keys else ""
-    weight_g    = p["weight_g"]    if "weight_g"    in keys else 1000
-    photo_url   = p["photo_url"]   if "photo_url"   in keys else None
-    tag         = p["tag"]         if "tag"         in keys else ""
-    prev_price  = p["prev_price"]  if "prev_price"  in keys else 0
-    stock       = p["stock"]
-    price       = p["price"]
-
-    roast_labels = {
-        "E": "☕ Эспрессо", "F": "🫖 Фильтр", "EF": "☕🫖 Эспрессо и Фильтр",
-        "BE": "☕ Блэнд эспрессо", "BF": "🫖 Блэнд фильтр",
-        "Drip": "💧 Drip-пакет", "Nespresso": "💊 Nespresso"
-    }
-    roast_str = roast_labels.get(roast_type, roast_type or "")
-    weight_str = _variant_label(p)
-
-    # Пометки
-    badges = []
-    if ordered_before:
-        badges.append("🔁 Вы уже заказывали")
-    tag_label = _tag_str(tag or "", prev_price or 0, price) if tag else ""
-    if tag_label:
-        badges.append(tag_label)
-
-    text = ""
-    if badges:
-        text += " | ".join(badges) + "\n\n"
-    text += f"*{p['name']}*\n\n"
-    if description:
-        text += f"🍫 {description}\n\n"
-    if roast_str:
-        text += f"🔥 Обжарка: {roast_str}\n"
-    if process and roast_type not in ("Drip", "Nespresso", ""):
-        text += f"⚙️ Обработка: {process}\n"
-    text += f"📦 Фасовка: {weight_str}\n"
-    # Персональная цена
-    user_price, disc_pct, price_type = get_user_price(
-        user_id, product_id, price,
-        get_category_top_name(p["category_id"])
-    )
-    if price_type == "individual":
-        text += f"💰 Ваша цена: *{user_price:.0f} ₽* 🏷"
-    elif price_type in ("category", "all"):
-        text += f"💰 Цена: ~~{price:.0f}~~ *{user_price:.0f} ₽* (-{int(disc_pct*100)}%)"
-    else:
-        text += f"💰 Цена: *{price:.0f} ₽*" if price else "💰 Цена: уточняйте"
-    if stock == 0:
-        text += "\n\n❌ *Нет в наличии*"
-    elif stock <= 5:
-        text += f"\n⚠️ Осталось: {stock}"
-
-    # Если нет в наличии — кнопка «уведомить»
-    if stock == 0:
-        kb = InlineKeyboardMarkup(inline_keyboard=[
-            [InlineKeyboardButton(text="🔔 Уведомить когда появится",
-                                  callback_data=f"notify_{product_id}")],
-            [InlineKeyboardButton(text="⭐ В избранное", callback_data=f"wish_add_{product_id}")],
-            [InlineKeyboardButton(text="◀ Назад", callback_data=f"cat_{p['category_id']}")],
-        ])
-    else:
-        kb = product_card_keyboard(
-            product_id, p["category_id"],
-            has_recipe_e=bool(recipe_e),
-            has_recipe_f=bool(recipe_f)
-        )
-
-    if photo_url:
-        await callback.message.answer_photo(photo=photo_url, caption=text,
-                                            parse_mode="Markdown", reply_markup=kb)
-    else:
-        await callback.message.answer(text, parse_mode="Markdown", reply_markup=kb)
-    await callback.answer()
-
-# ─── Рецепты ─────────────────────────────────────────────────────────────────
-@dp.callback_query(F.data.startswith("recipe_e_"))
-async def recipe_e_handler(callback: CallbackQuery):
-    product_id = int(callback.data.split("_")[2])
-    con = get_db()
-    p = con.execute("SELECT recipe_e, name FROM products WHERE id = ?", (product_id,)).fetchone()
-    con.close()
-    if p and p["recipe_e"]:
-        await callback.message.answer(p["recipe_e"], parse_mode="Markdown")
-    await callback.answer()
-
-@dp.callback_query(F.data.startswith("recipe_f_"))
-async def recipe_f_handler(callback: CallbackQuery):
-    product_id = int(callback.data.split("_")[2])
-    con = get_db()
-    p = con.execute("SELECT recipe_f, name FROM products WHERE id = ?", (product_id,)).fetchone()
-    con.close()
-    if p and p["recipe_f"]:
-        await callback.message.answer(p["recipe_f"], parse_mode="Markdown")
-    await callback.answer()
-
-@dp.callback_query(F.data.startswith("photo_"))
-async def photo_handler(callback: CallbackQuery):
-    product_id = int(callback.data.split("_")[1])
-    con = get_db()
-    p = con.execute("SELECT photo_url, name FROM products WHERE id = ?", (product_id,)).fetchone()
-    con.close()
-    if p and p["photo_url"]:
-        await callback.message.answer_photo(photo=p["photo_url"], caption=f"📸 {p['name']}")
-    else:
-        await callback.answer("Фото пока не добавлено.", show_alert=False)
-    await callback.answer()
-
-# ─── Корзина ─────────────────────────────────────────────────────────────────
-@dp.callback_query(F.data.startswith("add_"))
-async def add_to_cart(callback: CallbackQuery):
-    product_id = int(callback.data.split("_")[1])
-    user_id = callback.from_user.id
-    con = get_db()
-    p = con.execute("SELECT * FROM products WHERE id = ?", (product_id,)).fetchone()
-    if not p or p["stock"] <= 0:
-        await callback.answer("😔 Товара нет в наличии.", show_alert=True)
-        con.close(); return
-    existing = con.execute(
-        "SELECT * FROM cart WHERE user_id = ? AND product_id = ?", (user_id, product_id)
-    ).fetchone()
-    if existing:
-        con.execute("UPDATE cart SET quantity = quantity + 1 WHERE id = ?", (existing["id"],))
-    else:
-        con.execute("INSERT INTO cart (user_id, product_id, quantity) VALUES (?,?,1)",
-                    (user_id, product_id))
-    con.commit(); con.close()
-    await callback.answer(f"✅ «{p['name'][:30]}» добавлен в корзину!")
-
-# ─── Счётчик товаров в списке ────────────────────────────────────────────────
-@dp.callback_query(F.data.startswith("qplus_"))
-async def qplus_handler(callback: CallbackQuery):
-    product_id = int(callback.data.split("_")[1])
-    user_id = callback.from_user.id
-    con = get_db()
-    p = con.execute("SELECT * FROM products WHERE id = ?", (product_id,)).fetchone()
-    if not p or p["stock"] <= 0:
-        con.close()
-        await callback.answer("😔 Нет в наличии", show_alert=True)
-        return
-    existing = con.execute(
-        "SELECT id, quantity FROM cart WHERE user_id=? AND product_id=?",
-        (user_id, product_id)
-    ).fetchone()
-    if existing:
-        con.execute("UPDATE cart SET quantity=quantity+1 WHERE id=?", (existing["id"],))
-    else:
-        con.execute("INSERT INTO cart (user_id, product_id, quantity) VALUES (?,?,1)",
-                    (user_id, product_id))
-    con.commit()
-    qty = con.execute(
-        "SELECT quantity FROM cart WHERE user_id=? AND product_id=?",
-        (user_id, product_id)
-    ).fetchone()["quantity"]
-    con.close()
-    # Обновляем клавиатуру — перестраиваем текущую
-    await _refresh_product_list_kb(callback, product_id, user_id)
-    await callback.answer(f"✅ {qty} шт в корзине")
-
-
-@dp.callback_query(F.data.startswith("qminus_"))
-async def qminus_handler(callback: CallbackQuery):
-    product_id = int(callback.data.split("_")[1])
-    user_id = callback.from_user.id
-    con = get_db()
-    existing = con.execute(
-        "SELECT id, quantity FROM cart WHERE user_id=? AND product_id=?",
-        (user_id, product_id)
-    ).fetchone()
-    if existing:
-        if existing["quantity"] > 1:
-            con.execute("UPDATE cart SET quantity=quantity-1 WHERE id=?", (existing["id"],))
-        else:
-            con.execute("DELETE FROM cart WHERE id=?", (existing["id"],))
-    con.commit(); con.close()
-    await _refresh_product_list_kb(callback, product_id, user_id)
-    await callback.answer("Убрано из корзины")
-
-
-@dp.callback_query(F.data.startswith("qview_"))
-async def qview_handler(callback: CallbackQuery):
-    await callback.answer("🛒 Нажмите «Корзина» чтобы посмотреть весь заказ")
-
-@dp.callback_query(F.data.startswith("expand_"))
-async def expand_handler(callback: CallbackQuery):
-    """Раскрывает варианты фасовки для товара."""
-    base_name = callback.data[7:]  # убираем "expand_"
-    await _rebuild_list_with_expanded(callback, base_name)
-    await callback.answer()
-
-@dp.callback_query(F.data.startswith("collapse_"))
-async def collapse_handler(callback: CallbackQuery):
-    """Сворачивает варианты фасовки."""
-    await _rebuild_list_with_expanded(callback, None)
-    await callback.answer()
-
-async def _rebuild_list_with_expanded(callback: CallbackQuery, expanded_base):
-    """Перестраивает список с нужным раскрытым товаром."""
-    try:
-        current_kb = callback.message.reply_markup
-        if not current_kb:
-            return
-        # Собираем все product_id из текущей клавиатуры
-        pids = []
-        seen_pids = set()
-        for row in current_kb.inline_keyboard:
-            for btn in row:
-                if btn.callback_data:
-                    for prefix in ["qplus_","qminus_","qview_","product_"]:
-                        if btn.callback_data.startswith(prefix):
-                            try:
-                                pid = int(btn.callback_data.split("_")[1])
-                                if pid not in seen_pids:
-                                    seen_pids.add(pid)
-                                    pids.append(pid)
-                            except Exception:
-                                pass
-                            break
-        if not pids:
-            return
-        con = get_db()
-        products_list = []
-        for pid in pids:
-            row = con.execute("SELECT * FROM products WHERE id=?", (pid,)).fetchone()
-            if row:
-                products_list.append(row)
-        con.close()
-        new_kb = build_product_list_kb(products_list, callback.from_user.id, expanded_base)
-        await callback.message.edit_reply_markup(reply_markup=new_kb)
-    except Exception:
-        pass
-
-
-async def _refresh_product_list_kb(callback: CallbackQuery, product_id: int, user_id: int):
-    """Перестраивает клавиатуру списка товаров после изменения корзины."""
-    try:
-        current_kb = callback.message.reply_markup
-        if not current_kb:
-            return
-        pids = []
-        seen_pids = set()
-        expanded_base = None
-        # Определяем текущий раскрытый товар (строка с ▼)
-        for row in current_kb.inline_keyboard:
-            for btn in row:
-                if btn.callback_data and btn.callback_data.startswith("collapse_"):
-                    expanded_base = btn.callback_data[9:]
-                if btn.callback_data:
-                    for prefix in ["qplus_","qminus_","qview_","product_"]:
-                        if btn.callback_data.startswith(prefix):
-                            try:
-                                pid = int(btn.callback_data.split("_")[1])
-                                if pid not in seen_pids:
-                                    seen_pids.add(pid)
-                                    pids.append(pid)
-                            except Exception:
-                                pass
-                            break
-        if not pids:
-            return
-        con = get_db()
-        products_list = []
-        for pid in pids:
-            row = con.execute("SELECT * FROM products WHERE id=?", (pid,)).fetchone()
-            if row:
-                products_list.append(row)
-        con.close()
-        new_kb = build_product_list_kb(products_list, user_id, expanded_base)
-        await callback.message.edit_reply_markup(reply_markup=new_kb)
-    except Exception:
-        pass
-
-
-@dp.message(F.text == "🛒 Корзина")
-async def cart_btn(message: Message):
-    await show_cart(message, message.from_user.id)
-
-async def show_cart(message: Message, user_id: int):
-    items, subtotal, disc_pct, discount_amt, total, total_kg, has_personal = calc_cart_totals(user_id)
-    if not items:
-        await message.answer("🛒 Ваша корзина пуста."); return
-
-    lines = ["🛒 *Ваша корзина:*\n"]
-    for it in items:
-        ep = it.get("effective_price", it["price"])
-        pt = it.get("price_type", "base")
-        price_label = f"{ep:.0f} ₽"
-        if pt == "individual":
-            price_label += " 🏷"
-        elif pt in ("category", "all"):
-            price_label += " 🎁"
-        lines.append(f"• {it['name'][:40]}\n  {it['quantity']} × {price_label} = {ep*it['quantity']:.0f} ₽")
-
-    lines.append(f"\n💰 Сумма: {subtotal:.0f} ₽")
-    if has_personal:
-        lines.append(f"\n🏷 Применены персональные цены")
-        lines.append(f"💰 *Итого: {total:.0f} ₽*")
-    elif disc_pct > 0:
-        lines.append(f"📦 Зерно в корзине: {total_kg:.1f} кг")
-        lines.append(f"🎁 Скидка {int(disc_pct*100)}%: −{discount_amt:.0f} ₽")
-        lines.append(f"✅ *Итого: {total:.0f} ₽*")
-    else:
-        if total_kg > 0:
-            need = 10 - total_kg
-            lines.append(f"\n💡 До скидки 10% ещё *{need:.1f} кг* зерна")
-        lines.append(f"\n💰 *Итого: {total:.0f} ₽*")
-
-    await message.answer("\n".join(lines), parse_mode="Markdown", reply_markup=cart_keyboard(items))
-
-@dp.callback_query(F.data.startswith("remove_"))
-async def remove_from_cart(callback: CallbackQuery):
-    con = get_db()
-    con.execute("DELETE FROM cart WHERE id = ?", (int(callback.data.split("_")[1]),))
-    con.commit(); con.close()
-    await callback.answer("Товар удалён.")
-    await show_cart(callback.message, callback.from_user.id)
-
-@dp.callback_query(F.data == "clear_cart")
-async def clear_cart(callback: CallbackQuery):
-    con = get_db()
-    con.execute("DELETE FROM cart WHERE user_id = ?", (callback.from_user.id,))
-    con.commit(); con.close()
-    await callback.answer("Корзина очищена.")
-    await callback.message.answer("🛒 Корзина очищена.")
-
-# ─── Оформление заказа ───────────────────────────────────────────────────────
-def _user_display(user) -> str:
-    return user["company_name"] if user["user_type"] == "company" else user["name"]
-
-def _user_addr(user) -> str:
-    """Возвращает адрес из профиля.
-    Для юрлица — actual_address приоритетнее, для физлица — address."""
-    user_type = None
-    try:
-        user_type = user["user_type"]
-    except Exception:
-        pass
-
-    def _get(field):
-        try:
-            val = user[field]
-            return val or ""
-        except Exception:
-            return ""
-
-    if user_type == "company":
-        # Юрлицо: сначала actual_address, потом address как fallback
-        return _get("actual_address") or _get("address")
-    else:
-        # Физлицо: address, потом actual_address
-        return _get("address") or _get("actual_address")
-
-@dp.callback_query(F.data == "checkout")
-async def checkout_start(callback: CallbackQuery, state: FSMContext):
-    user = get_user(callback.from_user.id)
-    if user and user["name"] and user["phone"]:
-        display = _user_display(user)
-        addr = _user_addr(user)
-        if addr:
-            # Адрес есть — сразу оформляем без лишних вопросов
-            await state.update_data(name=display, phone=user["phone"], address=addr)
-            await state.set_state(OrderStates.confirm_profile)
-            await callback.message.answer(
-                f"📋 *Оформить заказ?*\n\n"
-                f"👤 {display}\n"
-                f"📱 {user['phone']}\n"
-                f"🏠 {addr}",
-                parse_mode="Markdown",
-                reply_markup=InlineKeyboardMarkup(inline_keyboard=[
-                    [InlineKeyboardButton(text="✅ Подтвердить заказ", callback_data="checkout_saved")],
-                    [InlineKeyboardButton(text="✏️ Изменить данные", callback_data="checkout_new")],
-                ])
-            )
-        else:
-            # Данные есть но адреса нет — спрашиваем только адрес
-            await state.update_data(name=display, phone=user["phone"])
-            await state.set_state(OrderStates.confirm_profile)
-            await callback.message.answer(
-                f"📋 *Оформление заказа*\n\n"
-                f"👤 {display}\n"
-                f"📱 {user['phone']}\n\n"
-                f"🏠 Введите адрес доставки:",
-                parse_mode="Markdown",
-            )
-            await state.set_state(OrderStates.waiting_address)
-    else:
-        await callback.message.answer("📝 Введите ваше *имя*:", parse_mode="Markdown")
-        await state.set_state(OrderStates.waiting_name)
-    await callback.answer()
-
-@dp.callback_query(F.data == "checkout_saved", OrderStates.confirm_profile)
-async def checkout_saved(callback: CallbackQuery, state: FSMContext):
-    user = get_user(callback.from_user.id)
-    display = _user_display(user)
-    addr = _user_addr(user)
-    await state.update_data(name=display, phone=user["phone"], address=addr)
-    if addr:
-        await create_order(callback.message, callback.from_user.id, state)
-    else:
-        await callback.message.answer("🏠 Введите *адрес доставки*:", parse_mode="Markdown")
-        await state.set_state(OrderStates.waiting_address)
-    await callback.answer()
-
-@dp.callback_query(F.data == "checkout_new", OrderStates.confirm_profile)
-async def checkout_new(callback: CallbackQuery, state: FSMContext):
-    await callback.message.answer("📝 Введите ваше *имя*:", parse_mode="Markdown")
-    await state.set_state(OrderStates.waiting_name); await callback.answer()
-
-@dp.message(OrderStates.waiting_name)
-async def order_name(message: Message, state: FSMContext):
-    await state.update_data(name=message.text.strip())
-    await message.answer("📱 Введите *телефон*:", parse_mode="Markdown")
-    await state.set_state(OrderStates.waiting_phone)
-
-@dp.message(OrderStates.waiting_phone)
-async def order_phone(message: Message, state: FSMContext):
-    await state.update_data(phone=message.text.strip())
-    await message.answer("🏠 Введите *адрес доставки*:", parse_mode="Markdown")
-    await state.set_state(OrderStates.waiting_address)
-
-@dp.message(OrderStates.waiting_address)
-async def order_address(message: Message, state: FSMContext):
-    address = message.text.strip()
-    await state.update_data(address=address)
-    # Сохраняем адрес в профиль пользователя
-    update_user_address(message.from_user.id, address)
-    await create_order(message, message.from_user.id, state)
-
-async def create_order(message: Message, user_id: int, state: FSMContext):
-    data = await state.get_data()
-    items, subtotal, disc_pct, discount_amt, total, total_kg, has_personal = calc_cart_totals(user_id)
-    if not items:
-        await message.answer("Корзина пуста."); await state.clear(); return
-
-    # Промокод — только если нет персональных скидок/цен
-    promo_code = data.get("promo_code", "")
-    promo_discount_pct = 0.0
-    promo_amt = 0.0
-    if not has_personal and data.get("promo_discount"):
-        promo_discount_pct = data.get("promo_discount", 0) / 100
-        if promo_discount_pct > 0:
-            promo_amt = total * promo_discount_pct
-            total = total - promo_amt
-            discount_amt += promo_amt
-
-    con = get_db()
-    cur = con.execute(
-        "INSERT INTO orders (user_id, name, phone, address, total, discount, promo_code) VALUES (?,?,?,?,?,?,?)",
-        (user_id, data["name"], data["phone"], data["address"], total, discount_amt, promo_code)
-    )
-    order_id = cur.lastrowid
-    for it in items:
-        ep = it.get("effective_price", it["price"])
-        # Цена уже включает персональную скидку, объёмная и промо не суммируются
-        price_with_disc = ep * (1 - disc_pct) * (1 - promo_discount_pct)
-        con.execute(
-            "INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (?,?,?,?)",
-            (order_id, it["product_id"], it["quantity"], price_with_disc)
-        )
-        con.execute("UPDATE products SET stock = stock - ? WHERE id = ?",
-                    (it["quantity"], it["product_id"]))
-
-    # Списываем использование промокода
-    if promo_code:
-        con.execute("""
-            UPDATE promo_codes SET uses_left = uses_left - 1
-            WHERE code = ? AND uses_left > 0 AND uses_left < 999999
-        """, (promo_code,))
-
-    con.execute("DELETE FROM cart WHERE user_id = ?", (user_id,))
-    con.commit(); con.close()
-    update_user_address(user_id, data["address"])
-
-    lines = [f"✅ *Заказ №{order_id} оформлен!*\n"]
-    for it in items:
-        lines.append(f"• {it['name'][:40]}\n  {it['quantity']} × {it['price']:.0f} ₽")
-    lines.append(f"\n💰 Сумма: {subtotal:.0f} ₽")
-    if disc_pct > 0:
-        lines.append(f"📦 Оптовая скидка {int(disc_pct*100)}%: −{subtotal * disc_pct:.0f} ₽")
-    if promo_amt > 0:
-        lines.append(f"🎁 Промокод {promo_code} ({data['promo_discount']:.0f}%): −{promo_amt:.0f} ₽")
-    if discount_amt > 0:
-        lines.append(f"✅ *Итого: {total:.0f} ₽*")
-    else:
-        lines.append(f"💰 *Итого: {total:.0f} ₽*")
-    lines.append(f"\n👤 {data['name']}  📱 {data['phone']}\n🏠 {data['address']}")
-    lines.append("\n📦 Мы свяжемся с вами для подтверждения!")
-
-    await message.answer("\n".join(lines), parse_mode="Markdown", reply_markup=main_keyboard)
-    await state.clear()
-    await notify_new_order(bot, order_id, data["name"], total)
-
-# ─── Остатки ─────────────────────────────────────────────────────────────────
-@dp.message(F.text == "📦 Остатки")
-async def stock_handler(message: Message):
-    con = get_db()
-    cats = con.execute("SELECT * FROM categories WHERE parent_id IS NULL").fetchall()
-    lines = ["📦 *Остатки по складу:*\n"]
-    for cat in cats:
-        products = con.execute(
-            "SELECT name, stock FROM products WHERE category_id = ? ORDER BY name", (cat["id"],)
-        ).fetchall()
-        total = sum(p["stock"] for p in products)
-        lines.append(f"*{cat['name']}* — {total} ед.")
-        for p in products:
-            e = "✅" if p["stock"] > 10 else ("⚠️" if p["stock"] > 0 else "❌")
-            lines.append(f"  {e} {p['name'][:45]}: *{p['stock']}*")
-        lines.append("")
-    con.close()
-    text = "\n".join(lines)
-    for i in range(0, len(text), 4000):
-        await message.answer(text[i:i+4000], parse_mode="Markdown")
-
-
-# ─── Пометки товаров — теги ───────────────────────────────────────────────────
-TAG_LABELS = {"NEW": "🆕 Новинка", "EXPECTED": "⏳ Ожидается", "SALE": "📉 Снижена цена"}
-
-def _tag_str(tag: str, prev_price: float = 0, price: float = 0) -> str:
-    if tag == "SALE" and prev_price and prev_price != price:
-        return f"📉 Цена снижена (было {prev_price:.0f} ₽)"
-    return TAG_LABELS.get(tag, "")
-
-# ─── Избранное ────────────────────────────────────────────────────────────────
-@dp.message(F.text == "⭐ Избранное")
-async def wishlist_handler(message: Message):
-    user_id = message.from_user.id
-    con = get_db()
-    items = con.execute("""
-        SELECT p.id, p.name, p.price, p.stock, p.tag, p.prev_price
-        FROM wishlist w JOIN products p ON w.product_id = p.id
-        WHERE w.user_id = ?
-    """, (user_id,)).fetchall()
-    con.close()
-    if not items:
-        await message.answer("⭐ Ваш список избранного пуст.\n\nДобавляйте товары кнопкой ⭐ В избранное в карточке товара.")
-        return
-    buttons = []
-    for it in items:
-        status = "✅" if it["stock"] > 0 else "❌"
-        tag = _tag_str(it["tag"] or "", it["prev_price"] or 0, it["price"])
-        tag_str = f" {tag}" if tag else ""
-        buttons.append([InlineKeyboardButton(
-            text=f"{status} {it['name'][:35]} — {it['price']:.0f} ₽{tag_str}",
-            callback_data=f"product_{it['id']}"
-        )])
-        buttons.append([InlineKeyboardButton(
-            text=f"❌ Убрать из избранного",
-            callback_data=f"wish_del_{it['id']}"
-        )])
-    await message.answer("⭐ *Избранное:*", parse_mode="Markdown",
-                         reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
-
-@dp.callback_query(F.data.startswith("wish_add_"))
-async def wish_add(callback: CallbackQuery):
-    product_id = int(callback.data.split("_")[2])
-    user_id = callback.from_user.id
-    con = get_db()
-    try:
-        con.execute("INSERT OR IGNORE INTO wishlist (user_id, product_id) VALUES (?,?)",
-                    (user_id, product_id))
-        con.commit()
-        await callback.answer("⭐ Добавлено в избранное!")
-    except Exception:
-        await callback.answer("Уже в избранном.")
-    con.close()
-
-@dp.callback_query(F.data.startswith("wish_del_"))
-async def wish_del(callback: CallbackQuery):
-    product_id = int(callback.data.split("_")[2])
-    con = get_db()
-    con.execute("DELETE FROM wishlist WHERE user_id = ? AND product_id = ?",
-                (callback.from_user.id, product_id))
-    con.commit(); con.close()
-    await callback.answer("Убрано из избранного.")
-    await wishlist_handler(callback.message)
-
-# ─── Уведомить когда появится ─────────────────────────────────────────────────
-@dp.callback_query(F.data.startswith("notify_"))
-async def notify_available(callback: CallbackQuery):
-    product_id = int(callback.data.split("_")[1])
-    user_id = callback.from_user.id
-    con = get_db()
-    con.execute("INSERT OR IGNORE INTO notify_when_available (user_id, product_id) VALUES (?,?)",
-                (user_id, product_id))
-    con.commit(); con.close()
-    await callback.answer("🔔 Уведомим когда появится!", show_alert=True)
-
-# ─── История заказов ──────────────────────────────────────────────────────────
-@dp.message(F.text == "📋 Мои заказы")
-async def my_orders_handler(message: Message):
-    user_id = message.from_user.id
-    con = get_db()
-    orders = con.execute("""
-        SELECT id, created_at, total, status FROM orders
-        WHERE user_id = ? ORDER BY created_at DESC LIMIT 15
-    """, (user_id,)).fetchall()
-    con.close()
-    if not orders:
-        await message.answer("📋 У вас пока нет заказов."); return
-    status_e = {"new": "🆕", "confirmed": "✅", "done": "📦", "cancelled": "❌"}
-    buttons = [[InlineKeyboardButton(
-        text=f"{status_e.get(o['status'],'?')} №{o['id']} от {o['created_at'][:10]} — {o['total']:.0f} ₽",
-        callback_data=f"myorder_{o['id']}"
-    )] for o in orders]
-    await message.answer("📋 *Ваши заказы:*", parse_mode="Markdown",
-                         reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
-
-@dp.callback_query(F.data.startswith("myorder_"))
-async def my_order_detail(callback: CallbackQuery):
-    order_id = int(callback.data.split("_")[1])
-    user_id = callback.from_user.id
-    con = get_db()
-    o = con.execute("SELECT * FROM orders WHERE id = ? AND user_id = ?",
-                    (order_id, user_id)).fetchone()
-    if not o:
-        await callback.answer("Заказ не найден."); return
-    items = con.execute("""
-        SELECT oi.quantity, oi.price, p.id as product_id, p.name, p.stock
-        FROM order_items oi JOIN products p ON oi.product_id = p.id
-        WHERE oi.order_id = ?
-    """, (order_id,)).fetchall()
-    con.close()
-    status_e = {"new": "🆕 Новый", "confirmed": "✅ Подтверждён",
-                "done": "📦 Выполнен", "cancelled": "❌ Отменён"}
-    lines = [f"📋 *Заказ №{o['id']}*  {status_e.get(o['status'],'')}",
-             f"📅 {o['created_at'][:16]}", ""]
-    for it in items:
-        lines.append(f"• {it['name'][:40]}")
-        lines.append(f"  {it['quantity']} × {it['price']:.0f} ₽ = {it['quantity']*it['price']:.0f} ₽")
-    lines.append(f"\n💰 Итого: *{o['total']:.0f} ₽*")
-    if o["discount"]:
-        lines.append(f"🎁 Скидка: {o['discount']:.0f} ₽")
-    await callback.message.answer(
-        "\n".join(lines), parse_mode="Markdown",
-        reply_markup=InlineKeyboardMarkup(inline_keyboard=[
-            [InlineKeyboardButton(text="🔄 Повторить заказ", callback_data=f"repeat_{order_id}")],
-        ])
-    )
-    await callback.answer()
-
-@dp.callback_query(F.data.startswith("repeat_"))
-async def repeat_order(callback: CallbackQuery):
-    order_id = int(callback.data.split("_")[1])
-    user_id = callback.from_user.id
-    con = get_db()
-    items = con.execute("""
-        SELECT oi.product_id, oi.quantity, p.name, p.stock
-        FROM order_items oi JOIN products p ON oi.product_id = p.id
-        WHERE oi.order_id = ? AND p.stock > 0
-    """, (order_id,)).fetchall()
-    if not items:
-        await callback.answer("😔 Все товары из этого заказа сейчас не в наличии.", show_alert=True)
-        con.close(); return
-    # Очищаем корзину и добавляем товары
-    con.execute("DELETE FROM cart WHERE user_id = ?", (user_id,))
-    added, skipped = [], []
-    for it in items:
-        con.execute("INSERT INTO cart (user_id, product_id, quantity) VALUES (?,?,?)",
-                    (user_id, it["product_id"], it["quantity"]))
-        added.append(it["name"])
-    con.commit(); con.close()
-    await callback.answer(f"✅ {len(added)} товаров добавлено в корзину!")
-    await show_cart(callback.message, user_id)
-
-# ─── Промокод при оформлении ──────────────────────────────────────────────────
-class PromoState(StatesGroup):
-    waiting_promo = State()
-
-@dp.callback_query(F.data == "enter_promo")
-async def enter_promo_start(callback: CallbackQuery, state: FSMContext):
-    await callback.message.answer("🎁 Введите промокод:")
-    await state.set_state(PromoState.waiting_promo); await callback.answer()
-
-@dp.message(PromoState.waiting_promo)
-async def enter_promo_code(message: Message, state: FSMContext):
-    code = message.text.strip().upper()
-    user_id = message.from_user.id
-    con = get_db()
-    promo = con.execute("""
-        SELECT * FROM promo_codes
-        WHERE code = ? AND is_active = 1 AND uses_left > 0
-        AND (user_id IS NULL OR user_id = ?)
-    """, (code, user_id)).fetchone()
-    con.close()
-    if not promo:
-        await message.answer("❌ Промокод не найден или уже использован.")
-        await state.clear(); return
-    await state.update_data(promo_code=code, promo_discount=promo["discount"])
-    await state.set_state(OrderStates.confirm_profile)
-    await message.answer(
-        f"✅ Промокод *{code}* применён — скидка *{promo['discount']:.0f}%*\n\nТеперь оформите заказ.",
-        parse_mode="Markdown"
-    )
-    await state.clear()
 
 # ─── Загрузка остатков из 1С ─────────────────────────────────────────────────
 STOCK_MAP = [
@@ -3277,182 +1985,15 @@ async def _claude_match(rows: list, db_names: list) -> list:
     return matches
 
 
-async def _claude_categorize(rows: list, cat_tree_str: str) -> dict:
-    """
-    Просим Claude назначить категории новым товарам.
-    rows: [{"name": "...", "stock": ...}, ...]
-    cat_tree_str: дерево категорий в виде "  [id] Имя"
-    Возвращает: {"имя товара": id_категории, ...}
-    """
-    import aiohttp
-    api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
-    if not api_key or not rows:
-        return {}
-
-    headers = {
-        "x-api-key": api_key,
-        "anthropic-version": "2023-06-01",
-        "content-type": "application/json",
-    }
-    result = {}
-    chunk_size = 30
-    system = (
-        "Помощник магазина кофе. Раскладывай новые товары по существующим "
-        "категориям. Отвечай ТОЛЬКО валидным JSON без markdown."
-    )
-    for i in range(0, len(rows), chunk_size):
-        chunk = rows[i:i+chunk_size]
-        names_text = "\n".join(f"- {r['name']}" for r in chunk)
-        prompt = (
-            "Доступные категории (в формате [id] Имя):\n" + cat_tree_str +
-            "\n\nНовые товары:\n" + names_text +
-            '\n\nВерни строго JSON вида: '
-            '{"assignments":[{"name":"<имя товара>","category_id":<число>}]}\n'
-            "Используй только id из списка категорий выше. Для подкатегорий — "
-            "выбирай самый специфичный (если есть Кофе/Моносорта — назначай "
-            "Моносорта, не Кофе). Если ничего не подходит — category_id=null."
-        )
-        try:
-            async with aiohttp.ClientSession() as sess:
-                async with sess.post(
-                    _CLAUDE_URL,
-                    headers=headers,
-                    json={
-                        "model": _CLAUDE_MODEL,
-                        "max_tokens": 4000,
-                        "system": system,
-                        "messages": [{"role": "user", "content": prompt}],
-                    },
-                    timeout=aiohttp.ClientTimeout(total=120),
-                ) as r:
-                    data = await r.json()
-            text = ""
-            for block in data.get("content", []):
-                if block.get("type") == "text":
-                    text += block.get("text", "")
-            text = text.strip()
-            if text.startswith("```"):
-                text = "\n".join(text.split("\n")[1:-1])
-            parsed = _json.loads(text)
-            for a in parsed.get("assignments", []):
-                if a.get("name") and a.get("category_id"):
-                    result[a["name"]] = int(a["category_id"])
-        except Exception as e:
-            print(f"Claude categorize error: {e}")
-    return result
-
-
-def _detect_file_type(filename: str, ws) -> str:
-    """
-    Определяет что за файл по имени и структуре.
-    Возвращает: 'price' | 'stock' | 'unknown'
-    """
-    fn = (filename or "").lower()
-    if any(k in fn for k in ["прайс", "цен", "price"]):
-        return "price"
-    if any(k in fn for k in ["остатк", "склад", "stock"]):
-        return "stock"
-    # Эвристика по структуре: если в первых 10 строках есть слова про цены/прайс
-    keywords_price = ["прайс", "цен", "базовый", "скидка"]
-    for i, row in enumerate(ws.iter_rows(values_only=True)):
-        if i > 10:
-            break
-        for cell in row:
-            if isinstance(cell, str):
-                low = cell.lower()
-                if any(k in low for k in keywords_price):
-                    return "price"
-    return "stock"  # дефолт — остатки
-
-
-def _parse_price_xlsx(ws):
-    """
-    Парсит прайс с тремя колонками цен (базовая, 10кг, 25кг).
-
-    Структура файла Roastberry:
-        Колонка D (3) — название товара
-        Колонка 37    — базовая цена (1.Базовый прайс-лист → Цена)
-        Колонка 42    — цена при заказе от 10 кг
-        Колонка 47    — цена при заказе от 25 кг
-
-    Если структура не совпадает — fallback: имя в первом текстовом столбце,
-    цена — первое осмысленное число (50-100000) в строке.
-    """
-    rows = []
-    skip_words = ["итого", "всего", "параметры", "период", "ведомость",
-                  "изменение цен", "товар", "базовый прайс"]
-
-    # Сначала пробуем «строгий» формат (известные позиции колонок)
-    expected_idx = {"name": 3, "price": 37, "price_10kg": 42, "price_25kg": 47}
-
-    for row in ws.iter_rows(values_only=True):
-        if not row or len(row) < 4:
-            continue
-        name_cell = row[expected_idx["name"]] if len(row) > expected_idx["name"] else None
-        if not isinstance(name_cell, str) or len(name_cell.strip()) < 4:
-            continue
-        name = name_cell.strip()
-        if any(s in name.lower() for s in skip_words) and len(name) < 40:
-            continue
-
-        def _safe(idx):
-            if len(row) <= idx:
-                return None
-            v = row[idx]
-            if isinstance(v, (int, float)) and 50 < v < 100000:
-                return float(v)
-            return None
-
-        price_base = _safe(expected_idx["price"])
-        if price_base is None:
-            # fallback — первое разумное число
-            for v in row[4:]:
-                if isinstance(v, (int, float)) and 50 < v < 100000:
-                    price_base = float(v)
-                    break
-            if price_base is None:
-                continue
-
-        item = {"name": name, "price": price_base}
-        p10 = _safe(expected_idx["price_10kg"])
-        p25 = _safe(expected_idx["price_25kg"])
-        if p10:
-            item["price_10kg"] = p10
-        if p25:
-            item["price_25kg"] = p25
-        rows.append(item)
-
-    return rows
-
-
-def _parse_stock_xlsx(ws):
-    """Парсинг остатков — последнее число в строке = остаток."""
-    skip_words = ["итого", "всего", "параметры", "период", "номенклатура",
-                  "количество", "ведомость", "конечный остаток"]
-    rows = []
-    for row in ws.iter_rows(values_only=True):
-        if not row or not row[0] or not isinstance(row[0], str) or len(row[0]) < 4:
-            continue
-        name = row[0].strip()
-        if any(s in name.lower() for s in skip_words) and len(name) < 40:
-            continue
-        nums = [round(float(c), 2) for c in row[1:] if isinstance(c, (int, float))]
-        if not nums:
-            continue
-        item = {"name": name, "stock": int(nums[-1])}
-        rows.append(item)
-    return rows
-
-
 @dp.message(F.document)
 async def admin_xlsx_handler(message: Message):
-    """Админ присылает xlsx — обновляем остатки или цены с Claude-сопоставлением."""
+    """Админ присылает xlsx — обновляем остатки/цены с Claude-сопоставлением."""
     from admin import ADMIN_IDS
     if message.from_user.id not in ADMIN_IDS:
         return
     doc = message.document
     if not doc.file_name or not doc.file_name.lower().endswith(".xlsx"):
-        return
+        return  # Игнорируем не-xlsx документы
 
     import io
     import openpyxl
@@ -3469,207 +2010,99 @@ async def admin_xlsx_handler(message: Message):
         await message.answer(f"⚠️ Не удалось открыть файл: {e}")
         return
 
-    # Определяем тип файла
-    file_type = _detect_file_type(doc.file_name, ws)
-
-    # Файл нужно перечитать — после ws.iter_rows() в read_only режиме
-    # курсор не сбрасывается. Загружаем заново.
-    buf.seek(0)
-    wb = openpyxl.load_workbook(buf, read_only=True, data_only=True)
-    ws = wb.active
-
-    if file_type == "price":
-        rows = _parse_price_xlsx(ws)
-        type_label = "прайс (цены)"
-    else:
-        rows = _parse_stock_xlsx(ws)
-        type_label = "остатки"
+    # Парсим: первая колонка — название, ищем числа в остальных
+    skip_words = ["итого", "всего", "параметры", "период", "номенклатура",
+                  "количество", "ведомость", "конечный остаток"]
+    rows = []
+    for row in ws.iter_rows(values_only=True):
+        if not row or not row[0] or not isinstance(row[0], str) or len(row[0]) < 4:
+            continue
+        name = row[0].strip()
+        if any(s in name.lower() for s in skip_words) and len(name) < 40:
+            continue
+        nums = [round(float(c), 2) for c in row[1:] if isinstance(c, (int, float))]
+        if not nums:
+            continue
+        # Эвристика: если 1 число — это остаток. Если 2 — цена и остаток. Если больше — берём последнее как остаток.
+        item = {"name": name, "stock": int(nums[-1])}
+        if len(nums) >= 2:
+            item["price"] = float(nums[-2])
+        rows.append(item)
 
     if not rows:
-        await message.answer(
-            f"⚠️ Не нашёл подходящих данных. Тип определён как: {type_label}.\n"
-            "Проверь формат файла."
-        )
+        await message.answer("Данных в файле не нашёл.")
         return
 
-    await message.answer(
-        f"📊 Тип файла: *{type_label}*\n"
-        f"Найдено {len(rows)} строк. Сопоставляю через Claude...",
-        parse_mode="Markdown"
-    )
+    await message.answer(f"📊 Найдено {len(rows)} строк. Сопоставляю через Claude...")
 
     # Берём актуальные названия из БД
     con = get_db()
-    db_products = con.execute(
-        "SELECT id, name, price FROM products"
-    ).fetchall()
+    db_products = con.execute("SELECT id, name, price, stock FROM products").fetchall()
     con.close()
-
-    if not db_products and file_type == "price":
-        await message.answer("⚠️ В БД нет товаров. Сначала загрузи остатки.")
+    if not db_products:
+        await message.answer("⚠️ В БД нет товаров. Сделай /resetdb сначала.")
         return
-
     db_names = [p["name"] for p in db_products]
     db_index = {p["name"]: p for p in db_products}
 
-    # Сопоставление через Claude (если в БД уже есть товары)
-    matches = await _claude_match(rows, db_names) if db_products else []
-    if db_products and not matches:
+    # Сопоставление
+    matches = await _claude_match(rows, db_names)
+    if not matches:
         await message.answer("⚠️ Claude не вернул сопоставлений. Проверь ANTHROPIC_API_KEY.")
         return
 
-    matches_by_source = {m.get("source_name", ""): m for m in matches}
-
     # Применяем
-    upd_stock = upd_price = upd_price_10 = upd_price_25 = skipped = 0
-    created_new = 0
-    not_found_names = []     # для прайса — товары без матча
-    rows_to_create = []      # для stock — новые товары
-
+    upd_stock = upd_price = skipped = 0
+    not_found_names = []
     con = get_db()
-
-    for r in rows:
-        src_name = r["name"]
-        m = matches_by_source.get(src_name, {})
-        bot_name = m.get("bot_name") if m else None
-
-        product = None
-        if bot_name:
-            product = db_index.get(bot_name)
-            if not product:
-                # Fuzzy fallback по подстроке
-                for n, p in db_index.items():
-                    if bot_name.lower() in n.lower() or n.lower() in bot_name.lower():
-                        product = p
-                        break
-
-        if product:
-            pid = product["id"]
-
-            # Stock — обновляем существующий
-            if file_type == "stock" and r.get("stock") is not None:
-                try:
-                    con.execute("UPDATE products SET stock = ? WHERE id = ?",
-                                (int(r["stock"]), pid))
-                    upd_stock += 1
-                except (TypeError, ValueError):
-                    pass
-
-            # Цены — обновляем существующий
-            if file_type == "price":
-                base_price = r.get("price")
-                if base_price and float(base_price) > 0:
-                    try:
-                        con.execute(
-                            "UPDATE products SET prev_price = price, price = ? WHERE id = ?",
-                            (float(base_price), pid)
-                        )
-                        upd_price += 1
-                    except (TypeError, ValueError):
-                        pass
-
-                p10 = r.get("price_10kg")
-                if p10 and float(p10) > 0:
-                    try:
-                        con.execute(
-                            "UPDATE products SET price_10kg = ? WHERE id = ?",
-                            (float(p10), pid)
-                        )
-                        upd_price_10 += 1
-                    except (TypeError, ValueError):
-                        pass
-
-                p25 = r.get("price_25kg")
-                if p25 and float(p25) > 0:
-                    try:
-                        con.execute(
-                            "UPDATE products SET price_25kg = ? WHERE id = ?",
-                            (float(p25), pid)
-                        )
-                        upd_price_25 += 1
-                    except (TypeError, ValueError):
-                        pass
-        else:
-            # Не нашли в БД
-            if file_type == "stock":
-                rows_to_create.append(r)
-            else:
-                not_found_names.append(src_name)
-                skipped += 1
-
-    # Для остатков — создаём новые товары через Claude-категоризацию
-    if file_type == "stock" and rows_to_create:
-        all_cats = con.execute(
-            "SELECT id, name, parent_id FROM categories"
-        ).fetchall()
-        cat_dict = {c["id"]: dict(c) for c in all_cats}
-
-        # Готовим описание дерева категорий для Claude
-        cat_tree_lines = []
-        for c in all_cats:
-            if c["parent_id"] is None:
-                cat_tree_lines.append(f"  [{c['id']}] {c['name']}")
-                for sub in all_cats:
-                    if sub["parent_id"] == c["id"]:
-                        cat_tree_lines.append(f"    [{sub['id']}] {sub['name']}")
-        cat_tree_str = "\n".join(cat_tree_lines)
-
-        await message.answer(
-            f"➕ Найдено {len(rows_to_create)} новых позиций. Угадываю категории через Claude..."
-        )
-
-        new_assignments = await _claude_categorize(rows_to_create, cat_tree_str)
-
-        # Категория-fallback "Прочее"
-        cur = con.cursor()
-        prochee_id = None
-        for c in all_cats:
-            if c["name"].lower().endswith("прочее"):
-                prochee_id = c["id"]
-                break
-        if not prochee_id:
-            cur.execute(
-                "INSERT INTO categories (name, parent_id) VALUES (?, NULL)",
-                ("📦 Прочее",)
-            )
-            prochee_id = cur.lastrowid
-
-        for r in rows_to_create:
-            cat_id = new_assignments.get(r["name"])
-            if not cat_id or cat_id not in cat_dict:
-                cat_id = prochee_id
+    for m in matches:
+        bot_name = m.get("bot_name")
+        if not bot_name:
+            not_found_names.append(m.get("source_name", "?"))
+            skipped += 1
+            continue
+        product = db_index.get(bot_name)
+        if not product:
+            # Fuzzy fallback — ищем по подстроке
+            for n, p in db_index.items():
+                if bot_name.lower() in n.lower() or n.lower() in bot_name.lower():
+                    product = p
+                    break
+        if not product:
+            not_found_names.append(f"{m.get('source_name','?')} → {bot_name}")
+            skipped += 1
+            continue
+        pid = product["id"]
+        if m.get("stock") is not None:
             try:
-                cur.execute(
-                    "INSERT INTO products (name, stock, category_id, price) "
-                    "VALUES (?, ?, ?, 0)",
-                    (r["name"], int(r.get("stock") or 0), cat_id)
+                con.execute("UPDATE products SET stock = ? WHERE id = ?",
+                            (int(m["stock"]), pid))
+                upd_stock += 1
+            except (TypeError, ValueError):
+                pass
+        if m.get("price") and float(m["price"]) > 0:
+            try:
+                con.execute(
+                    "UPDATE products SET prev_price = price, price = ? WHERE id = ?",
+                    (float(m["price"]), pid)
                 )
-                created_new += 1
-            except Exception as e:
-                print(f"Insert new product failed for {r['name']}: {e}")
+                upd_price += 1
+            except (TypeError, ValueError):
+                pass
+    con.commit(); con.close()
 
-    con.commit()
-    con.close()
-
-    lines = ["✅ *Обновление завершено*", f"Тип: *{type_label}*"]
-    if file_type == "stock":
-        lines.append(f"📦 Остатков обновлено: *{upd_stock}*")
-        if created_new:
-            lines.append(f"🆕 Создано новых позиций: *{created_new}*")
-    else:
-        lines.append(f"💰 Базовых цен: *{upd_price}*")
-        lines.append(f"💰 Цен от 10 кг: *{upd_price_10}*")
-        lines.append(f"💰 Цен от 25 кг: *{upd_price_25}*")
-    if skipped:
-        lines.append(f"⚠️ Пропущено: *{skipped}*")
-
+    lines = [
+        "✅ *Обновление завершено*",
+        f"📦 Остатков обновлено: *{upd_stock}*",
+        f"💰 Цен обновлено: *{upd_price}*",
+        f"⚠️ Пропущено: *{skipped}*",
+    ]
     if not_found_names:
-        lines.append(f"\nНе нашли в БД ({len(not_found_names)}):")
+        lines.append(f"\nНе сопоставлено ({len(not_found_names)}):")
         for nf in not_found_names[:8]:
             lines.append(f"  • {nf[:60]}")
         if len(not_found_names) > 8:
             lines.append(f"  ... и ещё {len(not_found_names)-8}")
-
     await message.answer("\n".join(lines), parse_mode="Markdown")
 
 
@@ -3716,8 +2149,6 @@ import json as _json
 
 class _SyncHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        if self.path == "/products":
-            return self._handle_get_products()
         if self.path != "/sync":
             self.send_response(404); self.end_headers(); return
         try:
@@ -3747,42 +2178,6 @@ class _SyncHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(body)
         except Exception as e:
-            self.send_response(500); self.end_headers()
-            self.wfile.write(str(e).encode())
-
-    def _handle_get_products(self):
-        """
-        GET /products — отдаёт полный каталог с описаниями для wahelp-agent.
-        Только товары с остатком > 0 (in_stock).
-        Возвращает: id, name, price, stock, description, category, roast_type,
-                    process, recipe и любые другие колонки products.
-        """
-        try:
-            con = get_db()
-            cur = con.execute("SELECT * FROM products WHERE stock > 0 ORDER BY name")
-            cols = [c[0] for c in cur.description]
-            rows = cur.fetchall()
-            con.close()
-            products = []
-            for r in rows:
-                d = dict(r)
-                # Для удобства отдадим только непустые поля
-                products.append({k: v for k, v in d.items() if v not in (None, "", 0) or k in ("price", "stock")})
-            data = {
-                "count": len(products),
-                "columns": cols,
-                "products": products,
-            }
-            body = _json.dumps(data, ensure_ascii=False).encode("utf-8")
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Access-Control-Allow-Origin", "*")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
-        except Exception as e:
-            import traceback
-            traceback.print_exc()
             self.send_response(500); self.end_headers()
             self.wfile.write(str(e).encode())
 
@@ -4246,17 +2641,14 @@ async def main():
         register_tma_handlers(dp, bot, get_db, notify_new_order)
     except Exception as e:
         print(f"[TMA] не удалось зарегистрировать обработчики: {e}")
-    # TMA: HTTP /tma/api/order — приём заказов из Mini App минуя web_app_data
-    # (sendData не работает если TMA открыт через menu button или прямую ссылку).
+    # AI-чат (клиентский ассистент через Claude API). Регистрируем последним —
+    # ловит только обычный текст вне команд и FSM, поэтому штатные хэндлеры
+    # отрабатывают первыми.
     try:
-        from tma_static_server import set_tma_api_handler
-        set_tma_api_handler(
-            bot=bot, get_db=get_db, notify_new_order=notify_new_order,
-            main_loop=_MAIN_LOOP, bot_token=os.environ.get("BOT_TOKEN", ""),
-        )
-        print("[TMA] HTTP-приём заказов /tma/api/order активирован")
+        from ai_chat import router as ai_chat_router
+        dp.include_router(ai_chat_router)
     except Exception as e:
-        print(f"[TMA] не удалось включить HTTP-приём заказов: {e}")
+        print(f"[AI-chat] не удалось подключить: {e}")
     threading.Thread(target=_run_sync_server, daemon=True).start()
     await dp.start_polling(bot)
 
