@@ -245,9 +245,10 @@ async def process_tma_order(
     except Exception as e:
         log.warning(f"TMA-HTTP: не удалось отправить подтверждение клиенту {user_id}: {e}")
 
-    # Уведомление админам — полное, со всем составом заказа
+    # Уведомление админам — полное, со всем составом заказа + кнопки действий
     try:
         from admin import ADMIN_IDS
+        from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
         contact = payload.get("contact") or {}
         pay = payload.get("payment_method") or "—"
         adm_lines = [
@@ -269,11 +270,16 @@ async def process_tma_order(
         if saved:
             adm_lines.append(f"🎁 Скидка {int(disc_pct*100)}%: −{saved} ₽")
         adm_lines.append(f"💳 <b>К оплате: {total:.0f} ₽</b> · оплата: {pay}")
-        adm_lines.append(f"\n/admin → Все заказы → №{order_id}")
         adm_text = "\n".join(adm_lines)
+        # Inline-кнопки изменения статуса — те же callback_data что в admin.py
+        kb = InlineKeyboardMarkup(inline_keyboard=[
+            [InlineKeyboardButton(text="✅ Подтвердить", callback_data=f"adm_status_{order_id}_confirmed")],
+            [InlineKeyboardButton(text="📦 Выполнен",   callback_data=f"adm_status_{order_id}_done"),
+             InlineKeyboardButton(text="❌ Отменить",  callback_data=f"adm_status_{order_id}_cancelled")],
+        ])
         for aid in ADMIN_IDS:
             try:
-                await bot.send_message(aid, adm_text, parse_mode="HTML")
+                await bot.send_message(aid, adm_text, parse_mode="HTML", reply_markup=kb)
             except Exception as e:
                 log.warning(f"TMA-HTTP: не уведомили админа {aid}: {e}")
     except Exception as e:
