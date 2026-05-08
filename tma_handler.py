@@ -271,11 +271,12 @@ async def process_tma_order(
             adm_lines.append(f"🎁 Скидка {int(disc_pct*100)}%: −{saved} ₽")
         adm_lines.append(f"💳 <b>К оплате: {total:.0f} ₽</b> · оплата: {pay}")
         adm_text = "\n".join(adm_lines)
-        # Inline-кнопки изменения статуса — те же callback_data что в admin.py
+        # Inline-кнопки изменения статуса. Свой префикс rb_ord_ чтобы не пересекаться
+        # с обработчиками в admin.py / bot.py.
         kb = InlineKeyboardMarkup(inline_keyboard=[
-            [InlineKeyboardButton(text="✅ Подтвердить", callback_data=f"adm_status_{order_id}_confirmed")],
-            [InlineKeyboardButton(text="📦 Выполнен",   callback_data=f"adm_status_{order_id}_done"),
-             InlineKeyboardButton(text="❌ Отменить",  callback_data=f"adm_status_{order_id}_cancelled")],
+            [InlineKeyboardButton(text="✅ Подтвердить", callback_data=f"rb_ord_{order_id}_confirmed")],
+            [InlineKeyboardButton(text="📦 Выполнен",   callback_data=f"rb_ord_{order_id}_done"),
+             InlineKeyboardButton(text="❌ Отменить",  callback_data=f"rb_ord_{order_id}_cancelled")],
         ])
         for aid in ADMIN_IDS:
             try:
@@ -552,5 +553,71 @@ def register_tma_handlers(
     @dp.startup()
     async def _on_startup():
         await setup_menu_button()
+
+    # ── Кнопки статуса заказа в админ-уведомлении (rb_ord_*) ──────────────────
+    @dp.callback_query(F.data.startswith("rb_ord_"))
+    async def rb_order_status(callback):
+        try:
+            from admin import ADMIN_IDS
+        except Exception:
+            ADMIN_IDS = []
+        if callback.from_user.id not in ADMIN_IDS:
+            await callback.answer("Только для админов", show_alert=True)
+            return
+        # формат: rb_ord_{order_id}_{status}
+        rest = callback.data[len("rb_ord_"):]
+        try:
+            order_id_str, new_status = rest.rsplit("_", 1)
+            order_id = int(order_id_str)
+        except Exception:
+            await callback.answer("Битый callback", show_alert=True)
+            return
+        labels = {"confirmed": "✅ Подтверждён", "done": "📦 Выполнен", "cancelled": "❌ Отменён"}
+        status_text = labels.get(new_status, new_status)
+        # 1) UPDATE в БД
+        try:
+            con = get_db()
+            con.execute("UPDATE orders SET status=? WHERE id=?", (new_status, order_id))
+            o = con.execute("SELECT user_id FROM orders WHERE id=?", (order_id,)).fetchone()
+            con.commit(); con.close()
+        except Exception as e:
+            await callback.answer(f"Ошибка БД: {e}", show_alert=True)
+            return
+        client_uid = o["user_id"] if o else None
+        # 2) Редактируем сообщение — убираем кнопки, дописываем статус
+        try:
+            original = callback.message.html_text or callback.message.text or ""
+            await callback.message.edit_text(
+                f"{original}\n\n<b>→ {status_text}</b>",
+                parse_mode="HTML", reply_markup=None,
+            )
+        except Exception:
+            try: await callback.message.edit_reply_markup(reply_markup=None)
+            except Exception: pass
+        # 3) Сообщаем клиенту
+        client_msgs = {
+            "confirmed": (
+                f"✅ <b>Заказ №{order_id} подтверждён</b>\n\n"
+                f"Взяли в работу. Свежеобжаренный кофе будет готов через 1–2 рабочих дня.\n\n"
+                f"📦 <b>Сроки доставки</b>\n"
+                f"• Пермь — курьер/самовывоз: 1–2 дня\n"
+                f"• Регионы СДЭК: 3–7 рабочих дней"
+            ),
+            "done": (
+                f"🎉 <b>Заказ №{order_id} выполнен</b>\n\n"
+                f"Спасибо что выбрали Roastberry! Если есть вопросы — пишите этим же сообщением."
+            ),
+            "cancelled": (
+                f"❌ <b>Заказ №{order_id} отменён</b>\n\n"
+                f"Если это ошибка — напишите нам. При оплате вернём средства в течение 3 рабочих дней."
+            ),
+        }
+        msg = client_msgs.get(new_status, f"📦 <b>Заказ №{order_id}</b>\n\nСтатус: {status_text}")
+        if client_uid:
+            try:
+                await bot.send_message(client_uid, msg, parse_mode="HTML")
+            except Exception as e:
+                log.warning(f"rb_ord: не доставлено клиенту {client_uid}: {e}")
+        await callback.answer(status_text)
 
     log.info(f"TMA handlers зарегистрированы. URL: {TMA_URL}")
