@@ -144,13 +144,16 @@ class Handler(BaseHTTPRequestHandler):
                         f"SELECT {sel} FROM orders WHERE user_id=? ORDER BY id DESC LIMIT 50",
                         (int(tg_id),)
                     ).fetchall()
-                    item_base = ["quantity", "price"]
-                    item_extra = [c for c in ("product_name", "fasovka") if c in it_cols]
-                    item_sel = ",".join(item_base + item_extra)
+                    has_name_col = "product_name" in it_cols
+                    has_fasovka_col = "fasovka" in it_cols
+                    name_expr = "oi.product_name" if has_name_col else "p.name as product_name"
+                    fasovka_expr = "oi.fasovka" if has_fasovka_col else "NULL as fasovka"
                     out = []
                     for o in orders:
                         items = con.execute(
-                            f"SELECT {item_sel} FROM order_items WHERE order_id=? ORDER BY id",
+                            f"SELECT oi.quantity, oi.price, {name_expr}, {fasovka_expr} "
+                            f"FROM order_items oi LEFT JOIN products p ON oi.product_id=p.id "
+                            f"WHERE oi.order_id=? ORDER BY oi.id",
                             (o["id"],)
                         ).fetchall()
                         out.append({**dict(o), "items": [dict(i) for i in items]})
