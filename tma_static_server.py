@@ -40,11 +40,17 @@ API_ORDERS_TOKEN = os.environ.get("API_ORDERS_TOKEN", "")
 _raw_admin = os.environ.get("TMA_ADMIN_IDS", "466755177")
 ADMIN_IDS = {int(x.strip()) for x in _raw_admin.split(",") if x.strip().isdigit()}
 
-# КП аренды — отправляется клиенту по нажатию кнопки в карусели
-KP_PDF_PATH = os.path.normpath(os.path.join(
-    os.path.dirname(os.path.abspath(__file__)),
-    "..", "Прайсы", "чистовики", "Roastberry_КП_Аренда.pdf"
-))
+# КП аренды — отправляется клиенту по нажатию кнопки в карусели.
+# Сначала пробуем локальный файл из репо (BOT_TG/kp/), потом — VPS-расположение
+# для случая когда бот живёт рядом с папкой Прайсы (старый сетап).
+_BOT_DIR = os.path.dirname(os.path.abspath(__file__))
+_KP_CANDIDATES = [
+    os.path.join(_BOT_DIR, "kp", "Roastberry_КП_Аренда.pdf"),
+    os.path.normpath(os.path.join(_BOT_DIR, "..", "Прайсы", "чистовики",
+                                   "Roastberry_КП_Аренда.pdf")),
+]
+KP_PDF_PATH = next((p for p in _KP_CANDIDATES if os.path.isfile(p)),
+                   _KP_CANDIDATES[0])
 
 # Допустимые статусы заказа для смены через adminAPI
 ORDER_STATUSES_VALID = {"confirmed", "shipped", "done", "cancelled"}
