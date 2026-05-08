@@ -276,14 +276,34 @@ async def process_tma_order(
         from admin import ADMIN_IDS
         contact = payload.get("contact") or {}
         pay = payload.get("payment_method") or "—"
+        delivery = (contact.get("delivery") or {})
+        d_method = delivery.get("method") or ""
+        d_label = {"pickup": "🏬 Самовывоз", "courier": "🚗 Курьер по Перми", "cdek": "📦 СДЭК"}.get(d_method, "🚚 Доставка")
         adm_lines = [
             f"🔔 <b>Новый заказ №{order_id}</b>",
             f"👤 {user_full_name} (id <code>{user_id}</code>)",
             f"📞 {contact.get('phone','—')}",
-            f"🏠 {contact.get('address','—')}",
+            f"\n<b>{d_label}</b>",
         ]
-        if contact.get("type") == "company" and contact.get("company_name"):
-            adm_lines.append(f"🏢 {contact['company_name']} · ИНН {contact.get('inn','—')}")
+        if d_method == "pickup":
+            adm_lines.append("📍 Пермь, ул. Карпинского, 14")
+        elif d_method == "courier":
+            adm_lines.append(f"📍 Пермь — {delivery.get('address','—')}")
+            if delivery.get("time"):
+                adm_lines.append(f"⏰ {delivery['time']}")
+        elif d_method == "cdek":
+            adm_lines.append(f"🌍 {delivery.get('city','—')} — {delivery.get('address','—')}")
+            if delivery.get("recipient_name") or delivery.get("recipient_phone"):
+                adm_lines.append(f"📦 Получатель: {delivery.get('recipient_name','—')} · {delivery.get('recipient_phone','—')}")
+        else:
+            adm_lines.append(f"📍 {contact.get('address','—')}")
+        if contact.get("type") == "company":
+            comp = contact.get("company") or contact.get("company_name") or "—"
+            adm_lines.append(f"\n🏢 {comp} · ИНН {contact.get('inn','—')}")
+            if contact.get("legal_address"):
+                adm_lines.append(f"📋 Юр.адрес: {contact['legal_address']}")
+            if contact.get("email"):
+                adm_lines.append(f"✉️ {contact['email']}")
         if contact.get("comment"):
             adm_lines.append(f"💬 {contact['comment']}")
         adm_lines.append("\n📦 <b>Состав:</b>")

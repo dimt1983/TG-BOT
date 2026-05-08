@@ -385,6 +385,77 @@ body {
       <div></div>
     </header>
     <div class="section">
+      <!-- Способ получения — общий для физ/юр -->
+      <div style="margin-bottom:14px">
+        <div style="font-weight:700;font-size:14px;margin-bottom:8px">Как получить</div>
+        <div class="pay-options" id="delivery-options">
+          <div class="pay-opt selected" data-delivery="pickup" onclick="setDelivery('pickup')">
+            <span class="ico">🏬</span>
+            <div class="info">
+              <div class="ttl">Самовывоз</div>
+              <div class="sub">Пермь, ул. Карпинского, 14</div>
+            </div>
+          </div>
+          <div class="pay-opt" data-delivery="courier" onclick="setDelivery('courier')">
+            <span class="ico">🚗</span>
+            <div class="info">
+              <div class="ttl">Курьер по Перми</div>
+              <div class="sub">1–2 рабочих дня</div>
+            </div>
+          </div>
+          <div class="pay-opt" data-delivery="cdek" onclick="setDelivery('cdek')">
+            <span class="ico">📦</span>
+            <div class="info">
+              <div class="ttl">СДЭК в другой город</div>
+              <div class="sub">3–7 рабочих дней</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Поля доставки появляются под выбранным способом -->
+      <div id="delivery-pickup" class="delivery-fields">
+        <div class="form-row" style="background:rgba(46,125,50,0.08);padding:10px;border-radius:10px">
+          <div style="font-size:13px;color:var(--text)">📍 <b>Самовывоз:</b> Пермь, ул. Карпинского, 14<br>
+          ⏰ Будни 9:00–18:00. Заказ собираем за 1–2 рабочих дня — позвоним когда готов.</div>
+        </div>
+      </div>
+
+      <div id="delivery-courier" class="delivery-fields" style="display:none">
+        <div class="form-row">
+          <label>Адрес доставки в Перми *</label>
+          <textarea id="d-courier-address" placeholder="Улица, дом, квартира, домофон"></textarea>
+          <div class="err">Укажите адрес</div>
+        </div>
+        <div class="form-row">
+          <label>Удобное время</label>
+          <input type="text" id="d-courier-time" placeholder="Например, после 18:00">
+        </div>
+      </div>
+
+      <div id="delivery-cdek" class="delivery-fields" style="display:none">
+        <div class="form-row">
+          <label>Город *</label>
+          <input type="text" id="d-cdek-city" placeholder="Например, Екатеринбург">
+          <div class="err">Укажите город</div>
+        </div>
+        <div class="form-row">
+          <label>Адрес ПВЗ или адрес доставки *</label>
+          <textarea id="d-cdek-address" placeholder="Адрес пункта выдачи СДЭК или курьерской доставки"></textarea>
+          <div class="err">Укажите адрес</div>
+        </div>
+        <div class="form-row">
+          <label>ФИО получателя *</label>
+          <input type="text" id="d-cdek-name" placeholder="Кто получает посылку">
+          <div class="err">Укажите ФИО</div>
+        </div>
+        <div class="form-row">
+          <label>Телефон получателя *</label>
+          <input type="tel" id="d-cdek-phone" placeholder="+7 (___) ___-__-__">
+          <div class="err">Укажите телефон</div>
+        </div>
+      </div>
+
       <div class="form-tabs">
         <button class="form-tab active" data-ftype="individual" onclick="setFormType('individual')">👤 Физ. лицо</button>
         <button class="form-tab" data-ftype="company" onclick="setFormType('company')">🏢 Юр. лицо</button>
@@ -402,13 +473,8 @@ body {
           <div class="err">Укажите телефон</div>
         </div>
         <div class="form-row">
-          <label>Адрес доставки *</label>
-          <textarea id="f-address" placeholder="Город, улица, дом, квартира"></textarea>
-          <div class="err">Укажите адрес</div>
-        </div>
-        <div class="form-row">
           <label>Комментарий (опц.)</label>
-          <textarea id="f-comment" placeholder="Особые пожелания, время доставки"></textarea>
+          <textarea id="f-comment" placeholder="Особые пожелания"></textarea>
         </div>
       </div>
 
@@ -1367,9 +1433,15 @@ function changeCartQty(i, d) {
 // === Checkout flow ===
 let formType = 'individual';
 let payMethod = 'online';
+let deliveryMethod = 'pickup';
 const FORM_FIELDS = {
-  individual: ['f-name', 'f-phone', 'f-address'],
+  individual: ['f-name', 'f-phone'],
   company: ['fc-company', 'fc-inn', 'fc-legal', 'fc-name', 'fc-phone', 'fc-email'],
+};
+const DELIVERY_FIELDS = {
+  pickup: [],
+  courier: ['d-courier-address'],
+  cdek: ['d-cdek-city', 'd-cdek-address', 'd-cdek-name', 'd-cdek-phone'],
 };
 
 function checkout() {
@@ -1394,7 +1466,16 @@ function setFormType(t) {
 
 function setPay(method) {
   payMethod = method;
-  document.querySelectorAll('.pay-opt').forEach(o => o.classList.toggle('selected', o.dataset.pay === method));
+  document.querySelectorAll('.pay-opt[data-pay]').forEach(o => o.classList.toggle('selected', o.dataset.pay === method));
+}
+
+function setDelivery(method) {
+  deliveryMethod = method;
+  document.querySelectorAll('.pay-opt[data-delivery]').forEach(o => o.classList.toggle('selected', o.dataset.delivery === method));
+  ['pickup','courier','cdek'].forEach(m => {
+    const el = document.getElementById('delivery-' + m);
+    if (el) el.style.display = (m === method) ? 'block' : 'none';
+  });
 }
 
 function calcTotals() {
@@ -1427,32 +1508,70 @@ function renderCheckoutSummary() {
 
 function validateForm() {
   let ok = true;
-  const fields = FORM_FIELDS[formType];
+  const fields = [...FORM_FIELDS[formType], ...DELIVERY_FIELDS[deliveryMethod]];
   fields.forEach(id => {
     const el = document.getElementById(id);
+    if (!el) return;
     const row = el.closest('.form-row');
     const val = el.value.trim();
     let bad = !val;
     if (id === 'fc-inn' && val) {
       bad = !/^\d{10}(\d{2})?$/.test(val.replace(/\s/g, ''));
     }
-    if ((id === 'f-phone' || id === 'fc-phone') && val) {
+    if (/-phone$/.test(id) && val) {
       bad = !/\d{10}/.test(val.replace(/\D/g, ''));
     }
-    row.classList.toggle('error', bad);
+    if (row) row.classList.toggle('error', bad);
     if (bad) ok = false;
   });
   return ok;
 }
 
+function getDelivery() {
+  if (deliveryMethod === 'pickup') {
+    return { method: 'pickup', label: 'Самовывоз — Пермь, ул. Карпинского, 14' };
+  }
+  if (deliveryMethod === 'courier') {
+    return {
+      method: 'courier',
+      city: 'Пермь',
+      address: document.getElementById('d-courier-address').value.trim(),
+      time: document.getElementById('d-courier-time').value.trim(),
+      label: 'Курьер по Перми',
+    };
+  }
+  if (deliveryMethod === 'cdek') {
+    return {
+      method: 'cdek',
+      city: document.getElementById('d-cdek-city').value.trim(),
+      address: document.getElementById('d-cdek-address').value.trim(),
+      recipient_name: document.getElementById('d-cdek-name').value.trim(),
+      recipient_phone: document.getElementById('d-cdek-phone').value.trim(),
+      label: 'СДЭК',
+    };
+  }
+  return { method: deliveryMethod };
+}
+
 function getContact() {
+  const delivery = getDelivery();
+  // Адрес для совместимости со старой схемой БД (orders.address)
+  const addressLines = [delivery.label || ''];
+  if (delivery.city)             addressLines.push('Город: ' + delivery.city);
+  if (delivery.address)          addressLines.push(delivery.address);
+  if (delivery.time)             addressLines.push('Время: ' + delivery.time);
+  if (delivery.recipient_name)   addressLines.push('Получатель: ' + delivery.recipient_name);
+  if (delivery.recipient_phone)  addressLines.push('Тел. получателя: ' + delivery.recipient_phone);
+  const addressText = addressLines.filter(Boolean).join(' | ');
+
   if (formType === 'individual') {
     return {
       type: 'individual',
       name: document.getElementById('f-name').value.trim(),
       phone: document.getElementById('f-phone').value.trim(),
-      address: document.getElementById('f-address').value.trim(),
+      address: addressText,
       comment: document.getElementById('f-comment').value.trim(),
+      delivery,
     };
   } else {
     return {
@@ -1461,9 +1580,11 @@ function getContact() {
       inn: document.getElementById('fc-inn').value.trim(),
       legal_address: document.getElementById('fc-legal').value.trim(),
       delivery_address: document.getElementById('fc-delivery').value.trim(),
+      address: addressText,
       name: document.getElementById('fc-name').value.trim(),
       phone: document.getElementById('fc-phone').value.trim(),
       email: document.getElementById('fc-email').value.trim(),
+      delivery,
     };
   }
 }
@@ -1723,7 +1844,11 @@ function applyProfileToCheckout() {
     const set = (id, v) => { const el = document.getElementById(id); if (el && !el.value) el.value = v || ''; };
     set('f-name', d.name);
     set('f-phone', d.phone);
-    set('f-address', d.address);
+    // Адрес из старого профиля положим в курьерскую доставку, чтобы не терять
+    if (d.address) {
+      const ca = document.getElementById('d-courier-address');
+      if (ca && !ca.value) ca.value = d.address;
+    }
     set('f-comment', d.comment);
   }
 }
