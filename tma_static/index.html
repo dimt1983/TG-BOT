@@ -166,9 +166,9 @@ body {
 .sheet { position: fixed; bottom: 0; left: 0; right: 0; max-width: 480px; margin: 0 auto; background: var(--bg); border-radius: 24px 24px 0 0; padding: 0 0 max(120px, calc(env(safe-area-inset-bottom) + 100px)); transform: translateY(100%); transition: transform 0.3s; max-height: 92vh; overflow-y: auto; z-index: 201; }
 .sheet.show { transform: translateY(0); }
 .sheet-handle { width: 40px; height: 4px; background: rgba(0,0,0,0.2); border-radius: 2px; margin: 8px auto 12px; }
-.sheet-photo { width: 100%; aspect-ratio: 16/10; position: relative; overflow: hidden; background: linear-gradient(135deg, #f5f1ec 0%, #efe9e1 50%, #e8dfd4 100%); }
-.sheet-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.sheet-photo img.logo-mark { max-width: 50%; max-height: 70%; object-fit: contain; margin: 4% auto; }
+.sheet-photo { width: 100%; height: 240px; position: relative; overflow: hidden; background: linear-gradient(135deg, #f5f1ec 0%, #efe9e1 50%, #e8dfd4 100%); display: flex; align-items: center; justify-content: center; }
+.sheet-photo img { max-width: 80%; max-height: 100%; object-fit: contain; display: block; }
+.sheet-photo img.logo-mark { max-width: 50%; max-height: 70%; }
 .sheet-content { padding: 20px; }
 .sheet-title { font-size: 22px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.3px; }
 .sheet-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
