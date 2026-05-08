@@ -63,12 +63,17 @@ body {
 .hero-card .cta { margin-top: 14px; display: inline-flex; align-self: flex-start; background: var(--accent); color: var(--primary-dark); padding: 10px 20px; border-radius: 12px; font-weight: 800; font-size: 13px; }
 .hero-card.rental-card::before { background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(13,92,89,0.5) 60%, rgba(0,0,0,0.35) 100%); }
 .hero-card.rental-card .cta { background: #1FB6B0; color: white; }
+.hero-card.academy-card { background: linear-gradient(135deg, #4a3f8a 0%, #1d1545 100%); }
+.hero-card.academy-card::before { background: linear-gradient(135deg, rgba(74,63,138,0.15) 0%, rgba(0,0,0,0.45) 100%); }
+.hero-card.academy-card .cta { background: #f4d35e; color: #1d1545; }
+.hero-card .academy-deco { position: absolute; right: 18px; top: 18px; font-size: 100px; opacity: 0.16; line-height: 1; pointer-events: none; user-select: none; z-index: 0; }
 .hero-dots { display: flex; justify-content: center; gap: 6px; margin: 10px 0 12px; }
 .hero-dot { width: 6px; height: 6px; border-radius: 3px; background: rgba(111,78,55,0.2); transition: all 0.3s; cursor: pointer; border: none; padding: 0; }
 .hero-dot.active { width: 18px; background: var(--primary); }
 /* Consulting tile */
 .top-cat-consulting { background: linear-gradient(135deg, #4a3f8a 0%, #1d1545 100%) !important; }
 .top-cat-consulting .top-cat-deco { position: absolute; right: 4px; top: 50%; transform: translateY(-60%); font-size: 66px; opacity: 0.18; z-index: 1; line-height: 1; pointer-events: none; user-select: none; }
+.top-cat-consulting .label .name { font-size: 26px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; line-height: 1; margin-bottom: 4px; }
 
 .section { padding: 0 16px; margin-bottom: 24px; }
 .section-h { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding: 0 4px; }
@@ -408,10 +413,18 @@ body {
           <p>Дуэт мечты для вашей точки — без вложений в покупку.</p>
           <div class="cta">Получить КП →</div>
         </div>
+        <div class="hero-card academy-card" onclick="openCategory('consulting')">
+          <div class="academy-deco">🎓</div>
+          <div class="eyebrow">Академия</div>
+          <h2>От первой чашки до своей кофейни</h2>
+          <p>5 курсов: любитель → бариста → профи → владелец → чай</p>
+          <div class="cta">Узнать программу →</div>
+        </div>
       </div>
       <div class="hero-dots">
         <button class="hero-dot active" onclick="heroGoTo(0)"></button>
         <button class="hero-dot" onclick="heroGoTo(1)"></button>
+        <button class="hero-dot" onclick="heroGoTo(2)"></button>
       </div>
     </div>
 
@@ -969,10 +982,11 @@ async function load() {
 }
 
 // === Hero carousel ===
+const HERO_SLIDES = 3;
 let _heroSlide = 0;
 let _heroTimer = null;
 function heroGoTo(idx) {
-  _heroSlide = ((idx % 2) + 2) % 2;
+  _heroSlide = ((idx % HERO_SLIDES) + HERO_SLIDES) % HERO_SLIDES;
   document.getElementById('hero-track').style.transform = `translateX(-${_heroSlide * 100}%)`;
   document.querySelectorAll('.hero-dot').forEach((d, i) => d.classList.toggle('active', i === _heroSlide));
 }
