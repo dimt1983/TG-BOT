@@ -2641,6 +2641,14 @@ async def main():
         register_tma_handlers(dp, bot, get_db, notify_new_order)
     except Exception as e:
         print(f"[TMA] не удалось зарегистрировать обработчики: {e}")
+    # TMA-API: пробрасываем bot/loop/token в HTTP-сервер tma_static_server,
+    # чтобы он мог верифицировать initData и слать сообщения от лица бота
+    # (КП аренды, админ-панель, чат поддержки).
+    try:
+        from tma_static_server import set_tma_api_handler
+        set_tma_api_handler(bot, get_db, notify_new_order, _MAIN_LOOP, BOT_TOKEN)
+    except Exception as e:
+        print(f"[TMA-API] не удалось инициализировать: {e}")
     # AI-чат (клиентский ассистент через Claude API). Регистрируем последним —
     # ловит только обычный текст вне команд и FSM, поэтому штатные хэндлеры
     # отрабатывают первыми.
