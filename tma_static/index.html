@@ -2130,6 +2130,28 @@ function toast(msg) {
   setTimeout(() => t.classList.remove('show'), 1800);
 }
 
+// Swipe right от левого края (первые 30px) → назад, как в сервисном приложении
+(function() {
+  let sx = 0, sy = 0, edge = false;
+  document.addEventListener('touchstart', e => {
+    sx = e.touches[0].clientX;
+    sy = e.touches[0].clientY;
+    edge = sx < 30;
+  }, { passive: true });
+  document.addEventListener('touchend', e => {
+    if (!edge) return;
+    const dx = e.changedTouches[0].clientX - sx;
+    const dy = Math.abs(e.changedTouches[0].clientY - sy);
+    if (dx > 50 && dy < 60) {
+      const backBtn = document.querySelector('.screen.active .back-btn');
+      if (backBtn) {
+        tg?.HapticFeedback?.impactOccurred('light');
+        backBtn.click();
+      }
+    }
+  }, { passive: true });
+})();
+
 load();
 </script>
 </body>
