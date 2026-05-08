@@ -127,8 +127,32 @@ body {
 .subcat-tile.brand-bold .label .meta { font-size: 12px; opacity: 0.95; margin-top: 5px; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
 .subcat-tile.brand-bold .ico-bg { position: absolute; top: 10px; right: 12px; font-size: 32px; opacity: 0.35; z-index: 1; }
 .subcat-tile.all { background: linear-gradient(135deg, #3e2723, #1a0f0a); }
-.subcat-tile.all .label .name { font-size: 18px; font-weight: 900; }
-.subcat-tile.all .label .meta { font-size: 12px; font-weight: 600; opacity: 0.9; }
+
+/* ── Унификация: положение и размер текста на ВСЕХ плитках номенклатуры ── */
+/* Шрифт строго эталонный (как на `.top-cat .label .name` — Кофе/Чай).      */
+/* Фоны/JPG/font-family не трогаем.                                         */
+.top-cat .label,
+.subcat-tile .label { left: 14px !important; right: 14px !important; bottom: 12px !important; }
+.top-cat .label .name,
+.subcat-tile .label .name {
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.3px !important;
+  text-transform: uppercase !important;
+  line-height: 1.05 !important;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+}
+.top-cat .label .meta,
+.subcat-tile .label .meta {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  opacity: 0.95;
+  margin-top: 5px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+/* .custom-плитки (брендовые JPG-логотипы сиропов) — там label.only-meta, name нет */
+.subcat-tile.custom .label.only-meta { left: 14px !important; right: 14px !important; bottom: 12px !important; }
+.subcat-tile.custom .label.only-meta .meta { font-size: 14px !important; font-weight: 700 !important; }
 
 /* Product card */
 .product-card { background: var(--section); border-radius: var(--radius); padding: 12px; margin-bottom: 10px; display: flex; gap: 12px; box-shadow: var(--shadow); cursor: pointer; transition: transform 0.15s; }
