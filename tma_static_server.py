@@ -172,7 +172,9 @@ class Handler(BaseHTTPRequestHandler):
                 # Кеш для статики
                 extra = {}
                 if any(full_path.endswith(ext) for ext in [".jpg", ".png", ".webp", ".svg", ".ico"]):
-                    extra["Cache-Control"] = "public, max-age=86400"
+                    # 1 час с принудительным revalidate — чтобы Telegram WebView
+                    # на мобильных подтягивал свежие фото каталога.
+                    extra["Cache-Control"] = "public, max-age=3600, must-revalidate"
                 self._send(200, body, ctype, extra)
             except Exception as e:
                 self._send(500, str(e).encode(), "text/plain")

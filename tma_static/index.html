@@ -564,6 +564,10 @@ if (tg) {
 }
 
 let DATA = null;
+// Версия для cache-bust фото — меняется раз в час, чтобы мобильный
+// Telegram WebView подтягивал свежий каталог пачек.
+const IMG_VER = Math.floor(Date.now() / 3600000);
+function imgUrl(p) { return p ? (p + (p.includes('?') ? '&' : '?') + 'v=' + IMG_VER) : p; }
 let cart = JSON.parse(localStorage.getItem('rb_cart') || '[]');
 let favorites = JSON.parse(localStorage.getItem('rb_favorites') || '[]'); // массив pid
 let myOrders = null; // загружается лениво
@@ -709,7 +713,7 @@ function productCard(p, subContext) {
     return `<span class="product-tag ${cls}">${t}</span>`;
   }).join('');
   const img = p.photo
-    ? `<img src="${p.photo}" alt="" onerror="this.onerror=null;this.src='assets/logo_mark.png';this.classList.add('logo-mark')">`
+    ? `<img src="${imgUrl(p.photo)}" alt="" onerror="this.onerror=null;this.src='assets/logo_mark.png';this.classList.add('logo-mark')">`
     : `<img class="logo-mark" src="assets/logo_mark.png" alt="">`;
   const isFav = favorites.includes(p.id);
   return `<div class="product-card" onclick="openProduct('${p.id}')">
@@ -996,7 +1000,7 @@ function renderSheet() {
   // Фото: если в текущей фасовке указан _photo — берём его, иначе общее p.photo
   const heroPhoto = currentFasovka._photo || p.photo;
   const heroImg = heroPhoto
-    ? `<img src="${heroPhoto}" alt="" onerror="this.onerror=null;this.src='assets/logo_full.png';this.classList.add('logo-mark')">`
+    ? `<img src="${imgUrl(heroPhoto)}" alt="" onerror="this.onerror=null;this.src='assets/logo_full.png';this.classList.add('logo-mark')">`
     : `<img class="logo-mark" src="assets/logo_full.png" alt="Roastberry">`;
   const isFav = favorites.includes(p.id);
   document.getElementById('sheet-content').innerHTML = `
