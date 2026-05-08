@@ -173,6 +173,32 @@ def parse_kg(fasovka_str: str) -> float | None:
 
 
 # ============================================================
+# 2a. Inline-клавиатура «прогрессивных» кнопок статуса заказа
+# ============================================================
+
+def order_status_keyboard(order_id: int, status: str):
+    """Кнопки прогрессивно зависят от текущего статуса заказа.
+    new        → [✅ Подтвердить] [❌ Отменить]
+    confirmed  → [📦 Выполнен]    [❌ Отменить]
+    done|cancelled → None (никаких кнопок)
+    """
+    from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+    if status in ("done", "cancelled"):
+        return None
+    if status == "confirmed":
+        rows = [[
+            InlineKeyboardButton(text="📦 Выполнен",  callback_data=f"rb_ord_{order_id}_done"),
+            InlineKeyboardButton(text="❌ Отменить", callback_data=f"rb_ord_{order_id}_cancelled"),
+        ]]
+    else:  # new и любой неизвестный
+        rows = [[
+            InlineKeyboardButton(text="✅ Подтвердить", callback_data=f"rb_ord_{order_id}_confirmed"),
+            InlineKeyboardButton(text="❌ Отменить",   callback_data=f"rb_ord_{order_id}_cancelled"),
+        ]]
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+# ============================================================
 # 2b. Полный пайплайн обработки заказа из TMA (HTTP-вариант)
 # ============================================================
 
@@ -248,7 +274,6 @@ async def process_tma_order(
     # Уведомление админам — полное, со всем составом заказа + кнопки действий
     try:
         from admin import ADMIN_IDS
-        from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
         contact = payload.get("contact") or {}
         pay = payload.get("payment_method") or "—"
         adm_lines = [
@@ -271,13 +296,7 @@ async def process_tma_order(
             adm_lines.append(f"🎁 Скидка {int(disc_pct*100)}%: −{saved} ₽")
         adm_lines.append(f"💳 <b>К оплате: {total:.0f} ₽</b> · оплата: {pay}")
         adm_text = "\n".join(adm_lines)
-        # Inline-кнопки изменения статуса. Свой префикс rb_ord_ чтобы не пересекаться
-        # с обработчиками в admin.py / bot.py.
-        kb = InlineKeyboardMarkup(inline_keyboard=[
-            [InlineKeyboardButton(text="✅ Подтвердить", callback_data=f"rb_ord_{order_id}_confirmed")],
-            [InlineKeyboardButton(text="📦 Выполнен",   callback_data=f"rb_ord_{order_id}_done"),
-             InlineKeyboardButton(text="❌ Отменить",  callback_data=f"rb_ord_{order_id}_cancelled")],
-        ])
+        kb = order_status_keyboard(order_id, "new")
         for aid in ADMIN_IDS:
             try:
                 await bot.send_message(aid, adm_text, parse_mode="HTML", reply_markup=kb)
@@ -584,15 +603,18 @@ def register_tma_handlers(
             await callback.answer(f"Ошибка БД: {e}", show_alert=True)
             return
         client_uid = o["user_id"] if o else None
-        # 2) Редактируем сообщение — убираем кнопки, дописываем статус
+        # 2) Перерисовываем сообщение: дописываем статус и обновляем клавиатуру
+        new_kb = order_status_keyboard(order_id, new_status)
         try:
             original = callback.message.html_text or callback.message.text or ""
+            # Если в тексте уже есть строка «→ ...» (повторное нажатие) — заменим
+            base = original.split("\n\n→ ")[0]
             await callback.message.edit_text(
-                f"{original}\n\n<b>→ {status_text}</b>",
-                parse_mode="HTML", reply_markup=None,
+                f"{base}\n\n<b>→ {status_text}</b>",
+                parse_mode="HTML", reply_markup=new_kb,
             )
         except Exception:
-            try: await callback.message.edit_reply_markup(reply_markup=None)
+            try: await callback.message.edit_reply_markup(reply_markup=new_kb)
             except Exception: pass
         # 3) Сообщаем клиенту
         client_msgs = {
