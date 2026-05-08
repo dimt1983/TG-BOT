@@ -315,6 +315,68 @@ body {
 /* Toast */
 .toast { position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--primary-dark); color: white; padding: 12px 20px; border-radius: 12px; font-size: 14px; font-weight: 600; opacity: 0; pointer-events: none; transition: all 0.25s; z-index: 300; box-shadow: var(--shadow-lg); }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ─── Admin panel ─── */
+.admin-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 16px; }
+.admin-stat { background: var(--section); border-radius: var(--radius); padding: 12px 8px; text-align: center; box-shadow: var(--shadow); }
+.admin-stat .val { font-size: 26px; font-weight: 800; color: var(--primary); line-height: 1; }
+.admin-stat .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--hint); margin-top: 4px; }
+.admin-filter { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 12px; scrollbar-width: none; }
+.admin-filter::-webkit-scrollbar { display: none; }
+.filter-btn { flex-shrink: 0; padding: 6px 14px; border-radius: 14px; border: none; font-size: 12px; font-weight: 600; cursor: pointer; background: rgba(111,78,55,0.1); color: var(--primary); }
+.filter-btn.active { background: var(--primary); color: white; }
+.order-card { background: var(--section); border-radius: var(--radius); padding: 14px; margin-bottom: 10px; box-shadow: var(--shadow); cursor: pointer; border-left: 4px solid transparent; }
+.order-card:active { transform: scale(0.99); }
+.order-card.st-new       { border-left-color: #e65100; }
+.order-card.st-confirmed { border-left-color: #2e7d32; }
+.order-card.st-shipped   { border-left-color: #1565c0; }
+.order-card.st-done      { border-left-color: #6f4e37; }
+.order-card.st-cancelled { border-left-color: #bdbdbd; opacity: 0.7; }
+.order-card .oc-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+.order-card .oc-num { font-weight: 800; font-size: 15px; }
+.order-card .oc-total { font-weight: 700; color: var(--primary); }
+.order-card .oc-meta { font-size: 12px; color: var(--hint); }
+.status-pill { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 700; }
+.sp-new       { background: #fff3e0; color: #e65100; }
+.sp-confirmed { background: #e8f5e9; color: #2e7d32; }
+.sp-shipped   { background: #e3f2fd; color: #1565c0; }
+.sp-done      { background: #efebe9; color: #6f4e37; }
+.sp-cancelled { background: #f5f5f5; color: #757575; }
+.order-detail-block { background: var(--section); border-radius: var(--radius); padding: 14px; margin-bottom: 12px; box-shadow: var(--shadow); }
+.order-detail-block h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--hint); margin-bottom: 10px; }
+.detail-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid rgba(0,0,0,0.04); font-size: 14px; }
+.detail-row:last-child { border-bottom: none; }
+.detail-row .dr-label { color: var(--hint); }
+.detail-row .dr-val   { font-weight: 600; text-align: right; max-width: 60%; }
+.status-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.sa-btn { flex: 1 1 calc(50% - 4px); padding: 12px 8px; border: none; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; }
+.sa-confirm  { background: #e8f5e9; color: #2e7d32; }
+.sa-ship     { background: #e3f2fd; color: #1565c0; }
+.sa-done     { background: #efebe9; color: #6f4e37; }
+.sa-cancel   { background: #fce4ec; color: #c62828; }
+.sa-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.user-row { display: flex; align-items: center; gap: 12px; background: var(--section); border-radius: var(--radius); padding: 12px 14px; margin-bottom: 8px; cursor: pointer; box-shadow: var(--shadow); }
+.user-row .ur-ava { width: 40px; height: 40px; border-radius: 20px; background: linear-gradient(135deg,var(--primary),var(--accent)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 17px; flex-shrink: 0; }
+.user-row .ur-info { flex: 1; min-width: 0; }
+.user-row .ur-name { font-weight: 700; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.user-row .ur-meta { font-size: 12px; color: var(--hint); margin-top: 2px; }
+.user-row .ur-orders { font-size: 12px; font-weight: 700; color: var(--primary); flex-shrink: 0; }
+
+/* ─── Support chat ─── */
+.chat-wrap { display: flex; flex-direction: column; height: calc(100vh - 120px); }
+.chat-messages { flex: 1; overflow-y: auto; padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
+.chat-bubble { max-width: 78%; padding: 10px 14px; border-radius: 16px; font-size: 14px; line-height: 1.4; word-break: break-word; }
+.chat-bubble.mine { align-self: flex-end; background: var(--primary); color: white; border-bottom-right-radius: 4px; }
+.chat-bubble.theirs { align-self: flex-start; background: var(--section); color: var(--text); border-bottom-left-radius: 4px; box-shadow: var(--shadow); }
+.chat-bubble .bubble-name { font-size: 10px; font-weight: 700; opacity: 0.7; margin-bottom: 4px; }
+.chat-bubble .bubble-time { font-size: 10px; opacity: 0.55; margin-top: 4px; text-align: right; }
+.chat-input-row { display: flex; gap: 8px; padding: 10px 16px; background: var(--section); border-top: 1px solid rgba(0,0,0,0.06); }
+.chat-input-row textarea { flex: 1; border: 1.5px solid rgba(0,0,0,0.12); border-radius: 14px; padding: 10px 14px; font-size: 14px; font-family: inherit; resize: none; outline: none; line-height: 1.4; max-height: 100px; }
+.chat-input-row textarea:focus { border-color: var(--primary); }
+.chat-send-btn { width: 44px; height: 44px; border-radius: 22px; background: var(--primary); border: none; color: white; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; align-self: flex-end; }
+.chat-send-btn:disabled { opacity: 0.4; }
+.chat-order-badge { background: rgba(111,78,55,0.08); border-radius: 10px; padding: 8px 14px; margin: 8px 16px 0; font-size: 12px; color: var(--hint); text-align: center; }
+.chat-support-btn { width: 100%; padding: 13px; border: 2px solid var(--primary); background: transparent; border-radius: 14px; font-size: 14px; font-weight: 600; color: var(--primary); cursor: pointer; margin-top: 12px; }
 </style>
 </head>
 <body>
@@ -724,11 +786,88 @@ body {
   </div>
 </div>
 
+<!-- ═══════════════ ADMIN: главный экран ═══════════════ -->
+<div class="screen" id="screen-admin">
+  <header class="header">
+    <div></div>
+    <h1>Панель</h1>
+    <button class="icon-btn" onclick="renderAdminHome()">↻</button>
+  </header>
+  <div class="container">
+    <div class="admin-stats">
+      <div class="admin-stat"><div class="val" id="adm-stat-new">—</div><div class="lbl">Новых</div></div>
+      <div class="admin-stat"><div class="val" id="adm-stat-today">—</div><div class="lbl">Сегодня</div></div>
+      <div class="admin-stat"><div class="val" id="adm-stat-done">—</div><div class="lbl">Выполнено</div></div>
+    </div>
+    <div class="admin-filter">
+      <button class="filter-btn active" data-sf="" onclick="adminFilterOrders(this,'')">Все</button>
+      <button class="filter-btn" data-sf="new" onclick="adminFilterOrders(this,'new')">Новые</button>
+      <button class="filter-btn" data-sf="confirmed" onclick="adminFilterOrders(this,'confirmed')">Принятые</button>
+      <button class="filter-btn" data-sf="shipped" onclick="adminFilterOrders(this,'shipped')">В доставке</button>
+      <button class="filter-btn" data-sf="done" onclick="adminFilterOrders(this,'done')">Выполненные</button>
+      <button class="filter-btn" data-sf="cancelled" onclick="adminFilterOrders(this,'cancelled')">Отменённые</button>
+    </div>
+    <div id="admin-orders-list"></div>
+    <button class="profile-action" style="margin-top:8px" onclick="goTo('admin-users')">
+      <span><span class="ico">👥</span> Клиенты</span><span class="arr">›</span>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════ ADMIN: детали заказа ═══════════════ -->
+<div class="screen" id="screen-admin-order">
+  <header class="header">
+    <button class="back-btn" onclick="goTo('admin')">‹ Назад</button>
+    <h1 id="admin-order-title">Заказ</h1>
+    <div></div>
+  </header>
+  <div class="container" id="admin-order-detail"></div>
+</div>
+
+<!-- ═══════════════ ADMIN: список клиентов ═══════════════ -->
+<div class="screen" id="screen-admin-users">
+  <header class="header">
+    <button class="back-btn" onclick="goTo('admin')">‹ Назад</button>
+    <h1>Клиенты</h1>
+    <button class="icon-btn" onclick="renderAdminUsers()">↻</button>
+  </header>
+  <div class="container" id="admin-users-list"></div>
+</div>
+
+<!-- ═══════════════ ADMIN: профиль клиента ═══════════════ -->
+<div class="screen" id="screen-admin-user">
+  <header class="header">
+    <button class="back-btn" onclick="goTo('admin-users')">‹ Назад</button>
+    <h1 id="admin-user-title">Клиент</h1>
+    <div></div>
+  </header>
+  <div class="container" id="admin-user-detail"></div>
+</div>
+
+<!-- ═══════════════ ЧАТА ПОДДЕРЖКИ ═══════════════ -->
+<div class="screen" id="screen-chat">
+  <header class="header">
+    <button class="back-btn" id="chat-back-btn" onclick="closeChat()">‹ Назад</button>
+    <h1 id="chat-title">Поддержка</h1>
+    <div></div>
+  </header>
+  <div class="chat-order-badge" id="chat-order-badge"></div>
+  <div class="chat-wrap">
+    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-input-row">
+      <textarea id="chat-input" placeholder="Напишите сообщение…" rows="1"
+        oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"></textarea>
+      <button class="chat-send-btn" id="chat-send-btn" onclick="sendChatMessage()">➤</button>
+    </div>
+  </div>
+</div>
+
 <nav class="tabbar">
   <button class="tabbar-btn active" data-screen="home" onclick="goTo('home')"><span class="ico">🛍️</span><span class="tab-ru">Магазин</span><span class="tab-en">shop</span></button>
   <button class="tabbar-btn" data-screen="cart" onclick="goTo('cart')"><span class="ico">🛒</span><span class="tab-ru">Корзина</span><span class="tab-en">cart</span><span class="badge" id="tab-cart-badge" style="display:none">0</span></button>
   <button class="tabbar-btn" data-screen="orders" onclick="goTo('orders')"><span class="ico">📦</span><span class="tab-ru">Заказы</span><span class="tab-en">orders</span></button>
   <button class="tabbar-btn" data-screen="profile" onclick="goTo('profile')"><span class="ico">👤</span><span class="tab-ru">Профиль</span><span class="tab-en">profile</span></button>
+  <button class="tabbar-btn" data-screen="admin" id="admin-tab" style="display:none" onclick="goTo('admin')"><span class="ico">⚙️</span><span class="tab-ru">Админ</span><span class="tab-en">admin</span></button>
 </nav>
 
 <div class="modal-bg" id="modal-bg" onclick="closeSheet()"></div>
@@ -826,6 +965,7 @@ async function load() {
   renderCartBadge();
   renderProfile();
   heroStartAuto();
+  checkAdminAccess();
 }
 
 // === Hero carousel ===
@@ -851,11 +991,27 @@ function heroStartAuto() {
   }, {passive: true});
 })();
 
-function openRentalKP() {
-  const bot = window.tg?.initDataUnsafe?.start_param || 'rcr_btb_bot';
-  const url = `https://t.me/${bot}?start=rental_kp`;
-  if (tg?.openTelegramLink) tg.openTelegramLink(url);
-  else window.open(url, '_blank');
+async function openRentalKP() {
+  const btn = document.querySelector('.hero-card.rental-card .cta');
+  const orig = btn ? btn.textContent : '';
+  if (btn) { btn.textContent = 'Отправляю…'; }
+  try {
+    const r = await fetch('/tma/api/send_kp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Tma-InitData': tg?.initData || '' },
+    });
+    const data = await r.json();
+    if (data.ok) {
+      toast('КП отправлено в личку!');
+      if (btn) btn.textContent = 'Отправлено ✓';
+    } else {
+      toast('Ошибка: ' + (data.error || 'попробуй ещё раз'));
+      if (btn) btn.textContent = orig;
+    }
+  } catch (e) {
+    toast('Ошибка отправки');
+    if (btn) btn.textContent = orig;
+  }
 }
 
 // Брендовые тайлы для топ-категорий (солидный цвет + надпись, без фото товаров)
@@ -2042,6 +2198,7 @@ async function renderOrders() {
         <div class="order-total">${Math.round(o.total)} ₽</div>
         <button class="btn-repeat" onclick='repeatOrder(${o.id})'>🔁 Повторить</button>
       </div>
+      <button class="chat-support-btn" onclick="openChat(${o.id}, ${o.id})">💬 Написать в поддержку</button>
     </div>`;
   }).join('');
 }
@@ -2104,22 +2261,359 @@ function renderProfile() {
   `;
 }
 
+// ═══════════════════════════════════════════════════════════════════════════
+// АДМИН-ПАНЕЛЬ И ЧАТ ПОДДЕРЖКИ
+// ═══════════════════════════════════════════════════════════════════════════
+const ADMIN_STATUS_LABELS = {
+  new: 'Новый', confirmed: 'Принят', shipped: 'В доставке',
+  done: 'Выполнен', cancelled: 'Отменён',
+};
+const ADMIN_STATUS_NEXT = {
+  new:       ['confirmed', 'cancelled'],
+  confirmed: ['shipped', 'cancelled'],
+  shipped:   ['done', 'cancelled'],
+  done:      [],
+  cancelled: [],
+};
+const ADMIN_STATUS_BTN = {
+  confirmed: { cls: 'sa-confirm', label: '✅ Принять' },
+  shipped:   { cls: 'sa-ship',    label: '📦 В доставку' },
+  done:      { cls: 'sa-done',    label: '🏁 Выполнен' },
+  cancelled: { cls: 'sa-cancel',  label: '❌ Отменить' },
+};
+let _isAdmin = false;
+let _adminFilter = '';
+
+function _initDataHeader() { return { 'X-Tma-InitData': tg?.initData || '' }; }
+function _fmtDate(s) { return (s || '').slice(0, 16).replace('T', ' '); }
+function _fmtMoney(v) { return Math.round(v || 0).toLocaleString('ru-RU') + ' ₽'; }
+function _escape(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c =>
+    ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+async function checkAdminAccess() {
+  try {
+    const r = await fetch('/tma/api/admin/check', { headers: _initDataHeader() });
+    const j = await r.json();
+    _isAdmin = !!j.is_admin;
+    const tab = document.getElementById('admin-tab');
+    if (tab) tab.style.display = _isAdmin ? '' : 'none';
+  } catch (e) { _isAdmin = false; }
+}
+
+async function renderAdminHome() {
+  const list = document.getElementById('admin-orders-list');
+  list.innerHTML = `<div style="text-align:center;padding:24px;color:var(--hint)">Загрузка…</div>`;
+  try {
+    const url = '/tma/api/admin/orders' + (_adminFilter ? '?status=' + _adminFilter : '');
+    const r = await fetch(url, { headers: _initDataHeader() });
+    const j = await r.json();
+    const orders = j.orders || [];
+    const counts = j.counts || {};
+    document.getElementById('adm-stat-new').textContent = counts.new || 0;
+    const today = new Date().toISOString().slice(0, 10);
+    const todayCnt = orders.filter(o => (o.created_at || '').slice(0, 10) === today).length;
+    document.getElementById('adm-stat-today').textContent = todayCnt;
+    document.getElementById('adm-stat-done').textContent = counts.done || 0;
+    if (!orders.length) {
+      list.innerHTML = `<div style="text-align:center;padding:32px;color:var(--hint)">Заказов нет</div>`;
+      return;
+    }
+    list.innerHTML = orders.map(o => {
+      const st = (o.status || 'new').toLowerCase();
+      const label = ADMIN_STATUS_LABELS[st] || st;
+      const name = o.name || o.tg_name || ('Клиент #' + o.user_id);
+      return `<div class="order-card" onclick="openAdminOrder(${o.id})" style="cursor:pointer">
+        <div class="order-head">
+          <div>
+            <div class="order-id">#${o.id} · ${_escape(name)}</div>
+            <div class="order-date">${_fmtDate(o.created_at)} · ${o.items_count || 0} поз.</div>
+          </div>
+          <div class="status-pill sp-${st}">${label}</div>
+        </div>
+        <div class="order-foot">
+          <div class="order-total">${_fmtMoney(o.total)}</div>
+        </div>
+      </div>`;
+    }).join('');
+  } catch (e) {
+    list.innerHTML = `<div style="text-align:center;padding:24px;color:var(--danger)">Ошибка загрузки</div>`;
+  }
+}
+
+function adminFilterOrders(btn, sf) {
+  _adminFilter = sf;
+  document.querySelectorAll('.admin-filter .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAdminHome();
+}
+
+async function openAdminOrder(orderId) {
+  goTo('admin-order');
+  const root = document.getElementById('admin-order-detail');
+  root.innerHTML = `<div style="text-align:center;padding:24px;color:var(--hint)">Загрузка…</div>`;
+  try {
+    const r = await fetch('/tma/api/admin/order/' + orderId, { headers: _initDataHeader() });
+    if (!r.ok) throw new Error('http ' + r.status);
+    const o = await r.json();
+    renderAdminOrder(o);
+  } catch (e) {
+    root.innerHTML = `<div style="text-align:center;padding:24px;color:var(--danger)">Не удалось загрузить</div>`;
+  }
+}
+
+function renderAdminOrder(o) {
+  document.getElementById('admin-order-title').textContent = 'Заказ #' + o.id;
+  const st = (o.status || 'new').toLowerCase();
+  const label = ADMIN_STATUS_LABELS[st] || st;
+  const next = ADMIN_STATUS_NEXT[st] || [];
+  const itemsHtml = (o.items || []).map(i => `
+    <div class="detail-row">
+      <span class="dr-label">${_escape(i.product_name || '')} × ${i.quantity}</span>
+      <span class="dr-val">${_fmtMoney((i.price || 0) * (i.quantity || 0))}</span>
+    </div>`).join('');
+  const actionsHtml = next.map(s => {
+    const cfg = ADMIN_STATUS_BTN[s];
+    return `<button class="sa-btn ${cfg.cls}" onclick="adminChangeStatus(${o.id},'${s}')">${cfg.label}</button>`;
+  }).join('');
+  const userBtn = o.user_id
+    ? `<button class="profile-action" onclick="openAdminUser(${o.user_id})">
+         <span><span class="ico">👤</span> Профиль клиента</span><span class="arr">›</span>
+       </button>` : '';
+  document.getElementById('admin-order-detail').innerHTML = `
+    <div class="order-detail-block">
+      <h4>Статус</h4>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+        <span class="status-pill sp-${st}" style="font-size:14px;padding:6px 14px">${label}</span>
+        <span style="font-size:13px;color:var(--hint)">${_fmtDate(o.created_at)}</span>
+      </div>
+      ${actionsHtml ? `<div class="status-actions">${actionsHtml}</div>` : ''}
+    </div>
+    <div class="order-detail-block">
+      <h4>Клиент</h4>
+      <div class="detail-row"><span class="dr-label">Имя</span><span class="dr-val">${_escape(o.name || o.tg_name || '—')}</span></div>
+      <div class="detail-row"><span class="dr-label">Телефон</span><span class="dr-val">${_escape(o.phone || '—')}</span></div>
+      <div class="detail-row"><span class="dr-label">Адрес</span><span class="dr-val">${_escape(o.address || '—')}</span></div>
+      ${o.city ? `<div class="detail-row"><span class="dr-label">Город</span><span class="dr-val">${_escape(o.city)}</span></div>` : ''}
+    </div>
+    <div class="order-detail-block">
+      <h4>Позиции</h4>
+      ${itemsHtml || '<div style="color:var(--hint);font-size:13px">Нет позиций</div>'}
+      <div class="detail-row" style="border-top:1px solid rgba(0,0,0,0.08);margin-top:8px;padding-top:10px">
+        <span class="dr-label">Итого</span>
+        <span class="dr-val" style="font-size:18px;color:var(--primary)">${_fmtMoney(o.total)}</span>
+      </div>
+    </div>
+    <button class="chat-support-btn" onclick="openChat(${o.id}, ${o.id})">💬 Чат с клиентом</button>
+    ${userBtn}
+  `;
+}
+
+async function adminChangeStatus(orderId, status) {
+  try {
+    const r = await fetch('/tma/api/admin/order/' + orderId + '/status', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', ..._initDataHeader() },
+      body: JSON.stringify({ status }),
+    });
+    const j = await r.json();
+    if (!j.ok) throw new Error(j.error || 'failed');
+    toast('Статус обновлён');
+    openAdminOrder(orderId);
+  } catch (e) {
+    toast('Ошибка: ' + e.message);
+  }
+}
+
+async function renderAdminUsers() {
+  const list = document.getElementById('admin-users-list');
+  list.innerHTML = `<div style="text-align:center;padding:24px;color:var(--hint)">Загрузка…</div>`;
+  try {
+    const r = await fetch('/tma/api/admin/users', { headers: _initDataHeader() });
+    const j = await r.json();
+    const users = j.users || [];
+    if (!users.length) {
+      list.innerHTML = `<div style="text-align:center;padding:32px;color:var(--hint)">Клиентов нет</div>`;
+      return;
+    }
+    list.innerHTML = users.map(u => {
+      const name = u.name || u.tg_name || ('Клиент #' + u.user_id);
+      const initials = (String(name).match(/\S+/g) || ['?']).slice(0, 2)
+        .map(s => s[0].toUpperCase()).join('');
+      const meta = [
+        u.phone || null,
+        u.last_order_at ? 'посл. ' + (u.last_order_at || '').slice(0, 10) : null,
+      ].filter(Boolean).join(' · ') || 'без заказов';
+      return `<div class="user-row" onclick="openAdminUser(${u.user_id})">
+        <div class="ur-ava">${_escape(initials)}</div>
+        <div class="ur-info">
+          <div class="ur-name">${_escape(name)}</div>
+          <div class="ur-meta">${_escape(meta)}</div>
+        </div>
+        <div class="ur-orders">${u.order_count || 0} зак.<br>
+          <span style="font-weight:600;color:var(--hint)">${_fmtMoney(u.total_spent)}</span>
+        </div>
+      </div>`;
+    }).join('');
+  } catch (e) {
+    list.innerHTML = `<div style="text-align:center;padding:24px;color:var(--danger)">Ошибка загрузки</div>`;
+  }
+}
+
+async function openAdminUser(userId) {
+  goTo('admin-user');
+  const root = document.getElementById('admin-user-detail');
+  root.innerHTML = `<div style="text-align:center;padding:24px;color:var(--hint)">Загрузка…</div>`;
+  try {
+    const r = await fetch('/tma/api/admin/user/' + userId, { headers: _initDataHeader() });
+    if (!r.ok) throw new Error('http ' + r.status);
+    const u = await r.json();
+    renderAdminUser(u);
+  } catch (e) {
+    root.innerHTML = `<div style="text-align:center;padding:24px;color:var(--danger)">Не удалось загрузить</div>`;
+  }
+}
+
+function renderAdminUser(u) {
+  document.getElementById('admin-user-title').textContent =
+    u.name || u.tg_name || ('Клиент #' + u.user_id);
+  const ordersHtml = (u.orders || []).map(o => {
+    const st = (o.status || 'new').toLowerCase();
+    return `<div class="order-card" onclick="openAdminOrder(${o.id})" style="cursor:pointer">
+      <div class="order-head">
+        <div><div class="order-id">#${o.id}</div><div class="order-date">${_fmtDate(o.created_at)}</div></div>
+        <div class="status-pill sp-${st}">${ADMIN_STATUS_LABELS[st] || st}</div>
+      </div>
+      <div class="order-foot"><div class="order-total">${_fmtMoney(o.total)}</div></div>
+    </div>`;
+  }).join('');
+  document.getElementById('admin-user-detail').innerHTML = `
+    <div class="profile-card">
+      <div class="profile-row"><span class="key">Имя</span><span class="val">${_escape(u.name || '—')}</span></div>
+      <div class="profile-row"><span class="key">TG</span><span class="val">${_escape(u.tg_name || '—')}</span></div>
+      <div class="profile-row"><span class="key">Телефон</span><span class="val">${_escape(u.phone || '—')}</span></div>
+      <div class="profile-row"><span class="key">Город</span><span class="val">${_escape(u.city || '—')}</span></div>
+      <div class="profile-row"><span class="key">Регистрация</span><span class="val">${_fmtDate(u.created_at)}</span></div>
+    </div>
+    <h3 style="margin:18px 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:var(--hint)">
+      Заказы (${(u.orders || []).length})
+    </h3>
+    ${ordersHtml || '<div style="color:var(--hint);text-align:center;padding:20px">Заказов нет</div>'}
+  `;
+}
+
+// ─── ЧАТ ──────────────────────────────────────────────────────────────────────
+let _chatOrderId  = null;
+let _chatLastId   = 0;
+let _chatPollTimer = null;
+let _chatReturnTo = 'orders';
+
+async function openChat(orderId, orderNum) {
+  _chatOrderId = orderId;
+  _chatLastId  = 0;
+  _chatReturnTo = (_isAdmin && document.getElementById('screen-admin-order').classList.contains('active'))
+    ? 'admin-order' : 'orders';
+  document.getElementById('chat-title').textContent = 'Чат · #' + orderNum;
+  document.getElementById('chat-order-badge').textContent = 'Заказ №' + orderNum;
+  document.getElementById('chat-messages').innerHTML = '';
+  document.getElementById('chat-input').value = '';
+  goTo('chat');
+  await _chatPollOnce();
+  startChatPolling();
+}
+
+function closeChat() {
+  stopChatPolling();
+  const back = _chatReturnTo;
+  _chatOrderId = null;
+  goTo(back);
+}
+
+function startChatPolling() {
+  stopChatPolling();
+  _chatPollTimer = setInterval(_chatPollOnce, 3000);
+}
+function stopChatPolling() {
+  if (_chatPollTimer) { clearInterval(_chatPollTimer); _chatPollTimer = null; }
+}
+
+async function _chatPollOnce() {
+  if (!_chatOrderId) return;
+  try {
+    const r = await fetch(`/tma/api/chat/${_chatOrderId}?since=${_chatLastId}`,
+      { headers: _initDataHeader() });
+    const j = await r.json();
+    const msgs = j.messages || [];
+    if (!msgs.length) return;
+    const myId = tg?.initDataUnsafe?.user?.id;
+    const wrap = document.getElementById('chat-messages');
+    const atBottom = Math.abs(wrap.scrollHeight - wrap.scrollTop - wrap.clientHeight) < 80;
+    msgs.forEach(m => {
+      _chatLastId = Math.max(_chatLastId, m.id);
+      const isOwn = m.user_id === myId;
+      const cls = isOwn ? 'mine' : 'theirs';
+      const time = (m.created_at || '').slice(11, 16);
+      const showName = !isOwn;
+      const name = m.is_admin ? 'Поддержка' : (m.user_name || 'Клиент');
+      wrap.insertAdjacentHTML('beforeend',
+        `<div class="chat-bubble ${cls}">
+           ${showName ? `<div class="bubble-name">${_escape(name)}</div>` : ''}
+           <div>${_escape(m.text).replace(/\n/g, '<br>')}</div>
+           <div class="bubble-time">${time}</div>
+         </div>`);
+    });
+    if (atBottom) wrap.scrollTop = wrap.scrollHeight;
+  } catch (e) {}
+}
+
+async function sendChatMessage() {
+  const input = document.getElementById('chat-input');
+  const text = (input.value || '').trim();
+  if (!text || !_chatOrderId) return;
+  const sendBtn = document.getElementById('chat-send-btn');
+  sendBtn.disabled = true;
+  try {
+    const r = await fetch('/tma/api/chat/' + _chatOrderId, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', ..._initDataHeader() },
+      body: JSON.stringify({ text }),
+    });
+    const j = await r.json();
+    if (!j.ok) throw new Error(j.error || 'failed');
+    input.value = '';
+    input.style.height = 'auto';
+    await _chatPollOnce();
+  } catch (e) {
+    toast('Не отправлено: ' + e.message);
+  } finally {
+    sendBtn.disabled = false;
+  }
+}
+
 function goTo(scr) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('screen-' + scr).classList.add('active');
   document.querySelectorAll('.tabbar-btn').forEach(b => b.classList.remove('active'));
-  // Bottom-nav подсвечивает home для category/subcategory, profile для favorites
+  // Bottom-nav подсвечивает home для category/subcategory, profile для favorites,
+  // admin для всех admin-* экранов; chat не подсвечивает ничего.
   let tab = scr;
   if (scr === 'category' || scr === 'subcategory') tab = 'home';
   if (scr === 'favorites') tab = 'profile';
-  const btn = document.querySelector(`[data-screen="${tab}"]`);
-  if (btn) btn.classList.add('active');
+  if (scr === 'admin-order' || scr === 'admin-users' || scr === 'admin-user') tab = 'admin';
+  if (scr === 'chat') tab = null;
+  if (tab) {
+    const btn = document.querySelector(`[data-screen="${tab}"]`);
+    if (btn) btn.classList.add('active');
+  }
   if (scr === 'cart') renderCart();
   if (scr === 'profile') renderProfile();
   if (scr === 'favorites') renderFavorites();
   if (scr === 'orders') renderOrders();
   if (scr === 'mydata') loadMyDataIntoForm();
   if (scr === 'checkout') applyProfileToCheckout();
+  if (scr === 'admin') renderAdminHome();
+  if (scr === 'admin-users') renderAdminUsers();
   window.scrollTo(0, 0);
 }
 
