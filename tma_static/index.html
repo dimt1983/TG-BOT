@@ -136,6 +136,15 @@ body {
 .product-add { width: 32px; height: 32px; border-radius: 50%; border: none; background: var(--primary); color: white; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.1s; }
 .product-add:active { transform: scale(0.9); }
 .product-add.in-cart { background: var(--success); }
+.product-add.disabled { background: #c0c0c0; color: #777; cursor: not-allowed; }
+.stock-badge { font-size: 10.5px; font-weight: 700; padding: 1px 6px; border-radius: 6px; }
+.stock-badge.ok  { background: rgba(46,125,50,0.12); color: var(--success); }
+.stock-badge.low { background: rgba(255,143,0,0.16); color: #c66e00; }
+.stock-badge.out { background: rgba(198,40,40,0.12); color: var(--danger); }
+.qty-mini { display: flex; align-items: center; gap: 4px; background: var(--success); color: white; border-radius: 999px; padding: 2px 4px; font-weight: 800; }
+.qty-mini button { width: 26px; height: 26px; border: none; border-radius: 50%; background: rgba(255,255,255,0.22); color: white; font-size: 16px; font-weight: 800; cursor: pointer; line-height: 1; padding: 0; }
+.qty-mini button:active { background: rgba(255,255,255,0.4); }
+.qty-mini span { min-width: 18px; text-align: center; font-size: 14px; }
 
 /* Favorite star */
 .fav-star { position: absolute; top: 6px; right: 6px; width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.85); display: flex; align-items: center; justify-content: center; font-size: 16px; cursor: pointer; z-index: 2; box-shadow: 0 1px 3px rgba(0,0,0,0.15); transition: transform 0.1s; }
@@ -799,6 +808,34 @@ function productCard(p, subContext) {
     ? `<img src="${imgUrl(p.photo)}" alt="" onerror="this.onerror=null;this.src='assets/logo_mark.png';this.classList.add('logo-mark')">`
     : `<img class="logo-mark" src="assets/logo_mark.png" alt="">`;
   const isFav = favorites.includes(p.id);
+  // Остаток для отображаемой фасовки. Если карточка-микролот в эспрессо/фильтр
+  // (1кг), а stock хранится у парной 200г-карточки — попробуем взять его.
+  let stockNum = (typeof p.stock === 'number') ? p.stock : null;
+  if (stockNum === null && p.pair_id) {
+    const sib = DATA.products.find(x => x.pair_id === p.pair_id && typeof x.stock === 'number');
+    if (sib) stockNum = sib.stock;
+  }
+  let stockBadge = '';
+  if (stockNum !== null) {
+    if (stockNum <= 0) stockBadge = '<span class="stock-badge out">Нет в наличии</span>';
+    else if (stockNum < 5) stockBadge = `<span class="stock-badge low">Осталось ${stockNum}</span>`;
+    else stockBadge = `<span class="stock-badge ok">${stockNum} в наличии</span>`;
+  }
+  // Сколько уже в корзине этой фасовки
+  const cartQty = cart
+    .filter(c => c.id === p.id && c.fasovka === displaySize)
+    .reduce((a, b) => a + (b.qty || 1), 0);
+  const outOfStock = (stockNum !== null && stockNum <= 0);
+  // Кнопка: если ничего нет в корзине — «+», иначе мини-степпер
+  const addBtn = outOfStock
+    ? `<button class="product-add disabled" disabled title="Нет в наличии">×</button>`
+    : (cartQty > 0
+      ? `<div class="qty-mini" onclick="event.stopPropagation()">
+           <button onclick="quickQty('${p.id}','${displaySize}',-1)">−</button>
+           <span>${cartQty}</span>
+           <button onclick="quickQty('${p.id}','${displaySize}',1)">+</button>
+         </div>`
+      : `<button class="product-add" onclick="event.stopPropagation(); quickAdd('${p.id}','${ctxSub}')">+</button>`);
   return `<div class="product-card" onclick="openProduct('${p.id}')">
     <div class="product-photo">
       <div class="fav-star ${isFav ? 'on' : ''}" onclick="event.stopPropagation(); toggleFavorite('${p.id}')"></div>
@@ -811,14 +848,65 @@ function productCard(p, subContext) {
           ${p.country ? '<span>📍 ' + p.country + '</span>' : ''}
           ${p.roast ? '<span>🔥 ' + p.roast + '</span>' : ''}
           ${tags}
+          ${stockBadge}
         </div>
       </div>
       <div class="product-bottom">
         <div class="product-price">${minPrice} ₽<span class="from" style="margin-left:6px">/ ${displaySize}</span></div>
-        <button class="product-add ${inCart ? 'in-cart' : ''}" onclick="event.stopPropagation(); openProduct('${p.id}')">${inCart ? '✓' : '+'}</button>
+        ${addBtn}
       </div>
     </div>
   </div>`;
+}
+
+// Быстрое добавление из списка — без открытия карточки.
+function quickAdd(pid, subContext) {
+  const p = DATA.products.find(x => x.id === pid);
+  if (!p) return;
+  const fasList = allowedFasovka(p, subContext || currentSubcat);
+  const ctxSub = subContext || currentSubcat || p.subcategory || '';
+  const want1kg = ctxSub.startsWith('coffee_espresso') || ctxSub.startsWith('coffee_filter');
+  const want200 = ctxSub === 'coffee_black' || ctxSub === 'coffee_borshch';
+  let fas = null;
+  if (want1kg) fas = fasList.find(f => /1\s*кг/i.test(f.size));
+  else if (want200) fas = fasList.find(f => /200\s*г/i.test(f.size));
+  if (!fas) fas = fasList.reduce((a, b) => (a.price <= b.price ? a : b), fasList[0]);
+  if (!fas) return;
+  cart.push({
+    id: p.id, name: p.name,
+    fasovka: fas.size, price: fas.price,
+    qty: 1, photo: fas.photo || p.photo || null,
+    category: p.category,
+  });
+  localStorage.setItem('rb_cart', JSON.stringify(cart));
+  if (tg?.HapticFeedback) tg.HapticFeedback.impactOccurred('light');
+  toast(`✓ ${p.name.slice(0, 28)} в корзину`);
+  // Перерисуем текущий экран и счётчик
+  renderCartBadge();
+  renderCurrentScreen();
+}
+
+function quickQty(pid, fasSize, delta) {
+  // Меняем qty первой найденной строки корзины с этой парой (id+fasovka)
+  const idx = cart.findIndex(c => c.id === pid && c.fasovka === fasSize);
+  if (idx < 0) return;
+  cart[idx].qty = (cart[idx].qty || 1) + delta;
+  if (cart[idx].qty <= 0) cart.splice(idx, 1);
+  localStorage.setItem('rb_cart', JSON.stringify(cart));
+  renderCartBadge();
+  renderCurrentScreen();
+}
+
+function renderCurrentScreen() {
+  // Перерисовать тот экран на котором находимся (списки товаров)
+  const subcatVisible = document.getElementById('screen-subcategory')?.classList.contains('active');
+  const catVisible = document.getElementById('screen-category')?.classList.contains('active');
+  const homeVisible = document.getElementById('screen-home')?.classList.contains('active');
+  const favVisible = document.getElementById('screen-favorites')?.classList.contains('active');
+  if (subcatVisible) renderSubcatProducts();
+  else if (catVisible) renderSubcatRow();
+  else if (homeVisible) renderHits();
+  else if (favVisible) renderFavorites();
 }
 
 // === Категория с подкатегориями (поддержка вложенности) ===
