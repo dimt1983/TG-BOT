@@ -71,6 +71,9 @@ body {
 .hero-dot { width: 6px; height: 6px; border-radius: 3px; background: rgba(111,78,55,0.2); transition: all 0.3s; cursor: pointer; border: none; padding: 0; }
 .hero-dot.active { width: 18px; background: var(--primary); }
 /* Consulting tile */
+.top-cat-consulting { background: linear-gradient(135deg, #4a3f8a 0%, #1d1545 100%) !important; }
+.top-cat-consulting .top-cat-deco { position: absolute; right: 4px; top: 50%; transform: translateY(-60%); font-size: 66px; opacity: 0.18; z-index: 1; line-height: 1; pointer-events: none; user-select: none; }
+.top-cat-consulting .label .name { font-size: 26px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; line-height: 1; margin-bottom: 4px; }
 
 .section { padding: 0 16px; margin-bottom: 24px; }
 .section-h { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding: 0 4px; }
@@ -79,51 +82,17 @@ body {
 
 /* Top categories — крупные плитки с фото */
 .top-cats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-/* ── Плитки каталога: единый стиль на главной и в подкатегориях ──────────── */
-.top-cat,
-.subcat-tile {
-  aspect-ratio: 1.4;
-  border-radius: var(--radius);
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: transform 0.15s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-}
-.top-cat:active,
-.subcat-tile:active { transform: scale(0.97); }
-.top-cat .label,
-.subcat-tile .label {
-  position: relative;
-  z-index: 1;
-  padding: 0 14px;
-}
-.top-cat .label .name,
-.subcat-tile .label .name {
-  font-size: 24px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: -0.3px;
-  line-height: 1.05;
-}
-.top-cat .label .meta,
-.subcat-tile .label .meta {
-  font-size: 12px;
-  font-weight: 600;
-  margin-top: 6px;
-  opacity: 0.85;
-  text-transform: lowercase;
-  letter-spacing: 0.02em;
-}
-.subcat-tile.active { box-shadow: 0 0 0 3px var(--accent), var(--shadow); }
-/* ── unused ── */
+.top-cat { aspect-ratio: 1.4; border-radius: var(--radius); overflow: hidden; cursor: pointer; position: relative; box-shadow: var(--shadow); border: none; padding: 0; transition: transform 0.15s; background-size: cover; background-position: center; }
+.top-cat:active { transform: scale(0.97); }
+.top-cat::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.75) 100%); }
+.top-cat .label { position: absolute; left: 14px; bottom: 12px; right: 14px; z-index: 2; color: white; text-align: left; }
+.top-cat .label .name { font-size: 18px; font-weight: 800; letter-spacing: -0.3px; text-transform: uppercase; }
+.top-cat .label .en { font-size: 10px; opacity: 0.65; letter-spacing: 0.07em; margin-top: 3px; text-transform: lowercase; }
+.top-cat .label .meta { font-size: 11px; opacity: 0.85; margin-top: 2px; }
+/* Брендовые тайлы топ-категорий — название уже на изображении, оверлей мягче */
+.top-cat.branded::after { background: linear-gradient(180deg, transparent 70%, rgba(0,0,0,0.55) 100%); }
+.top-cat.branded .label { left: 10px; right: 10px; bottom: 8px; }
+.top-cat.branded .label .meta { font-size: 11px; font-weight: 700; opacity: 0.95; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
 
 /* Subcategory chips (старая) */
 .subcat-list { padding: 0 16px; margin-bottom: 16px; }
@@ -140,6 +109,27 @@ body {
 .subcat-tile .label { position: absolute; left: 12px; right: 12px; bottom: 10px; z-index: 2; color: white; }
 .subcat-tile .name { font-size: 14px; font-weight: 800; line-height: 1.15; letter-spacing: -0.2px; }
 .subcat-tile .meta { font-size: 11px; opacity: 0.85; margin-top: 3px; }
+.subcat-tile.all { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+.subcat-tile.active { box-shadow: 0 0 0 3px var(--accent), var(--shadow); }
+/* Кастомные брендовые тайлы — слово уже на картинке, не затемняем */
+.subcat-tile.custom::after { background: linear-gradient(180deg, transparent 65%, rgba(0,0,0,0.45) 100%); }
+.subcat-tile.custom .label.only-meta { left: 10px; right: 10px; bottom: 8px; }
+.subcat-tile.custom .label.only-meta .meta { font-size: 11px; font-weight: 700; opacity: 0.95; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+/* Брендовые тайлы чая — лого на картинке, фасовка ниже на полупрозрачной плашке */
+.subcat-tile.brand::after { background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.55) 100%); }
+.subcat-tile.brand .label .name { font-size: 13px; font-weight: 700; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+.subcat-tile.brand .label .meta { font-size: 10.5px; opacity: 0.9; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+
+/* Брендовый стиль для подкатегорий кофе (Моносорта/Микролоты/Смеси и пр.) */
+.subcat-tile.brand-bold::after { background: linear-gradient(180deg, transparent 35%, rgba(0,0,0,0.5) 100%); }
+.subcat-tile.brand-bold .label { left: 14px; right: 14px; bottom: 12px; }
+.subcat-tile.brand-bold .label .name { font-size: 22px; font-weight: 900; line-height: 1.05; letter-spacing: -0.4px; text-shadow: 0 2px 6px rgba(0,0,0,0.45); }
+.subcat-tile.brand-bold .label .meta { font-size: 12px; opacity: 0.95; margin-top: 5px; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+.subcat-tile.brand-bold .ico-bg { position: absolute; top: 10px; right: 12px; font-size: 32px; opacity: 0.35; z-index: 1; }
+.subcat-tile.all { background: linear-gradient(135deg, #3e2723, #1a0f0a); }
+.subcat-tile.all .label .name { font-size: 18px; font-weight: 900; }
+.subcat-tile.all .label .meta { font-size: 12px; font-weight: 600; opacity: 0.9; }
+
 /* Product card */
 .product-card { background: var(--section); border-radius: var(--radius); padding: 12px; margin-bottom: 10px; display: flex; gap: 12px; box-shadow: var(--shadow); cursor: pointer; transition: transform 0.15s; }
 .product-card:active { transform: scale(0.98); }
@@ -1038,11 +1028,13 @@ async function openRentalKP() {
   }
 }
 
-// Цвета подкатегорий — берём из cat.color родителя через shadeColor.
-// Для категорий без своего color в DATA — fallback на бренд-коричневый.
-const CATEGORY_FALLBACK_COLOR = '#6f4e37';
-const CONSULTING_COLOR = '#4a3f8a';
-
+// Брендовые тайлы для топ-категорий (солидный цвет + надпись, без фото товаров)
+const CAT_TILES = {
+  coffee: 'assets/tile_cat_coffee.jpg',
+  tea:    'assets/tile_cat_tea.jpg',
+  syrup:  'assets/tile_cat_syrup.jpg',
+  milk:   'assets/tile_cat_milk.jpg',
+};
 function shadeColor(col, amt) {
   const usePound = col[0] === '#';
   const c = parseInt(col.slice(usePound ? 1 : 0), 16);
@@ -1054,17 +1046,31 @@ function shadeColor(col, amt) {
 
 // === Главный экран ===
 function renderTopCats() {
+  const CAT_EN = { coffee: 'coffee', tea: 'tea', syrup: 'syrups', milk: 'milk', consulting: 'consulting' };
   const c = document.getElementById('top-cats');
   c.innerHTML = DATA.categories.map((cat) => {
+    const tile = CAT_TILES[cat.id];
+    const subCount = DATA.subcategories.filter(s => s.parent === cat.id).length;
     const prodCount = DATA.products.filter(p => p.category === cat.id).length;
-    const baseColor = cat.id === 'consulting' ? CONSULTING_COLOR
-                                              : (cat.color || CATEGORY_FALLBACK_COLOR);
-    const bg = `background: linear-gradient(135deg, ${baseColor}, ${shadeColor(baseColor, -28)});`;
-    const unit = cat.id === 'consulting' ? 'курсов' : 'товаров';
-    return `<button class="top-cat" style="${bg}" onclick="openCategory('${cat.id}')">
+    const enName = CAT_EN[cat.id] || cat.id;
+    if (cat.id === 'consulting') {
+      return `<button class="top-cat top-cat-consulting" onclick="openCategory('consulting')">
+        <span class="top-cat-deco">🎓</span>
+        <div class="label">
+          <div class="name">Консалтинг</div>
+          <div class="en">${enName}</div>
+          <div class="meta">${prodCount} курсов</div>
+        </div>
+      </button>`;
+    }
+    const bg = tile
+      ? `background-image: url('${tile}'); background-color: ${cat.color};`
+      : `background: linear-gradient(135deg, ${cat.color}, ${shadeColor(cat.color, -25)});`;
+    return `<button class="top-cat${tile ? ' branded' : ''}" style="${bg}" onclick="openCategory('${cat.id}')">
       <div class="label">
-        <div class="name">${cat.name}</div>
-        <div class="meta">${prodCount} ${unit}</div>
+        ${tile ? '' : `<div class="name">${cat.name}</div>`}
+        <div class="en">${enName}</div>
+        <div class="meta">${prodCount} товаров · ${subCount} разделов</div>
       </div>
     </button>`;
   }).join('');
@@ -1258,6 +1264,66 @@ function categoryBack() {
   }
 }
 
+// Кастомные тайлы — фиксированные брендовые надписи + цвет
+const CUSTOM_TILES = {
+  // Кофе
+  coffee_espresso:      { img: 'assets/tile_espresso.jpg', color: '#E25F5F', mode: 'full' },
+  coffee_filter:        { img: 'assets/tile_filter.jpg',   color: '#A0AE1A', mode: 'full' },
+  coffee_black:         { img: 'assets/tile_black.jpg',    color: '#121212', mode: 'full' },
+  coffee_borshch:       { img: 'assets/tile_borshch.jpg',  color: '#F8CDD5', mode: 'full' },
+  coffee_other:         { img: 'assets/tile_other.jpg',    color: '#5C3921', mode: 'full' },
+  coffee_drip_capsules: { img: 'assets/tile_drip.jpg',     color: '#1E4D2E', mode: 'full' },
+  // Сиропы — бренды
+  syr_botanika:         { img: 'assets/tile_syr_botanika.jpg',   color: '#3F704F', mode: 'full' },
+  syr_herbarista:       { img: 'assets/tile_syr_herbarista.jpg', color: '#7AB955', mode: 'full' },
+  syr_sweetshot:        { img: 'assets/tile_syr_sweetshot.jpg',  color: '#DC4D6A', mode: 'full' },
+  syr_barline:          { img: 'assets/tile_syr_barline.jpg',    color: '#8B4513', mode: 'full' },
+  'syr_кордиал_и_другие': { img: 'assets/tile_syr_kordial.jpg',  color: '#A83D5C', mode: 'full' },
+  syr_other:            { img: 'assets/tile_syr_other.jpg',      color: '#6E5C4F', mode: 'full' },
+  // Молоко
+  milk_main:            { img: 'assets/tile_milk_main.jpg',      color: '#5DADE2', mode: 'full' },
+};
+
+// Бренд-логотипы для чая: префикс ID → tile + цвет
+// Когда тайл «бренд», показываем над лейблом только фасовку (часть после «·»)
+const TEA_BRANDS = [
+  { prefix: 'tea_althaus_',       img: 'assets/tile_tea_althaus.jpg',    color: '#2C5F4F' },
+  { prefix: 'tea_niktea_',        img: 'assets/tile_tea_niktea.jpg',     color: '#E3B12C' },
+  { prefix: 'tea_tasteabrew_',    img: 'assets/tile_tea_tasteabrew.jpg', color: '#86BA41' },
+  { prefix: 'tea_rbr_tea_',       img: 'assets/tile_tea_rbr.jpg',        color: '#E25F5F' },
+  { prefix: 'tea_китайский_чай_', img: 'assets/tile_tea_chinese.jpg',    color: '#C9A66B' },
+];
+
+function teaBrandTile(subId) {
+  return TEA_BRANDS.find(b => subId.startsWith(b.prefix)) || null;
+}
+
+// Брендовый стиль для подкатегорий кофе. Цвет берём по L1-родителю,
+// надпись/иконку — по суффиксу (_mono / _microlot / _blend).
+const COFFEE_PARENT_COLORS = {
+  coffee_espresso:      ['#C8312A', '#7A1D17'],
+  coffee_filter:        ['#9BA82E', '#5C6618'],
+  coffee_black:         ['#2A2A2A', '#000000'],
+  coffee_borshch:       ['#D84315', '#7F2509'],
+  coffee_drip_capsules: ['#1E4D2E', '#0E2B17'],
+  coffee_other:         ['#5C3921', '#2E1C10'],
+};
+const COFFEE_SUFFIXES = {
+  _mono:     { name: 'Моносорта', ico: '🌍' },
+  _microlot: { name: 'Микролоты', ico: '✨' },
+  _blend:    { name: 'Смеси',     ico: '🧩' },
+};
+
+function coffeeBrandTile(subId) {
+  if (!subId || !subId.startsWith('coffee_')) return null;
+  const parent = Object.keys(COFFEE_PARENT_COLORS).find(p => subId.startsWith(p + '_') || subId === p);
+  if (!parent) return null;
+  const suff = Object.keys(COFFEE_SUFFIXES).find(s => subId.endsWith(s));
+  if (!suff) return null;
+  const [c1, c2] = COFFEE_PARENT_COLORS[parent];
+  return { name: COFFEE_SUFFIXES[suff].name, ico: COFFEE_SUFFIXES[suff].ico, gradient: `linear-gradient(135deg, ${c1} 0%, ${c2} 100%)` };
+}
+
 function renderSubcatRow() {
   const subs = DATA.subcategories.filter(s => s.parent === currentParent);
   const c = document.getElementById('subcat-tiles');
@@ -1266,35 +1332,60 @@ function renderSubcatRow() {
     && (currentParent === currentCat
         || hasDescendantMatch(p, currentParent))
   ).length;
-  // Единый стиль плиток: цвет берём от родительской категории.
-  // У подкатегорий — оттенки родителя (чуть темнее на каждый шаг).
-  const parentCat = DATA.categories.find(x => x.id === currentCat);
-  const baseColor = currentCat === 'consulting'
-    ? CONSULTING_COLOR
-    : (parentCat?.color || CATEGORY_FALLBACK_COLOR);
-
-  const tileBg = (offset = 0) =>
-    `background: linear-gradient(135deg, ${shadeColor(baseColor, offset)}, ${shadeColor(baseColor, offset - 28)});`;
-
-  const items = subs.map((s, i) => {
-    const cnt = countProductsInSub(s.id);
-    // Каждой подкатегории чуть свой оттенок (-i*4) для разнообразия
-    const bg = tileBg(-i * 4);
-    return `<button class="subcat-tile" style="${bg}" onclick="setSubcat('${s.id}')">
-      <div class="label">
-        <div class="name">${s.name}</div>
-        <div class="meta">${cnt} позиций</div>
-      </div>
-    </button>`;
-  }).join('');
-
-  // «Все товары» — самой тёмной плиткой
-  const all = `<button class="subcat-tile" style="${tileBg(-subs.length * 4 - 8)}" onclick="openAllInParent()">
+  // Цвет тайла «Все товары» подсасывается под текущий родитель
+  const allCoffee = coffeeBrandTile(currentParent + '_mono'); // только чтобы взять цвет родителя
+  const allBg = allCoffee ? `background: ${allCoffee.gradient};` : '';
+  const all = `<button class="subcat-tile all" style="${allBg}" onclick="openAllInParent()">
     <div class="label">
-      <div class="name">Все товары</div>
+      <div class="name">📋 Все товары</div>
       <div class="meta">${totalCount} позиций</div>
     </div>
   </button>`;
+  const items = subs.map(s => {
+    const cnt = countProductsInSub(s.id);
+    const custom = CUSTOM_TILES[s.id];
+    const brand = !custom ? teaBrandTile(s.id) : null;
+    const coffee = (!custom && !brand) ? coffeeBrandTile(s.id) : null;
+    let bg, labelHtml, extraClass = '';
+    if (custom) {
+      bg = `background-image: url('${custom.img}'); background-color: ${custom.color};`;
+      labelHtml = `<div class="label only-meta"><div class="meta">${cnt} позиций</div></div>`;
+      extraClass = ' custom';
+    } else if (brand) {
+      // Бренд: тайл показывает логотип, в лейбле — только часть после «·»
+      const parts = s.name.split('·').map(x => x.trim());
+      const fasLabel = (parts.length > 1 ? parts.slice(1).join(' · ') : s.name)
+        .replace(/\p{Extended_Pictographic}/gu, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+      bg = `background-image: url('${brand.img}'); background-color: ${brand.color};`;
+      labelHtml = `<div class="label">
+        <div class="name">${fasLabel}</div>
+        <div class="meta">${cnt} позиций</div>
+      </div>`;
+      extraClass = ' brand';
+    } else if (coffee) {
+      // Брендовый стиль для подкатегорий кофе (Моносорта/Микролоты/Смеси)
+      bg = `background: ${coffee.gradient};`;
+      labelHtml = `<div class="ico-bg">${coffee.ico}</div>
+        <div class="label">
+          <div class="name">${coffee.name}</div>
+          <div class="meta">${cnt} позиций</div>
+        </div>`;
+      extraClass = ' brand-bold';
+    } else {
+      // Дефолт — категорийный цвет (без фото товаров)
+      const catColor = DATA.categories.find(c => c.id === currentCat).color;
+      bg = `background: ${catColor};`;
+      labelHtml = `<div class="label">
+        <div class="name">${s.name}</div>
+        <div class="meta">${cnt} позиций</div>
+      </div>`;
+    }
+    return `<button class="subcat-tile${extraClass}" style="${bg}" onclick="setSubcat('${s.id}')">
+      ${labelHtml}
+    </button>`;
+  }).join('');
   c.innerHTML = items + all;
 }
 
