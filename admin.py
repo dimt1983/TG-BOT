@@ -647,8 +647,21 @@ async def adm_set_status(callback: CallbackQuery, bot: Bot):
     con.commit(); con.close()
     status_text = {"confirmed": "✅ Подтверждён", "done": "📦 Выполнен",
                    "cancelled": "❌ Отменён"}.get(new_status, new_status)
-    await callback.message.answer(f"Заказ №{order_id} → {status_text}",
-                                  reply_markup=admin_keyboard())
+    # Убираем кнопки с исходного сообщения и дописываем результат в текст,
+    # чтобы было видно что действие сработало.
+    try:
+        original = callback.message.html_text or callback.message.text or ""
+        await callback.message.edit_text(
+            f"{original}\n\n<b>→ {status_text}</b>",
+            parse_mode="HTML", reply_markup=None,
+        )
+    except Exception:
+        # Если edit_text не сработал (например, сообщение слишком старое или формат конфликтует) —
+        # хотя бы убираем клавиатуру.
+        try:
+            await callback.message.edit_reply_markup(reply_markup=None)
+        except Exception:
+            pass
     # Развёрнутые сообщения клиенту со сроками доставки
     client_msg = {
         "confirmed": (
