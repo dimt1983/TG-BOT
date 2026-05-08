@@ -482,6 +482,79 @@ body {
     <div class="section" id="orders-content"></div>
   </div>
 
+  <!-- ============ МОИ ДАННЫЕ (контакты + ИП/ООО) ============ -->
+  <div class="screen" id="screen-mydata">
+    <header class="header">
+      <button class="back-btn" onclick="goTo('profile')">‹ Профиль</button>
+      <h1>Мои данные</h1>
+      <div></div>
+    </header>
+    <div class="section">
+      <div style="font-size:13px;color:var(--hint);margin-bottom:14px">Заполни один раз — при оформлении заказа поля подставятся автоматически.</div>
+      <div class="form-tabs">
+        <button class="form-tab active" data-ptype="individual" onclick="setProfileType('individual')">👤 Физ. лицо</button>
+        <button class="form-tab" data-ptype="company" onclick="setProfileType('company')">🏢 Юр. лицо / ИП</button>
+      </div>
+
+      <div id="profile-form-individual">
+        <div class="form-row">
+          <label>Имя *</label>
+          <input type="text" id="p-name" placeholder="Например, Иван Петров">
+        </div>
+        <div class="form-row">
+          <label>Телефон *</label>
+          <input type="tel" id="p-phone" placeholder="+7 (___) ___-__-__">
+        </div>
+        <div class="form-row">
+          <label>E-mail (опц.)</label>
+          <input type="email" id="p-email" placeholder="you@example.com">
+        </div>
+        <div class="form-row">
+          <label>Адрес доставки *</label>
+          <textarea id="p-address" placeholder="Город, улица, дом, квартира"></textarea>
+        </div>
+        <div class="form-row">
+          <label>Комментарий по доставке</label>
+          <textarea id="p-comment" placeholder="Например, удобное время для курьера"></textarea>
+        </div>
+      </div>
+
+      <div id="profile-form-company" style="display:none">
+        <div class="form-row">
+          <label>Название компании *</label>
+          <input type="text" id="pc-company" placeholder="ООО «Кофейный дом» или ИП Иванов">
+        </div>
+        <div class="form-row">
+          <label>ИНН *</label>
+          <input type="text" id="pc-inn" placeholder="10 или 12 цифр">
+        </div>
+        <div class="form-row">
+          <label>Юридический адрес *</label>
+          <textarea id="pc-legal" placeholder="Адрес из реестра"></textarea>
+        </div>
+        <div class="form-row">
+          <label>Адрес доставки</label>
+          <textarea id="pc-delivery" placeholder="Если отличается от юридического"></textarea>
+        </div>
+        <div class="form-row">
+          <label>Контактное лицо *</label>
+          <input type="text" id="pc-name" placeholder="ФИО">
+        </div>
+        <div class="form-row">
+          <label>Телефон *</label>
+          <input type="tel" id="pc-phone" placeholder="+7 (___) ___-__-__">
+        </div>
+        <div class="form-row">
+          <label>Email *</label>
+          <input type="email" id="pc-email" placeholder="invoice@company.ru">
+        </div>
+      </div>
+
+      <button class="btn-primary success" onclick="saveProfile()">💾 Сохранить</button>
+      <button class="profile-action" style="margin-top:12px" onclick="if(confirm('Очистить все данные?')){clearProfile()}"><span><span class="ico">🗑️</span>Очистить мои данные</span><span class="arr">›</span></button>
+    </div>
+  </div>
+
   <!-- ============ ИЗБРАННОЕ ============ -->
   <div class="screen" id="screen-favorites">
     <header class="header">
@@ -1368,6 +1441,11 @@ async function submitOrderHttp(payload, displayTotal) {
     }
     if (tg?.HapticFeedback) tg.HapticFeedback.notificationOccurred('success');
     toast(`🎉 Заказ #${j.order_id} на ${Math.round(j.total || displayTotal)} ₽ оформлен!`);
+    // Сохраняем данные клиента в профиль чтобы в следующий раз не вводить
+    try {
+      profileData = payload.contact;
+      localStorage.setItem('rb_profile', JSON.stringify(payload.contact));
+    } catch(e) {}
     cart = []; localStorage.removeItem('rb_cart');
     renderCart(); renderCartBadge();
     myOrders = null; // сбросим кеш истории
@@ -1458,6 +1536,107 @@ function refreshCheckoutConsent() {
 function onCheckoutConsentClick() {
   if (!consentSigned()) {
     openConsent('checkout');
+  }
+}
+
+// === Мои данные (профиль клиента) ===
+let profileType = 'individual';
+let profileData = JSON.parse(localStorage.getItem('rb_profile') || 'null');
+
+function setProfileType(t) {
+  profileType = t;
+  document.querySelectorAll('[data-ptype]').forEach(b => b.classList.toggle('active', b.dataset.ptype === t));
+  document.getElementById('profile-form-individual').style.display = t === 'individual' ? '' : 'none';
+  document.getElementById('profile-form-company').style.display    = t === 'company'    ? '' : 'none';
+}
+
+function loadMyDataIntoForm() {
+  const d = profileData || {};
+  setProfileType(d.type || 'individual');
+  // Префилл из Telegram имени если данных нет
+  const tgName = (tg?.initDataUnsafe?.user?.first_name || '') + (tg?.initDataUnsafe?.user?.last_name ? ' ' + tg.initDataUnsafe.user.last_name : '');
+  if (d.type !== 'company') {
+    document.getElementById('p-name').value    = d.name    || tgName || '';
+    document.getElementById('p-phone').value   = d.phone   || '';
+    document.getElementById('p-email').value   = d.email   || '';
+    document.getElementById('p-address').value = d.address || '';
+    document.getElementById('p-comment').value = d.comment || '';
+  } else {
+    document.getElementById('pc-company').value  = d.company  || '';
+    document.getElementById('pc-inn').value      = d.inn      || '';
+    document.getElementById('pc-legal').value    = d.legal_address || d.legal || '';
+    document.getElementById('pc-delivery').value = d.delivery_address || d.address || '';
+    document.getElementById('pc-name').value     = d.name     || tgName || '';
+    document.getElementById('pc-phone').value    = d.phone    || '';
+    document.getElementById('pc-email').value    = d.email    || '';
+  }
+}
+
+function saveProfile() {
+  let p;
+  if (profileType === 'individual') {
+    p = {
+      type: 'individual',
+      name:    document.getElementById('p-name').value.trim(),
+      phone:   document.getElementById('p-phone').value.trim(),
+      email:   document.getElementById('p-email').value.trim(),
+      address: document.getElementById('p-address').value.trim(),
+      comment: document.getElementById('p-comment').value.trim(),
+    };
+    if (!p.name || !p.phone || !p.address) {
+      toast('⚠️ Имя, телефон и адрес обязательны');
+      return;
+    }
+  } else {
+    p = {
+      type: 'company',
+      company: document.getElementById('pc-company').value.trim(),
+      inn:     document.getElementById('pc-inn').value.trim(),
+      legal_address:    document.getElementById('pc-legal').value.trim(),
+      delivery_address: document.getElementById('pc-delivery').value.trim(),
+      name:    document.getElementById('pc-name').value.trim(),
+      phone:   document.getElementById('pc-phone').value.trim(),
+      email:   document.getElementById('pc-email').value.trim(),
+    };
+    if (!p.company || !p.inn || !p.legal_address || !p.name || !p.phone || !p.email) {
+      toast('⚠️ Заполните все обязательные поля');
+      return;
+    }
+  }
+  profileData = p;
+  localStorage.setItem('rb_profile', JSON.stringify(p));
+  toast('✅ Сохранено');
+  goTo('profile');
+}
+
+function clearProfile() {
+  profileData = null;
+  localStorage.removeItem('rb_profile');
+  loadMyDataIntoForm();
+  toast('Очищено');
+}
+
+// При открытии checkout — подставим данные из профиля в форму заказа
+function applyProfileToCheckout() {
+  if (!profileData) return;
+  const d = profileData;
+  if (d.type === 'company') {
+    if (typeof setFormType === 'function') setFormType('company');
+    const set = (id, v) => { const el = document.getElementById(id); if (el && !el.value) el.value = v || ''; };
+    set('fc-company', d.company);
+    set('fc-inn', d.inn);
+    set('fc-legal', d.legal_address);
+    set('fc-delivery', d.delivery_address);
+    set('fc-name', d.name);
+    set('fc-phone', d.phone);
+    set('fc-email', d.email);
+  } else {
+    if (typeof setFormType === 'function') setFormType('individual');
+    const set = (id, v) => { const el = document.getElementById(id); if (el && !el.value) el.value = v || ''; };
+    set('f-name', d.name);
+    set('f-phone', d.phone);
+    set('f-address', d.address);
+    set('f-comment', d.comment);
   }
 }
 
@@ -1604,17 +1783,13 @@ function renderProfile() {
       <div class="profile-row"><span class="key">Избранных</span><span class="val">${favorites.length}</span></div>
       <div class="profile-row"><span class="key">Бонусов</span><span class="val">0</span></div>
     </div>
+    <button class="profile-action" onclick="goTo('mydata')"><span><span class="ico">📋</span>Мои данные${profileData ? '' : ' <span style=\"color:var(--danger);font-size:11px;font-weight:700\">(не заполнены)</span>'}</span><span class="arr">${profileData ? '✓' : '›'}</span></button>
     <button class="profile-action" onclick="goTo('favorites')"><span><span class="ico">⭐</span>Избранное</span><span class="arr">${favorites.length ? favorites.length + ' ›' : '›'}</span></button>
     <button class="profile-action" onclick="goTo('orders')"><span><span class="ico">📦</span>История заказов</span><span class="arr">›</span></button>
     <button class="profile-action" onclick="openConsent('profile')">
       <span><span class="ico">📜</span>Согласие на обработку ПД</span>
       <span class="consent-status ${consentSigned() ? 'signed' : 'unsigned'}">${consentSigned() ? '✓ Подписано' : 'Требуется'}</span>
     </button>
-    <button class="profile-action" onclick="toast('Скоро будет!')"><span><span class="ico">📞</span>Контакты доставки</span><span class="arr">›</span></button>
-    <button class="profile-action" onclick="toast('Скоро будет!')"><span><span class="ico">🏠</span>Адреса</span><span class="arr">›</span></button>
-    <button class="profile-action" onclick="toast('Скоро будет!')"><span><span class="ico">🏢</span>Стать корпоративным</span><span class="arr">›</span></button>
-    <button class="profile-action" onclick="toast('Скоро будет!')"><span><span class="ico">📚</span>Гид по сортам</span><span class="arr">›</span></button>
-    <button class="profile-action" onclick="toast('Скоро будет!')"><span><span class="ico">💬</span>Обратная связь</span><span class="arr">›</span></button>
     <button class="profile-action" onclick="if(confirm('Очистить корзину?')){cart=[];localStorage.removeItem('rb_cart');renderCart();renderCartBadge();toast('Корзина очищена')}"><span><span class="ico">🗑️</span>Очистить корзину</span><span class="arr">›</span></button>
     <div style="text-align:center;padding:24px;color:var(--hint);font-size:12px">Roastberry · v0.2 prototype<br>Сделано с ☕</div>
   `;
@@ -1634,6 +1809,8 @@ function goTo(scr) {
   if (scr === 'profile') renderProfile();
   if (scr === 'favorites') renderFavorites();
   if (scr === 'orders') renderOrders();
+  if (scr === 'mydata') loadMyDataIntoForm();
+  if (scr === 'checkout') applyProfileToCheckout();
   window.scrollTo(0, 0);
 }
 
