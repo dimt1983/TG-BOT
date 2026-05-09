@@ -553,7 +553,7 @@ body {
       <!-- Поля доставки появляются под выбранным способом -->
       <div id="delivery-pickup" class="delivery-fields">
         <div class="form-row" style="background:rgba(46,125,50,0.08);padding:10px;border-radius:10px">
-          <div style="font-size:13px;color:var(--text)">📍 <b>Самовывоз:</b> Пермь, ул. Карпинского, 14<br>
+          <div style="font-size:13px;color:var(--text)"><b>Самовывоз:</b> Пермь, ул. Карпинского, 14<br>
           ⏰ Будни 9:00–18:00. Заказ собираем за 1–2 рабочих дня — позвоним когда готов.</div>
         </div>
       </div>
@@ -1275,8 +1275,8 @@ function productCard(p, subContext) {
       <div>
         <div class="product-name">${p.name}</div>
         <div class="product-meta">
-          ${p.country ? '<span>📍 ' + p.country + '</span>' : ''}
-          ${p.roast ? '<span>🔥 ' + p.roast + '</span>' : ''}
+          ${p.country ? '<span>' + p.country + '</span>' : ''}
+          ${p.roast ? '<span>' + p.roast + '</span>' : ''}
           ${tags}
           ${stockBadge}
         </div>
@@ -1348,7 +1348,7 @@ function openCategory(catId) {
   currentParent = catId;
   currentSubcat = 'all';
   const cat = DATA.categories.find(c => c.id === catId);
-  document.getElementById('cat-title').textContent = cat.icon + ' ' + cat.name;
+  document.getElementById('cat-title').textContent = cat.name;
   renderSubcatRow();
   goTo('category');
 }
@@ -1535,8 +1535,8 @@ function renderSubcatProducts() {
   }
   document.getElementById('subcat-count').textContent = list.length + ' товаров';
   const sub = DATA.subcategories.find(s => s.id === currentSubcat);
-  document.getElementById('subcat-title').textContent = sub ? sub.name : 'Все товары';
-  document.getElementById('subcat-list-title').textContent = sub ? sub.name : 'Все товары';
+  document.getElementById('subcat-title').textContent = sub ? _stripEmoji(sub.name) : 'Все товары';
+  document.getElementById('subcat-list-title').textContent = sub ? _stripEmoji(sub.name) : 'Все товары';
   document.getElementById('subcat-products-list').innerHTML = list.length
     ? list.map(p => productCard(p, currentSubcat)).join('')
     : '<div class="cart-empty"><div class="big">🍃</div><h3>Пусто</h3><p>В этой подкатегории пока нет товаров.</p></div>';
@@ -1652,8 +1652,8 @@ function renderSheet() {
       <div class="sheet-meta">${tags}</div>
 
       ${(p.country || p.roast || p.process) ? `<div>
-        ${p.country ? `<div class="sheet-info-row"><span class="key">📍 Страна</span><span class="val">${p.country}</span></div>` : ''}
-        ${p.roast ? `<div class="sheet-info-row"><span class="key">🔥 Обжарка</span><span class="val">${p.roast}</span></div>` : ''}
+        ${p.country ? `<div class="sheet-info-row"><span class="key">Страна</span><span class="val">${p.country}</span></div>` : ''}
+        ${p.roast ? `<div class="sheet-info-row"><span class="key">Обжарка</span><span class="val">${p.roast}</span></div>` : ''}
         ${p.process ? `<div class="sheet-info-row"><span class="key">💧 Обработка</span><span class="val">${p.process}</span></div>` : ''}
         <div class="sheet-info-row"><span class="key">Остаток</span><span class="val">${p.stock} шт</span></div>
       </div>` : ''}
@@ -2674,7 +2674,7 @@ function renderAdminProductsCats() {
   const catBox = document.getElementById('adm-prod-cats');
   const cats = _adminProducts.categories || [];
   catBox.innerHTML = `<button class="filter-btn ${_adminProductsCat===''?'active':''}" onclick="adminProductsCat('')">Все</button>` +
-    cats.map(c => `<button class="filter-btn ${_adminProductsCat===c.id?'active':''}" onclick="adminProductsCat('${_escape(c.id)}')">${_escape(c.icon||'')} ${_escape(c.name)}</button>`).join('');
+    cats.map(c => `<button class="filter-btn ${_adminProductsCat===c.id?'active':''}" onclick="adminProductsCat('${_escape(c.id)}')">${_escape(c.name)}</button>`).join('');
   // Подкатегории выбранной категории — отдельным рядом
   const subBox = document.getElementById('adm-prod-subs');
   if (!_adminProductsCat) { subBox.innerHTML = ''; subBox.style.display = 'none'; return; }
