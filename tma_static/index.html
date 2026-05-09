@@ -1642,9 +1642,11 @@ function renderSheet() {
 
   // Фото: если в текущей фасовке указан _photo — берём его, иначе общее p.photo
   const heroPhoto = currentFasovka._photo || p.photo;
+  const heroPh = categoryPlaceholder(p);
+  const heroFb = heroPh ? imgUrl(heroPh) : 'assets/logo_full.png';
   const heroImg = heroPhoto
-    ? `<img src="${imgUrl(heroPhoto)}" alt="" onerror="this.onerror=null;this.src='assets/logo_full.png';this.classList.add('logo-mark')">`
-    : `<img class="logo-mark" src="assets/logo_full.png" alt="Roastberry">`;
+    ? `<img src="${imgUrl(heroPhoto)}" alt="" data-fb="${heroFb}" onerror="this.onerror=null;this.src=this.dataset.fb;if(!${heroPh ? 'true' : 'false'})this.classList.add('logo-mark')">`
+    : (heroPh ? `<img src="${imgUrl(heroPh)}" alt="">` : `<img class="logo-mark" src="assets/logo_full.png" alt="Roastberry">`);
   const isFav = favorites.includes(p.id);
   document.getElementById('sheet-content').innerHTML = `
     <div class="sheet-photo" style="position:relative">
@@ -1760,9 +1762,12 @@ function renderCart() {
 
   c.innerHTML = progress + cart.map((it, i) => {
     const cat = DATA.categories.find(c => c.id === it.category);
+    const itProd = DATA.products.find(p => p.id === it._source_id) || it;
+    const cph = categoryPlaceholder(itProd) || categoryPlaceholder({category: it.category, roast: it.roast});
+    const cfb = cph ? imgUrl(cph) : 'assets/logo_mark.png';
     const cimg = it.photo
-      ? `<img src="${it.photo}" alt="" onerror="this.onerror=null;this.src='assets/logo_mark.png';this.classList.add('logo-mark')">`
-      : `<img class="logo-mark" src="assets/logo_mark.png" alt="">`;
+      ? `<img src="${it.photo}" alt="" data-fb="${cfb}" onerror="this.onerror=null;this.src=this.dataset.fb;if(!${cph ? 'true' : 'false'})this.classList.add('logo-mark')">`
+      : (cph ? `<img src="${imgUrl(cph)}" alt="">` : `<img class="logo-mark" src="assets/logo_mark.png" alt="">`);
     return `<div class="cart-item">
       <div class="photo">${cimg}</div>
       <div class="info">
@@ -2738,7 +2743,9 @@ function openAdminProduct(id) {
   goTo('admin-product');
   document.getElementById('admin-product-title').textContent = p.name || id;
   const root = document.getElementById('admin-product-detail');
-  const photo = p.photo ? `${_escape(p.photo)}?v=${Date.now()}` : '';
+  const ph = p.photo || categoryPlaceholder(p) || '';
+  const photo = ph ? `${_escape(ph)}?v=${Date.now()}` : '';
+  const isPlaceholder = !p.photo && !!ph;
   const fasovkaHtml = (p.fasovka || []).map((f, i) => `
     <div class="adm-fasovka-row">
       <div class="fs-size">${_escape(f.size)}</div>
@@ -2747,7 +2754,7 @@ function openAdminProduct(id) {
     </div>`).join('');
   root.innerHTML = `
     <div class="adm-prod-form">
-      ${photo ? `<img class="adm-photo-preview" src="${photo}" alt="">` : `<div class="adm-photo-preview" style="display:flex;align-items:center;justify-content:center;color:var(--hint)">нет фото</div>`}
+      ${photo ? `<img class="adm-photo-preview" src="${photo}" alt="">${isPlaceholder ? '<div style="text-align:center;color:var(--hint);font-size:11px;margin-top:-6px;margin-bottom:8px">заглушка категории · загрузите своё фото</div>' : ''}` : `<div class="adm-photo-preview" style="display:flex;align-items:center;justify-content:center;color:var(--hint)">нет фото</div>`}
       <div class="field">
         <label>Заменить фото</label>
         <input type="file" id="adm-prod-photo" accept="image/jpeg,image/png,image/webp" />
