@@ -1074,33 +1074,6 @@
       "pair_id": "эфиопия_челчеле_гр_1"
     },
     {
-      "id": "c-экваториальный_блэнд",
-      "category": "coffee",
-      "subcategory": "coffee_borshch",
-      "name": "Экваториальный блэнд",
-      "country": "Экваториальный",
-      "roast": "F",
-      "process": "Natural/Anaerobic/Washed",
-      "description": "Ягоды, красное вино, вишня в шоколаде, косточковые фрукты.",
-      "recipe_e": null,
-      "recipe_f": "🫖 *Фильтр (Экваториальный блэнд):*\n• Метод: аэропресс / пуровер\n• Помол: средний\n• Навеска: 15 г на 250 мл\n• Температура: 90–91°C\n• Время: 3.5–4 мин\n\n_Три метода обработки в одном блэнде — вино, ягоды, глубина._",
-      "fasovka": [
-        {
-          "size": "1 кг",
-          "price": 3020
-        },
-        {
-          "size": "200 г",
-          "price": 685
-        }
-      ],
-      "stock": 25,
-      "tags": [
-        "Borщ Edition"
-      ],
-      "pair_id": "экваториальный_блэнд"
-    },
-    {
       "id": "c-эфиопия_арича_гр_1",
       "category": "coffee",
       "subcategory": "coffee_borshch",
@@ -10131,14 +10104,15 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 650
+          "price": 650,
+          "photo": "photos/products/c-колумбия_кастильо_3.jpg"
         }
       ],
       "stock": 6,
       "tags": [
         "микролот"
       ],
-      "photo": null,
+      "photo": "photos/products/c-колумбия_кастильо_3.jpg",
       "pair_id": "колумбия_кастильо"
     },
     {
