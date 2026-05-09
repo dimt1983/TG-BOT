@@ -981,6 +981,21 @@ let DATA = null;
 // Telegram WebView подтягивал свежий каталог пачек.
 const IMG_VER = Math.floor(Date.now() / 3600000);
 function imgUrl(p) { return p ? (p + (p.includes('?') ? '&' : '?') + 'v=' + IMG_VER) : p; }
+
+// Заглушка-обложка категории — используется когда у товара нет своего фото.
+// У consulting обложки свои у каждого, fallback на лого, не на категорию.
+function categoryPlaceholder(p) {
+  if (!p) return null;
+  const cat = p.category || '';
+  if (cat === 'coffee') {
+    const r = (p.roast || 'E').toUpperCase();
+    return r === 'F' ? 'photos/categories/coffee_f.jpg' : 'photos/categories/coffee_e.jpg';
+  }
+  if (cat === 'tea' || cat === 'syrup' || cat === 'milk') {
+    return `photos/categories/${cat}.jpg`;
+  }
+  return null;
+}
 let cart = JSON.parse(localStorage.getItem('rb_cart') || '[]');
 let favorites = JSON.parse(localStorage.getItem('rb_favorites') || '[]'); // массив pid
 let myOrders = null; // загружается лениво
@@ -1216,9 +1231,14 @@ function productCard(p, subContext) {
     else if (t.includes('Borщ') || t.includes('Борщ')) cls = 'borq';
     return `<span class="product-tag ${cls}">${t}</span>`;
   }).join('');
+  const ph = categoryPlaceholder(p);
+  const fbAttr = ph ? `data-fb="${imgUrl(ph)}"` : '';
+  const onErr = ph
+    ? `this.onerror=null;this.src=this.dataset.fb || 'assets/logo_mark.png';if(!this.dataset.fb)this.classList.add('logo-mark')`
+    : `this.onerror=null;this.src='assets/logo_mark.png';this.classList.add('logo-mark')`;
   const img = p.photo
-    ? `<img src="${imgUrl(p.photo)}" alt="" onerror="this.onerror=null;this.src='assets/logo_mark.png';this.classList.add('logo-mark')">`
-    : `<img class="logo-mark" src="assets/logo_mark.png" alt="">`;
+    ? `<img src="${imgUrl(p.photo)}" alt="" ${fbAttr} onerror="${onErr}">`
+    : (ph ? `<img src="${imgUrl(ph)}" alt="">` : `<img class="logo-mark" src="assets/logo_mark.png" alt="">`);
   const isFav = favorites.includes(p.id);
   // Остаток для отображаемой фасовки. Если карточка-микролот в эспрессо/фильтр
   // (1кг), а stock хранится у парной 200г-карточки — попробуем взять его.
@@ -2694,7 +2714,8 @@ function renderAdminProductsList() {
     return;
   }
   list.innerHTML = items.slice(0, 200).map(p => {
-    const photo = p.photo ? `${_escape(p.photo)}?v=${Date.now()}` : '';
+    const ph = p.photo || categoryPlaceholder(p) || '';
+    const photo = ph ? `${_escape(ph)}?v=${Date.now()}` : '';
     const minPrice = (p.fasovka || []).reduce((m, f) => (f.price && (!m || f.price < m)) ? f.price : m, null);
     const stock = p.stock || 0;
     const hidden = !!p.hidden;
