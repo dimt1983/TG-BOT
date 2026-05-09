@@ -314,9 +314,9 @@ body {
 .pay-opt .ttl { font-weight: 700; font-size: 14px; }
 .pay-opt .sub { font-size: 11px; color: var(--hint); margin-top: 2px; }
 
-/* Brand-logo */
-.brand-logo { display: flex; align-items: center; gap: 0; }
-.brand-logo img { height: 36px; width: auto; display: block; }
+/* Brand-logo (текстовый wordmark) */
+.brand-logo { display: flex; align-items: center; }
+.brand-logo .wordmark { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, "Helvetica Neue", sans-serif; font-weight: 900; font-size: 20px; letter-spacing: -0.6px; color: #c62828; text-transform: uppercase; line-height: 1; }
 
 /* Toast */
 .toast { position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--primary-dark); color: white; padding: 12px 20px; border-radius: 12px; font-size: 14px; font-weight: 600; opacity: 0; pointer-events: none; transition: all 0.25s; z-index: 300; box-shadow: var(--shadow-lg); }
@@ -428,7 +428,7 @@ body {
   <!-- ============ HOME (категории + витрина) ============ -->
   <div class="screen active" id="screen-home">
     <header class="header">
-      <div class="brand-logo"><img src="assets/logo_header.png" alt="Roastberry"></div>
+      <div class="brand-logo"><span class="wordmark">ROASTBERRY</span></div>
       <div class="actions">
         <button class="icon-btn" onclick="goTo('cart')">🛒<span class="badge" id="cart-badge" style="display:none">0</span></button>
       </div>
