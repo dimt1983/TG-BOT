@@ -863,6 +863,7 @@ body {
       <button class="filter-btn" data-sf="done" onclick="adminFilterOrders(this,'done')">Выполненные</button>
       <button class="filter-btn" data-sf="cancelled" onclick="adminFilterOrders(this,'cancelled')">Отменённые</button>
     </div>
+    <input class="adm-search" id="adm-orders-search" placeholder="Поиск: №, имя, телефон…" oninput="renderAdminOrdersList()" />
     <div id="admin-orders-list"></div>
   </div>
 </div>
@@ -882,6 +883,7 @@ body {
     </div>
     <input class="adm-search" id="adm-prod-search" placeholder="Поиск по названию…" oninput="renderAdminProductsList()" />
     <div class="admin-filter" id="adm-prod-cats"></div>
+    <div class="admin-filter" id="adm-prod-subs" style="display:none"></div>
     <div id="admin-products-list"></div>
   </div>
 </div>
@@ -919,6 +921,7 @@ body {
       <button class="at-btn active" onclick="goTo('admin-users')">👥 Клиенты</button>
       <button class="at-btn" onclick="goTo('admin-products')">📦 Товары</button>
     </div>
+    <input class="adm-search" id="adm-users-search" placeholder="Поиск: имя, телефон, TG…" oninput="renderAdminUsersList()" />
     <div id="admin-users-list"></div>
   </div>
 </div>
@@ -2395,6 +2398,8 @@ async function checkAdminAccess() {
   } catch (e) { _isAdmin = false; }
 }
 
+let _adminOrdersCache = [];
+
 async function renderAdminHome() {
   const list = document.getElementById('admin-orders-list');
   list.innerHTML = `<div style="text-align:center;padding:24px;color:var(--hint)">Загрузка…</div>`;
@@ -2402,37 +2407,51 @@ async function renderAdminHome() {
     const url = '/tma/api/admin/orders' + (_adminFilter ? '?status=' + _adminFilter : '');
     const r = await fetch(url, { headers: _initDataHeader() });
     const j = await r.json();
-    const orders = j.orders || [];
+    _adminOrdersCache = j.orders || [];
     const counts = j.counts || {};
     document.getElementById('adm-stat-new').textContent = counts.new || 0;
     const today = new Date().toISOString().slice(0, 10);
-    const todayCnt = orders.filter(o => (o.created_at || '').slice(0, 10) === today).length;
+    const todayCnt = _adminOrdersCache.filter(o => (o.created_at || '').slice(0, 10) === today).length;
     document.getElementById('adm-stat-today').textContent = todayCnt;
     document.getElementById('adm-stat-done').textContent = counts.done || 0;
-    if (!orders.length) {
-      list.innerHTML = `<div style="text-align:center;padding:32px;color:var(--hint)">Заказов нет</div>`;
-      return;
-    }
-    list.innerHTML = orders.map(o => {
-      const st = (o.status || 'new').toLowerCase();
-      const label = ADMIN_STATUS_LABELS[st] || st;
-      const name = o.name || o.tg_name || ('Клиент #' + o.user_id);
-      return `<div class="order-card" onclick="openAdminOrder(${o.id})" style="cursor:pointer">
-        <div class="order-head">
-          <div>
-            <div class="order-id">#${o.id} · ${_escape(name)}</div>
-            <div class="order-date">${_fmtDate(o.created_at)} · ${o.items_count || 0} поз.</div>
-          </div>
-          <div class="status-pill sp-${st}">${label}</div>
-        </div>
-        <div class="order-foot">
-          <div class="order-total">${_fmtMoney(o.total)}</div>
-        </div>
-      </div>`;
-    }).join('');
+    renderAdminOrdersList();
   } catch (e) {
     list.innerHTML = `<div style="text-align:center;padding:24px;color:var(--danger)">Ошибка загрузки</div>`;
   }
+}
+
+function renderAdminOrdersList() {
+  const list = document.getElementById('admin-orders-list');
+  const q = (document.getElementById('adm-orders-search')?.value || '').trim().toLowerCase();
+  let orders = _adminOrdersCache;
+  if (q) {
+    orders = orders.filter(o => {
+      const hay = [o.id, o.name, o.tg_name, o.phone, o.address, o.user_id]
+        .filter(Boolean).join(' ').toLowerCase();
+      return hay.includes(q);
+    });
+  }
+  if (!orders.length) {
+    list.innerHTML = `<div style="text-align:center;padding:32px;color:var(--hint)">${q ? 'Ничего не найдено' : 'Заказов нет'}</div>`;
+    return;
+  }
+  list.innerHTML = orders.map(o => {
+    const st = (o.status || 'new').toLowerCase();
+    const label = ADMIN_STATUS_LABELS[st] || st;
+    const name = o.name || o.tg_name || ('Клиент #' + o.user_id);
+    return `<div class="order-card" onclick="openAdminOrder(${o.id})" style="cursor:pointer">
+      <div class="order-head">
+        <div>
+          <div class="order-id">#${o.id} · ${_escape(name)}</div>
+          <div class="order-date">${_fmtDate(o.created_at)} · ${o.items_count || 0} поз.</div>
+        </div>
+        <div class="status-pill sp-${st}">${label}</div>
+      </div>
+      <div class="order-foot">
+        <div class="order-total">${_fmtMoney(o.total)}</div>
+      </div>
+    </div>`;
+  }).join('');
 }
 
 function adminFilterOrders(btn, sf) {
@@ -2519,39 +2538,55 @@ async function adminChangeStatus(orderId, status) {
   }
 }
 
+let _adminUsersCache = [];
+
 async function renderAdminUsers() {
   const list = document.getElementById('admin-users-list');
   list.innerHTML = `<div style="text-align:center;padding:24px;color:var(--hint)">Загрузка…</div>`;
   try {
     const r = await fetch('/tma/api/admin/users', { headers: _initDataHeader() });
     const j = await r.json();
-    const users = j.users || [];
-    if (!users.length) {
-      list.innerHTML = `<div style="text-align:center;padding:32px;color:var(--hint)">Клиентов нет</div>`;
-      return;
-    }
-    list.innerHTML = users.map(u => {
-      const name = u.name || u.tg_name || ('Клиент #' + u.user_id);
-      const initials = (String(name).match(/\S+/g) || ['?']).slice(0, 2)
-        .map(s => s[0].toUpperCase()).join('');
-      const meta = [
-        u.phone || null,
-        u.last_order_at ? 'посл. ' + (u.last_order_at || '').slice(0, 10) : null,
-      ].filter(Boolean).join(' · ') || 'без заказов';
-      return `<div class="user-row" onclick="openAdminUser(${u.user_id})">
-        <div class="ur-ava">${_escape(initials)}</div>
-        <div class="ur-info">
-          <div class="ur-name">${_escape(name)}</div>
-          <div class="ur-meta">${_escape(meta)}</div>
-        </div>
-        <div class="ur-orders">${u.order_count || 0} зак.<br>
-          <span style="font-weight:600;color:var(--hint)">${_fmtMoney(u.total_spent)}</span>
-        </div>
-      </div>`;
-    }).join('');
+    _adminUsersCache = j.users || [];
+    renderAdminUsersList();
   } catch (e) {
     list.innerHTML = `<div style="text-align:center;padding:24px;color:var(--danger)">Ошибка загрузки</div>`;
   }
+}
+
+function renderAdminUsersList() {
+  const list = document.getElementById('admin-users-list');
+  const q = (document.getElementById('adm-users-search')?.value || '').trim().toLowerCase();
+  let users = _adminUsersCache;
+  if (q) {
+    users = users.filter(u => {
+      const hay = [u.name, u.tg_name, u.phone, u.user_id, u.city]
+        .filter(Boolean).join(' ').toLowerCase();
+      return hay.includes(q);
+    });
+  }
+  if (!users.length) {
+    list.innerHTML = `<div style="text-align:center;padding:32px;color:var(--hint)">${q ? 'Ничего не найдено' : 'Клиентов нет'}</div>`;
+    return;
+  }
+  list.innerHTML = users.map(u => {
+    const name = u.name || u.tg_name || ('Клиент #' + u.user_id);
+    const initials = (String(name).match(/\S+/g) || ['?']).slice(0, 2)
+      .map(s => s[0].toUpperCase()).join('');
+    const meta = [
+      u.phone || null,
+      u.last_order_at ? 'посл. ' + (u.last_order_at || '').slice(0, 10) : null,
+    ].filter(Boolean).join(' · ') || 'без заказов';
+    return `<div class="user-row" onclick="openAdminUser(${u.user_id})">
+      <div class="ur-ava">${_escape(initials)}</div>
+      <div class="ur-info">
+        <div class="ur-name">${_escape(name)}</div>
+        <div class="ur-meta">${_escape(meta)}</div>
+      </div>
+      <div class="ur-orders">${u.order_count || 0} зак.<br>
+        <span style="font-weight:600;color:var(--hint)">${_fmtMoney(u.total_spent)}</span>
+      </div>
+    </div>`;
+  }).join('');
 }
 
 async function openAdminUser(userId) {
@@ -2599,6 +2634,7 @@ function renderAdminUser(u) {
 // ─── ADMIN: ТОВАРЫ ────────────────────────────────────────────────────────────
 let _adminProducts = null;       // { categories, subcategories, products } — полный raw
 let _adminProductsCat = '';      // активный фильтр категории
+let _adminProductsSub = '';      // активный фильтр подкатегории
 
 async function renderAdminProducts() {
   const list = document.getElementById('admin-products-list');
@@ -2611,18 +2647,35 @@ async function renderAdminProducts() {
     list.innerHTML = `<div style="text-align:center;padding:24px;color:var(--danger)">Ошибка загрузки</div>`;
     return;
   }
-  // Категории — кнопки фильтра
+  renderAdminProductsCats();
+  renderAdminProductsList();
+}
+
+function renderAdminProductsCats() {
   const catBox = document.getElementById('adm-prod-cats');
   const cats = _adminProducts.categories || [];
   catBox.innerHTML = `<button class="filter-btn ${_adminProductsCat===''?'active':''}" onclick="adminProductsCat('')">Все</button>` +
     cats.map(c => `<button class="filter-btn ${_adminProductsCat===c.id?'active':''}" onclick="adminProductsCat('${_escape(c.id)}')">${_escape(c.icon||'')} ${_escape(c.name)}</button>`).join('');
-  renderAdminProductsList();
+  // Подкатегории выбранной категории — отдельным рядом
+  const subBox = document.getElementById('adm-prod-subs');
+  if (!_adminProductsCat) { subBox.innerHTML = ''; subBox.style.display = 'none'; return; }
+  const subs = (_adminProducts.subcategories || []).filter(s => s.parent === _adminProductsCat);
+  if (!subs.length) { subBox.innerHTML = ''; subBox.style.display = 'none'; return; }
+  subBox.style.display = 'flex';
+  subBox.innerHTML = `<button class="filter-btn ${_adminProductsSub===''?'active':''}" onclick="adminProductsSub('')">Все</button>` +
+    subs.map(s => `<button class="filter-btn ${_adminProductsSub===s.id?'active':''}" onclick="adminProductsSub('${_escape(s.id)}')">${_escape(s.name)}</button>`).join('');
 }
 
 function adminProductsCat(id) {
   _adminProductsCat = id;
-  document.querySelectorAll('#adm-prod-cats .filter-btn').forEach(b => b.classList.remove('active'));
-  event.currentTarget.classList.add('active');
+  _adminProductsSub = '';
+  renderAdminProductsCats();
+  renderAdminProductsList();
+}
+
+function adminProductsSub(id) {
+  _adminProductsSub = id;
+  renderAdminProductsCats();
   renderAdminProductsList();
 }
 
@@ -2632,6 +2685,7 @@ function renderAdminProductsList() {
   const q = (document.getElementById('adm-prod-search').value || '').trim().toLowerCase();
   let items = _adminProducts.products || [];
   if (_adminProductsCat) items = items.filter(p => p.category === _adminProductsCat);
+  if (_adminProductsSub) items = items.filter(p => p.subcategory === _adminProductsSub);
   if (q) items = items.filter(p => (p.name || '').toLowerCase().includes(q)
     || (p.country || '').toLowerCase().includes(q)
     || (p.subcategory || '').toLowerCase().includes(q));
