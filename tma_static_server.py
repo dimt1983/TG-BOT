@@ -10,10 +10,13 @@ GET /tma/api/admin/orders   → список заказов (только для
 GET /tma/api/admin/order/ID → детали заказа (только для admin)
 GET /tma/api/admin/users    → список клиентов (только для admin)
 GET /tma/api/admin/user/ID  → профиль клиента + его заказы (только для admin)
+GET /tma/api/admin/products → каталог (прокси на VPS Shop Admin API)
 GET /tma/api/chat/ORDER_ID  → сообщения чата поддержки
 POST /tma/api/order                  → создать заказ
 POST /tma/api/send_kp               → отправить КП аренды в личку через бот
 POST /tma/api/admin/order/ID/status → сменить статус заказа (только для admin)
+POST /tma/api/admin/product/ID       → правка товара (прокси PATCH на VPS)
+POST /tma/api/admin/product/ID/photo → загрузка фото (прокси на VPS)
 POST /tma/api/chat/ORDER_ID         → отправить сообщение в чат
 """
 import os
@@ -26,7 +29,9 @@ import asyncio
 import hmac
 import hashlib
 from http.server import HTTPServer, BaseHTTPRequestHandler
-from urllib.parse import unquote, parse_qsl, urlparse, parse_qs
+from urllib.parse import unquote, parse_qsl, urlparse, parse_qs, quote
+import urllib.request
+import urllib.error
 
 PORT = int(os.environ.get("PORT", 10000))
 TMA_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tma_static")
@@ -54,6 +59,10 @@ KP_PDF_PATH = next((p for p in _KP_CANDIDATES if os.path.isfile(p)),
 
 # Допустимые статусы заказа для смены через adminAPI
 ORDER_STATUSES_VALID = {"confirmed", "shipped", "done", "cancelled"}
+
+# Прокси на Shop Admin API (живёт на VPS рядом с Bishop'ом, пишет в products.json + git push).
+SHOP_ADMIN_API_URL = os.environ.get("SHOP_ADMIN_API_URL", "").rstrip("/")
+SHOP_ADMIN_TOKEN   = os.environ.get("SHOP_ADMIN_TOKEN", "")
 
 # Контекст: заполняется из bot.py через set_tma_api_handler.
 _TMA_CTX = None
@@ -162,6 +171,28 @@ def _j(data: dict) -> bytes:
     return json.dumps(data, ensure_ascii=False).encode("utf-8")
 
 
+def _proxy_shop_admin(method: str, sub_path: str, body: bytes = b"",
+                      content_type: str = "application/json") -> tuple[int, bytes, str]:
+    """Форвардит запрос в VPS Shop Admin API с Bearer-токеном.
+    Возвращает (status, body_bytes, content_type)."""
+    if not SHOP_ADMIN_API_URL or not SHOP_ADMIN_TOKEN:
+        return 503, _j({"ok": False, "error": "SHOP_ADMIN_API_URL/SHOP_ADMIN_TOKEN not configured"}), "application/json; charset=utf-8"
+    url = f"{SHOP_ADMIN_API_URL}{sub_path}"
+    req = urllib.request.Request(url, data=body or None, method=method)
+    req.add_header("Authorization", f"Bearer {SHOP_ADMIN_TOKEN}")
+    if body:
+        req.add_header("Content-Type", content_type)
+    try:
+        with urllib.request.urlopen(req, timeout=120) as r:
+            return r.status, r.read(), r.headers.get("Content-Type", "application/json")
+    except urllib.error.HTTPError as e:
+        return e.code, (e.read() or b""), e.headers.get("Content-Type", "application/json") if e.headers else "application/json"
+    except urllib.error.URLError as e:
+        return 502, _j({"ok": False, "error": f"VPS unreachable: {e.reason}"}), "application/json; charset=utf-8"
+    except Exception as e:
+        return 500, _j({"ok": False, "error": f"proxy error: {e}"}), "application/json; charset=utf-8"
+
+
 # ─── HTTP Handler ─────────────────────────────────────────────────────────────
 
 class Handler(BaseHTTPRequestHandler):
@@ -230,6 +261,17 @@ class Handler(BaseHTTPRequestHandler):
             is_adm = bool(user and user.get("id") in ADMIN_IDS)
             self._send(200, _j({"is_admin": is_adm, "user_id": user.get("id") if user else None}),
                        "application/json; charset=utf-8", {"Cache-Control": "no-cache"})
+            return
+
+        # ── /tma/api/admin/products → прокси в VPS Shop Admin API ────────────
+        if path == "/tma/api/admin/products":
+            user = _get_request_user(self)
+            if not (user and user.get("id") in ADMIN_IDS):
+                self._send(403, _j({"error": "Доступ запрещён"}),
+                           "application/json; charset=utf-8")
+                return
+            status, rbody, rctype = _proxy_shop_admin("GET", "/admin/products")
+            self._send(status, rbody, rctype, {"Cache-Control": "no-cache"})
             return
 
         # ── /tma/api/admin/* ─────────────────────────────────────────────────
@@ -462,6 +504,53 @@ class Handler(BaseHTTPRequestHandler):
             except Exception as e:
                 self._send(500, _j({"ok": False, "error": str(e)}),
                            "application/json; charset=utf-8")
+            return
+
+        # ── Загрузка фото товара (admin) → прокси на VPS ───────────────────
+        m_photo = re.match(r"^/tma/api/admin/product/([^/]+)/photo$", path)
+        if m_photo:
+            user = _get_request_user(self)
+            if not (user and user.get("id") in ADMIN_IDS):
+                self._send(403, _j({"error": "Доступ запрещён"}),
+                           "application/json; charset=utf-8")
+                return
+            ctype_in = self.headers.get("Content-Type", "application/octet-stream")
+            try:
+                clen = int(self.headers.get("Content-Length", "0") or "0")
+            except ValueError:
+                clen = 0
+            if clen <= 0 or clen > 6 * 1024 * 1024:
+                self._send(400, _j({"ok": False, "error": "invalid Content-Length"}),
+                           "application/json; charset=utf-8")
+                return
+            raw = self.rfile.read(clen)
+            tma_id = unquote(m_photo.group(1))
+            status, rbody, rctype = _proxy_shop_admin(
+                "POST", f"/admin/product/{quote(tma_id, safe='')}/photo",
+                body=raw, content_type=ctype_in,
+            )
+            self._send(status, rbody, rctype)
+            return
+
+        # ── Правка товара (admin) → прокси на VPS как PATCH ────────────────
+        m_prod = re.match(r"^/tma/api/admin/product/([^/]+)$", path)
+        if m_prod:
+            user = _get_request_user(self)
+            if not (user and user.get("id") in ADMIN_IDS):
+                self._send(403, _j({"error": "Доступ запрещён"}),
+                           "application/json; charset=utf-8")
+                return
+            try:
+                clen = int(self.headers.get("Content-Length", "0") or "0")
+            except ValueError:
+                clen = 0
+            raw = self.rfile.read(clen) if clen > 0 else b""
+            tma_id = unquote(m_prod.group(1))
+            status, rbody, rctype = _proxy_shop_admin(
+                "PATCH", f"/admin/product/{quote(tma_id, safe='')}",
+                body=raw, content_type="application/json",
+            )
+            self._send(status, rbody, rctype)
             return
 
         # ── Сменить статус заказа (admin) ─────────────────────────────────────
