@@ -2364,9 +2364,9 @@ function renderProfile() {
       <div class="profile-row"><span class="key">Избранных</span><span class="val">${favorites.length}</span></div>
       <div class="profile-row"><span class="key">Бонусов</span><span class="val">0</span></div>
     </div>
-    <button class="profile-action" onclick="goTo('mydata')"><span>Мои данные${profileData ? '' : ' <span style=\"color:var(--danger);font-size:11px;font-weight:700\">(не заполнены)</span>'}</span><span class="arr">${profileData ? '✓' : '›'}</span></button>
-    <button class="profile-action" onclick="goTo('favorites')"><span>Избранное</span><span class="arr">${favorites.length ? favorites.length + ' ›' : '›'}</span></button>
-    <button class="profile-action" onclick="goTo('orders')"><span>История заказов</span><span class="arr">›</span></button>
+    <button class="profile-action" onclick="goTo('mydata')"><span><span class="ico">📋</span>Мои данные${profileData ? '' : ' <span style=\"color:var(--danger);font-size:11px;font-weight:700\">(не заполнены)</span>'}</span><span class="arr">${profileData ? '✓' : '›'}</span></button>
+    <button class="profile-action" onclick="goTo('favorites')"><span><span class="ico">⭐</span>Избранное</span><span class="arr">${favorites.length ? favorites.length + ' ›' : '›'}</span></button>
+    <button class="profile-action" onclick="goTo('orders')"><span><span class="ico">📦</span>История заказов</span><span class="arr">›</span></button>
     <button class="profile-action" onclick="openConsent('profile')">
       <span><span class="ico">📜</span>Согласие на обработку ПД</span>
       <span class="consent-status ${consentSigned() ? 'signed' : 'unsigned'}">${consentSigned() ? '✓ Подписано' : 'Требуется'}</span>
