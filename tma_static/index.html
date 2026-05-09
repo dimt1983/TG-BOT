@@ -368,6 +368,39 @@ body {
 .user-row .ur-meta { font-size: 12px; color: var(--hint); margin-top: 2px; }
 .user-row .ur-orders { font-size: 12px; font-weight: 700; color: var(--primary); flex-shrink: 0; }
 
+/* ─── Admin: товары ─── */
+.adm-search { width: 100%; padding: 10px 14px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: var(--section); font-size: 14px; margin-bottom: 10px; box-sizing: border-box; }
+.adm-prod-row { display: flex; gap: 10px; align-items: center; background: var(--section); border-radius: var(--radius); padding: 10px; margin-bottom: 8px; box-shadow: var(--shadow); cursor: pointer; }
+.adm-prod-row.is-hidden { opacity: 0.55; border-left: 3px solid #bdbdbd; }
+.adm-prod-row .pr-thumb { width: 48px; height: 48px; border-radius: 10px; background: #f0ebe7 center/cover no-repeat; flex-shrink: 0; }
+.adm-prod-row .pr-info { flex: 1; min-width: 0; }
+.adm-prod-row .pr-name { font-weight: 700; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.adm-prod-row .pr-meta { font-size: 12px; color: var(--hint); margin-top: 2px; }
+.adm-prod-row .pr-right { text-align: right; flex-shrink: 0; font-size: 12px; }
+.adm-prod-row .pr-stock { font-weight: 700; color: var(--primary); }
+.adm-prod-row .pr-stock.zero { color: #c62828; }
+.adm-badge-hidden { display: inline-block; padding: 2px 8px; border-radius: 8px; background: #f5f5f5; color: #757575; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+.adm-prod-form .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.adm-prod-form .field label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--hint); font-weight: 700; }
+.adm-prod-form .field input, .adm-prod-form .field textarea { padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(0,0,0,0.1); background: var(--section); font-size: 14px; font-family: inherit; box-sizing: border-box; width: 100%; }
+.adm-prod-form .field textarea { min-height: 80px; resize: vertical; }
+.adm-prod-form .row { display: flex; gap: 8px; align-items: center; }
+.adm-prod-form .row > * { flex: 1; }
+.adm-toggle { display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; background: var(--section); border-radius: var(--radius); margin-bottom: 14px; box-shadow: var(--shadow); }
+.adm-toggle .lbl { font-weight: 700; font-size: 14px; }
+.adm-toggle .desc { font-size: 11px; color: var(--hint); margin-top: 2px; }
+.adm-switch { position: relative; width: 46px; height: 26px; background: #ccc; border-radius: 14px; cursor: pointer; flex-shrink: 0; transition: background 0.2s; }
+.adm-switch::after { content: ''; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; background: white; border-radius: 10px; transition: transform 0.2s; }
+.adm-switch.on { background: #c62828; }
+.adm-switch.on::after { transform: translateX(20px); }
+.adm-fasovka-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.adm-fasovka-row:last-child { border-bottom: none; }
+.adm-fasovka-row .fs-size { font-weight: 600; min-width: 60px; font-size: 13px; }
+.adm-fasovka-row input { flex: 1; padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); background: white; font-size: 14px; }
+.adm-photo-preview { width: 100%; max-height: 220px; object-fit: contain; border-radius: 12px; margin-bottom: 10px; background: #f5f5f5; }
+.adm-save-btn { width: 100%; padding: 14px; background: var(--primary); color: white; border: none; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; margin-top: 8px; }
+.adm-save-btn:disabled { opacity: 0.5; cursor: wait; }
+
 /* ─── Support chat ─── */
 .chat-wrap { display: flex; flex-direction: column; height: calc(100vh - 120px); }
 .chat-messages { flex: 1; overflow-y: auto; padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
@@ -824,7 +857,34 @@ body {
     <button class="profile-action" style="margin-top:8px" onclick="goTo('admin-users')">
       <span><span class="ico">👥</span> Клиенты</span><span class="arr">›</span>
     </button>
+    <button class="profile-action" onclick="goTo('admin-products')">
+      <span><span class="ico">📦</span> Товары</span><span class="arr">›</span>
+    </button>
   </div>
+</div>
+
+<!-- ═══════════════ ADMIN: список товаров ═══════════════ -->
+<div class="screen" id="screen-admin-products">
+  <header class="header">
+    <button class="back-btn" onclick="goTo('admin')">‹ Назад</button>
+    <h1>Товары</h1>
+    <button class="icon-btn" onclick="renderAdminProducts()">↻</button>
+  </header>
+  <div class="container">
+    <input class="adm-search" id="adm-prod-search" placeholder="Поиск по названию…" oninput="renderAdminProductsList()" />
+    <div class="admin-filter" id="adm-prod-cats"></div>
+    <div id="admin-products-list"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ ADMIN: карточка товара ═══════════════ -->
+<div class="screen" id="screen-admin-product">
+  <header class="header">
+    <button class="back-btn" onclick="goTo('admin-products')">‹ Назад</button>
+    <h1 id="admin-product-title">Товар</h1>
+    <div></div>
+  </header>
+  <div class="container" id="admin-product-detail"></div>
 </div>
 
 <!-- ═══════════════ ADMIN: детали заказа ═══════════════ -->
@@ -972,6 +1032,7 @@ function detailFasovka(p) {
 async function load() {
   const r = await fetch('products.json?v=' + Date.now());
   DATA = await r.json();
+  DATA.products = (DATA.products || []).filter(p => !p.hidden);
   document.getElementById('hero-card').style.backgroundImage = `url('assets/hero_facade.jpg')`;
   renderTopCats();
   renderHits();
@@ -2519,6 +2580,173 @@ function renderAdminUser(u) {
   `;
 }
 
+// ─── ADMIN: ТОВАРЫ ────────────────────────────────────────────────────────────
+let _adminProducts = null;       // { categories, subcategories, products } — полный raw
+let _adminProductsCat = '';      // активный фильтр категории
+
+async function renderAdminProducts() {
+  const list = document.getElementById('admin-products-list');
+  list.innerHTML = `<div style="text-align:center;padding:24px;color:var(--hint)">Загрузка…</div>`;
+  try {
+    const r = await fetch('/tma/api/admin/products', { headers: _initDataHeader() });
+    if (!r.ok) throw new Error('http ' + r.status);
+    _adminProducts = await r.json();
+  } catch (e) {
+    list.innerHTML = `<div style="text-align:center;padding:24px;color:var(--danger)">Ошибка загрузки</div>`;
+    return;
+  }
+  // Категории — кнопки фильтра
+  const catBox = document.getElementById('adm-prod-cats');
+  const cats = _adminProducts.categories || [];
+  catBox.innerHTML = `<button class="filter-btn ${_adminProductsCat===''?'active':''}" onclick="adminProductsCat('')">Все</button>` +
+    cats.map(c => `<button class="filter-btn ${_adminProductsCat===c.id?'active':''}" onclick="adminProductsCat('${_escape(c.id)}')">${_escape(c.icon||'')} ${_escape(c.name)}</button>`).join('');
+  renderAdminProductsList();
+}
+
+function adminProductsCat(id) {
+  _adminProductsCat = id;
+  document.querySelectorAll('#adm-prod-cats .filter-btn').forEach(b => b.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  renderAdminProductsList();
+}
+
+function renderAdminProductsList() {
+  if (!_adminProducts) return;
+  const list = document.getElementById('admin-products-list');
+  const q = (document.getElementById('adm-prod-search').value || '').trim().toLowerCase();
+  let items = _adminProducts.products || [];
+  if (_adminProductsCat) items = items.filter(p => p.category === _adminProductsCat);
+  if (q) items = items.filter(p => (p.name || '').toLowerCase().includes(q)
+    || (p.country || '').toLowerCase().includes(q)
+    || (p.subcategory || '').toLowerCase().includes(q));
+  if (!items.length) {
+    list.innerHTML = `<div style="text-align:center;padding:32px;color:var(--hint)">Ничего не найдено</div>`;
+    return;
+  }
+  list.innerHTML = items.slice(0, 200).map(p => {
+    const photo = p.photo ? `${_escape(p.photo)}?v=${Date.now()}` : '';
+    const minPrice = (p.fasovka || []).reduce((m, f) => (f.price && (!m || f.price < m)) ? f.price : m, null);
+    const stock = p.stock || 0;
+    const hidden = !!p.hidden;
+    return `<div class="adm-prod-row ${hidden?'is-hidden':''}" onclick="openAdminProduct('${_escape(p.id)}')">
+      <div class="pr-thumb" style="background-image:url('${photo}')"></div>
+      <div class="pr-info">
+        <div class="pr-name">${_escape(p.name)} ${hidden?'<span class="adm-badge-hidden">скрыт</span>':''}</div>
+        <div class="pr-meta">${_escape(p.subcategory || p.category || '')} ${minPrice?'· от '+_fmtMoney(minPrice):''}</div>
+      </div>
+      <div class="pr-right">
+        <div class="pr-stock ${stock===0?'zero':''}">${stock} шт</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function openAdminProduct(id) {
+  const p = (_adminProducts.products || []).find(x => x.id === id);
+  if (!p) { toast('Товар не найден'); return; }
+  goTo('admin-product');
+  document.getElementById('admin-product-title').textContent = p.name || id;
+  const root = document.getElementById('admin-product-detail');
+  const photo = p.photo ? `${_escape(p.photo)}?v=${Date.now()}` : '';
+  const fasovkaHtml = (p.fasovka || []).map((f, i) => `
+    <div class="adm-fasovka-row">
+      <div class="fs-size">${_escape(f.size)}</div>
+      <input type="number" min="0" step="1" value="${f.price ?? ''}" data-fasovka-size="${_escape(f.size)}" />
+      <span style="color:var(--hint);font-size:12px">₽</span>
+    </div>`).join('');
+  root.innerHTML = `
+    <div class="adm-prod-form">
+      ${photo ? `<img class="adm-photo-preview" src="${photo}" alt="">` : `<div class="adm-photo-preview" style="display:flex;align-items:center;justify-content:center;color:var(--hint)">нет фото</div>`}
+      <div class="field">
+        <label>Заменить фото</label>
+        <input type="file" id="adm-prod-photo" accept="image/jpeg,image/png,image/webp" />
+      </div>
+
+      <div class="adm-toggle">
+        <div>
+          <div class="lbl">Снять с продажи</div>
+          <div class="desc">Скрытый товар не виден клиентам в каталоге</div>
+        </div>
+        <div class="adm-switch ${p.hidden?'on':''}" id="adm-prod-hidden" onclick="this.classList.toggle('on')"></div>
+      </div>
+
+      <div class="field">
+        <label>Остаток (шт)</label>
+        <input type="number" id="adm-prod-stock" min="0" step="1" value="${p.stock ?? 0}" />
+      </div>
+
+      ${fasovkaHtml ? `<div class="field"><label>Цены по фасовкам</label>${fasovkaHtml}</div>` : ''}
+
+      <div class="field">
+        <label>Описание</label>
+        <textarea id="adm-prod-description" placeholder="Описание для каталога">${_escape(p.description || '')}</textarea>
+      </div>
+
+      <button class="adm-save-btn" id="adm-prod-save" onclick="saveAdminProduct('${_escape(id)}')">Сохранить</button>
+    </div>
+  `;
+}
+
+async function saveAdminProduct(id) {
+  const orig = (_adminProducts.products || []).find(x => x.id === id);
+  if (!orig) return;
+  const btn = document.getElementById('adm-prod-save');
+  btn.disabled = true;
+  btn.textContent = 'Сохраняем…';
+
+  const body = {};
+  const hiddenNew = document.getElementById('adm-prod-hidden').classList.contains('on');
+  if (hiddenNew !== !!orig.hidden) body.hidden = hiddenNew;
+  const stockNew = parseInt(document.getElementById('adm-prod-stock').value, 10);
+  if (Number.isFinite(stockNew) && stockNew !== (orig.stock ?? 0)) body.stock = stockNew;
+  const descNew = document.getElementById('adm-prod-description').value;
+  if (descNew !== (orig.description || '')) body.description = descNew;
+  const fp = {};
+  document.querySelectorAll('#admin-product-detail [data-fasovka-size]').forEach(inp => {
+    const size = inp.getAttribute('data-fasovka-size');
+    const newPrice = parseFloat(inp.value);
+    const oldFa = (orig.fasovka || []).find(f => f.size === size);
+    if (Number.isFinite(newPrice) && oldFa && newPrice !== oldFa.price) fp[size] = newPrice;
+  });
+  if (Object.keys(fp).length) body.fasovka_prices = fp;
+
+  try {
+    if (Object.keys(body).length) {
+      const r = await fetch('/tma/api/admin/product/' + encodeURIComponent(id), {
+        method: 'POST',
+        headers: { ..._initDataHeader(), 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      const j = await r.json();
+      if (!r.ok || j.ok === false) throw new Error(j.error || ('http ' + r.status));
+      Object.assign(orig, j.product || {});
+    }
+
+    const photoInput = document.getElementById('adm-prod-photo');
+    const file = photoInput && photoInput.files && photoInput.files[0];
+    if (file) {
+      btn.textContent = 'Загружаем фото…';
+      const buf = await file.arrayBuffer();
+      const r = await fetch('/tma/api/admin/product/' + encodeURIComponent(id) + '/photo', {
+        method: 'POST',
+        headers: { ..._initDataHeader(), 'Content-Type': file.type || 'image/jpeg' },
+        body: buf,
+      });
+      const j = await r.json();
+      if (!r.ok || j.ok === false) throw new Error(j.error || ('http ' + r.status));
+      orig.photo = j.photo;
+    }
+
+    toast('Сохранено · Railway редеплой ~1-2 мин');
+    goTo('admin-products');
+    renderAdminProductsList();
+  } catch (e) {
+    toast('Ошибка: ' + e.message);
+    btn.disabled = false;
+    btn.textContent = 'Сохранить';
+  }
+}
+
 // ─── ЧАТ ──────────────────────────────────────────────────────────────────────
 let _chatOrderId  = null;
 let _chatLastId   = 0;
@@ -2616,7 +2844,8 @@ function goTo(scr) {
   let tab = scr;
   if (scr === 'category' || scr === 'subcategory') tab = 'home';
   if (scr === 'favorites') tab = 'profile';
-  if (scr === 'admin-order' || scr === 'admin-users' || scr === 'admin-user') tab = 'admin';
+  if (scr === 'admin-order' || scr === 'admin-users' || scr === 'admin-user'
+      || scr === 'admin-products' || scr === 'admin-product') tab = 'admin';
   if (scr === 'chat') tab = null;
   if (tab) {
     const btn = document.querySelector(`[data-screen="${tab}"]`);
@@ -2630,6 +2859,7 @@ function goTo(scr) {
   if (scr === 'checkout') applyProfileToCheckout();
   if (scr === 'admin') renderAdminHome();
   if (scr === 'admin-users') renderAdminUsers();
+  if (scr === 'admin-products') renderAdminProducts();
   window.scrollTo(0, 0);
 }
 
