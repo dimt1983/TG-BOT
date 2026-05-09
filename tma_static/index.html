@@ -368,6 +368,11 @@ body {
 .user-row .ur-meta { font-size: 12px; color: var(--hint); margin-top: 2px; }
 .user-row .ur-orders { font-size: 12px; font-weight: 700; color: var(--primary); flex-shrink: 0; }
 
+/* ─── Admin: табы между разделами ─── */
+.adm-tabs { display: flex; gap: 6px; margin-bottom: 14px; background: var(--section); padding: 4px; border-radius: 14px; box-shadow: var(--shadow); }
+.adm-tabs .at-btn { flex: 1; padding: 10px 6px; border: none; border-radius: 10px; font-size: 13px; font-weight: 700; background: transparent; color: var(--hint); cursor: pointer; transition: background 0.15s, color 0.15s; }
+.adm-tabs .at-btn.active { background: var(--primary); color: white; }
+
 /* ─── Admin: товары ─── */
 .adm-search { width: 100%; padding: 10px 14px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: var(--section); font-size: 14px; margin-bottom: 10px; box-sizing: border-box; }
 .adm-prod-row { display: flex; gap: 10px; align-items: center; background: var(--section); border-radius: var(--radius); padding: 10px; margin-bottom: 8px; box-shadow: var(--shadow); cursor: pointer; }
@@ -840,6 +845,11 @@ body {
     <button class="icon-btn" onclick="renderAdminHome()">↻</button>
   </header>
   <div class="container">
+    <div class="adm-tabs">
+      <button class="at-btn active" onclick="goTo('admin')">📋 Заказы</button>
+      <button class="at-btn" onclick="goTo('admin-users')">👥 Клиенты</button>
+      <button class="at-btn" onclick="goTo('admin-products')">📦 Товары</button>
+    </div>
     <div class="admin-stats">
       <div class="admin-stat"><div class="val" id="adm-stat-new">—</div><div class="lbl">Новых</div></div>
       <div class="admin-stat"><div class="val" id="adm-stat-today">—</div><div class="lbl">Сегодня</div></div>
@@ -854,23 +864,22 @@ body {
       <button class="filter-btn" data-sf="cancelled" onclick="adminFilterOrders(this,'cancelled')">Отменённые</button>
     </div>
     <div id="admin-orders-list"></div>
-    <button class="profile-action" style="margin-top:8px" onclick="goTo('admin-users')">
-      <span><span class="ico">👥</span> Клиенты</span><span class="arr">›</span>
-    </button>
-    <button class="profile-action" onclick="goTo('admin-products')">
-      <span><span class="ico">📦</span> Товары</span><span class="arr">›</span>
-    </button>
   </div>
 </div>
 
 <!-- ═══════════════ ADMIN: список товаров ═══════════════ -->
 <div class="screen" id="screen-admin-products">
   <header class="header">
-    <button class="back-btn" onclick="goTo('admin')">‹ Назад</button>
-    <h1>Товары</h1>
+    <div></div>
+    <h1>Панель</h1>
     <button class="icon-btn" onclick="renderAdminProducts()">↻</button>
   </header>
   <div class="container">
+    <div class="adm-tabs">
+      <button class="at-btn" onclick="goTo('admin')">📋 Заказы</button>
+      <button class="at-btn" onclick="goTo('admin-users')">👥 Клиенты</button>
+      <button class="at-btn active" onclick="goTo('admin-products')">📦 Товары</button>
+    </div>
     <input class="adm-search" id="adm-prod-search" placeholder="Поиск по названию…" oninput="renderAdminProductsList()" />
     <div class="admin-filter" id="adm-prod-cats"></div>
     <div id="admin-products-list"></div>
@@ -900,11 +909,18 @@ body {
 <!-- ═══════════════ ADMIN: список клиентов ═══════════════ -->
 <div class="screen" id="screen-admin-users">
   <header class="header">
-    <button class="back-btn" onclick="goTo('admin')">‹ Назад</button>
-    <h1>Клиенты</h1>
+    <div></div>
+    <h1>Панель</h1>
     <button class="icon-btn" onclick="renderAdminUsers()">↻</button>
   </header>
-  <div class="container" id="admin-users-list"></div>
+  <div class="container">
+    <div class="adm-tabs">
+      <button class="at-btn" onclick="goTo('admin')">📋 Заказы</button>
+      <button class="at-btn active" onclick="goTo('admin-users')">👥 Клиенты</button>
+      <button class="at-btn" onclick="goTo('admin-products')">📦 Товары</button>
+    </div>
+    <div id="admin-users-list"></div>
+  </div>
 </div>
 
 <!-- ═══════════════ ADMIN: профиль клиента ═══════════════ -->
