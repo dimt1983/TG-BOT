@@ -118,12 +118,12 @@ body {
 .subcat-tile.brand .label .name { font-size: 13px; font-weight: 700; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
 .subcat-tile.brand .label .meta { font-size: 10.5px; opacity: 0.9; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
 
-/* Брендовый стиль для подкатегорий кофе (Моносорта/Микролоты/Смеси и пр.) */
-.subcat-tile.brand-bold::after { background: linear-gradient(180deg, transparent 35%, rgba(0,0,0,0.5) 100%); }
-.subcat-tile.brand-bold .label { left: 14px; right: 14px; bottom: 12px; }
-.subcat-tile.brand-bold .label .name { font-size: 22px; font-weight: 900; line-height: 1.05; letter-spacing: -0.4px; text-shadow: 0 2px 6px rgba(0,0,0,0.45); }
-.subcat-tile.brand-bold .label .meta { font-size: 12px; opacity: 0.95; margin-top: 5px; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
-.subcat-tile.brand-bold .ico-bg { position: absolute; top: 10px; right: 12px; font-size: 32px; opacity: 0.35; z-index: 1; }
+/* Брендовый стиль для подкатегорий кофе (Моносорта/Микролоты/Смеси и пр.) — текст top-left, без иконок-эмодзи */
+.subcat-tile.brand-bold::after { background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, transparent 55%, rgba(0,0,0,0.45) 100%); }
+.subcat-tile.brand-bold .label { left: 14px; right: 14px; top: 12px; bottom: auto; }
+.subcat-tile.brand-bold .label .name { font-size: 22px; font-weight: 800; line-height: 1.05; letter-spacing: -0.4px; text-shadow: 0 1px 3px rgba(0,0,0,0.35); text-transform: uppercase; }
+.subcat-tile.brand-bold .label .cat-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.18em; opacity: 0.85; margin-top: 6px; text-transform: uppercase; }
+.subcat-tile.brand-bold .meta-bottom { position: absolute; left: 14px; bottom: 10px; font-size: 11px; font-weight: 600; opacity: 0.92; color: white; z-index: 2; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
 .subcat-tile.all { background: linear-gradient(135deg, #3e2723, #1a0f0a); }
 .subcat-tile.all .label .name { font-size: 18px; font-weight: 900; }
 .subcat-tile.all .label .meta { font-size: 12px; font-weight: 600; opacity: 0.9; }
@@ -435,7 +435,7 @@ body {
     </header>
 
     <div class="search-box">
-      <input type="search" id="search-input" placeholder="🔍 Найти кофе, чай, сироп..." oninput="onSearch()">
+      <input type="search" id="search-input" placeholder="Найти кофе, чай, сироп…" oninput="onSearch()">
     </div>
 
     <div class="hero">
@@ -684,7 +684,7 @@ body {
         <div class="txt">Я согласен с обработкой персональных данных. <a href="#" onclick="event.stopPropagation();openConsent('checkout');return false;">Прочитать соглашение</a></div>
       </div>
 
-      <button class="btn-primary success" id="confirm-order-btn" onclick="confirmOrder()">🚀 Подтвердить заказ</button>
+      <button class="btn-primary success" id="confirm-order-btn" onclick="confirmOrder()">Подтвердить заказ</button>
     </div>
   </div>
 
@@ -846,9 +846,9 @@ body {
   </header>
   <div class="container">
     <div class="adm-tabs">
-      <button class="at-btn active" onclick="goTo('admin')">📋 Заказы</button>
-      <button class="at-btn" onclick="goTo('admin-users')">👥 Клиенты</button>
-      <button class="at-btn" onclick="goTo('admin-products')">📦 Товары</button>
+      <button class="at-btn active" onclick="goTo('admin')">Заказы</button>
+      <button class="at-btn" onclick="goTo('admin-users')">Клиенты</button>
+      <button class="at-btn" onclick="goTo('admin-products')">Товары</button>
     </div>
     <div class="admin-stats">
       <div class="admin-stat"><div class="val" id="adm-stat-new">—</div><div class="lbl">Новых</div></div>
@@ -1150,7 +1150,6 @@ function renderTopCats() {
     const enName = CAT_EN[cat.id] || cat.id;
     if (cat.id === 'consulting') {
       return `<button class="top-cat top-cat-consulting" onclick="openCategory('consulting')">
-        <span class="top-cat-deco">🎓</span>
         <div class="label">
           <div class="name">Консалтинг</div>
           <div class="en">${enName}</div>
@@ -1411,9 +1410,9 @@ const COFFEE_PARENT_COLORS = {
   coffee_other:         ['#5C3921', '#2E1C10'],
 };
 const COFFEE_SUFFIXES = {
-  _mono:     { name: 'Моносорта', ico: '🌍' },
-  _microlot: { name: 'Микролоты', ico: '✨' },
-  _blend:    { name: 'Смеси',     ico: '🧩' },
+  _mono:     { name: 'Моносорта' },
+  _microlot: { name: 'Микролоты' },
+  _blend:    { name: 'Смеси'     },
 };
 
 function coffeeBrandTile(subId) {
@@ -1423,8 +1422,15 @@ function coffeeBrandTile(subId) {
   const suff = Object.keys(COFFEE_SUFFIXES).find(s => subId.endsWith(s));
   if (!suff) return null;
   const [c1, c2] = COFFEE_PARENT_COLORS[parent];
-  return { name: COFFEE_SUFFIXES[suff].name, ico: COFFEE_SUFFIXES[suff].ico, gradient: `linear-gradient(135deg, ${c1} 0%, ${c2} 100%)` };
+  return { name: COFFEE_SUFFIXES[suff].name, gradient: `linear-gradient(135deg, ${c1} 0%, ${c2} 100%)` };
 }
+
+// Strips emoji/pictographs from any UI label (subcategory name, etc.)
+function _stripEmoji(s) {
+  return (s || '').replace(/\p{Extended_Pictographic}/gu, '').replace(/\s+/g, ' ').trim();
+}
+
+const _CAT_TAG = { coffee: 'COFFEE', tea: 'TEA', syrup: 'SYRUP', milk: 'MILK', consulting: 'CONSULTING' };
 
 function renderSubcatRow() {
   const subs = DATA.subcategories.filter(s => s.parent === currentParent);
@@ -1453,22 +1459,24 @@ function renderSubcatRow() {
       </div>`;
       extraClass = ' brand';
     } else if (coffee) {
-      // Брендовый стиль для подкатегорий кофе (Моносорта/Микролоты/Смеси)
+      // Брендовый стиль для подкатегорий кофе (Моносорта/Микролоты/Смеси) — текст top-left, без эмодзи
       bg = `background: ${coffee.gradient};`;
-      labelHtml = `<div class="ico-bg">${coffee.ico}</div>
-        <div class="label">
+      labelHtml = `<div class="label">
           <div class="name">${coffee.name}</div>
-          <div class="meta">${cnt} позиций</div>
-        </div>`;
+          <div class="cat-tag">${_CAT_TAG[currentCat] || ''}</div>
+        </div>
+        <div class="meta-bottom">${cnt} позиций</div>`;
       extraClass = ' brand-bold';
     } else {
-      // Дефолт — категорийный цвет (без фото товаров)
+      // Дефолт — категорийный цвет, без эмодзи в названии
       const catColor = DATA.categories.find(c => c.id === currentCat).color;
       bg = `background: ${catColor};`;
       labelHtml = `<div class="label">
-        <div class="name">${s.name}</div>
-        <div class="meta">${cnt} позиций</div>
-      </div>`;
+          <div class="name">${_stripEmoji(s.name)}</div>
+          <div class="cat-tag">${_CAT_TAG[currentCat] || ''}</div>
+        </div>
+        <div class="meta-bottom">${cnt} позиций</div>`;
+      extraClass = ' brand-bold';
     }
     return `<button class="subcat-tile${extraClass}" style="${bg}" onclick="setSubcat('${s.id}')">
       ${labelHtml}
@@ -1647,7 +1655,7 @@ function renderSheet() {
         ${p.country ? `<div class="sheet-info-row"><span class="key">📍 Страна</span><span class="val">${p.country}</span></div>` : ''}
         ${p.roast ? `<div class="sheet-info-row"><span class="key">🔥 Обжарка</span><span class="val">${p.roast}</span></div>` : ''}
         ${p.process ? `<div class="sheet-info-row"><span class="key">💧 Обработка</span><span class="val">${p.process}</span></div>` : ''}
-        <div class="sheet-info-row"><span class="key">📦 Остаток</span><span class="val">${p.stock} шт</span></div>
+        <div class="sheet-info-row"><span class="key">Остаток</span><span class="val">${p.stock} шт</span></div>
       </div>` : ''}
 
       <div class="tabs">
@@ -1679,7 +1687,7 @@ function renderSheet() {
         <span style="margin-left:auto;font-weight:800;font-size:17px;color:var(--primary-dark)">${totalPrice} ₽</span>
       </div>
 
-      <button class="btn-primary" style="margin-top:14px" onclick="addToCart()">${currentFasovka.on_request ? '✉️ Спросить в боте' : '🛒 В корзину · ' + totalPrice + ' ₽'}</button>
+      <button class="btn-primary" style="margin-top:14px" onclick="addToCart()">${currentFasovka.on_request ? 'Спросить в боте' : 'В корзину · ' + totalPrice + ' ₽'}</button>
     </div>
   `;
 }
@@ -1708,7 +1716,7 @@ function addToCart() {
   localStorage.setItem('rb_cart', JSON.stringify(cart));
   renderCartBadge();
   closeSheet();
-  toast('✅ Добавлено в корзину');
+  toast('Добавлено в корзину');
   if (tg?.HapticFeedback) tg.HapticFeedback.notificationOccurred('success');
 }
 
@@ -1743,8 +1751,8 @@ function renderCart() {
 
   let progress = '';
   if (totalKg < 10) progress = `<div class="discount-progress"><span class="ico">🎯</span><span>До скидки 10% осталось <b>${(10-totalKg).toFixed(1)} кг</b> кофе/зерна</span></div>`;
-  else if (totalKg < 25) progress = `<div class="discount-progress"><span class="ico">🚀</span><span>Скидка <b>10%</b>! До 20% осталось <b>${(25-totalKg).toFixed(1)} кг</b></span></div>`;
-  else progress = `<div class="discount-progress"><span class="ico">💎</span><span>Максимальная скидка <b>20%</b> ваша!</span></div>`;
+  else if (totalKg < 25) progress = `<div class="discount-progress"><span>Скидка <b>10%</b>! До 20% осталось <b>${(25-totalKg).toFixed(1)} кг</b></span></div>`;
+  else progress = `<div class="discount-progress"><span>Максимальная скидка <b>20%</b> ваша!</span></div>`;
 
   c.innerHTML = progress + cart.map((it, i) => {
     const cat = DATA.categories.find(c => c.id === it.category);
@@ -1774,7 +1782,7 @@ function renderCart() {
       ${saved ? `<div class="cart-row"><span>Скидка ${(discount*100).toFixed(0)}%</span><span class="saved">−${saved} ₽</span></div>` : ''}
       <div class="cart-row total"><span>Итого</span><span>${total} ₽</span></div>
     </div>
-    <button class="btn-primary success" onclick="checkout()">🚀 Оформить заказ — ${total} ₽</button>
+    <button class="btn-primary success" onclick="checkout()">Оформить заказ — ${total} ₽</button>
   `;
 }
 
@@ -2003,8 +2011,8 @@ async function submitOrderHttp(payload, displayTotal) {
     const j = await r.json().catch(() => ({}));
     if (!r.ok || !j.ok) {
       const err = j.error || ('HTTP ' + r.status);
-      toast('❌ ' + err);
-      if (btn) { btn.disabled = false; btn.textContent = '🚀 Подтвердить заказ'; }
+      toast(err);
+      if (btn) { btn.disabled = false; btn.textContent = 'Подтвердить заказ'; }
       return;
     }
     if (tg?.HapticFeedback) tg.HapticFeedback.notificationOccurred('success');
@@ -2020,7 +2028,7 @@ async function submitOrderHttp(payload, displayTotal) {
     setTimeout(() => goTo('orders'), 1200);
   } catch (e) {
     toast('Сеть недоступна: ' + e.message);
-    if (btn) { btn.disabled = false; btn.textContent = '🚀 Подтвердить заказ'; }
+    if (btn) { btn.disabled = false; btn.textContent = 'Подтвердить заказ'; }
   }
 }
 
@@ -2084,7 +2092,7 @@ function signConsent() {
   };
   localStorage.setItem('rb_consent', JSON.stringify(consentState));
   if (tg?.HapticFeedback) tg.HapticFeedback.notificationOccurred('success');
-  toast('✅ Согласие подписано');
+  toast('Согласие подписано');
   setTimeout(closeConsent, 600);
 }
 
@@ -2173,7 +2181,7 @@ function saveProfile() {
   }
   profileData = p;
   localStorage.setItem('rb_profile', JSON.stringify(p));
-  toast('✅ Сохранено');
+  toast('Сохранено');
   goTo('profile');
 }
 
@@ -2305,7 +2313,7 @@ async function renderOrders() {
         <div class="order-total">${Math.round(o.total)} ₽</div>
         <button class="btn-repeat" onclick='repeatOrder(${o.id})'>🔁 Повторить</button>
       </div>
-      <button class="chat-support-btn" onclick="openChat(${o.id}, ${o.id})">💬 Написать в поддержку</button>
+      <button class="chat-support-btn" onclick="openChat(${o.id}, ${o.id})">Написать в поддержку</button>
     </div>`;
   }).join('');
 }
@@ -2356,9 +2364,9 @@ function renderProfile() {
       <div class="profile-row"><span class="key">Избранных</span><span class="val">${favorites.length}</span></div>
       <div class="profile-row"><span class="key">Бонусов</span><span class="val">0</span></div>
     </div>
-    <button class="profile-action" onclick="goTo('mydata')"><span><span class="ico">📋</span>Мои данные${profileData ? '' : ' <span style=\"color:var(--danger);font-size:11px;font-weight:700\">(не заполнены)</span>'}</span><span class="arr">${profileData ? '✓' : '›'}</span></button>
-    <button class="profile-action" onclick="goTo('favorites')"><span><span class="ico">⭐</span>Избранное</span><span class="arr">${favorites.length ? favorites.length + ' ›' : '›'}</span></button>
-    <button class="profile-action" onclick="goTo('orders')"><span><span class="ico">📦</span>История заказов</span><span class="arr">›</span></button>
+    <button class="profile-action" onclick="goTo('mydata')"><span>Мои данные${profileData ? '' : ' <span style=\"color:var(--danger);font-size:11px;font-weight:700\">(не заполнены)</span>'}</span><span class="arr">${profileData ? '✓' : '›'}</span></button>
+    <button class="profile-action" onclick="goTo('favorites')"><span>Избранное</span><span class="arr">${favorites.length ? favorites.length + ' ›' : '›'}</span></button>
+    <button class="profile-action" onclick="goTo('orders')"><span>История заказов</span><span class="arr">›</span></button>
     <button class="profile-action" onclick="openConsent('profile')">
       <span><span class="ico">📜</span>Согласие на обработку ПД</span>
       <span class="consent-status ${consentSigned() ? 'signed' : 'unsigned'}">${consentSigned() ? '✓ Подписано' : 'Требуется'}</span>
@@ -2383,10 +2391,10 @@ const ADMIN_STATUS_NEXT = {
   cancelled: [],
 };
 const ADMIN_STATUS_BTN = {
-  confirmed: { cls: 'sa-confirm', label: '✅ Принять' },
-  shipped:   { cls: 'sa-ship',    label: '📦 В доставку' },
-  done:      { cls: 'sa-done',    label: '🏁 Выполнен' },
-  cancelled: { cls: 'sa-cancel',  label: '❌ Отменить' },
+  confirmed: { cls: 'sa-confirm', label: 'Принять' },
+  shipped:   { cls: 'sa-ship',    label: 'В доставку' },
+  done:      { cls: 'sa-done',    label: 'Выполнен' },
+  cancelled: { cls: 'sa-cancel',  label: 'Отменить' },
 };
 let _isAdmin = false;
 let _adminFilter = '';
@@ -2528,7 +2536,7 @@ function renderAdminOrder(o) {
         <span class="dr-val" style="font-size:18px;color:var(--primary)">${_fmtMoney(o.total)}</span>
       </div>
     </div>
-    <button class="chat-support-btn" onclick="openChat(${o.id}, ${o.id})">💬 Чат с клиентом</button>
+    <button class="chat-support-btn" onclick="openChat(${o.id}, ${o.id})">Чат с клиентом</button>
     ${userBtn}
   `;
 }
