@@ -1429,20 +1429,6 @@ function coffeeBrandTile(subId) {
 function renderSubcatRow() {
   const subs = DATA.subcategories.filter(s => s.parent === currentParent);
   const c = document.getElementById('subcat-tiles');
-  const totalCount = DATA.products.filter(p =>
-    p.category === currentCat
-    && (currentParent === currentCat
-        || hasDescendantMatch(p, currentParent))
-  ).length;
-  // Цвет тайла «Все товары» подсасывается под текущий родитель
-  const allCoffee = coffeeBrandTile(currentParent + '_mono'); // только чтобы взять цвет родителя
-  const allBg = allCoffee ? `background: ${allCoffee.gradient};` : '';
-  const all = `<button class="subcat-tile all" style="${allBg}" onclick="openAllInParent()">
-    <div class="label">
-      <div class="name">📋 Все товары</div>
-      <div class="meta">${totalCount} позиций</div>
-    </div>
-  </button>`;
   const items = subs.map(s => {
     const cnt = countProductsInSub(s.id);
     const custom = CUSTOM_TILES[s.id];
@@ -1488,7 +1474,7 @@ function renderSubcatRow() {
       ${labelHtml}
     </button>`;
   }).join('');
-  c.innerHTML = items + all;
+  c.innerHTML = items;
 }
 
 // Считает товары, попадающие в подкатегорию или любого её потомка
