@@ -68,13 +68,19 @@ SHOP_ADMIN_TOKEN   = os.environ.get("SHOP_ADMIN_TOKEN", "")
 _TMA_CTX = None
 
 
-def set_tma_api_handler(bot, get_db, notify_new_order, main_loop, bot_token):
+def set_tma_api_handler(bot, get_db, notify_new_order, main_loop, bot_token,
+                        get_discount=None, notify_external_order=None):
     """Регистрирует контекст для обработки API-запросов от TMA.
-    Вызывается из bot.py после инициализации event-loop."""
+    Вызывается из bot.py после инициализации event-loop.
+
+    get_discount / notify_external_order — нужны для POST /orders из bot.py
+    (миграция из _SyncHandler). При None POST /orders отвечает 503."""
     global _TMA_CTX
     _TMA_CTX = {
         "bot": bot, "get_db": get_db, "notify_new_order": notify_new_order,
         "loop": main_loop, "bot_token": bot_token,
+        "get_discount": get_discount,
+        "notify_external_order": notify_external_order,
     }
     try:
         _ensure_chat_table()
@@ -104,7 +110,14 @@ def _ensure_chat_table():
         con.close()
 
 
+_SYNC_CACHE = {"data": None, "ts": 0.0}
+_SYNC_CACHE_TTL = 30.0  # секунд
+
 def _read_sync_snapshot() -> dict:
+    import time
+    now = time.monotonic()
+    if _SYNC_CACHE["data"] is not None and (now - _SYNC_CACHE["ts"]) < _SYNC_CACHE_TTL:
+        return _SYNC_CACHE["data"]
     con = sqlite3.connect(DB_PATH)
     con.row_factory = sqlite3.Row
     try:
@@ -121,11 +134,21 @@ def _read_sync_snapshot() -> dict:
         ).fetchall()
     finally:
         con.close()
-    return {
+    snapshot = {
         "orders":   [dict(r) for r in orders],
         "users":    [dict(r) for r in users],
         "products": [dict(r) for r in products],
     }
+    _SYNC_CACHE["data"] = snapshot
+    _SYNC_CACHE["ts"] = now
+    return snapshot
+
+
+def _invalidate_sync_cache():
+    """Сбрасывает кеш /sync — вызывается после изменений данных (новый заказ,
+    обновление stock/price), чтобы внешние агенты сразу видели актуальное."""
+    _SYNC_CACHE["data"] = None
+    _SYNC_CACHE["ts"] = 0.0
 
 
 # ─── Auth helpers ─────────────────────────────────────────────────────────────
@@ -469,6 +492,24 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         path = unquote(self.path.split("?", 1)[0])
 
+        # ── Внешние интеграции (Bearer): создание заказа, обновление остатков ─
+        # Перенесено из bot.py:_SyncHandler, чтобы один HTTP-сервер обслуживал
+        # и публичный API, и TMA Mini App (не было EADDRINUSE на :8081).
+        if path == "/orders":
+            if not _check_bearer(self):
+                self._send(401, _j({"error": "unauthorized"}),
+                           "application/json; charset=utf-8")
+                return
+            self._handle_external_order()
+            return
+        if path == "/update_stock" or path == "/update_prices":
+            if not _check_bearer(self):
+                self._send(401, _j({"error": "unauthorized"}),
+                           "application/json; charset=utf-8")
+                return
+            self._handle_update_stock()
+            return
+
         # ── Создать заказ ────────────────────────────────────────────────────
         if path == "/tma/api/order":
             self._handle_tma_order()
@@ -731,6 +772,7 @@ class Handler(BaseHTTPRequestHandler):
             self._send(500, _j({"ok": False, "error": f"server error: {e}"}),
                        "application/json; charset=utf-8")
             return
+        _invalidate_sync_cache()
         self._send(200, _j({"ok": True, **result}), "application/json; charset=utf-8")
 
     def _read_body(self) -> dict:
@@ -740,6 +782,216 @@ class Handler(BaseHTTPRequestHandler):
             return json.loads(raw.decode("utf-8")) if raw else {}
         except Exception:
             return {}
+
+    # ── Внешний POST /update_stock|/update_prices (из bot.py:_SyncHandler) ──
+    def _handle_update_stock(self):
+        payload = self._read_body()
+        items = payload.get("items") or []
+        fuzzy = bool(payload.get("fuzzy", True))
+        if not isinstance(items, list) or not items:
+            self._send(400, _j({"error": "items required"}),
+                       "application/json; charset=utf-8")
+            return
+        try:
+            con = sqlite3.connect(DB_PATH)
+            con.row_factory = sqlite3.Row
+            updated_stock = 0
+            updated_price = 0
+            not_found = []
+            for it in items:
+                name = str(it.get("product_name", "")).strip()
+                if not name:
+                    continue
+                stock = it.get("stock")
+                price = it.get("price")
+                row = con.execute(
+                    "SELECT id, name FROM products WHERE name = ?", (name,)
+                ).fetchone()
+                if row is None and fuzzy:
+                    rows = con.execute(
+                        "SELECT id, name FROM products WHERE name LIKE ?",
+                        (f"%{name}%",),
+                    ).fetchall()
+                    if len(rows) == 1:
+                        row = rows[0]
+                if row is None:
+                    not_found.append(name)
+                    continue
+                pid = row["id"]
+                if stock is not None:
+                    try:
+                        con.execute(
+                            "UPDATE products SET stock = ? WHERE id = ?",
+                            (int(float(stock)), pid),
+                        )
+                        updated_stock += 1
+                    except (TypeError, ValueError):
+                        pass
+                if price is not None:
+                    try:
+                        price_f = float(price)
+                        if price_f > 0:
+                            con.execute(
+                                "UPDATE products SET prev_price = price, price = ? "
+                                "WHERE id = ?",
+                                (price_f, pid),
+                            )
+                            updated_price += 1
+                    except (TypeError, ValueError):
+                        pass
+            con.commit()
+            con.close()
+            _invalidate_sync_cache()
+            self._send(200, _j({
+                "status": "ok",
+                "updated_stock": updated_stock,
+                "updated_price": updated_price,
+                "not_found_count": len(not_found),
+                "not_found_sample": not_found[:20],
+            }), "application/json; charset=utf-8")
+        except Exception as e:
+            self._send(500, _j({"error": str(e)}),
+                       "application/json; charset=utf-8")
+
+    # ── Внешний POST /orders (Девид / wahelp-agent / 1С — в будущем) ────────
+    def _handle_external_order(self):
+        if _TMA_CTX is None:
+            self._send(503, _j({"error": "TMA context not initialized"}),
+                       "application/json; charset=utf-8")
+            return
+        payload = self._read_body()
+        phone = str(payload.get("client_phone", "")).strip()
+        items = payload.get("items") or []
+        if not phone or not items:
+            self._send(400, _j({"error": "client_phone and items required"}),
+                       "application/json; charset=utf-8")
+            return
+        try:
+            con = sqlite3.connect(DB_PATH)
+            con.row_factory = sqlite3.Row
+            try:
+                norm_phone = "".join(ch for ch in phone if ch.isdigit())
+                user = None
+                if norm_phone:
+                    rows = con.execute(
+                        "SELECT user_id, name, phone, company_name FROM users"
+                    ).fetchall()
+                    for r in rows:
+                        r_norm = "".join(ch for ch in (r["phone"] or "") if ch.isdigit())
+                        if r_norm and r_norm.endswith(norm_phone[-10:]):
+                            user = r
+                            break
+                if user is None:
+                    fallback_name = payload.get("client_name") or "WhatsApp клиент"
+                    new_uid = -(abs(hash(norm_phone)) % (10**9))
+                    con.execute(
+                        "INSERT OR IGNORE INTO users "
+                        "(user_id, tg_name, user_type, name, phone) "
+                        "VALUES (?,?,?,?,?)",
+                        (new_uid, "whatsapp", "company", fallback_name, phone),
+                    )
+                    user_id = new_uid
+                    client_name = fallback_name
+                else:
+                    user_id = user["user_id"]
+                    client_name = user["company_name"] or user["name"] or "Клиент"
+
+                total = 0.0
+                resolved_items = []
+                missing = []
+                for it in items:
+                    name = str(it.get("product_name", "")).strip()
+                    try:
+                        qty = float(it.get("quantity", 0) or 0)
+                    except (TypeError, ValueError):
+                        qty = 0
+                    if not name or qty <= 0:
+                        continue
+                    prod = con.execute(
+                        "SELECT id, name, price FROM products WHERE name = ?", (name,)
+                    ).fetchone()
+                    if prod is None:
+                        missing.append(name)
+                        continue
+                    line_price = (prod["price"] or 0) * qty
+                    total += line_price
+                    resolved_items.append({
+                        "product_id": prod["id"],
+                        "product_name": prod["name"],
+                        "price": prod["price"] or 0,
+                        "quantity": qty,
+                    })
+                if missing:
+                    self._send(400, _j({
+                        "error": "some products not found", "missing": missing,
+                    }), "application/json; charset=utf-8")
+                    return
+                if not resolved_items:
+                    self._send(400, _j({"error": "no valid items"}),
+                               "application/json; charset=utf-8")
+                    return
+
+                address = str(payload.get("address", "")).strip()
+                comment = str(payload.get("comment", "")).strip()
+                full_address = address
+                if comment:
+                    full_address = f"{address} | {comment}".strip(" |")
+
+                total_kg = 0.0
+                for ri in resolved_items:
+                    nl = ri["product_name"].lower()
+                    if "1 кг" in nl or "1кг" in nl:
+                        total_kg += ri["quantity"]
+                    elif "200 г" in nl or "200г" in nl:
+                        total_kg += ri["quantity"] * 0.2
+                gd = _TMA_CTX.get("get_discount")
+                discount_pct = gd(total_kg) if gd else 0.0
+                total_after = total * (1 - discount_pct)
+
+                cur = con.execute(
+                    "INSERT INTO orders "
+                    "(user_id, name, phone, address, total, discount, status) "
+                    "VALUES (?,?,?,?,?,?,?)",
+                    (user_id, client_name, phone, full_address,
+                     total_after, discount_pct, "new"),
+                )
+                order_id = cur.lastrowid
+                for ri in resolved_items:
+                    con.execute(
+                        "INSERT INTO order_items "
+                        "(order_id, product_id, quantity, price) "
+                        "VALUES (?,?,?,?)",
+                        (order_id, ri["product_id"], ri["quantity"], ri["price"]),
+                    )
+                con.commit()
+            finally:
+                con.close()
+
+            _invalidate_sync_cache()
+
+            source = payload.get("source", "WhatsApp")
+            notify = _TMA_CTX.get("notify_external_order")
+            loop = _TMA_CTX.get("loop")
+            if notify and loop:
+                try:
+                    asyncio.run_coroutine_threadsafe(
+                        notify(order_id, client_name, phone, full_address,
+                               total_after, discount_pct, resolved_items, source),
+                        loop,
+                    )
+                except Exception as e:
+                    print(f"Notify error: {e}")
+
+            self._send(200, _j({
+                "status": "ok",
+                "order_id": order_id,
+                "total": total_after,
+                "discount_pct": discount_pct,
+                "items_count": len(resolved_items),
+            }), "application/json; charset=utf-8")
+        except Exception as e:
+            self._send(500, _j({"error": str(e)}),
+                       "application/json; charset=utf-8")
 
     def do_OPTIONS(self):
         self.send_response(204)
