@@ -69,9 +69,16 @@ body {
 .hero-dots { display: flex; justify-content: center; gap: 6px; margin: 10px 0 12px; }
 .hero-dot { width: 6px; height: 6px; border-radius: 3px; background: rgba(111,78,55,0.2); transition: all 0.3s; cursor: pointer; border: none; padding: 0; }
 .hero-dot.active { width: 18px; background: var(--primary); }
-/* Consulting tile */
-.top-cat-consulting { background: linear-gradient(135deg, #4a3f8a 0%, #1d1545 100%) !important; }
-.top-cat-consulting .top-cat-deco { position: absolute; right: 4px; top: 50%; transform: translateY(-60%); font-size: 66px; opacity: 0.18; z-index: 1; line-height: 1; pointer-events: none; user-select: none; }
+/* Consulting tile — solid color, текст по центру (стиль top-cat reference) */
+.top-cat-consulting { background: #4a3f8a !important; display: flex; align-items: center; justify-content: center; }
+.top-cat-consulting::after { background: none !important; }
+.top-cat-consulting::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; background:
+  radial-gradient(ellipse 70% 90% at -10% 110%, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.07) 28%, transparent 28.5%),
+  radial-gradient(ellipse 60% 80% at 110% -10%, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.06) 32%, transparent 32.5%); }
+.top-cat-consulting .label { position: static !important; left: auto; right: auto; bottom: auto; text-align: center; padding: 0 14px; z-index: 2; }
+.top-cat-consulting .label .name { font-size: 22px; font-weight: 500; line-height: 1; letter-spacing: -0.2px; color: white; text-transform: uppercase; }
+.top-cat-consulting .label .eyebrow { font-size: 9px; font-weight: 600; letter-spacing: 0.22em; color: white; opacity: 0.85; margin-top: 8px; text-transform: uppercase; }
+.top-cat-consulting .meta-bottom { position: absolute; left: 0; right: 0; bottom: 10px; text-align: center; font-size: 10.5px; font-weight: 500; opacity: 0.8; color: white; z-index: 2; }
 
 .section { padding: 0 16px; margin-bottom: 24px; }
 .section-h { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding: 0 4px; }
@@ -1158,9 +1165,9 @@ function renderTopCats() {
       return `<button class="top-cat top-cat-consulting" onclick="openCategory('consulting')">
         <div class="label">
           <div class="name">Консалтинг</div>
-          <div class="en">${enName}</div>
-          <div class="meta">${prodCount} курсов</div>
+          <div class="eyebrow">Roastberry</div>
         </div>
+        <div class="meta-bottom">${enName} · ${prodCount} курсов</div>
       </button>`;
     }
     const bg = tile
