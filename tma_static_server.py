@@ -28,7 +28,7 @@ import sqlite3
 import asyncio
 import hmac
 import hashlib
-from http.server import HTTPServer, BaseHTTPRequestHandler
+from http.server import HTTPServer, ThreadingHTTPServer, BaseHTTPRequestHandler
 from urllib.parse import unquote, parse_qsl, urlparse, parse_qs, quote
 import urllib.request
 import urllib.error
@@ -766,7 +766,7 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def run_server():
-    server = HTTPServer(("0.0.0.0", PORT), Handler)
+    server = ThreadingHTTPServer(("0.0.0.0", PORT), Handler)
     print(f"[TMA-static] Сервер на порту {PORT}, корень {TMA_ROOT}")
     server.serve_forever()
 
