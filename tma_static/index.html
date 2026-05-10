@@ -118,12 +118,17 @@ body {
 .subcat-tile.brand .label .name { font-size: 13px; font-weight: 700; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
 .subcat-tile.brand .label .meta { font-size: 10.5px; opacity: 0.9; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
 
-/* Брендовый стиль для подкатегорий (Моносорта/Микролоты/Смеси и пр.) — выровнено по референсу top-cat */
-.subcat-tile.brand-bold::after { background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 50%, rgba(0,0,0,0.5) 100%); }
-.subcat-tile.brand-bold .label { left: 14px; right: 14px; top: 14px; bottom: auto; }
-.subcat-tile.brand-bold .label .name { font-size: 26px; font-weight: 900; line-height: 1; letter-spacing: -0.6px; text-shadow: 0 1px 3px rgba(0,0,0,0.4); text-transform: uppercase; }
-.subcat-tile.brand-bold .label .cat-tag { font-size: 8.5px; font-weight: 700; letter-spacing: 0.22em; opacity: 0.85; margin-top: 6px; text-transform: uppercase; }
-.subcat-tile.brand-bold .meta-bottom { position: absolute; left: 14px; bottom: 12px; font-size: 11px; font-weight: 600; opacity: 0.92; color: white; z-index: 2; text-shadow: 0 1px 2px rgba(0,0,0,0.4); letter-spacing: 0.01em; }
+/* Брендовый стиль для подкатегорий (Моносорта/Микролоты/Смеси и пр.) — solid color, текст по центру, как top-cat reference */
+.subcat-tile.brand-bold { display: flex; align-items: center; justify-content: center; }
+.subcat-tile.brand-bold::after { background: none; }
+.subcat-tile.brand-bold::before { content: ''; position: absolute; inset: 0; background:
+  radial-gradient(ellipse 70% 90% at -10% 110%, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.07) 28%, transparent 28.5%),
+  radial-gradient(ellipse 60% 80% at 110% -10%, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.06) 32%, transparent 32.5%);
+  z-index: 0; pointer-events: none; }
+.subcat-tile.brand-bold .label { position: static; left: auto; right: auto; top: auto; bottom: auto; text-align: center; padding: 0 14px; z-index: 2; }
+.subcat-tile.brand-bold .label .name { font-size: 22px; font-weight: 800; line-height: 1; letter-spacing: -0.4px; color: white; text-transform: uppercase; }
+.subcat-tile.brand-bold .label .cat-tag { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; color: white; opacity: 0.92; margin-top: 8px; text-transform: uppercase; }
+.subcat-tile.brand-bold .meta-bottom { position: absolute; left: 0; right: 0; bottom: 10px; text-align: center; font-size: 10.5px; font-weight: 600; opacity: 0.85; color: white; z-index: 2; }
 .subcat-tile.all { background: linear-gradient(135deg, #3e2723, #1a0f0a); }
 .subcat-tile.all .label .name { font-size: 18px; font-weight: 900; }
 .subcat-tile.all .label .meta { font-size: 12px; font-weight: 600; opacity: 0.9; }
@@ -1423,7 +1428,7 @@ function coffeeBrandTile(subId) {
   const suff = Object.keys(COFFEE_SUFFIXES).find(s => subId.endsWith(s));
   if (!suff) return null;
   const [c1, c2] = COFFEE_PARENT_COLORS[parent];
-  return { name: COFFEE_SUFFIXES[suff].name, gradient: `linear-gradient(135deg, ${c1} 0%, ${c2} 100%)` };
+  return { name: COFFEE_SUFFIXES[suff].name, color: c1, gradient: `linear-gradient(135deg, ${c1} 0%, ${c2} 100%)` };
 }
 
 // Strips emoji/pictographs from any UI label (subcategory name, etc.)
@@ -1473,8 +1478,8 @@ function renderSubcatRow() {
       </div>`;
       extraClass = ' brand';
     } else if (coffee) {
-      // Брендовый стиль для подкатегорий кофе (Моносорта/Микролоты/Смеси) — текст top-left, без эмодзи
-      bg = `background: ${coffee.gradient};`;
+      // Solid-color плитка в стиле top-cat (Эспрессо/Фильтр), текст по центру
+      bg = `background: ${coffee.color};`;
       labelHtml = `<div class="label">
           <div class="name">${coffee.name}</div>
           <div class="cat-tag">${_CAT_TAG[currentCat] || ''}</div>
