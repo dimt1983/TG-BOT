@@ -443,6 +443,7 @@ body {
     <header class="header">
       <div class="brand-logo"><div><div class="wordmark">ROASTBERRY</div><div class="tagline">Coffee Roasters</div></div></div>
       <div class="actions">
+        <button class="icon-btn" onclick="shareShop()" title="Поделиться магазином">↗</button>
         <button class="icon-btn" onclick="goTo('cart')">🛒<span class="badge" id="cart-badge" style="display:none">0</span></button>
       </div>
     </header>
@@ -2986,6 +2987,23 @@ function toast(msg) {
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+function shareShop() {
+  const url = 'https://t.me/RCR_BtB_bot/rbshop';
+  const text = 'Магазин Roastberry — кофе зелёный и обжаренный, чай, сиропы. Опт от 10 кг — 10%, от 25 кг — 20%.';
+  const shareLink = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+  try {
+    if (tg?.openTelegramLink) {
+      tg.openTelegramLink(shareLink);
+    } else {
+      window.open(shareLink, '_blank');
+    }
+    if (tg?.HapticFeedback) tg.HapticFeedback.impactOccurred('light');
+  } catch (e) {
+    navigator.clipboard?.writeText(url);
+    toast('Ссылка скопирована');
+  }
 }
 
 // Swipe right от левого края (первые 30px) → назад, как в сервисном приложении
