@@ -105,6 +105,67 @@ def _ensure_tma_id_column(con) -> None:
         con.commit()
 
 
+def _ensure_user_profile_columns(con) -> None:
+    """Миграция users — поля для авто-подстановки в checkout. Идемпотентна."""
+    cols = {r[1] for r in con.execute("PRAGMA table_info(users)").fetchall()}
+    add = []
+    if "company_name"   not in cols: add.append("ALTER TABLE users ADD COLUMN company_name TEXT")
+    if "inn"            not in cols: add.append("ALTER TABLE users ADD COLUMN inn TEXT")
+    if "legal_address"  not in cols: add.append("ALTER TABLE users ADD COLUMN legal_address TEXT")
+    if "email"          not in cols: add.append("ALTER TABLE users ADD COLUMN email TEXT")
+    if "user_type"      not in cols: add.append("ALTER TABLE users ADD COLUMN user_type TEXT")
+    for sql in add:
+        con.execute(sql)
+    if add:
+        con.commit()
+
+
+def _upsert_user_profile(con, user_id: int, payload: dict) -> None:
+    """После успешного заказа сохраняем имя/телефон/email/юр.данные в users
+    под user_id. Поля без значения не затираются. Используется и для TG-юзеров,
+    и для гостей (у них user_id отрицательный)."""
+    _ensure_user_profile_columns(con)
+    contact = payload.get("contact") or {}
+    user_type = contact.get("type") or "individual"
+    fields = {
+        "name":          contact.get("name") or contact.get("recipient_name") or "",
+        "phone":         contact.get("phone") or "",
+        "address":       contact.get("address") or contact.get("delivery_address") or "",
+        "user_type":     user_type,
+    }
+    if user_type == "company":
+        fields["company_name"]  = contact.get("company") or ""
+        fields["inn"]           = contact.get("inn") or ""
+        fields["legal_address"] = contact.get("legal_address") or ""
+        fields["email"]         = contact.get("email") or ""
+    else:
+        fields["email"]         = contact.get("email") or ""
+
+    # Только непустые значения — чтобы не затирать ранее сохранённое
+    fields = {k: v for k, v in fields.items() if v}
+    if not fields:
+        return
+
+    # UPSERT (SQLite 3.24+, имеется в Python 3.11+)
+    row = con.execute(
+        "SELECT 1 FROM users WHERE user_id=?", (user_id,)
+    ).fetchone()
+    if row:
+        set_clause = ", ".join(f"{k}=?" for k in fields.keys())
+        con.execute(
+            f"UPDATE users SET {set_clause} WHERE user_id=?",
+            (*fields.values(), user_id),
+        )
+    else:
+        cols = ["user_id"] + list(fields.keys())
+        placeholders = ",".join(["?"] * len(cols))
+        con.execute(
+            f"INSERT INTO users ({','.join(cols)}) VALUES ({placeholders})",
+            (user_id, *fields.values()),
+        )
+    con.commit()
+
+
 def create_order_from_tma(con, user_id: int, payload: dict) -> int:
     """
     Создаёт заказ из payload, который пришёл из TMA.
@@ -169,6 +230,12 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
             con.execute("UPDATE products SET stock = stock - ? WHERE id = ?", (it["qty"], pid))
         except Exception:
             pass
+
+    # Сохраняем профиль для авто-подстановки в следующий заказ
+    try:
+        _upsert_user_profile(con, user_id, payload)
+    except Exception as e:
+        log.warning(f"upsert user profile failed: {e}")
 
     con.commit()
     return order_id

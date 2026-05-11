@@ -2075,8 +2075,37 @@ function checkout() {
     document.getElementById('f-name').value =
       [tgUser.first_name, tgUser.last_name].filter(Boolean).join(' ');
   }
+  // Автоподстановка из сохранённого профиля (после первого успешного заказа)
+  _prefillCheckoutFromProfile();
   renderCheckoutSummary();
   refreshCheckoutConsent();
+}
+
+async function _prefillCheckoutFromProfile() {
+  try {
+    const r = await fetch('/tma/api/user/me', { headers: _authHeaders() });
+    if (!r.ok) return;
+    const p = await r.json();
+    const set = (id, val) => {
+      const el = document.getElementById(id);
+      if (el && val && !el.value) el.value = val;
+    };
+    // Физлицо
+    set('f-name',  p.name);
+    set('f-phone', p.phone);
+    // Юр.лицо
+    set('fc-name',     p.name);
+    set('fc-phone',    p.phone);
+    set('fc-email',    p.email);
+    set('fc-company',  p.company_name);
+    set('fc-inn',      p.inn);
+    set('fc-legal',    p.legal_address);
+    set('fc-delivery', p.address);
+    // Если был ЮЛ — открываем сразу вкладку компании
+    if (p.user_type === 'company' && p.company_name) {
+      setFormType('company');
+    }
+  } catch (e) {}
 }
 
 function setFormType(t) {

@@ -446,6 +446,41 @@ class Handler(BaseHTTPRequestHandler):
                 self._send(500, str(e).encode(), "text/plain")
             return
 
+        # ── /tma/api/user/me — профиль текущего пользователя (для автозаполнения) ─
+        if path == "/tma/api/user/me":
+            user = _get_request_user(self)
+            if not user or not user.get("id"):
+                self._send(401, _j({"error": "unauthorized"}),
+                           "application/json; charset=utf-8")
+                return
+            try:
+                con = sqlite3.connect(DB_PATH)
+                con.row_factory = sqlite3.Row
+                try:
+                    u_cols = {r[1] for r in con.execute("PRAGMA table_info(users)").fetchall()}
+                    cols = [c for c in ("name", "phone", "email", "address", "city",
+                                        "company_name", "inn", "legal_address", "user_type")
+                            if c in u_cols]
+                    sel = ", ".join(cols) if cols else "user_id"
+                    row = con.execute(
+                        f"SELECT {sel} FROM users WHERE user_id=?", (user["id"],)
+                    ).fetchone()
+                    out = dict(row) if row else {}
+                finally:
+                    con.close()
+                # Подмешаем то что в JWT/initData (имя, email-from-guest)
+                if not out.get("name"):
+                    out["name"] = user.get("first_name", "")
+                if not out.get("phone") and user.get("phone"):
+                    out["phone"] = user["phone"]
+                if not out.get("email") and user.get("email"):
+                    out["email"] = user["email"]
+                self._send(200, _j(out),
+                           "application/json; charset=utf-8", {"Cache-Control": "no-store"})
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
+            return
+
         # ── /tma/api/my_orders ───────────────────────────────────────────────
         if path == "/tma/api/my_orders":
             qs = parse_qs(urlparse(self.path).query)
