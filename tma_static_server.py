@@ -89,9 +89,35 @@ def set_tma_api_handler(bot, get_db, notify_new_order, main_loop, bot_token,
 
 
 # ─── products.json index (для админ-обогащения позиций заказа) ──────────────
-# Возвращает {name_lower: {"category": str, "roast": str}}.
+# Возвращает {"by_name": {name_lower: meta}, "all": [(tokens, meta), ...]}.
+# Имена в shop.db (старая БД, "Перу СХГ упак. 200 г") НЕ совпадают с именами в
+# products.json ("F Roastberry Перу СХГ упак. 200 г"), поэтому нужен fuzzy-fallback.
 # Кэш инвалидируется по mtime файла, чтобы редактирования Bishop'ом подхватывались.
-_PRODUCTS_INDEX = {"mtime": 0, "data": {}}
+_PRODUCTS_INDEX = {"mtime": 0, "data": {"by_name": {}, "all": []}}
+
+_NAME_NOISE = {
+    "кофе", "упак", "г", "гр", "кг", "шт", "мл", "л",
+    "roastberry", "rb", "rbr", "black", "borщ", "borsh", "be", "bf", "ef", "fc",
+    "молотый", "мытый", "сухой", "натур", "наутер", "натуральный",
+    "1", "200", "250", "500", "8",
+    "дп", "фильтр", "пакетов", "под",
+}
+
+def _name_tokens(name: str) -> set:
+    s = (name or "").lower()
+    s = s.replace("ё", "е")
+    out = set()
+    cur = []
+    for ch in s:
+        if ch.isalnum():
+            cur.append(ch)
+        else:
+            if cur:
+                out.add("".join(cur))
+                cur = []
+    if cur:
+        out.add("".join(cur))
+    return {t for t in out if len(t) >= 3 and not t.isdigit() and t not in _NAME_NOISE}
 
 def _products_index() -> dict:
     path = os.path.join(TMA_ROOT, "products.json")
@@ -105,22 +131,53 @@ def _products_index() -> dict:
         with open(path, encoding="utf-8") as f:
             j = json.load(f)
         prods = j if isinstance(j, list) else j.get("products", [])
-        idx = {}
+        by_name = {}
+        all_items = []
         for p in prods:
-            name = (p.get("name") or "").strip().lower()
+            name = (p.get("name") or "").strip()
             if not name:
                 continue
-            # При дубликатах по имени берём первый встретившийся (для админки
-            # достаточно — у дубликатов roast обычно одинаковый).
-            idx.setdefault(name, {
+            meta = {
                 "category": p.get("category") or "",
                 "roast":    p.get("roast") or "",
-            })
+            }
+            by_name.setdefault(name.lower(), meta)
+            tokens = _name_tokens(name)
+            if tokens:
+                all_items.append((tokens, meta))
         _PRODUCTS_INDEX["mtime"] = mtime
-        _PRODUCTS_INDEX["data"]  = idx
+        _PRODUCTS_INDEX["data"]  = {"by_name": by_name, "all": all_items}
     except Exception:
         pass
     return _PRODUCTS_INDEX["data"]
+
+def _lookup_product_meta(product_name: str) -> dict:
+    idx = _products_index()
+    if not product_name:
+        return {}
+    nl = product_name.strip().lower()
+    hit = idx["by_name"].get(nl)
+    if hit:
+        return hit
+    # Fuzzy: token jaccard
+    src = _name_tokens(product_name)
+    if not src:
+        return {}
+    best_score = 0.0
+    best_meta  = None
+    for tokens, meta in idx["all"]:
+        if not tokens:
+            continue
+        inter = len(src & tokens)
+        if inter == 0:
+            continue
+        score = inter / max(len(src), len(tokens))
+        if score > best_score:
+            best_score = score
+            best_meta  = meta
+    if best_score >= 0.5 and best_meta:
+        return best_meta
+    return {}
 
 
 # ─── DB helpers ──────────────────────────────────────────────────────────────
@@ -404,11 +461,10 @@ class Handler(BaseHTTPRequestHandler):
                                 "LEFT JOIN products p ON oi.product_id=p.id "
                                 "WHERE oi.order_id=? ORDER BY oi.id", (oid,)
                             ).fetchall()
-                            pidx = _products_index()
                             items_out = []
                             for i in items:
                                 d = dict(i)
-                                meta = pidx.get((d.get("product_name") or "").strip().lower(), {})
+                                meta = _lookup_product_meta(d.get("product_name") or "")
                                 d["category"] = meta.get("category", "")
                                 d["roast"]    = meta.get("roast", "")
                                 items_out.append(d)
