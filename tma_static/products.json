@@ -1759,7 +1759,8 @@
         "Капсулы"
       ],
       "photo": "photos/products/c-nesp-колумбия__nespresso_.jpg",
-      "ozon_offer_id": "RB-E-COLOMBIA ANDINO, 1 кг"
+      "ozon_offer_id": "RB-E-COLOMBIA ANDINO, 1 кг",
+      "hidden": true
     },
     {
       "id": "c-nesp-эфиопия_сидамо__nespresso_",
