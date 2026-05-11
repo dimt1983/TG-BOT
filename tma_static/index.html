@@ -1095,17 +1095,32 @@ function detailFasovka(p) {
   return out;
 }
 
+function _isVisibleInCatalog(p, all) {
+  if (p.hidden) return false;
+  if (_isAdmin) return true;
+  const s = (typeof p.stock === 'number') ? p.stock : null;
+  if (s !== null && s <= 0) {
+    if (p.pair_id) {
+      const sib = all.find(x => x.pair_id === p.pair_id && x.id !== p.id);
+      if (sib && typeof sib.stock === 'number' && sib.stock > 0) return true;
+    }
+    return false;
+  }
+  return true;
+}
+
 async function load() {
   const r = await fetch('products.json?v=' + Date.now());
   DATA = await r.json();
-  DATA.products = (DATA.products || []).filter(p => !p.hidden);
+  await checkAdminAccess();
+  const all = DATA.products || [];
+  DATA.products = all.filter(p => _isVisibleInCatalog(p, all));
   document.getElementById('hero-card').style.backgroundImage = `url('assets/hero_facade.jpg')`;
   renderTopCats();
   renderHits();
   renderCartBadge();
   renderProfile();
   heroStartAuto();
-  checkAdminAccess();
 }
 
 // === Hero carousel ===
