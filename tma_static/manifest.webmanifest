@@ -1,0 +1,32 @@
+{
+  "name": "Roastberry — магазин",
+  "short_name": "Roastberry",
+  "description": "Свежеобжаренный кофе, чай, сиропы. Опт от 10 кг — 10%, от 25 кг — 20%.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f2f2f7",
+  "theme_color": "#c62828",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "assets/pwa_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/pwa_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/pwa_512_maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
