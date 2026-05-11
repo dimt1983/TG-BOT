@@ -1732,7 +1732,8 @@
         "Капсулы"
       ],
       "photo": "photos/products/c-nesp-бразилия_пибери.jpg",
-      "ozon_offer_id": "RB-E-BRAZIL PAJE, 200 г"
+      "ozon_offer_id": "RB-E-BRAZIL PAJE, 200 г",
+      "hidden": true
     },
     {
       "id": "c-nesp-колумбия__nespresso_",
