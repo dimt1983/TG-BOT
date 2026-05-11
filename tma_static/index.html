@@ -1008,6 +1008,85 @@ if (tg) {
   try { tg.expand(); tg.ready(); } catch(e){}
 }
 
+// Browser-mode auth: если запустились в обычном браузере (нет tg.initData),
+// используем JWT из localStorage (получен после Telegram Login Widget).
+const IS_TG = !!(tg && tg.initData && tg.initData.length > 0);
+let _browserJwt = (!IS_TG && localStorage.getItem('rb_jwt')) || '';
+let _browserUser = null;
+try { _browserUser = JSON.parse(localStorage.getItem('rb_user') || 'null'); } catch(e) {}
+
+function _authHeaders() {
+  if (IS_TG) return { 'X-Tma-InitData': tg.initData };
+  if (_browserJwt) return { 'Authorization': 'Bearer ' + _browserJwt };
+  return {};
+}
+
+// Унифицированный текущий пользователь — для отображения имени/photo_url.
+// В Telegram-mini-app берём из tg.initDataUnsafe.user, в браузере — из JWT.
+function currentUser() {
+  if (IS_TG && tg?.initDataUnsafe?.user) return tg.initDataUnsafe.user;
+  return _browserUser;
+}
+
+// Глобальный коллбэк для Telegram Login Widget (data-onauth="onTelegramAuth(user)")
+window.onTelegramAuth = async function(user) {
+  try {
+    const r = await fetch('/tma/api/auth/telegram', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user),
+    });
+    const j = await r.json();
+    if (j.token) {
+      _browserJwt = j.token;
+      _browserUser = j.user || user;
+      localStorage.setItem('rb_jwt', _browserJwt);
+      localStorage.setItem('rb_user', JSON.stringify(_browserUser));
+      document.getElementById('login-screen')?.remove();
+      // Запускаем основной сценарий загрузки
+      if (typeof load === 'function') load();
+    } else {
+      alert('Ошибка авторизации: ' + (j.error || 'unknown'));
+    }
+  } catch (e) {
+    alert('Сеть упала: ' + e);
+  }
+};
+
+function showLoginScreen() {
+  // Полноэкранный оверлей. Login Widget рендерится скриптом telegram-widget.js
+  // и требует чтобы домен был зарегистрирован в BotFather /setdomain.
+  const div = document.createElement('div');
+  div.id = 'login-screen';
+  div.innerHTML = `
+    <style>
+      #login-screen { position: fixed; inset: 0; background: linear-gradient(180deg, #f2f2f7, #e4dcd2); z-index: 9999;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+      #login-screen .wordmark { font-size: 32px; font-weight: 800; color: #c62828; letter-spacing: -1px; }
+      #login-screen .tagline  { font-size: 11px; letter-spacing: 0.18em; color: #6f4e37; margin-top: 4px; text-transform: uppercase; }
+      #login-screen h2  { font-size: 22px; font-weight: 700; color: #2c1810; margin: 32px 0 8px; text-align: center; }
+      #login-screen p   { font-size: 14px; color: #6f4e37; text-align: center; max-width: 320px; line-height: 1.5; }
+      #login-screen .widget-wrap { margin-top: 28px; min-height: 50px; }
+      #login-screen .hint { font-size: 11px; color: #8a7a6e; margin-top: 24px; text-align: center; max-width: 280px; }
+    </style>
+    <div class="wordmark">ROASTBERRY</div>
+    <div class="tagline">Coffee Roasters</div>
+    <h2>Войдите, чтобы оформлять заказы</h2>
+    <p>Магазин работает и в Telegram, и в браузере. Авторизация через Telegram — один клик, без паролей.</p>
+    <div class="widget-wrap">
+      <script async src="https://telegram.org/js/telegram-widget.js?22"
+              data-telegram-login="RCR_BtB_bot"
+              data-size="large"
+              data-radius="12"
+              data-onauth="onTelegramAuth(user)"
+              data-request-access="write"></script>
+    </div>
+    <div class="hint">Каталог можно листать без входа — авторизация нужна только при оформлении заказа.</div>
+  `;
+  document.body.appendChild(div);
+}
+
 let DATA = null;
 // Версия для cache-bust фото — меняется раз в час, чтобы мобильный
 // Telegram WebView подтягивал свежий каталог пачек.
@@ -1170,7 +1249,7 @@ async function openRentalKP() {
   try {
     const r = await fetch('/tma/api/send_kp', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-Tma-InitData': tg?.initData || '' },
+      headers: { 'Content-Type': 'application/json', ..._authHeaders() },
     });
     const data = await r.json();
     if (data.ok) {
@@ -1889,10 +1968,15 @@ const DELIVERY_FIELDS = {
 };
 
 function checkout() {
+  // В браузере без JWT — сначала логин, потом форма
+  if (!IS_TG && !_browserJwt) {
+    showLoginScreen();
+    return;
+  }
   // Перейти на экран оформления
   goTo('checkout');
-  // Подтянуть имя из Telegram
-  const tgUser = tg?.initDataUnsafe?.user;
+  // Подтянуть имя из Telegram (или из JWT в браузер-режиме)
+  const tgUser = currentUser();
   if (tgUser?.first_name && !document.getElementById('f-name').value) {
     document.getElementById('f-name').value =
       [tgUser.first_name, tgUser.last_name].filter(Boolean).join(' ');
@@ -2072,9 +2156,10 @@ function confirmOrder() {
 // Отправка заказа через HTTP POST на /tma/api/order — независимо от способа
 // открытия TMA (menu button / inline / reply / прямая ссылка).
 async function submitOrderHttp(payload, displayTotal) {
-  const initData = tg?.initData || '';
-  if (!initData) {
-    toast('⚠️ Откройте магазин из Telegram (нет initData)');
+  // Браузер-режим: если JWT ещё нет — показываем login. Telegram-режим всегда OK.
+  if (!IS_TG && !_browserJwt) {
+    showLoginScreen();
+    toast('Войдите через Telegram, чтобы оформить заказ');
     return;
   }
   const btn = document.getElementById('confirm-order-btn');
@@ -2082,7 +2167,7 @@ async function submitOrderHttp(payload, displayTotal) {
   try {
     const r = await fetch('/tma/api/order', {
       method: 'POST',
-      headers: {'Content-Type': 'application/json', 'X-Tma-InitData': initData},
+      headers: {'Content-Type': 'application/json', ..._authHeaders()},
       body: JSON.stringify(payload),
     });
     const j = await r.json().catch(() => ({}));
@@ -2476,7 +2561,7 @@ const ADMIN_STATUS_BTN = {
 let _isAdmin = false;
 let _adminFilter = '';
 
-function _initDataHeader() { return { 'X-Tma-InitData': tg?.initData || '' }; }
+function _initDataHeader() { return _authHeaders(); }
 function _fmtDate(s) { return (s || '').slice(0, 16).replace('T', ' '); }
 function _fmtMoney(v) { return Math.round(v || 0).toLocaleString('ru-RU') + ' ₽'; }
 function _escape(s) {

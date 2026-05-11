@@ -28,6 +28,7 @@ import sqlite3
 import asyncio
 import hmac
 import hashlib
+import time
 from http.server import HTTPServer, ThreadingHTTPServer, BaseHTTPRequestHandler
 from urllib.parse import unquote, parse_qsl, urlparse, parse_qs, quote
 import urllib.request
@@ -280,14 +281,119 @@ def _check_bearer(handler) -> bool:
     return handler.headers.get("Authorization", "") == f"Bearer {API_ORDERS_TOKEN}"
 
 
+def verify_tg_login_widget(payload: dict, bot_token: str) -> dict | None:
+    """Проверяет данные от Telegram Login Widget (виджет на сайте, без Mini App).
+    Формат отличается от initData: hash считается по data_check_string из
+    отсортированных по ключу `key=value` (разделитель \\n), secret = sha256(bot_token).
+    Срок жизни — 1 час, иначе считаем устаревшим."""
+    if not payload or not bot_token:
+        return None
+    try:
+        received_hash = payload.pop("hash", "")
+        if not received_hash:
+            return None
+        auth_date = int(payload.get("auth_date", 0))
+        if time.time() - auth_date > 3600:
+            return None
+        data_check = "\n".join(
+            f"{k}={payload[k]}" for k in sorted(payload.keys())
+            if payload[k] is not None and payload[k] != ""
+        )
+        secret = hashlib.sha256(bot_token.encode()).digest()
+        calc = hmac.new(secret, data_check.encode(), hashlib.sha256).hexdigest()
+        if not hmac.compare_digest(calc, received_hash):
+            return None
+        return {
+            "id":         int(payload.get("id", 0)),
+            "first_name": payload.get("first_name", ""),
+            "last_name":  payload.get("last_name", ""),
+            "username":   payload.get("username", ""),
+            "photo_url":  payload.get("photo_url", ""),
+        }
+    except Exception:
+        return None
+
+
+# ─── JWT (для browser-mode, без Telegram-инициализации) ──────────────────────
+_JWT_SECRET_FALLBACK = "rb-tma-jwt-secret-change-me"
+
+def _jwt_secret() -> str:
+    """Берём JWT-секрет из env или из bot_token (он уже секретный)."""
+    s = os.environ.get("JWT_SECRET")
+    if s:
+        return s
+    if _TMA_CTX and _TMA_CTX.get("bot_token"):
+        return "jwt:" + _TMA_CTX["bot_token"]
+    return _JWT_SECRET_FALLBACK
+
+
+def _b64url_enc(b: bytes) -> str:
+    import base64
+    return base64.urlsafe_b64encode(b).decode("ascii").rstrip("=")
+
+
+def _b64url_dec(s: str) -> bytes:
+    import base64
+    pad = "=" * (-len(s) % 4)
+    return base64.urlsafe_b64decode(s + pad)
+
+
+def jwt_sign(payload: dict, ttl_seconds: int = 30 * 24 * 3600) -> str:
+    """Минимальная HS256 реализация без внешних либ.
+    Payload содержит user_id, exp; срок жизни — 30 дней по умолчанию."""
+    header = {"alg": "HS256", "typ": "JWT"}
+    payload = dict(payload)
+    payload["exp"] = int(time.time()) + ttl_seconds
+    h = _b64url_enc(json.dumps(header, separators=(",", ":")).encode())
+    p = _b64url_enc(json.dumps(payload, separators=(",", ":"), ensure_ascii=False).encode())
+    sig = hmac.new(_jwt_secret().encode(), f"{h}.{p}".encode(), hashlib.sha256).digest()
+    return f"{h}.{p}.{_b64url_enc(sig)}"
+
+
+def jwt_verify(token: str) -> dict | None:
+    try:
+        h, p, s = token.split(".")
+        sig = hmac.new(_jwt_secret().encode(), f"{h}.{p}".encode(), hashlib.sha256).digest()
+        if not hmac.compare_digest(_b64url_enc(sig), s):
+            return None
+        payload = json.loads(_b64url_dec(p))
+        if int(payload.get("exp", 0)) < time.time():
+            return None
+        return payload
+    except Exception:
+        return None
+
+
 def _get_request_user(handler) -> dict | None:
-    """Верифицирует initData из заголовка и возвращает user-dict или None."""
+    """Верифицирует пользователя по одному из источников:
+    1) X-Tma-InitData (Telegram Mini App, основной канал)
+    2) Authorization: Bearer <JWT> (browser-mode после Telegram Login Widget)
+    Возвращает user-dict {id, first_name, ...} или None."""
     if _TMA_CTX is None:
         return None
-    return verify_tma_init_data(
+    # Mini App
+    user = verify_tma_init_data(
         handler.headers.get("X-Tma-InitData", ""),
-        _TMA_CTX["bot_token"]
+        _TMA_CTX["bot_token"],
     )
+    if user:
+        return user
+    # JWT (browser-mode)
+    auth = handler.headers.get("Authorization", "")
+    if auth.startswith("Bearer "):
+        token = auth[7:].strip()
+        # Не путаем с API_ORDERS_TOKEN (это серверный токен для David'а)
+        if token and token != API_ORDERS_TOKEN:
+            payload = jwt_verify(token)
+            if payload and payload.get("id"):
+                return {
+                    "id":         int(payload["id"]),
+                    "first_name": payload.get("first_name", ""),
+                    "last_name":  payload.get("last_name", ""),
+                    "username":   payload.get("username", ""),
+                    "photo_url":  payload.get("photo_url", ""),
+                }
+    return None
 
 
 def _j(data: dict) -> bytes:
@@ -622,6 +728,23 @@ class Handler(BaseHTTPRequestHandler):
                            "application/json; charset=utf-8")
                 return
             self._handle_update_stock()
+            return
+
+        # ── Telegram Login Widget → JWT (browser-mode авторизация) ───────────
+        if path == "/tma/api/auth/telegram":
+            if _TMA_CTX is None:
+                self._send(503, _j({"error": "service unavailable"}),
+                           "application/json; charset=utf-8")
+                return
+            payload = self._read_body() or {}
+            user = verify_tg_login_widget(dict(payload), _TMA_CTX["bot_token"])
+            if not user or not user.get("id"):
+                self._send(401, _j({"error": "Подпись виджета невалидна или устарела"}),
+                           "application/json; charset=utf-8")
+                return
+            token = jwt_sign(user)
+            self._send(200, _j({"token": token, "user": user}),
+                       "application/json; charset=utf-8", {"Cache-Control": "no-store"})
             return
 
         # ── Создать заказ ────────────────────────────────────────────────────
