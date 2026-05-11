@@ -1192,6 +1192,7 @@ const CAT_TILES = {
   tea:    'assets/tile_cat_tea.jpg',
   syrup:  'assets/tile_cat_syrup.jpg',
   milk:   'assets/tile_cat_milk.jpg',
+  other:  'assets/tile_cat_other.jpg',
 };
 function shadeColor(col, amt) {
   const usePound = col[0] === '#';
@@ -1204,7 +1205,7 @@ function shadeColor(col, amt) {
 
 // === Главный экран ===
 function renderTopCats() {
-  const CAT_EN = { coffee: 'coffee', tea: 'tea', syrup: 'syrups', milk: 'milk', consulting: 'consulting' };
+  const CAT_EN = { coffee: 'coffee', tea: 'tea', syrup: 'syrups', milk: 'milk', consulting: 'consulting', other: 'other' };
   const c = document.getElementById('top-cats');
   c.innerHTML = DATA.categories.map((cat) => {
     const tile = CAT_TILES[cat.id];
