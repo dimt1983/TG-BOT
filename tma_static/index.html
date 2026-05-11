@@ -1067,38 +1067,52 @@ window.onTelegramAuth = async function(user) {
   }
 };
 
+function _injectLoginStyles() {
+  if (document.getElementById('login-screen-styles')) return;
+  const style = document.createElement('style');
+  style.id = 'login-screen-styles';
+  style.textContent = `
+    #login-screen { position: fixed; inset: 0; background: linear-gradient(180deg, #f2f2f7, #e4dcd2); z-index: 9999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    #login-screen .wordmark { font-size: 32px; font-weight: 800; color: #c62828; letter-spacing: -1px; }
+    #login-screen .tagline  { font-size: 11px; letter-spacing: 0.18em; color: #6f4e37; margin-top: 4px; text-transform: uppercase; }
+    #login-screen h2  { font-size: 22px; font-weight: 700; color: #2c1810; margin: 32px 0 8px; text-align: center; }
+    #login-screen p   { font-size: 14px; color: #6f4e37; text-align: center; max-width: 320px; line-height: 1.5; }
+    #login-screen .widget-wrap { margin-top: 28px; min-height: 60px; }
+    #login-screen .hint { font-size: 11px; color: #8a7a6e; margin-top: 24px; text-align: center; max-width: 280px; }
+    #login-screen .close-btn { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(0,0,0,0.06); border: none; font-size: 18px; cursor: pointer; color: #6f4e37; }
+  `;
+  document.head.appendChild(style);
+}
+
 function showLoginScreen() {
-  // Полноэкранный оверлей. Login Widget рендерится скриптом telegram-widget.js
-  // и требует чтобы домен был зарегистрирован в BotFather /setdomain.
+  if (document.getElementById('login-screen')) return;
+  _injectLoginStyles();
   const div = document.createElement('div');
   div.id = 'login-screen';
-  div.innerHTML = `
-    <style>
-      #login-screen { position: fixed; inset: 0; background: linear-gradient(180deg, #f2f2f7, #e4dcd2); z-index: 9999;
-        display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-      #login-screen .wordmark { font-size: 32px; font-weight: 800; color: #c62828; letter-spacing: -1px; }
-      #login-screen .tagline  { font-size: 11px; letter-spacing: 0.18em; color: #6f4e37; margin-top: 4px; text-transform: uppercase; }
-      #login-screen h2  { font-size: 22px; font-weight: 700; color: #2c1810; margin: 32px 0 8px; text-align: center; }
-      #login-screen p   { font-size: 14px; color: #6f4e37; text-align: center; max-width: 320px; line-height: 1.5; }
-      #login-screen .widget-wrap { margin-top: 28px; min-height: 50px; }
-      #login-screen .hint { font-size: 11px; color: #8a7a6e; margin-top: 24px; text-align: center; max-width: 280px; }
-    </style>
-    <div class="wordmark">ROASTBERRY</div>
-    <div class="tagline">Coffee Roasters</div>
-    <h2>Войдите, чтобы оформлять заказы</h2>
-    <p>Магазин работает и в Telegram, и в браузере. Авторизация через Telegram — один клик, без паролей.</p>
-    <div class="widget-wrap">
-      <script async src="https://telegram.org/js/telegram-widget.js?22"
-              data-telegram-login="RCR_BtB_bot"
-              data-size="large"
-              data-radius="12"
-              data-onauth="onTelegramAuth(user)"
-              data-request-access="write"></script>
-    </div>
-    <div class="hint">Каталог можно листать без входа — авторизация нужна только при оформлении заказа.</div>
-  `;
+  // Текстовая часть — через innerHTML (без <script>!)
+  div.innerHTML =
+    '<button class="close-btn" onclick="document.getElementById(\'login-screen\').remove()">✕</button>' +
+    '<div class="wordmark">ROASTBERRY</div>' +
+    '<div class="tagline">Coffee Roasters</div>' +
+    '<h2>Войдите, чтобы оформлять заказы</h2>' +
+    '<p>Магазин работает и в Telegram, и в браузере. Авторизация через Telegram — один клик, без паролей.</p>' +
+    '<div class="widget-wrap" id="login-widget-wrap"></div>' +
+    '<div class="hint">Каталог можно листать без входа — авторизация нужна только при оформлении заказа.</div>';
   document.body.appendChild(div);
+  // Login Widget — создаём <script> элемент через DOM, чтобы HTML-парсер
+  // не споткнулся об </script> в template-литералах.
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://telegram.org/js/telegram-widget.js?22';
+  s.setAttribute('data-telegram-login', 'RCR_BtB_bot');
+  s.setAttribute('data-size', 'large');
+  s.setAttribute('data-radius', '12');
+  s.setAttribute('data-onauth', 'onTelegramAuth(user)');
+  s.setAttribute('data-request-access', 'write');
+  document.getElementById('login-widget-wrap').appendChild(s);
 }
 
 let DATA = null;
