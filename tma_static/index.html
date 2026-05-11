@@ -52,9 +52,19 @@ body {
 .search-box { padding: 8px 16px 12px; }
 .search-box input { width: 100%; padding: 12px 16px; border-radius: 16px; border: none; background: var(--section); font-size: 15px; box-shadow: var(--shadow); outline: none; }
 
-.hero { padding: 0 16px; margin-bottom: 4px; overflow: hidden; }
-.hero-track { display: flex; transition: transform 0.38s cubic-bezier(0.25,0.46,0.45,0.94); }
-.hero-card { min-width: 100%; flex-shrink: 0; border-radius: var(--radius-lg); padding: 24px; color: white; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; min-height: 180px; display: flex; flex-direction: column; justify-content: flex-end; background-size: cover; background-position: center; }
+.hero { margin-bottom: 4px; overflow: hidden; }
+.hero-track {
+  display: flex;
+  gap: 12px;
+  padding: 0 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hero-track::-webkit-scrollbar { display: none; }
+.hero-card { flex: 0 0 calc(100% - 48px); scroll-snap-align: center; border-radius: var(--radius-lg); padding: 24px; color: white; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; min-height: 180px; display: flex; flex-direction: column; justify-content: flex-end; background-size: cover; background-position: center; }
 .hero-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(62,39,35,0.85) 0%, rgba(111,78,55,0.6) 60%, rgba(0,0,0,0.4) 100%); }
 .hero-card > * { position: relative; z-index: 1; }
 .hero-card .eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.85; margin-bottom: 6px; }
@@ -1096,7 +1106,9 @@ let _heroSlide = 0;
 let _heroTimer = null;
 function heroGoTo(idx) {
   _heroSlide = ((idx % HERO_SLIDES) + HERO_SLIDES) % HERO_SLIDES;
-  document.getElementById('hero-track').style.transform = `translateX(-${_heroSlide * 100}%)`;
+  const track = document.getElementById('hero-track');
+  const card = track?.children?.[_heroSlide];
+  if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   document.querySelectorAll('.hero-dot').forEach((d, i) => d.classList.toggle('active', i === _heroSlide));
 }
 function heroStartAuto() {
@@ -1106,11 +1118,25 @@ function heroStartAuto() {
 (function() {
   const track = document.getElementById('hero-track');
   if (!track) return;
-  let sx = 0;
-  track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, {passive: true});
-  track.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].clientX - sx;
-    if (Math.abs(dx) > 44) { heroGoTo(_heroSlide + (dx < 0 ? 1 : -1)); heroStartAuto(); }
+  let _scrollTimer = null;
+  track.addEventListener('scroll', () => {
+    clearTimeout(_scrollTimer);
+    _scrollTimer = setTimeout(() => {
+      const cards = [...track.children];
+      const trackRect = track.getBoundingClientRect();
+      const trackCenter = trackRect.left + trackRect.width / 2;
+      let nearest = 0, minDist = Infinity;
+      cards.forEach((c, i) => {
+        const r = c.getBoundingClientRect();
+        const dist = Math.abs((r.left + r.width / 2) - trackCenter);
+        if (dist < minDist) { minDist = dist; nearest = i; }
+      });
+      if (nearest !== _heroSlide) {
+        _heroSlide = nearest;
+        document.querySelectorAll('.hero-dot').forEach((d, i) => d.classList.toggle('active', i === _heroSlide));
+        heroStartAuto();
+      }
+    }, 120);
   }, {passive: true});
 })();
 
