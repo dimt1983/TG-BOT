@@ -97,6 +97,14 @@ def find_product_id(con, item_name: str, fasovka: str):
     return None
 
 
+def _ensure_tma_id_column(con) -> None:
+    """Идемпотентная миграция: добавляет order_items.tma_id если ещё нет."""
+    cols = {r[1] for r in con.execute("PRAGMA table_info(order_items)").fetchall()}
+    if "tma_id" not in cols:
+        con.execute("ALTER TABLE order_items ADD COLUMN tma_id TEXT")
+        con.commit()
+
+
 def create_order_from_tma(con, user_id: int, payload: dict) -> int:
     """
     Создаёт заказ из payload, который пришёл из TMA.
@@ -137,6 +145,7 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
     order_id = cur.lastrowid
 
     # Позиции
+    _ensure_tma_id_column(con)
     for it in items:
         pid = find_product_id(con, it["name"], it.get("fasovka", ""))
         if pid is None:
@@ -147,9 +156,13 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
             )
             pid = cur2.lastrowid
             log.warning(f"TMA: товар не найден в БД, создан заглушка id={pid}: {it['name']}")
+        # tma_id (строковый id из products.json) — нужен админке чтобы точно
+        # отличить E-обжарку от F-обжарки у товаров с одинаковым именем.
+        tma_id = (it.get("id") or "")[:128]
         con.execute(
-            "INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (?, ?, ?, ?)",
-            (order_id, pid, it["qty"], it["price"]),
+            "INSERT INTO order_items (order_id, product_id, quantity, price, tma_id) "
+            "VALUES (?, ?, ?, ?, ?)",
+            (order_id, pid, it["qty"], it["price"], tma_id or None),
         )
         # Списание остатка (если есть колонка)
         try:

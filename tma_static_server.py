@@ -89,11 +89,11 @@ def set_tma_api_handler(bot, get_db, notify_new_order, main_loop, bot_token,
 
 
 # ─── products.json index (для админ-обогащения позиций заказа) ──────────────
-# Возвращает {"by_name": {name_lower: meta}, "all": [(tokens, meta), ...]}.
-# Имена в shop.db (старая БД, "Перу СХГ упак. 200 г") НЕ совпадают с именами в
-# products.json ("F Roastberry Перу СХГ упак. 200 г"), поэтому нужен fuzzy-fallback.
-# Кэш инвалидируется по mtime файла, чтобы редактирования Bishop'ом подхватывались.
-_PRODUCTS_INDEX = {"mtime": 0, "data": {"by_name": {}, "all": []}}
+# Индексы: by_id (tma_id → meta), by_name (name_lower → meta), all (для fuzzy).
+# tma_id — основной ключ при оформлении из TMA (точно различает E/F-обжарку
+# у товаров с одинаковым именем). Имена в shop.db ≠ имена в products.json,
+# поэтому fuzzy остаётся как fallback для старых заказов и заказов из David.
+_PRODUCTS_INDEX = {"mtime": 0, "data": {"by_id": {}, "by_name": {}, "all": []}}
 
 _NAME_NOISE = {
     "кофе", "упак", "г", "гр", "кг", "шт", "мл", "л",
@@ -131,7 +131,8 @@ def _products_index() -> dict:
         with open(path, encoding="utf-8") as f:
             j = json.load(f)
         prods = j if isinstance(j, list) else j.get("products", [])
-        by_name = {}
+        by_id    = {}
+        by_name  = {}
         all_items = []
         for p in prods:
             name = (p.get("name") or "").strip()
@@ -141,18 +142,25 @@ def _products_index() -> dict:
                 "category": p.get("category") or "",
                 "roast":    p.get("roast") or "",
             }
+            pid = p.get("id")
+            if pid:
+                by_id[pid] = meta
             by_name.setdefault(name.lower(), meta)
             tokens = _name_tokens(name)
             if tokens:
                 all_items.append((tokens, meta))
         _PRODUCTS_INDEX["mtime"] = mtime
-        _PRODUCTS_INDEX["data"]  = {"by_name": by_name, "all": all_items}
+        _PRODUCTS_INDEX["data"]  = {"by_id": by_id, "by_name": by_name, "all": all_items}
     except Exception:
         pass
     return _PRODUCTS_INDEX["data"]
 
-def _lookup_product_meta(product_name: str) -> dict:
+def _lookup_product_meta(product_name: str, tma_id: str = "") -> dict:
     idx = _products_index()
+    if tma_id:
+        hit = idx["by_id"].get(tma_id)
+        if hit:
+            return hit
     if not product_name:
         return {}
     nl = product_name.strip().lower()
@@ -455,16 +463,23 @@ class Handler(BaseHTTPRequestHandler):
                             self._send(404, _j({"error": "Заказ не найден"}),
                                        "application/json; charset=utf-8")
                         else:
+                            it_cols = {r[1] for r in con.execute(
+                                "PRAGMA table_info(order_items)").fetchall()}
+                            tma_id_sql = "oi.tma_id" if "tma_id" in it_cols else "'' as tma_id"
                             items = con.execute(
-                                "SELECT oi.quantity, oi.price, p.name as product_name "
-                                "FROM order_items oi "
-                                "LEFT JOIN products p ON oi.product_id=p.id "
-                                "WHERE oi.order_id=? ORDER BY oi.id", (oid,)
+                                f"SELECT oi.quantity, oi.price, p.name as product_name, "
+                                f"{tma_id_sql} "
+                                f"FROM order_items oi "
+                                f"LEFT JOIN products p ON oi.product_id=p.id "
+                                f"WHERE oi.order_id=? ORDER BY oi.id", (oid,)
                             ).fetchall()
                             items_out = []
                             for i in items:
                                 d = dict(i)
-                                meta = _lookup_product_meta(d.get("product_name") or "")
+                                meta = _lookup_product_meta(
+                                    d.get("product_name") or "",
+                                    tma_id=d.get("tma_id") or "",
+                                )
                                 d["category"] = meta.get("category", "")
                                 d["roast"]    = meta.get("roast", "")
                                 items_out.append(d)
