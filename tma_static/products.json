@@ -222,7 +222,7 @@
           "photo": "photos/products/c-бразилия_серрадо_200g.jpg"
         }
       ],
-      "stock": 18,
+      "stock": 16,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
@@ -294,7 +294,7 @@
           "photo": "photos/products/c-бразилия_сан_рафаель_200g.jpg"
         }
       ],
-      "stock": 173,
+      "stock": 169,
       "tags": [],
       "photo": "photos/products/c-бразилия_сан_рафаель.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ SAN RAFAEL, 1 кг",
@@ -426,7 +426,7 @@
           "photo": "photos/products/c-бразилия_серрадо_жёлтый_бурбон_200g.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 15,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо_жёлтый_бурбон.jpg",
       "ozon_offer_id": "RBR-F- БРАЗ СЕРРАДО ЖЕЛТЫЙ БУРБОН, 1кг",
@@ -520,7 +520,7 @@
           "photo": "photos/products/c-руанда_мутетели_200g.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 8,
       "tags": [],
       "taste": "Чёрный чай, вишня, шиповник, слива",
       "roast_descr": "светлая обжарка под фильтр",
@@ -684,7 +684,7 @@
           "photo": "photos/products/c-колумбия_андино_200g.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": "photos/products/c-колумбия_андино.jpg",
       "ozon_offer_id": "RBR-F-КОЛУМБИЯ АНДИНО, 1 кг",
@@ -1121,7 +1121,7 @@
           "price": 655
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [
         "Borщ Edition"
       ],
@@ -1247,7 +1247,7 @@
           "photo": "photos/products/c-хани_200g.jpg"
         }
       ],
-      "stock": 32,
+      "stock": 31,
       "tags": [
         "Бленд"
       ],
@@ -4135,7 +4135,7 @@
           "price": 78.0
         }
       ],
-      "stock": 89,
+      "stock": 84,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg"
     },
@@ -4156,7 +4156,7 @@
           "price": 78.0
         }
       ],
-      "stock": 86,
+      "stock": 81,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg"
     },
@@ -4177,7 +4177,7 @@
           "price": 80.0
         }
       ],
-      "stock": 89,
+      "stock": 84,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
     },
@@ -4198,7 +4198,7 @@
           "price": 80.0
         }
       ],
-      "stock": 142,
+      "stock": 137,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg"
     },
@@ -9965,7 +9965,7 @@
       "tags": [
         "Микролот"
       ],
-      "stock": 1,
+      "stock": 5,
       "fasovka": [
         {
           "size": "1 кг",
@@ -10074,7 +10074,7 @@
           "price": 2847
         }
       ],
-      "stock": 6,
+      "stock": 2,
       "tags": [
         "микролот",
         "фильтр"
