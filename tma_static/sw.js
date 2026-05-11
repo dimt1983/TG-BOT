@@ -5,7 +5,7 @@
 //   - Картинки (assets/, photos/) — stale-while-revalidate.
 // На каждой деплое подписи меняй CACHE_VERSION чтобы старый SW выбросил кеш.
 
-const CACHE_VERSION = 'rb-v3';
+const CACHE_VERSION = 'rb-v4';
 const CACHE_STATIC  = `rb-static-${CACHE_VERSION}`;
 const CACHE_IMG     = `rb-img-${CACHE_VERSION}`;
 
