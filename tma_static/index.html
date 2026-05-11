@@ -2513,11 +2513,11 @@ function renderFavorites() {
 
 // === История заказов ===
 async function loadMyOrders(force = false) {
-  const tgUser = tg?.initDataUnsafe?.user;
-  if (!tgUser?.id) return null;
+  const u = currentUser();
+  if (!u?.id) return null;
   if (myOrders && !force) return myOrders;
   try {
-    const r = await fetch(`/tma/api/my_orders?tg_id=${tgUser.id}`);
+    const r = await fetch(`/tma/api/my_orders?tg_id=${u.id}`, { headers: _authHeaders() });
     if (!r.ok) return null;
     const j = await r.json();
     myOrders = j.orders || [];
@@ -2527,12 +2527,13 @@ async function loadMyOrders(force = false) {
 
 async function renderOrders() {
   const root = document.getElementById('orders-content');
-  const tgUser = tg?.initDataUnsafe?.user;
-  if (!tgUser?.id) {
+  const u = currentUser();
+  if (!u?.id) {
     root.innerHTML = `<div class="cart-empty">
       <div class="big">🔑</div>
-      <h3>Нужен Telegram</h3>
-      <p>Откройте магазин из бота — тогда история заказов будет привязана к вашему аккаунту.</p>
+      <h3>Нужен вход</h3>
+      <p>Войдите через Telegram или по телефону — тогда история заказов будет привязана к вам.</p>
+      <button class="btn-primary" style="margin-top:14px;max-width:240px" onclick="showLoginScreen()">Войти</button>
     </div>`;
     return;
   }
@@ -2604,22 +2605,31 @@ function repeatOrder(orderId) {
 
 // === Профиль ===
 function renderProfile() {
-  const tgUser = tg?.initDataUnsafe?.user;
-  const name = tgUser?.first_name || 'Гость';
-  const username = tgUser?.username ? '@' + tgUser.username : 'не указан';
+  const u = currentUser();
+  const name = u?.first_name || 'Гость';
+  const subtitle = u?.username ? '@' + u.username
+    : (u?.is_guest && u?.phone ? '+' + u.phone : 'не указан');
+  const loggedOut = !u?.id;
+  const logoutBtn = (!IS_TG && _browserJwt) ? `
+    <button class="profile-action" onclick="if(confirm('Выйти из аккаунта?')){localStorage.removeItem('rb_jwt');localStorage.removeItem('rb_user');location.reload()}">
+      <span><span class="ico">🚪</span>Выйти</span><span class="arr">›</span></button>` : '';
+  const loginBtn = (!IS_TG && !_browserJwt) ? `
+    <button class="profile-action" onclick="showLoginScreen()">
+      <span><span class="ico">🔑</span>Войти</span><span class="arr">›</span></button>` : '';
   document.getElementById('profile-content').innerHTML = `
     <div class="profile-card">
       <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px">
         <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#6f4e37,#3e2723);display:flex;align-items:center;justify-content:center;font-size:30px;color:white">👤</div>
         <div>
           <div style="font-size:18px;font-weight:800">${name}</div>
-          <div style="color:var(--hint);font-size:13px">${username}</div>
+          <div style="color:var(--hint);font-size:13px">${subtitle}</div>
         </div>
       </div>
-      <div class="profile-row"><span class="key">Тип</span><span class="val">Физ. лицо</span></div>
+      <div class="profile-row"><span class="key">Тип</span><span class="val">${u?.is_guest ? 'Гость (без TG)' : 'Физ. лицо'}</span></div>
       <div class="profile-row"><span class="key">Избранных</span><span class="val">${favorites.length}</span></div>
       <div class="profile-row"><span class="key">Бонусов</span><span class="val">0</span></div>
     </div>
+    ${loginBtn}
     <button class="profile-action" onclick="goTo('mydata')"><span><span class="ico">📋</span>Мои данные${profileData ? '' : ' <span style=\"color:var(--danger);font-size:11px;font-weight:700\">(не заполнены)</span>'}</span><span class="arr">${profileData ? '✓' : '›'}</span></button>
     <button class="profile-action" onclick="goTo('favorites')"><span><span class="ico">⭐</span>Избранное</span><span class="arr">${favorites.length ? favorites.length + ' ›' : '›'}</span></button>
     <button class="profile-action" onclick="goTo('orders')"><span><span class="ico">📦</span>История заказов</span><span class="arr">›</span></button>
@@ -2628,6 +2638,7 @@ function renderProfile() {
       <span class="consent-status ${consentSigned() ? 'signed' : 'unsigned'}">${consentSigned() ? '✓ Подписано' : 'Требуется'}</span>
     </button>
     <button class="profile-action" onclick="if(confirm('Очистить корзину?')){cart=[];localStorage.removeItem('rb_cart');renderCart();renderCartBadge();toast('Корзина очищена')}"><span><span class="ico">🗑️</span>Очистить корзину</span><span class="arr">›</span></button>
+    ${logoutBtn}
     <div style="text-align:center;padding:24px;color:var(--hint);font-size:12px">Roastberry · v0.2 prototype<br>Сделано с ☕</div>
   `;
 }
@@ -3258,14 +3269,23 @@ function toast(msg) {
 }
 
 function shareShop() {
-  const url = 'https://t.me/RCR_BtB_bot/rbshop';
+  // Шарим WEB-ссылку — она открывается у всех:
+  //   • в Telegram WebView предложит «Открыть в приложении» (mini app),
+  //   • в обычном браузере покажет каталог + кнопку входа (TG или гость).
+  // Так получатель сам выбирает удобный способ.
+  const url = 'https://tg-bot-production-ae5c.up.railway.app/tma/';
   const text = 'Магазин Roastberry — свежеобжаренный кофе, чай, сиропы. Опт от 10 кг — 10%, от 25 кг — 20%.';
-  const shareLink = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
   try {
     if (tg?.openTelegramLink) {
-      tg.openTelegramLink(shareLink);
+      // Внутри Telegram — открываем нативный share-sheet
+      tg.openTelegramLink(`https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`);
+    } else if (navigator.share) {
+      // В браузере (iOS/Android) — нативный share через Web Share API
+      navigator.share({ title: 'Roastberry — магазин', text, url }).catch(() => {});
     } else {
-      window.open(shareLink, '_blank');
+      // Desktop fallback — копируем в буфер
+      navigator.clipboard?.writeText(url);
+      toast('Ссылка скопирована');
     }
     if (tg?.HapticFeedback) tg.HapticFeedback.impactOccurred('light');
   } catch (e) {

@@ -449,8 +449,11 @@ class Handler(BaseHTTPRequestHandler):
         # ── /tma/api/my_orders ───────────────────────────────────────────────
         if path == "/tma/api/my_orders":
             qs = parse_qs(urlparse(self.path).query)
-            tg_id = qs.get("tg_id", [""])[0]
-            if not tg_id or not tg_id.isdigit():
+            tg_id_raw = qs.get("tg_id", [""])[0]
+            # Допускаем отрицательные id для гостей (guest_id = -hash(phone))
+            try:
+                tg_id = int(tg_id_raw)
+            except (TypeError, ValueError):
                 self._send(400, b'{"error":"tg_id required"}', "application/json")
                 return
             try:
@@ -463,7 +466,7 @@ class Handler(BaseHTTPRequestHandler):
                     sel = ",".join(["id", "total", "status", "created_at"] + extra)
                     orders = con.execute(
                         f"SELECT {sel} FROM orders WHERE user_id=? ORDER BY id DESC LIMIT 50",
-                        (int(tg_id),)
+                        (tg_id,)
                     ).fetchall()
                     name_expr    = "oi.product_name" if "product_name" in it_cols else "p.name as product_name"
                     fasovka_expr = "oi.fasovka"       if "fasovka"       in it_cols else "NULL as fasovka"
