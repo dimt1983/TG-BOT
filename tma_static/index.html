@@ -1073,18 +1073,72 @@ function _injectLoginStyles() {
   style.id = 'login-screen-styles';
   style.textContent = `
     #login-screen { position: fixed; inset: 0; background: linear-gradient(180deg, #f2f2f7, #e4dcd2); z-index: 9999;
-      display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    #login-screen .wordmark { font-size: 32px; font-weight: 800; color: #c62828; letter-spacing: -1px; }
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 32px 24px 24px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; overflow-y: auto; }
+    #login-screen .wordmark { font-size: 28px; font-weight: 800; color: #c62828; letter-spacing: -1px; margin-top: 24px; }
     #login-screen .tagline  { font-size: 11px; letter-spacing: 0.18em; color: #6f4e37; margin-top: 4px; text-transform: uppercase; }
-    #login-screen h2  { font-size: 22px; font-weight: 700; color: #2c1810; margin: 32px 0 8px; text-align: center; }
-    #login-screen p   { font-size: 14px; color: #6f4e37; text-align: center; max-width: 320px; line-height: 1.5; }
-    #login-screen .widget-wrap { margin-top: 28px; min-height: 60px; }
-    #login-screen .hint { font-size: 11px; color: #8a7a6e; margin-top: 24px; text-align: center; max-width: 280px; }
-    #login-screen .close-btn { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%;
-      background: rgba(0,0,0,0.06); border: none; font-size: 18px; cursor: pointer; color: #6f4e37; }
+    #login-screen h2  { font-size: 20px; font-weight: 700; color: #2c1810; margin: 24px 0 6px; text-align: center; }
+    #login-screen .lead  { font-size: 13px; color: #6f4e37; text-align: center; max-width: 320px; line-height: 1.45; margin-bottom: 4px; }
+    #login-screen .tabs { display: flex; gap: 8px; margin: 20px 0 16px; background: rgba(0,0,0,0.05); padding: 4px; border-radius: 12px; }
+    #login-screen .tab-btn { flex: 1; padding: 10px 16px; border: none; background: transparent; font-size: 13px; font-weight: 600; cursor: pointer; border-radius: 8px; color: #6f4e37; }
+    #login-screen .tab-btn.active { background: white; color: #2c1810; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    #login-screen .pane { width: 100%; max-width: 340px; }
+    #login-screen .pane[hidden] { display: none; }
+    #login-screen .widget-wrap { margin-top: 8px; min-height: 60px; display: flex; justify-content: center; }
+    #login-screen .field { display: flex; flex-direction: column; margin-bottom: 10px; }
+    #login-screen .field label { font-size: 11px; font-weight: 600; color: #6f4e37; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+    #login-screen .field input { padding: 12px 14px; border: 1px solid rgba(0,0,0,0.12); border-radius: 10px; font-size: 15px; background: white; }
+    #login-screen .field input:focus { border-color: #c62828; outline: none; }
+    #login-screen .btn-primary { width: 100%; padding: 13px; background: #c62828; color: white; border: none; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; margin-top: 6px; }
+    #login-screen .btn-primary:disabled { opacity: 0.5; cursor: wait; }
+    #login-screen .hint { font-size: 11px; color: #8a7a6e; margin-top: 20px; text-align: center; max-width: 320px; }
+    #login-screen .err { color: #c62828; font-size: 12px; text-align: center; margin-top: 6px; min-height: 16px; }
+    #login-screen .close-btn { position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(0,0,0,0.06); border: none; font-size: 17px; cursor: pointer; color: #6f4e37; }
   `;
   document.head.appendChild(style);
+}
+
+function _setLoginTab(which) {
+  document.querySelectorAll('#login-screen .tab-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.tab === which));
+  document.getElementById('pane-tg').hidden    = which !== 'tg';
+  document.getElementById('pane-guest').hidden = which !== 'guest';
+}
+
+async function _submitGuestLogin() {
+  const btn   = document.getElementById('guest-submit');
+  const errEl = document.getElementById('guest-err');
+  errEl.textContent = '';
+  const payload = {
+    name:  document.getElementById('guest-name').value.trim(),
+    phone: document.getElementById('guest-phone').value.trim(),
+    email: document.getElementById('guest-email').value.trim(),
+  };
+  if (!payload.name)  { errEl.textContent = 'Введите имя'; return; }
+  if (!payload.phone) { errEl.textContent = 'Введите телефон'; return; }
+  btn.disabled = true; btn.textContent = 'Входим…';
+  try {
+    const r = await fetch('/tma/api/auth/guest', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const j = await r.json();
+    if (j.token) {
+      _browserJwt  = j.token;
+      _browserUser = j.user;
+      localStorage.setItem('rb_jwt', _browserJwt);
+      localStorage.setItem('rb_user', JSON.stringify(_browserUser));
+      document.getElementById('login-screen')?.remove();
+      if (typeof load === 'function') load();
+    } else {
+      errEl.textContent = j.error || 'Ошибка авторизации';
+    }
+  } catch (e) {
+    errEl.textContent = 'Сеть упала: ' + e;
+  }
+  btn.disabled = false; btn.textContent = 'Продолжить';
 }
 
 function showLoginScreen() {
@@ -1092,18 +1146,30 @@ function showLoginScreen() {
   _injectLoginStyles();
   const div = document.createElement('div');
   div.id = 'login-screen';
-  // Текстовая часть — через innerHTML (без <script>!)
   div.innerHTML =
     '<button class="close-btn" onclick="document.getElementById(\'login-screen\').remove()">✕</button>' +
     '<div class="wordmark">ROASTBERRY</div>' +
     '<div class="tagline">Coffee Roasters</div>' +
-    '<h2>Войдите, чтобы оформлять заказы</h2>' +
-    '<p>Магазин работает и в Telegram, и в браузере. Авторизация через Telegram — один клик, без паролей.</p>' +
-    '<div class="widget-wrap" id="login-widget-wrap"></div>' +
-    '<div class="hint">Каталог можно листать без входа — авторизация нужна только при оформлении заказа.</div>';
+    '<h2>Войдите, чтобы оформить заказ</h2>' +
+    '<div class="lead">Один клик через Telegram или просто телефон и имя.</div>' +
+    '<div class="tabs">' +
+      '<button class="tab-btn active" data-tab="tg"    onclick="_setLoginTab(\'tg\')">Telegram</button>' +
+      '<button class="tab-btn"        data-tab="guest" onclick="_setLoginTab(\'guest\')">Без Telegram</button>' +
+    '</div>' +
+    '<div id="pane-tg" class="pane">' +
+      '<div class="widget-wrap" id="login-widget-wrap"></div>' +
+      '<div class="hint">Безопасно: используем только ваш id и имя в Telegram, без пароля и без доступа к сообщениям.</div>' +
+    '</div>' +
+    '<div id="pane-guest" class="pane" hidden>' +
+      '<div class="field"><label>Имя</label><input id="guest-name" type="text" autocomplete="name" placeholder="Как к вам обращаться"></div>' +
+      '<div class="field"><label>Телефон</label><input id="guest-phone" type="tel" autocomplete="tel" placeholder="+7 ___ ___-__-__"></div>' +
+      '<div class="field"><label>Email (необязательно)</label><input id="guest-email" type="email" autocomplete="email" placeholder="для копии заказа"></div>' +
+      '<button id="guest-submit" class="btn-primary" onclick="_submitGuestLogin()">Продолжить</button>' +
+      '<div class="err" id="guest-err"></div>' +
+      '<div class="hint">Менеджер свяжется по телефону для подтверждения деталей.</div>' +
+    '</div>';
   document.body.appendChild(div);
-  // Login Widget — создаём script-элемент через DOM, чтобы HTML-парсер
-  // не споткнулся о закрывающий тег в template-литералах.
+  // Login Widget — script через DOM (HTML-парсер не должен видеть закрывающий тег).
   const s = document.createElement('script');
   s.async = true;
   s.src = 'https://telegram.org/js/telegram-widget.js?22';

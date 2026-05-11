@@ -747,6 +747,45 @@ class Handler(BaseHTTPRequestHandler):
                        "application/json; charset=utf-8", {"Cache-Control": "no-store"})
             return
 
+        # ── Гостевой логин (для клиентов без Telegram) → JWT ─────────────────
+        # Принимает {name, phone, email?}, валидирует телефон, выдаёт JWT с
+        # отрицательным guest_id (стабильный hash от phone, чтобы повторные
+        # заказы с того же номера привязывались к одному клиенту).
+        if path == "/tma/api/auth/guest":
+            payload = self._read_body() or {}
+            name  = str(payload.get("name", "")).strip()[:80]
+            phone = re.sub(r"[^\d+]", "", str(payload.get("phone", "")))
+            email = str(payload.get("email", "")).strip()[:120]
+            if not name:
+                self._send(400, _j({"error": "Введите имя"}),
+                           "application/json; charset=utf-8")
+                return
+            # Минимальная валидация телефона: 10–15 цифр (учёт + и кода страны)
+            digits = re.sub(r"\D", "", phone)
+            if len(digits) < 10 or len(digits) > 15:
+                self._send(400, _j({"error": "Введите корректный телефон"}),
+                           "application/json; charset=utf-8")
+                return
+            # Стабильный отрицательный guest_id из телефона. Минусом отделяем
+            # от Telegram user_id (всегда положительный) — потом в админке
+            # видно по знаку, гость это или TG-клиент.
+            guest_int = int(hashlib.sha256(digits.encode()).hexdigest()[:12], 16)
+            guest_id  = -(guest_int % (10**9))  # держим в int32-range
+            user = {
+                "id":         guest_id,
+                "first_name": name,
+                "last_name":  "",
+                "username":   "",
+                "photo_url":  "",
+                "phone":      digits,
+                "email":      email,
+                "is_guest":   True,
+            }
+            token = jwt_sign(user)
+            self._send(200, _j({"token": token, "user": user}),
+                       "application/json; charset=utf-8", {"Cache-Control": "no-store"})
+            return
+
         # ── Создать заказ ────────────────────────────────────────────────────
         if path == "/tma/api/order":
             self._handle_tma_order()
