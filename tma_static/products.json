@@ -29,6 +29,12 @@
       "icon": "🎓",
       "name": "Консалтинг",
       "color": "#4a3f8a"
+    },
+    {
+      "id": "other",
+      "icon": "🧰",
+      "name": "Прочее",
+      "color": "#5d4037"
     }
   ],
   "subcategories": [
@@ -196,6 +202,11 @@
       "id": "coffee_filter_blend",
       "parent": "coffee_filter",
       "name": "🎨 Смесь"
+    },
+    {
+      "id": "other_filters",
+      "parent": "other",
+      "name": "🫖 Фильтры для кофеварок"
     }
   ],
   "products": [
@@ -10384,6 +10395,57 @@
       "tags": [],
       "photo": null,
       "pair_id": "бразилия_фазенда_лагуинья_мундо_анаэроб"
+    },
+    {
+      "id": "filter-v60-100",
+      "category": "other",
+      "subcategory": "other_filters",
+      "name": "Бумажные фильтры V60 (Hario) — 100 шт",
+      "description": "Оригинальные бумажные фильтры Hario V60 02. Подходят к дрипперам V60 размер 02.",
+      "fasovka": [
+        {
+          "size": "100 шт",
+          "price": 990
+        }
+      ],
+      "stock": 0,
+      "tags": [
+        "Прочее"
+      ]
+    },
+    {
+      "id": "filter-chemex-100",
+      "category": "other",
+      "subcategory": "other_filters",
+      "name": "Бумажные фильтры Chemex — 100 шт",
+      "description": "Толстые бумажные фильтры для Chemex 6-cup / 8-cup. Двойная складка задерживает мелкие частицы.",
+      "fasovka": [
+        {
+          "size": "100 шт",
+          "price": 1690
+        }
+      ],
+      "stock": 0,
+      "tags": [
+        "Прочее"
+      ]
+    },
+    {
+      "id": "filter-aeropress-350",
+      "category": "other",
+      "subcategory": "other_filters",
+      "name": "Бумажные фильтры AeroPress — 350 шт",
+      "description": "Оригинальные тонкие фильтры AeroPress, упаковка 350 шт. Подходят к AeroPress и AeroPress Go.",
+      "fasovka": [
+        {
+          "size": "350 шт",
+          "price": 690
+        }
+      ],
+      "stock": 0,
+      "tags": [
+        "Прочее"
+      ]
     }
   ]
 }
