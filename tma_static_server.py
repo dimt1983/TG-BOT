@@ -88,6 +88,41 @@ def set_tma_api_handler(bot, get_db, notify_new_order, main_loop, bot_token,
         pass
 
 
+# ─── products.json index (для админ-обогащения позиций заказа) ──────────────
+# Возвращает {name_lower: {"category": str, "roast": str}}.
+# Кэш инвалидируется по mtime файла, чтобы редактирования Bishop'ом подхватывались.
+_PRODUCTS_INDEX = {"mtime": 0, "data": {}}
+
+def _products_index() -> dict:
+    path = os.path.join(TMA_ROOT, "products.json")
+    try:
+        mtime = os.path.getmtime(path)
+    except OSError:
+        return _PRODUCTS_INDEX["data"]
+    if mtime == _PRODUCTS_INDEX["mtime"]:
+        return _PRODUCTS_INDEX["data"]
+    try:
+        with open(path, encoding="utf-8") as f:
+            j = json.load(f)
+        prods = j if isinstance(j, list) else j.get("products", [])
+        idx = {}
+        for p in prods:
+            name = (p.get("name") or "").strip().lower()
+            if not name:
+                continue
+            # При дубликатах по имени берём первый встретившийся (для админки
+            # достаточно — у дубликатов roast обычно одинаковый).
+            idx.setdefault(name, {
+                "category": p.get("category") or "",
+                "roast":    p.get("roast") or "",
+            })
+        _PRODUCTS_INDEX["mtime"] = mtime
+        _PRODUCTS_INDEX["data"]  = idx
+    except Exception:
+        pass
+    return _PRODUCTS_INDEX["data"]
+
+
 # ─── DB helpers ──────────────────────────────────────────────────────────────
 
 def _ensure_chat_table():
@@ -369,8 +404,16 @@ class Handler(BaseHTTPRequestHandler):
                                 "LEFT JOIN products p ON oi.product_id=p.id "
                                 "WHERE oi.order_id=? ORDER BY oi.id", (oid,)
                             ).fetchall()
+                            pidx = _products_index()
+                            items_out = []
+                            for i in items:
+                                d = dict(i)
+                                meta = pidx.get((d.get("product_name") or "").strip().lower(), {})
+                                d["category"] = meta.get("category", "")
+                                d["roast"]    = meta.get("roast", "")
+                                items_out.append(d)
                             self._send(200,
-                                _j({**dict(o), "items": [dict(i) for i in items]}),
+                                _j({**dict(o), "items": items_out}),
                                 "application/json; charset=utf-8", {"Cache-Control": "no-cache"})
 
                     elif m_admin.group(3):          # user/ID

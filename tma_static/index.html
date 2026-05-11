@@ -377,6 +377,14 @@ body {
 .detail-row:last-child { border-bottom: none; }
 .detail-row .dr-label { color: var(--hint); }
 .detail-row .dr-val   { font-weight: 600; text-align: right; max-width: 60%; }
+.order-items-group { margin-bottom: 10px; }
+.order-items-group:last-child { margin-bottom: 0; }
+.order-items-group-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--primary); padding: 8px 0 4px; border-top: 1px dashed rgba(0,0,0,0.08); margin-top: 4px; }
+.order-items-group:first-child .order-items-group-title { border-top: none; margin-top: 0; padding-top: 2px; }
+.roast-tag { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 5px; font-size: 10px; font-weight: 800; margin-right: 6px; vertical-align: 1px; }
+.roast-tag.e   { background: #3e2723; color: #fff; }
+.roast-tag.f   { background: #f4d35e; color: #3e2723; }
+.roast-tag.alt { background: rgba(111,78,55,0.18); color: var(--primary-dark); }
 .status-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
 .sa-btn { flex: 1 1 calc(50% - 4px); padding: 12px 8px; border: none; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; }
 .sa-confirm  { background: #e8f5e9; color: #2e7d32; }
@@ -2547,16 +2555,55 @@ async function openAdminOrder(orderId) {
   }
 }
 
+function _roastBadge(roast) {
+  const r = (roast || '').trim().toUpperCase();
+  if (!r) return '';
+  if (r === 'E'  || r === 'BE')  return '<span class="roast-tag e">E</span>';
+  if (r === 'F'  || r === 'BF')  return '<span class="roast-tag f">F</span>';
+  if (r === 'EF' || r === 'E F') return '<span class="roast-tag e">E</span><span class="roast-tag f">F</span>';
+  if (r.startsWith('ДРИП') || r.startsWith('DRIP')) return '<span class="roast-tag alt">Дрип</span>';
+  if (r.startsWith('NESPRESSO')) return '<span class="roast-tag alt">N</span>';
+  return `<span class="roast-tag">${_escape(r)}</span>`;
+}
+
+const CATEGORY_GROUPS = [
+  { key: 'coffee',     title: '☕ Кофе' },
+  { key: 'consulting', title: '🎓 Курсы' },
+  { key: 'tea',        title: '🍵 Чай' },
+  { key: 'syrup',      title: '🥤 Сиропы' },
+  { key: 'milk',       title: '🥛 Молоко' },
+  { key: '__other__',  title: '🛒 Прочее' },
+];
+
+function _renderOrderItemsGrouped(items) {
+  if (!items || !items.length) {
+    return '<div style="color:var(--hint);font-size:13px">Нет позиций</div>';
+  }
+  const knownKeys = new Set(CATEGORY_GROUPS.map(g => g.key));
+  const buckets = {};
+  for (const it of items) {
+    const cat = (it.category || '').trim();
+    const k = knownKeys.has(cat) ? cat : '__other__';
+    (buckets[k] = buckets[k] || []).push(it);
+  }
+  return CATEGORY_GROUPS.filter(g => buckets[g.key] && buckets[g.key].length).map(g => `
+    <div class="order-items-group">
+      <div class="order-items-group-title">${g.title}</div>
+      ${buckets[g.key].map(i => `
+        <div class="detail-row">
+          <span class="dr-label">${g.key === 'coffee' ? _roastBadge(i.roast) : ''}${_escape(i.product_name || '')} × ${i.quantity}</span>
+          <span class="dr-val">${_fmtMoney((i.price || 0) * (i.quantity || 0))}</span>
+        </div>`).join('')}
+    </div>
+  `).join('');
+}
+
 function renderAdminOrder(o) {
   document.getElementById('admin-order-title').textContent = 'Заказ #' + o.id;
   const st = (o.status || 'new').toLowerCase();
   const label = ADMIN_STATUS_LABELS[st] || st;
   const next = ADMIN_STATUS_NEXT[st] || [];
-  const itemsHtml = (o.items || []).map(i => `
-    <div class="detail-row">
-      <span class="dr-label">${_escape(i.product_name || '')} × ${i.quantity}</span>
-      <span class="dr-val">${_fmtMoney((i.price || 0) * (i.quantity || 0))}</span>
-    </div>`).join('');
+  const itemsHtml = _renderOrderItemsGrouped(o.items);
   const actionsHtml = next.map(s => {
     const cfg = ADMIN_STATUS_BTN[s];
     return `<button class="sa-btn ${cfg.cls}" onclick="adminChangeStatus(${o.id},'${s}')">${cfg.label}</button>`;
@@ -2583,7 +2630,7 @@ function renderAdminOrder(o) {
     </div>
     <div class="order-detail-block">
       <h4>Позиции</h4>
-      ${itemsHtml || '<div style="color:var(--hint);font-size:13px">Нет позиций</div>'}
+      ${itemsHtml}
       <div class="detail-row" style="border-top:1px solid rgba(0,0,0,0.08);margin-top:8px;padding-top:10px">
         <span class="dr-label">Итого</span>
         <span class="dr-val" style="font-size:18px;color:var(--primary)">${_fmtMoney(o.total)}</span>
