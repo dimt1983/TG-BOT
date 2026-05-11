@@ -1703,7 +1703,8 @@
         "Капсулы"
       ],
       "photo": "photos/products/c-nesp-бразилия_серрадо__nespresso_.jpg",
-      "ozon_offer_id": "RBR-E-БРАЗИЛИЯ СЕРРАДО, 1 кг"
+      "ozon_offer_id": "RBR-E-БРАЗИЛИЯ СЕРРАДО, 1 кг",
+      "hidden": true
     },
     {
       "id": "c-nesp-бразилия_пибери",
