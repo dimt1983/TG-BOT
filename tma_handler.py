@@ -33,6 +33,38 @@ TMA_URL = os.environ.get("TMA_URL", "https://roastberry-tma.up.railway.app/")
 # ID админа для уведомлений (может быть не задан — тогда notify_new_order возьмёт сам)
 ADMIN_ID = int(os.environ.get("ADMIN_ID", "0") or 0)
 
+# Кэш products.json для определения обжарки/категории по tma_id в TG-уведомлениях
+_PRODUCTS_JSON = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                              "tma_static", "products.json")
+_ROAST_CACHE = {"mtime": 0, "data": {}}
+
+
+def _build_roast_map() -> dict:
+    """Возвращает {tma_id: {category, roast}}. Кэш инвалидируется по mtime."""
+    try:
+        mt = os.path.getmtime(_PRODUCTS_JSON)
+    except OSError:
+        return _ROAST_CACHE["data"]
+    if mt == _ROAST_CACHE["mtime"]:
+        return _ROAST_CACHE["data"]
+    try:
+        with open(_PRODUCTS_JSON, encoding="utf-8") as f:
+            j = json.load(f)
+        prods = j if isinstance(j, list) else j.get("products", [])
+        out = {}
+        for p in prods:
+            pid = p.get("id")
+            if pid:
+                out[pid] = {
+                    "category": p.get("category") or "",
+                    "roast":    p.get("roast") or "",
+                }
+        _ROAST_CACHE["mtime"] = mt
+        _ROAST_CACHE["data"]  = out
+    except Exception as e:
+        log.warning(f"_build_roast_map failed: {e}")
+    return _ROAST_CACHE["data"]
+
 # Provider token для Telegram Payments (получается у платёжного провайдера через @BotFather)
 # Тестовый токен ЮKassa: формат "1744374395:TEST:..."
 # Боевой: получить в @BotFather → /mybots → твой бот → Payments → выбрать провайдера
@@ -387,8 +419,35 @@ async def process_tma_order(
         if contact.get("comment"):
             adm_lines.append(f"💬 {contact['comment']}")
         adm_lines.append("\n📦 <b>Состав:</b>")
-        for it in items[:25]:
-            adm_lines.append(f"• {it['name'][:50]} — {it.get('fasovka','')} × {it['qty']} = {it['price']*it['qty']:.0f} ₽")
+        # Подтягиваем roast/category из products.json чтобы показать бейдж E/F
+        # у кофе и группировать визуально.
+        _roast_map = _build_roast_map()
+
+        def _roast_badge(item):
+            tid = item.get("id")
+            meta = _roast_map.get(tid) or {}
+            r = (meta.get("roast") or "").strip().upper()
+            if not r: return ""
+            if r in ("E", "BE"):       return "🔴E "
+            if r in ("F", "BF"):       return "🟢F "
+            if r in ("EF", "E F"):     return "🔴E🟢F "
+            if r.startswith("ДРИП"):   return "💧 "
+            if r.startswith("NESPRESSO"): return "Ⓝ "
+            return ""
+
+        # Сортируем визуально: кофе → курсы → чай → сиропы → молоко → прочее
+        cat_order = {"coffee": 0, "consulting": 1, "tea": 2, "syrup": 3, "milk": 4}
+        def _cat_key(it):
+            tid = it.get("id")
+            cat = (_roast_map.get(tid) or {}).get("category") or it.get("category", "")
+            return cat_order.get(cat, 99)
+        items_sorted = sorted(items[:25], key=_cat_key)
+
+        for it in items_sorted:
+            badge = _roast_badge(it)
+            adm_lines.append(
+                f"• {badge}{it['name'][:50]} — {it.get('fasovka','')} × {it['qty']} = {it['price']*it['qty']:.0f} ₽"
+            )
         if len(items) > 25:
             adm_lines.append(f"... и ещё {len(items) - 25} позиций")
         adm_lines.append(f"\n⚖️ {kg:.2f} кг   💰 {subtotal:.0f} ₽")

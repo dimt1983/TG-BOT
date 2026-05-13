@@ -42,9 +42,17 @@ DB_PATH = os.environ.get("DB_PATH", "/app/data/shop.db")
 API_ORDERS_TOKEN = os.environ.get("API_ORDERS_TOKEN", "")
 
 # Администраторы TMA: user_id из Telegram.
-# Переопределяется через env TMA_ADMIN_IDS (через запятую).
-_raw_admin = os.environ.get("TMA_ADMIN_IDS", "466755177")
+# Унифицируем со списком админов бота (admin.ADMIN_IDS) — добавление одного юзера
+# в одно место даёт ему сразу и уведомления о заказах в чате, и админ-вкладку
+# в Mini App. Через env TMA_ADMIN_IDS можно дополнительно расширить.
+_raw_admin = os.environ.get("TMA_ADMIN_IDS", "")
 ADMIN_IDS = {int(x.strip()) for x in _raw_admin.split(",") if x.strip().isdigit()}
+try:
+    from admin import ADMIN_IDS as _BOT_ADMIN_IDS
+    ADMIN_IDS.update(set(_BOT_ADMIN_IDS))
+except Exception:
+    if not ADMIN_IDS:
+        ADMIN_IDS = {466755177}  # fallback на Дмитрия
 
 # КП аренды — отправляется клиенту по нажатию кнопки в карусели.
 # Сначала пробуем локальный файл из репо (BOT_TG/kp/), потом — VPS-расположение
