@@ -421,6 +421,17 @@ body {
 .adm-prod-row .pr-right { text-align: right; flex-shrink: 0; font-size: 12px; }
 .adm-prod-row .pr-stock { font-weight: 700; color: var(--primary); }
 .adm-prod-row .pr-stock.zero { color: #c62828; }
+.adm-badge { display:inline-block; background:#c62828; color:white; font-size:10px; font-weight:700; padding:1px 6px; border-radius:99px; margin-left:4px; vertical-align:middle; }
+.adm-prod-row.is-quarantine { border-left: 3px solid #d97706; background: linear-gradient(90deg, rgba(217,119,6,0.06), transparent 30%); }
+.adm-prod-row.is-pending { border-left: 3px solid #2e7d32; background: linear-gradient(90deg, rgba(46,125,50,0.06), transparent 30%); }
+.adm-row-actions { display:flex; gap:6px; flex-shrink:0; }
+.adm-row-actions .ra-btn { padding: 6px 10px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid; background: transparent; -webkit-tap-highlight-color: transparent; font-family: inherit; }
+.adm-row-actions .ra-btn.danger { color:#c62828; border-color:#c62828; }
+.adm-row-actions .ra-btn.primary { color:#fff; background: var(--primary); border-color: var(--primary); }
+.adm-row-actions .ra-btn:active { transform: scale(0.95); }
+.pending-fasovka-row { display:flex; gap:6px; align-items:center; margin-bottom:6px; }
+.pending-fasovka-row input { flex:1; padding:8px 10px; border-radius:8px; border:1px solid rgba(0,0,0,0.1); font-size:13px; font-family: inherit; }
+.pending-fasovka-row .pf-rm { width:34px; height:34px; border-radius:8px; border:1px solid #c62828; background:transparent; color:#c62828; font-size:14px; font-weight:700; cursor:pointer; }
 .adm-badge-hidden { display: inline-block; padding: 2px 8px; border-radius: 8px; background: #f5f5f5; color: #757575; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
 .adm-prod-form .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
 .adm-prod-form .field label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--hint); font-weight: 700; }
@@ -919,10 +930,29 @@ body {
       <button class="at-btn" onclick="goTo('admin-users')">👥 Клиенты</button>
       <button class="at-btn active" onclick="goTo('admin-products')">📦 Товары</button>
     </div>
+    <div class="adm-tabs" style="margin-top:0">
+      <button class="at-btn active" id="adm-prod-mode-all" onclick="setAdmProdMode('all')">Все</button>
+      <button class="at-btn" id="adm-prod-mode-quarantine" onclick="setAdmProdMode('quarantine')">🚧 Карантин <span class="adm-badge" id="adm-q-badge" style="display:none"></span></button>
+      <button class="at-btn" id="adm-prod-mode-pending" onclick="setAdmProdMode('pending')">➕ К добавлению <span class="adm-badge" id="adm-p-badge" style="display:none"></span></button>
+    </div>
     <input class="adm-search" id="adm-prod-search" placeholder="Поиск по названию…" oninput="renderAdminProductsList()" />
     <div class="admin-filter" id="adm-prod-cats"></div>
     <div class="admin-filter" id="adm-prod-subs" style="display:none"></div>
     <div id="admin-products-list"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ ADMIN: модалка «Создать товар из 1С» ═══════════════ -->
+<div class="screen" id="screen-pending-create" style="display:none">
+  <header class="header">
+    <button class="back-btn" onclick="closePendingCreate()">‹ Назад</button>
+    <h1>Создать карточку</h1>
+    <div></div>
+  </header>
+  <div class="container">
+    <div class="adm-prod-form" id="pending-create-form">
+      <!-- заполнится JS-ом -->
+    </div>
   </div>
 </div>
 
@@ -2989,6 +3019,9 @@ function renderAdminUser(u) {
 let _adminProducts = null;       // { categories, subcategories, products } — полный raw
 let _adminProductsCat = '';      // активный фильтр категории
 let _adminProductsSub = '';      // активный фильтр подкатегории
+let _admProdMode = 'all';        // 'all' | 'quarantine' | 'pending'
+let _admQuarantine = null;       // {items}
+let _admPending = null;          // {items, categories, subcategories}
 
 async function renderAdminProducts() {
   const list = document.getElementById('admin-products-list');
@@ -3002,7 +3035,295 @@ async function renderAdminProducts() {
     return;
   }
   renderAdminProductsCats();
-  renderAdminProductsList();
+  // Сразу обновим бейджи у табов карантина/pending
+  refreshAdmBadges();
+  if (_admProdMode === 'all') renderAdminProductsList();
+  else if (_admProdMode === 'quarantine') renderAdmQuarantine();
+  else if (_admProdMode === 'pending') renderAdmPending();
+}
+
+function setAdmProdMode(mode) {
+  _admProdMode = mode;
+  for (const m of ['all','quarantine','pending']) {
+    document.getElementById('adm-prod-mode-' + m)?.classList.toggle('active', m === mode);
+  }
+  // Поиск+фильтры категорий уместны только в 'all'
+  const showFilters = (mode === 'all');
+  document.getElementById('adm-prod-search').style.display = showFilters ? '' : 'none';
+  document.getElementById('adm-prod-cats').style.display = showFilters ? 'flex' : 'none';
+  document.getElementById('adm-prod-subs').style.display = (showFilters && _adminProductsCat) ? 'flex' : 'none';
+  if (mode === 'all') renderAdminProductsList();
+  else if (mode === 'quarantine') renderAdmQuarantine();
+  else if (mode === 'pending') renderAdmPending();
+}
+
+async function refreshAdmBadges() {
+  try {
+    const [rq, rp] = await Promise.all([
+      fetch('/tma/api/admin/quarantine', { headers: _initDataHeader() }).then(r => r.ok ? r.json() : null),
+      fetch('/tma/api/admin/pending',    { headers: _initDataHeader() }).then(r => r.ok ? r.json() : null),
+    ]);
+    _admQuarantine = rq;
+    _admPending = rp;
+    const qBadge = document.getElementById('adm-q-badge');
+    const pBadge = document.getElementById('adm-p-badge');
+    const qn = rq?.count || 0;
+    const pn = rp?.count || 0;
+    if (qBadge) { qBadge.textContent = qn; qBadge.style.display = qn > 0 ? '' : 'none'; }
+    if (pBadge) { pBadge.textContent = pn; pBadge.style.display = pn > 0 ? '' : 'none'; }
+  } catch (e) {}
+}
+
+async function renderAdmQuarantine() {
+  const list = document.getElementById('admin-products-list');
+  list.innerHTML = `<div style="text-align:center;padding:24px;color:var(--hint)">Загрузка карантина…</div>`;
+  try {
+    const r = await fetch('/tma/api/admin/quarantine', { headers: _initDataHeader() });
+    if (!r.ok) throw new Error('http ' + r.status);
+    _admQuarantine = await r.json();
+  } catch (e) {
+    list.innerHTML = `<div style="text-align:center;padding:24px;color:var(--danger)">Ошибка загрузки</div>`;
+    return;
+  }
+  const items = _admQuarantine.items || [];
+  if (!items.length) {
+    list.innerHTML = `<div style="text-align:center;padding:32px;color:var(--hint)">Карантин пуст — все позиции каталога подтверждаются ведомостью 1С.</div>`;
+    return;
+  }
+  list.innerHTML = `<div style="font-size:12px;color:var(--hint);margin-bottom:10px;padding:0 4px">Эти карточки автоматически попали в карантин — их нет в актуальной ведомости 1С. Остаток уже 0. Жди когда товар появится снова (тогда уйдёт автоматически) или удали навсегда, если лот выводим.</div>` + items.map(p => {
+    const since = (p.quarantined_at || '').slice(0, 16).replace('T', ' ');
+    return `<div class="adm-prod-row is-quarantine">
+      <div class="pr-info">
+        <div class="pr-name">${_escape(p.name || '')}</div>
+        <div class="pr-meta">${_escape(p.subcategory || p.category || '')} · с ${since || '—'}</div>
+      </div>
+      <div class="adm-row-actions">
+        <button class="ra-btn" onclick="hideFromQuarantine('${_escape(p.id)}', '${_escape((p.name || '').replace(/'/g, '&#39;'))}')" title="Скрыть из каталога (можно вернуть)">👁 Скрыть</button>
+        <button class="ra-btn danger" onclick="deleteFromQuarantine('${_escape(p.id)}', '${_escape((p.name || '').replace(/'/g, '&#39;'))}')" title="Удалить навсегда">🗑</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function hideFromQuarantine(tmaId, name) {
+  if (!confirm(`Скрыть «${name}» из каталога? Карточка останется, её можно вернуть руками снятием hidden. (Если хочешь чтобы вернулось автоматом по 1С — просто оставь в карантине.)`)) return;
+  try {
+    const r = await fetch(`/tma/api/admin/product/${encodeURIComponent(tmaId)}`, {
+      method: 'POST',  // tma_static_server проксирует POST как PATCH на VPS
+      headers: { ..._initDataHeader(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({ hidden: true }),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || !j.ok) {
+      alert('Ошибка: ' + (j.error || r.status));
+      return;
+    }
+    if (window.Telegram?.WebApp?.HapticFeedback) {
+      try { Telegram.WebApp.HapticFeedback.notificationOccurred('success'); } catch(e){}
+    }
+    refreshAdmBadges();
+    renderAdmQuarantine();
+  } catch (e) { alert('Ошибка: ' + e.message); }
+}
+
+async function deleteFromQuarantine(tmaId, name) {
+  if (!confirm(`Удалить «${name}» из каталога? Карточка + фото будут стёрты безвозвратно.`)) return;
+  try {
+    const r = await fetch(`/tma/api/admin/product/${encodeURIComponent(tmaId)}/delete`, {
+      method: 'POST', headers: _initDataHeader(),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || !j.ok) {
+      alert('Ошибка: ' + (j.error || r.status));
+      return;
+    }
+    if (window.Telegram?.WebApp?.HapticFeedback) {
+      try { Telegram.WebApp.HapticFeedback.notificationOccurred('success'); } catch(e){}
+    }
+    refreshAdmBadges();
+    renderAdmQuarantine();
+  } catch (e) {
+    alert('Ошибка: ' + e.message);
+  }
+}
+
+async function renderAdmPending() {
+  const list = document.getElementById('admin-products-list');
+  list.innerHTML = `<div style="text-align:center;padding:24px;color:var(--hint)">Загрузка…</div>`;
+  try {
+    const r = await fetch('/tma/api/admin/pending', { headers: _initDataHeader() });
+    if (!r.ok) throw new Error('http ' + r.status);
+    _admPending = await r.json();
+  } catch (e) {
+    list.innerHTML = `<div style="text-align:center;padding:24px;color:var(--danger)">Ошибка загрузки</div>`;
+    return;
+  }
+  const items = _admPending.items || [];
+  if (!items.length) {
+    list.innerHTML = `<div style="text-align:center;padding:32px;color:var(--hint)">Пусто — все позиции из 1С уже в каталоге.</div>`;
+    return;
+  }
+  list.innerHTML = `<div style="font-size:12px;color:var(--hint);margin-bottom:10px;padding:0 4px">Эти позиции есть в ведомости 1С, но карточек в каталоге нет. Открой карточку — заполни категорию/цену/фото и создай.</div>` + items.map(it => {
+    const hint = it.hint_subcategory ? `→ ${_escape(it.hint_subcategory)}` : '<span style="color:#c62828">категория не определена</span>';
+    return `<div class="adm-prod-row is-pending">
+      <div class="pr-info">
+        <div class="pr-name">${_escape(it.name)}</div>
+        <div class="pr-meta">остаток 1С: <b>${it.qty}</b> · ${hint}</div>
+      </div>
+      <div class="adm-row-actions">
+        <button class="ra-btn primary" onclick="openPendingCreate('${_escape(it.name).replace(/'/g, '&#39;')}')">Создать</button>
+        <button class="ra-btn danger" onclick="discardPending('${_escape(it.name).replace(/'/g, '&#39;')}')" title="Не создавать (вернётся при следующем синке если останется в 1С)">✕</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function discardPending(name) {
+  if (!confirm(`Убрать «${name}» из списка к добавлению? Если позиция останется в 1С — она появится снова при следующем синке.`)) return;
+  try {
+    const r = await fetch('/tma/api/admin/pending/discard', {
+      method: 'POST',
+      headers: { ..._initDataHeader(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name }),
+    });
+    if (!r.ok) { alert('Ошибка: HTTP ' + r.status); return; }
+    refreshAdmBadges();
+    renderAdmPending();
+  } catch (e) { alert('Ошибка: ' + e.message); }
+}
+
+let _pendingItem = null;
+
+function openPendingCreate(name) {
+  const it = (_admPending?.items || []).find(x => x.name === name);
+  if (!it) { alert('Позиция не найдена'); return; }
+  _pendingItem = it;
+  const cats = _admPending?.categories || [];
+  const subs = _admPending?.subcategories || [];
+  const catOpts = cats.map(c =>
+    `<option value="${_escape(c.id)}" ${c.id === it.hint_category ? 'selected' : ''}>${_escape(c.name)}</option>`).join('');
+  const subOpts = subs
+    .filter(s => !it.hint_category || s.parent === it.hint_category)
+    .map(s => `<option value="${_escape(s.id)}" ${s.id === it.hint_subcategory ? 'selected' : ''}>${_escape(s.name)}</option>`).join('');
+  const form = document.getElementById('pending-create-form');
+  form.innerHTML = `
+    <div class="field">
+      <label>Название (из 1С)</label>
+      <input id="pc-name" type="text" value="${_escape(it.name)}" />
+    </div>
+    <div class="field">
+      <label>Категория</label>
+      <select id="pc-category" onchange="onPcCategoryChange()">
+        <option value="">— выбери —</option>
+        ${catOpts}
+      </select>
+    </div>
+    <div class="field">
+      <label>Подкатегория</label>
+      <select id="pc-subcategory">
+        <option value="">— выбери —</option>
+        ${subOpts}
+      </select>
+    </div>
+    <div class="field">
+      <label>Фасовки (размер + цена)</label>
+      <div id="pc-fasovka">
+        <div class="pending-fasovka-row">
+          <input type="text" placeholder="напр. 1 кг" class="pf-size" />
+          <input type="number" placeholder="цена ₽" class="pf-price" min="0" step="1" />
+          <button class="pf-rm" onclick="this.parentElement.remove()">×</button>
+        </div>
+      </div>
+      <button class="ra-btn primary" style="margin-top:6px" onclick="addPendingFasovka()">+ ещё фасовка</button>
+    </div>
+    <div class="field">
+      <label>Описание (опц.)</label>
+      <textarea id="pc-description" placeholder="Краткое описание для каталога"></textarea>
+    </div>
+    <div class="field">
+      <label>Страна (для кофе, опц.)</label>
+      <input id="pc-country" type="text" placeholder="напр. Бразилия" />
+    </div>
+    <button class="adm-save-btn" id="pc-submit" onclick="submitPendingCreate()">Создать карточку (остаток будет ${it.qty})</button>
+    <div style="font-size:12px;color:var(--hint);margin-top:8px;text-align:center">Фото можно загрузить после создания — в карточке товара.</div>
+  `;
+  goTo('pending-create');
+}
+
+function onPcCategoryChange() {
+  const catSel = document.getElementById('pc-category');
+  const subSel = document.getElementById('pc-subcategory');
+  const cat = catSel.value;
+  const subs = (_admPending?.subcategories || []).filter(s => s.parent === cat);
+  subSel.innerHTML = '<option value="">— выбери —</option>' +
+    subs.map(s => `<option value="${_escape(s.id)}">${_escape(s.name)}</option>`).join('');
+}
+
+function addPendingFasovka() {
+  const wrap = document.getElementById('pc-fasovka');
+  const div = document.createElement('div');
+  div.className = 'pending-fasovka-row';
+  div.innerHTML = `
+    <input type="text" placeholder="напр. 200 г" class="pf-size" />
+    <input type="number" placeholder="цена ₽" class="pf-price" min="0" step="1" />
+    <button class="pf-rm" onclick="this.parentElement.remove()">×</button>`;
+  wrap.appendChild(div);
+}
+
+async function submitPendingCreate() {
+  if (!_pendingItem) return;
+  const name = document.getElementById('pc-name').value.trim();
+  const category = document.getElementById('pc-category').value;
+  const subcategory = document.getElementById('pc-subcategory').value;
+  const description = document.getElementById('pc-description').value.trim();
+  const country = document.getElementById('pc-country').value.trim();
+  if (!name || !category || !subcategory) {
+    alert('Заполни название, категорию и подкатегорию');
+    return;
+  }
+  const fasovka = [];
+  for (const row of document.querySelectorAll('#pc-fasovka .pending-fasovka-row')) {
+    const size = row.querySelector('.pf-size').value.trim();
+    const priceRaw = row.querySelector('.pf-price').value.trim();
+    if (!size && !priceRaw) continue;
+    const price = parseFloat(priceRaw);
+    if (!size || isNaN(price) || price <= 0) { alert('Каждая фасовка: размер и цена > 0'); return; }
+    fasovka.push({ size, price });
+  }
+  if (!fasovka.length) { alert('Добавь хотя бы одну фасовку'); return; }
+
+  const btn = document.getElementById('pc-submit');
+  btn.disabled = true; btn.textContent = 'Создаю…';
+  try {
+    const r = await fetch('/tma/api/admin/pending/create', {
+      method: 'POST',
+      headers: { ..._initDataHeader(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name, category, subcategory, fasovka, description, country,
+        stock: _pendingItem.qty || 0,
+      }),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || !j.ok) {
+      alert('Ошибка: ' + (j.error || r.status));
+      btn.disabled = false; btn.textContent = 'Создать карточку';
+      return;
+    }
+    if (window.Telegram?.WebApp?.HapticFeedback) {
+      try { Telegram.WebApp.HapticFeedback.notificationOccurred('success'); } catch(e){}
+    }
+    _pendingItem = null;
+    closePendingCreate();
+    await renderAdminProducts();  // полное обновление + бейджи
+  } catch (e) {
+    alert('Ошибка: ' + e.message);
+    btn.disabled = false; btn.textContent = 'Создать карточку';
+  }
+}
+
+function closePendingCreate() {
+  goTo('admin-products');
+  setAdmProdMode('pending');
 }
 
 function renderAdminProductsCats() {
