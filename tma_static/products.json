@@ -386,43 +386,6 @@
       "photo": "photos/products/c-танзания_аа.jpg"
     },
     {
-      "id": "c-руанда_нямашеки_хиллс",
-      "category": "coffee",
-      "subcategory": "coffee_espresso_mono",
-      "name": "Руанда Нямашеки Хиллс",
-      "country": "Руанда",
-      "roast": "EF",
-      "process": "Натуральная",
-      "description": "Сухофрукты, тёмные ягоды, цитрусы, чернослив, чёрный чай.",
-      "recipe_e": "☕ *Эспрессо (Руанда Нямашеки):*\n• Помол: мелкий (20–22 делений)\n• Навеска: 18 г\n• Выход: 36–40 г\n• Время: 26–30 сек\n• Температура: 92–93°C\n\n_Ягодная сладость хорошо балансируется плотным телом._",
-      "recipe_f": "🫖 *Фильтр (Руанда Нямашеки):*\n• Метод: аэропресс / пуровер\n• Помол: средний\n• Навеска: 15 г на 250 мл\n• Температура: 90–92°C\n• Время: 3–4 мин\n\n_Натуральная обработка даёт яркие ягодные ноты в фильтре._",
-      "fasovka": [
-        {
-          "size": "1 кг",
-          "price": 2863,
-          "photo": "photos/products/c-руанда_нямашеки_хиллс.jpg"
-        },
-        {
-          "size": "200 г",
-          "price": 655,
-          "photo": "photos/products/c-руанда_нямашеки_хиллс_200g.jpg"
-        }
-      ],
-      "stock": 0,
-      "tags": [],
-      "subcategories": [
-        "coffee_espresso_mono",
-        "coffee_filter_mono"
-      ],
-      "roast_descr": "обжарка под эспрессо",
-      "roast_date": "07.05.2026",
-      "batch": "1",
-      "photo": "photos/products/c-руанда_нямашеки_хиллс.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
-    },
-    {
       "id": "c-бразилия_серрадо_жёлтый_бурбон",
       "category": "coffee",
       "subcategory": "coffee_filter_mono",
