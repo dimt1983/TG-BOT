@@ -11053,6 +11053,909 @@
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+    },
+    {
+      "id": "c-дрип-пакет_кения_аа_валом_rbr",
+      "category": "coffee",
+      "subcategory": "coffee_drip_capsules",
+      "name": "Дрип-пакет Кения АА валом RBR",
+      "country": "Кения",
+      "roast": "F",
+      "process": "Мытая",
+      "description": "Красные ягоды, специи, малиновый джем, карамель.",
+      "recipe_e": "",
+      "recipe_f": "Вскипяти воду, остуди до 92–94°C. Поставь дрип-пакет на кружку, налей 30 мл, дай настояться 30 сек. Долей 170-200 мл в 2-3 захода.",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 550.0,
+          "photo": null
+        }
+      ],
+      "stock": 356,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr",
+      "category": "coffee",
+      "subcategory": "coffee_drip_capsules",
+      "name": "Дрип-пакет Эфиопия Иргачиф Арича гр.2 валом RBR",
+      "country": "Эфиопия",
+      "roast": "E",
+      "process": "Натуральная",
+      "description": "Абрикос, миндаль, цветы, чай с бергамотом.",
+      "recipe_e": "",
+      "recipe_f": "Вскипяти воду, остуди до 92–94°C. Поставь дрип-пакет на кружку, налей 30 мл, дай настояться 30 сек. Долей 170-200 мл в 2-3 захода.",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 465.0,
+          "photo": "photos/products/c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr.jpg"
+        }
+      ],
+      "stock": 197,
+      "tags": [],
+      "photo": "photos/products/c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr.jpg"
+    },
+    {
+      "id": "c-уганда_рувензори_сухой_-_эспрессо_1_кг",
+      "category": "coffee",
+      "subcategory": "coffee_espresso_mono",
+      "name": "Уганда Рувензори сухой -  эспрессо 1 кг",
+      "country": "Уганда",
+      "roast": "E",
+      "process": "Натуральная",
+      "description": "Шоколад, орехи, тост, сухофрукты. Q 81,75",
+      "recipe_e": "☕ *Эспрессо (Уганда Рувензор):*\n• Помол: мелкий (18–20 делений)\n• Навеска: 18 г\n• Выход: 36–40 г\n• Время: 25–29 сек\n• Температура: 92–93°C\n\n_Плотный, шоколадный, с поджаренными нотами. Идеал для капучино._",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2015.0,
+          "photo": "photos/products/c-уганда_рувензори_сухой_-_эспрессо_1_кг.jpg"
+        }
+      ],
+      "stock": 10,
+      "tags": [],
+      "photo": "photos/products/c-уганда_рувензори_сухой_-_эспрессо_1_кг.jpg"
+    },
+    {
+      "id": "c-эфиопия_yirgacheffe_gr_4_сухой_эспрессо_-_1_кг",
+      "category": "coffee",
+      "subcategory": "coffee_espresso_mono",
+      "name": "Эфиопия Yirgacheffe Gr 4 сухой эспрессо - 1 кг",
+      "country": "Эфиопия",
+      "roast": "E",
+      "process": "Натуральная",
+      "description": "Абрикос, горький шоколад, красные ягоды, цитрусовые.",
+      "recipe_e": "☕ *Эспрессо (Иргачиф гр.4):*\n• Помол: мелкий (20–22 делений)\n• Навеска: 18 г\n• Выход: 38–42 г\n• Время: 26–30 сек\n• Температура: 92–93°C\n\n_Яркий фруктово-ягодный эспрессо с горькошоколадным финишем._",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2175.0,
+          "photo": "photos/products/c-эфиопия_yirgacheffe_gr_4_сухой_эспрессо_-_1_кг.jpg"
+        }
+      ],
+      "stock": 114,
+      "tags": [],
+      "photo": "photos/products/c-эфиопия_yirgacheffe_gr_4_сухой_эспрессо_-_1_кг.jpg"
+    },
+    {
+      "id": "c-колумбия_гонзало_кармана_катура_сухой_-_1_кг_filte",
+      "category": "coffee",
+      "subcategory": "coffee_borshch",
+      "name": "Колумбия Гонзало Кармана Катура сухой - 1 кг FILTER",
+      "country": "Колумбия",
+      "roast": "F",
+      "process": "Натуральная",
+      "description": "Красные ягоды, красные фрукты, травяной чай, тростниковый сахар.",
+      "recipe_e": "",
+      "recipe_f": "🫖 *Фильтр (Колумбия Хайро Арсила):*\n• Метод: кемекс / пуровер\n• Помол: средний\n• Навеска: 15 г на 250 мл\n• Температура: 90–91°C\n• Время: 4–4.5 мин\n\n_Натуральная колумбия с ягодной сладостью и чайной нежностью._",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 3500.0,
+          "photo": "photos/products/c-колумбия_гонзало_кармана_катура_сухой_-_1_кг_filte.jpg"
+        }
+      ],
+      "stock": 4,
+      "tags": [],
+      "photo": "photos/products/c-колумбия_гонзало_кармана_катура_сухой_-_1_кг_filte.jpg",
+      "pair_id": "колумбия_гонзало_кармана_катура_сухой_-_1_кг_filte"
+    },
+    {
+      "id": "c-e_roastberry_бразилия_паже_упак_200_г",
+      "category": "coffee",
+      "subcategory": "coffee_espresso_mono",
+      "name": "E \"Roastberry\" Бразилия Паже упак. 200 г",
+      "country": "Бразилия",
+      "roast": "E",
+      "process": "Натуральная",
+      "description": "Цитрусы, жёлтое яблоко, карамель, жареные орехи, тёмный шоколад. Q 81,5",
+      "recipe_e": "☕ *Эспрессо (Бразилия Серрадо):*\n• Помол: мелкий (18–20 делений)\n• Навеска: 18 г\n• Выход: 36–40 г\n• Время: 25–30 сек\n• Температура: 93–94°C\n\n_Раскрывает карамель и орехи, добавляет телу плотность._",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 435.0,
+          "photo": "photos/products/c-e_roastberry_бразилия_паже_упак_200_г.jpg"
+        }
+      ],
+      "stock": 13,
+      "tags": [],
+      "photo": "photos/products/c-e_roastberry_бразилия_паже_упак_200_г.jpg"
+    },
+    {
+      "id": "c-e_roastberry_перу_схг_упак_200_г",
+      "category": "coffee",
+      "subcategory": "coffee_espresso_mono",
+      "name": "E \"Roastberry\" Перу СХГ упак. 200 г",
+      "country": "Перу",
+      "roast": "E",
+      "process": "Мытая",
+      "description": "Молочный шоколад, сухофрукты, цитрусы, выпечка, карамель.",
+      "recipe_e": "☕ *Эспрессо (Перу гр.1):*\n• Помол: мелкий (18–20 делений)\n• Навеска: 18 г\n• Выход: 36–40 г\n• Время: 25–30 сек\n• Температура: 93°C\n\n_Мягкий, молочно-шоколадный — идеальная основа для латте._",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 475.0,
+          "photo": "photos/products/c-e_roastberry_перу_схг_упак_200_г.jpg"
+        }
+      ],
+      "stock": 5,
+      "tags": [],
+      "photo": "photos/products/c-e_roastberry_перу_схг_упак_200_г.jpg"
+    },
+    {
+      "id": "m-напиток_б_а_кокосовый_green_milk_на_соевой_основе_",
+      "category": "milk",
+      "subcategory": "milk_main",
+      "name": "Напиток б/а кокосовый \"Green Milk\"на соевой основе \"Kokos professional\" 1л.",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 л",
+          "price": 166.0,
+          "photo": null
+        }
+      ],
+      "stock": 218,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "m-напиток_б_а_миндальный_green_milk_на_соевой_основе",
+      "category": "milk",
+      "subcategory": "milk_main",
+      "name": "Напиток б/а миндальный \"Green Milk\"на соевой основе \"Almond professional\" 1л.",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 л",
+          "price": 166.0,
+          "photo": null
+        }
+      ],
+      "stock": 181,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "m-напиток_б_а_фундучное_green_milk_на_соевой_основе_",
+      "category": "milk",
+      "subcategory": "milk_main",
+      "name": "Напиток б/а фундучное\"Green Milk\"на соевой основе \"Hazelnut professional\" 1л.",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 л",
+          "price": 166.0,
+          "photo": null
+        }
+      ],
+      "stock": 286,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "s-сироп_легендарная_кола_0_7_л_гербариста",
+      "category": "syrup",
+      "subcategory": "syr_herbarista",
+      "name": "Сироп Легендарная кола 0,7 л. Гербариста",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 шт",
+          "price": 771.0,
+          "photo": null
+        }
+      ],
+      "stock": 41,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "s-сироп_фейхоа_0_7_л_гербариста",
+      "category": "syrup",
+      "subcategory": "syr_herbarista",
+      "name": "Сироп Фейхоа 0,7 л. Гербариста",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 шт",
+          "price": 659.0,
+          "photo": null
+        }
+      ],
+      "stock": 2,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-np02_эрл_грей_чай_черный_пакет_с_ароматом_бергамот",
+      "category": "tea",
+      "subcategory": "tea_niktea_pyr",
+      "name": "NP02 Эрл Грей, чай черный пакет.с ароматом бергамота Pyra Pack 15*2,7г",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 шт",
+          "price": 280.0,
+          "photo": null
+        }
+      ],
+      "stock": 5,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-np03_сибирский_сбор_чай_пакет_с_ароматом_лесных_яг",
+      "category": "tea",
+      "subcategory": "tea_niktea_pyr",
+      "name": "NP03 Сибирский сбор, чай пакет.с ароматом лесных ягод Pyra Pack 15*2,7г",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 шт",
+          "price": 300.0,
+          "photo": null
+        }
+      ],
+      "stock": 5,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-np05_молочный_улун_чай_пакет_с_ароматом_молока_pyr",
+      "category": "tea",
+      "subcategory": "tea_niktea_pyr",
+      "name": "NP05 Молочный Улун, чай пакет.с ароматом молока Pyra Pack 15*2,7г",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 шт",
+          "price": 280.0,
+          "photo": null
+        }
+      ],
+      "stock": 11,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-np06_имбирный_тропик_чай_пакет_с_ароматом_манго_ма",
+      "category": "tea",
+      "subcategory": "tea_niktea_pyr",
+      "name": "NP06 Имбирный Тропик, чай пакет.с ароматом манго,маракуйя, бергам. Pyra Pack 15*2,7г",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 шт",
+          "price": 300.0,
+          "photo": null
+        }
+      ],
+      "stock": 10,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-nr01_русский_завтрак_чай_черный_пакет_pyra_pack_15",
+      "category": "tea",
+      "subcategory": "tea_niktea_pyr",
+      "name": "NR01 Русский Завтрак, чай черный пакет. Pyra Pack 15*2,7г",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 шт",
+          "price": 330.0,
+          "photo": null
+        }
+      ],
+      "stock": 8,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-nr07_лесная_медитация_чай_пакет_травяной_pyra_pack",
+      "category": "tea",
+      "subcategory": "tea_niktea_pyr",
+      "name": "NR07 Лесная Медитация, чай пакет.травяной Pyra Pack 15*2,7г",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 шт",
+          "price": 300.0,
+          "photo": null
+        }
+      ],
+      "stock": 12,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-nr08_клубничная_панна-котта_чай_пакет_с_ароматом_к",
+      "category": "tea",
+      "subcategory": "tea_niktea_pyr",
+      "name": "NR08 Клубничная Панна-Котта, чай пакет.с ароматом клубники и мол.карамели Pyra Pack 15*2,7г",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 шт",
+          "price": 360.0,
+          "photo": null
+        }
+      ],
+      "stock": 14,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-ts12_черный_купаж_со_специями_чай_черн_крупн_имбир",
+      "category": "tea",
+      "subcategory": "tea_niktea_loose",
+      "name": "TS12 Черный купаж со специями (чай черн.крупн,имбирь,корица,черн.перец,кардамон,цедра апел) 250г",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "250 г",
+          "price": 1750.0,
+          "photo": null
+        }
+      ],
+      "stock": 1,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-ts19_лаванда_чайн_нап_трав_на_основе_раст_сырья_10",
+      "category": "tea",
+      "subcategory": "tea_niktea_loose",
+      "name": "TS19 Лаванда, чайн.нап.трав.на основе раст.сырья 100 г",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 шт",
+          "price": 620.0,
+          "photo": null
+        }
+      ],
+      "stock": 3,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-ts29_анчан_черный_нап_на_основе_раст_сырья_100_г",
+      "category": "tea",
+      "subcategory": "tea_niktea_loose",
+      "name": "TS29 Анчан, черный нап.на основе раст.сырья 100 г",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 шт",
+          "price": 620.0,
+          "photo": null
+        }
+      ],
+      "stock": 2,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-чн640_сицилийский_лимон_lemon_basic_600_г_зеленый_",
+      "category": "tea",
+      "subcategory": "tea_niktea_loose",
+      "name": "ЧН640 Сицилийский Лимон/ Lemon Basic, 600 г.(зеленый чай, цедра апельсина, лемонграсс, липа)",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 шт",
+          "price": 890.0,
+          "photo": null
+        }
+      ],
+      "stock": 2,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-чн660_энергия_herbal_basic_400_г_лемонграсс_мята_ш",
+      "category": "tea",
+      "subcategory": "tea_niktea_loose",
+      "name": "ЧН660 Энергия / Herbal Basic, 400 г.(лемонграсс, мята, шиповник, цедра апельсина, гибискус, ромашка)",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 шт",
+          "price": 890.0,
+          "photo": null
+        }
+      ],
+      "stock": 8,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-rb_tea_екатерина_великая_250_г_черный_чай_суданска",
+      "category": "tea",
+      "subcategory": "tea_rbr_tea_loose",
+      "name": "RB TEA Екатерина Великая 250 г (черный чай, суданская роза, лист черной смородины)",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "250 г",
+          "price": 590.0,
+          "photo": null
+        }
+      ],
+      "stock": 6,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-rb_tea_масала_250_г_черный_индийский_чай_бадьян_ко",
+      "category": "tea",
+      "subcategory": "tea_rbr_tea_loose",
+      "name": "RB TEA Масала 250 г (черный индийский чай, Бадьян, корица, лемонграс, роза, шиповник, апельсин)",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "250 г",
+          "price": 690.0,
+          "photo": null
+        }
+      ],
+      "stock": 1,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-rb_tea_молочный_улун_250_г_светлый_улун_ароматизат",
+      "category": "tea",
+      "subcategory": "tea_rbr_tea_loose",
+      "name": "RB TEA Молочный улун 250 г (светлый улун, ароматизатор Най сянь, классический сливочный вкус)",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "250 г",
+          "price": 890.0,
+          "photo": null
+        }
+      ],
+      "stock": 16,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-зеленый_-_люй_чжу_200_г_зеленый_скрученный_200_г_а",
+      "category": "tea",
+      "subcategory": "tea_китайский_чай_loose",
+      "name": "Зеленый - ЛЮЙ ЧЖУ 200 г (зеленый скрученный) 200 г аромат: трава, вкус: трава, горький вкус",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 1410.0,
+          "photo": null
+        }
+      ],
+      "stock": 9,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-зеленый_-_моли_хуа_ча_с_жасмином_200_г_аромат_трав",
+      "category": "tea",
+      "subcategory": "tea_китайский_чай_loose",
+      "name": "Зеленый - МОЛИ ХУА ЧА (с Жасмином) 200 г, Аромат: трава, цветы, Вкус: трава, жасмин, гвоздик",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 1018.37,
+          "photo": null
+        }
+      ],
+      "stock": 2,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-зеленый_-_юнь_у_200_г_аромат_луговые_травы_вкус_лу",
+      "category": "tea",
+      "subcategory": "tea_китайский_чай_loose",
+      "name": "Зеленый - ЮНЬ У 200 г, Аромат:луговые травы, вкус: луговые травы, мята. Сладко-горький",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 1565.0,
+          "photo": null
+        }
+      ],
+      "stock": 2,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-пуэр_с_доб_-_пуэр_с_чабрецом_200_г_аромат_чабрец_г",
+      "category": "tea",
+      "subcategory": "tea_китайский_чай_loose",
+      "name": "Пуэр с доб - ПУЭР С ЧАБРЕЦОМ 200 г Аромат:Чабрец, грибы, какао, Вкус:Какао, фундук, грибы, чабре",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 1568.0,
+          "photo": null
+        }
+      ],
+      "stock": 4,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-травяной_-_лада_200_г_иван-чай_красный_чай_курильс",
+      "category": "tea",
+      "subcategory": "tea_китайский_чай_loose",
+      "name": "Травяной - ЛАДА 200 г Иван-чай, Красный чай, Курильский чай, Душица, Смородина,Колендуола,Боярышник",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 1250.0,
+          "photo": null
+        }
+      ],
+      "stock": 1,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-травяной_-_фиточай_с_ромашкой_200_г_иван-чай_зизиф",
+      "category": "tea",
+      "subcategory": "tea_китайский_чай_loose",
+      "name": "Травяной - ФИТОЧАЙ С РОМАШКОЙ 200 г(Иван-чай, Зизифора, Зверобой, Душица, Эхинацея, Левзея, Ромашка",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 1205.0,
+          "photo": null
+        }
+      ],
+      "stock": 22,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-улун_-_да_хун_пао_100_нун_сян_200_г_вкус_хлебная_к",
+      "category": "tea",
+      "subcategory": "tea_китайский_чай_loose",
+      "name": "Улун - ДА ХУН ПАО № 100 НУН СЯН, 200 г Вкус: хлебная корочка, мед, орхидея, кориандр, ваниль",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 1490.0,
+          "photo": null
+        }
+      ],
+      "stock": 6,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-фруктовый_-тропический_микс_200_г_гибискус_суш_ябл",
+      "category": "tea",
+      "subcategory": "tea_китайский_чай_loose",
+      "name": "Фруктовый -ТРОПИЧЕСКИЙ МИКС 200 г (гибискус,суш.яблоко,клубника,лепест василька,календула, шиповник)",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 1025.0,
+          "photo": null
+        }
+      ],
+      "stock": 7,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-черный_-_ассам_200_г_аромат_дерево_чернослив_вкус_",
+      "category": "tea",
+      "subcategory": "tea_китайский_чай_loose",
+      "name": "Черный - АССАМ  200 г, Аромат:дерево, чернослив, Вкус: дерево, чернослив, сдоба.Терпкий",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 750.0,
+          "photo": null
+        }
+      ],
+      "stock": 1,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-черный_-_цейлон_200_г_аромат_дерево_мед_вкус_дерев",
+      "category": "tea",
+      "subcategory": "tea_китайский_чай_loose",
+      "name": "Черный - ЦЕЙЛОН 200 г Аромат:дерево, мед, Вкус: дерево, сдоба",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 550.37,
+          "photo": null
+        }
+      ],
+      "stock": 6,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-чай_ганпаудер_премиум_зеленый_0_5кг_",
+      "category": "tea",
+      "subcategory": "tea_niktea_loose",
+      "name": "Чай Ганпаудер Премиум, зеленый, 0,5кг.",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "250 г",
+          "price": 728.0,
+          "photo": null
+        }
+      ],
+      "stock": 0,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-чай_колесо_фортуны_kf_фруктовый_аром_1кг",
+      "category": "tea",
+      "subcategory": "tea_китайский_чай_loose",
+      "name": "Чай Колесо Фортуны KF фруктовый аром. 1кг",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "250 г",
+          "price": 1770.0,
+          "photo": null
+        }
+      ],
+      "stock": 4,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-чай_леди_земляника_kf_черный_байх_лист_1кг",
+      "category": "tea",
+      "subcategory": "tea_китайский_чай_loose",
+      "name": "Чай Леди Земляника KF черный байх.лист.1кг",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 615.04,
+          "photo": null
+        }
+      ],
+      "stock": 4,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-чай_сигурд_pu-erh_черный_лист_250гр_",
+      "category": "tea",
+      "subcategory": "tea_китайский_чай_loose",
+      "name": "Чай Сигурд \"Pu-Erh\" черный лист 250гр.",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 615.04,
+          "photo": null
+        }
+      ],
+      "stock": 1,
+      "tags": [],
+      "photo": null
     }
   ]
 }
