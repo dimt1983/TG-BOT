@@ -130,10 +130,16 @@ def find_product_id(con, item_name: str, fasovka: str):
 
 
 def _ensure_tma_id_column(con) -> None:
-    """Идемпотентная миграция: добавляет order_items.tma_id если ещё нет."""
+    """Идемпотентная миграция: добавляет order_items.tma_id и roast_choice если ещё нет."""
     cols = {r[1] for r in con.execute("PRAGMA table_info(order_items)").fetchall()}
+    changed = False
     if "tma_id" not in cols:
         con.execute("ALTER TABLE order_items ADD COLUMN tma_id TEXT")
+        changed = True
+    if "roast_choice" not in cols:
+        con.execute("ALTER TABLE order_items ADD COLUMN roast_choice TEXT")
+        changed = True
+    if changed:
         con.commit()
 
 
@@ -252,10 +258,12 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
         # tma_id (строковый id из products.json) — нужен админке чтобы точно
         # отличить E-обжарку от F-обжарки у товаров с одинаковым именем.
         tma_id = (it.get("id") or "")[:128]
+        # roast_choice — выбор клиента для EF-карточек (один товар, два рецепта)
+        roast_choice = (it.get("roast_choice") or "").strip().upper()[:2] or None
         con.execute(
-            "INSERT INTO order_items (order_id, product_id, quantity, price, tma_id) "
-            "VALUES (?, ?, ?, ?, ?)",
-            (order_id, pid, it["qty"], it["price"], tma_id or None),
+            "INSERT INTO order_items (order_id, product_id, quantity, price, tma_id, roast_choice) "
+            "VALUES (?, ?, ?, ?, ?, ?)",
+            (order_id, pid, it["qty"], it["price"], tma_id or None, roast_choice),
         )
         # Списание остатка (если есть колонка)
         try:
@@ -428,6 +436,9 @@ async def process_tma_order(
             meta = _roast_map.get(tid) or {}
             r = (meta.get("roast") or "").strip().upper()
             if not r: return ""
+            choice = (item.get("roast_choice") or "").strip().upper()
+            if r in ("EF", "E F") and choice in ("E", "F"):
+                return "🔴E " if choice == "E" else "🟢F "
             if r in ("E", "BE"):       return "🔴E "
             if r in ("F", "BF"):       return "🟢F "
             if r in ("EF", "E F"):     return "🔴E🟢F "
