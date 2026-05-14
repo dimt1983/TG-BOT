@@ -39,7 +39,10 @@ TMA_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tma_static"
 PRICE_SYNC_ENABLED = os.environ.get("BISHOP_PRICE_SYNC", "1") != "0"
 
 DB_PATH = os.environ.get("DB_PATH", "/app/data/shop.db")
-API_ORDERS_TOKEN = os.environ.get("API_ORDERS_TOKEN", "")
+
+
+def _api_orders_token() -> str:
+    return os.environ.get("API_ORDERS_TOKEN", "")
 
 # Администраторы TMA: user_id из Telegram.
 # Унифицируем со списком админов бота (admin.ADMIN_IDS) — добавление одного юзера
@@ -93,6 +96,10 @@ def set_tma_api_handler(bot, get_db, notify_new_order, main_loop, bot_token,
     }
     try:
         _ensure_chat_table()
+    except Exception:
+        pass
+    try:
+        _ensure_pricing_schema()
     except Exception:
         pass
 
@@ -219,6 +226,111 @@ def _ensure_chat_table():
         con.close()
 
 
+# Бьёт повторные webhook'и Девида (POST /orders). Гибрид:
+#   - explicit idempotency_key из payload → key="ext:<token>", навечно
+#   - auto: sha256(phone+items) + 120-сек bucket → key="auto:..." c TTL
+# Окно auto-режима выбрано так, чтобы поймать ретраи сети, но не блокировать
+# реальный повторный заказ через несколько минут.
+_IDEM_WINDOW_SEC = 120
+
+def _ensure_pricing_schema():
+    """Миграция под спецусловия клиентов: users.price_tier + таблица user_pricing.
+
+    price_tier:
+      'standard'     — базовая колонка прайса (1кг / 200г)
+      'discount_10'  — колонка 10кг / 10кг_200 (Bishop'овский опт-прайс)
+      'discount_20'  — колонка 25кг / 25кг_200
+      'stm'          — отдельный СТМ-прайс (источник у Bishop, пока stub)
+
+    user_pricing (поверх tier):
+      scope='category'  — на категорию (target_id='syrup'|'tea'|'milk'|...)
+      scope='subcategory' — на subcategory из products.json
+      scope='product'   — на конкретный товар (target_id=tma_id; fasovka опц.)
+      Либо discount_pct (0..100), либо fixed_price. Не оба сразу.
+    """
+    con = sqlite3.connect(DB_PATH)
+    try:
+        cols = {r[1] for r in con.execute("PRAGMA table_info(users)").fetchall()}
+        if "price_tier" not in cols:
+            con.execute("ALTER TABLE users ADD COLUMN price_tier TEXT DEFAULT 'standard'")
+        con.execute("""CREATE TABLE IF NOT EXISTS user_pricing (
+            id           INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id      INTEGER NOT NULL,
+            scope        TEXT NOT NULL,
+            target_id    TEXT,
+            discount_pct REAL,
+            fixed_price  REAL,
+            fasovka      TEXT,
+            created_at   TEXT DEFAULT (datetime('now')),
+            UNIQUE(user_id, scope, target_id, fasovka)
+        )""")
+        con.execute(
+            "CREATE INDEX IF NOT EXISTS idx_pricing_user ON user_pricing(user_id)"
+        )
+        con.commit()
+    finally:
+        con.close()
+
+
+def _ensure_idempotency_table():
+    con = sqlite3.connect(DB_PATH)
+    try:
+        con.execute("""CREATE TABLE IF NOT EXISTS external_idempotency (
+            key        TEXT PRIMARY KEY,
+            order_id   INTEGER NOT NULL,
+            created_at TEXT DEFAULT (datetime('now'))
+        )""")
+        con.commit()
+    finally:
+        con.close()
+
+
+def _items_hash(items: list) -> str:
+    normalized = sorted(
+        (str(it.get("product_name", "")).strip().lower(),
+         float(it.get("quantity", 0) or 0))
+        for it in items if it.get("product_name")
+    )
+    blob = json.dumps(normalized, ensure_ascii=False, separators=(",", ":"))
+    return hashlib.sha256(blob.encode()).hexdigest()[:16]
+
+
+def _idem_keys(payload: dict) -> list[str]:
+    """Список ключей для проверки. Первый — для записи нового заказа."""
+    explicit = str(payload.get("idempotency_key", "")).strip()
+    if explicit:
+        return [f"ext:{explicit[:128]}"]
+    phone = re.sub(r"\D", "", str(payload.get("client_phone", "")))
+    if not phone:
+        return []
+    ih = _items_hash(payload.get("items") or [])
+    bucket = int(time.time() // _IDEM_WINDOW_SEC)
+    # Проверяем текущее окно + предыдущее (чтобы не промахнуться на границе).
+    return [f"auto:{phone}:{ih}:{bucket}", f"auto:{phone}:{ih}:{bucket - 1}"]
+
+
+def _idem_lookup(con: sqlite3.Connection, keys: list[str]) -> int | None:
+    if not keys:
+        return None
+    placeholders = ",".join("?" * len(keys))
+    row = con.execute(
+        f"SELECT order_id FROM external_idempotency WHERE key IN ({placeholders}) "
+        f"ORDER BY created_at DESC LIMIT 1",
+        keys,
+    ).fetchone()
+    return row[0] if row else None
+
+
+def _idem_remember(con: sqlite3.Connection, key: str, order_id: int):
+    try:
+        con.execute(
+            "INSERT OR IGNORE INTO external_idempotency (key, order_id) VALUES (?, ?)",
+            (key, order_id),
+        )
+    except Exception:
+        pass
+
+
 _SYNC_CACHE = {"data": None, "ts": 0.0}
 _SYNC_CACHE_TTL = 30.0  # секунд
 
@@ -284,9 +396,10 @@ def verify_tma_init_data(init_data: str, bot_token: str) -> dict | None:
 
 
 def _check_bearer(handler) -> bool:
-    if not API_ORDERS_TOKEN:
+    token = _api_orders_token()
+    if not token:
         return False
-    return handler.headers.get("Authorization", "") == f"Bearer {API_ORDERS_TOKEN}"
+    return handler.headers.get("Authorization", "") == f"Bearer {token}"
 
 
 def verify_tg_login_widget(payload: dict, bot_token: str) -> dict | None:
@@ -391,7 +504,7 @@ def _get_request_user(handler) -> dict | None:
     if auth.startswith("Bearer "):
         token = auth[7:].strip()
         # Не путаем с API_ORDERS_TOKEN (это серверный токен для David'а)
-        if token and token != API_ORDERS_TOKEN:
+        if token and token != _api_orders_token():
             payload = jwt_verify(token)
             if payload and payload.get("id"):
                 return {
@@ -546,6 +659,28 @@ class Handler(BaseHTTPRequestHandler):
                            "application/json; charset=utf-8")
                 return
             status, rbody, rctype = _proxy_shop_admin("GET", "/admin/products")
+            self._send(status, rbody, rctype, {"Cache-Control": "no-cache"})
+            return
+
+        # ── /tma/api/admin/quarantine → прокси на VPS ─────────────────────────
+        if path == "/tma/api/admin/quarantine":
+            user = _get_request_user(self)
+            if not (user and user.get("id") in ADMIN_IDS):
+                self._send(403, _j({"error": "Доступ запрещён"}),
+                           "application/json; charset=utf-8")
+                return
+            status, rbody, rctype = _proxy_shop_admin("GET", "/admin/quarantine")
+            self._send(status, rbody, rctype, {"Cache-Control": "no-cache"})
+            return
+
+        # ── /tma/api/admin/pending → прокси на VPS ────────────────────────────
+        if path == "/tma/api/admin/pending":
+            user = _get_request_user(self)
+            if not (user and user.get("id") in ADMIN_IDS):
+                self._send(403, _j({"error": "Доступ запрещён"}),
+                           "application/json; charset=utf-8")
+                return
+            status, rbody, rctype = _proxy_shop_admin("GET", "/admin/pending")
             self._send(status, rbody, rctype, {"Cache-Control": "no-cache"})
             return
 
@@ -895,6 +1030,60 @@ class Handler(BaseHTTPRequestHandler):
             self._send(status, rbody, rctype)
             return
 
+        # ── Удалить товар (admin) → прокси на VPS ──────────────────────────
+        m_del = re.match(r"^/tma/api/admin/product/([^/]+)/delete$", path)
+        if m_del:
+            user = _get_request_user(self)
+            if not (user and user.get("id") in ADMIN_IDS):
+                self._send(403, _j({"error": "Доступ запрещён"}),
+                           "application/json; charset=utf-8")
+                return
+            tma_id = unquote(m_del.group(1))
+            status, rbody, rctype = _proxy_shop_admin(
+                "POST", f"/admin/product/{quote(tma_id, safe='')}/delete",
+                body=b"", content_type="application/json",
+            )
+            self._send(status, rbody, rctype)
+            return
+
+        # ── Создать карточку из pending (admin) → прокси на VPS ─────────────
+        if path == "/tma/api/admin/pending/create":
+            user = _get_request_user(self)
+            if not (user and user.get("id") in ADMIN_IDS):
+                self._send(403, _j({"error": "Доступ запрещён"}),
+                           "application/json; charset=utf-8")
+                return
+            try:
+                clen = int(self.headers.get("Content-Length", "0") or "0")
+            except ValueError:
+                clen = 0
+            raw = self.rfile.read(clen) if clen > 0 else b""
+            status, rbody, rctype = _proxy_shop_admin(
+                "POST", "/admin/pending/create",
+                body=raw, content_type="application/json",
+            )
+            self._send(status, rbody, rctype)
+            return
+
+        # ── Убрать позицию из pending без создания (admin) ──────────────────
+        if path == "/tma/api/admin/pending/discard":
+            user = _get_request_user(self)
+            if not (user and user.get("id") in ADMIN_IDS):
+                self._send(403, _j({"error": "Доступ запрещён"}),
+                           "application/json; charset=utf-8")
+                return
+            try:
+                clen = int(self.headers.get("Content-Length", "0") or "0")
+            except ValueError:
+                clen = 0
+            raw = self.rfile.read(clen) if clen > 0 else b""
+            status, rbody, rctype = _proxy_shop_admin(
+                "POST", "/admin/pending/discard",
+                body=raw, content_type="application/json",
+            )
+            self._send(status, rbody, rctype)
+            return
+
         # ── Правка товара (admin) → прокси на VPS как PATCH ────────────────
         m_prod = re.match(r"^/tma/api/admin/product/([^/]+)$", path)
         if m_prod:
@@ -1057,6 +1246,126 @@ class Handler(BaseHTTPRequestHandler):
                 self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
             return
 
+        # ── POST /tma/api/admin/user/<id> — апдейт профиля (реквизиты + tier) ─
+        m_user_upd = re.match(r"^/tma/api/admin/user/(\d+)$", path)
+        if m_user_upd:
+            user = _get_request_user(self)
+            if not (user and user.get("id") in ADMIN_IDS):
+                self._send(403, _j({"error": "Доступ запрещён"}),
+                           "application/json; charset=utf-8")
+                return
+            uid = int(m_user_upd.group(1))
+            payload = self._read_body()
+            ALLOWED_FIELDS = {
+                "user_type", "name", "phone", "email",
+                "company_name", "inn", "legal_address", "actual_address",
+                "price_tier",
+            }
+            VALID_TIERS = {"standard", "discount_10", "discount_20", "stm"}
+            updates = {}
+            for k, v in (payload or {}).items():
+                if k not in ALLOWED_FIELDS:
+                    continue
+                if v is None:
+                    continue
+                sv = str(v).strip()
+                if k == "price_tier" and sv and sv not in VALID_TIERS:
+                    self._send(400, _j({"error": f"price_tier must be one of {sorted(VALID_TIERS)}"}),
+                               "application/json; charset=utf-8")
+                    return
+                updates[k] = sv
+            if not updates:
+                self._send(400, _j({"error": "no fields to update"}),
+                           "application/json; charset=utf-8")
+                return
+            try:
+                _ensure_pricing_schema()
+                con = sqlite3.connect(DB_PATH)
+                con.row_factory = sqlite3.Row
+                try:
+                    row = con.execute("SELECT 1 FROM users WHERE user_id=?", (uid,)).fetchone()
+                    if not row:
+                        self._send(404, _j({"error": "Клиент не найден"}),
+                                   "application/json; charset=utf-8")
+                        return
+                    set_clause = ", ".join(f"{k}=?" for k in updates.keys())
+                    con.execute(
+                        f"UPDATE users SET {set_clause} WHERE user_id=?",
+                        (*updates.values(), uid),
+                    )
+                    con.commit()
+                    u = con.execute("SELECT * FROM users WHERE user_id=?", (uid,)).fetchone()
+                finally:
+                    con.close()
+                self._send(200, _j({"ok": True, "user": dict(u)}),
+                           "application/json; charset=utf-8")
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
+            return
+
+        # ── POST /tma/api/admin/dm/<id> — DM админа клиенту (без привязки к заказу) ─
+        m_dm = re.match(r"^/tma/api/admin/dm/(\d+)$", path)
+        if m_dm:
+            user = _get_request_user(self)
+            if not (user and user.get("id") in ADMIN_IDS):
+                self._send(403, _j({"error": "Доступ запрещён"}),
+                           "application/json; charset=utf-8")
+                return
+            target_uid = int(m_dm.group(1))
+            payload = self._read_body()
+            text = (payload.get("text") or "").strip()
+            if not text:
+                self._send(400, _j({"error": "text required"}),
+                           "application/json; charset=utf-8")
+                return
+            if len(text) > 2000:
+                self._send(400, _j({"error": "too long"}),
+                           "application/json; charset=utf-8")
+                return
+            admin_full = " ".join(filter(None, [user.get("first_name"), user.get("last_name")])) \
+                or user.get("username") or "Поддержка"
+            if _TMA_CTX is None:
+                self._send(503, _j({"error": "API не инициализирован"}),
+                           "application/json; charset=utf-8")
+                return
+            note = f"💬 <b>Сообщение от {admin_full}:</b>\n\n{text}"
+            # Пишем в chat_messages для истории (order_id=0 — DM вне заказа)
+            try:
+                _ensure_chat_table()
+                con = sqlite3.connect(DB_PATH)
+                try:
+                    con.execute(
+                        "INSERT INTO chat_messages "
+                        "(order_id, user_id, user_name, is_admin, text) VALUES (0,?,?,1,?)",
+                        (target_uid, admin_full, text),
+                    )
+                    con.commit()
+                finally:
+                    con.close()
+            except Exception:
+                pass
+            # Шлём в Telegram. Ловим ошибки доставки.
+            send_result = {"ok": True}
+            async def _send_dm():
+                try:
+                    await _TMA_CTX["bot"].send_message(target_uid, note, parse_mode="HTML")
+                except Exception as e:
+                    send_result["ok"] = False
+                    send_result["error"] = str(e)
+            try:
+                fut = asyncio.run_coroutine_threadsafe(_send_dm(), _TMA_CTX["loop"])
+                fut.result(timeout=10)
+            except Exception as e:
+                send_result = {"ok": False, "error": str(e)}
+            if not send_result["ok"]:
+                err = send_result.get("error", "")
+                hint = "Клиент заблокировал бота или ещё не начинал диалог" if "blocked" in err.lower() or "chat not found" in err.lower() else err
+                self._send(502, _j({"ok": False, "error": hint}),
+                           "application/json; charset=utf-8")
+                return
+            self._send(200, _j({"ok": True}), "application/json; charset=utf-8")
+            return
+
         self._send(404, b"Not found", "text/plain")
 
     def _handle_tma_order(self):
@@ -1188,6 +1497,37 @@ class Handler(BaseHTTPRequestHandler):
             self._send(400, _j({"error": "client_phone and items required"}),
                        "application/json; charset=utf-8")
             return
+
+        # Idempotency: ловим повторный webhook (сеть, ретрай Девида).
+        _ensure_idempotency_table()
+        idem_keys = _idem_keys(payload)
+        if idem_keys:
+            try:
+                con_idem = sqlite3.connect(DB_PATH)
+                con_idem.row_factory = sqlite3.Row
+                try:
+                    dup_oid = _idem_lookup(con_idem, idem_keys)
+                    if dup_oid:
+                        existing = con_idem.execute(
+                            "SELECT id, total, discount, "
+                            "(SELECT COUNT(*) FROM order_items WHERE order_id=orders.id) AS items_count "
+                            "FROM orders WHERE id=?", (dup_oid,)
+                        ).fetchone()
+                        if existing:
+                            self._send(200, _j({
+                                "status": "ok",
+                                "order_id": existing["id"],
+                                "total": existing["total"],
+                                "discount_pct": existing["discount"],
+                                "items_count": existing["items_count"],
+                                "duplicate": True,
+                            }), "application/json; charset=utf-8")
+                            return
+                finally:
+                    con_idem.close()
+            except Exception as e:
+                print(f"[idempotency] lookup failed: {e}")
+
         try:
             con = sqlite3.connect(DB_PATH)
             con.row_factory = sqlite3.Row
@@ -1285,6 +1625,8 @@ class Handler(BaseHTTPRequestHandler):
                         "VALUES (?,?,?,?)",
                         (order_id, ri["product_id"], ri["quantity"], ri["price"]),
                     )
+                if idem_keys:
+                    _idem_remember(con, idem_keys[0], order_id)
                 con.commit()
             finally:
                 con.close()

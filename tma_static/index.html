@@ -1244,6 +1244,7 @@ let currentProduct = null;
 let currentFasovka = null;
 let currentQty = 1;
 let currentTab = 'desc';
+let currentRoastChoice = null;  // 'E' | 'F' для EF-карточек (товар «и эспрессо и фильтр»)
 
 // Принадлежит ли товар данной (под)категории — учёт массива subcategories для EF-сортов
 function productInSub(p, subId) {
@@ -1846,6 +1847,16 @@ function openProduct(pid) {
   currentQty = 1;
   // Выбираем активный таб: если есть recipe_e — эспрессо, иначе фильтр, иначе описание
   currentTab = 'desc';
+  // EF-карточки: если контекст однозначный — авто-выбор; иначе клиент должен выбрать руками
+  const r0 = (currentProduct.roast || '').toUpperCase();
+  const ctx0 = currentSubcat || '';
+  if (r0 === 'EF' || r0 === 'E F') {
+    if (ctx0.startsWith('coffee_espresso')) currentRoastChoice = 'E';
+    else if (ctx0.startsWith('coffee_filter') || ctx0 === 'coffee_black' || ctx0 === 'coffee_borshch') currentRoastChoice = 'F';
+    else currentRoastChoice = null;
+  } else {
+    currentRoastChoice = null;
+  }
   renderSheet();
   document.getElementById('modal-bg').classList.add('show');
   document.getElementById('sheet').classList.add('show');
@@ -1950,6 +1961,20 @@ function renderSheet() {
       </div>
       <div class="tab-content">${tabContent}</div>
 
+      ${(p.roast || '').toUpperCase().replace(/\s/g,'') === 'EF' ? `
+      <div style="margin-top:18px;font-size:13px;font-weight:700;color:var(--hint)">Способ приготовления</div>
+      <div class="fasovka-options">
+        <div class="fasovka-opt ${currentRoastChoice==='E'?'selected':''}" onclick="selectRoast('E')">
+          <div class="size">🔴 Эспрессо</div>
+          <div class="price">для рожковой</div>
+        </div>
+        <div class="fasovka-opt ${currentRoastChoice==='F'?'selected':''}" onclick="selectRoast('F')">
+          <div class="size">🟢 Фильтр</div>
+          <div class="price">V60 / кемекс</div>
+        </div>
+      </div>
+      ` : ''}
+
       <div style="margin-top:18px;font-size:13px;font-weight:700;color:var(--hint)">Фасовка</div>
       <div class="fasovka-options">
         ${detailFasovka(p).map((f, i) => `
@@ -1967,12 +1992,17 @@ function renderSheet() {
         <span style="margin-left:auto;font-weight:800;font-size:17px;color:var(--primary-dark)">${totalPrice} ₽</span>
       </div>
 
-      <button class="btn-primary" style="margin-top:14px" onclick="addToCart()">${currentFasovka.on_request ? 'Спросить в боте' : 'В корзину · ' + totalPrice + ' ₽'}</button>
+      ${(p.roast || '').toUpperCase().replace(/\s/g,'') === 'EF' && !currentRoastChoice ? `
+        <button class="btn-primary" style="margin-top:14px;opacity:0.55;cursor:not-allowed" disabled>Выбери ☕ Эспрессо или 🫖 Фильтр</button>
+      ` : `
+        <button class="btn-primary" style="margin-top:14px" onclick="addToCart()">${currentFasovka.on_request ? 'Спросить в боте' : 'В корзину · ' + totalPrice + ' ₽'}</button>
+      `}
     </div>
   `;
 }
 function setTab(t) { currentTab = t; renderSheet(); }
 function selectFasovka(i) { currentFasovka = detailFasovka(currentProduct)[i]; renderSheet(); }
+function selectRoast(c) { currentRoastChoice = c; renderSheet(); }
 function changeQty(d) { currentQty = Math.max(1, currentQty + d); renderSheet(); }
 
 function addToCart() {
@@ -1984,6 +2014,12 @@ function addToCart() {
     if (tg?.openTelegramLink) tg.openTelegramLink(url); else window.open(url, '_blank');
     return;
   }
+  // EF-карточка — без явного выбора способа приготовления в корзину нельзя
+  const roastUp = (currentProduct.roast || '').toUpperCase().replace(/\s/g,'');
+  if (roastUp === 'EF' && !currentRoastChoice) {
+    toast('Выбери ☕ Эспрессо или 🫖 Фильтр');
+    return;
+  }
   // ID той карточки, чьей фасовкой пользуемся (для пары — может отличаться от currentProduct.id)
   const sourceId = currentFasovka._source_id || currentProduct.id;
   const sourceCard = DATA.products.find(x => x.id === sourceId) || currentProduct;
@@ -1992,6 +2028,7 @@ function addToCart() {
     fasovka: currentFasovka.size, price: currentFasovka.price,
     qty: currentQty, category: sourceCard.category,
     photo: currentFasovka._photo || sourceCard.photo || null,
+    roast_choice: roastUp === 'EF' ? currentRoastChoice : undefined,
   });
   localStorage.setItem('rb_cart', JSON.stringify(cart));
   renderCartBadge();
@@ -2292,6 +2329,7 @@ function confirmOrder() {
     items: cart.map(it => ({
       id: it.id, name: it.name, fasovka: it.fasovka,
       price: it.price, qty: it.qty, category: it.category,
+      ...(it.roast_choice ? { roast_choice: it.roast_choice } : {}),
     })),
     subtotal: t.subtotal,
     discount_pct: t.pct,
@@ -2987,7 +3025,18 @@ async function openAdminUser(userId) {
   }
 }
 
+// Кэш текущего открытого admin-user
+let _currentAdminUser = null;
+
+const TIER_LABELS = {
+  standard:    'Стандартный (база)',
+  discount_10: '−10% (опт. 10кг)',
+  discount_20: '−20% (опт. 25кг)',
+  stm:         'СТМ (отдельный прайс)',
+};
+
 function renderAdminUser(u) {
+  _currentAdminUser = u;
   document.getElementById('admin-user-title').textContent =
     u.name || u.tg_name || ('Клиент #' + u.user_id);
   const ordersHtml = (u.orders || []).map(o => {
@@ -3000,19 +3049,128 @@ function renderAdminUser(u) {
       <div class="order-foot"><div class="order-total">${_fmtMoney(o.total)}</div></div>
     </div>`;
   }).join('');
+
+  const isCompany = (u.user_type || 'individual') === 'company';
+  const tier = u.price_tier || 'standard';
+  const inp = (id, val, ph) =>
+    `<input id="adu-${id}" value="${_escape(val ?? '')}" placeholder="${_escape(ph || '')}" `
+    + `style="width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:var(--bg)">`;
+
   document.getElementById('admin-user-detail').innerHTML = `
-    <div class="profile-card">
-      <div class="profile-row"><span class="key">Имя</span><span class="val">${_escape(u.name || '—')}</span></div>
-      <div class="profile-row"><span class="key">TG</span><span class="val">${_escape(u.tg_name || '—')}</span></div>
-      <div class="profile-row"><span class="key">Телефон</span><span class="val">${_escape(u.phone || '—')}</span></div>
-      <div class="profile-row"><span class="key">Город</span><span class="val">${_escape(u.city || '—')}</span></div>
-      <div class="profile-row"><span class="key">Регистрация</span><span class="val">${_fmtDate(u.created_at)}</span></div>
+    <div class="profile-card" style="display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;gap:8px;align-items:center">
+        <span class="key" style="min-width:80px">Тип</span>
+        <select id="adu-user_type" onchange="onAdminUserTypeChange()"
+          style="flex:1;padding:8px 10px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:var(--bg)">
+          <option value="individual" ${!isCompany?'selected':''}>👤 Физ. лицо</option>
+          <option value="company"    ${isCompany?'selected':''}>🏢 Юр. лицо</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span class="key" style="min-width:80px">Имя</span>${inp('name', u.name, 'Иван Петров')}
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span class="key" style="min-width:80px">Телефон</span>${inp('phone', u.phone, '+7...')}
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span class="key" style="min-width:80px">Email</span>${inp('email', u.email, 'mail@example.com')}
+      </div>
+
+      <div id="adu-company-block" style="display:${isCompany?'flex':'none'};flex-direction:column;gap:10px;
+           padding:10px;background:var(--bg);border-radius:10px;border:1px dashed var(--border)">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--hint)">Реквизиты ЮЛ</div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="key" style="min-width:80px">Компания</span>${inp('company_name', u.company_name, 'ООО "..."')}
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="key" style="min-width:80px">ИНН</span>${inp('inn', u.inn, '7700000000')}
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="key" style="min-width:80px">Юр. адрес</span>${inp('legal_address', u.legal_address, 'Москва, ...')}
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="key" style="min-width:80px">Факт. адрес</span>${inp('actual_address', u.actual_address, 'Москва, ...')}
+        </div>
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:center">
+        <span class="key" style="min-width:80px">Прайс</span>
+        <select id="adu-price_tier"
+          style="flex:1;padding:8px 10px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:var(--bg)">
+          ${Object.entries(TIER_LABELS).map(([k,v]) =>
+            `<option value="${k}" ${tier===k?'selected':''}>${_escape(v)}</option>`).join('')}
+        </select>
+      </div>
+
+      <div style="display:flex;gap:8px;margin-top:6px">
+        <button class="btn-primary" style="flex:1" onclick="saveAdminUser()">💾 Сохранить</button>
+        <button class="btn-primary" style="flex:1;background:linear-gradient(180deg,#3b82f6,#2563eb)" onclick="openAdminDM()">✉️ Написать</button>
+      </div>
+
+      <div class="profile-row" style="margin-top:4px">
+        <span class="key">TG</span><span class="val">${_escape(u.tg_name || '—')}</span>
+      </div>
+      <div class="profile-row">
+        <span class="key">Регистрация</span><span class="val">${_fmtDate(u.created_at)}</span>
+      </div>
     </div>
+
     <h3 style="margin:18px 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:var(--hint)">
       Заказы (${(u.orders || []).length})
     </h3>
     ${ordersHtml || '<div style="color:var(--hint);text-align:center;padding:20px">Заказов нет</div>'}
   `;
+}
+
+function onAdminUserTypeChange() {
+  const v = document.getElementById('adu-user_type').value;
+  document.getElementById('adu-company-block').style.display = (v === 'company') ? 'flex' : 'none';
+}
+
+async function saveAdminUser() {
+  if (!_currentAdminUser) return;
+  const fields = ['user_type','name','phone','email','company_name','inn','legal_address','actual_address','price_tier'];
+  const body = {};
+  for (const f of fields) {
+    const el = document.getElementById('adu-' + f);
+    if (el) body[f] = el.value || '';
+  }
+  try {
+    const r = await fetch('/tma/api/admin/user/' + _currentAdminUser.user_id, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', ..._initDataHeader() },
+      body: JSON.stringify(body),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) { toast(j.error || 'Ошибка сохранения'); return; }
+    toast('Сохранено');
+    // Перерисовать с обновлёнными данными (включая orders из текущего стейта)
+    _currentAdminUser = { ..._currentAdminUser, ...j.user };
+    renderAdminUser({ ..._currentAdminUser, orders: _currentAdminUser.orders || [] });
+  } catch (e) {
+    toast('Ошибка сети');
+  }
+}
+
+function openAdminDM() {
+  if (!_currentAdminUser) return;
+  const target = _currentAdminUser.name || _currentAdminUser.tg_name || ('#' + _currentAdminUser.user_id);
+  const text = prompt(`Сообщение для ${target}:`, '');
+  if (!text || !text.trim()) return;
+  sendAdminDM(_currentAdminUser.user_id, text.trim());
+}
+
+async function sendAdminDM(userId, text) {
+  try {
+    const r = await fetch('/tma/api/admin/dm/' + userId, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', ..._initDataHeader() },
+      body: JSON.stringify({ text }),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || j.ok === false) { toast(j.error || 'Не доставлено'); return; }
+    toast('Отправлено');
+  } catch (e) { toast('Ошибка сети'); }
 }
 
 // ─── ADMIN: ТОВАРЫ ────────────────────────────────────────────────────────────
