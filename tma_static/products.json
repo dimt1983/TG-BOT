@@ -1731,13 +1731,16 @@
           "price": 74
         }
       ],
-      "stock": 25,
+      "stock": 0,
       "tags": [
         "Капсулы"
       ],
       "photo": "photos/products/c-nesp-бразилия_серрадо__nespresso_.jpg",
       "ozon_offer_id": "RBR-E-БРАЗИЛИЯ СЕРРАДО, 1 кг",
-      "hidden": true
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-05-14T10:05:58+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-nesp-бразилия_пибери",
@@ -1760,13 +1763,16 @@
           "price": 74
         }
       ],
-      "stock": 8,
+      "stock": 0,
       "tags": [
         "Капсулы"
       ],
       "photo": "photos/products/c-nesp-бразилия_пибери.jpg",
       "ozon_offer_id": "RB-E-BRAZIL PAJE, 200 г",
-      "hidden": true
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-05-14T10:05:58+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-nesp-колумбия__nespresso_",
@@ -1789,13 +1795,16 @@
           "price": 75
         }
       ],
-      "stock": 16,
+      "stock": 0,
       "tags": [
         "Капсулы"
       ],
       "photo": "photos/products/c-nesp-колумбия__nespresso_.jpg",
       "ozon_offer_id": "RB-E-COLOMBIA ANDINO, 1 кг",
-      "hidden": true
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-05-14T10:05:58+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-nesp-эфиопия_сидамо__nespresso_",
@@ -1818,11 +1827,14 @@
           "price": 82
         }
       ],
-      "stock": 25,
+      "stock": 0,
       "tags": [
         "Капсулы"
       ],
-      "hidden": true
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-05-14T10:05:58+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "t-althaus_ассам_молти_кап_15х4г",

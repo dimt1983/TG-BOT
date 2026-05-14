@@ -942,8 +942,8 @@ body {
   </div>
 </div>
 
-<!-- ═══════════════ ADMIN: модалка «Создать товар из 1С» ═══════════════ -->
-<div class="screen" id="screen-pending-create" style="display:none">
+<!-- ═══════════════ ADMIN: экран «Создать товар из 1С» ═══════════════ -->
+<div class="screen" id="screen-pending-create">
   <header class="header">
     <button class="back-btn" onclick="closePendingCreate()">‹ Назад</button>
     <h1>Создать карточку</h1>
@@ -1301,6 +1301,10 @@ function detailFasovka(p) {
 
 function _isVisibleInCatalog(p, all) {
   if (p.hidden) return false;
+  // Карантинная карточка (sync пометил quarantined=true т.к. нет в 1С) —
+  // клиенту не показываем независимо от stock, чтобы не было путаницы.
+  // Админу — показываем (он управляет ими через раздел "Карантин").
+  if (p.quarantined && !_isAdmin) return false;
   if (_isAdmin) return true;
   const s = (typeof p.stock === 'number') ? p.stock : null;
   if (s !== null && s <= 0) {
@@ -2006,6 +2010,12 @@ function selectRoast(c) { currentRoastChoice = c; renderSheet(); }
 function changeQty(d) { currentQty = Math.max(1, currentQty + d); renderSheet(); }
 
 function addToCart() {
+  // Карантинные позиции — нельзя в корзину (sync пометил quarantined=true).
+  // Стандартный путь: товар появится в 1С → синк снимет карантин автоматом.
+  if (currentProduct?.quarantined && !_isAdmin) {
+    toast('Временно нет в наличии');
+    return;
+  }
   // Если выбрана фасовка которой нет в наличии — открываем чат с ботом
   if (currentFasovka.on_request) {
     const text = `Здравствуйте! Можно ${currentProduct.name}, фасовка ${currentFasovka.size}?`;
@@ -3751,7 +3761,8 @@ function goTo(scr) {
   if (scr === 'category' || scr === 'subcategory') tab = 'home';
   if (scr === 'favorites') tab = 'profile';
   if (scr === 'admin-order' || scr === 'admin-users' || scr === 'admin-user'
-      || scr === 'admin-products' || scr === 'admin-product') tab = 'admin';
+      || scr === 'admin-products' || scr === 'admin-product'
+      || scr === 'pending-create') tab = 'admin';
   if (scr === 'chat') tab = null;
   if (tab) {
     const btn = document.querySelector(`[data-screen="${tab}"]`);
