@@ -238,7 +238,7 @@
           "photo": "photos/products/c-бразилия_серрадо_200g.jpg"
         }
       ],
-      "stock": 619,
+      "stock": 608,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
@@ -274,7 +274,7 @@
           "photo": "photos/products/c-бразилия_серрадо_дарк_200g.jpg"
         }
       ],
-      "stock": 218,
+      "stock": 213,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо_дарк.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО ДАРК, 200 г",
@@ -310,7 +310,7 @@
           "photo": "photos/products/c-бразилия_сан_рафаель_200g.jpg"
         }
       ],
-      "stock": 363,
+      "stock": 359,
       "tags": [],
       "photo": "photos/products/c-бразилия_сан_рафаель.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ SAN RAFAEL, 1 кг",
@@ -408,7 +408,7 @@
           "photo": "photos/products/c-бразилия_серрадо_жёлтый_бурбон_200g.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо_жёлтый_бурбон.jpg",
       "ozon_offer_id": "RBR-F- БРАЗ СЕРРАДО ЖЕЛТЫЙ БУРБОН, 1кг",
@@ -574,7 +574,7 @@
           "photo": "photos/products/c-перу_монте_верде_200g.jpg"
         }
       ],
-      "stock": 64,
+      "stock": 63,
       "tags": [],
       "taste": "молочный шоколад, йогурт, карамель",
       "roast_descr": "светлая обжарка под фильтр",
@@ -605,7 +605,7 @@
           "photo": "photos/products/c-кения_аа_200g.jpg"
         }
       ],
-      "stock": 44,
+      "stock": 74,
       "tags": [],
       "photo": "photos/products/c-кения_аа.jpg",
       "ozon_offer_id": "RBR-F-КЕНИЯ АА, 1кг",
@@ -672,7 +672,7 @@
           "photo": "photos/products/c-колумбия_андино_200g.jpg"
         }
       ],
-      "stock": 61,
+      "stock": 71,
       "tags": [],
       "photo": "photos/products/c-колумбия_андино.jpg",
       "ozon_offer_id": "RBR-F-КОЛУМБИЯ АНДИНО, 1 кг",
@@ -1193,7 +1193,7 @@
           "photo": "photos/products/c-классика_200g.jpg"
         }
       ],
-      "stock": 161,
+      "stock": 160,
       "tags": [
         "Бленд"
       ],
@@ -1382,7 +1382,7 @@
           "price": 67
         }
       ],
-      "stock": 20,
+      "stock": 16,
       "tags": [
         "Удобно",
         "CHOCOLATE"
@@ -1441,7 +1441,7 @@
           "price": 67
         }
       ],
-      "stock": 49,
+      "stock": 46,
       "tags": [
         "Удобно",
         "CHOCOLATE"
@@ -2392,7 +2392,7 @@
           "price": 4490.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/t-althaus_молочный_улун_зел_лист_250г.jpg",
       "_source": "alephtrade"
@@ -2544,7 +2544,7 @@
           "price": 190.0
         }
       ],
-      "stock": 52,
+      "stock": 50,
       "tags": [],
       "photo": "photos/products/t-niktea_кения_сапфир_чёрн_пакет_25х2г.jpg",
       "_source": "alephtrade"
@@ -2641,7 +2641,7 @@
           "price": 185.0
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [],
       "photo": "photos/products/t-niktea_красная_поляна_пакет_25х1_75г.jpg",
       "_source": "alephtrade"
@@ -4684,7 +4684,7 @@
           "price": 635.0
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "tags": [
         "Хит"
       ]
@@ -4940,7 +4940,7 @@
           "price": 635.0
         }
       ],
-      "stock": 19,
+      "stock": 17,
       "tags": []
     },
     {
@@ -5102,7 +5102,7 @@
           "price": 635.0
         }
       ],
-      "stock": 18,
+      "stock": 16,
       "tags": []
     },
     {
@@ -8247,7 +8247,7 @@
           "price": 2070.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": null
     },
@@ -8790,7 +8790,7 @@
           "price": 1260.0
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": null
     },
@@ -9054,7 +9054,7 @@
           "price": 800.0
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": null
     },
@@ -9096,7 +9096,7 @@
           "price": 1710.0
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "photo": null
     },
@@ -9480,7 +9480,7 @@
           "price": 185.0
         }
       ],
-      "stock": 32,
+      "stock": 31,
       "tags": [],
       "photo": null
     },
@@ -9522,7 +9522,7 @@
           "price": 1269.0
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": null
     },
@@ -9657,7 +9657,7 @@
           "price": 2300.0
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [],
       "photo": null
     },
@@ -9972,7 +9972,7 @@
           "price": 11.0
         }
       ],
-      "stock": 990,
+      "stock": 900,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
     },
@@ -10017,7 +10017,7 @@
           "price": 11.0
         }
       ],
-      "stock": 900,
+      "stock": 810,
       "tags": [],
       "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg"
     },
@@ -10563,7 +10563,7 @@
       "tags": [
         "Микролот"
       ],
-      "stock": 14,
+      "stock": 13,
       "fasovka": [
         {
           "size": "1 кг",
@@ -10641,7 +10641,7 @@
       "tags": [
         "Микролот"
       ],
-      "stock": 2,
+      "stock": 1,
       "fasovka": [
         {
           "size": "1 кг",
@@ -10672,7 +10672,7 @@
           "price": 2847
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "tags": [
         "микролот",
         "фильтр"
@@ -11009,7 +11009,7 @@
           "price": 990
         }
       ],
-      "stock": 65,
+      "stock": 62,
       "tags": [
         "Прочее"
       ]
@@ -11138,7 +11138,7 @@
           "photo": "photos/products/c-эфиопия_yirgacheffe_gr_4_сухой_эспрессо_-_1_кг.jpg"
         }
       ],
-      "stock": 114,
+      "stock": 97,
       "tags": [],
       "photo": "photos/products/c-эфиопия_yirgacheffe_gr_4_сухой_эспрессо_-_1_кг.jpg"
     },
@@ -11183,7 +11183,7 @@
           "photo": "photos/products/c-e_roastberry_бразилия_паже_упак_200_г.jpg"
         }
       ],
-      "stock": 97,
+      "stock": 93,
       "tags": [],
       "photo": "photos/products/c-e_roastberry_бразилия_паже_упак_200_г.jpg"
     },
@@ -11667,7 +11667,7 @@
           "photo": null
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [],
       "photo": null
     },
@@ -11777,7 +11777,7 @@
           "photo": null
         }
       ],
-      "stock": 22,
+      "stock": 21,
       "tags": [],
       "photo": null
     },
