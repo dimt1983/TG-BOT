@@ -274,7 +274,7 @@
           "photo": "photos/products/c-бразилия_серрадо_дарк_200g.jpg"
         }
       ],
-      "stock": 213,
+      "stock": 211,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо_дарк.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО ДАРК, 200 г",
@@ -310,7 +310,7 @@
           "photo": "photos/products/c-бразилия_сан_рафаель_200g.jpg"
         }
       ],
-      "stock": 359,
+      "stock": 357,
       "tags": [],
       "photo": "photos/products/c-бразилия_сан_рафаель.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ SAN RAFAEL, 1 кг",
@@ -1441,7 +1441,7 @@
           "price": 67
         }
       ],
-      "stock": 46,
+      "stock": 31,
       "tags": [
         "Удобно",
         "CHOCOLATE"
@@ -1590,7 +1590,7 @@
           "price": 78
         }
       ],
-      "stock": 68,
+      "stock": 65,
       "tags": [
         "Удобно",
         "FRUIT"
@@ -1644,11 +1644,14 @@
           "price": 72
         }
       ],
-      "stock": 3,
+      "stock": 0,
       "tags": [
         "Удобно",
         "FRUIT"
-      ]
+      ],
+      "quarantined": true,
+      "quarantined_at": "2026-05-15T09:00:08+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-drip-колумбия_ла_кумбре",
@@ -2478,10 +2481,13 @@
           "price": 2320.0
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "tags": [],
       "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg",
-      "_source": "alephtrade"
+      "_source": "alephtrade",
+      "quarantined": true,
+      "quarantined_at": "2026-05-15T09:00:08+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "t-althaus_японская_липа_трав_75г",
@@ -11009,7 +11015,7 @@
           "price": 990
         }
       ],
-      "stock": 62,
+      "stock": 60,
       "tags": [
         "Прочее"
       ]
@@ -12045,7 +12051,7 @@
           "photo": "photos/products/c-дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_.jpg"
         }
       ],
-      "stock": 86,
+      "stock": 89,
       "tags": [],
       "photo": "photos/products/c-дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_.jpg",
       "pair_id": "дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_"
