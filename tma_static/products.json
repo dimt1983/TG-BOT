@@ -238,7 +238,7 @@
           "photo": "photos/products/c-бразилия_серрадо_200g.jpg"
         }
       ],
-      "stock": 608,
+      "stock": 624,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
@@ -470,7 +470,7 @@
           "photo": "photos/products/c-гондурас_сан_николас_200g.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 1,
       "tags": [],
       "photo": "photos/products/c-гондурас_сан_николас.jpg",
       "ozon_offer_id": "RB-E-HONDURAS SAN NICOLAS, 200 г",
@@ -478,9 +478,9 @@
       "roast_descr": "обжарка под эспрессо",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "c-руанда_мутетели",
@@ -746,7 +746,7 @@
           "photo": "photos/products/c-уганда_рувензор_200g.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 12,
       "tags": [],
       "aroma": "Шоколад, орехи, тост",
       "taste": "Сухофрукты, шоколад",
@@ -757,9 +757,9 @@
       "roast_date": "07.05.2026",
       "batch": "1",
       "photo": "photos/products/c-уганда_рувензор.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "c-эфиопия_лиму_гр_2",
@@ -1159,16 +1159,16 @@
           "price": 780
         }
       ],
-      "stock": 0,
+      "stock": 10,
       "tags": [
         "Borщ Edition"
       ],
       "photo": "photos/products/c-колумбия_гонзало_кармона.jpg",
       "ozon_offer_id": "RB-E-COLOMBIA ANDINO, 200 г",
       "pair_id": "колумбия_гонзало_кармона",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "c-классика",
@@ -10569,7 +10569,7 @@
       "tags": [
         "Микролот"
       ],
-      "stock": 13,
+      "stock": 0,
       "fasovka": [
         {
           "size": "1 кг",
@@ -10581,7 +10581,10 @@
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "pair_id": "бразилия_sl28_хани_анаэроб"
+      "pair_id": "бразилия_sl28_хани_анаэроб",
+      "quarantined": true,
+      "quarantined_at": "2026-05-15T09:33:01+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-mlot-brazil-sudan-rume-anaerob",
@@ -10595,7 +10598,7 @@
       "tags": [
         "Микролот"
       ],
-      "stock": 1,
+      "stock": 0,
       "fasovka": [
         {
           "size": "1 кг",
@@ -10607,7 +10610,10 @@
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "pair_id": "бразилия_судан_руме_анаэроб"
+      "pair_id": "бразилия_судан_руме_анаэроб",
+      "quarantined": true,
+      "quarantined_at": "2026-05-15T09:33:01+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-mlot-brazil-fazenda-laguinha",
@@ -10621,7 +10627,7 @@
       "tags": [
         "Микролот"
       ],
-      "stock": 2,
+      "stock": 0,
       "fasovka": [
         {
           "size": "1 кг",
@@ -10633,7 +10639,10 @@
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "pair_id": "бразилия_фазенда_лагуинья_мундо_анаэроб"
+      "pair_id": "бразилия_фазенда_лагуинья_мундо_анаэроб",
+      "quarantined": true,
+      "quarantined_at": "2026-05-15T09:33:01+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-mlot-efiopia-chelchele-washed-espresso",
@@ -10739,7 +10748,7 @@
           "price": 4842
         }
       ],
-      "stock": 3,
+      "stock": 14,
       "tags": [
         "микролот",
         "фильтр",
@@ -10796,7 +10805,7 @@
           "price": 5922
         }
       ],
-      "stock": 4,
+      "stock": 14,
       "tags": [
         "микролот",
         "фильтр",
@@ -10951,7 +10960,7 @@
           "price": 780
         }
       ],
-      "stock": 5,
+      "stock": 18,
       "tags": [],
       "photo": null,
       "pair_id": "бразилия_sl28_хани_анаэроб"
@@ -10973,7 +10982,7 @@
           "price": 780
         }
       ],
-      "stock": 4,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "pair_id": "бразилия_судан_руме_анаэроб"
@@ -10995,13 +11004,13 @@
           "price": 780
         }
       ],
-      "stock": 0,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "pair_id": "бразилия_фазенда_лагуинья_мундо_анаэроб",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "filter-v60-100",
@@ -11144,7 +11153,7 @@
           "photo": "photos/products/c-эфиопия_yirgacheffe_gr_4_сухой_эспрессо_-_1_кг.jpg"
         }
       ],
-      "stock": 97,
+      "stock": 102,
       "tags": [],
       "photo": "photos/products/c-эфиопия_yirgacheffe_gr_4_сухой_эспрессо_-_1_кг.jpg"
     },
@@ -11189,7 +11198,7 @@
           "photo": "photos/products/c-e_roastberry_бразилия_паже_упак_200_г.jpg"
         }
       ],
-      "stock": 93,
+      "stock": 77,
       "tags": [],
       "photo": "photos/products/c-e_roastberry_бразилия_паже_упак_200_г.jpg"
     },
