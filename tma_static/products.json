@@ -11956,6 +11956,306 @@
       "stock": 1,
       "tags": [],
       "photo": null
+    },
+    {
+      "id": "c-дп_chocolate_rb-fc_колумбия_питалито_декаф_молотый",
+      "category": "coffee",
+      "subcategory": "coffee_drip_capsules",
+      "name": "ДП \"CHOCOLATE RB-FC\" КОЛУМБИЯ ПИТАЛИТО ДЕКАФ молотый, 8 фильтр-пакетов",
+      "country": "Колумбия",
+      "roast": "E",
+      "process": "Помол под фильтр",
+      "description": "Красное яблоко, тростниковый сахар, миндаль.",
+      "recipe_e": "",
+      "recipe_f": "Вскипяти воду, остуди до 92–94°C. Поставь дрип-пакет на кружку, налей 30 мл, дай настояться 30 сек. Долей 170-200 мл в 2-3 захода.",
+      "fasovka": [
+        {
+          "size": "8 пак.",
+          "price": null,
+          "on_request": true,
+          "photo": null
+        }
+      ],
+      "stock": 1,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи",
+      "category": "coffee",
+      "subcategory": "coffee_drip_capsules",
+      "name": "ДП \"CHOCOLATE RB\" ГВАТЕМАЛА УЕУЕТЕНАНГО молотый, 8 фильтр-пакетов",
+      "country": "Гватемала",
+      "roast": "E",
+      "process": "Помол под фильтр",
+      "description": "Зелёное яблоко, вишня, сухофрукты, миндаль.",
+      "recipe_e": "",
+      "recipe_f": "Вскипяти воду, остуди до 92–94°C. Поставь дрип-пакет на кружку, налей 30 мл, дай настояться 30 сек. Долей 170-200 мл в 2-3 захода.",
+      "fasovka": [
+        {
+          "size": "8 пак.",
+          "price": null,
+          "on_request": true,
+          "photo": "photos/products/c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи.jpg"
+        }
+      ],
+      "stock": 64,
+      "tags": [],
+      "photo": "photos/products/c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи.jpg"
+    },
+    {
+      "id": "c-дп_chocolate_rb_коста-рико_ла_пастора_молотый_8_фи",
+      "category": "coffee",
+      "subcategory": "coffee_drip_capsules",
+      "name": "ДП \"CHOCOLATE RB\" КОСТА-РИКО ЛА ПАСТОРА молотый, 8 фильтр-пакетов",
+      "country": "Коста-Рика",
+      "roast": "E",
+      "process": "Помол под фильтр",
+      "description": "Цитрусы, красные ягоды, чёрный чай, тёмный шоколад.",
+      "recipe_e": "",
+      "recipe_f": "Вскипяти воду, остуди до 92–94°C. Поставь дрип-пакет на кружку, налей 30 мл, дай настояться 30 сек. Долей 170-200 мл в 2-3 захода.",
+      "fasovka": [
+        {
+          "size": "8 пак.",
+          "price": null,
+          "on_request": true,
+          "photo": null
+        }
+      ],
+      "stock": 68,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "c-дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_",
+      "category": "coffee",
+      "subcategory": "coffee_black",
+      "name": "ДП \"FRUIT RB\" КОЛУМБИЯ КЛАУДИА КОЛМИНАРЕС молотый, 8 фильтр-пакетов",
+      "country": "Колумбия",
+      "roast": "F",
+      "process": "Мытая",
+      "description": "Сладкая выпечка, сухофрукты, цветы, лайм, молочный шоколад. Q 86",
+      "recipe_e": "",
+      "recipe_f": "🫖 *Фильтр (Колумбия Клаудиа):*\n• Метод: пуровер\n• Помол: средний\n• Навеска: 15 г на 250 мл\n• Температура: 91–92°C\n• Время: 3.5–4 мин\n\n_Q 86 — топовый скор. Сложный букет: цветы, лайм и шоколад._",
+      "fasovka": [
+        {
+          "size": "8 пак.",
+          "price": null,
+          "on_request": true,
+          "photo": "photos/products/c-дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_.jpg"
+        }
+      ],
+      "stock": 86,
+      "tags": [],
+      "photo": "photos/products/c-дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_.jpg",
+      "pair_id": "дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_"
+    },
+    {
+      "id": "c-гватемала_уеуетенанго_мытый_-_1_кг_filter",
+      "category": "coffee",
+      "subcategory": "coffee_espresso_mono",
+      "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
+      "country": "Гватемала",
+      "roast": "E",
+      "process": "Мытая",
+      "description": "Курага, чернослив, изюм, карамель, какао, сладкая выпечка, пряности. Q 83",
+      "recipe_e": "☕ *Эспрессо (Гватемала Декаф):*\n• Помол: мелкий (18–20 делений)\n• Навеска: 18 г\n• Выход: 36–42 г\n• Время: 26–30 сек\n• Температура: 93–94°C\n\n_Декаф без потери вкуса — пряности и карамель прекрасно раскрываются вечером._",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": null,
+          "on_request": true,
+          "photo": "photos/products/c-гватемала_уеуетенанго_мытый_-_1_кг_filter.jpg"
+        }
+      ],
+      "stock": 1,
+      "tags": [],
+      "photo": "photos/products/c-гватемала_уеуетенанго_мытый_-_1_кг_filter.jpg"
+    },
+    {
+      "id": "c-be_roastberry_fresh_-_1_кг",
+      "category": "coffee",
+      "subcategory": "coffee_espresso_mono",
+      "name": "BE \"Roastberry\" FRESH  - 1 кг",
+      "country": "",
+      "roast": "E",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": null,
+          "on_request": true,
+          "photo": null
+        }
+      ],
+      "stock": 6,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "c-be_roastberry_эспрессо_смесь_-_1_кг",
+      "category": "coffee",
+      "subcategory": "coffee_espresso_mono",
+      "name": "BE \"Roastberry\" ЭСПРЕССО СМЕСЬ  - 1 кг",
+      "country": "",
+      "roast": "E",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": null,
+          "on_request": true,
+          "photo": null
+        }
+      ],
+      "stock": 2,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "m-молоко_домик_в_деревне_3_2_950г",
+      "category": "milk",
+      "subcategory": "milk_main",
+      "name": "Молоко Домик в деревне 3,2% 950г",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "950 г",
+          "price": null,
+          "on_request": true,
+          "photo": null
+        }
+      ],
+      "stock": 14,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "o-hario_vcf-02-40w_бумажный_фильтр_40_шт_",
+      "category": "other",
+      "subcategory": "other_filters",
+      "name": "Hario VCF-02-40W Бумажный фильтр. 40 шт.",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 шт",
+          "price": null,
+          "on_request": true,
+          "photo": null
+        }
+      ],
+      "stock": 6,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "o-фильтр-пакеты_niktea_1_уп_100шт",
+      "category": "other",
+      "subcategory": "other_filters",
+      "name": "Фильтр-пакеты Niktea 1 уп=100шт",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 шт",
+          "price": null,
+          "on_request": true,
+          "photo": null
+        }
+      ],
+      "stock": 29,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-чн515_краснополянский_сбор_нап_травяной_200_г_лист",
+      "category": "tea",
+      "subcategory": "tea_китайский_чай_loose",
+      "name": "ЧН515 Краснополянский Сбор, нап.травяной 200 г. (листья ежевики, липа, мята, листья малины, ромашка,",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": null,
+          "on_request": true,
+          "photo": null
+        }
+      ],
+      "stock": 8,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "o-niktia_пакетированный_500_пак_",
+      "category": "other",
+      "subcategory": "other_misc",
+      "name": "NIKTIA пакетированный 500 пак.",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 шт",
+          "price": null,
+          "on_request": true,
+          "photo": null
+        }
+      ],
+      "stock": 22,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "t-чай_цимэнь_успокаивающий_nb_1_кг",
+      "category": "tea",
+      "subcategory": "tea_китайский_чай_loose",
+      "name": "Чай Цимэнь Успокаивающий NB 1 кг",
+      "country": "",
+      "roast": "",
+      "process": "",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": null,
+          "on_request": true,
+          "photo": null
+        }
+      ],
+      "stock": 2,
+      "tags": [],
+      "photo": null
     }
   ]
 }
