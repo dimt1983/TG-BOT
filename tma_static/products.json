@@ -1324,7 +1324,7 @@
           "photo": "photos/products/c-лунго_200g.jpg"
         }
       ],
-      "stock": 20,
+      "stock": 19,
       "tags": [
         "Бленд"
       ],
@@ -10982,7 +10982,7 @@
           "price": 780
         }
       ],
-      "stock": 5,
+      "stock": 17,
       "tags": [],
       "photo": null,
       "pair_id": "бразилия_судан_руме_анаэроб"
@@ -11024,11 +11024,11 @@
           "price": 990
         }
       ],
-      "stock": 0,
+      "stock": 15,
       "tags": [
         "Прочее"
       ],
-      "hidden": true
+      "hidden": false
     },
     {
       "id": "filter-chemex-100",
