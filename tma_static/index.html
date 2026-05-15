@@ -3266,11 +3266,36 @@ async function renderAdmQuarantine() {
         <div class="pr-meta">${_escape(p.subcategory || p.category || '')} · с ${since || '—'}</div>
       </div>
       <div class="adm-row-actions">
+        <button class="ra-btn primary" onclick="unquarantine('${_escape(p.id)}', '${_escape((p.name || '').replace(/'/g, '&#39;'))}')" title="Вернуть в каталог (снять карантин)">✅ В каталог</button>
         <button class="ra-btn" onclick="hideFromQuarantine('${_escape(p.id)}', '${_escape((p.name || '').replace(/'/g, '&#39;'))}')" title="Скрыть из каталога (можно вернуть)">👁 Скрыть</button>
         <button class="ra-btn danger" onclick="deleteFromQuarantine('${_escape(p.id)}', '${_escape((p.name || '').replace(/'/g, '&#39;'))}')" title="Удалить навсегда">🗑</button>
       </div>
     </div>`;
   }).join('');
+}
+
+async function unquarantine(tmaId, name) {
+  const stockStr = prompt(`Вернуть «${name}» в каталог. Какой остаток выставить? (можно 0 — потом sync с 1С обновит, если позиция появится в ведомости)`, '0');
+  if (stockStr === null) return;
+  const stock = parseInt(stockStr, 10);
+  if (!Number.isFinite(stock) || stock < 0) { alert('Остаток должен быть числом >= 0'); return; }
+  try {
+    const r = await fetch(`/tma/api/admin/product/${encodeURIComponent(tmaId)}`, {
+      method: 'POST',
+      headers: { ..._initDataHeader(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({ quarantined: false, stock: stock, hidden: false }),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || !j.ok) {
+      alert('Ошибка: ' + (j.error || r.status));
+      return;
+    }
+    if (window.Telegram?.WebApp?.HapticFeedback) {
+      try { Telegram.WebApp.HapticFeedback.notificationOccurred('success'); } catch(e){}
+    }
+    refreshAdmBadges();
+    renderAdmQuarantine();
+  } catch (e) { alert('Ошибка: ' + e.message); }
 }
 
 async function hideFromQuarantine(tmaId, name) {
