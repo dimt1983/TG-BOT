@@ -11024,10 +11024,11 @@
           "price": 990
         }
       ],
-      "stock": 60,
+      "stock": 0,
       "tags": [
         "Прочее"
-      ]
+      ],
+      "hidden": true
     },
     {
       "id": "filter-chemex-100",
@@ -12271,6 +12272,15 @@
       "stock": 2,
       "tags": [],
       "photo": null
+    },
+    {
+      "id": "o-фильтры_bonomat_50шт",
+      "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
+      "category": "other",
+      "subcategory": "other_filters",
+      "stock": 45,
+      "on_request": true,
+      "price": null
     }
   ]
 }
