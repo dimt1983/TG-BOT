@@ -248,7 +248,7 @@
           "photo": "photos/products/c-бразилия_серрадо_200g.jpg"
         }
       ],
-      "stock": 684,
+      "stock": 701,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
@@ -387,7 +387,7 @@
           "photo": "photos/products/c-танзания_аа_200g.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 3,
       "tags": [],
       "taste": "Чернослив, чёрный чай , пряности",
       "roast_descr": "светлая обжарка под фильтр",
@@ -418,7 +418,7 @@
           "photo": "photos/products/c-бразилия_серрадо_жёлтый_бурбон_200g.jpg"
         }
       ],
-      "stock": 28,
+      "stock": 27,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо_жёлтый_бурбон.jpg",
       "ozon_offer_id": "RBR-F- БРАЗ СЕРРАДО ЖЕЛТЫЙ БУРБОН, 1кг",
@@ -449,7 +449,7 @@
           "photo": "photos/products/c-гватемала_декаф_200g.jpg"
         }
       ],
-      "stock": 20,
+      "stock": 23,
       "tags": [],
       "photo": "photos/products/c-гватемала_декаф.jpg",
       "ozon_offer_id": "RB-F-КОЛУМБИЯ DECAFFEINATED,  200 г",
@@ -826,7 +826,7 @@
           "photo": "photos/products/c-эфиопия_сидамо_гр_2_гуджи_200g.jpg"
         }
       ],
-      "stock": 1,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/c-эфиопия_сидамо_гр_2_гуджи.jpg",
       "ozon_offer_id": "RBR-E-СИДАМО Гр.4",
@@ -1365,11 +1365,14 @@
           "price": 67
         }
       ],
-      "stock": 31,
+      "stock": 0,
       "tags": [
         "Удобно",
         "CHOCOLATE"
-      ]
+      ],
+      "quarantined": true,
+      "quarantined_at": "2026-05-16T14:03:57+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-drip-гватемала_уетенанго",
@@ -1392,7 +1395,7 @@
           "price": 67
         }
       ],
-      "stock": 16,
+      "stock": 13,
       "tags": [
         "Удобно",
         "CHOCOLATE"
@@ -1451,7 +1454,7 @@
           "price": 67
         }
       ],
-      "stock": 43,
+      "stock": 31,
       "tags": [
         "Удобно",
         "CHOCOLATE"
@@ -1654,14 +1657,14 @@
           "price": 72
         }
       ],
-      "stock": 0,
+      "stock": 3,
       "tags": [
         "Удобно",
         "FRUIT"
       ],
-      "quarantined": true,
-      "quarantined_at": "2026-05-15T09:00:08+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "c-drip-колумбия_ла_кумбре",
@@ -4618,7 +4621,7 @@
           "price": 546.0
         }
       ],
-      "stock": 17,
+      "stock": 15,
       "tags": []
     },
     {
@@ -4870,7 +4873,7 @@
           "price": 546.0
         }
       ],
-      "stock": 27,
+      "stock": 25,
       "tags": [
         "Хит"
       ]
@@ -5280,7 +5283,7 @@
           "price": 635.0
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": []
     },
     {
@@ -5362,7 +5365,7 @@
           "price": 575.0
         }
       ],
-      "stock": 16,
+      "stock": 8,
       "tags": []
     },
     {
@@ -5512,8 +5515,11 @@
           "price": 546.0
         }
       ],
-      "stock": 3,
-      "tags": []
+      "stock": 0,
+      "tags": [],
+      "quarantined": true,
+      "quarantined_at": "2026-05-16T14:03:57+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "s-сироп_herbarista_бурбонская_ваниль_0_7л",
@@ -7026,7 +7032,7 @@
           "price": 1300.0
         }
       ],
-      "stock": 1,
+      "stock": 3,
       "tags": []
     },
     {
@@ -7046,11 +7052,11 @@
           "price": 525.0
         }
       ],
-      "stock": 0,
+      "stock": 2,
       "tags": [],
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "s-топпинг_barline_карамель_1кг",
@@ -7069,11 +7075,11 @@
           "price": 530.0
         }
       ],
-      "stock": 0,
+      "stock": 2,
       "tags": [],
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "s-топпинг_barline_лесные_ягоды_1кг",
@@ -7112,11 +7118,11 @@
           "price": 493.5
         }
       ],
-      "stock": 0,
+      "stock": 8,
       "tags": [],
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "s-кордиал_barbacks_голубика_васильки_черёмуха_0_75л",
@@ -7750,12 +7756,12 @@
           "price": 319.0
         }
       ],
-      "stock": 0,
+      "stock": 1,
       "tags": [],
       "photo": null,
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "t-ройал_эрл_грэй",
@@ -10579,7 +10585,7 @@
       "tags": [
         "Микролот"
       ],
-      "stock": 0,
+      "stock": 5,
       "fasovka": [
         {
           "size": "1 кг",
@@ -10592,9 +10598,9 @@
       "roast_date": "07.05.2026",
       "batch": "1",
       "pair_id": "бразилия_sl28_хани_анаэроб",
-      "quarantined": true,
-      "quarantined_at": "2026-05-15T09:33:01+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "c-mlot-brazil-sudan-rume-anaerob",
@@ -10608,7 +10614,7 @@
       "tags": [
         "Микролот"
       ],
-      "stock": 0,
+      "stock": 6,
       "fasovka": [
         {
           "size": "1 кг",
@@ -10621,9 +10627,9 @@
       "roast_date": "07.05.2026",
       "batch": "1",
       "pair_id": "бразилия_судан_руме_анаэроб",
-      "quarantined": true,
-      "quarantined_at": "2026-05-15T09:33:01+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "c-mlot-brazil-fazenda-laguinha",
@@ -10637,7 +10643,7 @@
       "tags": [
         "Микролот"
       ],
-      "stock": 0,
+      "stock": 33,
       "fasovka": [
         {
           "size": "1 кг",
@@ -10650,9 +10656,9 @@
       "roast_date": "07.05.2026",
       "batch": "1",
       "pair_id": "бразилия_фазенда_лагуинья_мундо_анаэроб",
-      "quarantined": true,
-      "quarantined_at": "2026-05-15T09:33:01+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "c-mlot-efiopia-chelchele-washed-espresso",
@@ -10970,7 +10976,7 @@
           "price": 780
         }
       ],
-      "stock": 18,
+      "stock": 13,
       "tags": [],
       "photo": null,
       "pair_id": "бразилия_sl28_хани_анаэроб"
@@ -10992,7 +10998,7 @@
           "price": 780
         }
       ],
-      "stock": 17,
+      "stock": 11,
       "tags": [],
       "photo": null,
       "pair_id": "бразилия_судан_руме_анаэроб"
@@ -11014,7 +11020,7 @@
           "price": 780
         }
       ],
-      "stock": 14,
+      "stock": 12,
       "tags": [],
       "photo": null,
       "pair_id": "бразилия_фазенда_лагуинья_мундо_анаэроб",
@@ -11167,7 +11173,7 @@
           "photo": "photos/products/c-эфиопия_yirgacheffe_gr_4_сухой_эспрессо_-_1_кг.jpg"
         }
       ],
-      "stock": 96,
+      "stock": 91,
       "tags": [],
       "photo": "photos/products/c-эфиопия_yirgacheffe_gr_4_сухой_эспрессо_-_1_кг.jpg"
     },
@@ -11212,7 +11218,7 @@
           "photo": "photos/products/c-e_roastberry_бразилия_паже_упак_200_г.jpg"
         }
       ],
-      "stock": 75,
+      "stock": 79,
       "tags": [],
       "photo": "photos/products/c-e_roastberry_бразилия_паже_упак_200_г.jpg"
     },
@@ -12077,7 +12083,7 @@
           "photo": "photos/products/c-дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_.jpg"
         }
       ],
-      "stock": 89,
+      "stock": 86,
       "tags": [],
       "photo": "photos/products/c-дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_.jpg",
       "pair_id": "дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_"
@@ -12357,7 +12363,7 @@
       "name": "CUP 3 Жидкость от накипи 1000 мл",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 19,
+      "stock": 18,
       "on_request": true,
       "price": null
     },
@@ -12366,12 +12372,12 @@
       "name": "CUP 3 Жидкость от накипи 500 мл",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 0,
+      "stock": 1,
       "on_request": true,
       "price": null,
-      "quarantined": true,
-      "quarantined_at": "2026-05-16T13:59:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "o-таблетки_expert-cm_для_чистки_от_кофейных_масел_100_шт_",
