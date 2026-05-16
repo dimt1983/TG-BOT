@@ -12435,6 +12435,15 @@
       "stock": 2,
       "on_request": true,
       "price": null
+    },
+    {
+      "id": "c-каскара_коста-рика_100г",
+      "name": "Каскара Коста-Рика 100 г",
+      "category": "coffee",
+      "subcategory": "coffee_cascara",
+      "stock": 12,
+      "on_request": true,
+      "price": null
     }
   ]
 }
