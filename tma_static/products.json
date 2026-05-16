@@ -12284,6 +12284,33 @@
       "stock": 45,
       "on_request": true,
       "price": null
+    },
+    {
+      "id": "o-фильтры_hario_vcf-02-100w_100шт",
+      "name": "Hario VCF-02-100W Бумажные фильтры 100 шт",
+      "category": "other",
+      "subcategory": "other_filters",
+      "stock": 1,
+      "on_request": true,
+      "price": null
+    },
+    {
+      "id": "o-фильтры_hario_vcf-02-100wk_100шт",
+      "name": "Hario VCF-02-100WK Бумажные фильтры 100 шт",
+      "category": "other",
+      "subcategory": "other_filters",
+      "stock": 4,
+      "on_request": true,
+      "price": null
+    },
+    {
+      "id": "o-фильтры_лехехе_большие_50шт",
+      "name": "Фильтры бумажные Лехехе (большие) 50 шт",
+      "category": "other",
+      "subcategory": "other_filters",
+      "stock": 10,
+      "on_request": true,
+      "price": null
     }
   ]
 }
