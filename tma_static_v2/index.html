@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Roastberry — v2 preview</title>
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="stylesheet" href="tokens.css" />
+<meta name="theme-color" content="#FAF7F2" />
+<style>
+  html, body { margin: 0; min-height: 100%; background: var(--bg, #FAF7F2); }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+  .rb { min-height: 100vh; padding: 80px 24px 120px; }
+  .rb .eyebrow { display: block; margin-bottom: 10px; }
+  .rb h1 { font-size: 44px; line-height: 0.95; margin-bottom: 18px; }
+  .rb p { color: var(--ink-soft); font-size: 15px; line-height: 1.55; max-width: 360px; }
+  .rb .stack { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+  .rb .stack a {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 18px; border-radius: var(--r-md); background: var(--surface);
+    border: 1px solid var(--line); text-decoration: none; color: var(--ink);
+    font-weight: 600; font-size: 14px;
+  }
+  .rb .stack a span:last-child { color: var(--ink-faint); }
+</style>
+</head>
+<body>
+<div class="rb">
+  <span class="eyebrow">● Roastberry · v2</span>
+  <h1>Новый магазин<br/>скоро здесь.</h1>
+  <p>
+    Параллельная сборка магазина по дизайн-системе v0.1.
+    Боевая версия живёт на <code>/tma/</code> и работает как раньше.
+  </p>
+  <div class="stack">
+    <a href="/tma/">→ Старый магазин (прод)</a>
+    <a href="tokens.css">→ tokens.css</a>
+    <a href="manifest.webmanifest">→ manifest</a>
+  </div>
+</div>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  }
+</script>
+</body>
+</html>

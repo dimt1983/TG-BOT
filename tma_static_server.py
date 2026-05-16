@@ -36,6 +36,7 @@ import urllib.error
 
 PORT = int(os.environ.get("PORT", 10000))
 TMA_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tma_static")
+TMA_ROOT_V2 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tma_static_v2")
 PRICE_SYNC_ENABLED = os.environ.get("BISHOP_PRICE_SYNC", "1") != "0"
 
 DB_PATH = os.environ.get("DB_PATH", "/app/data/shop.db")
@@ -856,6 +857,33 @@ class Handler(BaseHTTPRequestHandler):
                 return
             except Exception:
                 pass  # fallback на статику
+
+        # ── /tma/v2/* статика (новый дизайн, параллельно с продом) ───────────
+        if path.startswith("/tma/v2/") or path == "/tma/v2":
+            rel = path[8:] if path.startswith("/tma/v2/") else ""
+            if rel == "" or rel.endswith("/"):
+                rel = (rel + "index.html").lstrip("/")
+            full_path = os.path.normpath(os.path.join(TMA_ROOT_V2, rel))
+            if not full_path.startswith(TMA_ROOT_V2):
+                self._send(403, b"Forbidden", "text/plain")
+                return
+            if not os.path.isfile(full_path):
+                full_path = os.path.join(TMA_ROOT_V2, "index.html")
+                if not os.path.isfile(full_path):
+                    self._send(404, b"Not found", "text/plain")
+                    return
+            ctype, _ = mimetypes.guess_type(full_path)
+            ctype = ctype or "application/octet-stream"
+            try:
+                with open(full_path, "rb") as f:
+                    body = f.read()
+                extra = {}
+                if any(full_path.endswith(e) for e in (".jpg", ".png", ".webp", ".svg", ".ico")):
+                    extra["Cache-Control"] = "public, max-age=3600, must-revalidate"
+                self._send(200, body, ctype, extra)
+            except Exception as e:
+                self._send(500, str(e).encode(), "text/plain")
+            return
 
         # ── /tma/* статика ───────────────────────────────────────────────────
         if path.startswith("/tma/") or path == "/tma":
