@@ -472,6 +472,39 @@ body {
 </style>
 </head>
 <body>
+
+<!-- v2-preview banner: убрать вместе с переключением на /tma/v2/ как основной TMA URL -->
+<div id="rb-v2-banner" style="display:none; position:relative; padding:10px 44px 10px 16px; background:linear-gradient(90deg,#1A1410 0%,#3A2A1F 100%); color:#F5EBDD; font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif; font-size:13px; line-height:1.35; cursor:pointer; z-index:50;" onclick="rbV2Open()">
+  <span style="display:inline-block; width:6px; height:6px; border-radius:999px; background:#C9A66B; margin-right:8px; vertical-align:middle;"></span>
+  <b style="font-weight:700">Попробовать новый дизайн магазина</b>
+  <span style="opacity:0.7"> · бета-версия</span>
+  <span style="position:absolute; right:6px; top:50%; transform:translateY(-50%); padding:2px 10px; border-radius:999px; background:rgba(255,255,255,0.12); font-size:11px; font-weight:700; letter-spacing:0.02em;">v2 →</span>
+  <button onclick="event.stopPropagation(); rbV2Hide()" aria-label="Закрыть" style="position:absolute; right:-2px; top:-2px; width:24px; height:24px; border:0; background:transparent; color:#F5EBDD; opacity:0.55; font-size:14px; cursor:pointer; display:none;">×</button>
+</div>
+<script>
+  (function(){
+    try {
+      var hidden = localStorage.getItem('rb-v2-banner-hidden') === '1';
+      var el = document.getElementById('rb-v2-banner');
+      if (el && !hidden) el.style.display = 'block';
+    } catch(e) {}
+    window.rbV2Hide = function() {
+      try { localStorage.setItem('rb-v2-banner-hidden', '1'); } catch(e){}
+      var el = document.getElementById('rb-v2-banner');
+      if (el) el.style.display = 'none';
+    };
+    window.rbV2Open = function() {
+      try { if (window.Telegram?.WebApp?.HapticFeedback) Telegram.WebApp.HapticFeedback.impactOccurred('light'); } catch(e){}
+      // в TMA нужен полноценный переход — нельзя просто location.href в некоторых клиентах
+      var url = '/tma/v2/';
+      try {
+        if (window.Telegram?.WebApp?.openLink) { window.location.href = url; }
+        else { window.location.href = url; }
+      } catch(e) { window.location.href = url; }
+    };
+  })();
+</script>
+
 <div class="app">
   <!-- ============ HOME (категории + витрина) ============ -->
   <div class="screen active" id="screen-home">
