@@ -995,6 +995,41 @@ ${appHeader({ title: 'Профиль', action: `<button class="btn-ghost" style=
   </div>
 </div>
 
+${(() => {
+  const orders = STATE.myOrders;
+  if (orders === undefined) return `<div style="padding:20px 16px 0;"><div class="eyebrow" style="margin-bottom:10px;">История</div><div class="card" style="padding:20px; text-align:center; color:var(--ink-soft); font-size:13px;"><span class="rb-spinner" style="margin-right:8px"></span>Загружаю заказы…</div></div>`;
+  if (!Array.isArray(orders) || !orders.length) return `<div style="padding:20px 16px 0;"><div class="eyebrow" style="margin-bottom:10px;">История</div><div class="card" style="padding:24px; text-align:center; color:var(--ink-soft); font-size:13px;">Пока нет заказов.<br/><span style="font-size:11px;">Первый заказ появится здесь.</span></div></div>`;
+  return `
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">История</div>
+        <h2 style="margin-top:6px; font-size:18px;">Заказы</h2>
+      </div>
+      ${orders.length > 5 ? `<a style="cursor:pointer">Все →</a>` : ''}
+    </div>
+    <div style="padding:0 16px; display:flex; flex-direction:column; gap:8px;">
+      ${orders.slice(0, 5).map(o => {
+        const status = o.status || 'new';
+        const statusColor = /доставлен|complete|paid|оплачен/i.test(status) ? 'green' : /отмен|cancel/i.test(status) ? 'amber' : 'ink';
+        const itemsCount = Array.isArray(o.items) ? o.items.length : (o.items_count || 0);
+        const dt = (o.created_at || '').replace(/T/, ' ').slice(0, 16);
+        return `
+          <div class="card" style="padding:14px; display:flex; align-items:center; gap:12px;">
+            <div style="flex:1; min-width:0;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-family:var(--f-mono); font-size:12px; font-weight:600;">#${esc(o.id || o.order_id || '')}</span>
+                <span class="chip chip--${statusColor}" style="height:18px; font-size:10px; padding:0 6px;">${esc(status)}</span>
+              </div>
+              <div style="margin-top:4px; font-size:13px; color:var(--ink-soft);">${esc(dt)}${itemsCount ? ' · ' + itemsCount + ' поз.' : ''}</div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-family:var(--f-display); font-weight:800; font-size:16px;">${fmt(o.total || 0)} ₽</div>
+            </div>
+          </div>`;
+      }).join('')}
+    </div>`;
+})()}
+
 ${STATE.isAdmin ? `
 <div style="padding:20px 16px 0;">
   <div class="eyebrow" style="margin-bottom:10px; color:var(--copper);">● Админ</div>
@@ -1199,6 +1234,7 @@ const rb = {
     haptic();
     window.scrollTo(0, 0);
     render();
+    if (screen === 'profile' && STATE.myOrders === undefined) rb.loadMyOrders();
   },
   back() {
     const prev = STATE.history.pop();
@@ -1305,6 +1341,16 @@ const rb = {
     }
   },
   /* ────────── ADMIN ────────── */
+  async loadMyOrders() {
+    if (!IS_TG) { STATE.myOrders = []; return; }
+    try {
+      const r = await fetch('/tma/api/my_orders?limit=10', { headers: authHeaders() });
+      if (!r.ok) { STATE.myOrders = []; return; }
+      const j = await r.json();
+      STATE.myOrders = Array.isArray(j) ? j : (j.orders || j.items || []);
+    } catch (e) { STATE.myOrders = []; }
+    render();
+  },
   async openAdmin() {
     if (!STATE.isAdmin) { toast('Только для админов'); return; }
     STATE.history.push(STATE.screen);
