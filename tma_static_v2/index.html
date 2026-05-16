@@ -310,6 +310,19 @@ function placeholder(label, ratio = '4 / 3', extra = '') {
   return `<div class="ph" style="aspect-ratio:${ratio}; border-radius:var(--r-md); ${extra}">${esc(label || '')}</div>`;
 }
 
+/* Реальная фотка товара. Если p.photo есть — рисуем <img> поверх .ph,
+   при ошибке загрузки картинка прячется и остаётся диагональный плейсхолдер. */
+function productImg(p, ratio = '1', extra = '', label = '') {
+  const ph = `<div class="ph" style="aspect-ratio:${ratio}; border-radius:var(--r-md); ${extra}">${esc(label || '')}</div>`;
+  const src = p?.photo;
+  if (!src) return ph;
+  // photo лежит как "photos/products/xxx.jpg" — подкладываем под /tma/
+  const url = /^https?:\/\//.test(src) ? src
+            : src.startsWith('/') ? src
+            : '/tma/' + src.replace(/^tma_static\//, '');
+  return `<div class="ph" style="aspect-ratio:${ratio}; border-radius:var(--r-md); ${extra} background-image:url('${url}'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>`;
+}
+
 function stepper(value, decAction, incAction, ink = false) {
   return `
     <div class="stepper${ink ? ' stepper--ink' : ''}">
@@ -443,14 +456,14 @@ ${appHeader({ logo: true })}
 <!-- HERO -->
 <div style="padding:6px 16px 0;">
   <div style="position:relative; aspect-ratio:4 / 5; border-radius:var(--r-lg); overflow:hidden; background:var(--coffee-deep); color:#F5EBDD; display:flex; flex-direction:column; justify-content:space-between;">
-    <div class="ph" style="position:absolute; inset:0; background:linear-gradient(160deg, #2A1B12 0%, #4A3422 60%, #6F4E37 100%); background-image:repeating-linear-gradient(135deg, transparent 0 14px, rgba(255,255,255,0.025) 14px 15px); color:rgba(255,255,255,0.22);"><span style="padding:10px 12px">HERO · РОСТЕР, ТУЛА</span></div>
+    <div class="ph" style="position:absolute; inset:0; background:linear-gradient(160deg, #2A1B12 0%, #4A3422 60%, #6F4E37 100%); background-image:repeating-linear-gradient(135deg, transparent 0 14px, rgba(255,255,255,0.025) 14px 15px); color:rgba(255,255,255,0.22);"><span style="padding:10px 12px">HERO · РОСТЕР, ПЕРМЬ</span></div>
     <div style="position:relative; padding:20px 22px; display:flex; justify-content:space-between;">
       <div class="meta" style="color:rgba(245,235,221,0.7)">${new Date().toLocaleDateString('ru-RU', {day:'numeric', month:'long', year:'numeric'}).toUpperCase()} · ПАРТИЯ ${Math.floor(Math.random()*99)+300}</div>
       <div class="meta" style="color:rgba(245,235,221,0.5)">1 / 4</div>
     </div>
     <div style="position:relative; padding:0 22px 24px;">
-      <div style="font-family:var(--f-display); font-weight:900; font-size:44px; line-height:0.92; letter-spacing:-0.025em; text-transform:uppercase;">Свежая<br/>обжарка<br/><span style="color:var(--copper)">из Тулы</span></div>
-      <div style="margin-top:14px; font-size:13px; opacity:0.78; max-width:240px; line-height:1.5;">Спешелти в зерне, чае, дрипах. 7 лет, ${all.length}+ SKU, отгрузка из Тулы по всей России.</div>
+      <div style="font-family:var(--f-display); font-weight:900; font-size:44px; line-height:0.92; letter-spacing:-0.025em; text-transform:uppercase;">Свежая<br/>обжарка<br/><span style="color:var(--copper)">из Перми</span></div>
+      <div style="margin-top:14px; font-size:13px; opacity:0.78; max-width:240px; line-height:1.5;">Спешелти в зерне, чае, дрипах. 7 лет, ${all.length}+ SKU, отгрузка из Перми по всей России.</div>
       <div style="margin-top:20px; display:flex; gap:8px; align-items:center;">
         <button onclick="rb.go('catalog')" style="flex:1; height:46px; background:#F5EBDD; color:#1A1410; border:0; border-radius:999px; font-family:var(--f-display); font-weight:700; font-size:15px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; cursor:pointer;">Открыть каталог<span>→</span></button>
         <button style="width:46px; height:46px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.16); border-radius:999px; color:#F5EBDD; display:inline-flex; align-items:center; justify-content:center;">${icon('heart')}</button>
@@ -479,7 +492,7 @@ ${fresh.length ? `
     const f = (p.fasovka || [])[0] || {};
     return `
       <div onclick="rb.openProduct('${esc(p.id)}')" style="width:188px; background:var(--surface); border-radius:var(--r-md); border:1px solid var(--line); overflow:hidden; cursor:pointer;">
-        ${placeholder('BAG · ' + esc(f.size || '200г'), '1', 'border-radius:0')}
+        ${productImg(p, '1', 'border-radius:0', 'BAG · ' + esc(f.size || '200г'))}
         <div style="padding:12px;">
           <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
             ${flagDot(p.country)}
@@ -546,7 +559,7 @@ ${hits.length ? `
     const meta = [p.process, p.roast, p.altitude].filter(Boolean).join(' · ');
     return `
       <div class="card" onclick="rb.openProduct('${esc(p.id)}')" style="display:flex; gap:12px; padding:12px; align-items:center; cursor:pointer;">
-        ${placeholder('', '1', 'width:72px; height:72px; flex:0 0 auto; border-radius:10px;')}
+        ${productImg(p, '1', 'width:72px; height:72px; flex:0 0 auto; border-radius:10px;')}
         <div style="flex:1; min-width:0;">
           <div style="display:flex; align-items:center; gap:6px;">
             ${flagDot(p.country)}
@@ -628,7 +641,7 @@ ${list.length === 0
       const isLim = (p.tags || []).some(t => /лимит/i.test(t)) || (p.tags || []).includes('Микролот');
       return `
         <div onclick="rb.openProduct('${esc(p.id)}')" style="display:flex; gap:12px; padding:14px; background:var(--surface); align-items:center; cursor:pointer;">
-          ${placeholder('', '1', 'width:60px; height:60px; flex:0 0 auto; border-radius:8px;')}
+          ${productImg(p, '1', 'width:60px; height:60px; flex:0 0 auto; border-radius:8px;')}
           <div style="flex:1; min-width:0;">
             <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px; flex-wrap:wrap;">
               ${flagDot(p.country)}
@@ -689,7 +702,7 @@ function screenProduct() {
 
 <!-- Hero -->
 <div style="margin-top:-54px;">
-  ${placeholder(`PRODUCT 1080×1080 — ${esc(p.name)}`, '1 / 1', 'border-radius:0; align-items:flex-end; padding:20px;')}
+  ${productImg(p, '1 / 1', 'border-radius:0; align-items:flex-end; padding:20px;', 'PRODUCT 1080×1080 — ' + esc(p.name))}
 </div>
 
 <!-- Title -->
@@ -873,7 +886,7 @@ ${appHeader({ back: true, title: 'Корзина', action: `<button class="btn-g
     const price = (typeof f.price === 'number' && !f.on_request) ? f.price : 0;
     return `
       <div style="background:var(--surface); display:flex; gap:12px; padding:12px; align-items:center;">
-        ${placeholder('', '1', 'width:56px; height:56px; flex:0 0 auto; border-radius:8px;')}
+        ${productImg(i.p, '1', 'width:56px; height:56px; flex:0 0 auto; border-radius:8px;')}
         <div style="flex:1; min-width:0;">
           <div style="font-family:var(--f-display); font-weight:700; font-size:14px; line-height:1.15; margin-bottom:3px;">${esc(i.p.name)}</div>
           <div class="meta" style="font-size:9.5px;">${esc(i.fasovka || '')}${i.p.process ? ' · ' + esc(i.p.process) : ''}</div>
@@ -966,12 +979,12 @@ ${appHeader({ title: 'Профиль', action: `<button class="btn-ghost" style=
   <div class="eyebrow" style="margin-bottom:10px;">Быстро</div>
   <div class="card" style="overflow:hidden;">
     ${[
-      ['flame', 'Повторить последний заказ', 'скоро'],
-      ['doc',   'Прайс-лист',                'PDF / XLSX'],
-      ['truck', 'Адреса доставки',           'добавить'],
-      ['cup',   'Подписка «Свежая обжарка»', 'скоро'],
+      ['flame', 'Повторить последний заказ', 'скоро', null],
+      ['doc',   'Прайс-лист',                'PDF / XLSX', null],
+      ['truck', 'Адреса доставки',           'добавить', null],
+      ['cup',   'Подписка «Свежая обжарка»', 'скоро', null],
     ].map((r, i, arr) => `
-      <div style="display:flex; align-items:center; gap:12px; padding:14px; ${i < arr.length - 1 ? 'border-bottom:1px solid var(--line);' : ''}">
+      <div onclick="${r[3] || ''}" style="display:flex; align-items:center; gap:12px; padding:14px; ${i < arr.length - 1 ? 'border-bottom:1px solid var(--line);' : ''} ${r[3] ? 'cursor:pointer;' : ''}">
         <span style="width:36px; height:36px; border-radius:10px; background:var(--surface-2); color:var(--coffee); display:flex; align-items:center; justify-content:center;">${icon(r[0])}</span>
         <div style="flex:1;">
           <div style="font-size:14px; font-weight:500;">${esc(r[1])}</div>
@@ -981,6 +994,21 @@ ${appHeader({ title: 'Профиль', action: `<button class="btn-ghost" style=
       </div>`).join('')}
   </div>
 </div>
+
+${STATE.isAdmin ? `
+<div style="padding:20px 16px 0;">
+  <div class="eyebrow" style="margin-bottom:10px; color:var(--copper);">● Админ</div>
+  <div class="card" style="overflow:hidden;">
+    <div onclick="rb.openAdmin()" style="display:flex; align-items:center; gap:12px; padding:14px; cursor:pointer;">
+      <span style="width:36px; height:36px; border-radius:10px; background:var(--copper-soft); color:var(--copper); display:flex; align-items:center; justify-content:center;">${icon('doc')}</span>
+      <div style="flex:1;">
+        <div style="font-size:14px; font-weight:500;">Управление каталогом</div>
+        <div class="meta" style="font-size:9.5px; margin-top:2px;">карантин · pending · заказы</div>
+      </div>
+      <span style="color:var(--ink-faint);">→</span>
+    </div>
+  </div>
+</div>` : ''}
 
 <div style="padding:24px 16px 0; text-align:center;">
   <div class="meta">Roastberry · v2 · сборка ${STATE.data?.version || 'dev'}</div>
@@ -993,16 +1021,167 @@ ${tabBar('profile')}
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   SCREEN: SEARCH (минимум, чтобы tabBar работал)
+   SCREEN: SEARCH — автокомплит по name + country + variety + tasting
    ════════════════════════════════════════════════════════════════════ */
+function hl(text, q) {
+  if (!q) return esc(text);
+  const t = String(text || '');
+  const lc = t.toLowerCase(), qc = q.toLowerCase();
+  const idx = lc.indexOf(qc);
+  if (idx === -1) return esc(t);
+  return esc(t.slice(0, idx))
+    + `<span style="background:var(--copper-soft); color:var(--ink); font-weight:700; border-radius:3px; padding:0 2px;">${esc(t.slice(idx, idx + q.length))}</span>`
+    + esc(t.slice(idx + q.length));
+}
 function screenSearch() {
+  const q = (STATE.searchQuery || '').trim();
+  const all = visibleProducts();
+  const results = q ? all.filter(p => {
+    const hay = [p.name, p.country, p.variety, p.process, p.farm,
+                 ...(p.tasting_notes || [])].join(' ').toLowerCase();
+    return hay.includes(q.toLowerCase());
+  }) : [];
+  // популярные запросы — pre-defined
+  const suggestions = ['эфиопия', 'эспрессо', 'фильтр', 'бразилия', 'микролот', 'дрипы', 'каскара', 'niktea'];
+
   return `
-${appHeader({ back: true, title: 'Поиск' })}
-<div style="padding:60px 24px; text-align:center; color:var(--ink-soft);">
-  <h2 style="font-size:24px; color:var(--ink);">Поиск</h2>
-  <p style="margin-top:8px; font-size:13px;">Скоро здесь будет автокомплит по 530+ позициям с подсветкой.</p>
+<div style="position:sticky; top:0; z-index:10; background:var(--bg); padding:54px 16px 12px; border-bottom:1px solid var(--line);">
+  <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+    <button class="btn-ghost" style="width:36px; padding:0; justify-content:center" onclick="rb.back()">${icon('back')}</button>
+    <h1 style="font-size:22px; flex:1;">Поиск</h1>
+  </div>
+  <div style="display:flex; align-items:center; gap:10px; background:var(--surface); border:2px solid ${q ? 'var(--ink)' : 'var(--line-strong)'}; border-radius:999px; padding:0 16px; height:48px;">
+    <span style="color:${q ? 'var(--ink)' : 'var(--ink-faint)'};">${icon('search')}</span>
+    <input id="rb-search-input" type="text" autocomplete="off" autocapitalize="off" autocorrect="off"
+      placeholder="Поиск по ${all.length} SKU"
+      value="${esc(q)}"
+      oninput="rb.searchInput(this.value)"
+      style="flex:1; border:0; outline:0; background:transparent; font-size:15px; font-family:var(--f-body); color:var(--ink); font-weight:500; min-width:0;" />
+    ${q ? `<button onclick="rb.searchInput('')" style="background:transparent; border:0; color:var(--ink-soft); font-size:18px; padding:4px 6px; cursor:pointer;">×</button>` : ''}
+  </div>
 </div>
+
+${!q ? `
+  <div style="padding:20px 16px 0;">
+    <div class="eyebrow" style="margin-bottom:12px;">Часто ищут</div>
+    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+      ${suggestions.map(s => `<button class="chip" onclick="rb.searchInput('${esc(s)}')" style="height:34px; padding:0 14px; font-size:13px; cursor:pointer;">${esc(s)}</button>`).join('')}
+    </div>
+  </div>
+` : results.length === 0 ? `
+  <div style="padding:60px 24px; text-align:center; color:var(--ink-soft);">
+    <div style="font-size:32px; margin-bottom:10px;">🔍</div>
+    <div style="font-family:var(--f-display); font-weight:700; font-size:16px;">Ничего не нашли</div>
+    <div style="font-size:13px; margin-top:6px;">Попробуй короче или другое слово.</div>
+  </div>
+` : `
+  <div style="padding:14px 16px 8px;">
+    <span class="meta">Найдено: ${results.length}</span>
+  </div>
+  <div style="display:flex; flex-direction:column; gap:1px; background:var(--line); border-radius:var(--r-md); overflow:hidden; margin:0 16px; border:1px solid var(--line);">
+    ${results.slice(0, 50).map(p => {
+      const f = (p.fasovka || [])[0] || {};
+      const meta = [p.country, p.process, p.variety].filter(Boolean).join(' · ');
+      return `
+        <div onclick="rb.openProduct('${esc(p.id)}')" style="display:flex; gap:12px; padding:12px 14px; background:var(--surface); align-items:center; cursor:pointer;">
+          ${productImg(p, '1', 'width:48px; height:48px; flex:0 0 auto; border-radius:8px;')}
+          <div style="flex:1; min-width:0;">
+            <div style="font-family:var(--f-display); font-weight:700; font-size:14px; line-height:1.2; margin-bottom:2px;">${hl(p.name, q)}</div>
+            <div class="meta" style="font-size:9.5px; color:var(--ink-faint);">${hl(meta, q)}</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-family:var(--f-display); font-weight:800; font-size:14px;">${typeof f.price === 'number' && !f.on_request ? fmt(f.price) : '—'}<span style="font-size:10px; color:var(--ink-faint); margin-left:2px;">${typeof f.price === 'number' && !f.on_request ? '₽' : ''}</span></div>
+            <div style="margin-top:2px;" class="meta">${esc(f.size || '')}</div>
+          </div>
+        </div>
+      `;
+    }).join('')}
+  </div>
+`}
+
+<div style="height:120px"></div>
 ${tabBar('search')}
+`;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   SCREEN: ADMIN (карантин · pending · заказы)
+   ════════════════════════════════════════════════════════════════════ */
+function screenAdmin() {
+  const tab = STATE.adminTab || 'quarantine';
+  const data = STATE.adminPayload;
+  const tabs = [
+    { id: 'quarantine', label: 'Карантин' },
+    { id: 'pending',    label: 'Pending' },
+    { id: 'orders',     label: 'Заказы' },
+  ];
+
+  let body = '';
+  if (!data) {
+    body = `<div style="padding:60px 0; text-align:center;"><div class="rb-spinner"></div></div>`;
+  } else if (data.error) {
+    body = `<div style="padding:40px 24px; color:var(--danger); text-align:center; font-size:14px;">${esc(data.error)}</div>`;
+  } else if (tab === 'quarantine') {
+    const items = data.items || data.products || [];
+    body = items.length ? `
+      <div style="padding:0 16px 24px;">
+        <div class="meta" style="margin-bottom:12px;">В карантине: ${items.length}</div>
+        <div style="display:flex; flex-direction:column; gap:1px; background:var(--line); border-radius:var(--r-md); overflow:hidden; border:1px solid var(--line);">
+          ${items.slice(0, 100).map(p => `
+            <div style="background:var(--surface); display:flex; gap:12px; padding:12px; align-items:center;">
+              ${productImg(p, '1', 'width:48px; height:48px; flex:0 0 auto; border-radius:8px;')}
+              <div style="flex:1; min-width:0;">
+                <div style="font-family:var(--f-display); font-weight:700; font-size:13px;">${esc(p.name)}</div>
+                <div class="meta" style="font-size:9px; margin-top:2px;">${esc(p.quarantine_reason || p.reason || '—')}</div>
+              </div>
+              <button onclick="rb.adminQuarantineRelease('${esc(p.id)}')" style="height:30px; padding:0 12px; border-radius:999px; background:var(--green); color:#fff; border:0; font-size:11px; font-weight:600;">Вернуть</button>
+            </div>`).join('')}
+        </div>
+      </div>` : `<div style="padding:60px 24px; text-align:center; color:var(--ink-soft);">Карантин пустой 🟢</div>`;
+  } else if (tab === 'pending') {
+    const items = data.items || [];
+    body = items.length ? `
+      <div style="padding:0 16px 24px;">
+        <div class="meta" style="margin-bottom:12px;">Требуют разбора: ${items.length}</div>
+        <div style="display:flex; flex-direction:column; gap:1px; background:var(--line); border-radius:var(--r-md); overflow:hidden; border:1px solid var(--line);">
+          ${items.slice(0, 100).map(it => `
+            <div style="background:var(--surface); padding:12px;">
+              <div style="font-size:13px; font-weight:500;">${esc(it.name)}</div>
+              <div class="meta" style="font-size:9px; margin-top:4px;">qty: ${it.qty || 0}${it.notes ? ' · ' + esc(it.notes) : ''}</div>
+            </div>`).join('')}
+        </div>
+      </div>` : `<div style="padding:60px 24px; text-align:center; color:var(--ink-soft);">Pending пустой 🟢</div>`;
+  } else if (tab === 'orders') {
+    const items = data.orders || data.items || [];
+    body = items.length ? `
+      <div style="padding:0 16px 24px;">
+        <div class="meta" style="margin-bottom:12px;">Заказов: ${items.length}</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          ${items.slice(0, 50).map(o => `
+            <div class="card" style="padding:12px;">
+              <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                <span style="font-family:var(--f-mono); font-size:12px; font-weight:700;">#${esc(o.id)}</span>
+                <span class="meta">${esc(o.status || '')}</span>
+              </div>
+              <div style="margin-top:4px; font-size:13px;">${esc(o.client_name || o.name || '—')}</div>
+              <div class="meta" style="font-size:9.5px; margin-top:2px;">${esc(o.created_at || '')} · ${fmt(o.total || 0)} ₽</div>
+            </div>`).join('')}
+        </div>
+      </div>` : `<div style="padding:60px 24px; text-align:center; color:var(--ink-soft);">Заказов нет</div>`;
+  }
+
+  return `
+${appHeader({ back: true, title: 'Админ' })}
+<div style="padding:16px 16px 12px;">
+  <div style="display:flex; gap:6px; padding:3px; background:var(--surface-2); border-radius:999px;">
+    ${tabs.map(t => `
+      <button onclick="rb.setAdminTab('${t.id}')" style="flex:1; height:34px; border:0; border-radius:999px; background:${tab === t.id ? 'var(--ink)' : 'transparent'}; color:${tab === t.id ? 'var(--bg)' : 'var(--ink-soft)'}; font-family:var(--f-body); font-weight:600; font-size:12px; cursor:pointer;">${t.label}</button>
+    `).join('')}
+  </div>
+</div>
+${body}
+<div style="height:60px"></div>
+${tabBar('profile')}
 `;
 }
 
@@ -1077,13 +1256,92 @@ const rb = {
     haptic('warning');
     render();
   },
-  checkout() {
-    haptic('success');
-    if (IS_TG) {
-      toast('Оформление через TG Payments — скоро');
-    } else {
-      toast('Оформление — скоро');
+  searchInput(v) {
+    STATE.searchQuery = v || '';
+    if (STATE.screen !== 'search') STATE.screen = 'search';
+    render();
+    const inp = document.getElementById('rb-search-input');
+    if (inp) {
+      inp.focus();
+      const pos = inp.value.length;
+      try { inp.setSelectionRange(pos, pos); } catch (e) {}
     }
+  },
+  async checkout() {
+    haptic('success');
+    const items = STATE.cart.map(i => {
+      const p = findProduct(i.id); if (!p) return null;
+      const f = (p.fasovka || []).find(x => x.size === i.fasovka) || (p.fasovka || [])[0] || {};
+      return { id: i.id, name: p.name, fasovka: i.fasovka, qty: i.qty,
+               price: typeof f.price === 'number' ? f.price : null,
+               on_request: !!f.on_request };
+    }).filter(Boolean);
+    if (!items.length) { toast('Корзина пустая'); return; }
+    const totalKg = cartWeightKg();
+    const subtotal = cartSubtotal();
+    const tier = tierFor(totalKg);
+    const total = subtotal * (1 - tier);
+    const payload = { items, total_kg: totalKg, subtotal, discount_pct: tier, total };
+
+    try {
+      const r = await fetch('/tma/api/order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
+        body: JSON.stringify(payload),
+      });
+      if (r.ok) {
+        const j = await r.json();
+        STATE.cart = []; saveLocal();
+        haptic('success');
+        toast('Заказ оформлен. №' + (j.order_id || ''));
+        setTimeout(() => rb.go('profile'), 1200);
+      } else {
+        haptic('error');
+        toast('Ошибка: ' + r.status);
+      }
+    } catch (e) {
+      haptic('error');
+      toast('Сеть недоступна');
+    }
+  },
+  /* ────────── ADMIN ────────── */
+  async openAdmin() {
+    if (!STATE.isAdmin) { toast('Только для админов'); return; }
+    STATE.history.push(STATE.screen);
+    STATE.screen = 'admin';
+    STATE.adminTab = STATE.adminTab || 'quarantine';
+    STATE.adminPayload = null;
+    render();
+    await rb.loadAdmin();
+  },
+  setAdminTab(tab) {
+    STATE.adminTab = tab;
+    STATE.adminPayload = null;
+    render();
+    rb.loadAdmin();
+  },
+  async loadAdmin() {
+    const tab = STATE.adminTab;
+    try {
+      let url = '/tma/api/admin/' + (tab === 'pending' ? 'pending' : tab === 'orders' ? 'orders' : 'quarantine');
+      const r = await fetch(url, { headers: authHeaders() });
+      STATE.adminPayload = r.ok ? await r.json() : { error: 'HTTP ' + r.status };
+    } catch (e) {
+      STATE.adminPayload = { error: String(e) };
+    }
+    render();
+  },
+  async adminQuarantineRelease(id) {
+    if (!confirm('Вернуть из карантина: ' + id + '?')) return;
+    try {
+      const r = await fetch('/tma/api/admin/product/' + encodeURIComponent(id), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
+        body: JSON.stringify({ quarantined: false }),
+      });
+      if (r.ok) { haptic('success'); toast('Возвращён'); rb.loadAdmin(); }
+      else { haptic('error'); toast('Ошибка: ' + r.status); }
+    } catch (e) { haptic('error'); toast('Сеть недоступна'); }
   },
 };
 window.rb = rb;
@@ -1101,6 +1359,7 @@ function render() {
     case 'cart':    body = screenCart(); break;
     case 'profile': body = screenProfile(); break;
     case 'search':  body = screenSearch(); break;
+    case 'admin':   body = screenAdmin(); break;
     default: body = screenHome();
   }
   root.innerHTML = `<div class="rb${IS_DARK ? ' rb--dark' : ''}">${body}</div>`;
