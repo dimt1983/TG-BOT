@@ -6,24 +6,18 @@
  *  Bump CACHE_VERSION whenever the shell ships.
  */
 
-const CACHE_VERSION = '2026-05-17.r1';
+const CACHE_VERSION = '2026-05-17.v2.r1';
 const SHELL_CACHE   = `rb-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `rb-runtime-${CACHE_VERSION}`;
 const IMG_CACHE     = `rb-img-${CACHE_VERSION}`;
 
-// minimal app shell – everything else is fetched on demand
+// minimal app shell — relative paths, resolved against /tma/v2/ scope.
+// Не приводим тут отсутствующие файлы — install упадёт целиком если хоть один 404.
 const SHELL_URLS = [
-  '/',
-  '/index.html',
-  '/manifest.webmanifest',
-  '/styles/tokens.css',
-  '/styles/app.css',
-  '/js/app.js',
-  '/js/router.js',
-  '/fonts/coolvetica.woff2',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
-  '/offline.html',
+  './',
+  './index.html',
+  './manifest.webmanifest',
+  './tokens.css',
 ];
 
 // ── install ───────────────────────────────────────────────────
@@ -55,7 +49,7 @@ self.addEventListener('fetch', (e) => {
   // 1. HTML navigations & .html / .json — network-first
   if (req.mode === 'navigate' || accept.includes('text/html')
       || url.pathname.endsWith('.html') || url.pathname.endsWith('.json')) {
-    e.respondWith(networkFirst(req, RUNTIME_CACHE, '/offline.html'));
+    e.respondWith(networkFirst(req, RUNTIME_CACHE, null));
     return;
   }
 

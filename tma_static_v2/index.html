@@ -3,45 +3,1141 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Roastberry — v2 preview</title>
+<title>Roastberry</title>
+<meta name="theme-color" content="#FAF7F2" />
 <link rel="manifest" href="manifest.webmanifest" />
 <link rel="stylesheet" href="tokens.css" />
-<meta name="theme-color" content="#FAF7F2" />
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
   html, body { margin: 0; min-height: 100%; background: var(--bg, #FAF7F2); }
-  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
-  .rb { min-height: 100vh; padding: 80px 24px 120px; }
-  .rb .eyebrow { display: block; margin-bottom: 10px; }
-  .rb h1 { font-size: 44px; line-height: 0.95; margin-bottom: 18px; }
-  .rb p { color: var(--ink-soft); font-size: 15px; line-height: 1.55; max-width: 360px; }
-  .rb .stack { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
-  .rb .stack a {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 18px; border-radius: var(--r-md); background: var(--surface);
-    border: 1px solid var(--line); text-decoration: none; color: var(--ink);
-    font-weight: 600; font-size: 14px;
-  }
-  .rb .stack a span:last-child { color: var(--ink-faint); }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; overscroll-behavior-y: contain; }
+  #root { min-height: 100vh; padding-bottom: 110px; }
+  .rb a { color: inherit; }
+  .rb button { font: inherit; }
+  @keyframes rb-blink { 50% { opacity: 0 } }
+  .rb-cursor { display:inline-block; width:1.5px; height:17px; background:var(--copper); margin-left:1px; vertical-align:middle; animation: rb-blink 1s steps(2) infinite; }
+  .rb-spinner { display:inline-block; width:14px; height:14px; border:2px solid var(--ink-mute); border-top-color: var(--ink); border-radius:50%; animation: rb-spin 0.7s linear infinite; }
+  @keyframes rb-spin { to { transform: rotate(360deg); } }
+  .rb-toast { position:fixed; left:50%; bottom:120px; transform:translateX(-50%); background:var(--ink); color:var(--bg); padding:10px 16px; border-radius:999px; font-size:13px; font-weight:600; z-index:100; box-shadow: var(--sh-2); opacity:0; transition:opacity .2s; pointer-events:none; }
+  .rb-toast.show { opacity: 1; }
 </style>
 </head>
 <body>
-<div class="rb">
-  <span class="eyebrow">● Roastberry · v2</span>
-  <h1>Новый магазин<br/>скоро здесь.</h1>
-  <p>
-    Параллельная сборка магазина по дизайн-системе v0.1.
-    Боевая версия живёт на <code>/tma/</code> и работает как раньше.
-  </p>
-  <div class="stack">
-    <a href="/tma/">→ Старый магазин (прод)</a>
-    <a href="tokens.css">→ tokens.css</a>
-    <a href="manifest.webmanifest">→ manifest</a>
+
+<div id="root">
+  <div style="padding:80px 24px; text-align:center; color:#8a7a6c">
+    <div class="rb-spinner" style="margin-bottom:14px"></div>
+    <div style="font-family:'Inter',sans-serif; font-size:13px">Загружаю каталог…</div>
   </div>
 </div>
+
+<div id="rb-toast" class="rb-toast"></div>
+
 <script>
-  if ('serviceWorker' in navigator) {
+'use strict';
+
+/* ════════════════════════════════════════════════════════════════════
+   TELEGRAM SDK + AUTH
+   ════════════════════════════════════════════════════════════════════ */
+const tg = window.Telegram?.WebApp;
+try { tg?.ready?.(); tg?.expand?.(); } catch(e) {}
+const IS_TG = !!(tg && tg.initData && tg.initData.length > 0);
+const IS_DARK = (tg?.colorScheme === 'dark') || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
+
+function authHeaders() { return IS_TG ? { 'X-Tma-InitData': tg.initData } : {}; }
+function haptic(kind = 'light') {
+  try {
+    if (kind === 'success' || kind === 'error' || kind === 'warning') tg?.HapticFeedback?.notificationOccurred?.(kind);
+    else tg?.HapticFeedback?.impactOccurred?.(kind);
+  } catch (e) {}
+}
+function toast(msg, ms = 1600) {
+  const el = document.getElementById('rb-toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => el.classList.remove('show'), ms);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   STATE
+   ════════════════════════════════════════════════════════════════════ */
+const STATE = {
+  data: null,                    // products.json
+  cart: [],                      // [{id, fasovka, qty}]
+  favorites: [],                 // [id]
+  screen: 'home',                // home | catalog | product | cart | profile
+  cat: null,                     // categoryId for catalog
+  subcat: null,                  // subcategoryId for catalog
+  productId: null,
+  productFasovka: null,          // selected size in product screen
+  productKg: 1,                  // selected weight for discount calculator
+  isAdmin: false,
+  history: [],                   // navigation stack
+};
+
+const STORAGE_KEY = 'rb-v2-state-1';
+function saveLocal() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ cart: STATE.cart, favorites: STATE.favorites })); } catch(e){}
+}
+function loadLocal() {
+  try {
+    const j = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    STATE.cart = j.cart || [];
+    STATE.favorites = j.favorites || [];
+  } catch(e){}
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ICONS — 24 SVG paths
+   ════════════════════════════════════════════════════════════════════ */
+const ICONS = {
+  search:'M11 4a7 7 0 1 1 0 14 7 7 0 0 1 0-14ZM16.5 16.5L21 21',
+  bag:'M6 8h12l-.8 11a2 2 0 0 1-2 1.9H8.8a2 2 0 0 1-2-1.9L6 8Zm3 0V6a3 3 0 0 1 6 0v2',
+  menu:'M4 7h16M4 12h16M4 17h12',
+  back:'M14 6l-6 6 6 6',
+  more:'M5 12h.01M12 12h.01M19 12h.01',
+  plus:'M12 5v14M5 12h14',
+  minus:'M5 12h14',
+  heart:'M12 20s-7-4.5-9.3-9A5.3 5.3 0 0 1 12 5.2 5.3 5.3 0 0 1 21.3 11C19 15.5 12 20 12 20Z',
+  filter:'M4 6h16M7 12h10M10 18h4',
+  home:'M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-7h-6v7H5a1 1 0 0 1-1-1v-9Z',
+  user:'M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-8 10c0-4 4-6 8-6s8 2 8 6',
+  flame:'M12 3s4 4.5 4 8.5A4 4 0 0 1 12 16a4 4 0 0 1-4-4.5C8 9 12 3 12 3Z',
+  cup:'M5 7h13v6a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5V7Z M18 9h2a2 2 0 0 1 0 4h-2',
+  truck:'M3 7h11v9H3V7Zm11 3h4l3 3v3h-7v-6ZM7 18a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm10 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z',
+  doc:'M7 3h7l5 5v13H7V3Z M14 3v5h5 M9 13h7M9 17h7',
+  scale:'M12 5v14 M5 8h14 M5 8l-2 7a4 4 0 0 0 8 0L9 8 M15 8l-2 7a4 4 0 0 0 8 0l-2-7',
+  clock:'M12 7v6l4 2 M12 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18Z',
+  drop:'M12 3c0 0 6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11Z',
+  therm:'M12 14a3 3 0 1 0 1 5.8V8a3 3 0 0 0-6 0v0Z M12 4v10 M12 4a2 2 0 0 1 2 2v8',
+  grind:'M5 5h14v4H5V5Zm0 5h14v3l-2 8H7l-2-8v-3Z M9 5v-2h6v2',
+  arrowR:'M5 12h14M13 6l6 6-6 6',
+};
+function icon(name, size = 18, sw = 1.6) {
+  const d = ICONS[name] || '';
+  return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><path d="${d}"/></svg>`;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   TASTE HUE AUTO-MAP — словарь нот → цвет + интенсивность
+   ════════════════════════════════════════════════════════════════════ */
+const TASTE_HUES = {
+  // шоколад / какао
+  'шоколад':'#6F4E37','тёмный шоколад':'#3A2A1F','молочный шоколад':'#8B5224','какао':'#6F4E37','патока':'#4A3422',
+  // ягоды
+  'ягоды':'#9C3B52','клубника':'#9C3B52','малина':'#9C3B52','клюква':'#9C3B52','чёрная смородина':'#5A2848','смородина':'#7A2E4E',
+  'вишня':'#7A2E2E','копчёная вишня':'#5E2020','черника':'#3A2848',
+  // косточковые
+  'персик':'#E2B190','абрикос':'#D89060','слива':'#7A4A6E',
+  // цитрус
+  'цитрус':'#C97E3C','лимон':'#E0B83C','апельсин':'#D87830','бергамот':'#C97E3C','грейпфрут':'#D45E5E','лайм':'#C0D03C',
+  // карамель / мёд
+  'карамель':'#C9A66B','мёд':'#D4A953','тростниковый сахар':'#C9A66B','ваниль':'#E8D8A8',
+  // орех
+  'орех':'#A87C50','миндаль':'#B89172','фундук':'#A87C50','грецкий орех':'#8B6840',
+  // фрукты
+  'красное яблоко':'#9C3B52','яблоко':'#7A9B5E','груша':'#A8C079','банан':'#E8D560',
+  // тропики
+  'тропики':'#E8B73C','манго':'#E0A032','ананас':'#E0B83C','личи':'#E8B7C8','маракуйя':'#E2B53C','папайя':'#E08050',
+  // цветочные
+  'жасмин':'#C087B7','роза':'#C46A8E','цветочные':'#C087B7','лепестки роз':'#C46A8E','лаванда':'#9078B0',
+  // чай / травы
+  'чёрный чай':'#5E4232','зелёный чай':'#7A9B5E','травы':'#5E7A4F','мята':'#5E7A4F','чабрец':'#5E7A4F','шиповник':'#C46A4E',
+  'цукат':'#D89060',
+  // пряности / тяжёлые
+  'специи':'#A8412E','табак':'#5E4232','дым':'#5E4232','перец':'#7A2E2E','имбирь':'#D89060','кардамон':'#A8412E',
+  // винные
+  'вино':'#7A2E4E','красное вино':'#7A2E4E','порт':'#5A2848',
+  // прочее
+  'томат':'#C04030','хлеб':'#C9A66B','инжир':'#7A4A6E',
+  '_default':'#6F4E37',
+};
+function tasteHue(note) {
+  const k = String(note || '').toLowerCase().trim();
+  if (TASTE_HUES[k]) return TASTE_HUES[k];
+  for (const key in TASTE_HUES) {
+    if (key !== '_default' && (k.includes(key) || key.includes(k))) return TASTE_HUES[key];
+  }
+  return TASTE_HUES._default;
+}
+function tastingForProduct(p) {
+  const notes = p?.tasting_notes || [];
+  if (!Array.isArray(notes) || !notes.length) return [];
+  return notes.slice(0, 5).map((n, i, arr) => ({
+    label: String(n),
+    intensity: Math.max(2, 5 - i * (5 / Math.max(arr.length, 5))),
+    hue: tasteHue(n),
+  }));
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   COUNTRY FLAGS — 2-letter code by country name
+   ════════════════════════════════════════════════════════════════════ */
+const FLAG_CODES = {
+  'Бразилия':'br','Эфиопия':'et','Колумбия':'co','Кения':'ke','Гватемала':'gt',
+  'Россия':'ru','Германия':'de','Перу':'pe','Гондурас':'hn','Никарагуа':'ni',
+  'Танзания':'tz','Уганда':'ug','Руанда':'rw','Китай':'cn','Коста-Рика':'cr',
+  'Коста-Рико':'cr','Индия':'in','Индонезия':'id','Йемен':'ye','Мьянма':'mm',
+  'Эквадор':'ec','Боливия':'bo','Сальвадор':'sv','Мексика':'mx',
+};
+function flagDot(country) {
+  const code = FLAG_CODES[country] || '';
+  return code ? `<span class="flag flag--${code}"></span>` : `<span class="flag"></span>`;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   DISCOUNT TIERS — лестница скидок по весу
+   ════════════════════════════════════════════════════════════════════ */
+const TIERS = [
+  { min: 25, d: 0.20 },
+  { min: 10, d: 0.10 },
+  { min: 0,  d: 0.00 },
+];
+function tierFor(kg) {
+  for (const t of TIERS) if (kg >= t.min) return t.d;
+  return 0;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   HELPERS
+   ════════════════════════════════════════════════════════════════════ */
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = n => Math.round(Number(n) || 0).toLocaleString('ru-RU');
+
+function sizeToKg(size) {
+  const m = String(size || '').match(/(\d+(?:[.,]\d+)?)\s*(кг|г|гр)/i);
+  if (!m) return 0;
+  const n = parseFloat(m[1].replace(',', '.'));
+  return /к/i.test(m[2]) ? n : n / 1000;
+}
+
+function cartCount() {
+  return STATE.cart.reduce((s, i) => s + (i.qty || 1), 0);
+}
+function cartWeightKg() {
+  let kg = 0;
+  for (const it of STATE.cart) {
+    const p = STATE.data?.products.find(x => x.id === it.id);
+    if (!p) continue;
+    if (p.category !== 'coffee') continue;
+    kg += sizeToKg(it.fasovka) * (it.qty || 1);
+  }
+  return kg;
+}
+function cartSubtotal() {
+  let s = 0;
+  for (const it of STATE.cart) {
+    const p = STATE.data?.products.find(x => x.id === it.id);
+    if (!p) continue;
+    const f = (p.fasovka || []).find(x => x.size === it.fasovka);
+    if (!f || f.on_request || typeof f.price !== 'number') continue;
+    s += f.price * (it.qty || 1);
+  }
+  return s;
+}
+
+function findProduct(id) { return STATE.data?.products.find(x => x.id === id); }
+function productInSub(p, subId) {
+  if (!subId || subId === 'all') return true;
+  return p.subcategory === subId || (Array.isArray(p.subcategories) && p.subcategories.includes(subId));
+}
+
+/* ────────────── visibility (parity with prod) ────────────── */
+function isVisibleInCatalog(p) {
+  if (!p) return false;
+  if (p.hidden) return false;
+  if (p.quarantined && !STATE.isAdmin) return false;
+  if (STATE.isAdmin) return true;
+  const s = (typeof p.stock === 'number') ? p.stock : null;
+  if (s !== null && s <= 0) {
+    if (p.pair_id) {
+      const sib = STATE.data.products.find(x => x.pair_id === p.pair_id && x.id !== p.id);
+      if (sib && typeof sib.stock === 'number' && sib.stock > 0) return true;
+    }
+    return false;
+  }
+  return true;
+}
+function visibleProducts() {
+  return (STATE.data?.products || []).filter(isVisibleInCatalog);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ATOMS
+   ════════════════════════════════════════════════════════════════════ */
+function btnGhost(inner, attrs = '') {
+  return `<button class="btn-ghost" ${attrs}>${inner}</button>`;
+}
+function appHeader({ title = '', back = false, action = '', logo = false } = {}) {
+  return `
+    <div style="position:sticky; top:0; z-index:10; padding:54px 16px 12px; background:var(--bg); border-bottom:1px solid var(--line); display:flex; align-items:center; gap:8px;">
+      ${back
+        ? `<button class="btn-ghost" style="width:36px; padding:0; justify-content:center" onclick="rb.back()">${icon('back')}</button>`
+        : (logo
+          ? `<div style="font-family:var(--f-display); font-weight:900; font-size:16px; letter-spacing:0.04em; flex:1;">ROASTBERRY<span style="color:var(--copper)">.</span></div>`
+          : '')}
+      ${title ? `<div style="flex:1; text-align:center; font-family:var(--f-display); font-weight:700; font-size:15px;">${esc(title)}</div>` : ''}
+      <div style="display:flex; gap:6px; margin-left:auto;">
+        ${action || `
+          <button class="btn-ghost" style="width:36px; padding:0; justify-content:center" onclick="rb.go('search')">${icon('search')}</button>
+          <button class="btn-ghost" style="width:36px; padding:0; justify-content:center; position:relative" onclick="rb.go('cart')">${icon('bag')}${cartCount() ? `<span style="position:absolute; top:-2px; right:-2px; min-width:16px; height:16px; border-radius:999px; background:var(--copper); color:#fff; font-size:10px; font-weight:700; font-family:var(--f-mono); display:flex; align-items:center; justify-content:center; padding:0 4px;">${cartCount()}</span>` : ''}</button>
+        `}
+      </div>
+    </div>`;
+}
+
+function tabBar(active) {
+  const tabs = [
+    { id: 'home',    label: 'Главная', i: 'home' },
+    { id: 'catalog', label: 'Каталог', i: 'menu' },
+    { id: 'search',  label: 'Поиск',   i: 'search' },
+    { id: 'cart',    label: 'Корзина', i: 'bag',  badge: cartCount() },
+    { id: 'profile', label: 'Я',       i: 'user' },
+  ];
+  return `
+    <div style="position:fixed; bottom:0; left:0; right:0; padding:8px 8px calc(env(safe-area-inset-bottom,18px) + 12px); background:color-mix(in oklab, var(--bg) 88%, transparent); backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%); border-top:1px solid var(--line); display:flex; justify-content:space-around; z-index:9;">
+      ${tabs.map(t => `
+        <button onclick="rb.go('${t.id}')" style="flex:1; background:transparent; border:0; display:flex; flex-direction:column; align-items:center; gap:2px; padding:6px 0; color:${t.id === active ? 'var(--ink)' : 'var(--ink-faint)'}; cursor:pointer; position:relative;">
+          <span style="position:relative">${icon(t.i, 22)}${t.badge ? `<span style="position:absolute; top:-3px; right:-8px; min-width:14px; height:14px; padding:0 3px; background:var(--copper); color:#fff; border-radius:999px; font-size:9px; font-weight:700; font-family:var(--f-mono); display:flex; align-items:center; justify-content:center;">${t.badge}</span>` : ''}</span>
+          <span style="font-size:10px; font-weight:500;">${t.label}</span>
+        </button>
+      `).join('')}
+    </div>`;
+}
+
+function placeholder(label, ratio = '4 / 3', extra = '') {
+  return `<div class="ph" style="aspect-ratio:${ratio}; border-radius:var(--r-md); ${extra}">${esc(label || '')}</div>`;
+}
+
+function stepper(value, decAction, incAction, ink = false) {
+  return `
+    <div class="stepper${ink ? ' stepper--ink' : ''}">
+      <button onclick="${decAction}">−</button>
+      <span>${value}</span>
+      <button onclick="${incAction}">+</button>
+    </div>`;
+}
+
+function freshDot(daysAgo) {
+  const word = daysAgo === 1 ? 'день' : daysAgo < 5 ? 'дня' : 'дней';
+  return `<span style="display:inline-flex; align-items:center; gap:6px; font-family:var(--f-mono); font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--green); font-weight:600;"><span style="width:6px; height:6px; border-radius:999px; background:var(--green)"></span>обжарено ${daysAgo} ${word} назад</span>`;
+}
+
+function roastBadge(roast) {
+  if (!roast) return '';
+  const cls = roast === 'F' ? ' roast--f' : '';
+  return `<span class="roast${cls}">${esc(roast)}</span>`;
+}
+
+function chip(text, cls = '', extra = '') {
+  return `<span class="chip${cls ? ' chip--' + cls : ''}" style="${extra}">${text}</span>`;
+}
+
+/* ────────────── Tasting footprint (SVG 5 spokes) ────────────── */
+function tasting(notes, size = 148) {
+  if (!notes || !notes.length) return '';
+  const cx = size / 2, cy = size / 2;
+  const rMin = 12, rMax = size / 2 - 22;
+  const spokes = notes.map((n, i) => {
+    const a = (i / notes.length) * Math.PI * 2 - Math.PI / 2;
+    const r = rMin + (rMax - rMin) * (n.intensity / 5);
+    const x = (cx + Math.cos(a) * r).toFixed(2);
+    const y = (cy + Math.sin(a) * r).toFixed(2);
+    const x0 = (cx + Math.cos(a) * rMin).toFixed(2);
+    const y0 = (cy + Math.sin(a) * rMin).toFixed(2);
+    return `<line x1="${x0}" y1="${y0}" x2="${x}" y2="${y}" stroke="${n.hue}" stroke-width="3" stroke-linecap="round"/><circle cx="${x}" cy="${y}" r="3.5" fill="${n.hue}"/>`;
+  }).join('');
+  const labels = notes.map((n, i) => {
+    const a = (i / notes.length) * Math.PI * 2 - Math.PI / 2;
+    const lx = cx + Math.cos(a) * (rMax + 6);
+    const ly = cy + Math.sin(a) * (rMax + 6);
+    const tx = Math.cos(a), ty = Math.sin(a);
+    const trX = tx > 0.3 ? '0' : tx < -0.3 ? '-100%' : '-50%';
+    const trY = ty > 0.3 ? '0' : ty < -0.3 ? '-100%' : '-50%';
+    return `<div style="position:absolute; left:${lx}px; top:${ly}px; transform:translate(${trX}, ${trY}); font-family:var(--f-mono); font-size:9.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft); font-weight:600; white-space:nowrap;">${esc(n.label)}</div>`;
+  }).join('');
+  return `
+    <div style="position:relative; width:${size}px; height:${size}px; flex:0 0 auto;">
+      <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+        <circle cx="${cx}" cy="${cy}" r="${rMin - 2}" fill="none" stroke="var(--ink-mute)" stroke-width="0.8"/>
+        <circle cx="${cx}" cy="${cy}" r="${rMax}" fill="none" stroke="var(--ink-mute)" stroke-width="0.5" stroke-dasharray="1 3"/>
+        ${spokes}
+      </svg>
+      ${labels}
+    </div>`;
+}
+
+function brewRow(iconName, label, value) {
+  return `
+    <div style="display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid var(--line);">
+      <span style="width:32px; height:32px; border-radius:8px; background:var(--surface-2); display:flex; align-items:center; justify-content:center; color:var(--ink-soft); flex:0 0 auto;">${icon(iconName, 16)}</span>
+      <span style="flex:1; font-size:13px; color:var(--ink-soft);">${esc(label)}</span>
+      <span style="font-family:var(--f-mono); font-size:13px; font-weight:600; color:var(--ink); letter-spacing:-0.01em;">${esc(value)}</span>
+    </div>`;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   PARSE RECIPE MARKDOWN (упрощённо)
+   ════════════════════════════════════════════════════════════════════ */
+function parseRecipeRows(md) {
+  if (!md) return [];
+  // recipe format: "**Type** · key1 value1 · key2 value2 ..."
+  const cleaned = md.replace(/\*\*.*?\*\*/g, '').trim();
+  const parts = cleaned.split(/\s*·\s*/).filter(Boolean);
+  const rows = [];
+  const map = [
+    [/помол/i, 'grind'],
+    [/навеска|доза/i, 'scale'],
+    [/выход/i, 'drop'],
+    [/время|с\b/i, 'clock'],
+    [/температ|°C/i, 'therm'],
+  ];
+  for (const p of parts) {
+    let foundIcon = 'bean';
+    let label = '';
+    let value = p.trim();
+    for (const [re, ic] of map) {
+      if (re.test(p)) {
+        foundIcon = ic;
+        if (/помол/i.test(p))    label = 'Помол';
+        else if (/навеска|доза/i.test(p))  label = 'Навеска';
+        else if (/выход/i.test(p))         label = 'Выход';
+        else if (/температ|°C/i.test(p))   label = 'Темп.';
+        else if (/время|\d+\s*с\b/i.test(p)) label = 'Время';
+        break;
+      }
+    }
+    if (!label) {
+      const m = p.match(/^(.+?)\s+(.+)$/);
+      if (m) { label = m[1]; value = m[2]; }
+    } else {
+      value = p.replace(/^(помол|навеска|доза|выход|время|темп\.?|температура)\s*/i, '').trim();
+    }
+    rows.push({ icon: foundIcon, label, value });
+  }
+  return rows;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   SCREEN: HOME
+   ════════════════════════════════════════════════════════════════════ */
+function screenHome() {
+  const all = visibleProducts();
+  const coffee = all.filter(p => p.category === 'coffee' && p.roast);
+  const fresh = coffee.slice(0, 5).map((p, i) => ({ ...p, _days: 2 + i }));
+  const hits = all.filter(p => Array.isArray(p.tags) && (p.tags.includes('Хит') || p.tags.includes('Black Edition'))).slice(0, 3);
+
+  const cats = [
+    { t: 'Эспрессо',  n: coffee.filter(p => /espresso/.test(p.subcategory || '')).length + ' SKU',  bg: '#3A2A1F', fg: '#F5EBDD', accent: 'var(--copper)', sub: 'coffee_espresso' },
+    { t: 'Фильтр',    n: coffee.filter(p => /filter/.test(p.subcategory || '')).length + ' SKU',    bg: '#E8DFD0', fg: '#1A1410', accent: 'var(--coffee)', sub: 'coffee_filter' },
+    { t: 'BLACK\nEdition', n: coffee.filter(p => p.subcategory === 'coffee_black').length + ' SKU',  bg: '#0F0B08', fg: '#F5EBDD', accent: '#C9A66B', sub: 'coffee_black', big: true },
+    { t: 'BORЩ',      n: coffee.filter(p => /bor/.test(p.subcategory || '')).length + ' SKU',       bg: '#7A2E2E', fg: '#F5EBDD', accent: '#F5C77E', sub: 'coffee_borshch' },
+    { t: 'Дрипы',     n: coffee.filter(p => /drip|capsule/.test(p.subcategory || '')).length + ' SKU', bg: '#FAF7F2', fg: '#1A1410', accent: 'var(--green)', sub: 'coffee_drip_capsules' },
+    { t: 'Чай',       n: all.filter(p => p.category === 'tea').length + ' SKU',                     bg: '#3D4F32', fg: '#F5EBDD', accent: '#C5D4A7', cat: 'tea' },
+  ];
+
+  return `
+${appHeader({ logo: true })}
+
+<!-- HERO -->
+<div style="padding:6px 16px 0;">
+  <div style="position:relative; aspect-ratio:4 / 5; border-radius:var(--r-lg); overflow:hidden; background:var(--coffee-deep); color:#F5EBDD; display:flex; flex-direction:column; justify-content:space-between;">
+    <div class="ph" style="position:absolute; inset:0; background:linear-gradient(160deg, #2A1B12 0%, #4A3422 60%, #6F4E37 100%); background-image:repeating-linear-gradient(135deg, transparent 0 14px, rgba(255,255,255,0.025) 14px 15px); color:rgba(255,255,255,0.22);"><span style="padding:10px 12px">HERO · РОСТЕР, ТУЛА</span></div>
+    <div style="position:relative; padding:20px 22px; display:flex; justify-content:space-between;">
+      <div class="meta" style="color:rgba(245,235,221,0.7)">${new Date().toLocaleDateString('ru-RU', {day:'numeric', month:'long', year:'numeric'}).toUpperCase()} · ПАРТИЯ ${Math.floor(Math.random()*99)+300}</div>
+      <div class="meta" style="color:rgba(245,235,221,0.5)">1 / 4</div>
+    </div>
+    <div style="position:relative; padding:0 22px 24px;">
+      <div style="font-family:var(--f-display); font-weight:900; font-size:44px; line-height:0.92; letter-spacing:-0.025em; text-transform:uppercase;">Свежая<br/>обжарка<br/><span style="color:var(--copper)">из Тулы</span></div>
+      <div style="margin-top:14px; font-size:13px; opacity:0.78; max-width:240px; line-height:1.5;">Спешелти в зерне, чае, дрипах. 7 лет, ${all.length}+ SKU, отгрузка из Тулы по всей России.</div>
+      <div style="margin-top:20px; display:flex; gap:8px; align-items:center;">
+        <button onclick="rb.go('catalog')" style="flex:1; height:46px; background:#F5EBDD; color:#1A1410; border:0; border-radius:999px; font-family:var(--f-display); font-weight:700; font-size:15px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; cursor:pointer;">Открыть каталог<span>→</span></button>
+        <button style="width:46px; height:46px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.16); border-radius:999px; color:#F5EBDD; display:inline-flex; align-items:center; justify-content:center;">${icon('heart')}</button>
+      </div>
+      <div style="margin-top:18px; display:flex; gap:4px; align-items:center;">
+        <span style="flex:1; height:3px; border-radius:2px; background:#F5EBDD"></span>
+        <span style="width:6px; height:3px; border-radius:2px; background:rgba(245,235,221,0.3)"></span>
+        <span style="width:6px; height:3px; border-radius:2px; background:rgba(245,235,221,0.3)"></span>
+        <span style="width:6px; height:3px; border-radius:2px; background:rgba(245,235,221,0.3)"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- СЕЙЧАС В РОСТЕРЕ -->
+${fresh.length ? `
+<div class="sec-head">
+  <div>
+    <div class="eyebrow" style="color:var(--green)">● Сейчас в ростере</div>
+    <h2 style="margin-top:6px">Партия этой недели</h2>
+  </div>
+  <a onclick="rb.go('catalog', {cat:'coffee'})" style="cursor:pointer">Все ${coffee.length} →</a>
+</div>
+<div class="hrow" style="padding-bottom:4px;">
+  ${fresh.map(p => {
+    const f = (p.fasovka || [])[0] || {};
+    return `
+      <div onclick="rb.openProduct('${esc(p.id)}')" style="width:188px; background:var(--surface); border-radius:var(--r-md); border:1px solid var(--line); overflow:hidden; cursor:pointer;">
+        ${placeholder('BAG · ' + esc(f.size || '200г'), '1', 'border-radius:0')}
+        <div style="padding:12px;">
+          <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
+            ${flagDot(p.country)}
+            <span class="meta" style="font-size:9.5px;">${esc(p.country || '')}</span>
+            <span style="margin-left:auto">${roastBadge(p.roast)}</span>
+          </div>
+          <div style="font-family:var(--f-display); font-weight:700; font-size:15px; line-height:1.15; height:36px; overflow:hidden;">${esc(p.name)}</div>
+          <div style="margin-top:8px; display:flex; align-items:baseline; justify-content:space-between;">
+            <div>
+              <span style="font-family:var(--f-display); font-weight:800; font-size:18px;">${f.on_request || typeof f.price !== 'number' ? '—' : fmt(f.price)}</span>
+              <span style="font-size:11px; color:var(--ink-soft); margin-left:4px;">${f.on_request ? 'по запросу' : f.size ? '₽ / ' + esc(f.size) : ''}</span>
+            </div>
+            <button onclick="event.stopPropagation(); rb.cartAdd('${esc(p.id)}', '${esc(f.size || '')}')" style="width:28px; height:28px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-size:18px; line-height:1;">+</button>
+          </div>
+          <div style="margin-top:8px;">${freshDot(p._days)}</div>
+        </div>
+      </div>`;
+  }).join('')}
+  <div style="width:4px; flex:0 0 auto"></div>
+</div>` : ''}
+
+<!-- КАТЕГОРИИ -->
+<div class="sec-head">
+  <div>
+    <div class="eyebrow">Каталог</div>
+    <h2 style="margin-top:6px">Что заказать</h2>
+  </div>
+</div>
+<div style="padding:0 16px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+  ${cats.map(c => `
+    <div onclick="rb.go('catalog', {cat:'${esc(c.cat || 'coffee')}', subcat:'${esc(c.sub || '')}'})" style="grid-column:${c.big ? 'span 2' : 'auto'}; background:${c.bg}; color:${c.fg}; border-radius:var(--r-md); aspect-ratio:${c.big ? '2.3 / 1' : '1.15'}; padding:14px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; ${c.bg === '#FAF7F2' ? 'border:1px solid var(--line);' : ''} cursor:pointer;">
+      <div class="meta" style="color:${c.fg}; opacity:0.5;">${esc(c.n)}</div>
+      <div style="font-family:var(--f-display); font-weight:900; font-size:${c.big ? 32 : 22}px; line-height:0.95; letter-spacing:-0.02em; text-transform:uppercase; white-space:pre-line;">${esc(c.t)}</div>
+      <div style="position:absolute; top:12px; right:14px; width:8px; height:8px; border-radius:999px; background:${c.accent};"></div>
+    </div>
+  `).join('')}
+</div>
+
+<!-- B2B -->
+<div style="padding:24px 16px 0;">
+  <div style="position:relative; overflow:hidden; background:var(--ink); color:var(--bg); border-radius:var(--r-lg); padding:22px 22px 20px;">
+    <div class="meta" style="color:var(--copper)">● Для HoReCa</div>
+    <div style="margin-top:10px; font-family:var(--f-display); font-weight:800; font-size:26px; line-height:1.02; letter-spacing:-0.02em;">Опт от 10 кг.<br/><span style="color:var(--copper)">−20%</span> от 25 кг.</div>
+    <div style="margin-top:10px; font-size:13px; color:rgba(245,239,230,0.65); line-height:1.5; max-width:250px;">Прайс в PDF/XLSX, повтор заказа, дебиторка, склад в реальном времени.</div>
+    <div style="margin-top:18px; display:flex; gap:8px;">
+      <button onclick="rb.go('profile')" style="flex:1; height:44px; background:var(--copper); color:#1A1410; border:0; border-radius:999px; font-family:var(--f-display); font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:space-between; padding:0 18px;">Открыть прайс<span>→</span></button>
+      <button style="height:44px; padding:0 16px; background:transparent; color:var(--bg); border:1px solid rgba(245,239,230,0.2); border-radius:999px; font-weight:500; font-size:13px;">PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- ХИТЫ -->
+${hits.length ? `
+<div class="sec-head">
+  <div>
+    <div class="eyebrow">Хиты</div>
+    <h2 style="margin-top:6px">Берут больше всего</h2>
+  </div>
+  <a onclick="rb.go('catalog')" style="cursor:pointer">Все →</a>
+</div>
+<div style="padding:0 16px; display:flex; flex-direction:column; gap:10px;">
+  ${hits.map(p => {
+    const f = (p.fasovka || [])[0] || {};
+    const meta = [p.process, p.roast, p.altitude].filter(Boolean).join(' · ');
+    return `
+      <div class="card" onclick="rb.openProduct('${esc(p.id)}')" style="display:flex; gap:12px; padding:12px; align-items:center; cursor:pointer;">
+        ${placeholder('', '1', 'width:72px; height:72px; flex:0 0 auto; border-radius:10px;')}
+        <div style="flex:1; min-width:0;">
+          <div style="display:flex; align-items:center; gap:6px;">
+            ${flagDot(p.country)}
+            <span class="meta" style="font-size:9.5px;">${esc(meta)}</span>
+          </div>
+          <div style="margin-top:4px; font-family:var(--f-display); font-weight:700; font-size:16px; line-height:1.2;">${esc(p.name)}</div>
+          <div style="margin-top:6px; font-family:var(--f-display); font-weight:800; font-size:17px;">${f.on_request || typeof f.price !== 'number' ? 'по запросу' : fmt(f.price) + ' '}<span style="font-size:11px; color:var(--ink-soft); margin-left:3px; font-weight:500;">${f.size ? '₽ / ' + esc(f.size) : ''}</span></div>
+        </div>
+        <button onclick="event.stopPropagation(); rb.cartAdd('${esc(p.id)}', '${esc(f.size || '')}')" style="width:32px; height:32px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-size:22px; line-height:1; font-weight:300;">+</button>
+      </div>`;
+  }).join('')}
+</div>` : ''}
+
+${tabBar('home')}
+`;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   SCREEN: CATALOG
+   ════════════════════════════════════════════════════════════════════ */
+function screenCatalog() {
+  const all = visibleProducts();
+  let list = all;
+  let title = 'Каталог';
+  let bread = [];
+  if (STATE.cat) {
+    list = list.filter(p => p.category === STATE.cat);
+    const c = STATE.data.categories.find(x => x.id === STATE.cat);
+    title = c?.name || STATE.cat;
+    bread.push({ id: STATE.cat, name: c?.name || STATE.cat });
+  }
+  if (STATE.subcat) {
+    const s = STATE.data.subcategories.find(x => x.id === STATE.subcat);
+    list = list.filter(p => productInSub(p, STATE.subcat) || (STATE.data.subcategories.filter(ss => ss.parent === STATE.subcat).some(child => productInSub(p, child.id))));
+    title = s?.name || STATE.subcat;
+    bread.push({ id: STATE.subcat, name: s?.name || STATE.subcat });
+  }
+
+  return `
+${appHeader({ back: true, title: 'Каталог', action: `<button class="btn-ghost" style="width:36px; padding:0; justify-content:center" onclick="rb.go('search')">${icon('search')}</button>` })}
+
+<div style="padding:8px 16px 0; display:flex; align-items:center; gap:4px; flex-wrap:wrap;">
+  ${bread.length ? bread.map((b, i) => `<span class="meta" style="${i === bread.length - 1 ? 'color:var(--ink);' : ''}">${esc(b.name).replace(/[\u{1F300}-\u{1F6FF}\u{2600}-\u{27BF}]/gu, '').trim()}</span>${i < bread.length - 1 ? '<span class="meta" style="opacity:0.4">›</span>' : ''}`).join('') : '<span class="meta">Все товары</span>'}
+</div>
+
+<div style="padding:4px 16px 12px; display:flex; align-items:baseline; justify-content:space-between;">
+  <h1 style="font-size:30px;">${esc(title.replace(/[\u{1F300}-\u{1F6FF}\u{2600}-\u{27BF}]/gu, '').trim()) || 'Каталог'}.</h1>
+  <div style="text-align:right;">
+    <div style="font-family:var(--f-display); font-weight:800; font-size:22px;">${list.length}</div>
+    <div class="meta" style="font-size:9.5px;">SKU</div>
+  </div>
+</div>
+
+<!-- Sticky filter chips -->
+<div style="position:sticky; top:96px; z-index:5; background:color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter:blur(14px); padding:10px 0; border-bottom:1px solid var(--line);">
+  <div class="hrow" style="padding-bottom:2px;">
+    <button class="chip" style="height:30px; font-weight:600; gap:4px;">${icon('filter', 14)} Фильтр</button>
+    <button class="chip">200 г</button>
+    <button class="chip">1 кг</button>
+    <button class="chip">Страна ↓</button>
+    <button class="chip chip--green">✓ В наличии</button>
+    <button class="chip">Вкус ↓</button>
+    <div style="width:4px"></div>
+  </div>
+  <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 16px 0;">
+    <span class="meta">${list.filter(p => (p.stock||0) > 0).length} в наличии</span>
+    <button class="btn-ghost" style="height:26px; padding:0 10px; font-size:12px;">Сортировка: новинки ↓</button>
+  </div>
+</div>
+
+<!-- Items -->
+${list.length === 0
+  ? `<div style="padding:60px 24px; text-align:center; color:var(--ink-soft);"><div style="font-size:32px; margin-bottom:10px">🍃</div><div style="font-family:var(--f-display); font-weight:700; font-size:16px;">Пока пусто</div><div style="font-size:13px; margin-top:6px;">Открой другую категорию или поищи в каталоге.</div></div>`
+  : `<div style="display:flex; flex-direction:column; gap:1px; background:var(--line); border-radius:var(--r-md); overflow:hidden; margin:12px 16px; border:1px solid var(--line);">
+    ${list.slice(0, 50).map(p => {
+      const f = (p.fasovka || [])[0] || {};
+      const meta = [p.process, p.variety, p.altitude].filter(Boolean).join(' · ');
+      const lowStock = typeof p.stock === 'number' && p.stock > 0 && p.stock < 5;
+      const isLim = (p.tags || []).some(t => /лимит/i.test(t)) || (p.tags || []).includes('Микролот');
+      return `
+        <div onclick="rb.openProduct('${esc(p.id)}')" style="display:flex; gap:12px; padding:14px; background:var(--surface); align-items:center; cursor:pointer;">
+          ${placeholder('', '1', 'width:60px; height:60px; flex:0 0 auto; border-radius:8px;')}
+          <div style="flex:1; min-width:0;">
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px; flex-wrap:wrap;">
+              ${flagDot(p.country)}
+              ${p.roast ? `<span class="roast${p.roast === 'F' ? ' roast--f' : ''}" style="width:16px; height:16px; font-size:9px;">${esc(p.roast)}</span>` : ''}
+              ${isLim ? `<span class="chip chip--copper" style="padding:1px 7px; font-size:10px; height:18px;">Лимит</span>` : ''}
+              ${lowStock ? `<span class="chip chip--amber" style="padding:1px 7px; font-size:10px; height:18px;">Осталось ${p.stock}</span>` : ''}
+              ${p.on_request ? `<span class="chip chip--ink" style="padding:1px 7px; font-size:10px; height:18px;">По запросу</span>` : ''}
+            </div>
+            <div style="font-family:var(--f-display); font-weight:700; font-size:15px; line-height:1.15; margin-bottom:3px;">${esc(p.name)}</div>
+            <div class="meta" style="font-size:9.5px; color:var(--ink-faint);">${esc(meta || ' ')}</div>
+          </div>
+          <div style="text-align:right; display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
+            <div>
+              <span style="font-family:var(--f-display); font-weight:800; font-size:16px; line-height:1;">${typeof f.price === 'number' && !f.on_request ? fmt(f.price) : '—'}</span>
+              <span style="font-size:10px; color:var(--ink-faint); margin-left:2px;">${typeof f.price === 'number' && !f.on_request ? '₽' : ''}</span>
+            </div>
+            <button onclick="event.stopPropagation(); rb.cartAdd('${esc(p.id)}', '${esc(f.size || '')}')" style="width:30px; height:30px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-size:18px; line-height:1; font-weight:300;">+</button>
+          </div>
+        </div>
+      `;
+    }).join('')}
+  </div>`
+}
+
+${tabBar('catalog')}
+`;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   SCREEN: PRODUCT
+   ════════════════════════════════════════════════════════════════════ */
+function screenProduct() {
+  const p = findProduct(STATE.productId);
+  if (!p) return `<div style="padding:80px 24px; text-align:center; color:var(--ink-soft);">Карточка не найдена.</div>`;
+  const fasList = Array.isArray(p.fasovka) && p.fasovka.length ? p.fasovka : [{ size: 'уп.', price: p.price ?? null, on_request: p.on_request || (typeof p.price !== 'number') }];
+  const curFas = fasList.find(f => f.size === STATE.productFasovka) || fasList.find(f => /кг/i.test(f.size)) || fasList[0];
+  const isCoffeeKg = p.category === 'coffee' && /кг/i.test(curFas.size || '');
+  const kg = isCoffeeKg ? Math.max(1, STATE.productKg || 1) : 1;
+  const basePrice = curFas.on_request ? 0 : (curFas.price || 0);
+  const subtotal = basePrice * kg;
+  const tier = isCoffeeKg ? tierFor(kg) : 0;
+  const total = subtotal * (1 - tier);
+  const save = subtotal - total;
+  const tasteNotes = tastingForProduct(p);
+  const recipe = p.recipe_e || p.recipe_f;
+  const recipeRows = parseRecipeRows(recipe);
+  const recipeIsEspresso = !!p.recipe_e;
+
+  return `
+<!-- Floating header over hero -->
+<div style="position:sticky; top:0; z-index:12; display:flex; align-items:center; justify-content:space-between; padding:54px 16px 12px; background:transparent;">
+  <button onclick="rb.back()" style="width:38px; height:38px; border-radius:999px; background:rgba(255,255,255,0.85); backdrop-filter:blur(10px); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;">${icon('back')}</button>
+  <div style="display:flex; gap:6px;">
+    <button style="width:38px; height:38px; border-radius:999px; background:rgba(255,255,255,0.85); backdrop-filter:blur(10px); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;">${icon('heart')}</button>
+    <button style="width:38px; height:38px; border-radius:999px; background:rgba(255,255,255,0.85); backdrop-filter:blur(10px); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;">${icon('more')}</button>
+  </div>
+</div>
+
+<!-- Hero -->
+<div style="margin-top:-54px;">
+  ${placeholder(`PRODUCT 1080×1080 — ${esc(p.name)}`, '1 / 1', 'border-radius:0; align-items:flex-end; padding:20px;')}
+</div>
+
+<!-- Title -->
+<div style="padding:20px 16px 0;">
+  <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+    ${flagDot(p.country)}
+    <span class="meta">${esc([p.country, p.farm, p.altitude].filter(Boolean).join(' · ')) || '·'}</span>
+  </div>
+  <h1 style="font-size:32px; line-height:0.95;">${esc(p.name)}.</h1>
+  <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:6px;">
+    ${p.roast ? `<span class="chip chip--coffee">${roastBadge(p.roast)} ${p.roast === 'F' ? 'Фильтр' : 'Эспрессо'}</span>` : ''}
+    ${p.process ? chip(esc(p.process)) : ''}
+    ${p.variety ? chip(esc(p.variety)) : ''}
+    ${typeof p.stock === 'number' && p.stock > 0 ? chip(p.stock + ' в наличии', 'green') : (p.on_request ? chip('По запросу') : '')}
+  </div>
+</div>
+
+<!-- Fasovka selector -->
+${fasList.length > 0 ? `
+<div style="padding:20px 16px 0; display:grid; grid-template-columns:repeat(${Math.min(fasList.length, 2)}, 1fr); gap:8px;">
+  ${fasList.map(f => {
+    const sel = curFas.size === f.size;
+    return `
+      <button onclick="rb.setFasovka('${esc(f.size)}')" style="background:${sel ? 'var(--ink)' : 'var(--surface)'}; color:${sel ? 'var(--bg)' : 'var(--ink)'}; border:1px solid ${sel ? 'var(--ink)' : 'var(--line-strong)'}; border-radius:var(--r-md); padding:14px 16px; display:flex; flex-direction:column; align-items:flex-start; gap:4px; text-align:left;">
+        <span style="font-family:var(--f-display); font-weight:700; font-size:13px; letter-spacing:0.02em; text-transform:uppercase; opacity:0.7;">${esc(f.size)}</span>
+        <span style="font-family:var(--f-display); font-weight:800; font-size:22px;">${f.on_request || typeof f.price !== 'number' ? '—' : fmt(f.price)}<span style="font-size:12px; margin-left:2px;">${f.on_request || typeof f.price !== 'number' ? '' : '₽'}</span></span>
+        <span class="meta" style="color:${sel ? 'rgba(245,235,221,0.6)' : 'var(--ink-faint)'}; font-size:9.5px;">${f.on_request ? 'по запросу' : (typeof f.price === 'number' && /200/.test(f.size) ? Math.round(f.price * 5).toLocaleString('ru') + ' ₽/кг' : ' ')}</span>
+      </button>`;
+  }).join('')}
+</div>` : ''}
+
+<!-- Origin grid -->
+${(p.country || p.region || p.variety || p.process || p.altitude || p.farm) ? `
+<div style="padding:20px 16px 0;">
+  <div class="eyebrow" style="margin-bottom:10px;">Происхождение</div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border-radius:var(--r-md); overflow:hidden; border:1px solid var(--line);">
+    ${[
+      p.country && ['Страна', p.country],
+      p.region && ['Регион', p.region],
+      p.variety && ['Сорт', p.variety],
+      p.process && ['Процесс', p.process],
+      p.altitude && ['Высота', p.altitude],
+      p.farm && ['Ферма', p.farm],
+    ].filter(Boolean).map(([k,v]) => `
+      <div style="padding:12px; background:var(--surface);">
+        <div class="meta" style="font-size:9.5px; margin-bottom:4px;">${esc(k)}</div>
+        <div style="font-family:var(--f-body); font-weight:500; font-size:13px; line-height:1.25;">${esc(v)}</div>
+      </div>
+    `).join('')}
+  </div>
+</div>` : ''}
+
+<!-- Tasting -->
+${tasteNotes.length ? `
+<div style="padding:24px 16px 0;">
+  <div class="eyebrow" style="margin-bottom:16px;">Вкусовой профиль</div>
+  <div style="display:flex; gap:16px; align-items:center;">
+    ${tasting(tasteNotes, 148)}
+    <div style="flex:1; display:flex; flex-direction:column; gap:6px;">
+      ${tasteNotes.map(n => {
+        const filled = Math.round(n.intensity);
+        return `
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="width:8px; height:8px; border-radius:999px; background:${n.hue};"></span>
+            <span style="font-size:12px; font-weight:500; flex:1;">${esc(n.label)}</span>
+            <span class="meta" style="font-size:9.5px;">${'●'.repeat(filled)}<span style="color:var(--ink-mute)">${'○'.repeat(5 - filled)}</span></span>
+          </div>`;
+      }).join('')}
+    </div>
+  </div>
+</div>` : ''}
+
+<!-- Recipe -->
+${recipeRows.length ? `
+<div style="padding:24px 16px 0;">
+  <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
+    <div class="eyebrow">Рецепт — ${recipeIsEspresso ? 'эспрессо' : 'фильтр'}</div>
+  </div>
+  <div class="card" style="padding:4px 14px 6px;">
+    ${recipeRows.map(r => brewRow(r.icon, r.label || '·', r.value)).join('')}
+  </div>
+</div>` : ''}
+
+<!-- Weight discount calculator -->
+${isCoffeeKg && !curFas.on_request ? `
+<div style="padding:24px 16px 0;">
+  <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px;">
+    <div class="eyebrow">Скидка по весу</div>
+    <span class="meta">B2B</span>
+  </div>
+  <div class="card" style="padding:18px;">
+    <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:14px;">
+      <div>
+        <span style="font-family:var(--f-display); font-weight:900; font-size:38px; line-height:1;">${kg}</span>
+        <span style="font-family:var(--f-display); font-weight:600; font-size:18px; margin-left:6px; color:var(--ink-soft);">кг · 1 кг пакеты</span>
+      </div>
+      ${stepper(kg, 'rb.setKg(' + (kg - 1) + ')', 'rb.setKg(' + (kg + 1) + ')')}
+    </div>
+    <div style="position:relative; height:8px; background:var(--surface-2); border-radius:999px; margin-bottom:20px;">
+      <div style="position:absolute; inset:0; width:${Math.min(100, (kg/30)*100)}%; background:${tier === 0.2 ? 'var(--green)' : tier === 0.1 ? 'var(--copper)' : 'var(--coffee)'}; border-radius:999px; transition:width .2s ease;"></div>
+      <div style="position:absolute; top:-22px; left:33.3%; transform:translateX(-50%); white-space:nowrap;">
+        <div class="meta" style="font-size:9px;">10 кг · −10%</div>
+        <div style="position:absolute; top:16px; left:50%; transform:translateX(-50%); width:2px; height:14px; background:var(--ink-mute);"></div>
+      </div>
+      <div style="position:absolute; top:-22px; left:83.3%; transform:translateX(-50%); white-space:nowrap;">
+        <div class="meta" style="font-size:9px;">25 кг · −20%</div>
+        <div style="position:absolute; top:16px; left:50%; transform:translateX(-50%); width:2px; height:14px; background:var(--ink-mute);"></div>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px;">
+      <div><div class="meta" style="font-size:9px; margin-bottom:4px;">Скидка</div><div style="font-family:var(--f-display); font-weight:800; font-size:22px; color:${tier > 0 ? 'var(--green)' : 'var(--ink-faint)'};">−${Math.round(tier*100)}%</div></div>
+      <div><div class="meta" style="font-size:9px; margin-bottom:4px;">Экономия</div><div style="font-family:var(--f-display); font-weight:800; font-size:22px;">${save > 0 ? '−' + fmt(save) : '0'}<span style="font-size:12px; margin-left:2px; color:var(--ink-soft);">₽</span></div></div>
+      <div><div class="meta" style="font-size:9px; margin-bottom:4px;">Итого</div><div style="font-family:var(--f-display); font-weight:800; font-size:22px;">${fmt(total)}<span style="font-size:12px; margin-left:2px; color:var(--ink-soft);">₽</span></div></div>
+    </div>
+  </div>
+</div>` : ''}
+
+<!-- Description -->
+${p.description ? `
+<div style="padding:24px 16px 0;">
+  <div class="eyebrow" style="margin-bottom:8px;">О ферме</div>
+  <p style="margin:0; font-size:14px; line-height:1.55; color:var(--ink-soft);">${esc(p.description)}</p>
+</div>` : ''}
+
+<div style="height:120px"></div>
+
+<!-- Sticky CTA -->
+<div style="position:fixed; bottom:0; left:0; right:0; padding:12px 16px calc(env(safe-area-inset-bottom,18px) + 14px); background:color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter:blur(20px); border-top:1px solid var(--line); z-index:11; display:flex; gap:10px; align-items:center;">
+  ${stepper(kg, 'rb.setKg(' + (kg - 1) + ')', 'rb.setKg(' + (kg + 1) + ')')}
+  <button class="cta" onclick="rb.cartAdd('${esc(p.id)}', '${esc(curFas.size)}', ${kg}); rb.go('cart')">
+    <span style="display:flex; align-items:center; gap:8px;">${icon('bag', 16)} В корзину</span>
+    <span style="font-family:var(--f-display); font-weight:800;">${curFas.on_request ? 'по запросу' : fmt(total) + ' ₽'}</span>
+  </button>
+</div>
+`;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   SCREEN: CART
+   ════════════════════════════════════════════════════════════════════ */
+function screenCart() {
+  const items = STATE.cart.map(i => {
+    const p = findProduct(i.id);
+    if (!p) return null;
+    const f = (p.fasovka || []).find(x => x.size === i.fasovka) || (p.fasovka || [])[0];
+    return { ...i, p, f };
+  }).filter(Boolean);
+
+  const totalKg = cartWeightKg();
+  const subtotal = cartSubtotal();
+  const tier = tierFor(totalKg);
+  const save = subtotal * tier;
+  const total = subtotal - save;
+  const toNext = totalKg < 10 ? 10 - totalKg : totalKg < 25 ? 25 - totalKg : 0;
+  const nextLabel = totalKg < 10 ? '−10%' : totalKg < 25 ? '−20%' : 'максимум';
+
+  if (!items.length) {
+    return `
+      ${appHeader({ back: true, title: 'Корзина' })}
+      <div style="padding:80px 24px; text-align:center;">
+        <div style="font-size:36px; margin-bottom:14px;">🛒</div>
+        <h2 style="font-size:22px;">Корзина ждёт<br/>первый кофе</h2>
+        <p style="margin-top:10px; color:var(--ink-soft); font-size:14px;">Открой каталог — там 530+ позиций.</p>
+        <button class="cta" style="margin-top:24px; max-width:240px;" onclick="rb.go('catalog')"><span>В каталог</span><span>→</span></button>
+      </div>
+      ${tabBar('cart')}
+    `;
+  }
+
+  return `
+${appHeader({ back: true, title: 'Корзина', action: `<button class="btn-ghost" style="height:36px; padding:0 12px; font-size:12px;" onclick="rb.cartClear()">Очистить</button>` })}
+
+<div style="padding:8px 16px 0; display:flex; align-items:baseline; justify-content:space-between;">
+  <h1 style="font-size:32px;">${items.length} ${items.length === 1 ? 'позиция' : items.length < 5 ? 'позиции' : 'позиций'},<br/><span style="color:var(--coffee)">${totalKg.toFixed(1)} кг</span></h1>
+</div>
+
+<!-- Items -->
+<div style="display:flex; flex-direction:column; gap:1px; background:var(--line); border-radius:var(--r-md); overflow:hidden; margin:20px 16px 0; border:1px solid var(--line);">
+  ${items.map(i => {
+    const f = i.f || {};
+    const price = (typeof f.price === 'number' && !f.on_request) ? f.price : 0;
+    return `
+      <div style="background:var(--surface); display:flex; gap:12px; padding:12px; align-items:center;">
+        ${placeholder('', '1', 'width:56px; height:56px; flex:0 0 auto; border-radius:8px;')}
+        <div style="flex:1; min-width:0;">
+          <div style="font-family:var(--f-display); font-weight:700; font-size:14px; line-height:1.15; margin-bottom:3px;">${esc(i.p.name)}</div>
+          <div class="meta" style="font-size:9.5px;">${esc(i.fasovka || '')}${i.p.process ? ' · ' + esc(i.p.process) : ''}</div>
+          <div style="margin-top:6px; font-family:var(--f-display); font-weight:700; font-size:14px;">${f.on_request ? 'по запросу' : fmt(price * i.qty) + ' '}<span style="font-size:11px; color:var(--ink-soft); margin-left:3px;">${f.on_request ? '' : '₽'}</span>${!f.on_request ? `<span style="font-size:10px; color:var(--ink-faint); margin-left:6px;">${fmt(price)}×${i.qty}</span>` : ''}</div>
+        </div>
+        ${stepper(i.qty, `rb.cartChange('${esc(i.id)}','${esc(i.fasovka)}',-1)`, `rb.cartChange('${esc(i.id)}','${esc(i.fasovka)}',1)`)}
+      </div>`;
+  }).join('')}
+</div>
+
+<!-- Discount ladder -->
+${totalKg > 0 ? `
+<div style="padding:22px 16px 0;">
+  <div class="card" style="padding:18px; background:${tier === 0.2 ? 'var(--green-soft)' : 'var(--surface)'};">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px;">
+      <div>
+        <div class="eyebrow">Скидка по весу</div>
+        <div style="margin-top:4px; font-family:var(--f-display); font-weight:800; font-size:22px;">${tier > 0 ? '−' + Math.round(tier * 100) + '% уже сейчас' : 'Доберите до 10 кг'}</div>
+      </div>
+      <div style="font-family:var(--f-display); font-weight:900; font-size:32px; color:${tier > 0 ? 'var(--green)' : 'var(--ink-faint)'};">−${Math.round(tier*100)}%</div>
+    </div>
+    <div style="position:relative; height:32px; margin-top:16px;">
+      <div style="position:absolute; top:14px; left:0; right:0; height:4px; background:var(--ink-mute); border-radius:999px;"></div>
+      <div style="position:absolute; top:14px; left:0; height:4px; width:${Math.min(100, (totalKg/30)*100)}%; background:var(--green); border-radius:999px;"></div>
+      ${[
+        { kg: 10, t: '−10%' },
+        { kg: 25, t: '−20%' },
+      ].map(m => {
+        const reached = totalKg >= m.kg;
+        return `<div style="position:absolute; top:0; left:${(m.kg/30)*100}%; transform:translateX(-50%);"><div class="meta" style="font-size:9px; text-align:center;">${m.t}</div><div style="margin-top:2px; width:14px; height:14px; border-radius:999px; background:${reached ? 'var(--green)' : 'var(--bg)'}; border:2px solid ${reached ? 'var(--green)' : 'var(--ink-mute)'}; margin:2px auto 0;"></div></div>`;
+      }).join('')}
+      <div style="position:absolute; top:0; left:${Math.min(100, (totalKg/30)*100)}%; transform:translateX(-50%);">
+        <div class="meta" style="font-size:9px; color:var(--green); font-weight:700; text-align:center;">${totalKg.toFixed(1)} кг</div>
+        <div style="margin-top:2px; width:14px; height:14px; border-radius:999px; background:var(--green); border:2px solid var(--bg); box-shadow:0 0 0 2px var(--green); margin:2px auto 0;"></div>
+      </div>
+    </div>
+    ${toNext > 0 ? `<div style="margin-top:18px; font-size:13px; color:var(--ink-soft);"><span style="color:var(--ink); font-weight:600;">+${toNext.toFixed(1)} кг</span> до скидки <span style="font-weight:600;">${nextLabel}</span></div>` : ''}
+  </div>
+</div>` : ''}
+
+<!-- Summary -->
+<div style="padding:22px 16px 140px;">
+  <div style="display:flex; flex-direction:column; gap:10px;">
+    <div style="display:flex; justify-content:space-between;"><span style="color:var(--ink-soft); font-size:14px;">Подсумма</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:500;">${fmt(subtotal)} ₽</span></div>
+    ${tier > 0 ? `<div style="display:flex; justify-content:space-between;"><span style="color:var(--green); font-size:14px; font-weight:600;">Скидка по весу −${Math.round(tier*100)}%</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:600; color:var(--green);">−${fmt(save)} ₽</span></div>` : ''}
+    <div style="display:flex; justify-content:space-between;"><span style="color:var(--ink-soft); font-size:14px;">Доставка</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:500;">СДЭК · от 290 ₽</span></div>
+    <hr class="hr"/>
+    <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font-family:var(--f-display); font-weight:700; font-size:18px;">Итого</span><span style="font-family:var(--f-display); font-weight:900; font-size:30px;">${fmt(total)}<span style="font-size:14px; color:var(--ink-soft); margin-left:2px;">₽</span></span></div>
+  </div>
+</div>
+
+<!-- Sticky CTA -->
+<div style="position:fixed; bottom:0; left:0; right:0; padding:12px 16px calc(env(safe-area-inset-bottom,18px) + 14px); background:color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter:blur(20px); border-top:1px solid var(--line); z-index:11;">
+  <button class="cta" onclick="rb.checkout()"><span>Оформить заказ</span><span style="font-family:var(--f-display); font-weight:800;">${fmt(total)} ₽</span></button>
+</div>
+`;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   SCREEN: PROFILE (B2B)
+   ════════════════════════════════════════════════════════════════════ */
+function screenProfile() {
+  const tgUser = tg?.initDataUnsafe?.user;
+  const name = tgUser ? (tgUser.first_name || '') + (tgUser.last_name ? ' ' + tgUser.last_name : '') : 'Гость';
+  const initials = name.split(/\s+/).map(w => w[0]).slice(0,2).join('').toUpperCase() || 'РО';
+
+  return `
+${appHeader({ title: 'Профиль', action: `<button class="btn-ghost" style="width:36px; padding:0; justify-content:center">${icon('more')}</button>` })}
+
+<div style="padding:12px 16px 0;">
+  <div style="display:flex; gap:14px; align-items:center;">
+    <div style="width:60px; height:60px; border-radius:999px; background:var(--coffee); color:#F5EBDD; display:flex; align-items:center; justify-content:center; font-family:var(--f-display); font-weight:800; font-size:24px;">${esc(initials)}</div>
+    <div style="flex:1;">
+      <div style="font-family:var(--f-display); font-weight:800; font-size:22px; line-height:1.1;">${esc(name)}</div>
+      <div style="margin-top:4px; display:flex; align-items:center; gap:6px;">
+        <span class="chip chip--ink" style="height:20px; font-size:10px; padding:0 8px;">${IS_TG ? 'Telegram' : 'Гость'}</span>
+        ${STATE.isAdmin ? `<span class="chip chip--copper" style="height:20px; font-size:10px; padding:0 8px;">Админ</span>` : ''}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="padding:20px 16px 0; display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;">
+  <div class="card" style="padding:12px;"><div class="meta" style="font-size:9px; margin-bottom:8px;">Заказов / мес.</div><div style="font-family:var(--f-display); font-weight:800; font-size:24px; line-height:1;">—</div><div style="margin-top:4px; font-size:10px; color:var(--ink-soft);">скоро</div></div>
+  <div class="card" style="padding:12px;"><div class="meta" style="font-size:9px; margin-bottom:8px;">Скидка</div><div style="font-family:var(--f-display); font-weight:800; font-size:24px; line-height:1; color:var(--green);">−0%</div><div style="margin-top:4px; font-size:10px; color:var(--ink-soft);">по весу</div></div>
+  <div class="card" style="padding:12px;"><div class="meta" style="font-size:9px; margin-bottom:8px;">Дебиторка</div><div style="font-family:var(--f-display); font-weight:800; font-size:24px; line-height:1;">0<span style="font-size:12px; margin-left:2px; color:var(--ink-soft);">₽</span></div><div style="margin-top:4px; font-size:10px; color:var(--ink-soft);">оплачено</div></div>
+</div>
+
+<div style="padding:20px 16px 0;">
+  <div class="eyebrow" style="margin-bottom:10px;">Быстро</div>
+  <div class="card" style="overflow:hidden;">
+    ${[
+      ['flame', 'Повторить последний заказ', 'скоро'],
+      ['doc',   'Прайс-лист',                'PDF / XLSX'],
+      ['truck', 'Адреса доставки',           'добавить'],
+      ['cup',   'Подписка «Свежая обжарка»', 'скоро'],
+    ].map((r, i, arr) => `
+      <div style="display:flex; align-items:center; gap:12px; padding:14px; ${i < arr.length - 1 ? 'border-bottom:1px solid var(--line);' : ''}">
+        <span style="width:36px; height:36px; border-radius:10px; background:var(--surface-2); color:var(--coffee); display:flex; align-items:center; justify-content:center;">${icon(r[0])}</span>
+        <div style="flex:1;">
+          <div style="font-size:14px; font-weight:500;">${esc(r[1])}</div>
+          <div class="meta" style="font-size:9.5px; margin-top:2px;">${esc(r[2])}</div>
+        </div>
+        <span style="color:var(--ink-faint);">→</span>
+      </div>`).join('')}
+  </div>
+</div>
+
+<div style="padding:24px 16px 0; text-align:center;">
+  <div class="meta">Roastberry · v2 · сборка ${STATE.data?.version || 'dev'}</div>
+</div>
+
+<div style="height:60px"></div>
+
+${tabBar('profile')}
+`;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   SCREEN: SEARCH (минимум, чтобы tabBar работал)
+   ════════════════════════════════════════════════════════════════════ */
+function screenSearch() {
+  return `
+${appHeader({ back: true, title: 'Поиск' })}
+<div style="padding:60px 24px; text-align:center; color:var(--ink-soft);">
+  <h2 style="font-size:24px; color:var(--ink);">Поиск</h2>
+  <p style="margin-top:8px; font-size:13px;">Скоро здесь будет автокомплит по 530+ позициям с подсветкой.</p>
+</div>
+${tabBar('search')}
+`;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ACTIONS / NAVIGATION
+   ════════════════════════════════════════════════════════════════════ */
+const rb = {
+  go(screen, params) {
+    if (STATE.screen !== screen) STATE.history.push(STATE.screen);
+    STATE.screen = screen;
+    if (params) {
+      if ('cat' in params) STATE.cat = params.cat || null;
+      if ('subcat' in params) STATE.subcat = params.subcat || null;
+    }
+    haptic();
+    window.scrollTo(0, 0);
+    render();
+  },
+  back() {
+    const prev = STATE.history.pop();
+    if (prev) { STATE.screen = prev; haptic(); window.scrollTo(0, 0); render(); }
+    else { rb.go('home'); }
+  },
+  openProduct(id) {
+    STATE.history.push(STATE.screen);
+    STATE.screen = 'product';
+    STATE.productId = id;
+    STATE.productFasovka = null;
+    STATE.productKg = 1;
+    haptic();
+    window.scrollTo(0, 0);
+    render();
+  },
+  setFasovka(size) {
+    STATE.productFasovka = size;
+    haptic('light');
+    render();
+  },
+  setKg(n) {
+    STATE.productKg = Math.max(1, Math.min(999, n));
+    haptic('light');
+    render();
+  },
+  cartAdd(id, fasovka, qty) {
+    const p = findProduct(id);
+    if (!p) return;
+    if (!fasovka) {
+      const f = (p.fasovka || [])[0];
+      fasovka = f?.size || 'уп.';
+    }
+    const ex = STATE.cart.find(x => x.id === id && x.fasovka === fasovka);
+    if (ex) ex.qty += (qty || 1);
+    else STATE.cart.push({ id, fasovka, qty: qty || 1 });
+    saveLocal();
+    haptic('light');
+    toast(`+ ${p.name}`);
+    render();
+  },
+  cartChange(id, fasovka, delta) {
+    const ex = STATE.cart.find(x => x.id === id && x.fasovka === fasovka);
+    if (!ex) return;
+    ex.qty += delta;
+    if (ex.qty <= 0) STATE.cart = STATE.cart.filter(x => !(x.id === id && x.fasovka === fasovka));
+    saveLocal();
+    haptic('light');
+    render();
+  },
+  cartClear() {
+    if (!confirm('Очистить корзину?')) return;
+    STATE.cart = [];
+    saveLocal();
+    haptic('warning');
+    render();
+  },
+  checkout() {
+    haptic('success');
+    if (IS_TG) {
+      toast('Оформление через TG Payments — скоро');
+    } else {
+      toast('Оформление — скоро');
+    }
+  },
+};
+window.rb = rb;
+
+/* ════════════════════════════════════════════════════════════════════
+   RENDER
+   ════════════════════════════════════════════════════════════════════ */
+function render() {
+  const root = document.getElementById('root');
+  let body = '';
+  switch (STATE.screen) {
+    case 'home':    body = screenHome(); break;
+    case 'catalog': body = screenCatalog(); break;
+    case 'product': body = screenProduct(); break;
+    case 'cart':    body = screenCart(); break;
+    case 'profile': body = screenProfile(); break;
+    case 'search':  body = screenSearch(); break;
+    default: body = screenHome();
+  }
+  root.innerHTML = `<div class="rb${IS_DARK ? ' rb--dark' : ''}">${body}</div>`;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ADMIN CHECK
+   ════════════════════════════════════════════════════════════════════ */
+async function checkAdmin() {
+  if (!IS_TG) return;
+  try {
+    const r = await fetch('/tma/api/admin/check', { headers: authHeaders() });
+    const j = await r.json();
+    STATE.isAdmin = !!j.is_admin;
+  } catch (e) { STATE.isAdmin = false; }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   INIT
+   ════════════════════════════════════════════════════════════════════ */
+async function init() {
+  loadLocal();
+  try {
+    const r = await fetch('/tma/products.json?v=' + Date.now(), { cache: 'no-store' });
+    STATE.data = await r.json();
+  } catch (e) {
+    document.getElementById('root').innerHTML = `<div style="padding:80px 24px; text-align:center;"><h2>Каталог недоступен</h2><p style="color:var(--ink-soft); margin-top:8px;">${esc(String(e))}</p></div>`;
+    return;
+  }
+  await checkAdmin();
+  render();
+  if ('serviceWorker' in navigator && !(tg && tg.initData)) {
     navigator.serviceWorker.register('sw.js').catch(() => {});
   }
+}
+init();
 </script>
+
 </body>
 </html>

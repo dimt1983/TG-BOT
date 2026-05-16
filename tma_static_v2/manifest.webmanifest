@@ -2,8 +2,8 @@
   "name": "Roastberry — спешелти-обжарка",
   "short_name": "Roastberry",
   "description": "Спешелти-кофе из Тулы. Каталог, оптовые цены, доставка.",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "/tma/v2/",
+  "scope": "/tma/v2/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#FAF7F2",
@@ -11,25 +11,7 @@
   "lang": "ru",
   "categories": ["shopping", "food"],
   "icons": [
-    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
-  ],
-  "shortcuts": [
-    {
-      "name": "Свежая обжарка",
-      "url": "/fresh",
-      "icons": [{ "src": "/icons/sh-fresh.png", "sizes": "96x96" }]
-    },
-    {
-      "name": "Прайс B2B",
-      "url": "/b2b/price",
-      "icons": [{ "src": "/icons/sh-price.png", "sizes": "96x96" }]
-    },
-    {
-      "name": "Корзина",
-      "url": "/cart",
-      "icons": [{ "src": "/icons/sh-cart.png", "sizes": "96x96" }]
-    }
+    { "src": "/tma/assets/pwa_192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/tma/assets/pwa_512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
   ]
 }
