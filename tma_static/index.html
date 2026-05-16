@@ -1260,6 +1260,17 @@ function allowedFasovka(p, subId) {
   const isBlackOrBorsch = effective === 'coffee_black' || effective === 'coffee_borshch'
     || subs.includes('coffee_black') || subs.includes('coffee_borshch');
   const isMicrolot = effective === 'coffee_espresso_microlot' || effective === 'coffee_filter_microlot';
+  // Карточки без массива фасовок (расходники: фильтры, инвентарь и т.д.) —
+  // синтезируем одну виртуальную фасовку, чтобы остальной рендер работал
+  // как обычно. Размер тащим из имени или ставим «уп.».
+  if (!Array.isArray(p.fasovka) || !p.fasovka.length) {
+    const m = (p.name || '').match(/(\d+\s*(?:шт|г|кг|мл|л|пак\.?))/i);
+    return [{
+      size: (m && m[1]) || 'уп.',
+      price: (typeof p.price === 'number') ? p.price : null,
+      on_request: !!(p.on_request || typeof p.price !== 'number'),
+    }];
+  }
   if (isBlackOrBorsch) {
     const f = p.fasovka.filter(x => /200\s*г/i.test(x.size));
     return f.length ? f : p.fasovka;
@@ -1275,10 +1286,12 @@ function allowedFasovka(p, subId) {
 // с тем же pair_id. Если 200г или 1кг отсутствует — добавляем псевдо-фасовку
 // с флагом on_request (показывается «по запросу», ведёт в @bot).
 function detailFasovka(p) {
-  // Не-микролоты — работают как раньше через массив p.fasovka
+  // Не-микролоты — работают как раньше через массив p.fasovka.
+  // Для расходников без массива fasovka — берём виртуальную из allowedFasovka.
   const microSubs = ['coffee_espresso_microlot','coffee_filter_microlot','coffee_black','coffee_borshch'];
   if (!p.pair_id || !microSubs.includes(p.subcategory)) {
-    return p.fasovka.map(f => ({...f, _source_id: p.id, _photo: f.photo || p.photo}));
+    const fl = (Array.isArray(p.fasovka) && p.fasovka.length) ? p.fasovka : allowedFasovka(p);
+    return fl.map(f => ({...f, _source_id: p.id, _photo: f.photo || p.photo}));
   }
   // Собираем все карточки с тем же pair_id
   const cards = DATA.products.filter(x => x.pair_id === p.pair_id);
