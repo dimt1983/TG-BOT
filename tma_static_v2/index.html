@@ -67,14 +67,29 @@ const STATE = {
   cart: [],                      // [{id, fasovka, qty}]
   favorites: [],                 // [id]
   screen: 'home',                // home | catalog | product | cart | profile
-  cat: null,                     // categoryId for catalog
-  subcat: null,                  // subcategoryId for catalog
+  cat: null,                     // top categoryId for catalog
+  subcat: null,                  // drill-cursor — указывает где мы внутри иерархии (любой subcat id)
+  showAll: false,                // true → пропускаем drill, рендерим плоский список
   productId: null,
   productFasovka: null,          // selected size in product screen
   productKg: 1,                  // selected weight for discount calculator
   isAdmin: false,
   history: [],                   // navigation stack
+  searchQuery: '',
+  myOrders: undefined,
+  // Фильтры на странице списка товаров:
+  filters: {
+    fasovka: null,               // '200г' | '1кг' | null
+    inStock: false,
+    countries: [],               // ['Бразилия','Эфиопия'...]
+    flavors: [],                 // ['шоколад','ягоды'...]
+  },
+  filterOpen: false,             // открыта ли панель фильтров
 };
+function resetFilters() {
+  STATE.filters = { fasovka: null, inStock: false, countries: [], flavors: [] };
+  STATE.filterOpen = false;
+}
 
 const STORAGE_KEY = 'rb-v2-state-1';
 function saveLocal() {
@@ -485,7 +500,7 @@ ${fresh.length ? `
     <div class="eyebrow" style="color:var(--green)">● Сейчас в ростере</div>
     <h2 style="margin-top:6px">Партия этой недели</h2>
   </div>
-  <a onclick="rb.go('catalog', {cat:'coffee'})" style="cursor:pointer">Все ${coffee.length} →</a>
+  <a onclick="rb.openCat('coffee')" style="cursor:pointer">Все ${coffee.length} →</a>
 </div>
 <div class="hrow" style="padding-bottom:4px;">
   ${fresh.map(p => {
@@ -523,7 +538,7 @@ ${fresh.length ? `
 </div>
 <div style="padding:0 16px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
   ${cats.map(c => `
-    <div onclick="rb.go('catalog', {cat:'${esc(c.cat || 'coffee')}', subcat:'${esc(c.sub || '')}'})" style="grid-column:${c.big ? 'span 2' : 'auto'}; background:${c.bg}; color:${c.fg}; border-radius:var(--r-md); aspect-ratio:${c.big ? '2.3 / 1' : '1.15'}; padding:14px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; ${c.bg === '#FAF7F2' ? 'border:1px solid var(--line);' : ''} cursor:pointer;">
+    <div onclick="${c.sub ? `rb.openSubcat('${esc(c.sub)}')` : `rb.openCat('${esc(c.cat || 'coffee')}')`}" style="grid-column:${c.big ? 'span 2' : 'auto'}; background:${c.bg}; color:${c.fg}; border-radius:var(--r-md); aspect-ratio:${c.big ? '2.3 / 1' : '1.15'}; padding:14px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; ${c.bg === '#FAF7F2' ? 'border:1px solid var(--line);' : ''} cursor:pointer;">
       <div class="meta" style="color:${c.fg}; opacity:0.5;">${esc(c.n)}</div>
       <div style="font-family:var(--f-display); font-weight:900; font-size:${c.big ? 32 : 22}px; line-height:0.95; letter-spacing:-0.02em; text-transform:uppercase; white-space:pre-line;">${esc(c.t)}</div>
       <div style="position:absolute; top:12px; right:14px; width:8px; height:8px; border-radius:999px; background:${c.accent};"></div>
@@ -578,94 +593,291 @@ ${tabBar('home')}
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   SCREEN: CATALOG
+   SCREEN: CATALOG — drill-down + рабочие фильтры
    ════════════════════════════════════════════════════════════════════ */
+function _stripEmoji(s) { return String(s||'').replace(/[\u{1F300}-\u{1F6FF}\u{2600}-\u{27BF}\u{1F900}-\u{1F9FF}]/gu, '').replace(/\s+/g, ' ').trim(); }
+function _subcatsOf(parentId) { return STATE.data.subcategories.filter(s => s.parent === parentId); }
+function _hasChildren(subId) { return _subcatsOf(subId).length > 0; }
+function _productsInTree(rootId) {
+  // все товары под этим узлом (категория ИЛИ подкатегория), включая потомков
+  const seen = new Set();
+  const queue = [rootId];
+  while (queue.length) {
+    const id = queue.shift();
+    if (seen.has(id)) continue;
+    seen.add(id);
+    for (const ch of _subcatsOf(id)) queue.push(ch.id);
+  }
+  return visibleProducts().filter(p => p.category === STATE.cat && (seen.has(p.subcategory) || seen.has(STATE.cat)));
+}
+
+function normalizeSize(s) {
+  const t = String(s||'').toLowerCase().replace(/\s+/g,'');
+  if (/^200г/.test(t)) return '200 г';
+  if (/^250г/.test(t)) return '250 г';
+  if (/^500г/.test(t)) return '500 г';
+  if (/^1кг/.test(t))  return '1 кг';
+  return null;
+}
+
+function applyFilters(list) {
+  const f = STATE.filters;
+  let out = list;
+  if (f.fasovka) {
+    out = out.filter(p => (p.fasovka || []).some(x => normalizeSize(x.size) === f.fasovka));
+  }
+  if (f.inStock) {
+    out = out.filter(p => (typeof p.stock === 'number' && p.stock > 0) || p.on_request);
+  }
+  if (f.countries.length) {
+    out = out.filter(p => p.country && f.countries.includes(p.country));
+  }
+  if (f.flavors.length) {
+    out = out.filter(p => Array.isArray(p.tasting_notes) && p.tasting_notes.some(n => f.flavors.includes(String(n).toLowerCase())));
+  }
+  return out;
+}
+
+function activeFilterCount() {
+  const f = STATE.filters;
+  return (f.fasovka ? 1 : 0) + (f.inStock ? 1 : 0) + f.countries.length + f.flavors.length;
+}
+
+/* Карта брендовых цветов для плиток подкатегорий */
+const TILE_THEME = {
+  coffee_espresso:        { bg:'#3A2A1F', fg:'#F5EBDD', accent:'#C9A66B' },
+  coffee_filter:          { bg:'#E8DFD0', fg:'#1A1410', accent:'#6F4E37' },
+  coffee_black:           { bg:'#0F0B08', fg:'#F5EBDD', accent:'#C9A66B' },
+  coffee_borshch:         { bg:'#7A2E2E', fg:'#F5EBDD', accent:'#F5C77E' },
+  coffee_drip_capsules:   { bg:'#FAF7F2', fg:'#1A1410', accent:'#5E7A4F' },
+  coffee_cascara:         { bg:'#C46A4E', fg:'#FAF7F2', accent:'#FFE3B0' },
+  coffee_other:           { bg:'#5E4232', fg:'#F5EBDD', accent:'#C9A66B' },
+  coffee_espresso_mono:   { bg:'#3A2A1F', fg:'#F5EBDD', accent:'#C9A66B' },
+  coffee_espresso_microlot:{bg:'#1A1410', fg:'#F5EBDD', accent:'#C9A66B' },
+  coffee_espresso_blend:  { bg:'#5E4232', fg:'#F5EBDD', accent:'#C9A66B' },
+  coffee_filter_mono:     { bg:'#E8DFD0', fg:'#1A1410', accent:'#6F4E37' },
+  coffee_filter_microlot: { bg:'#C2A878', fg:'#1A1410', accent:'#3A2A1F' },
+  coffee_filter_blend:    { bg:'#6F4E37', fg:'#F5EBDD', accent:'#C9A66B' },
+  // tea brands
+  tea_althaus_cup:   { bg:'#1F2D24', fg:'#E0E6D8', accent:'#A8C079' },
+  tea_althaus_loose: { bg:'#1F2D24', fg:'#E0E6D8', accent:'#A8C079' },
+  tea_althaus_pot:   { bg:'#1F2D24', fg:'#E0E6D8', accent:'#A8C079' },
+  tea_niktea_cup:    { bg:'#5F6F4A', fg:'#F5EBDD', accent:'#C5D4A7' },
+  tea_niktea_pot:    { bg:'#5F6F4A', fg:'#F5EBDD', accent:'#C5D4A7' },
+  tea_niktea_pyr:    { bg:'#5F6F4A', fg:'#F5EBDD', accent:'#C5D4A7' },
+  tea_niktea_top:    { bg:'#3D4F32', fg:'#F5EBDD', accent:'#C5D4A7' },
+  tea_niktea_loose:  { bg:'#5F6F4A', fg:'#F5EBDD', accent:'#C5D4A7' },
+  tea_rbr_tea_loose: { bg:'#C2A878', fg:'#1A1410', accent:'#3A2A1F' },
+  tea_tasteabrew_iced:  { bg:'#4A6E8A', fg:'#F5EBDD', accent:'#A8C079' },
+  tea_tasteabrew_loose: { bg:'#C2A878', fg:'#1A1410', accent:'#3A2A1F' },
+  tea_tasteabrew_togo:  { bg:'#7A2E4E', fg:'#F5EBDD', accent:'#F5C77E' },
+  tea_китайский_чай_loose: { bg:'#7A2E2E', fg:'#F5EBDD', accent:'#F5C77E' },
+  // syrups
+  syr_botanika:      { bg:'#5E7A4F', fg:'#F5EBDD', accent:'#C5D4A7' },
+  syr_herbarista:    { bg:'#3D4F32', fg:'#F5EBDD', accent:'#C5D4A7' },
+  syr_sweetshot:     { bg:'#C46A8E', fg:'#F5EBDD', accent:'#F5C77E' },
+  syr_barline:       { bg:'#5E4232', fg:'#F5EBDD', accent:'#C9A66B' },
+  syr_кордиал_и_другие: { bg:'#C46A4E', fg:'#F5EBDD', accent:'#F5C77E' },
+  syr_other:         { bg:'#C9A66B', fg:'#1A1410', accent:'#6F4E37' },
+  // milk / consulting / other
+  milk_main:         { bg:'#FAF7F2', fg:'#1A1410', accent:'#5E7A4F' },
+  consulting_courses:{ bg:'#1A1410', fg:'#F5EBDD', accent:'#C9A66B' },
+  other_filters:     { bg:'#5E4232', fg:'#F5EBDD', accent:'#C9A66B' },
+  other_chocolate:   { bg:'#3A2A1F', fg:'#F5EBDD', accent:'#C9A66B' },
+  other_chemistry:   { bg:'#4A6E8A', fg:'#F5EBDD', accent:'#C5D4A7' },
+  _default:          { bg:'#3A2A1F', fg:'#F5EBDD', accent:'#C9A66B' },
+};
+function tileTheme(id) { return TILE_THEME[id] || TILE_THEME._default; }
+
+function _renderTile(s, big = false) {
+  const t = tileTheme(s.id);
+  const n = _productsInTree(s.id).length || _subcatsOf(s.id).reduce((a, x) => a + _productsInTree(x.id).length, 0);
+  const name = _stripEmoji(s.name);
+  const onclick = `rb.openSubcat('${esc(s.id)}')`;
+  return `
+    <div onclick="${onclick}" style="grid-column:${big ? 'span 2' : 'auto'}; background:${t.bg}; color:${t.fg}; border-radius:var(--r-md); aspect-ratio:${big ? '2.3 / 1' : '1.1'}; padding:14px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; ${t.bg === '#FAF7F2' ? 'border:1px solid var(--line);' : ''} cursor:pointer;">
+      <div class="meta" style="color:${t.fg}; opacity:0.5;">${n} SKU</div>
+      <div style="font-family:var(--f-display); font-weight:900; font-size:${big ? 32 : 20}px; line-height:0.95; letter-spacing:-0.02em; text-transform:uppercase; white-space:pre-line;">${esc(name)}</div>
+      <div style="position:absolute; top:12px; right:14px; width:8px; height:8px; border-radius:999px; background:${t.accent};"></div>
+    </div>`;
+}
+
 function screenCatalog() {
-  const all = visibleProducts();
-  let list = all;
-  let title = 'Каталог';
-  let bread = [];
-  if (STATE.cat) {
-    list = list.filter(p => p.category === STATE.cat);
-    const c = STATE.data.categories.find(x => x.id === STATE.cat);
-    title = c?.name || STATE.cat;
-    bread.push({ id: STATE.cat, name: c?.name || STATE.cat });
+  if (!STATE.data) return '';
+  const cat = STATE.data.categories.find(c => c.id === STATE.cat);
+  const cursorId = STATE.subcat || STATE.cat;  // куда мы сейчас вглубь
+  const children = STATE.cat ? _subcatsOf(cursorId) : [];
+
+  /* Хлебные крошки: Каталог › Категория › L1 › L2 */
+  const bread = [];
+  if (STATE.cat && cat) {
+    bread.push({ id: STATE.cat, name: cat.name, action: `rb.openCat('${esc(STATE.cat)}')` });
   }
   if (STATE.subcat) {
-    const s = STATE.data.subcategories.find(x => x.id === STATE.subcat);
-    list = list.filter(p => productInSub(p, STATE.subcat) || (STATE.data.subcategories.filter(ss => ss.parent === STATE.subcat).some(child => productInSub(p, child.id))));
-    title = s?.name || STATE.subcat;
-    bread.push({ id: STATE.subcat, name: s?.name || STATE.subcat });
+    // строим цепочку от subcat вверх до cat
+    const chain = [];
+    let cur = STATE.data.subcategories.find(s => s.id === STATE.subcat);
+    while (cur && cur.parent && cur.parent !== STATE.cat) {
+      chain.unshift(cur);
+      cur = STATE.data.subcategories.find(s => s.id === cur.parent);
+    }
+    if (cur) chain.unshift(cur);
+    for (const c of chain) {
+      bread.push({ id: c.id, name: _stripEmoji(c.name), action: `rb.openSubcat('${esc(c.id)}')` });
+    }
+  }
+
+  // Title — последняя крошка или «Каталог» / название категории
+  const titleSrc = STATE.subcat
+    ? STATE.data.subcategories.find(s => s.id === STATE.subcat)?.name
+    : cat?.name;
+  const title = titleSrc ? _stripEmoji(titleSrc) : 'Каталог';
+
+  // Решение: drill-плитки или плоский список
+  const showTiles = STATE.cat && !STATE.showAll && children.length > 0;
+
+  let body = '';
+  if (!STATE.cat) {
+    // root: показываем все категории как крупные плитки
+    body = `
+      <div style="padding:0 16px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        ${STATE.data.categories.map((c, i) => {
+          const t = tileTheme(c.id) || { bg: '#3A2A1F', fg: '#F5EBDD', accent: '#C9A66B' };
+          const n = visibleProducts().filter(p => p.category === c.id).length;
+          const big = i === 0;
+          const acc = c.id === 'coffee' ? '#C9A66B' : c.id === 'tea' ? '#C5D4A7' : c.id === 'syrup' ? '#C5D4A7' : c.id === 'milk' ? '#5E7A4F' : c.id === 'consulting' ? '#C9A66B' : '#C9A66B';
+          const bg = c.id === 'coffee' ? '#3A2A1F' : c.id === 'tea' ? '#3D4F32' : c.id === 'syrup' ? '#5E7A4F' : c.id === 'milk' ? '#FAF7F2' : c.id === 'consulting' ? '#1A1410' : '#5E4232';
+          const fg = bg === '#FAF7F2' ? '#1A1410' : '#F5EBDD';
+          return `
+            <div onclick="rb.openCat('${esc(c.id)}')" style="grid-column:${big?'span 2':'auto'}; background:${bg}; color:${fg}; border-radius:var(--r-md); aspect-ratio:${big?'2.3 / 1':'1.1'}; padding:14px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; ${bg==='#FAF7F2'?'border:1px solid var(--line);':''} cursor:pointer;">
+              <div class="meta" style="color:${fg}; opacity:0.5;">${n} SKU</div>
+              <div style="font-family:var(--f-display); font-weight:900; font-size:${big?32:22}px; line-height:0.95; letter-spacing:-0.02em; text-transform:uppercase;">${esc(c.name)}</div>
+              <div style="position:absolute; top:12px; right:14px; width:8px; height:8px; border-radius:999px; background:${acc};"></div>
+            </div>`;
+        }).join('')}
+      </div>
+    `;
+  } else if (showTiles) {
+    // drill: плитки подкатегорий + кнопка «Все товары» сверху
+    const totalInTree = _productsInTree(cursorId).length;
+    body = `
+      <div style="padding:0 16px 12px;">
+        <button onclick="rb.openSubcatAll()" style="display:flex; align-items:center; justify-content:space-between; width:100%; padding:14px 16px; background:var(--surface); border:1px solid var(--line-strong); border-radius:var(--r-md); font-family:var(--f-display); font-weight:700; font-size:14px; color:var(--ink); cursor:pointer;">
+          <span>Все товары — ${totalInTree} SKU</span><span style="color:var(--ink-faint)">→</span>
+        </button>
+      </div>
+      <div style="padding:0 16px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        ${children.map((s, i) => _renderTile(s, i === 0 && children.length % 2 === 1)).join('')}
+      </div>
+    `;
+  } else {
+    // плоский список с фильтрами
+    const rootId = cursorId;
+    let list = _productsInTree(rootId);
+    list = applyFilters(list);
+
+    // Уникальные значения для фильтра
+    const allInTree = _productsInTree(rootId);
+    const countries = [...new Set(allInTree.map(p => p.country).filter(Boolean))].sort();
+    const flavors = [...new Set(allInTree.flatMap(p => p.tasting_notes || []).map(s => String(s).toLowerCase()))].sort();
+    const f = STATE.filters;
+    const activeN = activeFilterCount();
+
+    const filterChip = (label, on, action, soft = false) => `<button onclick="${action}" class="chip${on ? (soft ? ' chip--green' : ' chip--ink') : ''}" style="height:30px; cursor:pointer;">${label}</button>`;
+
+    body = `
+      <!-- Sticky filter bar -->
+      <div style="position:sticky; top:96px; z-index:5; background:color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter:blur(14px); padding:10px 0; border-bottom:1px solid var(--line);">
+        <div class="hrow" style="padding-bottom:2px;">
+          ${filterChip(`${icon('filter', 14)} Фильтр${activeN ? ' · ' + activeN : ''}`, activeN > 0, 'rb.toggleFilterPanel()')}
+          ${filterChip('200 г', f.fasovka === '200 г', `rb.toggleFasovka('200 г')`)}
+          ${filterChip('1 кг',  f.fasovka === '1 кг',  `rb.toggleFasovka('1 кг')`)}
+          ${countries.length ? filterChip(`Страна${f.countries.length ? ' · ' + f.countries.length : ' ↓'}`, f.countries.length > 0, `rb.toggleFilterPanel('country')`) : ''}
+          ${filterChip(`${f.inStock ? '✓ ' : ''}В наличии`, f.inStock, 'rb.toggleInStock()', true)}
+          ${flavors.length ? filterChip(`Вкус${f.flavors.length ? ' · ' + f.flavors.length : ' ↓'}`, f.flavors.length > 0, `rb.toggleFilterPanel('flavor')`) : ''}
+          ${activeN ? filterChip('× Сбросить', false, 'rb.resetFilters()') : ''}
+          <div style="width:4px"></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 16px 0;">
+          <span class="meta">${list.length} ${list.length === 1 ? 'товар' : list.length < 5 ? 'товара' : 'товаров'}${activeN ? ' · фильтров: ' + activeN : ''}</span>
+        </div>
+      </div>
+
+      ${STATE.filterOpen === 'country' && countries.length ? `
+        <div style="margin:12px 16px; padding:14px; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-md);">
+          <div class="eyebrow" style="margin-bottom:10px;">Страны</div>
+          <div style="display:flex; flex-wrap:wrap; gap:6px;">
+            ${countries.map(c => `<button onclick="rb.toggleCountry('${esc(c)}')" class="chip${f.countries.includes(c) ? ' chip--coffee' : ''}" style="cursor:pointer;">${esc(c)}</button>`).join('')}
+          </div>
+        </div>` : ''}
+
+      ${STATE.filterOpen === 'flavor' && flavors.length ? `
+        <div style="margin:12px 16px; padding:14px; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-md);">
+          <div class="eyebrow" style="margin-bottom:10px;">Вкус</div>
+          <div style="display:flex; flex-wrap:wrap; gap:6px;">
+            ${flavors.slice(0, 40).map(c => `<button onclick="rb.toggleFlavor('${esc(c)}')" class="chip${f.flavors.includes(c) ? ' chip--copper' : ''}" style="cursor:pointer;">${esc(c)}</button>`).join('')}
+          </div>
+        </div>` : ''}
+
+      ${list.length === 0
+        ? `<div style="padding:60px 24px; text-align:center; color:var(--ink-soft);"><div style="font-size:32px; margin-bottom:10px">🍃</div><div style="font-family:var(--f-display); font-weight:700; font-size:16px;">Под фильтр ничего не подошло</div>${activeN ? `<button class="btn-ghost" style="margin-top:14px;" onclick="rb.resetFilters()">Сбросить фильтры</button>` : ''}</div>`
+        : `<div style="display:flex; flex-direction:column; gap:1px; background:var(--line); border-radius:var(--r-md); overflow:hidden; margin:12px 16px; border:1px solid var(--line);">
+          ${list.slice(0, 80).map(p => {
+            const fa = (p.fasovka || [])[0] || {};
+            const meta = [p.process, p.variety, p.altitude].filter(Boolean).join(' · ');
+            const lowStock = typeof p.stock === 'number' && p.stock > 0 && p.stock < 5;
+            const isLim = (p.tags || []).some(t => /лимит/i.test(t)) || (p.tags || []).includes('Микролот');
+            return `
+              <div onclick="rb.openProduct('${esc(p.id)}')" style="display:flex; gap:12px; padding:14px; background:var(--surface); align-items:center; cursor:pointer;">
+                ${productImg(p, '1', 'width:60px; height:60px; flex:0 0 auto; border-radius:8px;')}
+                <div style="flex:1; min-width:0;">
+                  <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px; flex-wrap:wrap;">
+                    ${flagDot(p.country)}
+                    ${p.roast ? `<span class="roast${p.roast === 'F' ? ' roast--f' : ''}" style="width:16px; height:16px; font-size:9px;">${esc(p.roast)}</span>` : ''}
+                    ${isLim ? `<span class="chip chip--copper" style="padding:1px 7px; font-size:10px; height:18px;">Лимит</span>` : ''}
+                    ${lowStock ? `<span class="chip chip--amber" style="padding:1px 7px; font-size:10px; height:18px;">Осталось ${p.stock}</span>` : ''}
+                    ${p.on_request ? `<span class="chip chip--ink" style="padding:1px 7px; font-size:10px; height:18px;">По запросу</span>` : ''}
+                  </div>
+                  <div style="font-family:var(--f-display); font-weight:700; font-size:15px; line-height:1.15; margin-bottom:3px;">${esc(p.name)}</div>
+                  <div class="meta" style="font-size:9.5px; color:var(--ink-faint);">${esc(meta || ' ')}</div>
+                </div>
+                <div style="text-align:right; display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
+                  <div>
+                    <span style="font-family:var(--f-display); font-weight:800; font-size:16px; line-height:1;">${typeof fa.price === 'number' && !fa.on_request ? fmt(fa.price) : '—'}</span>
+                    <span style="font-size:10px; color:var(--ink-faint); margin-left:2px;">${typeof fa.price === 'number' && !fa.on_request ? '₽' : ''}</span>
+                  </div>
+                  <button onclick="event.stopPropagation(); rb.cartAdd('${esc(p.id)}', '${esc(fa.size || '')}')" style="width:30px; height:30px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-size:18px; line-height:1; font-weight:300;">+</button>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>`
+      }
+    `;
   }
 
   return `
 ${appHeader({ back: true, title: 'Каталог', action: `<button class="btn-ghost" style="width:36px; padding:0; justify-content:center" onclick="rb.go('search')">${icon('search')}</button>` })}
 
 <div style="padding:8px 16px 0; display:flex; align-items:center; gap:4px; flex-wrap:wrap;">
-  ${bread.length ? bread.map((b, i) => `<span class="meta" style="${i === bread.length - 1 ? 'color:var(--ink);' : ''}">${esc(b.name).replace(/[\u{1F300}-\u{1F6FF}\u{2600}-\u{27BF}]/gu, '').trim()}</span>${i < bread.length - 1 ? '<span class="meta" style="opacity:0.4">›</span>' : ''}`).join('') : '<span class="meta">Все товары</span>'}
+  <span class="meta" style="cursor:pointer;" onclick="rb.openCat(null)">Каталог</span>
+  ${bread.map((b, i) => `
+    <span class="meta" style="opacity:0.4">›</span>
+    <span class="meta" style="${i === bread.length - 1 ? 'color:var(--ink);' : 'cursor:pointer;'}" ${i === bread.length - 1 ? '' : `onclick="${b.action}"`}>${esc(b.name)}</span>
+  `).join('')}
 </div>
 
-<div style="padding:4px 16px 12px; display:flex; align-items:baseline; justify-content:space-between;">
-  <h1 style="font-size:30px;">${esc(title.replace(/[\u{1F300}-\u{1F6FF}\u{2600}-\u{27BF}]/gu, '').trim()) || 'Каталог'}.</h1>
-  <div style="text-align:right;">
-    <div style="font-family:var(--f-display); font-weight:800; font-size:22px;">${list.length}</div>
+<div style="padding:4px 16px 16px; display:flex; align-items:baseline; justify-content:space-between;">
+  <h1 style="font-size:30px;">${esc(title)}.</h1>
+  ${STATE.cat ? `<div style="text-align:right;">
+    <div style="font-family:var(--f-display); font-weight:800; font-size:22px;">${_productsInTree(cursorId).length}</div>
     <div class="meta" style="font-size:9.5px;">SKU</div>
-  </div>
+  </div>` : ''}
 </div>
 
-<!-- Sticky filter chips -->
-<div style="position:sticky; top:96px; z-index:5; background:color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter:blur(14px); padding:10px 0; border-bottom:1px solid var(--line);">
-  <div class="hrow" style="padding-bottom:2px;">
-    <button class="chip" style="height:30px; font-weight:600; gap:4px;">${icon('filter', 14)} Фильтр</button>
-    <button class="chip">200 г</button>
-    <button class="chip">1 кг</button>
-    <button class="chip">Страна ↓</button>
-    <button class="chip chip--green">✓ В наличии</button>
-    <button class="chip">Вкус ↓</button>
-    <div style="width:4px"></div>
-  </div>
-  <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 16px 0;">
-    <span class="meta">${list.filter(p => (p.stock||0) > 0).length} в наличии</span>
-    <button class="btn-ghost" style="height:26px; padding:0 10px; font-size:12px;">Сортировка: новинки ↓</button>
-  </div>
-</div>
+${body}
 
-<!-- Items -->
-${list.length === 0
-  ? `<div style="padding:60px 24px; text-align:center; color:var(--ink-soft);"><div style="font-size:32px; margin-bottom:10px">🍃</div><div style="font-family:var(--f-display); font-weight:700; font-size:16px;">Пока пусто</div><div style="font-size:13px; margin-top:6px;">Открой другую категорию или поищи в каталоге.</div></div>`
-  : `<div style="display:flex; flex-direction:column; gap:1px; background:var(--line); border-radius:var(--r-md); overflow:hidden; margin:12px 16px; border:1px solid var(--line);">
-    ${list.slice(0, 50).map(p => {
-      const f = (p.fasovka || [])[0] || {};
-      const meta = [p.process, p.variety, p.altitude].filter(Boolean).join(' · ');
-      const lowStock = typeof p.stock === 'number' && p.stock > 0 && p.stock < 5;
-      const isLim = (p.tags || []).some(t => /лимит/i.test(t)) || (p.tags || []).includes('Микролот');
-      return `
-        <div onclick="rb.openProduct('${esc(p.id)}')" style="display:flex; gap:12px; padding:14px; background:var(--surface); align-items:center; cursor:pointer;">
-          ${productImg(p, '1', 'width:60px; height:60px; flex:0 0 auto; border-radius:8px;')}
-          <div style="flex:1; min-width:0;">
-            <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px; flex-wrap:wrap;">
-              ${flagDot(p.country)}
-              ${p.roast ? `<span class="roast${p.roast === 'F' ? ' roast--f' : ''}" style="width:16px; height:16px; font-size:9px;">${esc(p.roast)}</span>` : ''}
-              ${isLim ? `<span class="chip chip--copper" style="padding:1px 7px; font-size:10px; height:18px;">Лимит</span>` : ''}
-              ${lowStock ? `<span class="chip chip--amber" style="padding:1px 7px; font-size:10px; height:18px;">Осталось ${p.stock}</span>` : ''}
-              ${p.on_request ? `<span class="chip chip--ink" style="padding:1px 7px; font-size:10px; height:18px;">По запросу</span>` : ''}
-            </div>
-            <div style="font-family:var(--f-display); font-weight:700; font-size:15px; line-height:1.15; margin-bottom:3px;">${esc(p.name)}</div>
-            <div class="meta" style="font-size:9.5px; color:var(--ink-faint);">${esc(meta || ' ')}</div>
-          </div>
-          <div style="text-align:right; display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
-            <div>
-              <span style="font-family:var(--f-display); font-weight:800; font-size:16px; line-height:1;">${typeof f.price === 'number' && !f.on_request ? fmt(f.price) : '—'}</span>
-              <span style="font-size:10px; color:var(--ink-faint); margin-left:2px;">${typeof f.price === 'number' && !f.on_request ? '₽' : ''}</span>
-            </div>
-            <button onclick="event.stopPropagation(); rb.cartAdd('${esc(p.id)}', '${esc(f.size || '')}')" style="width:30px; height:30px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-size:18px; line-height:1; font-weight:300;">+</button>
-          </div>
-        </div>
-      `;
-    }).join('')}
-  </div>`
-}
-
+<div style="height:80px"></div>
 ${tabBar('catalog')}
 `;
 }
@@ -1227,6 +1439,11 @@ const rb = {
   go(screen, params) {
     if (STATE.screen !== screen) STATE.history.push(STATE.screen);
     STATE.screen = screen;
+    if (screen === 'catalog' && !params) {
+      // переход в каталог из табов / меню → каталог-корень
+      STATE.cat = null; STATE.subcat = null; STATE.showAll = false;
+      resetFilters();
+    }
     if (params) {
       if ('cat' in params) STATE.cat = params.cat || null;
       if ('subcat' in params) STATE.subcat = params.subcat || null;
@@ -1291,6 +1508,73 @@ const rb = {
     saveLocal();
     haptic('warning');
     render();
+  },
+  openCat(catId) {
+    if (STATE.screen !== 'catalog') STATE.history.push(STATE.screen);
+    STATE.screen = 'catalog';
+    STATE.cat = catId || null;
+    STATE.subcat = null;
+    STATE.showAll = false;
+    resetFilters();
+    haptic();
+    window.scrollTo(0, 0);
+    render();
+  },
+  openSubcat(subId) {
+    if (STATE.screen !== 'catalog') STATE.history.push(STATE.screen);
+    STATE.screen = 'catalog';
+    // если cat ещё не выставлен — выводим из subcat
+    if (!STATE.cat) {
+      // ищем верхнюю категорию
+      let cur = STATE.data.subcategories.find(s => s.id === subId);
+      let cat = null;
+      while (cur) {
+        if (STATE.data.categories.find(c => c.id === cur.parent)) { cat = cur.parent; break; }
+        cur = STATE.data.subcategories.find(s => s.id === cur.parent);
+      }
+      STATE.cat = cat;
+    }
+    STATE.subcat = subId;
+    STATE.showAll = false;
+    resetFilters();
+    haptic();
+    window.scrollTo(0, 0);
+    render();
+  },
+  openSubcatAll() {
+    // принудительно показываем плоский список под текущим cursor
+    STATE.showAll = true;
+    haptic();
+    window.scrollTo(0, 0);
+    render();
+  },
+  toggleFasovka(s) {
+    STATE.filters.fasovka = STATE.filters.fasovka === s ? null : s;
+    haptic('light'); render();
+  },
+  toggleInStock() {
+    STATE.filters.inStock = !STATE.filters.inStock;
+    haptic('light'); render();
+  },
+  toggleCountry(c) {
+    const a = STATE.filters.countries;
+    const i = a.indexOf(c);
+    if (i >= 0) a.splice(i, 1); else a.push(c);
+    haptic('light'); render();
+  },
+  toggleFlavor(c) {
+    const a = STATE.filters.flavors;
+    const i = a.indexOf(c);
+    if (i >= 0) a.splice(i, 1); else a.push(c);
+    haptic('light'); render();
+  },
+  toggleFilterPanel(kind) {
+    STATE.filterOpen = STATE.filterOpen === kind ? false : (kind || (STATE.filterOpen ? false : 'country'));
+    haptic('light'); render();
+  },
+  resetFilters() {
+    resetFilters();
+    haptic('warning'); render();
   },
   searchInput(v) {
     STATE.searchQuery = v || '';
