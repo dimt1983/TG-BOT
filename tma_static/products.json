@@ -248,7 +248,7 @@
           "photo": "photos/products/c-бразилия_серрадо_200g.jpg"
         }
       ],
-      "stock": 701,
+      "stock": 693,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
@@ -418,7 +418,7 @@
           "photo": "photos/products/c-бразилия_серрадо_жёлтый_бурбон_200g.jpg"
         }
       ],
-      "stock": 27,
+      "stock": 26,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо_жёлтый_бурбон.jpg",
       "ozon_offer_id": "RBR-F- БРАЗ СЕРРАДО ЖЕЛТЫЙ БУРБОН, 1кг",
@@ -12336,120 +12336,156 @@
       "name": "Impassion Easy какао для автомат. приготовления 1 кг",
       "category": "other",
       "subcategory": "other_chocolate",
-      "stock": 5,
+      "stock": 0,
       "on_request": true,
-      "price": null
+      "price": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-16T14:33:54+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "o-горячий_шоколад_cocaya_classic_brown_1_кг",
       "name": "Горячий шоколад Cocaya Classic Brown 1 кг",
       "category": "other",
       "subcategory": "other_chocolate",
-      "stock": 8,
+      "stock": 0,
       "on_request": true,
-      "price": null
+      "price": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-16T14:33:54+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "o-горячий_шоколад_impassion_dense_1_кг",
       "name": "Горячий шоколад Impassion Dense 1 кг",
       "category": "other",
       "subcategory": "other_chocolate",
-      "stock": 13,
+      "stock": 0,
       "on_request": true,
-      "price": null
+      "price": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-16T14:33:54+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "o-cup_3_жидкость_от_накипи_1000_мл",
       "name": "CUP 3 Жидкость от накипи 1000 мл",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 18,
+      "stock": 0,
       "on_request": true,
-      "price": null
+      "price": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-16T14:33:54+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "o-cup_3_жидкость_от_накипи_500_мл",
       "name": "CUP 3 Жидкость от накипи 500 мл",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 1,
+      "stock": 0,
       "on_request": true,
       "price": null,
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined": true,
+      "quarantined_at": "2026-05-16T14:33:54+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "o-таблетки_expert-cm_для_чистки_от_кофейных_масел_100_шт_",
       "name": "Таблетки EXPERT-CM для чистки от кофейных масел 100 шт × 2 г",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 1,
+      "stock": 0,
       "on_request": true,
-      "price": null
+      "price": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-16T14:33:54+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "o-cup_7_жидкость_для_очистки_молочных_систем_1_л",
       "name": "CUP 7 Жидкость для очистки молочных систем 1 л",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 11,
+      "stock": 0,
       "on_request": true,
-      "price": null
+      "price": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-16T14:33:54+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "o-cup_5_таблетки_для_удаления_кофейных_масел_2_г_100_шт",
       "name": "CUP 5 Таблетки для удаления кофейных масел 2 г × 100 шт",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 12,
+      "stock": 0,
       "on_request": true,
-      "price": null
+      "price": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-16T14:33:54+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "o-cup_6_порошок_для_удаления_кофейных_масел_1_кг",
       "name": "CUP 6 Порошок для удаления кофейных масел 1 кг",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 20,
+      "stock": 0,
       "on_request": true,
-      "price": null
+      "price": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-16T14:33:54+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "o-cafetto_brew_clean_tablets_для_фильтровых_кофемашин",
       "name": "Cafetto Brew Clean Tablets для фильтровых кофемашин",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 4,
+      "stock": 0,
       "on_request": true,
-      "price": null
+      "price": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-16T14:33:54+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "o-cafetto_capsule_clean_для_капсульных_кофемашин_25_г_6",
       "name": "Cafetto Capsule Clean для капсульных кофемашин (2,5 г × 6)",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 7,
+      "stock": 0,
       "on_request": true,
-      "price": null
+      "price": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-16T14:33:54+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "o-cafetto_tea_cleaner_для_чайного_налта",
       "name": "Cafetto Tea Cleaner для чайного налёта",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 2,
+      "stock": 0,
       "on_request": true,
-      "price": null
+      "price": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-16T14:33:54+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-каскара_коста-рика_100г",
       "name": "Каскара Коста-Рика 100 г",
       "category": "coffee",
       "subcategory": "coffee_cascara",
-      "stock": 12,
+      "stock": 0,
       "on_request": true,
-      "price": null
+      "price": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-16T14:33:54+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     }
   ]
 }
