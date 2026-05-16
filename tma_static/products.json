@@ -11067,7 +11067,8 @@
       ],
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "hidden": true
     },
     {
       "id": "filter-aeropress-350",
