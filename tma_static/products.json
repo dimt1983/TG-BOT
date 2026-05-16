@@ -11044,7 +11044,7 @@
       "tags": [
         "Прочее"
       ],
-      "hidden": false,
+      "hidden": true,
       "quarantined": true,
       "quarantined_at": "2026-05-16T13:54:43+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot"
