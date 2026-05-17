@@ -220,7 +220,19 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
     """
     items = payload.get("items", [])
     contact = payload.get("contact") or {}
-    subtotal = sum(it["price"] * it["qty"] for it in items)
+    no_price = [
+        f"{it.get('name','?')} ({it.get('fasovka','')})".strip(" ()")
+        for it in items
+        if it.get("price") is None or it.get("on_request")
+    ]
+    if no_price:
+        raise ValueError(
+            "В корзине есть позиции «по запросу» (без цены): "
+            + ", ".join(no_price[:5])
+            + (f" и ещё {len(no_price)-5}" if len(no_price) > 5 else "")
+            + ". Уберите их из корзины или напишите менеджеру — оформим вручную."
+        )
+    subtotal = sum((it.get("price") or 0) * it["qty"] for it in items)
     total_kg = payload.get("totalKg") or sum(
         (parse_kg(it.get("fasovka", "")) or 0) * it["qty"] for it in items
     )
@@ -360,7 +372,7 @@ async def process_tma_order(
     con.close()
 
     # Считаем итог
-    subtotal = sum(it["price"] * it["qty"] for it in items)
+    subtotal = sum((it.get("price") or 0) * it["qty"] for it in items)
     kg = sum((parse_kg(it.get("fasovka", "")) or 0) * it["qty"] for it in items)
     disc_pct = 0.20 if kg >= 25 else 0.10 if kg >= 10 else 0
     saved = round(subtotal * disc_pct)
@@ -370,7 +382,7 @@ async def process_tma_order(
     lines = [f"✅ <b>Заказ №{order_id} оформлен!</b>\n"]
     for it in items[:15]:
         lines.append(
-            f"• {it['name'][:48]}\n  <i>{it['qty']} × {it['price']} ₽ ({it.get('fasovka','')})</i>"
+            f"• {it['name'][:48]}\n  <i>{it['qty']} × {it.get('price') or 0} ₽ ({it.get('fasovka','')})</i>"
         )
     if len(items) > 15:
         lines.append(f"... и ещё {len(items) - 15} позиций")
@@ -457,7 +469,7 @@ async def process_tma_order(
         for it in items_sorted:
             badge = _roast_badge(it)
             adm_lines.append(
-                f"• {badge}{it['name'][:50]} — {it.get('fasovka','')} × {it['qty']} = {it['price']*it['qty']:.0f} ₽"
+                f"• {badge}{it['name'][:50]} — {it.get('fasovka','')} × {it['qty']} = {(it.get('price') or 0)*it['qty']:.0f} ₽"
             )
         if len(items) > 25:
             adm_lines.append(f"... и ещё {len(items) - 25} позиций")
@@ -633,7 +645,7 @@ def register_tma_handlers(
             return
 
         # Считаем итог для ответа
-        subtotal = sum(it["price"] * it["qty"] for it in items)
+        subtotal = sum((it.get("price") or 0) * it["qty"] for it in items)
         kg = sum((parse_kg(it.get("fasovka", "")) or 0) * it["qty"] for it in items)
         disc_pct = 0.20 if kg >= 25 else 0.10 if kg >= 10 else 0
         saved = round(subtotal * disc_pct)
@@ -641,7 +653,7 @@ def register_tma_handlers(
 
         lines = [f"✅ <b>Заказ №{order_id} оформлен!</b>\n"]
         for it in items[:15]:
-            lines.append(f"• {it['name'][:48]}\n  <i>{it['qty']} × {it['price']} ₽ ({it.get('fasovka','')})</i>")
+            lines.append(f"• {it['name'][:48]}\n  <i>{it['qty']} × {it.get('price') or 0} ₽ ({it.get('fasovka','')})</i>")
         if len(items) > 15:
             lines.append(f"... и ещё {len(items) - 15} позиций")
         lines.append(f"\n💰 Сумма: {subtotal:.0f} ₽")
