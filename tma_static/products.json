@@ -290,7 +290,7 @@
           "photo": "photos/products/c-бразилия_серрадо_дарк_200g.jpg"
         }
       ],
-      "stock": 204,
+      "stock": 203,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо_дарк.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО ДАРК, 200 г",
@@ -332,7 +332,7 @@
           "photo": "photos/products/c-бразилия_сан_рафаель_200g.jpg"
         }
       ],
-      "stock": 348,
+      "stock": 344,
       "tags": [],
       "photo": "photos/products/c-бразилия_сан_рафаель.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ SAN RAFAEL, 1 кг",
@@ -448,7 +448,7 @@
           "photo": "photos/products/c-бразилия_серрадо_жёлтый_бурбон_200g.jpg"
         }
       ],
-      "stock": 26,
+      "stock": 25,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо_жёлтый_бурбон.jpg",
       "ozon_offer_id": "RBR-F- БРАЗ СЕРРАДО ЖЕЛТЫЙ БУРБОН, 1кг",
@@ -564,7 +564,7 @@
           "photo": "photos/products/c-руанда_мутетели_200g.jpg"
         }
       ],
-      "stock": 36,
+      "stock": 28,
       "tags": [],
       "taste": "Чёрный чай, вишня, шиповник, слива",
       "roast_descr": "светлая обжарка под фильтр",
@@ -757,7 +757,7 @@
           "photo": "photos/products/c-колумбия_андино_200g.jpg"
         }
       ],
-      "stock": 66,
+      "stock": 62,
       "tags": [],
       "photo": "photos/products/c-колумбия_андино.jpg",
       "ozon_offer_id": "RBR-F-КОЛУМБИЯ АНДИНО, 1 кг",
@@ -1340,7 +1340,7 @@
           "photo": "photos/products/c-классика_200g.jpg"
         }
       ],
-      "stock": 151,
+      "stock": 150,
       "tags": [
         "Бленд"
       ],
@@ -1457,7 +1457,7 @@
           "photo": "photos/products/c-венеция_200g.jpg"
         }
       ],
-      "stock": 22,
+      "stock": 21,
       "tags": [
         "Бленд"
       ],
@@ -1496,7 +1496,7 @@
           "photo": "photos/products/c-лунго_200g.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "tags": [
         "Бленд"
       ],
@@ -5320,7 +5320,7 @@
           "price": 635.0
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "tags": []
     },
     {
@@ -5420,7 +5420,7 @@
           "price": 660.0
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": []
     },
     {
