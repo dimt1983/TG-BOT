@@ -285,17 +285,17 @@
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "photos/products/c-бразилия_серрадо.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 435,
-          "photo": "photos/products/c-бразилия_серрадо_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 682,
       "tags": [],
-      "photo": "photos/products/c-бразилия_серрадо.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
       "aroma": "Лимон, апельсин, сухофрукты",
       "taste": "Тёмный шоколад, какао",
@@ -327,17 +327,17 @@
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "photos/products/c-бразилия_серрадо_дарк.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 392,
-          "photo": "photos/products/c-бразилия_серрадо_дарк_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 311,
       "tags": [],
-      "photo": "photos/products/c-бразилия_серрадо_дарк.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО ДАРК, 200 г",
       "aroma": "Сухофрукты, нуга, жареные орехи",
       "taste": "Сливочная карамель, темный шоколад",
@@ -369,17 +369,17 @@
         {
           "size": "1 кг",
           "price": 2070,
-          "photo": "photos/products/c-бразилия_сан_рафаель.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 445,
-          "photo": "photos/products/c-бразилия_сан_рафаель_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 332,
       "tags": [],
-      "photo": "photos/products/c-бразилия_сан_рафаель.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ SAN RAFAEL, 1 кг",
       "taste": "сухофрукты, чернослив, грецкий орех",
       "roast_descr": "обжарка под эспрессо",
@@ -409,12 +409,12 @@
         {
           "size": "1 кг",
           "price": 2070,
-          "photo": "photos/products/c-уганда_вугар_элгон.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 445,
-          "photo": "photos/products/c-уганда_вугар_элгон_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -427,7 +427,7 @@
       "variety": "—",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "photo": "photos/products/c-уганда_вугар_элгон.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "tasting_notes": [
         "шоколад",
         "орех",
@@ -453,12 +453,12 @@
         {
           "size": "1 кг",
           "price": 2335,
-          "photo": "photos/products/c-танзания_аа.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 495,
-          "photo": "photos/products/c-танзания_аа_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 1,
@@ -467,7 +467,7 @@
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "photo": "photos/products/c-танзания_аа.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "tasting_notes": [
         "чернослив",
         "чёрный чай",
@@ -492,17 +492,17 @@
         {
           "size": "1 кг",
           "price": 2120,
-          "photo": "photos/products/c-бразилия_серрадо_жёлтый_бурбон.jpg"
+          "photo": "assets/placeholders/ph_filter.svg"
         },
         {
           "size": "200 г",
           "price": 455,
-          "photo": "photos/products/c-бразилия_серрадо_жёлтый_бурбон_200g.jpg"
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 25,
       "tags": [],
-      "photo": "photos/products/c-бразилия_серрадо_жёлтый_бурбон.jpg",
+      "photo": "assets/placeholders/ph_filter.svg",
       "ozon_offer_id": "RBR-F- БРАЗ СЕРРАДО ЖЕЛТЫЙ БУРБОН, 1кг",
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
@@ -530,17 +530,17 @@
         {
           "size": "1 кг",
           "price": 2440,
-          "photo": "photos/products/c-гватемала_декаф.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 520,
-          "photo": "photos/products/c-гватемала_декаф_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 4,
       "tags": [],
-      "photo": "photos/products/c-гватемала_декаф.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-F-КОЛУМБИЯ DECAFFEINATED,  200 г",
       "roast_descr": "обжарка под эспрессо",
       "roast_date": "07.05.2026",
@@ -569,17 +569,17 @@
         {
           "size": "1 кг",
           "price": 2175,
-          "photo": "photos/products/c-гондурас_сан_николас.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 465,
-          "photo": "photos/products/c-гондурас_сан_николас_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [],
-      "photo": "photos/products/c-гондурас_сан_николас.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-HONDURAS SAN NICOLAS, 200 г",
       "taste": "красное яблоко, орехи, курага, тёмный",
       "roast_descr": "обжарка под эспрессо",
@@ -612,12 +612,12 @@
         {
           "size": "1 кг",
           "price": 2230,
-          "photo": "photos/products/c-руанда_мутетели.jpg"
+          "photo": "assets/placeholders/ph_filter.svg"
         },
         {
           "size": "200 г",
           "price": 475,
-          "photo": "photos/products/c-руанда_мутетели_200g.jpg"
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 18,
@@ -626,7 +626,7 @@
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "photo": "photos/products/c-руанда_мутетели.jpg",
+      "photo": "assets/placeholders/ph_filter.svg",
       "tasting_notes": [
         "чёрный чай",
         "вишня",
@@ -650,12 +650,12 @@
         {
           "size": "1 кг",
           "price": 2230,
-          "photo": "photos/products/c-перу_гр_1.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 475,
-          "photo": "photos/products/c-перу_гр_1_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -668,7 +668,7 @@
       "variety": "—",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "photo": "photos/products/c-перу_гр_1.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
@@ -690,12 +690,12 @@
         {
           "size": "1 кг",
           "price": 2620,
-          "photo": "photos/products/c-перу_монте_верде.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 555,
-          "photo": "photos/products/c-перу_монте_верде_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 42,
@@ -704,7 +704,7 @@
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "photo": "photos/products/c-перу_монте_верде.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "tasting_notes": [
         "молочный шоколад",
         "карамель",
@@ -727,17 +727,17 @@
         {
           "size": "1 кг",
           "price": 2595,
-          "photo": "photos/products/c-кения_аа.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 550,
-          "photo": "photos/products/c-кения_аа_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [],
-      "photo": "photos/products/c-кения_аа.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-F-КЕНИЯ АА, 1кг",
       "taste": "ягоды, специи, малиновый джем",
       "roast_descr": "светлая обжарка под фильтр",
@@ -770,17 +770,17 @@
         {
           "size": "1 кг",
           "price": 2490,
-          "photo": "photos/products/c-кения_аб_центральная_провинция.jpg"
+          "photo": "assets/placeholders/ph_filter.svg"
         },
         {
           "size": "200 г",
           "price": 530,
-          "photo": "photos/products/c-кения_аб_центральная_провинция_200g.jpg"
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 10,
       "tags": [],
-      "photo": "photos/products/c-кения_аб_центральная_провинция.jpg",
+      "photo": "assets/placeholders/ph_filter.svg",
       "ozon_offer_id": "RB-F-KENYA AA, 200 г",
       "subcategories": [
         "coffee_espresso_mono",
@@ -812,17 +812,17 @@
         {
           "size": "1 кг",
           "price": 2175,
-          "photo": "photos/products/c-колумбия_андино.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 465,
-          "photo": "photos/products/c-колумбия_андино_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 6,
       "tags": [],
-      "photo": "photos/products/c-колумбия_андино.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-F-КОЛУМБИЯ АНДИНО, 1 кг",
       "subcategories": [
         "coffee_espresso_mono",
@@ -854,12 +854,12 @@
         {
           "size": "1 кг",
           "price": 2545,
-          "photo": "photos/products/c-никарагуа_марагаджип.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 540,
-          "photo": "photos/products/c-никарагуа_марагаджип_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -872,7 +872,7 @@
       "variety": "—",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "photo": "photos/products/c-никарагуа_марагаджип.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
@@ -894,12 +894,12 @@
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "photos/products/c-уганда_рувензор.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 435,
-          "photo": "photos/products/c-уганда_рувензор_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -912,7 +912,7 @@
       "variety": "—",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "photo": "photos/products/c-уганда_рувензор.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
@@ -940,17 +940,17 @@
         {
           "size": "1 кг",
           "price": 2120,
-          "photo": "photos/products/c-эфиопия_лиму_гр_2.jpg"
+          "photo": "assets/placeholders/ph_filter.svg"
         },
         {
           "size": "200 г",
           "price": 455,
-          "photo": "photos/products/c-эфиопия_лиму_гр_2_200g.jpg"
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 5,
       "tags": [],
-      "photo": "photos/products/c-эфиопия_лиму_гр_2.jpg",
+      "photo": "assets/placeholders/ph_filter.svg",
       "ozon_offer_id": "RB-E-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 200г",
       "taste": "Цитрусы, вишня, чёрный чай, шоколад",
       "roast_descr": "светлая обжарка под фильтр",
@@ -978,17 +978,17 @@
         {
           "size": "1 кг",
           "price": 2120,
-          "photo": "photos/products/c-эфиопия_сидамо_гр_2_гуджи.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 455,
-          "photo": "photos/products/c-эфиопия_сидамо_гр_2_гуджи_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 81,
       "tags": [],
-      "photo": "photos/products/c-эфиопия_сидамо_гр_2_гуджи.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-E-СИДАМО Гр.4",
       "subcategories": [
         "coffee_espresso_mono",
@@ -1020,17 +1020,17 @@
         {
           "size": "1 кг",
           "price": 2175,
-          "photo": "photos/products/c-эфиопия_арича_гр_3.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 465,
-          "photo": "photos/products/c-эфиопия_арича_гр_3_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [],
-      "photo": "photos/products/c-эфиопия_арича_гр_3.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-F-ETHIOPIA YIRGACHEFFE Gr.2, 1 кг",
       "aroma": "Персик, жасмин",
       "taste": "Молочный шоколад, миндаль",
@@ -1061,12 +1061,12 @@
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "photos/products/c-эфиопия_milk.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 435,
-          "photo": "photos/products/c-эфиопия_milk_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -1074,7 +1074,7 @@
       "roast_descr": "обжарка под эспрессо",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "photo": "photos/products/c-эфиопия_milk.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "tasting_notes": [
         "шоколад",
         "орех",
@@ -1102,17 +1102,17 @@
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "photos/products/c-эфиопия_иргачиф_гр_4.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 435,
-          "photo": "photos/products/c-эфиопия_иргачиф_гр_4_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [],
-      "photo": "photos/products/c-эфиопия_иргачиф_гр_4.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг",
       "roast_descr": "обжарка под эспрессо",
       "roast_date": "07.05.2026",
@@ -1137,18 +1137,20 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2390
+          "price": 2390,
+          "photo": "assets/placeholders/ph_filter.svg"
         },
         {
           "size": "200 г",
-          "price": 560
+          "price": 560,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 9,
       "tags": [
         "Black Edition"
       ],
-      "photo": "photos/products/c-эфиопия_ададо.jpg",
+      "photo": "assets/placeholders/ph_filter.svg",
       "pair_id": "эфиопия_ададо",
       "tasting_notes": [
         "чёрный чай",
@@ -1170,18 +1172,20 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2233
+          "price": 2233,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
-          "price": 525
+          "price": 525,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [
         "Black Edition"
       ],
-      "photo": "photos/products/c-эфиопия_белойя_гр_2.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "pair_id": "эфиопия_белойя_гр_2",
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
@@ -1204,18 +1208,20 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2863
+          "price": 2863,
+          "photo": "assets/placeholders/ph_filter.svg"
         },
         {
           "size": "200 г",
-          "price": 655
+          "price": 655,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 12,
       "tags": [
         "Black Edition"
       ],
-      "photo": "photos/products/c-эфиопия_челелекту_гр_1.jpg",
+      "photo": "assets/placeholders/ph_filter.svg",
       "pair_id": "эфиопия_челелекту_гр_1",
       "tasting_notes": [
         "цветочные",
@@ -1238,18 +1244,20 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 3500
+          "price": 3500,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
-          "price": 780
+          "price": 780,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [
         "Black Edition"
       ],
-      "photo": "photos/products/c-колумбия_клаудиа_колменарес.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-F-COLOMBIA ANDINO, 1 кг",
       "pair_id": "колумбия_клаудиа_колменарес",
       "quarantined": true,
@@ -1273,18 +1281,20 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2863
+          "price": 2863,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
-          "price": 655
+          "price": 655,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 2,
       "tags": [
         "Black Edition"
       ],
-      "photo": "photos/products/c-эфиопия_челчеле_гр_1.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "pair_id": "эфиопия_челчеле_гр_1",
       "tasting_notes": [
         "бергамот",
@@ -1307,11 +1317,13 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 3020
+          "price": 3020,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
-          "price": 685
+          "price": 685,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -1322,7 +1334,7 @@
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026",
       "subcategory": "espresso_mono"
@@ -1340,18 +1352,20 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2863
+          "price": 2863,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
-          "price": 655
+          "price": 655,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [
         "Borщ Edition"
       ],
-      "photo": "photos/products/c-колумбия_хайро_арсила_натуральная.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-F- COLOMBIA ANDINO, 200 г",
       "pair_id": "колумбия_хайро_арсила",
       "tasting_notes": [
@@ -1381,18 +1395,20 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 3500
+          "price": 3500,
+          "photo": "assets/placeholders/ph_filter.svg"
         },
         {
           "size": "200 г",
-          "price": 780
+          "price": 780,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 0,
       "tags": [
         "Borщ Edition"
       ],
-      "photo": "photos/products/c-колумбия_гонзало_кармона.jpg",
+      "photo": "assets/placeholders/ph_filter.svg",
       "ozon_offer_id": "RB-E-COLOMBIA ANDINO, 200 г",
       "pair_id": "колумбия_гонзало_кармона",
       "quarantined": true,
@@ -1420,19 +1436,19 @@
         {
           "size": "1 кг",
           "price": 1975,
-          "photo": "photos/products/c-классика.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 425,
-          "photo": "photos/products/c-классика_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 106,
       "tags": [
         "Бленд"
       ],
-      "photo": "photos/products/c-классика.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-BE-КЛАССИКА, 1 кг",
       "roast_descr": "эспрессо-смесь",
       "roast_date": "07.05.2026",
@@ -1462,19 +1478,19 @@
         {
           "size": "1 кг",
           "price": 1910,
-          "photo": "photos/products/c-биттер.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 410,
-          "photo": "photos/products/c-биттер_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 45,
       "tags": [
         "Бленд"
       ],
-      "photo": "photos/products/c-биттер.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-BE-БИТТЕР, 1 кг",
       "roast_descr": "эспрессо-смесь",
       "roast_date": "07.05.2026",
@@ -1503,12 +1519,12 @@
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "photos/products/c-хани.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 435,
-          "photo": "photos/products/c-хани_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 36,
@@ -1518,7 +1534,7 @@
       "roast_descr": "эспрессо-смесь",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "photo": "photos/products/c-хани.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "tasting_notes": [
         "молочный шоколад",
         "цветочный мёд",
@@ -1543,19 +1559,19 @@
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "photos/products/c-венеция.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 435,
-          "photo": "photos/products/c-венеция_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 35,
       "tags": [
         "Бленд"
       ],
-      "photo": "photos/products/c-венеция.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-BE-ВЕНЕЦИЯ, 1 кг",
       "roast_descr": "эспрессо-смесь",
       "roast_date": "07.05.2026",
@@ -1584,19 +1600,19 @@
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "photos/products/c-лунго.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 435,
-          "photo": "photos/products/c-лунго_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 24,
       "tags": [
         "Бленд"
       ],
-      "photo": "photos/products/c-лунго.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-BF-ЛУНГО, 200 г",
       "roast_descr": "фильтр-смесь",
       "roast_date": "07.05.2026",
@@ -1625,11 +1641,13 @@
       "fasovka": [
         {
           "size": "8 шт",
-          "price": 670
+          "price": 670,
+          "photo": "assets/placeholders/ph_filter.svg"
         },
         {
           "size": "1 шт",
-          "price": 67
+          "price": 67,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 0,
@@ -1640,7 +1658,7 @@
       "quarantined": true,
       "quarantined_at": "2026-05-16T14:03:57+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "photo": ""
+      "photo": "assets/placeholders/ph_filter.svg"
     },
     {
       "id": "c-drip-гватемала_уетенанго",
@@ -1656,11 +1674,13 @@
       "fasovka": [
         {
           "size": "8 шт",
-          "price": 670
+          "price": 670,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "1 шт",
-          "price": 67
+          "price": 67,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -1668,7 +1688,7 @@
         "Удобно",
         "CHOCOLATE"
       ],
-      "photo": "photos/products/c-drip-гватемала_уетенанго.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-F-ГВАТЕМАЛА УЭУЭТЕНАНГО, 200г",
       "tasting_notes": [
         "вишня",
@@ -1696,11 +1716,13 @@
       "fasovka": [
         {
           "size": "8 шт",
-          "price": 770
+          "price": 770,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "1 шт",
-          "price": 81
+          "price": 81,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -1711,7 +1733,7 @@
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026"
     },
@@ -1729,11 +1751,13 @@
       "fasovka": [
         {
           "size": "8 шт",
-          "price": 670
+          "price": 670,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "1 шт",
-          "price": 67
+          "price": 67,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -1747,7 +1771,7 @@
         "ягоды",
         "чёрный чай"
       ],
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot"
@@ -1766,11 +1790,13 @@
       "fasovka": [
         {
           "size": "8 шт",
-          "price": 670
+          "price": 670,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "1 шт",
-          "price": 67
+          "price": 67,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -1781,7 +1807,7 @@
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026"
     },
@@ -1799,11 +1825,13 @@
       "fasovka": [
         {
           "size": "8 шт",
-          "price": 710
+          "price": 710,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "1 шт",
-          "price": 72
+          "price": 72,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -1811,7 +1839,7 @@
         "Удобно",
         "FLOWER"
       ],
-      "photo": "photos/products/c-drip-эфиопия_иргачиф__drip_.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-F-ETHIOPIA YIRGACHEFFE Gr.2, 200 г",
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
@@ -1833,11 +1861,13 @@
       "fasovka": [
         {
           "size": "8 шт",
-          "price": 730
+          "price": 730,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "1 шт",
-          "price": 75
+          "price": 75,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -1848,7 +1878,7 @@
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026"
     },
@@ -1866,11 +1896,13 @@
       "fasovka": [
         {
           "size": "8 шт",
-          "price": 810
+          "price": 810,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "1 шт",
-          "price": 85
+          "price": 85,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -1881,7 +1913,7 @@
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026"
     },
@@ -1899,11 +1931,13 @@
       "fasovka": [
         {
           "size": "8 шт",
-          "price": 760
+          "price": 760,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "1 шт",
-          "price": 78
+          "price": 78,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -1917,7 +1951,7 @@
         "карамель",
         "красные яблоки"
       ],
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026",
       "quarantined": true,
@@ -1938,11 +1972,13 @@
       "fasovka": [
         {
           "size": "8 шт",
-          "price": 630
+          "price": 630,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "1 шт",
-          "price": 62
+          "price": 62,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -1956,7 +1992,7 @@
         "карамель",
         "цитрус"
       ],
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026",
       "quarantined": true,
@@ -1977,11 +2013,13 @@
       "fasovka": [
         {
           "size": "8 шт",
-          "price": 710
+          "price": 710,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "1 шт",
-          "price": 72
+          "price": 72,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -1998,7 +2036,7 @@
         "карамель",
         "цитрус"
       ],
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026"
     },
@@ -2016,11 +2054,13 @@
       "fasovka": [
         {
           "size": "8 шт",
-          "price": 710
+          "price": 710,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "1 шт",
-          "price": 72
+          "price": 72,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -2031,7 +2071,7 @@
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026"
     },
@@ -2049,11 +2089,13 @@
       "fasovka": [
         {
           "size": "8 шт",
-          "price": 820
+          "price": 820,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "1 шт",
-          "price": 86
+          "price": 86,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -2064,7 +2106,7 @@
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026"
     },
@@ -2082,18 +2124,20 @@
       "fasovka": [
         {
           "size": "10 шт",
-          "price": 450
+          "price": 450,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "1 шт",
-          "price": 74
+          "price": 74,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [
         "Капсулы"
       ],
-      "photo": "photos/products/c-nesp-бразилия_серрадо__nespresso_.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-E-БРАЗИЛИЯ СЕРРАДО, 1 кг",
       "hidden": true,
       "quarantined": true,
@@ -2115,18 +2159,20 @@
       "fasovka": [
         {
           "size": "10 шт",
-          "price": 450
+          "price": 450,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "1 шт",
-          "price": 74
+          "price": 74,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [
         "Капсулы"
       ],
-      "photo": "photos/products/c-nesp-бразилия_пибери.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-BRAZIL PAJE, 200 г",
       "hidden": true,
       "quarantined": true,
@@ -2148,18 +2194,20 @@
       "fasovka": [
         {
           "size": "10 шт",
-          "price": 460
+          "price": 460,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "1 шт",
-          "price": 75
+          "price": 75,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [
         "Капсулы"
       ],
-      "photo": "photos/products/c-nesp-колумбия__nespresso_.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-COLOMBIA ANDINO, 1 кг",
       "hidden": true,
       "quarantined": true,
@@ -2181,11 +2229,13 @@
       "fasovka": [
         {
           "size": "10 шт",
-          "price": 500
+          "price": 500,
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "1 шт",
-          "price": 82
+          "price": 82,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -2196,7 +2246,7 @@
       "quarantined": true,
       "quarantined_at": "2026-05-14T10:05:58+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "archived_reason": "not in xlsx 19.05.2026"
     },
     {
@@ -10945,11 +10995,12 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 3500
+          "price": 3500,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "description": "Редкий сорт SL28 в Бразилии, ферментирован в honey-обработке с анаэробной фазой. Сложный фруктовый профиль с винными нотами.",
-      "photo": "photos/products/c-mlot-brazil-sl28-hani-anaerob.jpg",
+      "photo": "assets/placeholders/ph_filter.svg",
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
       "batch": "1",
@@ -10981,11 +11032,12 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 3500
+          "price": 3500,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "description": "Карму-ди-Минас, фазенда Сантуарио Сулл. Разновидность Судан Руме. В аромате — миндаль, фундук, цукаты, молочный шоколад. Во вкусе — цветочный мёд, цукаты из цитрусов, молочный шоколад с орехами.",
-      "photo": "photos/products/c-mlot-brazil-sudan-rume-anaerob.jpg",
+      "photo": "assets/placeholders/ph_filter.svg",
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
       "batch": "1",
@@ -11016,11 +11068,12 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 3500
+          "price": 3500,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "description": "Карму-да-Кашуэра, фазенда Лагуинья. Разновидность Катуаи. В аромате — сухофрукты, цитрусовые, сливочная карамель. Во вкусе — сливочная карамель, ликёр, ваниль, шоколад с орехами.",
-      "photo": "photos/products/c-mlot-brazil-fazenda-laguinha.jpg",
+      "photo": "assets/placeholders/ph_filter.svg",
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
       "batch": "1",
@@ -11052,11 +11105,12 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2863
+          "price": 2863,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "description": "Регион Гедео. Эспрессо-обжарка мытой обработки — отличается от фильтр-варианта Челчеле (тот сухой натуральный). Чистый цитрусовый кислый профиль, цветочный аромат.",
-      "photo": "photos/products/c-mlot-efiopia-chelchele-washed-espresso.jpg",
+      "photo": "assets/placeholders/ph_filter.svg",
       "roast_descr": "обжарка под эспрессо",
       "roast_date": "07.05.2026",
       "batch": "1",
@@ -11082,7 +11136,8 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2847
+          "price": 2847,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 4,
@@ -11090,7 +11145,7 @@
         "микролот",
         "фильтр"
       ],
-      "photo": "photos/products/c-колумбия_кастильо_2.jpg",
+      "photo": "assets/placeholders/ph_filter.svg",
       "roast_descr": "светлая обжарка",
       "aroma": "Ваниль, сладкие цитрусы, орехи",
       "taste": "Сладкие цитрусы, мёд, ваниль, тростниковый сахар",
@@ -11122,14 +11177,14 @@
         {
           "size": "200 г",
           "price": 650,
-          "photo": "photos/products/c-колумбия_кастильо_3.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [
         "микролот"
       ],
-      "photo": "photos/products/c-колумбия_кастильо_3.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "pair_id": "колумбия_кастильо",
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
@@ -11152,7 +11207,8 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 4842
+          "price": 4842,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 0,
@@ -11161,7 +11217,7 @@
         "фильтр",
         "анаэробная"
       ],
-      "photo": "photos/products/c-колумбия_пачамама_2.jpg",
+      "photo": "assets/placeholders/ph_filter.svg",
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
       "batch": "1",
@@ -11190,7 +11246,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1050
+          "price": 1050,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -11198,7 +11255,7 @@
         "микролот",
         "анаэробная"
       ],
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "pair_id": "колумбия_пачамама",
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
@@ -11221,7 +11278,8 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 5922
+          "price": 5922,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 4,
@@ -11231,7 +11289,7 @@
         "инфьюз",
         "маракуйя"
       ],
-      "photo": "photos/products/c-колумбия_маракуйя_2.jpg",
+      "photo": "assets/placeholders/ph_filter.svg",
       "roast_descr": "светлая обжарка под фильтр",
       "roast_date": "07.05.2026",
       "batch": "1",
@@ -11257,7 +11315,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1265
+          "price": 1265,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
@@ -11266,7 +11325,7 @@
         "инфьюз",
         "маракуйя"
       ],
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "pair_id": "колумбия_маракуйя",
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
@@ -11290,17 +11349,17 @@
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "photos/products/c-китай_симао_гр_1_мытый.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 435,
-          "photo": "photos/products/c-китай_симао_гр_1_мытый_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [],
-      "photo": "photos/products/c-китай_симао_гр_1_мытый.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "roast_descr": "обжарка под эспрессо",
       "roast_date": "07.05.2026",
       "batch": "1",
@@ -11330,17 +11389,17 @@
         {
           "size": "1 кг",
           "price": 1975,
-          "photo": "photos/products/c-classica_1.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 425,
-          "photo": "photos/products/c-classica_1_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [],
-      "photo": "photos/products/c-classica_1.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "roast_descr": "эспрессо-смесь",
       "roast_date": "07.05.2026",
       "batch": "1",
@@ -11365,17 +11424,17 @@
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "photos/products/c-хани_2.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         },
         {
           "size": "200 г",
           "price": 435,
-          "photo": "photos/products/c-хани_2_200g.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [],
-      "photo": "photos/products/c-хани_2.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "roast_descr": "эспрессо-смесь",
       "roast_date": "07.05.2026",
       "batch": "1",
@@ -11399,12 +11458,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 780
+          "price": 780,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [],
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "pair_id": "бразилия_sl28_хани_анаэроб",
       "tasting_notes": [
         "шоколад",
@@ -11433,12 +11493,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 780
+          "price": 780,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [],
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "pair_id": "бразилия_судан_руме_анаэроб",
       "tasting_notes": [
         "шоколад",
@@ -11467,12 +11528,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 780
+          "price": 780,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 0,
       "tags": [],
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "pair_id": "бразилия_фазенда_лагуинья_мундо_анаэроб",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
@@ -11624,12 +11686,12 @@
         {
           "size": "1 кг",
           "price": 2015.0,
-          "photo": "photos/products/c-уганда_рувензори_сухой_-_эспрессо_1_кг.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 10,
       "tags": [],
-      "photo": "photos/products/c-уганда_рувензори_сухой_-_эспрессо_1_кг.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "tasting_notes": [
         "шоколад",
         "орех",
@@ -11652,12 +11714,12 @@
         {
           "size": "1 кг",
           "price": 2175.0,
-          "photo": "photos/products/c-эфиопия_yirgacheffe_gr_4_сухой_эспрессо_-_1_кг.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 33,
       "tags": [],
-      "photo": "photos/products/c-эфиопия_yirgacheffe_gr_4_сухой_эспрессо_-_1_кг.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "tasting_notes": [
         "горький шоколад",
         "красные ягоды",
@@ -11679,12 +11741,12 @@
         {
           "size": "1 кг",
           "price": 3500.0,
-          "photo": "photos/products/c-колумбия_гонзало_кармана_катура_сухой_-_1_кг_filte.jpg"
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 3,
       "tags": [],
-      "photo": "photos/products/c-колумбия_гонзало_кармана_катура_сухой_-_1_кг_filte.jpg",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "pair_id": "колумбия_гонзало_кармана_катура_сухой_-_1_кг_filte",
       "tasting_notes": [
         "ягоды",
@@ -11711,12 +11773,12 @@
         {
           "size": "200 г",
           "price": 475.0,
-          "photo": "photos/products/c-e_roastberry_перу_схг_упак_200_г.jpg"
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
       "tags": [],
-      "photo": "photos/products/c-e_roastberry_перу_схг_упак_200_г.jpg",
+      "photo": "assets/placeholders/ph_retail.svg",
       "tasting_notes": [
         "молочный шоколад",
         "сухофрукты",
@@ -12614,12 +12676,12 @@
           "size": "1 кг",
           "price": null,
           "on_request": true,
-          "photo": "photos/products/c-гватемала_уеуетенанго_мытый_-_1_кг_filter.jpg"
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 1,
       "tags": [],
-      "photo": "photos/products/c-гватемала_уеуетенанго_мытый_-_1_кг_filter.jpg",
+      "photo": "assets/placeholders/ph_filter.svg",
       "tasting_notes": [
         "какао",
         "карамель",
@@ -12644,12 +12706,12 @@
           "size": "1 кг",
           "price": null,
           "on_request": true,
-          "photo": null
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 6,
       "tags": [],
-      "photo": ""
+      "photo": "assets/placeholders/ph_retail.svg"
     },
     {
       "id": "c-be_roastberry_эспрессо_смесь_-_1_кг",
@@ -12667,12 +12729,12 @@
           "size": "1 кг",
           "price": null,
           "on_request": true,
-          "photo": null
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
       "tags": [],
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "quarantined": true,
       "quarantined_at": "2026-05-18T12:34:35+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
@@ -13100,12 +13162,13 @@
       "id": "espresso_кения_аб_мытыи_-_1_кг_эспрессо",
       "name": "Кения АБ мытый - 1 кг эспрессо",
       "category": "espresso",
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 37,
@@ -13116,12 +13179,13 @@
       "id": "espresso_перу_монте_верде_г1_сухои_эспрессо_-_1_кг",
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
-      "photo": "",
+      "photo": "assets/placeholders/ph_espresso.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "stock": 15,
@@ -13132,12 +13196,13 @@
       "id": "filter_кения_аа_мытыи_-_1_кг_filter",
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
-      "photo": "",
+      "photo": "assets/placeholders/ph_filter.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 0,
@@ -13151,12 +13216,13 @@
       "id": "filter_китаи_симао_г1_меллоу_мытыи_1_кг_-_filter",
       "name": "Китай Симао гр.1 Меллоу мытый 1 кг - FILTER",
       "category": "filter",
-      "photo": "",
+      "photo": "assets/placeholders/ph_filter.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 22,
@@ -13167,12 +13233,13 @@
       "id": "filter_колумбия_андино_мытыи_-_1_кг_filter",
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
-      "photo": "",
+      "photo": "assets/placeholders/ph_filter.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 26,
@@ -13183,12 +13250,13 @@
       "id": "filter_перу_монте_верде_г1_сухои_-_1_кг_filter",
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
-      "photo": "",
+      "photo": "assets/placeholders/ph_filter.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 0,
@@ -13202,12 +13270,13 @@
       "id": "filter_танзания_аа_мытыи_-_1_кг_filter",
       "name": "Танзания АА мытый - 1 кг FILTER",
       "category": "filter",
-      "photo": "",
+      "photo": "assets/placeholders/ph_filter.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 2,
@@ -13218,12 +13287,13 @@
       "id": "filter_уганда_вугар_мытыи_-_1_кг_filter",
       "name": "Уганда Вугар мытый  - 1 кг FILTER",
       "category": "filter",
-      "photo": "",
+      "photo": "assets/placeholders/ph_filter.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "stock": 12,
@@ -13234,17 +13304,19 @@
       "id": "retail_be_roastberry_биттер_-_1_кг",
       "name": "BE \"Roastberry\" БИТТЕР - 1 кг",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         },
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
@@ -13258,17 +13330,19 @@
       "id": "retail_be_roastberry_венеция_-_1_кг",
       "name": "BE \"Roastberry\" ВЕНЕЦИЯ - 1 кг",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         },
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
@@ -13282,17 +13356,19 @@
       "id": "retail_be_roastberry_классика_20_-_1_кг",
       "name": "BE \"Roastberry\" КЛАССИКА 20%  - 1 кг",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         },
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
@@ -13306,17 +13382,19 @@
       "id": "retail_be_roastberry_хани_-_1_кг",
       "name": "BE \"Roastberry\" ХАНИ - 1 кг",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         },
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
@@ -13330,17 +13408,19 @@
       "id": "retail_bf_roastberry_лунго_-_1_кг",
       "name": "BF \"Roastberry\" ЛУНГО - 1 кг",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         },
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
@@ -13354,17 +13434,18 @@
       "id": "retail_e_roastberry_бразилия_паже_-_1_кг",
       "name": "E \"Roastberry\" Бразилия Паже - 1 кг",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         },
         {
           "size": "200 г",
           "price": 435.0,
-          "photo": "photos/products/c-e_roastberry_бразилия_паже_упак_200_г.jpg"
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 27,
@@ -13375,17 +13456,19 @@
       "id": "retail_e_roastberry_бразилия_сан_рафаель_-_1_кг",
       "name": "E \"Roastberry\" Бразилия Сан Рафаель - 1 кг",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         },
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
@@ -13399,12 +13482,13 @@
       "id": "retail_e_roastberry_гватемала_декаф_-_1_кг",
       "name": "E \"Roastberry\" Гватемала Декаф - 1 кг",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
@@ -13418,17 +13502,19 @@
       "id": "retail_e_roastberry_колумбия_андино_-_1_кг",
       "name": "E \"Roastberry\" Колумбия Андино - 1 кг",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         },
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
@@ -13442,17 +13528,19 @@
       "id": "retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг",
       "name": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         },
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 48,
@@ -13463,12 +13551,13 @@
       "id": "retail_f_roastberry_гватемала_уетенанго_-_1_кг",
       "name": "F \"Roastberry\" Гватемала Уетенанго - 1 кг",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 2,
@@ -13479,12 +13568,13 @@
       "id": "retail_e_roastberry_бразилия_серадо_200_г",
       "name": "E \"Roastberry\" Бразилия Серадо  упак. 200 г",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 15,
@@ -13495,12 +13585,13 @@
       "id": "retail_e_roastberry_бразилия_серадо_дарк_200_г",
       "name": "E \"Roastberry\" Бразилия Серадо Дарк  упак. 200 г",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 9,
@@ -13511,12 +13602,13 @@
       "id": "retail_e_roastberry_гватемала_декаф_200_г",
       "name": "E \"Roastberry\" Гватемала Декаф упак. 200 гр.",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 13,
@@ -13527,12 +13619,13 @@
       "id": "retail_e_roastberry_гватемала_уетенанго_200_г",
       "name": "E \"Roastberry\" Гватемала Уетенанго упак. 200 гр.",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 9,
@@ -13543,12 +13636,13 @@
       "id": "retail_e_roastberry_уганада_рувензор_200_г",
       "name": "E \"Roastberry\" Уганада Рувензор упак. 200 г",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 8,
@@ -13559,12 +13653,13 @@
       "id": "retail_f_roastberry_бразилия_сертао_200_г_молотыи",
       "name": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 22,
@@ -13575,12 +13670,13 @@
       "id": "retail_f_roastberry_гватемала_уетенанго_200_г",
       "name": "F \"Roastberry\" Гватемала Уетенанго упак. 200 гр.",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
@@ -13594,12 +13690,13 @@
       "id": "retail_f_roastberry_кения_аа_200_г",
       "name": "F \"Roastberry\" Кения АА упак. 200 г",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 27,
@@ -13610,12 +13707,13 @@
       "id": "retail_f_roastberry_кения_аб_200_г",
       "name": "F \"Roastberry\" Кения АБ упак. 200 г",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
@@ -13629,12 +13727,13 @@
       "id": "retail_f_roastberry_китаи_симао_200_г",
       "name": "F \"Roastberry\" Китай Симао упак. 200 г",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 4,
@@ -13645,12 +13744,13 @@
       "id": "retail_f_roastberry_колумбия_андино_200_г",
       "name": "F \"Roastberry\" Колумбия Андино упак. 200 г",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 33,
@@ -13664,12 +13764,13 @@
       "id": "retail_f_roastberry_танзания_200_г",
       "name": "F \"Roastberry\" Танзания упак. 200 гр",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 9,
@@ -13680,12 +13781,13 @@
       "id": "retail_f_roastberry_эфиопия_иргачиф_г2_200_г",
       "name": "F \"Roastberry\" Эфиопия Иргачиф Гр.2 упак. 200 г",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 16,
@@ -13696,12 +13798,13 @@
       "id": "retail_f_roastberry_эфиопия_лиму_200_г",
       "name": "F \"Roastberry\" Эфиопия Лиму упак. 200 г",
       "category": "retail",
-      "photo": "",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 11,
@@ -13712,12 +13815,13 @@
       "id": "black_кофе_roastberry_black_бразилия_бразилия_sl28_хани_",
       "name": "Кофе \"Roastberry BLACK\" Бразилия Бразилия \"SL28 Хани анаэроб.\" - 200 г",
       "category": "black",
-      "photo": "",
+      "photo": "assets/placeholders/ph_black.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_black.svg"
         }
       ],
       "stock": 13,
@@ -13727,12 +13831,13 @@
       "id": "black_кофе_roastberry_black_колумбия_кастильо_мытая_200_",
       "name": "Кофе \"Roastberry BLACK\" Колумбия \"Кастильо\" мытая  200 г",
       "category": "black",
-      "photo": "",
+      "photo": "assets/placeholders/ph_black.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_black.svg"
         }
       ],
       "stock": 14,
@@ -13742,12 +13847,13 @@
       "id": "black_кофе_roastberry_black_эфиопия_ададо_200_г",
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Ададо 200 г",
       "category": "black",
-      "photo": "",
+      "photo": "assets/placeholders/ph_black.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_black.svg"
         }
       ],
       "stock": 15,
@@ -13757,12 +13863,13 @@
       "id": "black_кофе_roastberry_black_эфиопия_челелекту_г1_мытыи_2",
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Челелекту гр.1 мытый 200 г",
       "category": "black",
-      "photo": "",
+      "photo": "assets/placeholders/ph_black.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_black.svg"
         }
       ],
       "stock": 4,
@@ -13772,12 +13879,13 @@
       "id": "black_кофе_roastberry_black_эфиопия_челчеле_натур_200_г",
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Челчеле натур.200 г",
       "category": "black",
-      "photo": "",
+      "photo": "assets/placeholders/ph_black.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_black.svg"
         }
       ],
       "stock": 10,
@@ -13787,12 +13895,13 @@
       "id": "borshch_кофе_roastberry_borщ_бразилия_судан_руме_анаэроб_а",
       "name": "Кофе \"Roastberry BORЩ \"Бразилия \"Судан Руме анаэроб.\" анаэроб.\" 200 г",
       "category": "borshch",
-      "photo": "",
+      "photo": "assets/placeholders/ph_borshch.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
       "stock": 10,
@@ -13802,12 +13911,13 @@
       "id": "borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун",
       "name": "Кофе \"Roastberry BORЩ \"Бразилия \"Фазенда Лагуинья мундо анаэроб.\" 200 г",
       "category": "borshch",
-      "photo": "",
+      "photo": "assets/placeholders/ph_borshch.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
       "stock": 11,
@@ -13817,12 +13927,13 @@
       "id": "borshch_кофе_roastberry_borщ_колумбия_gonzalo_carmona_кату",
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Gonzalo Carmona Катура нату.\" 200 г",
       "category": "borshch",
-      "photo": "",
+      "photo": "assets/placeholders/ph_borshch.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
       "stock": 10,
@@ -13832,12 +13943,13 @@
       "id": "borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью",
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Маракуйя Хани инфьюз.\" 200 г",
       "category": "borshch",
-      "photo": "",
+      "photo": "assets/placeholders/ph_borshch.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
       "stock": 9,
@@ -13847,12 +13959,13 @@
       "id": "borshch_кофе_roastberry_borщ_колумбия_пачамама_нат_анаэроб",
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Пачамама\" нат.анаэроб.200 г",
       "category": "borshch",
-      "photo": "",
+      "photo": "assets/placeholders/ph_borshch.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
       "stock": 11,
@@ -13862,12 +13975,13 @@
       "id": "borshch_кофе_roastberry_borщ_колумбия_хаи_ро_арсила_нат_20",
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Хайро Арсила нат.\" 200 г",
       "category": "borshch",
-      "photo": "",
+      "photo": "assets/placeholders/ph_borshch.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
       "stock": 6,
