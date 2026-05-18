@@ -1753,6 +1753,16 @@ function render() {
     default: body = screenHome();
   }
   root.innerHTML = `<div class="rb${IS_DARK ? ' rb--dark' : ''}">${body}</div>`;
+  syncTgBackButton();
+}
+
+function syncTgBackButton() {
+  if (!tg || !tg.BackButton) return;
+  const canGoBack = STATE.history.length > 0 || STATE.screen !== 'home';
+  try {
+    if (canGoBack) tg.BackButton.show();
+    else tg.BackButton.hide();
+  } catch (e) {}
 }
 
 /* ════════════════════════════════════════════════════════════════════
@@ -1772,6 +1782,13 @@ async function checkAdmin() {
    ════════════════════════════════════════════════════════════════════ */
 async function init() {
   loadLocal();
+  if (tg) {
+    try { tg.ready(); tg.expand(); } catch(e){}
+    if (tg.BackButton) {
+      try { tg.BackButton.onClick(() => rb.back()); } catch(e){}
+    }
+    try { tg.onEvent('backButtonClicked', () => rb.back()); } catch(e){}
+  }
   try {
     const r = await fetch('/tma/products.json?v=' + Date.now(), { cache: 'no-store' });
     STATE.data = await r.json();
