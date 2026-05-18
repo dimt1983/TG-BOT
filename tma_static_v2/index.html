@@ -497,66 +497,63 @@ ${appHeader({ logo: true })}
   <a href="/tma/v1/" style="font-family:var(--f-mono); font-size:10px; letter-spacing:0.04em; color:var(--ink-soft); text-decoration:none; opacity:0.6; padding:4px 8px; border:1px solid var(--line); border-radius:999px;">Открыть старую версию →</a>
 </div>
 
-<!-- HERO -->
+<!-- HERO carousel: 3 слайда — обжарка / аренда / академия -->
 <div style="padding:6px 16px 0;">
-  <div style="position:relative; aspect-ratio:4 / 5; border-radius:var(--r-lg); overflow:hidden; background:var(--coffee-deep); color:#F5EBDD; display:flex; flex-direction:column; justify-content:space-between;">
-    <div class="ph" style="position:absolute; inset:0; background:linear-gradient(160deg, #2A1B12 0%, #4A3422 60%, #6F4E37 100%); background-image:repeating-linear-gradient(135deg, transparent 0 14px, rgba(255,255,255,0.025) 14px 15px); color:rgba(255,255,255,0.22);"><span style="padding:10px 12px">HERO · РОСТЕР, ПЕРМЬ</span></div>
-    <div style="position:relative; padding:20px 22px; display:flex; justify-content:space-between;">
-      <div class="meta" style="color:rgba(245,235,221,0.7)">${new Date().toLocaleDateString('ru-RU', {day:'numeric', month:'long', year:'numeric'}).toUpperCase()} · ПАРТИЯ ${Math.floor(Math.random()*99)+300}</div>
-      <div class="meta" style="color:rgba(245,235,221,0.5)">1 / 4</div>
-    </div>
-    <div style="position:relative; padding:0 22px 24px;">
-      <div style="font-family:var(--f-display); font-weight:900; font-size:44px; line-height:0.92; letter-spacing:-0.025em; text-transform:uppercase;">Свежая<br/>обжарка<br/><span style="color:var(--copper)">из Перми</span></div>
-      <div style="margin-top:14px; font-size:13px; opacity:0.78; max-width:240px; line-height:1.5;">Спешелти в зерне, чае, дрипах. 7 лет, ${all.length}+ SKU, отгрузка из Перми по всей России.</div>
-      <div style="margin-top:20px; display:flex; gap:8px; align-items:center;">
-        <button onclick="rb.go('catalog')" style="flex:1; height:46px; background:#F5EBDD; color:#1A1410; border:0; border-radius:999px; font-family:var(--f-display); font-weight:700; font-size:15px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; cursor:pointer;">Открыть каталог<span>→</span></button>
-        <button style="width:46px; height:46px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.16); border-radius:999px; color:#F5EBDD; display:inline-flex; align-items:center; justify-content:center;">${icon('heart')}</button>
-      </div>
-      <div style="margin-top:18px; display:flex; gap:4px; align-items:center;">
-        <span style="flex:1; height:3px; border-radius:2px; background:#F5EBDD"></span>
-        <span style="width:6px; height:3px; border-radius:2px; background:rgba(245,235,221,0.3)"></span>
-        <span style="width:6px; height:3px; border-radius:2px; background:rgba(245,235,221,0.3)"></span>
-        <span style="width:6px; height:3px; border-radius:2px; background:rgba(245,235,221,0.3)"></span>
-      </div>
-    </div>
-  </div>
-</div>
+  <div id="rb-hero-track" onscroll="rbHeroSync(this)" style="display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch;">
+    <style>#rb-hero-track::-webkit-scrollbar{display:none}</style>
 
-<!-- СЕЙЧАС В РОСТЕРЕ -->
-${fresh.length ? `
-<div class="sec-head">
-  <div>
-    <div class="eyebrow" style="color:var(--green)">● Сейчас в ростере</div>
-    <h2 style="margin-top:6px">Партия этой недели</h2>
-  </div>
-  <a onclick="rb.go('catalog')" style="cursor:pointer">Все ${coffee.length} →</a>
-</div>
-<div class="hrow" style="padding-bottom:4px;">
-  ${fresh.map(p => {
-    const f = (p.fasovka || [])[0] || {};
-    return `
-      <div onclick="rb.openProduct('${esc(p.id)}')" style="width:188px; background:var(--surface); border-radius:var(--r-md); border:1px solid var(--line); overflow:hidden; cursor:pointer;">
-        ${productImg(p, '1', 'border-radius:0', 'BAG · ' + esc(f.size || '200г'))}
-        <div style="padding:12px;">
-          <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
-            ${flagDot(p.country)}
-            <span class="meta" style="font-size:9.5px;">${esc(p.country || '')}</span>
-            <span style="margin-left:auto">${roastBadge(p.roast)}</span>
-          </div>
-          <div style="font-family:var(--f-display); font-weight:700; font-size:15px; line-height:1.15; height:36px; overflow:hidden;">${esc(p.name)}</div>
-          <div style="margin-top:8px; display:flex; align-items:baseline; justify-content:space-between;">
-            <div>
-              <span style="font-family:var(--f-display); font-weight:800; font-size:18px;">${f.on_request || typeof f.price !== 'number' ? '—' : fmt(f.price)}</span>
-              <span style="font-size:11px; color:var(--ink-soft); margin-left:4px;">${f.on_request ? 'по запросу' : f.size ? '₽ / ' + esc(f.size) : ''}</span>
-            </div>
-            <button onclick="event.stopPropagation(); rb.cartAdd('${esc(p.id)}', '${esc(f.size || '')}')" style="width:28px; height:28px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-size:18px; line-height:1;">+</button>
-          </div>
-          <div style="margin-top:8px;">${freshDot(p._days)}</div>
+    <!-- Slide 1: Свежая обжарка -->
+    <div style="flex:0 0 100%; scroll-snap-align:center; position:relative; aspect-ratio:4 / 5; border-radius:var(--r-lg); overflow:hidden; color:#F5EBDD; display:flex; flex-direction:column; justify-content:space-between;">
+      <div style="position:absolute; inset:0; background:linear-gradient(160deg, #2A1B12 0%, #4A3422 60%, #6F4E37 100%); background-image:repeating-linear-gradient(135deg, transparent 0 14px, rgba(255,255,255,0.025) 14px 15px);"></div>
+      <div style="position:relative; padding:20px 22px;">
+        <div class="meta" style="color:rgba(245,235,221,0.7)">${new Date().toLocaleDateString('ru-RU', {day:'numeric', month:'long', year:'numeric'}).toUpperCase()} · ПАРТИЯ ${Math.floor(Math.random()*99)+300}</div>
+      </div>
+      <div style="position:relative; padding:0 22px 24px;">
+        <div style="font-family:var(--f-display); font-weight:900; font-size:44px; line-height:0.92; letter-spacing:-0.025em; text-transform:uppercase;">Свежая<br/>обжарка<br/><span style="color:var(--copper)">из Перми</span></div>
+        <div style="margin-top:14px; font-size:13px; opacity:0.78; max-width:240px; line-height:1.5;">Спешелти в зерне, чае, дрипах. 7 лет, ${all.length}+ SKU, отгрузка из Перми по всей России.</div>
+        <div style="margin-top:20px;">
+          <button onclick="rb.go('catalog')" style="width:100%; height:46px; background:#F5EBDD; color:#1A1410; border:0; border-radius:999px; font-family:var(--f-display); font-weight:700; font-size:15px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; cursor:pointer;">Открыть каталог<span>→</span></button>
         </div>
-      </div>`;
-  }).join('')}
-  <div style="width:4px; flex:0 0 auto"></div>
-</div>` : ''}
+      </div>
+    </div>
+
+    <!-- Slide 2: Аренда оборудования -->
+    <div style="flex:0 0 100%; scroll-snap-align:center; position:relative; aspect-ratio:4 / 5; border-radius:var(--r-lg); overflow:hidden; color:#F5EBDD; display:flex; flex-direction:column; justify-content:space-between;">
+      <div style="position:absolute; inset:0; background:linear-gradient(160deg, #082E2D 0%, #0D5C59 60%, #1FB6B0 100%); background-image:repeating-linear-gradient(135deg, transparent 0 14px, rgba(255,255,255,0.03) 14px 15px);"></div>
+      <div style="position:relative; padding:20px 22px;">
+        <div class="meta" style="color:rgba(245,235,221,0.75)">● АРЕНДА ОБОРУДОВАНИЯ</div>
+      </div>
+      <div style="position:relative; padding:0 22px 24px;">
+        <div style="font-family:var(--f-display); font-weight:900; font-size:38px; line-height:0.96; letter-spacing:-0.02em; text-transform:uppercase;">NIMBUS V.4<br/><span style="color:#7FE3DE">+ WPM ZD-18</span></div>
+        <div style="margin-top:14px; font-size:13px; opacity:0.8; max-width:260px; line-height:1.5;">Кофемашина и гриндер дуэтом. Без вложений в покупку — мы держим в идеале и обслуживаем.</div>
+        <div style="margin-top:20px;">
+          <button id="rb-kp-btn" onclick="rb.sendKP()" style="width:100%; height:46px; background:#1FB6B0; color:#062524; border:0; border-radius:999px; font-family:var(--f-display); font-weight:700; font-size:15px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; cursor:pointer;">Получить КП в личку<span>→</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Академия -->
+    <div style="flex:0 0 100%; scroll-snap-align:center; position:relative; aspect-ratio:4 / 5; border-radius:var(--r-lg); overflow:hidden; color:#F5EBDD; display:flex; flex-direction:column; justify-content:space-between;">
+      <div style="position:absolute; inset:0; background:linear-gradient(160deg, #0F0830 0%, #1D1545 55%, #36256B 100%); background-image:repeating-linear-gradient(135deg, transparent 0 14px, rgba(244,211,94,0.04) 14px 15px);"></div>
+      <div style="position:relative; padding:20px 22px;">
+        <div class="meta" style="color:rgba(244,211,94,0.85)">● ROASTBERRY ACADEMY</div>
+      </div>
+      <div style="position:relative; padding:0 22px 24px;">
+        <div style="font-family:var(--f-display); font-weight:900; font-size:38px; line-height:0.96; letter-spacing:-0.02em; text-transform:uppercase;">От первой<br/>чашки до<br/><span style="color:#F4D35E">своей кофейни</span></div>
+        <div style="margin-top:14px; font-size:13px; opacity:0.82; max-width:260px; line-height:1.5;">4 курса: любитель → бариста → профи → владелец. Теория онлайн, практика и аттестация — оффлайн.</div>
+        <div style="margin-top:20px;">
+          <button onclick="rb.openCat('consulting')" style="width:100%; height:46px; background:#F4D35E; color:#1A1410; border:0; border-radius:999px; font-family:var(--f-display); font-weight:700; font-size:15px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; cursor:pointer;">Узнать программу<span>→</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="rb-hero-dots" style="margin-top:12px; display:flex; gap:6px; justify-content:center; align-items:center;">
+    <span data-i="0" style="width:24px; height:4px; border-radius:2px; background:var(--ink); transition:all 0.25s;"></span>
+    <span data-i="1" style="width:8px; height:4px; border-radius:2px; background:var(--ink); opacity:0.22; transition:all 0.25s;"></span>
+    <span data-i="2" style="width:8px; height:4px; border-radius:2px; background:var(--ink); opacity:0.22; transition:all 0.25s;"></span>
+  </div>
+</div>
 
 <!-- КАТЕГОРИИ -->
 <div class="sec-head">
@@ -1528,6 +1525,28 @@ const rb = {
     window.scrollTo(0, 0);
     render();
   },
+  async sendKP() {
+    const btn = document.getElementById('rb-kp-btn');
+    const orig = btn ? btn.innerHTML : '';
+    if (btn) { btn.innerHTML = 'Отправляю…'; btn.disabled = true; }
+    try {
+      const r = await fetch('/tma/api/send_kp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
+      });
+      const j = await r.json().catch(() => ({}));
+      if (j.ok) {
+        toast('КП отправлено в личку ✓', 'success');
+        if (btn) btn.innerHTML = 'Отправлено ✓';
+      } else {
+        toast('Ошибка: ' + (j.error || 'попробуйте ещё раз'), 'error');
+        if (btn) { btn.innerHTML = orig; btn.disabled = false; }
+      }
+    } catch (e) {
+      toast('Ошибка отправки', 'error');
+      if (btn) { btn.innerHTML = orig; btn.disabled = false; }
+    }
+  },
   setFasovka(size) {
     STATE.productFasovka = size;
     haptic('light');
@@ -1739,6 +1758,16 @@ window.rb = rb;
 /* ════════════════════════════════════════════════════════════════════
    RENDER
    ════════════════════════════════════════════════════════════════════ */
+function rbHeroSync(el) {
+  if (!el) return;
+  const idx = Math.round(el.scrollLeft / Math.max(1, el.clientWidth));
+  const dots = document.querySelectorAll('#rb-hero-dots span');
+  dots.forEach((d, i) => {
+    if (i === idx) { d.style.width = '24px'; d.style.opacity = '1'; }
+    else           { d.style.width = '8px';  d.style.opacity = '0.22'; }
+  });
+}
+
 function render() {
   const root = document.getElementById('root');
   let body = '';
