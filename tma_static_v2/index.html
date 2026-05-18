@@ -497,61 +497,60 @@ ${appHeader({ logo: true })}
   <a href="/tma/v1/" style="font-family:var(--f-mono); font-size:10px; letter-spacing:0.04em; color:var(--ink-soft); text-decoration:none; opacity:0.6; padding:4px 8px; border:1px solid var(--line); border-radius:999px;">Открыть старую версию →</a>
 </div>
 
-<!-- HERO carousel: 3 слайда — обжарка / аренда / академия -->
+<!-- HERO carousel: 3 слайда — обжарка / аренда / академия (стили — _brand/palettes/COLORS.md + v1 рабочие плашки) -->
+<style>
+  #rb-hero-track { display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; }
+  #rb-hero-track::-webkit-scrollbar { display:none; }
+  .rb-hero-slide { flex: 0 0 100%; scroll-snap-align: center; position: relative; height: 460px; border-radius: var(--r-lg); overflow: hidden; color: #F5EBDD; background-size: cover; background-position: center; background-repeat: no-repeat; }
+  .rb-hero-slide__shade { position: absolute; inset: 0; }
+  .rb-hero-slide__body { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px; }
+  .rb-hero-slide__eyebrow { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,235,221,0.85); margin-bottom: 12px; }
+  .rb-hero-slide__title { font-family: var(--f-display); font-weight: 900; font-size: 38px; line-height: 0.96; letter-spacing: -0.022em; text-transform: uppercase; color: #FAF7F2; text-shadow: 0 1px 2px rgba(0,0,0,0.35); }
+  .rb-hero-slide__desc { margin-top: 12px; font-size: 13px; line-height: 1.5; color: rgba(250,247,242,0.88); max-width: 280px; }
+  .rb-hero-slide__cta { margin-top: 18px; width: 100%; height: 48px; border: 0; border-radius: 999px; font-family: var(--f-display); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; cursor: pointer; box-shadow: 0 4px 18px rgba(0,0,0,0.22); }
+</style>
+
 <div style="padding:6px 16px 0;">
-  <div id="rb-hero-track" onscroll="rbHeroSync(this)" style="display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch;">
-    <style>#rb-hero-track::-webkit-scrollbar{display:none}</style>
+  <div id="rb-hero-track" onscroll="rbHeroSync(this)">
 
-    <!-- Slide 1: Свежая обжарка -->
-    <div style="flex:0 0 100%; scroll-snap-align:center; position:relative; aspect-ratio:4 / 5; border-radius:var(--r-lg); overflow:hidden; color:#F5EBDD; display:flex; flex-direction:column; justify-content:space-between;">
-      <div style="position:absolute; inset:0; background:linear-gradient(160deg, #2A1B12 0%, #4A3422 60%, #6F4E37 100%); background-image:repeating-linear-gradient(135deg, transparent 0 14px, rgba(255,255,255,0.025) 14px 15px);"></div>
-      <div style="position:relative; padding:20px 22px;">
-        <div class="meta" style="color:rgba(245,235,221,0.7)">${new Date().toLocaleDateString('ru-RU', {day:'numeric', month:'long', year:'numeric'}).toUpperCase()} · ПАРТИЯ ${Math.floor(Math.random()*99)+300}</div>
-      </div>
-      <div style="position:relative; padding:0 22px 24px;">
-        <div style="font-family:var(--f-display); font-weight:900; font-size:44px; line-height:0.92; letter-spacing:-0.025em; text-transform:uppercase;">Свежая<br/>обжарка<br/><span style="color:var(--copper)">из Перми</span></div>
-        <div style="margin-top:14px; font-size:13px; opacity:0.78; max-width:240px; line-height:1.5;">Спешелти в зерне, чае, дрипах. 7 лет, ${all.length}+ SKU, отгрузка из Перми по всей России.</div>
-        <div style="margin-top:20px;">
-          <button onclick="rb.go('catalog')" style="width:100%; height:46px; background:#F5EBDD; color:#1A1410; border:0; border-radius:999px; font-family:var(--f-display); font-weight:700; font-size:15px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; cursor:pointer;">Открыть каталог<span>→</span></button>
-        </div>
+    <!-- Slide 1: Свежая обжарка (фон — фасад ростера, overlay coffee-deep) -->
+    <div class="rb-hero-slide" style="background-color:#2A1B12; background-image:url('/tma/assets/hero_facade.jpg');">
+      <div class="rb-hero-slide__shade" style="background:linear-gradient(170deg, rgba(26,20,16,0.30) 0%, rgba(74,52,34,0.55) 45%, rgba(26,20,16,0.92) 100%);"></div>
+      <div class="rb-hero-slide__body">
+        <div class="rb-hero-slide__eyebrow">● ${new Date().toLocaleDateString('ru-RU', {day:'numeric', month:'long'}).toUpperCase()} · ПАРТИЯ ${Math.floor(Math.random()*99)+300}</div>
+        <div class="rb-hero-slide__title">Свежая<br/>обжарка<br/><span style="color:var(--copper)">из&nbsp;Перми</span></div>
+        <div class="rb-hero-slide__desc">Спешелти в зерне, чае, дрипах. 7 лет, ${all.length}+ SKU, отгрузка из Перми по всей России.</div>
+        <button onclick="rb.go('catalog')" class="rb-hero-slide__cta" style="background:#F5EBDD; color:#1A1410;">Открыть каталог<span>→</span></button>
       </div>
     </div>
 
-    <!-- Slide 2: Аренда оборудования -->
-    <div style="flex:0 0 100%; scroll-snap-align:center; position:relative; aspect-ratio:4 / 5; border-radius:var(--r-lg); overflow:hidden; color:#F5EBDD; display:flex; flex-direction:column; justify-content:space-between;">
-      <div style="position:absolute; inset:0; background:linear-gradient(160deg, #082E2D 0%, #0D5C59 60%, #1FB6B0 100%); background-image:repeating-linear-gradient(135deg, transparent 0 14px, rgba(255,255,255,0.03) 14px 15px);"></div>
-      <div style="position:relative; padding:20px 22px;">
-        <div class="meta" style="color:rgba(245,235,221,0.75)">● АРЕНДА ОБОРУДОВАНИЯ</div>
-      </div>
-      <div style="position:relative; padding:0 22px 24px;">
-        <div style="font-family:var(--f-display); font-weight:900; font-size:38px; line-height:0.96; letter-spacing:-0.02em; text-transform:uppercase;">NIMBUS V.4<br/><span style="color:#7FE3DE">+ WPM ZD-18</span></div>
-        <div style="margin-top:14px; font-size:13px; opacity:0.8; max-width:260px; line-height:1.5;">Кофемашина и гриндер дуэтом. Без вложений в покупку — мы держим в идеале и обслуживаем.</div>
-        <div style="margin-top:20px;">
-          <button id="rb-kp-btn" onclick="rb.sendKP()" style="width:100%; height:46px; background:#1FB6B0; color:#062524; border:0; border-radius:999px; font-family:var(--f-display); font-weight:700; font-size:15px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; cursor:pointer;">Получить КП в личку<span>→</span></button>
-        </div>
+    <!-- Slide 2: Аренда (фон — Nimbus, overlay coffee + green tint) -->
+    <div class="rb-hero-slide" style="background-color:#1F2A1E; background-image:url('/tma/assets/nimbus_hero.jpg');">
+      <div class="rb-hero-slide__shade" style="background:linear-gradient(165deg, rgba(8,32,30,0.35) 0%, rgba(30,55,48,0.65) 45%, rgba(15,18,12,0.95) 100%);"></div>
+      <div class="rb-hero-slide__body">
+        <div class="rb-hero-slide__eyebrow" style="color:#C9D7B5;">● Аренда оборудования</div>
+        <div class="rb-hero-slide__title">Nimbus&nbsp;V.4<br/><span style="color:#C9D7B5;">+&nbsp;WPM&nbsp;ZD-18</span></div>
+        <div class="rb-hero-slide__desc">Кофемашина и гриндер дуэтом. Без вложений в покупку — мы держим в идеале и обслуживаем.</div>
+        <button id="rb-kp-btn" onclick="rb.sendKP()" class="rb-hero-slide__cta" style="background:#F5EBDD; color:#1A1410;">Получить КП в личку<span>→</span></button>
       </div>
     </div>
 
-    <!-- Slide 3: Академия -->
-    <div style="flex:0 0 100%; scroll-snap-align:center; position:relative; aspect-ratio:4 / 5; border-radius:var(--r-lg); overflow:hidden; color:#F5EBDD; display:flex; flex-direction:column; justify-content:space-between;">
-      <div style="position:absolute; inset:0; background:linear-gradient(160deg, #0F0830 0%, #1D1545 55%, #36256B 100%); background-image:repeating-linear-gradient(135deg, transparent 0 14px, rgba(244,211,94,0.04) 14px 15px);"></div>
-      <div style="position:relative; padding:20px 22px;">
-        <div class="meta" style="color:rgba(244,211,94,0.85)">● ROASTBERRY ACADEMY</div>
-      </div>
-      <div style="position:relative; padding:0 22px 24px;">
-        <div style="font-family:var(--f-display); font-weight:900; font-size:38px; line-height:0.96; letter-spacing:-0.02em; text-transform:uppercase;">От первой<br/>чашки до<br/><span style="color:#F4D35E">своей кофейни</span></div>
-        <div style="margin-top:14px; font-size:13px; opacity:0.82; max-width:260px; line-height:1.5;">4 курса: любитель → бариста → профи → владелец. Теория онлайн, практика и аттестация — оффлайн.</div>
-        <div style="margin-top:20px;">
-          <button onclick="rb.openCat('consulting')" style="width:100%; height:46px; background:#F4D35E; color:#1A1410; border:0; border-radius:999px; font-family:var(--f-display); font-weight:700; font-size:15px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; cursor:pointer;">Узнать программу<span>→</span></button>
-        </div>
+    <!-- Slide 3: Академия (фон — academy_hero, overlay coffee-deep + copper tint) -->
+    <div class="rb-hero-slide" style="background-color:#2A1B12; background-image:url('/tma/assets/academy_hero.jpg');">
+      <div class="rb-hero-slide__shade" style="background:linear-gradient(165deg, rgba(26,20,16,0.30) 0%, rgba(74,52,34,0.55) 40%, rgba(26,20,16,0.95) 100%);"></div>
+      <div class="rb-hero-slide__body">
+        <div class="rb-hero-slide__eyebrow" style="color:var(--copper);">● Roastberry Academy</div>
+        <div class="rb-hero-slide__title">От первой<br/>чашки до<br/><span style="color:var(--copper);">своей кофейни</span></div>
+        <div class="rb-hero-slide__desc">4 курса: любитель → бариста → профи → владелец. Теория онлайн, практика и аттестация — оффлайн.</div>
+        <button onclick="rb.openCat('consulting')" class="rb-hero-slide__cta" style="background:var(--copper); color:#1A1410;">Узнать программу<span>→</span></button>
       </div>
     </div>
   </div>
 
   <div id="rb-hero-dots" style="margin-top:12px; display:flex; gap:6px; justify-content:center; align-items:center;">
     <span data-i="0" style="width:24px; height:4px; border-radius:2px; background:var(--ink); transition:all 0.25s;"></span>
-    <span data-i="1" style="width:8px; height:4px; border-radius:2px; background:var(--ink); opacity:0.22; transition:all 0.25s;"></span>
-    <span data-i="2" style="width:8px; height:4px; border-radius:2px; background:var(--ink); opacity:0.22; transition:all 0.25s;"></span>
+    <span data-i="1" style="width:8px;  height:4px; border-radius:2px; background:var(--ink); opacity:0.22; transition:all 0.25s;"></span>
+    <span data-i="2" style="width:8px;  height:4px; border-radius:2px; background:var(--ink); opacity:0.22; transition:all 0.25s;"></span>
   </div>
 </div>
 
