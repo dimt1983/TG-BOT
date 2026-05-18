@@ -128,6 +128,7 @@ const ICONS = {
   therm:'M12 14a3 3 0 1 0 1 5.8V8a3 3 0 0 0-6 0v0Z M12 4v10 M12 4a2 2 0 0 1 2 2v8',
   grind:'M5 5h14v4H5V5Zm0 5h14v3l-2 8H7l-2-8v-3Z M9 5v-2h6v2',
   arrowR:'M5 12h14M13 6l6 6-6 6',
+  gear:'M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 4.6 9 1.7 1.7 0 0 0 4.3 7.2l-.1-.1A2 2 0 1 1 7 4.3l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z',
 };
 function icon(name, size = 18, sw = 1.6) {
   const d = ICONS[name] || '';
@@ -295,6 +296,7 @@ function appHeader({ title = '', back = false, action = '', logo = false } = {})
       ${title ? `<div style="flex:1; text-align:center; font-family:var(--f-display); font-weight:700; font-size:15px;">${esc(title)}</div>` : ''}
       <div style="display:flex; gap:6px; margin-left:auto;">
         ${action || `
+          ${STATE.isAdmin ? `<button class="btn-ghost" style="width:36px; padding:0; justify-content:center; color:var(--copper)" onclick="rb.openAdmin()" title="Админ">${icon('gear')}</button>` : ''}
           <button class="btn-ghost" style="width:36px; padding:0; justify-content:center" onclick="rb.go('search')">${icon('search')}</button>
           <button class="btn-ghost" style="width:36px; padding:0; justify-content:center; position:relative" onclick="rb.go('cart')">${icon('bag')}${cartCount() ? `<span style="position:absolute; top:-2px; right:-2px; min-width:16px; height:16px; border-radius:999px; background:var(--copper); color:#fff; font-size:10px; font-weight:700; font-family:var(--f-mono); display:flex; align-items:center; justify-content:center; padding:0 4px;">${cartCount()}</span>` : ''}</button>
         `}
@@ -1400,19 +1402,101 @@ ${tabBar('search')}
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   SCREEN: ADMIN (карантин · pending · заказы)
+   ADMIN: Список товаров с inline-stock-editor + фильтрами
+   ════════════════════════════════════════════════════════════════════ */
+function screenAdminProducts() {
+  const f = STATE.adminProductsFilter || 'all';
+  const q = (STATE.adminProductsQuery || '').trim().toLowerCase();
+  const all = STATE.data?.products || [];
+
+  let list = all;
+  if (f === 'quarantine') list = list.filter(p => p.quarantined);
+  else if (f === 'zero')  list = list.filter(p => typeof p.stock === 'number' && p.stock <= 0 && !p.on_request);
+  else if (f === 'low')   list = list.filter(p => typeof p.stock === 'number' && p.stock > 0 && p.stock < 5);
+  else if (f === 'no_photo') list = list.filter(p => !p.photo || (typeof p.photo === 'string' && p.photo.indexOf('placeholders/') !== -1));
+  if (q) {
+    list = list.filter(p => {
+      const hay = (p.name + ' ' + (p.country||'') + ' ' + (p.id||'')).toLowerCase();
+      return hay.includes(q);
+    });
+  }
+
+  const cntAll  = all.length;
+  const cntQ    = all.filter(p => p.quarantined).length;
+  const cntZero = all.filter(p => typeof p.stock === 'number' && p.stock <= 0 && !p.on_request).length;
+  const cntLow  = all.filter(p => typeof p.stock === 'number' && p.stock > 0 && p.stock < 5).length;
+  const cntNoP  = all.filter(p => !p.photo || (typeof p.photo === 'string' && p.photo.indexOf('placeholders/') !== -1)).length;
+
+  const chip = (id, label, count) => `<button onclick="rb.adminProductsFilter('${id}')" class="chip${f === id ? ' chip--ink' : ''}" style="height:28px; cursor:pointer; font-size:11px;">${label} · ${count}</button>`;
+
+  return `
+    <div style="padding:0 16px 8px;">
+      <div style="display:flex; align-items:center; gap:10px; background:var(--surface); border:1.5px solid ${q ? 'var(--ink)' : 'var(--line-strong)'}; border-radius:999px; padding:0 14px; height:40px; margin-bottom:10px;">
+        <span style="color:var(--ink-soft);">${icon('search', 14)}</span>
+        <input type="text" autocomplete="off" autocapitalize="off" autocorrect="off"
+          placeholder="Поиск по имени / id / стране"
+          value="${esc(q)}"
+          oninput="rb.adminProductsSearch(this.value)"
+          style="flex:1; border:0; outline:0; background:transparent; font-size:13px; font-family:var(--f-body); color:var(--ink); min-width:0;" />
+        ${q ? `<button onclick="rb.adminProductsSearch('')" style="background:transparent; border:0; color:var(--ink-soft); font-size:16px; padding:2px 4px; cursor:pointer;">×</button>` : ''}
+      </div>
+      <div style="display:flex; gap:6px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none;">
+        ${chip('all', 'Все', cntAll)}
+        ${chip('quarantine', '⛔ Карантин', cntQ)}
+        ${chip('zero', '0 на складе', cntZero)}
+        ${chip('low', '< 5', cntLow)}
+        ${chip('no_photo', 'Без фото', cntNoP)}
+      </div>
+    </div>
+
+    ${list.length === 0
+      ? `<div style="padding:60px 24px; text-align:center; color:var(--ink-soft);">Ничего не найдено</div>`
+      : `<div style="display:flex; flex-direction:column; gap:1px; background:var(--line); border-radius:var(--r-md); overflow:hidden; margin:8px 16px 16px; border:1px solid var(--line);">
+        ${list.slice(0, 200).map(p => {
+          const s = typeof p.stock === 'number' ? p.stock : null;
+          const isQ = !!p.quarantined;
+          const stockColor = isQ ? 'var(--ink-faint)'
+                            : s === null ? 'var(--ink-faint)'
+                            : s <= 0 ? 'var(--danger)'
+                            : s < 5 ? '#C97E3C'
+                            : 'var(--ink)';
+          return `
+            <div style="background:var(--surface); display:flex; gap:10px; padding:10px 12px; align-items:center;${isQ ? ' opacity:0.62;' : ''}">
+              ${productImg(p, '1', 'width:42px; height:42px; flex:0 0 auto; border-radius:6px;')}
+              <div style="flex:1; min-width:0; overflow:hidden;">
+                <div style="font-family:var(--f-display); font-weight:700; font-size:13px; line-height:1.15; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${esc(p.name)}</div>
+                <div class="meta" style="font-size:9px; color:var(--ink-faint); margin-top:2px;">${esc(p.category || '')}${p.country ? ' · ' + esc(p.country) : ''}${isQ ? ' · <span style="color:var(--danger)">в карантине</span>' : ''}</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:4px; flex:0 0 auto;">
+                <button onclick="rb.adminAdjustStock('${esc(p.id)}', -1)" style="width:26px; height:26px; border-radius:999px; background:var(--surface-2); border:1px solid var(--line); color:var(--ink); font-size:14px; cursor:pointer; padding:0;">−</button>
+                <button onclick="rb.adminSetStock('${esc(p.id)}')" style="min-width:38px; padding:0 6px; height:26px; border-radius:8px; background:transparent; border:1px solid var(--line); color:${stockColor}; font-family:var(--f-mono); font-weight:700; font-size:12px; cursor:pointer;">${s === null ? '—' : s}</button>
+                <button onclick="rb.adminAdjustStock('${esc(p.id)}', 1)" style="width:26px; height:26px; border-radius:999px; background:var(--surface-2); border:1px solid var(--line); color:var(--ink); font-size:14px; cursor:pointer; padding:0;">+</button>
+                <button onclick="rb.adminToggleQuarantine('${esc(p.id)}')" title="${isQ ? 'Вернуть в каталог' : 'В карантин'}" style="width:28px; height:28px; border-radius:999px; background:${isQ ? 'var(--green)' : 'transparent'}; border:1px solid ${isQ ? 'var(--green)' : 'var(--line-strong)'}; color:${isQ ? '#fff' : 'var(--ink-soft)'}; font-size:13px; cursor:pointer; padding:0; margin-left:2px;">${isQ ? '✓' : '⛔'}</button>
+              </div>
+            </div>`;
+        }).join('')}
+      </div>
+      ${list.length > 200 ? `<div class="meta" style="text-align:center; padding-bottom:16px;">Показаны первые 200 из ${list.length} — сузь фильтром</div>` : ''}`}
+  `;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   SCREEN: ADMIN (товары · карантин · pending · заказы)
    ════════════════════════════════════════════════════════════════════ */
 function screenAdmin() {
-  const tab = STATE.adminTab || 'quarantine';
+  const tab = STATE.adminTab || 'products';
   const data = STATE.adminPayload;
   const tabs = [
+    { id: 'products',   label: 'Товары' },
     { id: 'quarantine', label: 'Карантин' },
     { id: 'pending',    label: 'Pending' },
     { id: 'orders',     label: 'Заказы' },
   ];
 
   let body = '';
-  if (!data) {
+  if (tab === 'products') {
+    body = screenAdminProducts();
+  } else if (!data) {
     body = `<div style="padding:60px 0; text-align:center;"><div class="rb-spinner"></div></div>`;
   } else if (data.error) {
     body = `<div style="padding:40px 24px; color:var(--danger); text-align:center; font-size:14px;">${esc(data.error)}</div>`;
@@ -1733,21 +1817,23 @@ const rb = {
   },
   async openAdmin() {
     if (!STATE.isAdmin) { toast('Только для админов'); return; }
-    STATE.history.push(STATE.screen);
+    const snap = _navSnapshot();
     STATE.screen = 'admin';
-    STATE.adminTab = STATE.adminTab || 'quarantine';
+    STATE.adminTab = STATE.adminTab || 'products';
     STATE.adminPayload = null;
+    STATE.history.push(snap);
     render();
-    await rb.loadAdmin();
+    if (STATE.adminTab !== 'products') await rb.loadAdmin();
   },
   setAdminTab(tab) {
     STATE.adminTab = tab;
     STATE.adminPayload = null;
     render();
-    rb.loadAdmin();
+    if (tab !== 'products') rb.loadAdmin();
   },
   async loadAdmin() {
     const tab = STATE.adminTab;
+    if (tab === 'products') { render(); return; }
     try {
       let url = '/tma/api/admin/' + (tab === 'pending' ? 'pending' : tab === 'orders' ? 'orders' : 'quarantine');
       const r = await fetch(url, { headers: authHeaders() });
@@ -1768,6 +1854,49 @@ const rb = {
       if (r.ok) { haptic('success'); toast('Возвращён'); rb.loadAdmin(); }
       else { haptic('error'); toast('Ошибка: ' + r.status); }
     } catch (e) { haptic('error'); toast('Сеть недоступна'); }
+  },
+  adminProductsFilter(id) { STATE.adminProductsFilter = id; render(); },
+  adminProductsSearch(q)  { STATE.adminProductsQuery = q; render(); },
+  async _adminPatchProduct(id, patch, optMsg) {
+    try {
+      const r = await fetch('/tma/api/admin/product/' + encodeURIComponent(id), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
+        body: JSON.stringify(patch),
+      });
+      if (!r.ok) { haptic('error'); toast('Ошибка: ' + r.status); return false; }
+      const p = (STATE.data?.products || []).find(x => x.id === id);
+      if (p) Object.assign(p, patch);
+      haptic('success');
+      if (optMsg) toast(optMsg, 'success');
+      render();
+      return true;
+    } catch (e) { haptic('error'); toast('Сеть недоступна'); return false; }
+  },
+  async adminAdjustStock(id, delta) {
+    const p = (STATE.data?.products || []).find(x => x.id === id);
+    if (!p) return;
+    const cur = typeof p.stock === 'number' ? p.stock : 0;
+    const next = Math.max(0, cur + delta);
+    if (next === cur) return;
+    await rb._adminPatchProduct(id, { stock: next });
+  },
+  async adminSetStock(id) {
+    const p = (STATE.data?.products || []).find(x => x.id === id);
+    if (!p) return;
+    const cur = typeof p.stock === 'number' ? p.stock : 0;
+    const raw = prompt('Остаток для «' + p.name + '»:', String(cur));
+    if (raw === null) return;
+    const n = parseInt(raw, 10);
+    if (!Number.isFinite(n) || n < 0) { toast('Нужно неотрицательное число'); return; }
+    await rb._adminPatchProduct(id, { stock: n }, 'Сохранено');
+  },
+  async adminToggleQuarantine(id) {
+    const p = (STATE.data?.products || []).find(x => x.id === id);
+    if (!p) return;
+    const next = !p.quarantined;
+    if (next && !confirm('Скрыть «' + p.name + '» в карантин?')) return;
+    await rb._adminPatchProduct(id, { quarantined: next }, next ? 'В карантине' : 'Возвращён');
   },
 };
 window.rb = rb;
