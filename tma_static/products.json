@@ -248,7 +248,7 @@
           "photo": "photos/products/c-бразилия_серрадо_200g.jpg"
         }
       ],
-      "stock": 710,
+      "stock": 712,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
@@ -290,7 +290,7 @@
           "photo": "photos/products/c-бразилия_серрадо_дарк_200g.jpg"
         }
       ],
-      "stock": 223,
+      "stock": 224,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо_дарк.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО ДАРК, 200 г",
@@ -332,7 +332,7 @@
           "photo": "photos/products/c-бразилия_сан_рафаель_200g.jpg"
         }
       ],
-      "stock": 305,
+      "stock": 349,
       "tags": [],
       "photo": "photos/products/c-бразилия_сан_рафаель.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ SAN RAFAEL, 1 кг",
@@ -564,7 +564,7 @@
           "photo": "photos/products/c-руанда_мутетели_200g.jpg"
         }
       ],
-      "stock": 22,
+      "stock": 18,
       "tags": [],
       "taste": "Чёрный чай, вишня, шиповник, слива",
       "roast_descr": "светлая обжарка под фильтр",
@@ -677,7 +677,7 @@
           "photo": "photos/products/c-кения_аа_200g.jpg"
         }
       ],
-      "stock": 66,
+      "stock": 68,
       "tags": [],
       "photo": "photos/products/c-кения_аа.jpg",
       "ozon_offer_id": "RBR-F-КЕНИЯ АА, 1кг",
@@ -757,7 +757,7 @@
           "photo": "photos/products/c-колумбия_андино_200g.jpg"
         }
       ],
-      "stock": 70,
+      "stock": 80,
       "tags": [],
       "photo": "photos/products/c-колумбия_андино.jpg",
       "ozon_offer_id": "RBR-F-КОЛУМБИЯ АНДИНО, 1 кг",
@@ -837,7 +837,7 @@
           "photo": "photos/products/c-уганда_рувензор_200g.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 8,
       "tags": [],
       "aroma": "Шоколад, орехи, тост",
       "taste": "Сухофрукты, шоколад",
@@ -881,7 +881,7 @@
           "photo": "photos/products/c-эфиопия_лиму_гр_2_200g.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 16,
       "tags": [],
       "photo": "photos/products/c-эфиопия_лиму_гр_2.jpg",
       "ozon_offer_id": "RB-E-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 200г",
@@ -1036,16 +1036,16 @@
           "photo": "photos/products/c-эфиопия_иргачиф_гр_4_200g.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 1,
       "tags": [],
       "photo": "photos/products/c-эфиопия_иргачиф_гр_4.jpg",
       "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг",
       "roast_descr": "обжарка под эспрессо",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "c-эфиопия_ададо",
@@ -1340,7 +1340,7 @@
           "photo": "photos/products/c-классика_200g.jpg"
         }
       ],
-      "stock": 131,
+      "stock": 125,
       "tags": [
         "Бленд"
       ],
@@ -1419,7 +1419,7 @@
           "photo": "photos/products/c-хани_200g.jpg"
         }
       ],
-      "stock": 35,
+      "stock": 36,
       "tags": [
         "Бленд"
       ],
@@ -1457,7 +1457,7 @@
           "photo": "photos/products/c-венеция_200g.jpg"
         }
       ],
-      "stock": 1,
+      "stock": 35,
       "tags": [
         "Бленд"
       ],
@@ -1496,7 +1496,7 @@
           "photo": "photos/products/c-лунго_200g.jpg"
         }
       ],
-      "stock": 25,
+      "stock": 24,
       "tags": [
         "Бленд"
       ],
@@ -1564,7 +1564,7 @@
           "price": 67
         }
       ],
-      "stock": 7,
+      "stock": 9,
       "tags": [
         "Удобно",
         "CHOCOLATE"
@@ -1629,7 +1629,7 @@
           "price": 67
         }
       ],
-      "stock": 49,
+      "stock": 48,
       "tags": [
         "Удобно",
         "CHOCOLATE"
@@ -11141,7 +11141,7 @@
           "photo": "photos/products/c-китай_симао_гр_1_мытый_200g.jpg"
         }
       ],
-      "stock": 28,
+      "stock": 26,
       "tags": [],
       "photo": "photos/products/c-китай_симао_гр_1_мытый.jpg",
       "roast_descr": "обжарка под эспрессо",
@@ -11532,7 +11532,7 @@
           "photo": "photos/products/c-e_roastberry_бразилия_паже_упак_200_г.jpg"
         }
       ],
-      "stock": 44,
+      "stock": 43,
       "tags": [],
       "photo": "photos/products/c-e_roastberry_бразилия_паже_упак_200_г.jpg",
       "tasting_notes": [
@@ -12514,9 +12514,12 @@
           "photo": null
         }
       ],
-      "stock": 2,
+      "stock": 0,
       "tags": [],
-      "photo": null
+      "photo": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T12:34:35+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "m-молоко_домик_в_деревне_3_2_950г",
@@ -12661,7 +12664,7 @@
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 43,
+      "stock": 42,
       "on_request": true,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
