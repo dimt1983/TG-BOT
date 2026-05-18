@@ -235,7 +235,7 @@ function cartWeightKg() {
   for (const it of STATE.cart) {
     const p = STATE.data?.products.find(x => x.id === it.id);
     if (!p) continue;
-    if (p.category !== 'coffee') continue;
+    if (!COFFEE_CATS.includes(p.category)) continue;
     kg += sizeToKg(it.fasovka) * (it.qty || 1);
   }
   return kg;
@@ -325,17 +325,23 @@ function placeholder(label, ratio = '4 / 3', extra = '') {
   return `<div class="ph" style="aspect-ratio:${ratio}; border-radius:var(--r-md); ${extra}">${esc(label || '')}</div>`;
 }
 
-/* Реальная фотка товара. Если p.photo есть — рисуем <img> поверх .ph,
-   при ошибке загрузки картинка прячется и остаётся диагональный плейсхолдер. */
+/* Фотка товара.
+   p.photo === строка-путь  → image
+   p.photo === ''            → пустая зона (без логотипа, без паттерна, без текста)
+   p.photo === undefined     → legacy placeholder (диагональные полоски с label) — пока миграция не прошла */
 function productImg(p, ratio = '1', extra = '', label = '') {
-  const ph = `<div class="ph" style="aspect-ratio:${ratio}; border-radius:var(--r-md); ${extra}">${esc(label || '')}</div>`;
   const src = p?.photo;
-  if (!src) return ph;
-  // photo лежит как "photos/products/xxx.jpg" — подкладываем под /tma/
-  const url = /^https?:\/\//.test(src) ? src
-            : src.startsWith('/') ? src
-            : '/tma/' + src.replace(/^tma_static\//, '');
-  return `<div class="ph" style="aspect-ratio:${ratio}; border-radius:var(--r-md); ${extra} background-image:url('${url}'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>`;
+  if (typeof src === 'string' && src.length > 0) {
+    const url = /^https?:\/\//.test(src) ? src
+              : src.startsWith('/') ? src
+              : '/tma/' + src.replace(/^tma_static\//, '');
+    return `<div style="aspect-ratio:${ratio}; border-radius:var(--r-md); ${extra} background-image:url('${url}'); background-size:cover; background-position:center; background-repeat:no-repeat; background-color:var(--surface-2);"></div>`;
+  }
+  if (src === '') {
+    // Явно пустое фото — чистая пустая зона нужного размера.
+    return `<div style="aspect-ratio:${ratio}; border-radius:var(--r-md); ${extra} background:var(--surface-2);"></div>`;
+  }
+  return `<div class="ph" style="aspect-ratio:${ratio}; border-radius:var(--r-md); ${extra}">${esc(label || '')}</div>`;
 }
 
 function stepper(value, decAction, incAction, ink = false) {
@@ -452,17 +458,20 @@ function parseRecipeRows(md) {
    ════════════════════════════════════════════════════════════════════ */
 function screenHome() {
   const all = visibleProducts();
-  const coffee = all.filter(p => p.category === 'coffee' && p.roast);
+  const coffee = all.filter(p => COFFEE_CATS.includes(p.category) && p.roast);
   const fresh = coffee.slice(0, 5).map((p, i) => ({ ...p, _days: 2 + i }));
   const hits = all.filter(p => Array.isArray(p.tags) && (p.tags.includes('Хит') || p.tags.includes('Black Edition'))).slice(0, 3);
 
+  const cntCat = id => all.filter(p => p.category === id).length;
   const cats = [
-    { t: 'Эспрессо',  n: coffee.filter(p => /espresso/.test(p.subcategory || '')).length + ' SKU',  bg: '#3A2A1F', fg: '#F5EBDD', accent: 'var(--copper)', sub: 'coffee_espresso' },
-    { t: 'Фильтр',    n: coffee.filter(p => /filter/.test(p.subcategory || '')).length + ' SKU',    bg: '#E8DFD0', fg: '#1A1410', accent: 'var(--coffee)', sub: 'coffee_filter' },
-    { t: 'BLACK\nEdition', n: coffee.filter(p => p.subcategory === 'coffee_black').length + ' SKU',  bg: '#0F0B08', fg: '#F5EBDD', accent: '#C9A66B', sub: 'coffee_black', big: true },
-    { t: 'BORЩ',      n: coffee.filter(p => /bor/.test(p.subcategory || '')).length + ' SKU',       bg: '#7A2E2E', fg: '#F5EBDD', accent: '#F5C77E', sub: 'coffee_borshch' },
-    { t: 'Дрипы',     n: coffee.filter(p => /drip|capsule/.test(p.subcategory || '')).length + ' SKU', bg: '#FAF7F2', fg: '#1A1410', accent: 'var(--green)', sub: 'coffee_drip_capsules' },
-    { t: 'Чай',       n: all.filter(p => p.category === 'tea').length + ' SKU',                     bg: '#3D4F32', fg: '#F5EBDD', accent: '#C5D4A7', cat: 'tea' },
+    { t: 'Эспрессо',    n: cntCat('espresso') + ' SKU', bg: '#3A2A1F', fg: '#F5EBDD', accent: '#C9A66B', cat: 'espresso' },
+    { t: 'Фильтр',      n: cntCat('filter')   + ' SKU', bg: '#5E7A4F', fg: '#F5EBDD', accent: '#C5D4A7', cat: 'filter' },
+    { t: 'ROASTBERRY\nRetail', n: cntCat('retail') + ' SKU', bg: '#6F4E37', fg: '#F5EBDD', accent: '#C9A66B', cat: 'retail' },
+    { t: 'BLACK\nEdition', n: cntCat('black') + ' SKU',  bg: '#0F0B08', fg: '#F5EBDD', accent: '#C9A66B', cat: 'black' },
+    { t: 'BORЩ\nEdition',  n: cntCat('borshch') + ' SKU', bg: '#A05060', fg: '#F5EBDD', accent: '#F5C77E', cat: 'borshch' },
+    { t: 'Дрипы',       n: cntCat('drip') + ' SKU',     bg: '#7A5538', fg: '#F5EBDD', accent: '#C9A66B', cat: 'drip' },
+    { t: 'Каскара',     n: cntCat('cascara') + ' SKU',  bg: '#B8693A', fg: '#FAF7F2', accent: '#FFE3B0', cat: 'cascara' },
+    { t: 'Наборы',      n: cntCat('sets') + ' SKU',     bg: '#A06080', fg: '#F5EBDD', accent: '#F5C77E', cat: 'sets' },
   ];
 
   return `
@@ -500,7 +509,7 @@ ${fresh.length ? `
     <div class="eyebrow" style="color:var(--green)">● Сейчас в ростере</div>
     <h2 style="margin-top:6px">Партия этой недели</h2>
   </div>
-  <a onclick="rb.openCat('coffee')" style="cursor:pointer">Все ${coffee.length} →</a>
+  <a onclick="rb.go('catalog')" style="cursor:pointer">Все ${coffee.length} →</a>
 </div>
 <div class="hrow" style="padding-bottom:4px;">
   ${fresh.map(p => {
@@ -538,9 +547,9 @@ ${fresh.length ? `
 </div>
 <div style="padding:0 16px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
   ${cats.map(c => `
-    <div onclick="${c.sub ? `rb.openSubcat('${esc(c.sub)}')` : `rb.openCat('${esc(c.cat || 'coffee')}')`}" style="grid-column:${c.big ? 'span 2' : 'auto'}; background:${c.bg}; color:${c.fg}; border-radius:var(--r-md); aspect-ratio:${c.big ? '2.3 / 1' : '1.15'}; padding:14px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; ${c.bg === '#FAF7F2' ? 'border:1px solid var(--line);' : ''} cursor:pointer;">
+    <div onclick="rb.openCat('${esc(c.cat)}')" style="background:${c.bg}; color:${c.fg}; border-radius:var(--r-md); aspect-ratio:1.1; padding:14px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; ${c.bg === '#FAF7F2' ? 'border:1px solid var(--line);' : ''} cursor:pointer;">
       <div class="meta" style="color:${c.fg}; opacity:0.5;">${esc(c.n)}</div>
-      <div style="font-family:var(--f-display); font-weight:900; font-size:${c.big ? 32 : 22}px; line-height:0.95; letter-spacing:-0.02em; text-transform:uppercase; white-space:pre-line;">${esc(c.t)}</div>
+      <div style="font-family:var(--f-display); font-weight:900; font-size:20px; line-height:0.95; letter-spacing:-0.02em; text-transform:uppercase; white-space:pre-line;">${esc(c.t)}</div>
       <div style="position:absolute; top:12px; right:14px; width:8px; height:8px; border-radius:999px; background:${c.accent};"></div>
     </div>
   `).join('')}
@@ -643,21 +652,30 @@ function activeFilterCount() {
   return (f.fasovka ? 1 : 0) + (f.inStock ? 1 : 0) + f.countries.length + f.flavors.length;
 }
 
-/* Карта брендовых цветов для плиток подкатегорий */
+/* Кофейные категории v2 — те что считаются «кофе» (для фильтров на главной, hero, и т.д.) */
+const COFFEE_CATS = ['espresso','filter','retail','black','borshch','drip','cascara','sets'];
+
+/* Карта брендовых цветов для плиток категорий и подкатегорий */
 const TILE_THEME = {
-  coffee_espresso:        { bg:'#3A2A1F', fg:'#F5EBDD', accent:'#C9A66B' },
-  coffee_filter:          { bg:'#E8DFD0', fg:'#1A1410', accent:'#6F4E37' },
-  coffee_black:           { bg:'#0F0B08', fg:'#F5EBDD', accent:'#C9A66B' },
-  coffee_borshch:         { bg:'#7A2E2E', fg:'#F5EBDD', accent:'#F5C77E' },
-  coffee_drip_capsules:   { bg:'#FAF7F2', fg:'#1A1410', accent:'#5E7A4F' },
-  coffee_cascara:         { bg:'#C46A4E', fg:'#FAF7F2', accent:'#FFE3B0' },
-  coffee_other:           { bg:'#5E4232', fg:'#F5EBDD', accent:'#C9A66B' },
-  coffee_espresso_mono:   { bg:'#3A2A1F', fg:'#F5EBDD', accent:'#C9A66B' },
-  coffee_espresso_microlot:{bg:'#1A1410', fg:'#F5EBDD', accent:'#C9A66B' },
-  coffee_espresso_blend:  { bg:'#5E4232', fg:'#F5EBDD', accent:'#C9A66B' },
-  coffee_filter_mono:     { bg:'#E8DFD0', fg:'#1A1410', accent:'#6F4E37' },
-  coffee_filter_microlot: { bg:'#C2A878', fg:'#1A1410', accent:'#3A2A1F' },
-  coffee_filter_blend:    { bg:'#6F4E37', fg:'#F5EBDD', accent:'#C9A66B' },
+  // v2 categories
+  espresso:               { bg:'#3A2A1F', fg:'#F5EBDD', accent:'#C9A66B' },
+  filter:                 { bg:'#5E7A4F', fg:'#F5EBDD', accent:'#C5D4A7' },
+  retail:                 { bg:'#6F4E37', fg:'#F5EBDD', accent:'#C9A66B' },
+  black:                  { bg:'#0F0B08', fg:'#F5EBDD', accent:'#C9A66B' },
+  borshch:                { bg:'#A05060', fg:'#F5EBDD', accent:'#F5C77E' },
+  drip:                   { bg:'#7A5538', fg:'#F5EBDD', accent:'#C9A66B' },
+  cascara:                { bg:'#B8693A', fg:'#FAF7F2', accent:'#FFE3B0' },
+  sets:                   { bg:'#A06080', fg:'#F5EBDD', accent:'#F5C77E' },
+  // v2 subcategories
+  espresso_mono:          { bg:'#3A2A1F', fg:'#F5EBDD', accent:'#C9A66B' },
+  espresso_micro:         { bg:'#1A1410', fg:'#F5EBDD', accent:'#C9A66B' },
+  filter_mono:            { bg:'#5E7A4F', fg:'#F5EBDD', accent:'#C5D4A7' },
+  filter_micro:           { bg:'#3D4F32', fg:'#F5EBDD', accent:'#A8C079' },
+  retail_espresso:        { bg:'#3A2A1F', fg:'#F5EBDD', accent:'#C9A66B' },
+  retail_filter:          { bg:'#5E7A4F', fg:'#F5EBDD', accent:'#C5D4A7' },
+  retail_blend:           { bg:'#6F4E37', fg:'#F5EBDD', accent:'#C9A66B' },
+  drip_8pack:             { bg:'#7A5538', fg:'#F5EBDD', accent:'#C9A66B' },
+  drip_loose:             { bg:'#5E4232', fg:'#F5EBDD', accent:'#FFE3B0' },
   // tea brands
   tea_althaus_cup:   { bg:'#1F2D24', fg:'#E0E6D8', accent:'#A8C079' },
   tea_althaus_loose: { bg:'#1F2D24', fg:'#E0E6D8', accent:'#A8C079' },
@@ -741,18 +759,14 @@ function screenCatalog() {
     // root: показываем все категории как крупные плитки
     body = `
       <div style="padding:0 16px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-        ${STATE.data.categories.map((c, i) => {
-          const t = tileTheme(c.id) || { bg: '#3A2A1F', fg: '#F5EBDD', accent: '#C9A66B' };
+        ${STATE.data.categories.filter(c => visibleProducts().some(p => p.category === c.id)).map(c => {
+          const t = tileTheme(c.id);
           const n = visibleProducts().filter(p => p.category === c.id).length;
-          const big = i === 0;
-          const acc = c.id === 'coffee' ? '#C9A66B' : c.id === 'tea' ? '#C5D4A7' : c.id === 'syrup' ? '#C5D4A7' : c.id === 'milk' ? '#5E7A4F' : c.id === 'consulting' ? '#C9A66B' : '#C9A66B';
-          const bg = c.id === 'coffee' ? '#3A2A1F' : c.id === 'tea' ? '#3D4F32' : c.id === 'syrup' ? '#5E7A4F' : c.id === 'milk' ? '#FAF7F2' : c.id === 'consulting' ? '#1A1410' : '#5E4232';
-          const fg = bg === '#FAF7F2' ? '#1A1410' : '#F5EBDD';
           return `
-            <div onclick="rb.openCat('${esc(c.id)}')" style="grid-column:${big?'span 2':'auto'}; background:${bg}; color:${fg}; border-radius:var(--r-md); aspect-ratio:${big?'2.3 / 1':'1.1'}; padding:14px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; ${bg==='#FAF7F2'?'border:1px solid var(--line);':''} cursor:pointer;">
-              <div class="meta" style="color:${fg}; opacity:0.5;">${n} SKU</div>
-              <div style="font-family:var(--f-display); font-weight:900; font-size:${big?32:22}px; line-height:0.95; letter-spacing:-0.02em; text-transform:uppercase;">${esc(c.name)}</div>
-              <div style="position:absolute; top:12px; right:14px; width:8px; height:8px; border-radius:999px; background:${acc};"></div>
+            <div onclick="rb.openCat('${esc(c.id)}')" style="background:${t.bg}; color:${t.fg}; border-radius:var(--r-md); aspect-ratio:1.1; padding:14px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; ${t.bg==='#FAF7F2'?'border:1px solid var(--line);':''} cursor:pointer;">
+              <div class="meta" style="color:${t.fg}; opacity:0.5;">${n} SKU</div>
+              <div style="font-family:var(--f-display); font-weight:900; font-size:20px; line-height:0.95; letter-spacing:-0.02em; text-transform:uppercase; white-space:pre-line;">${esc(c.name)}</div>
+              <div style="position:absolute; top:12px; right:14px; width:8px; height:8px; border-radius:999px; background:${t.accent};"></div>
             </div>`;
         }).join('')}
       </div>
@@ -890,7 +904,7 @@ function screenProduct() {
   if (!p) return `<div style="padding:80px 24px; text-align:center; color:var(--ink-soft);">Карточка не найдена.</div>`;
   const fasList = Array.isArray(p.fasovka) && p.fasovka.length ? p.fasovka : [{ size: 'уп.', price: p.price ?? null, on_request: p.on_request || (typeof p.price !== 'number') }];
   const curFas = fasList.find(f => f.size === STATE.productFasovka) || fasList.find(f => /кг/i.test(f.size)) || fasList[0];
-  const isCoffeeKg = p.category === 'coffee' && /кг/i.test(curFas.size || '');
+  const isCoffeeKg = COFFEE_CATS.includes(p.category) && /кг/i.test(curFas.size || '');
   const kg = isCoffeeKg ? Math.max(1, STATE.productKg || 1) : 1;
   const basePrice = curFas.on_request ? 0 : (curFas.price || 0);
   const subtotal = basePrice * kg;
