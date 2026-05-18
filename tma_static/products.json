@@ -293,7 +293,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 682,
+      "stock": 690,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
@@ -500,7 +500,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 25,
+      "stock": 26,
       "tags": [],
       "photo": "assets/placeholders/ph_filter.svg",
       "ozon_offer_id": "RBR-F- БРАЗ СЕРРАДО ЖЕЛТЫЙ БУРБОН, 1кг",
@@ -13013,7 +13013,7 @@
       "name": "CUP 7 Жидкость для очистки молочных систем 1 л",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 11,
+      "stock": 10,
       "on_request": true,
       "price": null,
       "quarantined": false,
@@ -13028,7 +13028,7 @@
       "name": "CUP 5 Таблетки для удаления кофейных масел 2 г × 100 шт",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 12,
+      "stock": 11,
       "on_request": true,
       "price": null,
       "quarantined": false,
@@ -13043,7 +13043,7 @@
       "name": "CUP 6 Порошок для удаления кофейных масел 1 кг",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 20,
+      "stock": 19,
       "on_request": true,
       "price": null,
       "quarantined": false,
@@ -13999,11 +13999,11 @@
           "on_request": true
         }
       ],
-      "stock": 0,
+      "stock": 12,
       "on_request": true,
-      "quarantined": true,
-      "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "cascara_кофеи_ная_шелуха_коста-рика_каскара_финка_сонора_с",
@@ -14035,11 +14035,11 @@
           "on_request": true
         }
       ],
-      "stock": 0,
+      "stock": 2,
       "on_request": true,
-      "quarantined": true,
-      "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "other_сахар_althaus_в_стиках_по_5_г_2000_шт_кор",
