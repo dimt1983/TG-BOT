@@ -325,20 +325,36 @@ function placeholder(label, ratio = '4 / 3', extra = '') {
   return `<div class="ph" style="aspect-ratio:${ratio}; border-radius:var(--r-md); ${extra}">${esc(label || '')}</div>`;
 }
 
+/* Цвета-заглушки для кофейных категорий (брендбук _brand/palettes/COLORS.md). */
+const CAT_PLACEHOLDER = {
+  espresso: '#C8312A',
+  filter:   '#9BA82E',
+  retail:   '#FFFFFF',
+  black:    '#2A2A2A',
+  borshch:  '#D84315',
+};
+
 /* Фотка товара.
-   p.photo === строка-путь  → image
-   p.photo === ''            → пустая зона (без логотипа, без паттерна, без текста)
-   p.photo === undefined     → legacy placeholder (диагональные полоски с label) — пока миграция не прошла */
+   p.photo === строка-путь, НЕ ведёт на placeholders/ → image
+   p.photo === строка с placeholders/ или '' / undefined → цветная плашка по категории,
+                                                            иначе legacy placeholder с label */
 function productImg(p, ratio = '1', extra = '', label = '') {
   const src = p?.photo;
-  if (typeof src === 'string' && src.length > 0) {
+  const isPlaceholderPath = typeof src === 'string' && src.indexOf('placeholders/') !== -1;
+  const isRealPhoto = typeof src === 'string' && src.length > 0 && !isPlaceholderPath;
+
+  if (isRealPhoto) {
     const url = /^https?:\/\//.test(src) ? src
               : src.startsWith('/') ? src
               : '/tma/' + src.replace(/^tma_static\//, '');
     return `<div style="aspect-ratio:${ratio}; border-radius:var(--r-md); ${extra} background-image:url('${url}'); background-size:cover; background-position:center; background-repeat:no-repeat; background-color:var(--surface-2);"></div>`;
   }
+  const bg = CAT_PLACEHOLDER[p?.category];
+  if (bg) {
+    const border = bg === '#FFFFFF' ? 'box-shadow: inset 0 0 0 1px var(--line);' : '';
+    return `<div style="aspect-ratio:${ratio}; border-radius:var(--r-md); ${extra} background:${bg}; ${border}"></div>`;
+  }
   if (src === '') {
-    // Явно пустое фото — чистая пустая зона нужного размера.
     return `<div style="aspect-ratio:${ratio}; border-radius:var(--r-md); ${extra} background:var(--surface-2);"></div>`;
   }
   return `<div class="ph" style="aspect-ratio:${ratio}; border-radius:var(--r-md); ${extra}">${esc(label || '')}</div>`;
@@ -476,6 +492,10 @@ function screenHome() {
 
   return `
 ${appHeader({ logo: true })}
+
+<div style="padding:6px 16px 0; display:flex; justify-content:flex-end;">
+  <a href="/tma/v1/" style="font-family:var(--f-mono); font-size:10px; letter-spacing:0.04em; color:var(--ink-soft); text-decoration:none; opacity:0.6; padding:4px 8px; border:1px solid var(--line); border-radius:999px;">Открыть старую версию →</a>
+</div>
 
 <!-- HERO -->
 <div style="padding:6px 16px 0;">
@@ -1449,12 +1469,26 @@ ${tabBar('profile')}
 /* ════════════════════════════════════════════════════════════════════
    ACTIONS / NAVIGATION
    ════════════════════════════════════════════════════════════════════ */
+function _navSnapshot() {
+  return {
+    screen: STATE.screen,
+    cat: STATE.cat,
+    subcat: STATE.subcat,
+    showAll: STATE.showAll,
+    productId: STATE.productId,
+  };
+}
+function _isSameNav(a, b) {
+  return a && b && a.screen === b.screen && a.cat === b.cat && a.subcat === b.subcat
+      && a.showAll === b.showAll && a.productId === b.productId;
+}
+
 const rb = {
   go(screen, params) {
-    if (STATE.screen !== screen) STATE.history.push(STATE.screen);
+    const snap = _navSnapshot();
+    if (STATE.screen === 'catalog' && !params && screen === 'catalog') return;
     STATE.screen = screen;
     if (screen === 'catalog' && !params) {
-      // переход в каталог из табов / меню → каталог-корень
       STATE.cat = null; STATE.subcat = null; STATE.showAll = false;
       resetFilters();
     }
@@ -1462,6 +1496,7 @@ const rb = {
       if ('cat' in params) STATE.cat = params.cat || null;
       if ('subcat' in params) STATE.subcat = params.subcat || null;
     }
+    if (!_isSameNav(snap, _navSnapshot())) STATE.history.push(snap);
     haptic();
     window.scrollTo(0, 0);
     render();
@@ -1469,15 +1504,26 @@ const rb = {
   },
   back() {
     const prev = STATE.history.pop();
-    if (prev) { STATE.screen = prev; haptic(); window.scrollTo(0, 0); render(); }
-    else { rb.go('home'); }
+    if (prev) {
+      STATE.screen = prev.screen;
+      STATE.cat = prev.cat;
+      STATE.subcat = prev.subcat;
+      STATE.showAll = prev.showAll;
+      STATE.productId = prev.productId;
+      haptic();
+      window.scrollTo(0, 0);
+      render();
+    } else {
+      rb.go('home');
+    }
   },
   openProduct(id) {
-    STATE.history.push(STATE.screen);
+    const snap = _navSnapshot();
     STATE.screen = 'product';
     STATE.productId = id;
     STATE.productFasovka = null;
     STATE.productKg = 1;
+    STATE.history.push(snap);
     haptic();
     window.scrollTo(0, 0);
     render();
@@ -1524,22 +1570,21 @@ const rb = {
     render();
   },
   openCat(catId) {
-    if (STATE.screen !== 'catalog') STATE.history.push(STATE.screen);
+    const snap = _navSnapshot();
     STATE.screen = 'catalog';
     STATE.cat = catId || null;
     STATE.subcat = null;
     STATE.showAll = false;
     resetFilters();
+    if (!_isSameNav(snap, _navSnapshot())) STATE.history.push(snap);
     haptic();
     window.scrollTo(0, 0);
     render();
   },
   openSubcat(subId) {
-    if (STATE.screen !== 'catalog') STATE.history.push(STATE.screen);
+    const snap = _navSnapshot();
     STATE.screen = 'catalog';
-    // если cat ещё не выставлен — выводим из subcat
     if (!STATE.cat) {
-      // ищем верхнюю категорию
       let cur = STATE.data.subcategories.find(s => s.id === subId);
       let cat = null;
       while (cur) {
@@ -1551,6 +1596,7 @@ const rb = {
     STATE.subcat = subId;
     STATE.showAll = false;
     resetFilters();
+    if (!_isSameNav(snap, _navSnapshot())) STATE.history.push(snap);
     haptic();
     window.scrollTo(0, 0);
     render();

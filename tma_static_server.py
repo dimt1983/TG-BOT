@@ -858,17 +858,17 @@ class Handler(BaseHTTPRequestHandler):
             except Exception:
                 pass  # fallback на статику
 
-        # ── /tma/v2/* статика (новый дизайн, параллельно с продом) ───────────
-        if path.startswith("/tma/v2/") or path == "/tma/v2":
-            rel = path[8:] if path.startswith("/tma/v2/") else ""
+        # ── /tma/v1/* статика (старый дизайн на отдельном префиксе) ──────────
+        if path.startswith("/tma/v1/") or path == "/tma/v1":
+            rel = path[8:] if path.startswith("/tma/v1/") else ""
             if rel == "" or rel.endswith("/"):
                 rel = (rel + "index.html").lstrip("/")
-            full_path = os.path.normpath(os.path.join(TMA_ROOT_V2, rel))
-            if not full_path.startswith(TMA_ROOT_V2):
+            full_path = os.path.normpath(os.path.join(TMA_ROOT, rel))
+            if not full_path.startswith(TMA_ROOT):
                 self._send(403, b"Forbidden", "text/plain")
                 return
             if not os.path.isfile(full_path):
-                full_path = os.path.join(TMA_ROOT_V2, "index.html")
+                full_path = os.path.join(TMA_ROOT, "index.html")
                 if not os.path.isfile(full_path):
                     self._send(404, b"Not found", "text/plain")
                     return
@@ -885,20 +885,52 @@ class Handler(BaseHTTPRequestHandler):
                 self._send(500, str(e).encode(), "text/plain")
             return
 
-        # ── /tma/* статика ───────────────────────────────────────────────────
+        # ── /tma/v2/* — алиас на новый дизайн (для обратной совместимости старых ссылок)
+        if path.startswith("/tma/v2/") or path == "/tma/v2":
+            rel = path[8:] if path.startswith("/tma/v2/") else ""
+            if rel == "" or rel.endswith("/"):
+                rel = (rel + "index.html").lstrip("/")
+            full_path = os.path.normpath(os.path.join(TMA_ROOT_V2, rel))
+            if not full_path.startswith(TMA_ROOT_V2):
+                self._send(403, b"Forbidden", "text/plain")
+                return
+            if not os.path.isfile(full_path):
+                full_path = os.path.normpath(os.path.join(TMA_ROOT, rel))
+                if not full_path.startswith(TMA_ROOT) or not os.path.isfile(full_path):
+                    full_path = os.path.join(TMA_ROOT_V2, "index.html")
+                    if not os.path.isfile(full_path):
+                        self._send(404, b"Not found", "text/plain")
+                        return
+            ctype, _ = mimetypes.guess_type(full_path)
+            ctype = ctype or "application/octet-stream"
+            try:
+                with open(full_path, "rb") as f:
+                    body = f.read()
+                extra = {}
+                if any(full_path.endswith(e) for e in (".jpg", ".png", ".webp", ".svg", ".ico")):
+                    extra["Cache-Control"] = "public, max-age=3600, must-revalidate"
+                self._send(200, body, ctype, extra)
+            except Exception as e:
+                self._send(500, str(e).encode(), "text/plain")
+            return
+
+        # ── /tma/* — статика: сначала ищем в v2 (новый дизайн = default),
+        #            если нет — фолбэк в v1 (общие assets, photos, products.json)
         if path.startswith("/tma/") or path == "/tma":
             rel = path[5:] if path.startswith("/tma/") else ""
             if rel == "" or rel.endswith("/"):
                 rel = (rel + "index.html").lstrip("/")
-            full_path = os.path.normpath(os.path.join(TMA_ROOT, rel))
-            if not full_path.startswith(TMA_ROOT):
-                self._send(403, b"Forbidden", "text/plain")
-                return
-            if not os.path.isfile(full_path):
-                full_path = os.path.join(TMA_ROOT, "index.html")
-                if not os.path.isfile(full_path):
-                    self._send(404, b"Not found", "text/plain")
+            full_path = os.path.normpath(os.path.join(TMA_ROOT_V2, rel))
+            if not (full_path.startswith(TMA_ROOT_V2) and os.path.isfile(full_path)):
+                full_path = os.path.normpath(os.path.join(TMA_ROOT, rel))
+                if not full_path.startswith(TMA_ROOT):
+                    self._send(403, b"Forbidden", "text/plain")
                     return
+                if not os.path.isfile(full_path):
+                    full_path = os.path.join(TMA_ROOT_V2, "index.html")
+                    if not os.path.isfile(full_path):
+                        self._send(404, b"Not found", "text/plain")
+                        return
             ctype, _ = mimetypes.guess_type(full_path)
             ctype = ctype or "application/octet-stream"
             try:
