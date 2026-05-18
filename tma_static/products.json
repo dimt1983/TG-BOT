@@ -440,8 +440,8 @@
     },
     {
       "id": "c-танзания_аа",
-      "category": "filter",
-      "subcategory": "filter_mono",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Танзания АА",
       "country": "Танзания",
       "roast": "F",
@@ -714,8 +714,8 @@
     },
     {
       "id": "c-кения_аа",
-      "category": "filter",
-      "subcategory": "filter_mono",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Кения АА",
       "country": "Кения",
       "roast": "F",
@@ -1159,7 +1159,7 @@
     },
     {
       "id": "c-эфиопия_белойя_гр_2",
-      "category": "black",
+      "category": "espresso",
       "name": "Эфиопия Белойя гр.2",
       "country": "Эфиопия",
       "roast": "F",
@@ -1187,7 +1187,8 @@
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "hidden": true,
-      "archived_reason": "not in xlsx 19.05.2026"
+      "archived_reason": "not in xlsx 19.05.2026",
+      "subcategory": "espresso_mono"
     },
     {
       "id": "c-эфиопия_челелекту_гр_1",
@@ -1226,7 +1227,7 @@
     },
     {
       "id": "c-колумбия_клаудиа_колменарес",
-      "category": "black",
+      "category": "espresso",
       "name": "Колумбия Клаудиа Колменарес",
       "country": "Колумбия",
       "roast": "F",
@@ -1255,7 +1256,8 @@
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "hidden": true,
-      "archived_reason": "not in xlsx 19.05.2026"
+      "archived_reason": "not in xlsx 19.05.2026",
+      "subcategory": "espresso_mono"
     },
     {
       "id": "c-эфиопия_челчеле_гр_1",
@@ -1294,7 +1296,7 @@
     },
     {
       "id": "c-эфиопия_арича_гр_1",
-      "category": "borshch",
+      "category": "espresso",
       "name": "Эфиопия Арича гр.1",
       "country": "Эфиопия",
       "roast": "F",
@@ -1322,11 +1324,12 @@
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "photo": "",
       "hidden": true,
-      "archived_reason": "not in xlsx 19.05.2026"
+      "archived_reason": "not in xlsx 19.05.2026",
+      "subcategory": "espresso_mono"
     },
     {
       "id": "c-колумбия_хайро_арсила_натуральная",
-      "category": "borshch",
+      "category": "espresso",
       "name": "Колумбия Хайро Арсила Натуральная",
       "country": "Колумбия",
       "roast": "F",
@@ -1361,7 +1364,8 @@
       "archived_reason": "not in xlsx 19.05.2026",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "subcategory": "espresso_mono"
     },
     {
       "id": "c-колумбия_гонзало_кармона",
@@ -1403,8 +1407,8 @@
     },
     {
       "id": "c-классика",
-      "category": "retail",
-      "subcategory": "retail_blend",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "КЛАССИКА",
       "country": "КЛАССИКА",
       "roast": "BE",
@@ -1445,8 +1449,8 @@
     },
     {
       "id": "c-биттер",
-      "category": "retail",
-      "subcategory": "retail_blend",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "БИТТЕР",
       "country": "БИТТЕР",
       "roast": "BE",
@@ -1486,8 +1490,8 @@
     },
     {
       "id": "c-хани",
-      "category": "retail",
-      "subcategory": "retail_blend",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "ХАНИ",
       "country": "ХАНИ",
       "roast": "BE",
@@ -1526,8 +1530,8 @@
     },
     {
       "id": "c-венеция",
-      "category": "retail",
-      "subcategory": "retail_blend",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "ВЕНЕЦИЯ",
       "country": "ВЕНЕЦИЯ",
       "roast": "BE",
@@ -1567,8 +1571,8 @@
     },
     {
       "id": "c-лунго",
-      "category": "retail",
-      "subcategory": "retail_blend",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "ЛУНГО",
       "country": "ЛУНГО",
       "roast": "BF",
@@ -1640,8 +1644,8 @@
     },
     {
       "id": "c-drip-гватемала_уетенанго",
-      "category": "drip",
-      "subcategory": "drip_8pack",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Гватемала Уетенанго",
       "country": "CHOCOLATE",
       "roast": "Дрип",
@@ -1680,8 +1684,8 @@
     },
     {
       "id": "c-drip-гватемала_финка_медина",
-      "category": "drip",
-      "subcategory": "drip_8pack",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Гватемала Финка Медина",
       "country": "CHOCOLATE",
       "roast": "Дрип",
@@ -1750,8 +1754,8 @@
     },
     {
       "id": "c-drip-колумбия_питалито_без_кофеина",
-      "category": "drip",
-      "subcategory": "drip_8pack",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Колумбия Питалито Без Кофеина",
       "country": "CHOCOLATE",
       "roast": "Дрип",
@@ -1783,8 +1787,8 @@
     },
     {
       "id": "c-drip-эфиопия_иргачиф__drip_",
-      "category": "drip",
-      "subcategory": "drip_8pack",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Эфиопия Иргачиф (Drip)",
       "country": "FLOWER",
       "roast": "Дрип",
@@ -1817,8 +1821,8 @@
     },
     {
       "id": "c-drip-кения_аа__drip_",
-      "category": "drip",
-      "subcategory": "drip_8pack",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Кения АА (Drip)",
       "country": "FLOWER",
       "roast": "Дрип",
@@ -1850,8 +1854,8 @@
     },
     {
       "id": "c-drip-колумбия_клаудиа_колменарес__drip_",
-      "category": "drip",
-      "subcategory": "drip_8pack",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Колумбия Клаудиа Колменарес (Drip)",
       "country": "FRUIT",
       "roast": "Дрип",
@@ -1883,8 +1887,8 @@
     },
     {
       "id": "c-drip-эфиопия_бомбе",
-      "category": "drip",
-      "subcategory": "drip_8pack",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Эфиопия Бомбе",
       "country": "FRUIT",
       "roast": "Дрип",
@@ -1922,8 +1926,8 @@
     },
     {
       "id": "c-drip-кения_моунт_с",
-      "category": "drip",
-      "subcategory": "drip_8pack",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Кения Моунт С",
       "country": "FRUIT",
       "roast": "Дрип",
@@ -1961,8 +1965,8 @@
     },
     {
       "id": "c-drip-колумбия_супремо__drip_",
-      "category": "drip",
-      "subcategory": "drip_8pack",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Колумбия Супремо (Drip)",
       "country": "FRUIT",
       "roast": "Дрип",
@@ -2000,8 +2004,8 @@
     },
     {
       "id": "c-drip-колумбия_ла_кумбре",
-      "category": "drip",
-      "subcategory": "drip_8pack",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Колумбия Ла Кумбре",
       "country": "FRUIT",
       "roast": "Дрип",
@@ -2033,8 +2037,8 @@
     },
     {
       "id": "c-drip-колумбия_гонзало_кармона__drip_",
-      "category": "drip",
-      "subcategory": "drip_8pack",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Колумбия Гонзало Кармона (Drip)",
       "country": "FUNKI",
       "roast": "Дрип",
@@ -2066,8 +2070,8 @@
     },
     {
       "id": "c-nesp-бразилия_серрадо__nespresso_",
-      "category": "drip",
-      "subcategory": "drip_8pack",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Бразилия Серрадо (Nespresso)",
       "country": "CHOCOLATE",
       "roast": "Nespresso",
@@ -2099,8 +2103,8 @@
     },
     {
       "id": "c-nesp-бразилия_пибери",
-      "category": "drip",
-      "subcategory": "drip_8pack",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Бразилия Пибери",
       "country": "CHOCOLATE",
       "roast": "Nespresso",
@@ -2132,8 +2136,8 @@
     },
     {
       "id": "c-nesp-колумбия__nespresso_",
-      "category": "drip",
-      "subcategory": "drip_8pack",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Колумбия (Nespresso)",
       "country": "FRUIT",
       "roast": "Nespresso",
@@ -2165,8 +2169,8 @@
     },
     {
       "id": "c-nesp-эфиопия_сидамо__nespresso_",
-      "category": "drip",
-      "subcategory": "drip_8pack",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "Эфиопия Сидамо (Nespresso)",
       "country": "FLOWER",
       "roast": "Nespresso",
@@ -11106,7 +11110,7 @@
     },
     {
       "id": "c-колумбия_кастильо_3",
-      "category": "black",
+      "category": "espresso",
       "name": "Колумбия Кастильо",
       "country": "Колумбия",
       "roast": "BE",
@@ -11131,7 +11135,8 @@
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "hidden": true,
-      "archived_reason": "not in xlsx 19.05.2026"
+      "archived_reason": "not in xlsx 19.05.2026",
+      "subcategory": "espresso_mono"
     },
     {
       "id": "c-колумбия_пачамама_2",
@@ -11174,7 +11179,7 @@
     },
     {
       "id": "c-колумбия_пачамама_3",
-      "category": "borshch",
+      "category": "espresso",
       "name": "Колумбия Пачамама",
       "country": "Колумбия",
       "roast": "BE",
@@ -11199,7 +11204,8 @@
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "hidden": true,
-      "archived_reason": "not in xlsx 19.05.2026"
+      "archived_reason": "not in xlsx 19.05.2026",
+      "subcategory": "espresso_mono"
     },
     {
       "id": "c-колумбия_маракуйя_2",
@@ -11240,7 +11246,7 @@
     },
     {
       "id": "c-колумбия_маракуйя_3",
-      "category": "borshch",
+      "category": "espresso",
       "name": "Колумбия Маракуйя",
       "country": "Колумбия",
       "roast": "BE",
@@ -11266,7 +11272,8 @@
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "hidden": true,
-      "archived_reason": "not in xlsx 19.05.2026"
+      "archived_reason": "not in xlsx 19.05.2026",
+      "subcategory": "espresso_mono"
     },
     {
       "id": "c-китай_симао_гр_1_мытый",
@@ -11310,8 +11317,8 @@
     },
     {
       "id": "c-classica_1",
-      "category": "retail",
-      "subcategory": "retail_blend",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "CLASSICA #1",
       "country": "",
       "roast": "BE",
@@ -11345,8 +11352,8 @@
     },
     {
       "id": "c-хани_2",
-      "category": "retail",
-      "subcategory": "retail_blend",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
       "name": "ХАНИ",
       "country": "",
       "roast": "BE",
@@ -11381,7 +11388,7 @@
     },
     {
       "id": "c-бразилия_sl28_хани_анаэробная",
-      "category": "borshch",
+      "category": "espresso",
       "name": "Бразилия SL28 Хани анаэробная",
       "country": "Бразилия",
       "roast": "F",
@@ -11410,11 +11417,12 @@
       "archived_reason": "not in xlsx 19.05.2026",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "subcategory": "espresso_mono"
     },
     {
       "id": "c-бразилия_судан_руме_анаэробная",
-      "category": "borshch",
+      "category": "espresso",
       "name": "Бразилия Судан Руме анаэробная",
       "country": "Бразилия",
       "roast": "F",
@@ -11443,11 +11451,12 @@
       "archived_reason": "not in xlsx 19.05.2026",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "subcategory": "espresso_mono"
     },
     {
       "id": "c-бразилия_фазенда_лагуинья_мундо_анаэробная",
-      "category": "borshch",
+      "category": "espresso",
       "name": "Бразилия Фазенда Лагуинья мундо анаэробная",
       "country": "Бразилия",
       "roast": "F",
@@ -11476,7 +11485,8 @@
         "специи"
       ],
       "hidden": true,
-      "archived_reason": "not in xlsx 19.05.2026"
+      "archived_reason": "not in xlsx 19.05.2026",
+      "subcategory": "espresso_mono"
     },
     {
       "id": "filter-v60-100",
@@ -11657,7 +11667,7 @@
     },
     {
       "id": "c-колумбия_гонзало_кармана_катура_сухой_-_1_кг_filte",
-      "category": "borshch",
+      "category": "espresso",
       "name": "Колумбия Гонзало Кармана Катура сухой - 1 кг FILTER",
       "country": "Колумбия",
       "roast": "F",
@@ -11683,42 +11693,13 @@
         "тростниковый сахар"
       ],
       "hidden": false,
-      "archived_reason": "not in xlsx 19.05.2026"
-    },
-    {
-      "id": "c-e_roastberry_бразилия_паже_упак_200_г",
-      "category": "retail",
-      "subcategory": "retail_espresso",
-      "name": "E \"Roastberry\" Бразилия Паже упак. 200 г",
-      "country": "Бразилия",
-      "roast": "E",
-      "process": "Натуральная",
-      "description": "Цитрусы, жёлтое яблоко, карамель, жареные орехи, тёмный шоколад. Q 81,5",
-      "recipe_e": "☕ *Эспрессо (Бразилия Серрадо):*\n• Помол: мелкий (18–20 делений)\n• Навеска: 18 г\n• Выход: 36–40 г\n• Время: 25–30 сек\n• Температура: 93–94°C\n\n_Раскрывает карамель и орехи, добавляет телу плотность._",
-      "recipe_f": "",
-      "fasovka": [
-        {
-          "size": "200 г",
-          "price": 435.0,
-          "photo": "photos/products/c-e_roastberry_бразилия_паже_упак_200_г.jpg"
-        }
-      ],
-      "stock": 12,
-      "tags": [],
-      "photo": "photos/products/c-e_roastberry_бразилия_паже_упак_200_г.jpg",
-      "tasting_notes": [
-        "шоколад",
-        "карамель",
-        "цитрус",
-        "орех"
-      ],
-      "hidden": false,
-      "merged_into": "retail_e_roastberry_бразилия_паже_-_1_кг"
+      "archived_reason": "not in xlsx 19.05.2026",
+      "subcategory": "espresso_mono"
     },
     {
       "id": "c-e_roastberry_перу_схг_упак_200_г",
-      "category": "espresso",
-      "subcategory": "espresso_mono",
+      "category": "retail",
+      "subcategory": "retail_espresso",
       "name": "E \"Roastberry\" Перу СХГ упак. 200 г",
       "country": "Перу",
       "roast": "E",
@@ -12672,8 +12653,8 @@
     },
     {
       "id": "c-be_roastberry_эспрессо_смесь_-_1_кг",
-      "category": "espresso",
-      "subcategory": "espresso_mono",
+      "category": "retail",
+      "subcategory": "retail_blend",
       "name": "BE \"Roastberry\" ЭСПРЕССО СМЕСЬ  - 1 кг",
       "country": "",
       "roast": "E",
@@ -13490,42 +13471,6 @@
       "subcategory": "retail_filter"
     },
     {
-      "id": "retail_be_roastberry_биттер_200_г",
-      "name": "BE \"Roastberry\" Биттер упак. 200 г",
-      "category": "retail",
-      "photo": "",
-      "fasovka": [
-        {
-          "size": "200 г",
-          "price": null,
-          "on_request": true
-        }
-      ],
-      "stock": 10,
-      "on_request": true,
-      "subcategory": "retail_blend",
-      "hidden": false,
-      "merged_into": "retail_be_roastberry_биттер_-_1_кг"
-    },
-    {
-      "id": "retail_be_roastberry_венеция_200_г",
-      "name": "BE \"Roastberry\" Венеция упак. 200 г",
-      "category": "retail",
-      "photo": "",
-      "fasovka": [
-        {
-          "size": "200 г",
-          "price": null,
-          "on_request": true
-        }
-      ],
-      "stock": 19,
-      "on_request": true,
-      "subcategory": "retail_blend",
-      "hidden": false,
-      "merged_into": "retail_be_roastberry_венеция_-_1_кг"
-    },
-    {
       "id": "retail_be_roastberry_классика_200_г",
       "name": "BE \"Roastberry\" Классика упак. 200 г",
       "category": "retail",
@@ -13540,60 +13485,6 @@
       "stock": 2,
       "on_request": true,
       "subcategory": "retail_blend"
-    },
-    {
-      "id": "retail_be_roastberry_хани_200_г",
-      "name": "BE \"Roastberry\" Хани упак. 200 г",
-      "category": "retail",
-      "photo": "",
-      "fasovka": [
-        {
-          "size": "200 г",
-          "price": null,
-          "on_request": true
-        }
-      ],
-      "stock": 17,
-      "on_request": true,
-      "subcategory": "retail_blend",
-      "hidden": false,
-      "merged_into": "retail_be_roastberry_хани_-_1_кг"
-    },
-    {
-      "id": "retail_bf_roastberry_лунго_200_г",
-      "name": "BF \"Roastberry\" Лунго упак. 200 г",
-      "category": "retail",
-      "photo": "",
-      "fasovka": [
-        {
-          "size": "200 г",
-          "price": null,
-          "on_request": true
-        }
-      ],
-      "stock": 8,
-      "on_request": true,
-      "subcategory": "retail_blend",
-      "hidden": false,
-      "merged_into": "retail_bf_roastberry_лунго_-_1_кг"
-    },
-    {
-      "id": "retail_e_roastberry_бразилия_сан_рафаель_200_г",
-      "name": "E \"Roastberry\" Бразилия Сан Рафаель упак. 200 г",
-      "category": "retail",
-      "photo": "",
-      "fasovka": [
-        {
-          "size": "200 г",
-          "price": null,
-          "on_request": true
-        }
-      ],
-      "stock": 49,
-      "on_request": true,
-      "subcategory": "retail_espresso",
-      "hidden": false,
-      "merged_into": "retail_e_roastberry_бразилия_сан_рафаель_-_1_кг"
     },
     {
       "id": "retail_e_roastberry_бразилия_серадо_200_г",
@@ -13658,42 +13549,6 @@
       "stock": 9,
       "on_request": true,
       "subcategory": "retail_espresso"
-    },
-    {
-      "id": "retail_e_roastberry_колумбия_андино_200_г",
-      "name": "E \"Roastberry\" Колумбия Андино упак. 200 г",
-      "category": "retail",
-      "photo": "",
-      "fasovka": [
-        {
-          "size": "200 г",
-          "price": null,
-          "on_request": true
-        }
-      ],
-      "stock": 33,
-      "on_request": true,
-      "subcategory": "retail_espresso",
-      "hidden": false,
-      "merged_into": "retail_e_roastberry_колумбия_андино_-_1_кг"
-    },
-    {
-      "id": "retail_e_roastberry_коста-рика_тарразу_ла_пастора_200_г",
-      "name": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора 200 гр",
-      "category": "retail",
-      "photo": "",
-      "fasovka": [
-        {
-          "size": "200 г",
-          "price": null,
-          "on_request": true
-        }
-      ],
-      "stock": 14,
-      "on_request": true,
-      "subcategory": "retail_espresso",
-      "hidden": false,
-      "merged_into": "retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг"
     },
     {
       "id": "retail_e_roastberry_уганада_рувензор_200_г",
