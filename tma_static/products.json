@@ -248,7 +248,7 @@
           "photo": "photos/products/c-бразилия_серрадо_200g.jpg"
         }
       ],
-      "stock": 689,
+      "stock": 651,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
@@ -290,7 +290,7 @@
           "photo": "photos/products/c-бразилия_серрадо_дарк_200g.jpg"
         }
       ],
-      "stock": 203,
+      "stock": 197,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо_дарк.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО ДАРК, 200 г",
@@ -332,7 +332,7 @@
           "photo": "photos/products/c-бразилия_сан_рафаель_200g.jpg"
         }
       ],
-      "stock": 326,
+      "stock": 323,
       "tags": [],
       "photo": "photos/products/c-бразилия_сан_рафаель.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ SAN RAFAEL, 1 кг",
@@ -564,7 +564,7 @@
           "photo": "photos/products/c-руанда_мутетели_200g.jpg"
         }
       ],
-      "stock": 21,
+      "stock": 22,
       "tags": [],
       "taste": "Чёрный чай, вишня, шиповник, слива",
       "roast_descr": "светлая обжарка под фильтр",
@@ -640,7 +640,7 @@
           "photo": "photos/products/c-перу_монте_верде_200g.jpg"
         }
       ],
-      "stock": 67,
+      "stock": 66,
       "tags": [],
       "taste": "молочный шоколад, йогурт, карамель",
       "roast_descr": "светлая обжарка под фильтр",
@@ -1133,7 +1133,7 @@
           "price": 655
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "tags": [
         "Black Edition"
       ],
@@ -1629,7 +1629,7 @@
           "price": 67
         }
       ],
-      "stock": 31,
+      "stock": 30,
       "tags": [
         "Удобно",
         "CHOCOLATE"
@@ -4820,7 +4820,7 @@
           "price": 546.0
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "tags": []
     },
     {
@@ -5072,7 +5072,7 @@
           "price": 546.0
         }
       ],
-      "stock": 25,
+      "stock": 23,
       "tags": [
         "Хит"
       ]
@@ -10996,7 +10996,7 @@
           "price": 4842
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "tags": [
         "микролот",
         "фильтр",
@@ -11287,7 +11287,7 @@
           "price": 780
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "tags": [],
       "photo": null,
       "pair_id": "бразилия_фазенда_лагуинья_мундо_анаэроб",
@@ -11582,7 +11582,7 @@
           "photo": null
         }
       ],
-      "stock": 206,
+      "stock": 200,
       "tags": [],
       "photo": null
     },
