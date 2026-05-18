@@ -1496,6 +1496,96 @@ ${tabBar('search')}
 }
 
 /* ════════════════════════════════════════════════════════════════════
+   ADMIN: Детали заказа
+   ════════════════════════════════════════════════════════════════════ */
+function screenAdminOrder() {
+  const o = STATE.adminOrderData;
+  if (!o) return `${appHeader({ back: true, title: 'Заказ' })}<div style="padding:60px 0; text-align:center;"><div class="rb-spinner"></div></div>`;
+  if (o.error) return `${appHeader({ back: true, title: 'Заказ' })}<div style="padding:40px 24px; color:var(--danger); text-align:center;">${esc(o.error)}</div>`;
+
+  const items = o.items || o.products || [];
+  const STATUSES = ['new','paid','packed','shipped','delivered','cancelled'];
+  const RU = { new:'Новый', paid:'Оплачен', packed:'Упакован', shipped:'Отгружен', delivered:'Доставлен', cancelled:'Отменён' };
+  const cur = (o.status || 'new').toLowerCase();
+
+  return `
+${appHeader({ back: true, title: '#' + esc(o.id || STATE.adminOrderId) })}
+
+<div style="padding:0 16px 12px;">
+  <div class="card" style="padding:16px;">
+    <div class="meta" style="margin-bottom:6px;">Статус</div>
+    <div style="display:flex; flex-wrap:wrap; gap:6px;">
+      ${STATUSES.map(s => `
+        <button onclick="rb.adminSetOrderStatus('${esc(s)}')" class="chip${cur === s ? ' chip--ink' : ''}" style="cursor:pointer; height:30px;">${esc(RU[s] || s)}</button>
+      `).join('')}
+    </div>
+  </div>
+</div>
+
+<div style="padding:0 16px 12px;">
+  <div class="card" style="padding:16px;">
+    <div class="meta" style="margin-bottom:8px;">Клиент</div>
+    <div style="font-family:var(--f-display); font-weight:700; font-size:15px;">${esc(o.client_name || o.name || '—')}</div>
+    ${o.phone || o.client_phone ? `<div class="meta" style="margin-top:4px;">${esc(o.phone || o.client_phone)}</div>` : ''}
+    ${o.user_type ? `<div class="meta" style="margin-top:4px; color:var(--copper);">${esc(o.user_type)}</div>` : ''}
+    ${o.company_name ? `<div style="margin-top:6px; font-size:13px;">${esc(o.company_name)}</div>` : ''}
+    ${o.email ? `<div class="meta" style="margin-top:4px;">${esc(o.email)}</div>` : ''}
+  </div>
+</div>
+
+${o.address || o.delivery || o.delivery_method ? `
+<div style="padding:0 16px 12px;">
+  <div class="card" style="padding:16px;">
+    <div class="meta" style="margin-bottom:6px;">Доставка${o.delivery_method ? ' · ' + esc(o.delivery_method) : ''}</div>
+    <div style="font-size:13px; line-height:1.4;">${esc(o.address || o.delivery || '—')}</div>
+    ${o.delivery_time ? `<div class="meta" style="margin-top:4px;">${esc(o.delivery_time)}</div>` : ''}
+    ${o.comment ? `<div style="margin-top:8px; padding:8px 10px; background:var(--surface-2); border-radius:8px; font-size:12px; color:var(--ink-soft);">${esc(o.comment)}</div>` : ''}
+  </div>
+</div>` : ''}
+
+${items.length ? `
+<div style="padding:0 16px 12px;">
+  <div class="meta" style="margin-bottom:8px; padding-left:4px;">Состав · ${items.length} ${items.length === 1 ? 'позиция' : items.length < 5 ? 'позиции' : 'позиций'}</div>
+  <div style="display:flex; flex-direction:column; gap:1px; background:var(--line); border-radius:var(--r-md); overflow:hidden; border:1px solid var(--line);">
+    ${items.map(it => {
+      const name = it.name || it.product_name || it.id || '—';
+      const qty = it.qty || it.quantity || 1;
+      const size = it.fasovka || it.size || '';
+      const price = typeof it.price === 'number' ? it.price : (typeof it.unit_price === 'number' ? it.unit_price : null);
+      const sum = typeof it.total === 'number' ? it.total : (price !== null ? price * qty : null);
+      return `
+        <div style="background:var(--surface); padding:12px; display:flex; align-items:center; gap:10px;">
+          <div style="flex:1; min-width:0;">
+            <div style="font-family:var(--f-display); font-weight:700; font-size:13px; line-height:1.2;">${esc(name)}</div>
+            <div class="meta" style="font-size:9.5px; margin-top:3px;">${esc(size)}${qty > 1 ? ' · ×' + qty : ''}${price !== null ? ' · ' + fmt(price) + ' ₽/шт' : ''}</div>
+          </div>
+          <div style="font-family:var(--f-display); font-weight:800; font-size:14px; text-align:right; flex:0 0 auto;">${sum !== null ? fmt(sum) + ' ₽' : '—'}</div>
+        </div>`;
+    }).join('')}
+  </div>
+</div>` : ''}
+
+<div style="padding:8px 16px 24px;">
+  <div class="card" style="padding:16px;">
+    ${typeof o.subtotal === 'number' ? `<div style="display:flex; justify-content:space-between; font-size:13px; color:var(--ink-soft); margin-bottom:4px;"><span>Подытог</span><span>${fmt(o.subtotal)} ₽</span></div>` : ''}
+    ${o.discount_pct ? `<div style="display:flex; justify-content:space-between; font-size:13px; color:var(--green); margin-bottom:4px;"><span>Скидка ${o.discount_pct}%</span><span>−${fmt(o.discount || 0)} ₽</span></div>` : ''}
+    <div style="display:flex; justify-content:space-between; align-items:baseline; padding-top:6px; border-top:1px solid var(--line); margin-top:6px;">
+      <span style="font-family:var(--f-display); font-weight:700; font-size:14px;">Итого</span>
+      <span style="font-family:var(--f-display); font-weight:900; font-size:22px;">${fmt(o.total || 0)} ₽</span>
+    </div>
+  </div>
+</div>
+
+<div style="padding:0 16px 24px; display:flex; gap:8px;">
+  ${o.phone || o.client_phone ? `<a href="tel:${esc(o.phone || o.client_phone)}" class="btn-ghost" style="flex:1; justify-content:center; height:44px;">📞 Позвонить</a>` : ''}
+  ${o.user_id || o.client_id ? `<button class="btn-ghost" style="flex:1; justify-content:center; height:44px;" onclick="rb.adminOpenChat('${esc(o.user_id || o.client_id)}')">💬 В чат</button>` : ''}
+</div>
+
+<div style="height:60px"></div>
+`;
+}
+
+/* ════════════════════════════════════════════════════════════════════
    ADMIN: Список товаров с inline-stock-editor + фильтрами
    ════════════════════════════════════════════════════════════════════ */
 function screenAdminProducts() {
@@ -1503,11 +1593,14 @@ function screenAdminProducts() {
   const q = (STATE.adminProductsQuery || '').trim().toLowerCase();
   const all = STATE.data?.products || [];
 
+  const hasPrice = (p) => Array.isArray(p.fasovka) && p.fasovka.some(f => typeof f.price === 'number' && f.price > 0 && !f.on_request);
+
   let list = all;
   if (f === 'quarantine') list = list.filter(p => p.quarantined);
   else if (f === 'zero')  list = list.filter(p => typeof p.stock === 'number' && p.stock <= 0 && !p.on_request);
   else if (f === 'low')   list = list.filter(p => typeof p.stock === 'number' && p.stock > 0 && p.stock < 5);
   else if (f === 'no_photo') list = list.filter(p => !p.photo || (typeof p.photo === 'string' && p.photo.indexOf('placeholders/') !== -1));
+  else if (f === 'no_price') list = list.filter(p => !hasPrice(p) && !p.on_request);
   if (q) {
     list = list.filter(p => {
       const hay = (p.name + ' ' + (p.country||'') + ' ' + (p.id||'')).toLowerCase();
@@ -1520,6 +1613,7 @@ function screenAdminProducts() {
   const cntZero = all.filter(p => typeof p.stock === 'number' && p.stock <= 0 && !p.on_request).length;
   const cntLow  = all.filter(p => typeof p.stock === 'number' && p.stock > 0 && p.stock < 5).length;
   const cntNoP  = all.filter(p => !p.photo || (typeof p.photo === 'string' && p.photo.indexOf('placeholders/') !== -1)).length;
+  const cntNoPrice = all.filter(p => !hasPrice(p) && !p.on_request).length;
 
   const chip = (id, label, count) => `<button onclick="rb.adminProductsFilter('${id}')" class="chip${f === id ? ' chip--ink' : ''}" style="height:28px; cursor:pointer; font-size:11px;">${label} · ${count}</button>`;
 
@@ -1539,6 +1633,7 @@ function screenAdminProducts() {
         ${chip('quarantine', '⛔ Карантин', cntQ)}
         ${chip('zero', '0 на складе', cntZero)}
         ${chip('low', '< 5', cntLow)}
+        ${chip('no_price', '₽ Без цены', cntNoPrice)}
         ${chip('no_photo', 'Без фото', cntNoP)}
       </div>
     </div>
@@ -1565,6 +1660,7 @@ function screenAdminProducts() {
                 <button onclick="rb.adminAdjustStock('${esc(p.id)}', -1)" style="width:26px; height:26px; border-radius:999px; background:var(--surface-2); border:1px solid var(--line); color:var(--ink); font-size:14px; cursor:pointer; padding:0;">−</button>
                 <button onclick="rb.adminSetStock('${esc(p.id)}')" style="min-width:38px; padding:0 6px; height:26px; border-radius:8px; background:transparent; border:1px solid var(--line); color:${stockColor}; font-family:var(--f-mono); font-weight:700; font-size:12px; cursor:pointer;">${s === null ? '—' : s}</button>
                 <button onclick="rb.adminAdjustStock('${esc(p.id)}', 1)" style="width:26px; height:26px; border-radius:999px; background:var(--surface-2); border:1px solid var(--line); color:var(--ink); font-size:14px; cursor:pointer; padding:0;">+</button>
+                <button onclick="rb.adminSetPrices('${esc(p.id)}')" title="Цены по фасовкам" style="min-width:28px; padding:0 6px; height:26px; border-radius:8px; background:transparent; border:1px solid ${hasPrice(p) ? 'var(--line)' : 'var(--danger)'}; color:${hasPrice(p) ? 'var(--ink)' : 'var(--danger)'}; font-family:var(--f-mono); font-weight:700; font-size:11px; cursor:pointer; margin-left:4px;">₽</button>
                 <button onclick="rb.adminToggleQuarantine('${esc(p.id)}')" title="${isQ ? 'Вернуть в каталог' : 'В карантин'}" style="width:28px; height:28px; border-radius:999px; background:${isQ ? 'var(--green)' : 'transparent'}; border:1px solid ${isQ ? 'var(--green)' : 'var(--line-strong)'}; color:${isQ ? '#fff' : 'var(--ink-soft)'}; font-size:13px; cursor:pointer; padding:0; margin-left:2px;">${isQ ? '✓' : '⛔'}</button>
               </div>
             </div>`;
@@ -1630,14 +1726,14 @@ function screenAdmin() {
       <div style="padding:0 16px 24px;">
         <div class="meta" style="margin-bottom:12px;">Заказов: ${items.length}</div>
         <div style="display:flex; flex-direction:column; gap:8px;">
-          ${items.slice(0, 50).map(o => `
-            <div class="card" style="padding:12px;">
+          ${items.slice(0, 100).map(o => `
+            <div onclick="rb.openAdminOrder('${esc(o.id)}')" class="card" style="padding:12px; cursor:pointer;">
               <div style="display:flex; justify-content:space-between; align-items:baseline;">
                 <span style="font-family:var(--f-mono); font-size:12px; font-weight:700;">#${esc(o.id)}</span>
-                <span class="meta">${esc(o.status || '')}</span>
+                <span class="chip${(o.status||'').toLowerCase().includes('cancel') ? '' : ' chip--coffee'}" style="height:18px; font-size:10px; padding:0 6px;">${esc(o.status || 'new')}</span>
               </div>
-              <div style="margin-top:4px; font-size:13px;">${esc(o.client_name || o.name || '—')}</div>
-              <div class="meta" style="font-size:9.5px; margin-top:2px;">${esc(o.created_at || '')} · ${fmt(o.total || 0)} ₽</div>
+              <div style="margin-top:4px; font-size:13px; font-weight:500;">${esc(o.client_name || o.name || '—')}</div>
+              <div class="meta" style="font-size:9.5px; margin-top:2px;">${esc(o.created_at || '')} · <b>${fmt(o.total || 0)} ₽</b></div>
             </div>`).join('')}
         </div>
       </div>` : `<div style="padding:60px 24px; text-align:center; color:var(--ink-soft);">Заказов нет</div>`;
@@ -1999,12 +2095,83 @@ const rb = {
     if (!Number.isFinite(n) || n < 0) { toast('Нужно неотрицательное число'); return; }
     await rb._adminPatchProduct(id, { stock: n }, 'Сохранено');
   },
+  async adminSetPrices(id) {
+    const p = (STATE.data?.products || []).find(x => x.id === id);
+    if (!p || !Array.isArray(p.fasovka) || !p.fasovka.length) {
+      toast('У товара нет фасовок — сначала добавь их через CMS');
+      return;
+    }
+    const patch = {};
+    for (const f of p.fasovka) {
+      const cur = typeof f.price === 'number' ? f.price : '';
+      const raw = prompt('Цена за «' + f.size + '» (₽) — «' + p.name + '»:', String(cur));
+      if (raw === null) continue;  // отмена — пропускаем эту фасовку
+      const t = raw.trim();
+      if (t === '') { patch[f.size] = null; continue; }
+      const n = parseInt(t.replace(/\s/g, ''), 10);
+      if (!Number.isFinite(n) || n < 0) { toast('«' + f.size + '»: нужно число ≥ 0'); continue; }
+      patch[f.size] = n;
+    }
+    if (!Object.keys(patch).length) return;
+    try {
+      const r = await fetch('/tma/api/admin/product/' + encodeURIComponent(id), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
+        body: JSON.stringify({ fasovka_prices: patch }),
+      });
+      if (!r.ok) { haptic('error'); toast('Ошибка: ' + r.status); return; }
+      for (const f of p.fasovka) {
+        if (f.size in patch) {
+          f.price = patch[f.size];
+          if (f.price === null) f.on_request = true; else delete f.on_request;
+        }
+      }
+      haptic('success'); toast('Цены сохранены', 'success');
+      render();
+    } catch (e) { haptic('error'); toast('Сеть недоступна'); }
+  },
   async adminToggleQuarantine(id) {
     const p = (STATE.data?.products || []).find(x => x.id === id);
     if (!p) return;
     const next = !p.quarantined;
     if (next && !confirm('Скрыть «' + p.name + '» в карантин?')) return;
     await rb._adminPatchProduct(id, { quarantined: next }, next ? 'В карантине' : 'Возвращён');
+  },
+  async openAdminOrder(id) {
+    if (!STATE.isAdmin) { toast('Только для админов'); return; }
+    const snap = _navSnapshot();
+    STATE.screen = 'admin-order';
+    STATE.adminOrderId = id;
+    STATE.adminOrderData = null;
+    STATE.history.push(snap);
+    haptic();
+    window.scrollTo(0, 0);
+    render();
+    try {
+      const r = await fetch('/tma/api/admin/order/' + encodeURIComponent(id), { headers: authHeaders() });
+      STATE.adminOrderData = r.ok ? await r.json() : { error: 'HTTP ' + r.status };
+    } catch (e) {
+      STATE.adminOrderData = { error: String(e) };
+    }
+    render();
+  },
+  async adminSetOrderStatus(status) {
+    const id = STATE.adminOrderId;
+    if (!id) return;
+    try {
+      const r = await fetch('/tma/api/admin/order/' + encodeURIComponent(id) + '/status', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
+        body: JSON.stringify({ status }),
+      });
+      if (!r.ok) { haptic('error'); toast('Ошибка: ' + r.status); return; }
+      haptic('success'); toast('Статус: ' + status, 'success');
+      if (STATE.adminOrderData) STATE.adminOrderData.status = status;
+      render();
+    } catch (e) { haptic('error'); toast('Сеть недоступна'); }
+  },
+  adminOpenChat(userId) {
+    toast('Чат с клиентом — в работе');
   },
 };
 window.rb = rb;
@@ -2032,7 +2199,8 @@ function render() {
     case 'cart':    body = screenCart(); break;
     case 'profile': body = screenProfile(); break;
     case 'search':  body = screenSearch(); break;
-    case 'admin':   body = screenAdmin(); break;
+    case 'admin':       body = screenAdmin(); break;
+    case 'admin-order': body = screenAdminOrder(); break;
     default: body = screenHome();
   }
   root.innerHTML = `<div class="rb${IS_DARK ? ' rb--dark' : ''}">${body}</div>`;
