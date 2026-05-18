@@ -692,13 +692,13 @@ function activeFilterCount() {
 
 /* Кофейные категории v2 — те что считаются «кофе» (для фильтров на главной, hero, и т.д.) */
 const COFFEE_CATS = ['espresso','filter','retail','black','borshch','drip','cascara','sets'];
-/* Категории, где первый уровень навигации — выбор фасовки (1 кг / 200 г),
-   а не подкатегории-моносорт/микролот. Подкатегории игнорируются. */
-const SPLIT_BY_FASOVKA = ['espresso','filter','retail','black','borshch','sets'];
+/* Подкатегории, где навигация — выбор фасовки (1 кг / 200 г) до списка товаров.
+   Только Roastberry Retail и его 3 подгруппы: Эспрессо / Фильтр / Купажи. */
+const SPLIT_BY_FASOVKA_SUB = ['retail_espresso','retail_filter','retail_blend'];
 const FASOVKA_SPLITS = ['1 кг','200 г'];
 function _fasovkaOf(p, size) { return (p.fasovka || []).find(f => normalizeSize(f.size) === size); }
-function _productsForSplit(catId, size) {
-  return visibleProducts().filter(p => p.category === catId && _fasovkaOf(p, size));
+function _productsForSplitSub(subId, size) {
+  return visibleProducts().filter(p => p.subcategory === subId && _fasovkaOf(p, size));
 }
 
 /* Карта брендовых цветов для плиток категорий и подкатегорий */
@@ -796,20 +796,18 @@ function screenCatalog() {
 
   // Title — последняя крошка или «Каталог» / название категории
   let title;
-  if (STATE.fasovkaSplit && cat) {
-    title = _stripEmoji(cat.name) + ' · ' + STATE.fasovkaSplit;
+  const subObj = STATE.subcat ? STATE.data.subcategories.find(s => s.id === STATE.subcat) : null;
+  if (STATE.fasovkaSplit && subObj) {
+    title = _stripEmoji(subObj.name) + ' · ' + STATE.fasovkaSplit;
   } else {
-    const titleSrc = STATE.subcat
-      ? STATE.data.subcategories.find(s => s.id === STATE.subcat)?.name
-      : cat?.name;
+    const titleSrc = subObj?.name || cat?.name;
     title = titleSrc ? _stripEmoji(titleSrc) : 'Каталог';
   }
 
-  // Категории с обязательным fasovka-split (espresso, filter, retail, black, borshch, sets):
-  // первый уровень — выбор «1 кг» / «200 г», подкатегории игнорируются.
-  const isSplitCat = STATE.cat && SPLIT_BY_FASOVKA.includes(STATE.cat);
-  // Решение: drill-плитки или плоский список (для split-категорий обычные подкатегории не показываем)
-  const showTiles = STATE.cat && !STATE.showAll && children.length > 0 && !isSplitCat;
+  // Подкатегории retail (Эспрессо / Фильтр / Купажи), где идёт split по фасовкам 1кг / 200г.
+  const isSplitSub = STATE.subcat && SPLIT_BY_FASOVKA_SUB.includes(STATE.subcat);
+  // Решение: drill-плитки или плоский список
+  const showTiles = STATE.cat && !STATE.showAll && children.length > 0 && !isSplitSub;
 
   let body = '';
   if (!STATE.cat) {
@@ -828,11 +826,11 @@ function screenCatalog() {
         }).join('')}
       </div>
     `;
-  } else if (isSplitCat && !STATE.fasovkaSplit) {
-    // 2 плашки выбора фасовки на входе в категорию
-    const t = tileTheme(STATE.cat);
-    const tile = (size, label, sub) => {
-      const cnt = _productsForSplit(STATE.cat, size).length;
+  } else if (isSplitSub && !STATE.fasovkaSplit) {
+    // 2 плашки выбора фасовки внутри подкатегории retail (Эспрессо/Фильтр/Купажи)
+    const t = tileTheme(STATE.subcat);
+    const tile = (size, label) => {
+      const cnt = _productsForSplitSub(STATE.subcat, size).length;
       return `
         <div onclick="rb.openFasovkaSplit('${esc(size)}')"
              style="background:${t.bg}; color:${t.fg}; border-radius:var(--r-md); aspect-ratio:1.1; padding:18px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; ${t.bg==='#FAF7F2'?'border:1px solid var(--line);':''} cursor:pointer;">
@@ -848,10 +846,10 @@ function screenCatalog() {
       </div>
       <div class="meta" style="text-align:center; padding:0 16px 16px; color:var(--ink-faint);">Выбери фасовку — у каждой свои цены и остатки</div>
     `;
-  } else if (isSplitCat && STATE.fasovkaSplit) {
-    // плоский список товаров с данными выбранной фасовки
+  } else if (isSplitSub && STATE.fasovkaSplit) {
+    // плоский список товаров подкатегории retail с данными выбранной фасовки
     const size = STATE.fasovkaSplit;
-    const list = _productsForSplit(STATE.cat, size);
+    const list = _productsForSplitSub(STATE.subcat, size);
     body = `
       <div style="position:sticky; top:96px; z-index:5; background:color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter:blur(14px); padding:10px 0 8px; border-bottom:1px solid var(--line);">
         <div class="hrow" style="padding-bottom:2px;">
