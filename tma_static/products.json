@@ -13252,9 +13252,9 @@
       "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": true,
-      "quarantined_at": "2026-05-18T18:05:52+00:00",
-      "quarantine_reason": "stock_zero_after_sync"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "t-чай_колесо_фортуны_kf_фруктовый_аром_1кг",
