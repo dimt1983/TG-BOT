@@ -5,9 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Roastberry</title>
 <meta name="theme-color" content="#FAF7F2" />
-<link rel="manifest" href="manifest.webmanifest" />
-<link rel="stylesheet" href="tokens.css" />
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="build" content="20260519-2055" />
+<link rel="manifest" href="manifest.webmanifest?v=20260519-2055" />
+<link rel="stylesheet" href="tokens.css?v=20260519-2055" />
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script>
+// Жёсткий cache-bust: убиваем service worker если он зарегистрирован старым и чистим cache storage
+(function(){
+  try {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(r => r.unregister()));
+    }
+    if (window.caches && caches.keys) {
+      caches.keys().then(keys => keys.forEach(k => caches.delete(k)));
+    }
+  } catch(e) {}
+})();
+</script>
 <style>
   html { background: #FAF7F2; overscroll-behavior: none; }
   html, body { margin: 0; min-height: 100%; background: var(--bg, #FAF7F2); }
@@ -2253,9 +2270,11 @@ async function init() {
   }
   await checkAdmin();
   render();
-  if ('serviceWorker' in navigator && !(tg && tg.initData)) {
-    navigator.serviceWorker.register('sw.js').catch(() => {});
-  }
+  // Service Worker не регистрируем: внутри Telegram он только мешает (агрессивный кэш HTML/JS).
+  // Если хочешь PWA-режим в браузере — раскомментируй ниже.
+  // if ('serviceWorker' in navigator && !(tg && tg.initData)) {
+  //   navigator.serviceWorker.register('sw.js?v=20260519-2055').catch(() => {});
+  // }
 }
 init();
 </script>

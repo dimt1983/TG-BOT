@@ -7231,7 +7231,7 @@
           "price": 453.93
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "tags": [],
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
@@ -8217,7 +8217,7 @@
           "price": 165.0
         }
       ],
-      "stock": 0,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": true,
@@ -9417,7 +9417,7 @@
           "price": 670.0
         }
       ],
-      "stock": 0,
+      "stock": 25,
       "tags": [],
       "photo": null,
       "quarantined": true,
@@ -10809,7 +10809,7 @@
           "price": 890.0
         }
       ],
-      "stock": 12,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -10881,7 +10881,7 @@
           "price": 125.0
         }
       ],
-      "stock": 0,
+      "stock": 79,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_resta_650_для_чайника_молочный_улун.jpg",
       "quarantined": true,
@@ -10905,7 +10905,7 @@
           "price": 1950.0
         }
       ],
-      "stock": 0,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": true,
@@ -10929,7 +10929,7 @@
           "price": 1935.0
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/t-набор_tasteabrew_с_новым_годом_и_рождеством_.jpg",
       "quarantined": true,
@@ -10953,7 +10953,7 @@
           "price": 1950.0
         }
       ],
-      "stock": 0,
+      "stock": 1,
       "tags": [],
       "photo": "photos/products/t-набор_tasteabrew_согревающий_сет_.jpg",
       "quarantined": true,
@@ -10977,7 +10977,7 @@
           "price": 68.0
         }
       ],
-      "stock": 0,
+      "stock": 120,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_гун_тин_и_саган_дайля_100_.jpg",
       "quarantined": true,
@@ -11001,7 +11001,7 @@
           "price": 72.0
         }
       ],
-      "stock": 0,
+      "stock": 211,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg",
       "quarantined": true,
@@ -11025,7 +11025,7 @@
           "price": 62.0
         }
       ],
-      "stock": 0,
+      "stock": 30,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100.jpg",
       "quarantined": true,
@@ -12484,7 +12484,7 @@
       "id": "c-e_roastberry_перу_схг_упак_200_г",
       "category": "retail",
       "subcategory": "retail_espresso",
-      "name": "E \"Roastberry\" Перу СХГ упак. 200 г",
+      "name": "E \"Roastberry\" Перу СХГ",
       "country": "Перу",
       "roast": "E",
       "process": "Мытая",
@@ -12831,7 +12831,7 @@
           "photo": null
         }
       ],
-      "stock": 5,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13526,7 +13526,7 @@
       "id": "c-be_roastberry_fresh_-_1_кг",
       "category": "retail",
       "subcategory": "retail_blend",
-      "name": "BE \"Roastberry\" FRESH  - 1 кг",
+      "name": "BE \"Roastberry\" FRESH",
       "country": "",
       "roast": "E",
       "process": "",
@@ -13536,8 +13536,8 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true,
+          "price": 2160.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
@@ -13553,7 +13553,7 @@
       "id": "c-be_roastberry_эспрессо_смесь_-_1_кг",
       "category": "retail",
       "subcategory": "retail_blend",
-      "name": "BE \"Roastberry\" ЭСПРЕССО СМЕСЬ  - 1 кг",
+      "name": "BE \"Roastberry\" ЭСПРЕССО СМЕСЬ",
       "country": "",
       "roast": "E",
       "process": "",
@@ -14019,7 +14019,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 37,
+      "stock": 2,
       "on_request": true,
       "subcategory": "espresso_mono",
       "roast": "E",
@@ -14037,7 +14037,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 15,
+      "stock": 3,
       "on_request": true,
       "subcategory": "espresso_mono",
       "roast": "E",
@@ -14056,7 +14056,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 0,
+      "stock": 35,
       "on_request": true,
       "subcategory": "filter_mono",
       "quarantined": true,
@@ -14078,7 +14078,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 22,
+      "stock": 3,
       "on_request": true,
       "subcategory": "filter_mono",
       "roast": "F",
@@ -14097,7 +14097,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 26,
+      "stock": 14,
       "on_request": true,
       "subcategory": "filter_mono",
       "roast": "F",
@@ -14116,7 +14116,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 0,
+      "stock": 12,
       "on_request": true,
       "subcategory": "filter_mono",
       "quarantined": true,
@@ -14157,7 +14157,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 12,
+      "stock": 3,
       "on_request": true,
       "subcategory": "filter_mono",
       "roast": "F",
@@ -14165,24 +14165,24 @@
     },
     {
       "id": "retail_be_roastberry_биттер_-_1_кг",
-      "name": "BE \"Roastberry\" БИТТЕР - 1 кг",
+      "name": "BE \"Roastberry\" БИТТЕР",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true,
+          "price": 1910.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_retail.svg"
         },
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true,
+          "price": 410.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 0,
+      "stock": 35,
       "on_request": true,
       "subcategory": "retail_blend",
       "quarantined": true,
@@ -14194,24 +14194,24 @@
     },
     {
       "id": "retail_be_roastberry_венеция_-_1_кг",
-      "name": "BE \"Roastberry\" ВЕНЕЦИЯ - 1 кг",
+      "name": "BE \"Roastberry\" ВЕНЕЦИЯ",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true,
+          "price": 2015.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_retail.svg"
         },
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true,
+          "price": 435.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 0,
+      "stock": 16,
       "on_request": true,
       "subcategory": "retail_blend",
       "quarantined": true,
@@ -14223,20 +14223,20 @@
     },
     {
       "id": "retail_be_roastberry_классика_20_-_1_кг",
-      "name": "BE \"Roastberry\" КЛАССИКА 20%  - 1 кг",
+      "name": "BE \"Roastberry\" КЛАССИКА 20%",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true,
+          "price": 1975.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_retail.svg"
         },
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true,
+          "price": 425.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
@@ -14252,24 +14252,24 @@
     },
     {
       "id": "retail_be_roastberry_хани_-_1_кг",
-      "name": "BE \"Roastberry\" ХАНИ - 1 кг",
+      "name": "BE \"Roastberry\" ХАНИ",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true,
+          "price": 2015.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_retail.svg"
         },
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true,
+          "price": 435.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 0,
+      "stock": 19,
       "on_request": true,
       "subcategory": "retail_blend",
       "quarantined": true,
@@ -14281,14 +14281,14 @@
     },
     {
       "id": "retail_bf_roastberry_лунго_-_1_кг",
-      "name": "BF \"Roastberry\" ЛУНГО - 1 кг",
+      "name": "BF \"Roastberry\" ЛУНГО",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true,
+          "price": 2015.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_retail.svg"
         },
         {
@@ -14297,7 +14297,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 0,
+      "stock": 16,
       "on_request": true,
       "subcategory": "retail_blend",
       "quarantined": true,
@@ -14309,7 +14309,7 @@
     },
     {
       "id": "retail_e_roastberry_бразилия_паже_-_1_кг",
-      "name": "E \"Roastberry\" Бразилия Паже - 1 кг",
+      "name": "E \"Roastberry\" Бразилия Паже",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
@@ -14324,7 +14324,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 27,
+      "stock": 15,
       "on_request": true,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -14332,24 +14332,24 @@
     },
     {
       "id": "retail_e_roastberry_бразилия_сан_рафаель_-_1_кг",
-      "name": "E \"Roastberry\" Бразилия Сан Рафаель - 1 кг",
+      "name": "E \"Roastberry\" Бразилия Сан Рафаель",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true,
+          "price": 2070.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_retail.svg"
         },
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true,
+          "price": 445.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 0,
+      "stock": 283,
       "on_request": true,
       "subcategory": "retail_espresso",
       "quarantined": true,
@@ -14361,18 +14361,18 @@
     },
     {
       "id": "retail_e_roastberry_гватемала_декаф_-_1_кг",
-      "name": "E \"Roastberry\" Гватемала Декаф - 1 кг",
+      "name": "E \"Roastberry\" Гватемала Декаф",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true,
+          "price": 2440.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 0,
+      "stock": 4,
       "on_request": true,
       "subcategory": "retail_espresso",
       "quarantined": true,
@@ -14384,24 +14384,24 @@
     },
     {
       "id": "retail_e_roastberry_колумбия_андино_-_1_кг",
-      "name": "E \"Roastberry\" Колумбия Андино - 1 кг",
+      "name": "E \"Roastberry\" Колумбия Андино",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true,
+          "price": 2150.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_retail.svg"
         },
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true,
+          "price": 465.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 0,
+      "stock": 6,
       "on_request": true,
       "subcategory": "retail_espresso",
       "quarantined": true,
@@ -14413,7 +14413,7 @@
     },
     {
       "id": "retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг",
-      "name": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг",
+      "name": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
@@ -14428,7 +14428,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 48,
+      "stock": 14,
       "on_request": true,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -14436,7 +14436,7 @@
     },
     {
       "id": "retail_f_roastberry_гватемала_уетенанго_-_1_кг",
-      "name": "F \"Roastberry\" Гватемала Уетенанго - 1 кг",
+      "name": "F \"Roastberry\" Гватемала Уетенанго",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
@@ -14454,7 +14454,7 @@
     },
     {
       "id": "retail_e_roastberry_бразилия_серадо_200_г",
-      "name": "E \"Roastberry\" Бразилия Серадо  упак. 200 г",
+      "name": "E \"Roastberry\" Бразилия Серадо",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
@@ -14472,7 +14472,7 @@
     },
     {
       "id": "retail_e_roastberry_бразилия_серадо_дарк_200_г",
-      "name": "E \"Roastberry\" Бразилия Серадо Дарк  упак. 200 г",
+      "name": "E \"Roastberry\" Бразилия Серадо Дарк",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
@@ -14490,7 +14490,7 @@
     },
     {
       "id": "retail_e_roastberry_гватемала_декаф_200_г",
-      "name": "E \"Roastberry\" Гватемала Декаф упак. 200 гр.",
+      "name": "E \"Roastberry\" Гватемала Декаф",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
@@ -14508,7 +14508,7 @@
     },
     {
       "id": "retail_e_roastberry_гватемала_уетенанго_200_г",
-      "name": "E \"Roastberry\" Гватемала Уетенанго упак. 200 гр.",
+      "name": "E \"Roastberry\" Гватемала Уетенанго",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
@@ -14526,7 +14526,7 @@
     },
     {
       "id": "retail_e_roastberry_уганада_рувензор_200_г",
-      "name": "E \"Roastberry\" Уганада Рувензор упак. 200 г",
+      "name": "E \"Roastberry\" Уганада Рувензор",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
@@ -14562,7 +14562,7 @@
     },
     {
       "id": "retail_f_roastberry_гватемала_уетенанго_200_г",
-      "name": "F \"Roastberry\" Гватемала Уетенанго упак. 200 гр.",
+      "name": "F \"Roastberry\" Гватемала Уетенанго",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
@@ -14585,7 +14585,7 @@
     },
     {
       "id": "retail_f_roastberry_кения_аа_200_г",
-      "name": "F \"Roastberry\" Кения АА упак. 200 г",
+      "name": "F \"Roastberry\" Кения АА",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
@@ -14595,7 +14595,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 27,
+      "stock": 17,
       "on_request": true,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -14603,18 +14603,18 @@
     },
     {
       "id": "retail_f_roastberry_кения_аб_200_г",
-      "name": "F \"Roastberry\" Кения АБ упак. 200 г",
+      "name": "F \"Roastberry\" Кения АБ",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true,
+          "price": 530.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 0,
+      "stock": 10,
       "on_request": true,
       "subcategory": "retail_filter",
       "quarantined": true,
@@ -14626,7 +14626,7 @@
     },
     {
       "id": "retail_f_roastberry_китаи_симао_200_г",
-      "name": "F \"Roastberry\" Китай Симао упак. 200 г",
+      "name": "F \"Roastberry\" Китай Симао",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
@@ -14644,7 +14644,7 @@
     },
     {
       "id": "retail_f_roastberry_колумбия_андино_200_г",
-      "name": "F \"Roastberry\" Колумбия Андино упак. 200 г",
+      "name": "F \"Roastberry\" Колумбия Андино",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
@@ -14654,7 +14654,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 33,
+      "stock": 18,
       "on_request": true,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -14665,7 +14665,7 @@
     },
     {
       "id": "retail_f_roastberry_танзания_200_г",
-      "name": "F \"Roastberry\" Танзания упак. 200 гр",
+      "name": "F \"Roastberry\" Танзания",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
@@ -14683,7 +14683,7 @@
     },
     {
       "id": "retail_f_roastberry_эфиопия_иргачиф_г2_200_г",
-      "name": "F \"Roastberry\" Эфиопия Иргачиф Гр.2 упак. 200 г",
+      "name": "F \"Roastberry\" Эфиопия Иргачиф Гр.2",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
@@ -14693,7 +14693,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 16,
+      "stock": 1,
       "on_request": true,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -14701,7 +14701,7 @@
     },
     {
       "id": "retail_f_roastberry_эфиопия_лиму_200_г",
-      "name": "F \"Roastberry\" Эфиопия Лиму упак. 200 г",
+      "name": "F \"Roastberry\" Эфиопия Лиму",
       "category": "retail",
       "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
@@ -14891,7 +14891,7 @@
           "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
-      "stock": 11,
+      "stock": 9,
       "on_request": true,
       "roast": "E",
       "subcategory": null,
