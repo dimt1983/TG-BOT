@@ -9,9 +9,10 @@
 <link rel="stylesheet" href="tokens.css" />
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
+  html { background: #FAF7F2; overscroll-behavior: none; }
   html, body { margin: 0; min-height: 100%; background: var(--bg, #FAF7F2); }
-  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; overscroll-behavior-y: contain; }
-  #root { min-height: 100vh; padding-bottom: 110px; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; overscroll-behavior: none; background-color: var(--bg, #FAF7F2); }
+  #root { min-height: 100vh; padding-bottom: 110px; background: var(--bg, #FAF7F2); }
   .rb a { color: inherit; }
   .rb button { font: inherit; }
   @keyframes rb-blink { 50% { opacity: 0 } }
@@ -1917,7 +1918,7 @@ const rb = {
   openFasovkaSplit(size) {
     const snap = _navSnapshot();
     STATE.fasovkaSplit = size;
-    STATE.subcat = null;
+    // STATE.subcat НЕ сбрасываем — он нужен для определения какой retail-подкатегории показать товары.
     STATE.showAll = false;
     resetFilters();
     if (!_isSameNav(snap, _navSnapshot())) STATE.history.push(snap);
@@ -2235,6 +2236,9 @@ async function init() {
   loadLocal();
   if (tg) {
     try { tg.ready(); tg.expand(); } catch(e){}
+    try { tg.setBackgroundColor('#FAF7F2'); } catch(e){}
+    try { tg.setHeaderColor('#FAF7F2'); } catch(e){}
+    try { tg.disableVerticalSwipes && tg.disableVerticalSwipes(); } catch(e){}
     if (tg.BackButton) {
       try { tg.BackButton.onClick(() => rb.back()); } catch(e){}
     }
