@@ -620,8 +620,28 @@ ${tabBar('home')}
 /* ════════════════════════════════════════════════════════════════════
    SCREEN: CATALOG — drill-down + рабочие фильтры
    ════════════════════════════════════════════════════════════════════ */
-function _stripEmoji(s) { return String(s||'').replace(/[\u{1F300}-\u{1F6FF}\u{2600}-\u{27BF}\u{1F900}-\u{1F9FF}]/gu, '').replace(/\s+/g, ' ').trim(); }
+function _stripEmoji(s) {
+  s = String(s || '');
+  try {
+    s = s.replace(/\p{Extended_Pictographic}/gu, '');
+  } catch (e) {
+    s = s.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{1F900}-\u{1F9FF}]/gu, '');
+  }
+  return s.replace(/[️‍]/g, '').replace(/\s+/g, ' ').trim();
+}
 function _subcatsOf(parentId) { return STATE.data.subcategories.filter(s => s.parent === parentId); }
+
+/* Чип с остатками для карточки каталога. Брендовые chip-классы из tokens.css. */
+function stockBadge(p) {
+  const STYLE = 'padding:1px 7px; font-size:10px; height:18px;';
+  if (p && p.on_request) return `<span class="chip chip--ink" style="${STYLE}">По запросу</span>`;
+  const s = (p || {}).stock;
+  if (typeof s !== 'number') return '';
+  if (s <= 0) return `<span class="chip" style="${STYLE} background:var(--surface-2); color:var(--ink-faint); border-color:var(--line);">Нет в наличии</span>`;
+  if (s < 5)  return `<span class="chip chip--amber"  style="${STYLE}">Осталось ${s}</span>`;
+  if (s < 20) return `<span class="chip chip--copper" style="${STYLE}">${s} в наличии</span>`;
+  return `<span class="chip chip--green" style="${STYLE}">${s} в наличии</span>`;
+}
 function _hasChildren(subId) { return _subcatsOf(subId).length > 0; }
 function _productsInTree(rootId) {
   // все товары под этим узлом (категория ИЛИ подкатегория), включая потомков
@@ -855,7 +875,6 @@ function screenCatalog() {
           ${list.slice(0, 80).map(p => {
             const fa = (p.fasovka || [])[0] || {};
             const meta = [p.process, p.variety, p.altitude].filter(Boolean).join(' · ');
-            const lowStock = typeof p.stock === 'number' && p.stock > 0 && p.stock < 5;
             const isLim = (p.tags || []).some(t => /лимит/i.test(t)) || (p.tags || []).includes('Микролот');
             return `
               <div onclick="rb.openProduct('${esc(p.id)}')" style="display:flex; gap:12px; padding:14px; background:var(--surface); align-items:center; cursor:pointer;">
@@ -865,8 +884,7 @@ function screenCatalog() {
                     ${flagDot(p.country)}
                     ${p.roast ? `<span class="roast${p.roast === 'F' ? ' roast--f' : ''}" style="width:16px; height:16px; font-size:9px;">${esc(p.roast)}</span>` : ''}
                     ${isLim ? `<span class="chip chip--copper" style="padding:1px 7px; font-size:10px; height:18px;">Лимит</span>` : ''}
-                    ${lowStock ? `<span class="chip chip--amber" style="padding:1px 7px; font-size:10px; height:18px;">Осталось ${p.stock}</span>` : ''}
-                    ${p.on_request ? `<span class="chip chip--ink" style="padding:1px 7px; font-size:10px; height:18px;">По запросу</span>` : ''}
+                    ${stockBadge(p)}
                   </div>
                   <div style="font-family:var(--f-display); font-weight:700; font-size:15px; line-height:1.15; margin-bottom:3px;">${esc(p.name)}</div>
                   <div class="meta" style="font-size:9.5px; color:var(--ink-faint);">${esc(meta || ' ')}</div>
