@@ -444,7 +444,7 @@
       "subcategory": "espresso_mono",
       "name": "Танзания АА",
       "country": "Танзания",
-      "roast": "F",
+      "roast": "E",
       "process": "Мытая",
       "description": "Чернослив, чёрный чай, пряности, красное яблоко.",
       "recipe_e": null,
@@ -681,7 +681,7 @@
       "subcategory": "espresso_mono",
       "name": "Перу Монте Верде",
       "country": "Перу",
-      "roast": "F",
+      "roast": "E",
       "process": "Натуральная",
       "description": "Молочный шоколад, йогурт, карамель, ром, ананас.",
       "recipe_e": null,
@@ -718,7 +718,7 @@
       "subcategory": "espresso_mono",
       "name": "Кения АА",
       "country": "Кения",
-      "roast": "F",
+      "roast": "E",
       "process": "Мытая",
       "description": "Ягоды, специи, малиновый джем, карамель. Q 84,25",
       "recipe_e": null,
@@ -761,7 +761,7 @@
       "subcategory": "filter_mono",
       "name": "Кения АБ Центральная провинция",
       "country": "Кения",
-      "roast": "EF",
+      "roast": "F",
       "process": "Мытая",
       "description": "Вишня, цитрус, ревень, карамель. Q 85",
       "recipe_e": "☕ *Эспрессо (Кения АБ):*\n• Помол: мелкий (20–22 делений)\n• Навеска: 18 г\n• Выход: 38–42 г\n• Время: 26–30 сек\n• Температура: 92–93°C\n\n_Необычная кислотность для эспрессо — интересный выбор для кофе с молоком._",
@@ -803,7 +803,7 @@
       "subcategory": "espresso_mono",
       "name": "Колумбия Андино",
       "country": "Колумбия",
-      "roast": "EF",
+      "roast": "E",
       "process": "Мытая",
       "description": "Зелёное яблоко, красные ягоды, чёрная смородина, цитрусы, шиповник, абрикос. Q 83,75",
       "recipe_e": "☕ *Эспрессо (Колумбия Андино):*\n• Помол: мелкий (20 делений)\n• Навеска: 18 г\n• Выход: 36–40 г\n• Время: 26–30 сек\n• Температура: 93°C\n\n_Яркая фруктовая кислотность, хороша в холодном эспрессо._",
@@ -969,7 +969,7 @@
       "subcategory": "espresso_mono",
       "name": "Эфиопия Сидамо гр.2 Гуджи",
       "country": "Эфиопия",
-      "roast": "EF",
+      "roast": "E",
       "process": "Мытая",
       "description": "Зелёное яблоко, мандарин, грейпфрут, изюм, лимонный леденец. Q 84",
       "recipe_e": "☕ *Эспрессо (Сидамо Гуджи):*\n• Помол: мелкий (20–22 делений)\n• Навеска: 18 г\n• Выход: 40–44 г\n• Время: 26–30 сек\n• Температура: 92°C\n\n_Цитрусовый и чистый — интересный выбор для тех, кто любит «яркий» эспрессо._",
@@ -1164,7 +1164,7 @@
       "category": "espresso",
       "name": "Эфиопия Белойя гр.2",
       "country": "Эфиопия",
-      "roast": "F",
+      "roast": "E",
       "process": "Natural",
       "description": "Персик, вишня, красный апельсин, цветочный мёд.",
       "recipe_e": null,
@@ -1236,7 +1236,7 @@
       "category": "espresso",
       "name": "Колумбия Клаудиа Колменарес",
       "country": "Колумбия",
-      "roast": "F",
+      "roast": "E",
       "process": "Washed",
       "description": "Сладкая выпечка, сухофрукты, цветы, лайм, молочный шоколад. Q 86",
       "recipe_e": null,
@@ -1273,7 +1273,7 @@
       "subcategory": "espresso_micro",
       "name": "Эфиопия Челчеле гр.1",
       "country": "Эфиопия",
-      "roast": "F",
+      "roast": "E",
       "process": "Natural",
       "description": "Бергамот, тёмная слива, черника, специи, чёрный чай.",
       "recipe_e": null,
@@ -1309,7 +1309,7 @@
       "category": "espresso",
       "name": "Эфиопия Арича гр.1",
       "country": "Эфиопия",
-      "roast": "F",
+      "roast": "E",
       "process": "Natural",
       "description": "Абрикос, клубника, апельсин, красные ягоды, красное яблоко, чернослив.",
       "recipe_e": null,
@@ -1344,7 +1344,7 @@
       "category": "espresso",
       "name": "Колумбия Хайро Арсила Натуральная",
       "country": "Колумбия",
-      "roast": "F",
+      "roast": "E",
       "process": "Natural",
       "description": "Красные ягоды, красные фрукты, травяной чай, тростниковый сахар.",
       "recipe_e": null,
@@ -1427,7 +1427,7 @@
       "subcategory": "espresso_mono",
       "name": "КЛАССИКА",
       "country": "КЛАССИКА",
-      "roast": "BE",
+      "roast": "E",
       "process": "Brazil Natural + India Robusta",
       "description": "Лесной орех, какао, изюм.",
       "recipe_e": "☕ *Эспрессо (КЛАССИКА):*\n• Помол: мелкий (16–18 делений)\n• Навеска: 18–20 г\n• Выход: 36–42 г\n• Время: 25–30 сек\n• Температура: 93–94°C\n\n_Классический итальянский эспрессо — плотный, с горчинкой._",
@@ -1469,7 +1469,7 @@
       "subcategory": "espresso_mono",
       "name": "БИТТЕР",
       "country": "БИТТЕР",
-      "roast": "BE",
+      "roast": "E",
       "process": "Brazil Natural + India Robusta",
       "description": "Тёмный шоколад, какао, цитрусы.",
       "recipe_e": "☕ *Эспрессо (БИТТЕР):*\n• Помол: мелкий (16–18 делений)\n• Навеска: 18–20 г\n• Выход: 34–38 г\n• Время: 24–28 сек\n• Температура: 92–93°C\n\n_Горький шоколад и какао — для ценителей насыщенной горчинки._",
@@ -1510,7 +1510,7 @@
       "subcategory": "espresso_mono",
       "name": "ХАНИ",
       "country": "ХАНИ",
-      "roast": "BE",
+      "roast": "E",
       "process": "Brazil Natural + Ethiopia Natural",
       "description": "Молочный шоколад, цветочный мёд, цитрусы.",
       "recipe_e": "☕ *Эспрессо (ХАНИ):*\n• Помол: мелкий (18–20 делений)\n• Навеска: 18 г\n• Выход: 36–40 г\n• Время: 25–30 сек\n• Температура: 93°C\n\n_Мёд и молочный шоколад — нежный блэнд. Идеален в латте._",
@@ -1550,7 +1550,7 @@
       "subcategory": "espresso_mono",
       "name": "ВЕНЕЦИЯ",
       "country": "ВЕНЕЦИЯ",
-      "roast": "BE",
+      "roast": "E",
       "process": "Brazil Natural + Ethiopia Natural",
       "description": "Горький шоколад, тёмная карамель, специи.",
       "recipe_e": "☕ *Эспрессо (ВЕНЕЦИЯ):*\n• Помол: мелкий (18–20 делений)\n• Навеска: 18 г\n• Выход: 36–40 г\n• Время: 25–29 сек\n• Температура: 93°C\n\n_Пряный шоколадный блэнд с глубокой карамелью._",
@@ -1591,7 +1591,7 @@
       "subcategory": "espresso_mono",
       "name": "ЛУНГО",
       "country": "ЛУНГО",
-      "roast": "BF",
+      "roast": "E",
       "process": "Brazil Natural + Ethiopia Natural",
       "description": "Цитрусы, орехи, молочный шоколад.",
       "recipe_e": null,
@@ -1633,7 +1633,7 @@
       "subcategory": "filter_mono",
       "name": "Бразилия Сертао Жёлтый Бурбон",
       "country": "CHOCOLATE",
-      "roast": "Дрип",
+      "roast": "F",
       "process": "Помол под фильтр",
       "description": "Цитрусы, сухофрукты, тёмный шоколад, какао.",
       "recipe_e": "",
@@ -1666,7 +1666,7 @@
       "subcategory": "espresso_mono",
       "name": "Гватемала Уетенанго",
       "country": "CHOCOLATE",
-      "roast": "Дрип",
+      "roast": "E",
       "process": "Помол под фильтр",
       "description": "Зелёное яблоко, вишня, сухофрукты, миндаль.",
       "recipe_e": "",
@@ -1708,7 +1708,7 @@
       "subcategory": "espresso_mono",
       "name": "Гватемала Финка Медина",
       "country": "CHOCOLATE",
-      "roast": "Дрип",
+      "roast": "E",
       "process": "Помол под фильтр",
       "description": "Изюм, красное яблоко, мёд.",
       "recipe_e": "",
@@ -1743,7 +1743,7 @@
       "subcategory": "espresso_mono",
       "name": "Коста-Рика Тарразу Ла Пастора",
       "country": "CHOCOLATE",
-      "roast": "Дрип",
+      "roast": "E",
       "process": "Помол под фильтр",
       "description": "Цитрусы, красные ягоды, чёрный чай, тёмный шоколад.",
       "recipe_e": "",
@@ -1782,7 +1782,7 @@
       "subcategory": "espresso_mono",
       "name": "Колумбия Питалито Без Кофеина",
       "country": "CHOCOLATE",
-      "roast": "Дрип",
+      "roast": "E",
       "process": "Помол под фильтр",
       "description": "Красное яблоко, тростниковый сахар, миндаль.",
       "recipe_e": "",
@@ -1817,7 +1817,7 @@
       "subcategory": "espresso_mono",
       "name": "Эфиопия Иргачиф (Drip)",
       "country": "FLOWER",
-      "roast": "Дрип",
+      "roast": "E",
       "process": "Помол под фильтр",
       "description": "Абрикос, миндаль, цветы, чай с бергамотом.",
       "recipe_e": "",
@@ -1853,7 +1853,7 @@
       "subcategory": "espresso_mono",
       "name": "Кения АА (Drip)",
       "country": "FLOWER",
-      "roast": "Дрип",
+      "roast": "E",
       "process": "Помол под фильтр",
       "description": "Красные ягоды, специи, малиновый джем, карамель.",
       "recipe_e": "",
@@ -1888,7 +1888,7 @@
       "subcategory": "espresso_mono",
       "name": "Колумбия Клаудиа Колменарес (Drip)",
       "country": "FRUIT",
-      "roast": "Дрип",
+      "roast": "E",
       "process": "Помол под фильтр",
       "description": "Сладкая выпечка, сухофрукты, цветы, лайм.",
       "recipe_e": "",
@@ -1923,7 +1923,7 @@
       "subcategory": "espresso_mono",
       "name": "Эфиопия Бомбе",
       "country": "FRUIT",
-      "roast": "Дрип",
+      "roast": "E",
       "process": "Помол под фильтр",
       "description": "Красный апельсин, персик, карамель, красные яблоки.",
       "recipe_e": "",
@@ -1964,7 +1964,7 @@
       "subcategory": "espresso_mono",
       "name": "Кения Моунт С",
       "country": "FRUIT",
-      "roast": "Дрип",
+      "roast": "E",
       "process": "Помол под фильтр",
       "description": "Зелёное яблоко, красные ягоды, карамель.",
       "recipe_e": "",
@@ -2005,7 +2005,7 @@
       "subcategory": "espresso_mono",
       "name": "Колумбия Супремо (Drip)",
       "country": "FRUIT",
-      "roast": "Дрип",
+      "roast": "E",
       "process": "Помол под фильтр",
       "description": "Зелёное яблоко, красные ягоды, карамель.",
       "recipe_e": "",
@@ -2046,7 +2046,7 @@
       "subcategory": "espresso_mono",
       "name": "Колумбия Ла Кумбре",
       "country": "FRUIT",
-      "roast": "Дрип",
+      "roast": "E",
       "process": "Помол под фильтр",
       "description": "Вишня, сушёное яблоко, миндаль.",
       "recipe_e": "",
@@ -2081,7 +2081,7 @@
       "subcategory": "espresso_mono",
       "name": "Колумбия Гонзало Кармона (Drip)",
       "country": "FUNKI",
-      "roast": "Дрип",
+      "roast": "E",
       "process": "Помол под фильтр",
       "description": "Шоколад с ликёром, тропические фрукты, красные ягоды.",
       "recipe_e": "",
@@ -2116,7 +2116,7 @@
       "subcategory": "espresso_mono",
       "name": "Бразилия Серрадо (Nespresso)",
       "country": "CHOCOLATE",
-      "roast": "Nespresso",
+      "roast": "E",
       "process": "Капсула",
       "description": "Сухофрукты, тёмный шоколад.",
       "recipe_e": "Вставь капсулу в Nespresso Original. Эспрессо (40 мл) или лунго (110 мл).",
@@ -2151,7 +2151,7 @@
       "subcategory": "espresso_mono",
       "name": "Бразилия Пибери",
       "country": "CHOCOLATE",
-      "roast": "Nespresso",
+      "roast": "E",
       "process": "Капсула",
       "description": "Косточковые фрукты, шоколад, цитрусовые.",
       "recipe_e": "Вставь капсулу в Nespresso Original. Эспрессо (40 мл) или лунго (110 мл).",
@@ -2186,7 +2186,7 @@
       "subcategory": "espresso_mono",
       "name": "Колумбия (Nespresso)",
       "country": "FRUIT",
-      "roast": "Nespresso",
+      "roast": "E",
       "process": "Капсула",
       "description": "Карамель, яблоко, кешью.",
       "recipe_e": "Вставь капсулу в Nespresso Original. Эспрессо (40 мл) или лунго (110 мл).",
@@ -2221,7 +2221,7 @@
       "subcategory": "espresso_mono",
       "name": "Эфиопия Сидамо (Nespresso)",
       "country": "FLOWER",
-      "roast": "Nespresso",
+      "roast": "E",
       "process": "Капсула",
       "description": "Персик, лимон, чёрный чай.",
       "recipe_e": "Вставь капсулу в Nespresso Original. Эспрессо (40 мл) или лунго (110 мл).",
@@ -11095,7 +11095,7 @@
       "category": "filter",
       "subcategory": "filter_micro",
       "country": "Эфиопия",
-      "roast": "E",
+      "roast": "F",
       "process": "Мытая",
       "altitude": "1900–2100 м",
       "tags": [
@@ -11168,7 +11168,7 @@
       "category": "espresso",
       "name": "Колумбия Кастильо",
       "country": "Колумбия",
-      "roast": "BE",
+      "roast": "E",
       "process": "мытая",
       "description": "",
       "recipe_e": "",
@@ -11238,7 +11238,7 @@
       "category": "espresso",
       "name": "Колумбия Пачамама",
       "country": "Колумбия",
-      "roast": "BE",
+      "roast": "E",
       "process": "натуральная анаэробная",
       "description": "",
       "recipe_e": "",
@@ -11307,7 +11307,7 @@
       "category": "espresso",
       "name": "Колумбия Маракуйя",
       "country": "Колумбия",
-      "roast": "BE",
+      "roast": "E",
       "process": "хани инфьюз",
       "description": "",
       "recipe_e": "",
@@ -11340,7 +11340,7 @@
       "subcategory": "espresso_mono",
       "name": "Китай Симао гр.1 мытый",
       "country": "Китай",
-      "roast": "E F",
+      "roast": "E",
       "process": "Мытая",
       "description": "",
       "recipe_e": "",
@@ -11380,7 +11380,7 @@
       "subcategory": "espresso_mono",
       "name": "CLASSICA #1",
       "country": "",
-      "roast": "BE",
+      "roast": "E",
       "process": "",
       "description": "",
       "recipe_e": "",
@@ -11415,7 +11415,7 @@
       "subcategory": "espresso_mono",
       "name": "ХАНИ",
       "country": "",
-      "roast": "BE",
+      "roast": "E",
       "process": "",
       "description": "",
       "recipe_e": "",
@@ -11450,7 +11450,7 @@
       "category": "espresso",
       "name": "Бразилия SL28 Хани анаэробная",
       "country": "Бразилия",
-      "roast": "F",
+      "roast": "E",
       "process": "Анаэробная хани",
       "description": "",
       "recipe_e": "",
@@ -11485,7 +11485,7 @@
       "category": "espresso",
       "name": "Бразилия Судан Руме анаэробная",
       "country": "Бразилия",
-      "roast": "F",
+      "roast": "E",
       "process": "Анаэробная",
       "description": "",
       "recipe_e": "",
@@ -11520,7 +11520,7 @@
       "category": "espresso",
       "name": "Бразилия Фазенда Лагуинья мундо анаэробная",
       "country": "Бразилия",
-      "roast": "F",
+      "roast": "E",
       "process": "Анаэробная",
       "description": "",
       "recipe_e": "",
@@ -11732,7 +11732,7 @@
       "category": "espresso",
       "name": "Колумбия Гонзало Кармана Катура сухой - 1 кг FILTER",
       "country": "Колумбия",
-      "roast": "F",
+      "roast": "E",
       "process": "Натуральная",
       "description": "Красные ягоды, красные фрукты, травяной чай, тростниковый сахар.",
       "recipe_e": "",
@@ -12666,7 +12666,7 @@
       "subcategory": "filter_mono",
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "country": "Гватемала",
-      "roast": "E",
+      "roast": "F",
       "process": "Мытая",
       "description": "Курага, чернослив, изюм, карамель, какао, сладкая выпечка, пряности. Q 83",
       "recipe_e": "☕ *Эспрессо (Гватемала Декаф):*\n• Помол: мелкий (18–20 делений)\n• Навеска: 18 г\n• Выход: 36–42 г\n• Время: 26–30 сек\n• Температура: 93–94°C\n\n_Декаф без потери вкуса — пряности и карамель прекрасно раскрываются вечером._",
@@ -13173,7 +13173,8 @@
       ],
       "stock": 37,
       "on_request": true,
-      "subcategory": "espresso_mono"
+      "subcategory": "espresso_mono",
+      "roast": "E"
     },
     {
       "id": "espresso_перу_монте_верде_г1_сухои_эспрессо_-_1_кг",
@@ -13190,7 +13191,8 @@
       ],
       "stock": 15,
       "on_request": true,
-      "subcategory": "espresso_mono"
+      "subcategory": "espresso_mono",
+      "roast": "E"
     },
     {
       "id": "filter_кения_аа_мытыи_-_1_кг_filter",
@@ -13210,7 +13212,8 @@
       "subcategory": "filter_mono",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "roast": "F"
     },
     {
       "id": "filter_китаи_симао_г1_меллоу_мытыи_1_кг_-_filter",
@@ -13227,7 +13230,8 @@
       ],
       "stock": 22,
       "on_request": true,
-      "subcategory": "filter_mono"
+      "subcategory": "filter_mono",
+      "roast": "F"
     },
     {
       "id": "filter_колумбия_андино_мытыи_-_1_кг_filter",
@@ -13244,7 +13248,8 @@
       ],
       "stock": 26,
       "on_request": true,
-      "subcategory": "filter_mono"
+      "subcategory": "filter_mono",
+      "roast": "F"
     },
     {
       "id": "filter_перу_монте_верде_г1_сухои_-_1_кг_filter",
@@ -13264,7 +13269,8 @@
       "subcategory": "filter_mono",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "roast": "F"
     },
     {
       "id": "filter_танзания_аа_мытыи_-_1_кг_filter",
@@ -13281,7 +13287,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "subcategory": "filter_mono"
+      "subcategory": "filter_mono",
+      "roast": "F"
     },
     {
       "id": "filter_уганда_вугар_мытыи_-_1_кг_filter",
@@ -13298,7 +13305,8 @@
       ],
       "stock": 12,
       "on_request": true,
-      "subcategory": "filter_mono"
+      "subcategory": "filter_mono",
+      "roast": "F"
     },
     {
       "id": "retail_be_roastberry_биттер_-_1_кг",
@@ -13324,7 +13332,8 @@
       "subcategory": "retail_blend",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "roast": "BE"
     },
     {
       "id": "retail_be_roastberry_венеция_-_1_кг",
@@ -13350,7 +13359,8 @@
       "subcategory": "retail_blend",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "roast": "BE"
     },
     {
       "id": "retail_be_roastberry_классика_20_-_1_кг",
@@ -13376,7 +13386,8 @@
       "subcategory": "retail_blend",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "roast": "BE"
     },
     {
       "id": "retail_be_roastberry_хани_-_1_кг",
@@ -13402,7 +13413,8 @@
       "subcategory": "retail_blend",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "roast": "BE"
     },
     {
       "id": "retail_bf_roastberry_лунго_-_1_кг",
@@ -13428,7 +13440,8 @@
       "subcategory": "retail_blend",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "roast": "BE"
     },
     {
       "id": "retail_e_roastberry_бразилия_паже_-_1_кг",
@@ -13450,7 +13463,8 @@
       ],
       "stock": 27,
       "on_request": true,
-      "subcategory": "retail_espresso"
+      "subcategory": "retail_espresso",
+      "roast": "E"
     },
     {
       "id": "retail_e_roastberry_бразилия_сан_рафаель_-_1_кг",
@@ -13476,7 +13490,8 @@
       "subcategory": "retail_espresso",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "roast": "E"
     },
     {
       "id": "retail_e_roastberry_гватемала_декаф_-_1_кг",
@@ -13496,7 +13511,8 @@
       "subcategory": "retail_espresso",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "roast": "E"
     },
     {
       "id": "retail_e_roastberry_колумбия_андино_-_1_кг",
@@ -13522,7 +13538,8 @@
       "subcategory": "retail_espresso",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "roast": "E"
     },
     {
       "id": "retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг",
@@ -13545,7 +13562,8 @@
       ],
       "stock": 48,
       "on_request": true,
-      "subcategory": "retail_espresso"
+      "subcategory": "retail_espresso",
+      "roast": "E"
     },
     {
       "id": "retail_f_roastberry_гватемала_уетенанго_-_1_кг",
@@ -13562,7 +13580,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "subcategory": "retail_filter"
+      "subcategory": "retail_filter",
+      "roast": "F"
     },
     {
       "id": "retail_e_roastberry_бразилия_серадо_200_г",
@@ -13579,7 +13598,8 @@
       ],
       "stock": 15,
       "on_request": true,
-      "subcategory": "retail_espresso"
+      "subcategory": "retail_espresso",
+      "roast": "E"
     },
     {
       "id": "retail_e_roastberry_бразилия_серадо_дарк_200_г",
@@ -13596,7 +13616,8 @@
       ],
       "stock": 9,
       "on_request": true,
-      "subcategory": "retail_espresso"
+      "subcategory": "retail_espresso",
+      "roast": "E"
     },
     {
       "id": "retail_e_roastberry_гватемала_декаф_200_г",
@@ -13613,7 +13634,8 @@
       ],
       "stock": 13,
       "on_request": true,
-      "subcategory": "retail_espresso"
+      "subcategory": "retail_espresso",
+      "roast": "E"
     },
     {
       "id": "retail_e_roastberry_гватемала_уетенанго_200_г",
@@ -13630,7 +13652,8 @@
       ],
       "stock": 9,
       "on_request": true,
-      "subcategory": "retail_espresso"
+      "subcategory": "retail_espresso",
+      "roast": "E"
     },
     {
       "id": "retail_e_roastberry_уганада_рувензор_200_г",
@@ -13647,7 +13670,8 @@
       ],
       "stock": 8,
       "on_request": true,
-      "subcategory": "retail_espresso"
+      "subcategory": "retail_espresso",
+      "roast": "E"
     },
     {
       "id": "retail_f_roastberry_бразилия_сертао_200_г_молотыи",
@@ -13664,7 +13688,8 @@
       ],
       "stock": 22,
       "on_request": true,
-      "subcategory": "retail_filter"
+      "subcategory": "retail_filter",
+      "roast": "F"
     },
     {
       "id": "retail_f_roastberry_гватемала_уетенанго_200_г",
@@ -13684,7 +13709,8 @@
       "subcategory": "retail_filter",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "roast": "F"
     },
     {
       "id": "retail_f_roastberry_кения_аа_200_г",
@@ -13701,7 +13727,8 @@
       ],
       "stock": 27,
       "on_request": true,
-      "subcategory": "retail_filter"
+      "subcategory": "retail_filter",
+      "roast": "F"
     },
     {
       "id": "retail_f_roastberry_кения_аб_200_г",
@@ -13721,7 +13748,8 @@
       "subcategory": "retail_filter",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "roast": "F"
     },
     {
       "id": "retail_f_roastberry_китаи_симао_200_г",
@@ -13738,7 +13766,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "subcategory": "retail_filter"
+      "subcategory": "retail_filter",
+      "roast": "F"
     },
     {
       "id": "retail_f_roastberry_колумбия_андино_200_г",
@@ -13758,7 +13787,8 @@
       "subcategory": "retail_filter",
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "roast": "F"
     },
     {
       "id": "retail_f_roastberry_танзания_200_г",
@@ -13775,7 +13805,8 @@
       ],
       "stock": 9,
       "on_request": true,
-      "subcategory": "retail_filter"
+      "subcategory": "retail_filter",
+      "roast": "F"
     },
     {
       "id": "retail_f_roastberry_эфиопия_иргачиф_г2_200_г",
@@ -13792,7 +13823,8 @@
       ],
       "stock": 16,
       "on_request": true,
-      "subcategory": "retail_filter"
+      "subcategory": "retail_filter",
+      "roast": "F"
     },
     {
       "id": "retail_f_roastberry_эфиопия_лиму_200_г",
@@ -13809,7 +13841,8 @@
       ],
       "stock": 11,
       "on_request": true,
-      "subcategory": "retail_filter"
+      "subcategory": "retail_filter",
+      "roast": "F"
     },
     {
       "id": "black_кофе_roastberry_black_бразилия_бразилия_sl28_хани_",
@@ -13825,7 +13858,8 @@
         }
       ],
       "stock": 13,
-      "on_request": true
+      "on_request": true,
+      "roast": "E"
     },
     {
       "id": "black_кофе_roastberry_black_колумбия_кастильо_мытая_200_",
@@ -13841,7 +13875,8 @@
         }
       ],
       "stock": 14,
-      "on_request": true
+      "on_request": true,
+      "roast": "E"
     },
     {
       "id": "black_кофе_roastberry_black_эфиопия_ададо_200_г",
@@ -13857,7 +13892,8 @@
         }
       ],
       "stock": 15,
-      "on_request": true
+      "on_request": true,
+      "roast": "E"
     },
     {
       "id": "black_кофе_roastberry_black_эфиопия_челелекту_г1_мытыи_2",
@@ -13873,7 +13909,8 @@
         }
       ],
       "stock": 4,
-      "on_request": true
+      "on_request": true,
+      "roast": "E"
     },
     {
       "id": "black_кофе_roastberry_black_эфиопия_челчеле_натур_200_г",
@@ -13889,7 +13926,8 @@
         }
       ],
       "stock": 10,
-      "on_request": true
+      "on_request": true,
+      "roast": "E"
     },
     {
       "id": "borshch_кофе_roastberry_borщ_бразилия_судан_руме_анаэроб_а",
@@ -13905,7 +13943,8 @@
         }
       ],
       "stock": 10,
-      "on_request": true
+      "on_request": true,
+      "roast": "E"
     },
     {
       "id": "borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун",
@@ -13921,7 +13960,8 @@
         }
       ],
       "stock": 11,
-      "on_request": true
+      "on_request": true,
+      "roast": "E"
     },
     {
       "id": "borshch_кофе_roastberry_borщ_колумбия_gonzalo_carmona_кату",
@@ -13937,7 +13977,8 @@
         }
       ],
       "stock": 10,
-      "on_request": true
+      "on_request": true,
+      "roast": "E"
     },
     {
       "id": "borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью",
@@ -13953,7 +13994,8 @@
         }
       ],
       "stock": 9,
-      "on_request": true
+      "on_request": true,
+      "roast": "E"
     },
     {
       "id": "borshch_кофе_roastberry_borщ_колумбия_пачамама_нат_анаэроб",
@@ -13969,7 +14011,8 @@
         }
       ],
       "stock": 11,
-      "on_request": true
+      "on_request": true,
+      "roast": "E"
     },
     {
       "id": "borshch_кофе_roastberry_borщ_колумбия_хаи_ро_арсила_нат_20",
@@ -13985,7 +14028,8 @@
         }
       ],
       "stock": 6,
-      "on_request": true
+      "on_request": true,
+      "roast": "E"
     },
     {
       "id": "cascara_каскара_коста-рико_уп_100_г",
