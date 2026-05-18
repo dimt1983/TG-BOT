@@ -399,11 +399,11 @@
         "грецкий орех",
         "карамель"
       ],
-      "hidden": true,
+      "hidden": false,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "нет в RB-BOT.xlsx (миграция категорий)"
+      "quarantine_reason": null
     },
     {
       "id": "c-уганда_вугар_элгон",
@@ -428,7 +428,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 9,
+      "stock": 0,
       "tags": [],
       "aroma": "Специи, грецкий орех, фундук",
       "taste": "Тёмный шоколад, орехи",
@@ -445,9 +445,9 @@
         "специи",
         "чёрный чай"
       ],
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "hidden": false,
       "_source": "Уганда Вугар мытый -  эспрессо 1 кг"
     },
@@ -487,11 +487,11 @@
         "специи",
         "красное яблоко"
       ],
-      "hidden": true,
+      "hidden": false,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "нет в RB-BOT.xlsx (миграция категорий)"
+      "quarantine_reason": null
     },
     {
       "id": "c-бразилия_серрадо_жёлтый_бурбон",
@@ -571,11 +571,11 @@
         "чернослив",
         "специи"
       ],
-      "hidden": true,
+      "hidden": false,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "нет в RB-BOT.xlsx (миграция категорий)"
+      "quarantine_reason": null
     },
     {
       "id": "c-гондурас_сан_николас",
@@ -725,7 +725,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 3,
+      "stock": 42,
       "tags": [],
       "taste": "молочный шоколад, йогурт, карамель",
       "roast_descr": "светлая обжарка под фильтр",
@@ -855,7 +855,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 12,
+      "stock": 6,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-F-КОЛУМБИЯ АНДИНО, 1 кг",
@@ -1047,10 +1047,10 @@
         "мёд",
         "цветочные"
       ],
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "нет в RB-BOT.xlsx (миграция категорий)",
-      "hidden": true
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "c-эфиопия_арича_гр_3",
@@ -1157,16 +1157,16 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 76,
+      "stock": 0,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг",
       "roast_descr": "обжарка под эспрессо",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "hidden": false,
       "archived_reason": "not in xlsx 19.05.2026",
       "_source": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг"
@@ -1346,7 +1346,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 1,
+      "stock": 2,
       "tags": [
         "Black Edition"
       ],
@@ -1521,11 +1521,11 @@
         "карамель",
         "табак"
       ],
-      "hidden": true,
+      "hidden": false,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "нет в RB-BOT.xlsx (миграция категорий)"
+      "quarantine_reason": null
     },
     {
       "id": "c-биттер",
@@ -1565,11 +1565,11 @@
         "цитрус",
         "карамель"
       ],
-      "hidden": true,
+      "hidden": false,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "нет в RB-BOT.xlsx (миграция категорий)"
+      "quarantine_reason": null
     },
     {
       "id": "c-хани",
@@ -1608,11 +1608,11 @@
         "цитрус",
         "ваниль"
       ],
-      "hidden": true,
+      "hidden": false,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "нет в RB-BOT.xlsx (миграция категорий)"
+      "quarantine_reason": null
     },
     {
       "id": "c-венеция",
@@ -1652,11 +1652,11 @@
         "специи",
         "табак"
       ],
-      "hidden": true,
+      "hidden": false,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "нет в RB-BOT.xlsx (миграция категорий)"
+      "quarantine_reason": null
     },
     {
       "id": "c-лунго",
@@ -1697,11 +1697,11 @@
         "карамель",
         "мёд"
       ],
-      "hidden": true,
+      "hidden": false,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "нет в RB-BOT.xlsx (миграция категорий)"
+      "quarantine_reason": null
     },
     {
       "id": "c-drip-бразилия_сертао_жёлтый_бурбон",
@@ -1837,7 +1837,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 22,
+      "stock": 0,
       "tags": [
         "Удобно",
         "CHOCOLATE"
@@ -1849,9 +1849,9 @@
         "чёрный чай"
       ],
       "photo": "assets/placeholders/ph_espresso.svg",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "hidden": false,
       "_source": "Коста-Рика Тарразу Ла Пастора эспрессо - 1 кг"
     },
@@ -11751,7 +11751,7 @@
       "tags": [
         "Микролот"
       ],
-      "stock": 2,
+      "stock": 20,
       "fasovka": [
         {
           "size": "1 кг",
@@ -11789,7 +11789,7 @@
       "tags": [
         "Микролот"
       ],
-      "stock": 2,
+      "stock": 1,
       "fasovka": [
         {
           "size": "1 кг",
@@ -11907,7 +11907,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 2,
+      "stock": 0,
       "tags": [
         "микролот",
         "фильтр",
@@ -11925,9 +11925,9 @@
         "карамель",
         "тропики"
       ],
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "hidden": false,
       "_source": "Колумбия Пачамама нат.анаэроб.- 1 кг FILTER"
     },
@@ -12059,7 +12059,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 19,
+      "stock": 0,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "roast_descr": "обжарка под эспрессо",
@@ -12072,9 +12072,9 @@
         "специи",
         "табак"
       ],
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "hidden": false,
       "_source": "Китай Симао гр.1 Меллоу мытый эспрессо 1 кг"
     },
@@ -14019,7 +14019,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 2,
+      "stock": 37,
       "on_request": true,
       "subcategory": "espresso_mono",
       "roast": "E",
@@ -14037,7 +14037,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 42,
+      "stock": 15,
       "on_request": true,
       "subcategory": "espresso_mono",
       "roast": "E",
@@ -14056,12 +14056,12 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 35,
+      "stock": 0,
       "on_request": true,
       "subcategory": "filter_mono",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "F",
       "hidden": false,
       "_source": "Кения АА мытый - 1 кг FILTER"
@@ -14078,7 +14078,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 3,
+      "stock": 22,
       "on_request": true,
       "subcategory": "filter_mono",
       "roast": "F",
@@ -14097,7 +14097,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 14,
+      "stock": 26,
       "on_request": true,
       "subcategory": "filter_mono",
       "roast": "F",
@@ -14116,12 +14116,12 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 12,
+      "stock": 0,
       "on_request": true,
       "subcategory": "filter_mono",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "F",
       "hidden": false,
       "_source": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER"
@@ -14157,7 +14157,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 3,
+      "stock": 12,
       "on_request": true,
       "subcategory": "filter_mono",
       "roast": "F",
@@ -14182,12 +14182,12 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 35,
+      "stock": 0,
       "on_request": true,
       "subcategory": "retail_blend",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "BE",
       "hidden": false,
       "_source": "BE \"Roastberry\" БИТТЕР - 1 кг"
@@ -14211,12 +14211,12 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 16,
+      "stock": 0,
       "on_request": true,
       "subcategory": "retail_blend",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "BE",
       "hidden": false,
       "_source": "BE \"Roastberry\" ВЕНЕЦИЯ - 1 кг"
@@ -14240,12 +14240,12 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 104,
+      "stock": 0,
       "on_request": true,
       "subcategory": "retail_blend",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "BE",
       "hidden": false,
       "_source": "BE \"Roastberry\" КЛАССИКА   - 1 кг"
@@ -14269,12 +14269,12 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 19,
+      "stock": 0,
       "on_request": true,
       "subcategory": "retail_blend",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "BE",
       "hidden": false,
       "_source": "BE \"Roastberry\" ХАНИ - 1 кг"
@@ -14297,12 +14297,12 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 16,
+      "stock": 0,
       "on_request": true,
       "subcategory": "retail_blend",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "BE",
       "hidden": false,
       "_source": "BF \"Roastberry\" ЛУНГО - 1 кг"
@@ -14324,7 +14324,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 15,
+      "stock": 27,
       "on_request": true,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -14349,12 +14349,12 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 283,
+      "stock": 0,
       "on_request": true,
       "subcategory": "retail_espresso",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "E",
       "hidden": false,
       "_source": "E \"Roastberry\" Бразилия Сан Рафаель - 1 кг"
@@ -14372,12 +14372,12 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 4,
+      "stock": 0,
       "on_request": true,
       "subcategory": "retail_espresso",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "E",
       "hidden": false,
       "_source": "E \"Roastberry\" Гватемала Декаф - 1 кг"
@@ -14401,12 +14401,12 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 6,
+      "stock": 0,
       "on_request": true,
       "subcategory": "retail_espresso",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "E",
       "hidden": false,
       "_source": "E \"Roastberry\" Колумбия Андино - 1 кг"
@@ -14428,7 +14428,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 12,
+      "stock": 48,
       "on_request": true,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -14518,7 +14518,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 7,
+      "stock": 9,
       "on_request": true,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -14573,12 +14573,12 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 2,
+      "stock": 0,
       "on_request": true,
       "subcategory": "retail_filter",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "F",
       "hidden": false,
       "_source": "F \"Roastberry\" Гватемала Уетенанго упак. 200 гр."
@@ -14595,7 +14595,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 17,
+      "stock": 27,
       "on_request": true,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -14614,12 +14614,12 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 10,
+      "stock": 0,
       "on_request": true,
       "subcategory": "retail_filter",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T20:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "F",
       "hidden": false,
       "_source": "F \"Roastberry\" Кения АБ упак. 200 г"
@@ -14654,7 +14654,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 18,
+      "stock": 33,
       "on_request": true,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -14693,7 +14693,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 1,
+      "stock": 16,
       "on_request": true,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -14891,7 +14891,7 @@
           "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
-      "stock": 9,
+      "stock": 11,
       "on_request": true,
       "roast": "E",
       "subcategory": null,
