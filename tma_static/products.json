@@ -248,7 +248,7 @@
           "photo": "photos/products/c-бразилия_серрадо_200g.jpg"
         }
       ],
-      "stock": 651,
+      "stock": 579,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
@@ -290,7 +290,7 @@
           "photo": "photos/products/c-бразилия_серрадо_дарк_200g.jpg"
         }
       ],
-      "stock": 197,
+      "stock": 196,
       "tags": [],
       "photo": "photos/products/c-бразилия_серрадо_дарк.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО ДАРК, 200 г",
@@ -332,7 +332,7 @@
           "photo": "photos/products/c-бразилия_сан_рафаель_200g.jpg"
         }
       ],
-      "stock": 315,
+      "stock": 314,
       "tags": [],
       "photo": "photos/products/c-бразилия_сан_рафаель.jpg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ SAN RAFAEL, 1 кг",
@@ -370,7 +370,7 @@
           "photo": "photos/products/c-уганда_вугар_элгон_200g.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "tags": [],
       "aroma": "Специи, грецкий орех, фундук",
       "taste": "Тёмный шоколад, орехи",
@@ -881,7 +881,7 @@
           "photo": "photos/products/c-эфиопия_лиму_гр_2_200g.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "tags": [],
       "photo": "photos/products/c-эфиопия_лиму_гр_2.jpg",
       "ozon_offer_id": "RB-E-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 200г",
@@ -1340,7 +1340,7 @@
           "photo": "photos/products/c-классика_200g.jpg"
         }
       ],
-      "stock": 150,
+      "stock": 138,
       "tags": [
         "Бленд"
       ],
@@ -1457,7 +1457,7 @@
           "photo": "photos/products/c-венеция_200g.jpg"
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [
         "Бленд"
       ],
@@ -1564,7 +1564,7 @@
           "price": 67
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [
         "Удобно",
         "CHOCOLATE"
@@ -5072,7 +5072,7 @@
           "price": 546.0
         }
       ],
-      "stock": 23,
+      "stock": 22,
       "tags": [
         "Хит"
       ]
@@ -5094,7 +5094,7 @@
           "price": 635.0
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "tags": [
         "Хит"
       ],
@@ -5278,7 +5278,7 @@
           "price": 635.0
         }
       ],
-      "stock": 9,
+      "stock": 15,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg",
       "_source": "https://botanikastories.ru/product/lesnoj-oreh/"
@@ -5320,7 +5320,7 @@
           "price": 635.0
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "tags": []
     },
     {
@@ -5420,7 +5420,7 @@
           "price": 660.0
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": []
     },
     {
@@ -5737,7 +5737,7 @@
           "price": 771.0
         }
       ],
-      "stock": 7,
+      "stock": 13,
       "tags": []
     },
     {
@@ -5891,7 +5891,7 @@
           "price": 771.0
         }
       ],
-      "stock": 21,
+      "stock": 33,
       "tags": [
         "Хит"
       ],
@@ -6348,7 +6348,7 @@
           "price": 659.0
         }
       ],
-      "stock": 3,
+      "stock": 9,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_шоколадный_трюфель_0_7л.jpg",
       "_source": "herbarista_pdf"
@@ -6370,7 +6370,7 @@
           "price": 885.0
         }
       ],
-      "stock": 2,
+      "stock": 8,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_эвкалипт_и_мята_0_7л.jpg",
       "_source": "herbarista_pdf"
@@ -7739,7 +7739,7 @@
           "price": 635.0
         }
       ],
-      "stock": 6,
+      "stock": 1,
       "tags": [],
       "photo": null
     },
@@ -9743,7 +9743,7 @@
           "price": 1269.0
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": null
     },
@@ -9878,7 +9878,7 @@
           "price": 2300.0
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": null
     },
@@ -10996,7 +10996,7 @@
           "price": 4842
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "tags": [
         "микролот",
         "фильтр",
@@ -11258,7 +11258,7 @@
           "price": 780
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "tags": [],
       "photo": null,
       "pair_id": "бразилия_судан_руме_анаэроб",
@@ -11466,7 +11466,7 @@
           "photo": "photos/products/c-эфиопия_yirgacheffe_gr_4_сухой_эспрессо_-_1_кг.jpg"
         }
       ],
-      "stock": 81,
+      "stock": 80,
       "tags": [],
       "photo": "photos/products/c-эфиопия_yirgacheffe_gr_4_сухой_эспрессо_-_1_кг.jpg",
       "tasting_notes": [
@@ -11670,7 +11670,7 @@
           "photo": null
         }
       ],
-      "stock": 2,
+      "stock": 8,
       "tags": [],
       "photo": null
     },
@@ -12620,7 +12620,7 @@
           "photo": null
         }
       ],
-      "stock": 22,
+      "stock": 20,
       "tags": [],
       "photo": null
     },
