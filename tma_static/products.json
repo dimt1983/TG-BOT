@@ -13288,6 +13288,11 @@
           "size": "1 кг",
           "price": null,
           "on_request": true
+        },
+        {
+          "size": "200 г",
+          "price": null,
+          "on_request": true
         }
       ],
       "stock": 0,
@@ -13469,22 +13474,6 @@
       "stock": 2,
       "on_request": true,
       "subcategory": "retail_filter"
-    },
-    {
-      "id": "retail_be_roastberry_классика_200_г",
-      "name": "BE \"Roastberry\" Классика упак. 200 г",
-      "category": "retail",
-      "photo": "",
-      "fasovka": [
-        {
-          "size": "200 г",
-          "price": null,
-          "on_request": true
-        }
-      ],
-      "stock": 2,
-      "on_request": true,
-      "subcategory": "retail_blend"
     },
     {
       "id": "retail_e_roastberry_бразилия_серадо_200_г",
