@@ -70,6 +70,7 @@ const STATE = {
   cat: null,                     // top categoryId for catalog
   subcat: null,                  // drill-cursor — указывает где мы внутри иерархии (любой subcat id)
   showAll: false,                // true → пропускаем drill, рендерим плоский список
+  fasovkaSplit: null,            // '1 кг' | '200 г' | null — split категории по фасовкам (см. SPLIT_BY_FASOVKA)
   productId: null,
   productFasovka: null,          // selected size in product screen
   productKg: 1,                  // selected weight for discount calculator
@@ -296,7 +297,6 @@ function appHeader({ title = '', back = false, action = '', logo = false } = {})
       ${title ? `<div style="flex:1; text-align:center; font-family:var(--f-display); font-weight:700; font-size:15px;">${esc(title)}</div>` : ''}
       <div style="display:flex; gap:6px; margin-left:auto;">
         ${action || `
-          ${STATE.isAdmin ? `<button class="btn-ghost" style="width:36px; padding:0; justify-content:center; color:var(--copper)" onclick="rb.openAdmin()" title="Админ">${icon('gear')}</button>` : ''}
           <button class="btn-ghost" style="width:36px; padding:0; justify-content:center" onclick="rb.go('search')">${icon('search')}</button>
           <button class="btn-ghost" style="width:36px; padding:0; justify-content:center; position:relative" onclick="rb.go('cart')">${icon('bag')}${cartCount() ? `<span style="position:absolute; top:-2px; right:-2px; min-width:16px; height:16px; border-radius:999px; background:var(--copper); color:#fff; font-size:10px; font-weight:700; font-family:var(--f-mono); display:flex; align-items:center; justify-content:center; padding:0 4px;">${cartCount()}</span>` : ''}</button>
         `}
@@ -692,6 +692,14 @@ function activeFilterCount() {
 
 /* Кофейные категории v2 — те что считаются «кофе» (для фильтров на главной, hero, и т.д.) */
 const COFFEE_CATS = ['espresso','filter','retail','black','borshch','drip','cascara','sets'];
+/* Категории, где первый уровень навигации — выбор фасовки (1 кг / 200 г),
+   а не подкатегории-моносорт/микролот. Подкатегории игнорируются. */
+const SPLIT_BY_FASOVKA = ['espresso','filter','retail','black','borshch','sets'];
+const FASOVKA_SPLITS = ['1 кг','200 г'];
+function _fasovkaOf(p, size) { return (p.fasovka || []).find(f => normalizeSize(f.size) === size); }
+function _productsForSplit(catId, size) {
+  return visibleProducts().filter(p => p.category === catId && _fasovkaOf(p, size));
+}
 
 /* Карта брендовых цветов для плиток категорий и подкатегорий */
 const TILE_THEME = {
@@ -782,15 +790,26 @@ function screenCatalog() {
       bread.push({ id: c.id, name: _stripEmoji(c.name), action: `rb.openSubcat('${esc(c.id)}')` });
     }
   }
+  if (STATE.fasovkaSplit) {
+    bread.push({ id: 'fas:' + STATE.fasovkaSplit, name: STATE.fasovkaSplit, action: `rb.openFasovkaSplit('${esc(STATE.fasovkaSplit)}')` });
+  }
 
   // Title — последняя крошка или «Каталог» / название категории
-  const titleSrc = STATE.subcat
-    ? STATE.data.subcategories.find(s => s.id === STATE.subcat)?.name
-    : cat?.name;
-  const title = titleSrc ? _stripEmoji(titleSrc) : 'Каталог';
+  let title;
+  if (STATE.fasovkaSplit && cat) {
+    title = _stripEmoji(cat.name) + ' · ' + STATE.fasovkaSplit;
+  } else {
+    const titleSrc = STATE.subcat
+      ? STATE.data.subcategories.find(s => s.id === STATE.subcat)?.name
+      : cat?.name;
+    title = titleSrc ? _stripEmoji(titleSrc) : 'Каталог';
+  }
 
-  // Решение: drill-плитки или плоский список
-  const showTiles = STATE.cat && !STATE.showAll && children.length > 0;
+  // Категории с обязательным fasovka-split (espresso, filter, retail, black, borshch, sets):
+  // первый уровень — выбор «1 кг» / «200 г», подкатегории игнорируются.
+  const isSplitCat = STATE.cat && SPLIT_BY_FASOVKA.includes(STATE.cat);
+  // Решение: drill-плитки или плоский список (для split-категорий обычные подкатегории не показываем)
+  const showTiles = STATE.cat && !STATE.showAll && children.length > 0 && !isSplitCat;
 
   let body = '';
   if (!STATE.cat) {
@@ -808,6 +827,75 @@ function screenCatalog() {
             </div>`;
         }).join('')}
       </div>
+    `;
+  } else if (isSplitCat && !STATE.fasovkaSplit) {
+    // 2 плашки выбора фасовки на входе в категорию
+    const t = tileTheme(STATE.cat);
+    const tile = (size, label, sub) => {
+      const cnt = _productsForSplit(STATE.cat, size).length;
+      return `
+        <div onclick="rb.openFasovkaSplit('${esc(size)}')"
+             style="background:${t.bg}; color:${t.fg}; border-radius:var(--r-md); aspect-ratio:1.1; padding:18px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; ${t.bg==='#FAF7F2'?'border:1px solid var(--line);':''} cursor:pointer;">
+          <div class="meta" style="color:${t.fg}; opacity:0.55;">${cnt} ${cnt === 1 ? 'товар' : cnt < 5 ? 'товара' : 'товаров'}</div>
+          <div style="font-family:var(--f-display); font-weight:900; font-size:42px; line-height:0.95; letter-spacing:-0.025em; text-transform:uppercase;">${esc(label)}</div>
+          <div style="position:absolute; top:14px; right:14px; width:8px; height:8px; border-radius:999px; background:${t.accent};"></div>
+        </div>`;
+    };
+    body = `
+      <div style="padding:0 16px 16px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        ${tile('1 кг',  '1 КГ')}
+        ${tile('200 г', '200 Г')}
+      </div>
+      <div class="meta" style="text-align:center; padding:0 16px 16px; color:var(--ink-faint);">Выбери фасовку — у каждой свои цены и остатки</div>
+    `;
+  } else if (isSplitCat && STATE.fasovkaSplit) {
+    // плоский список товаров с данными выбранной фасовки
+    const size = STATE.fasovkaSplit;
+    const list = _productsForSplit(STATE.cat, size);
+    body = `
+      <div style="position:sticky; top:96px; z-index:5; background:color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter:blur(14px); padding:10px 0 8px; border-bottom:1px solid var(--line);">
+        <div class="hrow" style="padding-bottom:2px;">
+          <button onclick="rb.openFasovkaSplit('1 кг')"  class="chip${size === '1 кг'  ? ' chip--ink' : ''}" style="height:30px; cursor:pointer;">1 кг</button>
+          <button onclick="rb.openFasovkaSplit('200 г')" class="chip${size === '200 г' ? ' chip--ink' : ''}" style="height:30px; cursor:pointer;">200 г</button>
+          <div style="width:4px"></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 16px 0;">
+          <span class="meta">${list.length} ${list.length === 1 ? 'товар' : list.length < 5 ? 'товара' : 'товаров'} · ${esc(size)}</span>
+        </div>
+      </div>
+      ${list.length === 0
+        ? `<div style="padding:60px 24px; text-align:center; color:var(--ink-soft);"><div style="font-size:32px; margin-bottom:10px">🍃</div><div style="font-family:var(--f-display); font-weight:700; font-size:16px;">В фасовке «${esc(size)}» пока пусто</div></div>`
+        : `<div style="display:flex; flex-direction:column; gap:1px; background:var(--line); border-radius:var(--r-md); overflow:hidden; margin:12px 16px; border:1px solid var(--line);">
+          ${list.map(p => {
+            const fa = _fasovkaOf(p, size) || {};
+            const meta = [p.process, p.variety, p.altitude].filter(Boolean).join(' · ');
+            const isLim = (p.tags || []).some(t => /лимит/i.test(t)) || (p.tags || []).includes('Микролот');
+            const cardPhoto = fa.photo ? { ...p, photo: fa.photo } : p;
+            return `
+              <div onclick="rb.openProduct('${esc(p.id)}')" style="display:flex; gap:12px; padding:14px; background:var(--surface); align-items:center; cursor:pointer;">
+                ${productImg(cardPhoto, '1', 'width:60px; height:60px; flex:0 0 auto; border-radius:8px;')}
+                <div style="flex:1; min-width:0;">
+                  <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px; flex-wrap:wrap;">
+                    ${flagDot(p.country)}
+                    ${p.roast ? `<span class="roast${p.roast === 'F' ? ' roast--f' : ''}" style="width:16px; height:16px; font-size:9px;">${esc(p.roast)}</span>` : ''}
+                    ${isLim ? `<span class="chip chip--copper" style="padding:1px 7px; font-size:10px; height:18px;">Лимит</span>` : ''}
+                    ${stockBadge(p)}
+                  </div>
+                  <div style="font-family:var(--f-display); font-weight:700; font-size:15px; line-height:1.15; margin-bottom:3px;">${esc(p.name)}</div>
+                  <div class="meta" style="font-size:9.5px; color:var(--ink-faint);">${esc(meta || ' ')}</div>
+                </div>
+                <div style="text-align:right; display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
+                  <div>
+                    <span style="font-family:var(--f-display); font-weight:800; font-size:16px; line-height:1;">${typeof fa.price === 'number' && !fa.on_request ? fmt(fa.price) : '—'}</span>
+                    <span style="font-size:10px; color:var(--ink-faint); margin-left:2px;">${typeof fa.price === 'number' && !fa.on_request ? '₽' : ''}</span>
+                  </div>
+                  <button onclick="event.stopPropagation(); rb.cartAdd('${esc(p.id)}', '${esc(fa.size || size)}')" style="width:30px; height:30px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-size:18px; line-height:1; font-weight:300;">+</button>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>`
+      }
     `;
   } else if (showTiles) {
     // drill: плитки подкатегорий + кнопка «Все товары» сверху
@@ -982,8 +1070,8 @@ function screenProduct() {
   </div>
 </div>
 
-<!-- Fasovka selector -->
-${fasList.length > 0 ? `
+<!-- Fasovka selector — скрыт когда товар открыт из split-фасовки или у него одна фасовка -->
+${fasList.length > 1 && !STATE.fasovkaSplit ? `
 <div style="padding:20px 16px 0; display:grid; grid-template-columns:repeat(${Math.min(fasList.length, 2)}, 1fr); gap:8px;">
   ${fasList.map(f => {
     const sel = curFas.size === f.size;
@@ -994,6 +1082,14 @@ ${fasList.length > 0 ? `
         <span class="meta" style="color:${sel ? 'rgba(245,235,221,0.6)' : 'var(--ink-faint)'}; font-size:9.5px;">${f.on_request ? 'по запросу' : (typeof f.price === 'number' && /200/.test(f.size) ? Math.round(f.price * 5).toLocaleString('ru') + ' ₽/кг' : ' ')}</span>
       </button>`;
   }).join('')}
+</div>` : ''}
+${STATE.fasovkaSplit && fasList.length > 1 ? `
+<div style="padding:18px 16px 0;">
+  <div class="meta" style="margin-bottom:6px;">Фасовка</div>
+  <div style="background:var(--surface); border:1px solid var(--line-strong); border-radius:var(--r-md); padding:14px 16px; display:flex; align-items:center; justify-content:space-between;">
+    <span style="font-family:var(--f-display); font-weight:700; font-size:15px;">${esc(STATE.fasovkaSplit)}</span>
+    <span style="font-family:var(--f-display); font-weight:800; font-size:18px;">${curFas.on_request || typeof curFas.price !== 'number' ? '—' : fmt(curFas.price) + ' ₽'}</span>
+  </div>
 </div>` : ''}
 
 <!-- Origin grid -->
@@ -1573,12 +1669,13 @@ function _navSnapshot() {
     cat: STATE.cat,
     subcat: STATE.subcat,
     showAll: STATE.showAll,
+    fasovkaSplit: STATE.fasovkaSplit,
     productId: STATE.productId,
   };
 }
 function _isSameNav(a, b) {
   return a && b && a.screen === b.screen && a.cat === b.cat && a.subcat === b.subcat
-      && a.showAll === b.showAll && a.productId === b.productId;
+      && a.showAll === b.showAll && a.fasovkaSplit === b.fasovkaSplit && a.productId === b.productId;
 }
 
 const rb = {
@@ -1619,7 +1716,7 @@ const rb = {
     const snap = _navSnapshot();
     STATE.screen = 'product';
     STATE.productId = id;
-    STATE.productFasovka = null;
+    STATE.productFasovka = STATE.fasovkaSplit || null;
     STATE.productKg = 1;
     STATE.history.push(snap);
     haptic();
@@ -1695,6 +1792,7 @@ const rb = {
     STATE.cat = catId || null;
     STATE.subcat = null;
     STATE.showAll = false;
+    STATE.fasovkaSplit = null;
     resetFilters();
     if (!_isSameNav(snap, _navSnapshot())) STATE.history.push(snap);
     haptic();
@@ -1714,6 +1812,18 @@ const rb = {
       STATE.cat = cat;
     }
     STATE.subcat = subId;
+    STATE.showAll = false;
+    STATE.fasovkaSplit = null;
+    resetFilters();
+    if (!_isSameNav(snap, _navSnapshot())) STATE.history.push(snap);
+    haptic();
+    window.scrollTo(0, 0);
+    render();
+  },
+  openFasovkaSplit(size) {
+    const snap = _navSnapshot();
+    STATE.fasovkaSplit = size;
+    STATE.subcat = null;
     STATE.showAll = false;
     resetFilters();
     if (!_isSameNav(snap, _navSnapshot())) STATE.history.push(snap);
