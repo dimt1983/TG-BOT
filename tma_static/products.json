@@ -293,7 +293,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 604,
+      "stock": 595,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
@@ -339,7 +339,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 315,
+      "stock": 314,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО ДАРК, 200 г",
@@ -385,7 +385,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 321,
+      "stock": 317,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ SAN RAFAEL, 1 кг",
@@ -516,7 +516,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 25,
+      "stock": 8,
       "tags": [],
       "photo": "assets/placeholders/ph_filter.svg",
       "ozon_offer_id": "RBR-F- БРАЗ СЕРРАДО ЖЕЛТЫЙ БУРБОН, 1кг",
@@ -558,7 +558,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-F-КОЛУМБИЯ DECAFFEINATED,  200 г",
@@ -725,7 +725,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 38,
+      "stock": 28,
       "tags": [],
       "taste": "молочный шоколад, йогурт, карамель",
       "roast_descr": "светлая обжарка под фильтр",
@@ -855,7 +855,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 39,
+      "stock": 35,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-F-КОЛУМБИЯ АНДИНО, 1 кг",
@@ -1029,7 +1029,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 96,
+      "stock": 89,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-E-СИДАМО Гр.4",
@@ -1505,7 +1505,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 104,
+      "stock": 92,
       "tags": [
         "Бленд"
       ],
@@ -1594,7 +1594,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 36,
+      "stock": 35,
       "tags": [
         "Бленд"
       ],
@@ -1637,7 +1637,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 34,
+      "stock": 32,
       "tags": [
         "Бленд"
       ],
@@ -1681,7 +1681,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 24,
+      "stock": 23,
       "tags": [
         "Бленд"
       ],
@@ -1760,7 +1760,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 9,
+      "stock": 29,
       "tags": [
         "Удобно",
         "CHOCOLATE"
@@ -3066,7 +3066,7 @@
           "price": 190.0
         }
       ],
-      "stock": 50,
+      "stock": 48,
       "tags": [],
       "photo": "photos/products/t-niktea_кения_сапфир_чёрн_пакет_25х2г.jpg",
       "_source": "alephtrade",
@@ -10305,7 +10305,7 @@
           "price": 680.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -11751,7 +11751,7 @@
       "tags": [
         "Микролот"
       ],
-      "stock": 18,
+      "stock": 28,
       "fasovka": [
         {
           "size": "1 кг",
@@ -12431,7 +12431,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 17,
+      "stock": 11,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "tasting_notes": [
@@ -12531,7 +12531,7 @@
           "photo": null
         }
       ],
-      "stock": 108,
+      "stock": 87,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12556,7 +12556,7 @@
           "photo": null
         }
       ],
-      "stock": 161,
+      "stock": 156,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12606,7 +12606,7 @@
           "photo": null
         }
       ],
-      "stock": 36,
+      "stock": 35,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14181,7 +14181,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 24,
+      "stock": 21,
       "on_request": true,
       "subcategory": "filter_mono",
       "roast": "F",
@@ -14479,7 +14479,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 2,
+      "stock": 9,
       "on_request": true,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -14602,7 +14602,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 10,
+      "stock": 60,
       "on_request": true,
       "subcategory": "retail_filter",
       "roast": "F",
