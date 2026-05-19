@@ -293,7 +293,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 595,
+      "stock": 598,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
@@ -385,7 +385,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 317,
+      "stock": 316,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ SAN RAFAEL, 1 кг",
@@ -516,7 +516,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 8,
+      "stock": 9,
       "tags": [],
       "photo": "assets/placeholders/ph_filter.svg",
       "ozon_offer_id": "RBR-F- БРАЗ СЕРРАДО ЖЕЛТЫЙ БУРБОН, 1кг",
@@ -1505,7 +1505,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 92,
+      "stock": 98,
       "tags": [
         "Бленд"
       ],
@@ -14983,11 +14983,11 @@
           "price": 292
         }
       ],
-      "stock": 0,
+      "stock": 12,
       "on_request": true,
-      "quarantined": true,
-      "quarantined_at": "2026-05-19T06:36:44+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "cascara_кофеи_ная_шелуха_коста-рика_каскара_финка_сонора_с",
@@ -15017,11 +15017,11 @@
           "price": 1755
         }
       ],
-      "stock": 0,
+      "stock": 2,
       "on_request": true,
-      "quarantined": true,
-      "quarantined_at": "2026-05-19T06:36:44+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "other_сахар_althaus_в_стиках_по_5_г_2000_шт_кор",
