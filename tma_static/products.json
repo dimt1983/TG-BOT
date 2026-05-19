@@ -293,7 +293,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 697,
+      "stock": 633,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
@@ -516,7 +516,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 25,
+      "stock": 26,
       "tags": [],
       "photo": "assets/placeholders/ph_filter.svg",
       "ozon_offer_id": "RBR-F- БРАЗ СЕРРАДО ЖЕЛТЫЙ БУРБОН, 1кг",
@@ -725,7 +725,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 42,
+      "stock": 36,
       "tags": [],
       "taste": "молочный шоколад, йогурт, карамель",
       "roast_descr": "светлая обжарка под фильтр",
@@ -1505,7 +1505,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 106,
+      "stock": 104,
       "tags": [
         "Бленд"
       ],
@@ -2545,7 +2545,7 @@
           "price": 1630.0
         }
       ],
-      "stock": 32,
+      "stock": 31,
       "tags": [],
       "photo": "photos/products/t-althaus_молочный_улун_зел_15х4г.jpg",
       "_source": "alephtrade",
@@ -11049,7 +11049,7 @@
           "price": 11.0
         }
       ],
-      "stock": 900,
+      "stock": 330,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg",
       "quarantined": false,
@@ -11751,7 +11751,7 @@
       "tags": [
         "Микролот"
       ],
-      "stock": 20,
+      "stock": 18,
       "fasovka": [
         {
           "size": "1 кг",
@@ -12431,7 +12431,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 33,
+      "stock": 28,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "tasting_notes": [
@@ -12531,7 +12531,7 @@
           "photo": null
         }
       ],
-      "stock": 160,
+      "stock": 143,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12556,7 +12556,7 @@
           "photo": null
         }
       ],
-      "stock": 177,
+      "stock": 171,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12606,7 +12606,7 @@
           "photo": null
         }
       ],
-      "stock": 41,
+      "stock": 40,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12906,7 +12906,7 @@
           "photo": null
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13031,7 +13031,7 @@
           "photo": null
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13954,7 +13954,7 @@
       "name": "CUP 6 Порошок для удаления кофейных масел 1 кг",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 19,
+      "stock": 18,
       "on_request": true,
       "price": null,
       "quarantined": false,
@@ -14602,7 +14602,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 22,
+      "stock": 10,
       "on_request": true,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -14983,11 +14983,11 @@
           "price": 292
         }
       ],
-      "stock": 0,
+      "stock": 12,
       "on_request": true,
-      "quarantined": true,
-      "quarantined_at": "2026-05-19T02:35:43+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "cascara_кофеи_ная_шелуха_коста-рика_каскара_финка_сонора_с",
@@ -15017,11 +15017,11 @@
           "price": 1755
         }
       ],
-      "stock": 0,
+      "stock": 2,
       "on_request": true,
-      "quarantined": true,
-      "quarantined_at": "2026-05-19T02:35:43+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "other_сахар_althaus_в_стиках_по_5_г_2000_шт_кор",
