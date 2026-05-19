@@ -293,7 +293,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 586,
+      "stock": 590,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
@@ -385,7 +385,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 316,
+      "stock": 305,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ SAN RAFAEL, 1 кг",
@@ -516,7 +516,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 8,
+      "stock": 2,
       "tags": [],
       "photo": "assets/placeholders/ph_filter.svg",
       "ozon_offer_id": "RBR-F- БРАЗ СЕРРАДО ЖЕЛТЫЙ БУРБОН, 1кг",
@@ -600,7 +600,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 3,
+      "stock": 0,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-HONDURAS SAN NICOLAS, 200 г",
@@ -608,9 +608,9 @@
       "roast_descr": "обжарка под эспрессо",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T10:30:34+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "tasting_notes": [
         "тёмный шоколад",
         "орех",
@@ -855,7 +855,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 36,
+      "stock": 31,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-F-КОЛУМБИЯ АНДИНО, 1 кг",
@@ -1029,7 +1029,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 29,
+      "stock": 26,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-E-СИДАМО Гр.4",
@@ -1505,7 +1505,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 98,
+      "stock": 96,
       "tags": [
         "Бленд"
       ],
@@ -1637,7 +1637,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 32,
+      "stock": 31,
       "tags": [
         "Бленд"
       ],
@@ -14374,7 +14374,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 26,
+      "stock": 25,
       "on_request": true,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -14983,11 +14983,11 @@
           "price": 292
         }
       ],
-      "stock": 0,
+      "stock": 12,
       "on_request": true,
-      "quarantined": true,
-      "quarantined_at": "2026-05-19T08:36:46+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "cascara_кофеи_ная_шелуха_коста-рика_каскара_финка_сонора_с",
@@ -15017,11 +15017,11 @@
           "price": 1755
         }
       ],
-      "stock": 0,
+      "stock": 2,
       "on_request": true,
-      "quarantined": true,
-      "quarantined_at": "2026-05-19T08:36:46+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "other_сахар_althaus_в_стиках_по_5_г_2000_шт_кор",
