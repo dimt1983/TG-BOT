@@ -1026,7 +1026,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": "assets/placeholders/ph_retail.svg",
       "quarantined": false,
@@ -1047,7 +1047,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 45,
+      "stock": 35,
       "on_request": true,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1067,17 +1067,18 @@
           "size": "200 г",
           "price": 410.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/ph_retail.svg",
+          "stock": 10
         }
       ],
-      "stock": 0,
+      "stock": 10,
       "on_request": true,
       "subcategory": "retail_blend",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "BE",
-      "hidden": true,
+      "hidden": false,
       "_source": "BE \"Roastberry\" БИТТЕР - 1 кг"
     },
     {
@@ -1093,7 +1094,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 31,
+      "stock": 16,
       "on_request": true,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1113,17 +1114,18 @@
           "size": "200 г",
           "price": 435.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/ph_retail.svg",
+          "stock": 19
         }
       ],
-      "stock": 0,
+      "stock": 19,
       "on_request": true,
       "subcategory": "retail_blend",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "BE",
-      "hidden": true,
+      "hidden": false,
       "_source": "BE \"Roastberry\" ВЕНЕЦИЯ - 1 кг"
     },
     {
@@ -1139,7 +1141,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 96,
+      "stock": 104,
       "on_request": true,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1159,17 +1161,18 @@
           "size": "200 г",
           "price": 425.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/ph_retail.svg",
+          "stock": 2
         }
       ],
-      "stock": 0,
+      "stock": 2,
       "on_request": true,
       "subcategory": "retail_blend",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "BE",
-      "hidden": true,
+      "hidden": false,
       "_source": "BE \"Roastberry\" КЛАССИКА   - 1 кг"
     },
     {
@@ -1185,7 +1188,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 34,
+      "stock": 19,
       "on_request": true,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1205,17 +1208,18 @@
           "size": "200 г",
           "price": 435.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/ph_retail.svg",
+          "stock": 17
         }
       ],
-      "stock": 0,
+      "stock": 17,
       "on_request": true,
       "subcategory": "retail_blend",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "BE",
-      "hidden": true,
+      "hidden": false,
       "_source": "BE \"Roastberry\" ХАНИ - 1 кг"
     },
     {
@@ -1259,7 +1263,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 23,
+      "stock": 16,
       "on_request": true,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1278,17 +1282,18 @@
         {
           "size": "200 г",
           "price": 435,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/ph_retail.svg",
+          "stock": 8
         }
       ],
-      "stock": 0,
+      "stock": 8,
       "on_request": true,
       "subcategory": "retail_blend",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "BE",
-      "hidden": true,
+      "hidden": false,
       "_source": "BF \"Roastberry\" ЛУНГО - 1 кг"
     },
     {
@@ -1468,7 +1473,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 25,
+      "stock": 15,
       "on_request": true,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1483,18 +1488,19 @@
         {
           "size": "200 г",
           "price": 435.0,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/ph_retail.svg",
+          "stock": 12
         }
       ],
-      "stock": 0,
+      "stock": 12,
       "on_request": true,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": "2026-05-19T03:35:48+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "hidden": false
     },
     {
       "id": "retail_e_roastberry_бразилия_сан_рафаель_-_1_кг",
@@ -1509,7 +1515,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 305,
+      "stock": 283,
       "on_request": true,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1529,17 +1535,18 @@
           "size": "200 г",
           "price": 445.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/ph_retail.svg",
+          "stock": 49
         }
       ],
-      "stock": 0,
+      "stock": 49,
       "on_request": true,
       "subcategory": "retail_espresso",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "E",
-      "hidden": true,
+      "hidden": false,
       "_source": "E \"Roastberry\" Бразилия Сан Рафаель - 1 кг"
     },
     {
@@ -1554,7 +1561,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 12,
+      "stock": 15,
       "on_request": true,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1599,7 +1606,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 16,
+      "stock": 4,
       "on_request": true,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1618,18 +1625,19 @@
         {
           "size": "200 г",
           "price": 520,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/ph_retail.svg",
+          "stock": 13
         }
       ],
-      "stock": 0,
+      "stock": 13,
       "on_request": true,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гватемала Декаф упак. 200 гр.",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": "2026-05-18T21:00:07+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "hidden": false
     },
     {
       "id": "retail_e_roastberry_гватемала_уетенанго_200_г",
@@ -1643,7 +1651,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 29,
+      "stock": 7,
       "on_request": true,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1666,7 +1674,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 43,
+      "stock": 6,
       "on_request": true,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1686,17 +1694,18 @@
           "size": "200 г",
           "price": 465.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/ph_retail.svg",
+          "stock": 15
         }
       ],
-      "stock": 0,
+      "stock": 15,
       "on_request": true,
       "subcategory": "retail_espresso",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "E",
-      "hidden": true,
+      "hidden": false,
       "_source": "E \"Roastberry\" Колумбия Андино - 1 кг"
     },
     {
@@ -1726,18 +1735,19 @@
         {
           "size": "200 г",
           "price": 460,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/ph_retail.svg",
+          "stock": 14
         }
       ],
-      "stock": 0,
+      "stock": 14,
       "on_request": true,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": "2026-05-19T03:35:48+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "hidden": false
     },
     {
       "id": "c-e_roastberry_перу_схг_упак_200_г",
@@ -1806,7 +1816,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 60,
+      "stock": 22,
       "on_request": true,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -1824,7 +1834,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 9,
+      "stock": 2,
       "on_request": true,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -1838,19 +1848,20 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "price": 495.0,
+          "on_request": false,
+          "photo": "assets/placeholders/ph_retail.svg",
+          "stock": 2
         }
       ],
-      "stock": 0,
+      "stock": 2,
       "on_request": true,
       "subcategory": "retail_filter",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "F",
-      "hidden": true,
+      "hidden": false,
       "_source": "F \"Roastberry\" Гватемала Уетенанго упак. 200 гр."
     },
     {
@@ -1865,7 +1876,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 27,
+      "stock": 17,
       "on_request": true,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -1885,17 +1896,18 @@
           "size": "200 г",
           "price": 530.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/ph_retail.svg",
+          "stock": 10
         }
       ],
-      "stock": 0,
+      "stock": 10,
       "on_request": true,
       "subcategory": "retail_filter",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "F",
-      "hidden": true,
+      "hidden": false,
       "_source": "F \"Roastberry\" Кения АБ упак. 200 г"
     },
     {
@@ -1925,18 +1937,19 @@
         {
           "size": "200 г",
           "price": 465,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/ph_retail.svg",
+          "stock": 18
         }
       ],
-      "stock": 0,
+      "stock": 18,
       "on_request": true,
       "subcategory": "retail_filter",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": "2026-05-18T21:00:07+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "roast": "F",
       "_source": "F \"Roastberry\" Колумбия Андино упак. 200 г",
-      "hidden": true
+      "hidden": false
     },
     {
       "id": "retail_f_roastberry_танзания_200_г",
@@ -1968,7 +1981,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 38,
+      "stock": 1,
       "on_request": true,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -1990,7 +2003,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 8,
+      "stock": 11,
       "on_request": true,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -3106,7 +3119,7 @@
           "price": 670.0
         }
       ],
-      "stock": 0,
+      "stock": 25,
       "tags": [],
       "photo": null,
       "quarantined": true,
@@ -3327,7 +3340,7 @@
           "price": 890.0
         }
       ],
-      "stock": 12,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -4803,7 +4816,7 @@
           "photo": null
         }
       ],
-      "stock": 5,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5229,7 +5242,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 425,
+      "stock": 311,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5260,7 +5273,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 21,
+      "stock": 25,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5292,7 +5305,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 583,
+      "stock": 682,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5323,7 +5336,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 37,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "country": "CHOCOLATE",
@@ -5897,7 +5910,7 @@
           "photo": "photos/products/c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr.jpg"
         }
       ],
-      "stock": 187,
+      "stock": 197,
       "tags": [],
       "photo": "photos/products/c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr.jpg",
       "tasting_notes": [
@@ -6025,7 +6038,7 @@
           "photo": null
         }
       ],
-      "stock": 7,
+      "stock": 8,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -6748,7 +6761,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 8,
+      "stock": 14,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -7331,7 +7344,7 @@
           "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
-      "stock": 13,
+      "stock": 11,
       "on_request": true,
       "roast": "E",
       "subcategory": null,
@@ -7554,7 +7567,7 @@
           "price": 165.0
         }
       ],
-      "stock": 0,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": true,
@@ -7629,7 +7642,7 @@
           "price": 1950.0
         }
       ],
-      "stock": 0,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": true,
@@ -7654,7 +7667,7 @@
           "price": 1935.0
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/t-набор_tasteabrew_с_новым_годом_и_рождеством_.jpg",
       "quarantined": true,
@@ -7679,7 +7692,7 @@
           "price": 1950.0
         }
       ],
-      "stock": 0,
+      "stock": 1,
       "tags": [],
       "photo": "photos/products/t-набор_tasteabrew_согревающий_сет_.jpg",
       "quarantined": true,
@@ -7705,7 +7718,7 @@
           "photo": null
         }
       ],
-      "stock": 81,
+      "stock": 160,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -7730,7 +7743,7 @@
           "photo": null
         }
       ],
-      "stock": 156,
+      "stock": 177,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -7865,7 +7878,7 @@
       "name": "Перу Монте Верде гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 28,
+      "stock": 42,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -8146,7 +8159,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 15,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -10709,7 +10722,7 @@
           "price": 453.93
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "tags": [],
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
@@ -11199,7 +11212,7 @@
           "photo": null
         }
       ],
-      "stock": 35,
+      "stock": 41,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -11344,7 +11357,7 @@
           "price": 11.0
         }
       ],
-      "stock": 330,
+      "stock": 900,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg",
       "quarantined": false,
@@ -11521,7 +11534,7 @@
       "name": "Танзания АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 1,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -12206,7 +12219,7 @@
           "price": 125.0
         }
       ],
-      "stock": 0,
+      "stock": 79,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_resta_650_для_чайника_молочный_улун.jpg",
       "quarantined": true,
@@ -12231,7 +12244,7 @@
           "price": 68.0
         }
       ],
-      "stock": 0,
+      "stock": 120,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_гун_тин_и_саган_дайля_100_.jpg",
       "quarantined": true,
@@ -12256,7 +12269,7 @@
           "price": 72.0
         }
       ],
-      "stock": 0,
+      "stock": 211,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg",
       "quarantined": true,
@@ -12281,7 +12294,7 @@
           "price": 62.0
         }
       ],
-      "stock": 0,
+      "stock": 30,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100.jpg",
       "quarantined": true,
@@ -12505,7 +12518,7 @@
           "photo": null
         }
       ],
-      "stock": 9,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13352,7 +13365,7 @@
           "photo": null
         }
       ],
-      "stock": 1,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13510,7 +13523,7 @@
       "name": "Эфиопия Yirgacheffe Gr 4 сухой эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 7,
+      "stock": 33,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -13668,7 +13681,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 69,
+      "stock": 76,
       "hidden": false,
       "quarantined": false,
       "country": "FLOWER",
@@ -13694,7 +13707,7 @@
       "name": "Эфиопия Челелекту гр.1 мытый FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 11,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
