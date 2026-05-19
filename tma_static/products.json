@@ -12495,12 +12495,12 @@
         {
           "size": "200 г",
           "price": 475.0,
-          "photo": "assets/placeholders/pack_roastberry.png"
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
       "tags": [],
-      "photo": "assets/placeholders/pack_roastberry.png",
+      "photo": "assets/placeholders/ph_retail.svg",
       "tasting_notes": [
         "молочный шоколад",
         "сухофрукты",
@@ -14405,7 +14405,7 @@
         {
           "size": "200 г",
           "price": 435.0,
-          "photo": "assets/placeholders/pack_roastberry.png"
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 27,
@@ -14430,7 +14430,7 @@
           "size": "200 г",
           "price": 445.0,
           "on_request": false,
-          "photo": "assets/placeholders/pack_roastberry.png"
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
@@ -14482,7 +14482,7 @@
           "size": "200 г",
           "price": 465.0,
           "on_request": false,
-          "photo": "assets/placeholders/pack_roastberry.png"
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
@@ -14509,7 +14509,7 @@
         {
           "size": "200 г",
           "price": 460,
-          "photo": "assets/placeholders/pack_roastberry.png"
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 48,
@@ -14540,12 +14540,12 @@
       "id": "retail_e_roastberry_бразилия_серадо_200_г",
       "name": "E \"Roastberry\" Бразилия Серадо",
       "category": "retail",
-      "photo": "assets/placeholders/pack_roastberry.png",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 435,
-          "photo": "assets/placeholders/pack_roastberry.png"
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
@@ -14561,12 +14561,12 @@
       "id": "retail_e_roastberry_бразилия_серадо_дарк_200_г",
       "name": "E \"Roastberry\" Бразилия Серадо Дарк",
       "category": "retail",
-      "photo": "assets/placeholders/pack_roastberry.png",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 430,
-          "photo": "assets/placeholders/pack_roastberry.png"
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
@@ -14582,12 +14582,12 @@
       "id": "retail_e_roastberry_гватемала_декаф_200_г",
       "name": "E \"Roastberry\" Гватемала Декаф",
       "category": "retail",
-      "photo": "assets/placeholders/pack_roastberry.png",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 520,
-          "photo": "assets/placeholders/pack_roastberry.png"
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
@@ -14603,12 +14603,12 @@
       "id": "retail_e_roastberry_гватемала_уетенанго_200_г",
       "name": "E \"Roastberry\" Гватемала Уетенанго",
       "category": "retail",
-      "photo": "assets/placeholders/pack_roastberry.png",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 495,
-          "photo": "assets/placeholders/pack_roastberry.png"
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
@@ -14624,12 +14624,12 @@
       "id": "retail_e_roastberry_уганада_рувензор_200_г",
       "name": "E \"Roastberry\" Уганада Рувензор",
       "category": "retail",
-      "photo": "assets/placeholders/pack_roastberry.png",
+      "photo": "assets/placeholders/ph_retail.svg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 435,
-          "photo": "assets/placeholders/pack_roastberry.png"
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 0,
