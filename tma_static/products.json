@@ -15185,11 +15185,14 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 27,
+      "stock": 0,
       "on_request": true,
       "subcategory": "retail_espresso",
       "roast": "E",
-      "_source": "E \"Roastberry\" Бразилия Паже - 1 кг"
+      "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T03:35:48+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "retail_e_roastberry_бразилия_сан_рафаель_200_г",
@@ -15249,11 +15252,14 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 48,
+      "stock": 0,
       "on_request": true,
       "subcategory": "retail_espresso",
       "roast": "E",
-      "_source": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг"
+      "_source": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг",
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T03:35:48+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     }
   ]
 }
