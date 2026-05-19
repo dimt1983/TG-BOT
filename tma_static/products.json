@@ -293,7 +293,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 582,
+      "stock": 0,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
@@ -311,10 +311,11 @@
         "орех",
         "цитрус"
       ],
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
-      "_source": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг"
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "_source": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
+      "hidden": true
     },
     {
       "id": "c-бразилия_серрадо_дарк",
@@ -339,7 +340,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 434,
+      "stock": 0,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО ДАРК, 200 г",
@@ -357,10 +358,11 @@
         "карамель",
         "сухофрукты"
       ],
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
-      "_source": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг"
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "_source": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
+      "hidden": true
     },
     {
       "id": "c-бразилия_сан_рафаель",
@@ -385,7 +387,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 305,
+      "stock": 0,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ SAN RAFAEL, 1 кг",
@@ -399,11 +401,11 @@
         "грецкий орех",
         "карамель"
       ],
-      "hidden": false,
+      "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-уганда_вугар_элгон",
@@ -474,7 +476,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "tags": [],
       "taste": "Чернослив, чёрный чай , пряности",
       "roast_descr": "светлая обжарка под фильтр",
@@ -487,11 +489,11 @@
         "специи",
         "красное яблоко"
       ],
-      "hidden": false,
+      "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-бразилия_серрадо_жёлтый_бурбон",
@@ -558,7 +560,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 16,
+      "stock": 0,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-F-КОЛУМБИЯ DECAFFEINATED,  200 г",
@@ -571,11 +573,11 @@
         "чернослив",
         "специи"
       ],
-      "hidden": false,
+      "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-гондурас_сан_николас",
@@ -725,7 +727,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 28,
+      "stock": 0,
       "tags": [],
       "taste": "молочный шоколад, йогурт, карамель",
       "roast_descr": "светлая обжарка под фильтр",
@@ -738,10 +740,11 @@
         "ваниль",
         "тропики"
       ],
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
-      "_source": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг"
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "_source": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
+      "hidden": true
     },
     {
       "id": "c-кения_аа",
@@ -766,7 +769,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 27,
+      "stock": 0,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-F-КЕНИЯ АА, 1кг",
@@ -780,11 +783,11 @@
         "карамель",
         "специи"
       ],
-      "hidden": false,
+      "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-кения_аб_центральная_провинция",
@@ -855,7 +858,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 43,
+      "stock": 0,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-F-КОЛУМБИЯ АНДИНО, 1 кг",
@@ -873,10 +876,11 @@
         "ягоды",
         "карамель"
       ],
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
-      "_source": "Колумбия Андино мытый эспрессо - 1 кг"
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "_source": "Колумбия Андино мытый эспрессо - 1 кг",
+      "hidden": true
     },
     {
       "id": "c-никарагуа_марагаджип",
@@ -941,7 +945,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 8,
+      "stock": 0,
       "tags": [],
       "aroma": "Шоколад, орехи, тост",
       "taste": "Сухофрукты, шоколад",
@@ -952,16 +956,16 @@
       "roast_date": "07.05.2026",
       "batch": "1",
       "photo": "assets/placeholders/ph_espresso.svg",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "tasting_notes": [
         "шоколад",
         "орех",
         "карамель",
         "тост"
       ],
-      "hidden": false,
+      "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026"
     },
     {
@@ -1029,7 +1033,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 89,
+      "stock": 0,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-E-СИДАМО Гр.4",
@@ -1047,10 +1051,10 @@
         "мёд",
         "цветочные"
       ],
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
-      "hidden": false
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "hidden": true
     },
     {
       "id": "c-эфиопия_арича_гр_3",
@@ -1157,17 +1161,17 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 72,
+      "stock": 0,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг",
       "roast_descr": "обжарка под эспрессо",
       "roast_date": "07.05.2026",
       "batch": "1",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
-      "hidden": false,
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026",
       "_source": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг"
     },
@@ -1505,7 +1509,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 96,
+      "stock": 0,
       "tags": [
         "Бленд"
       ],
@@ -1521,11 +1525,11 @@
         "карамель",
         "табак"
       ],
-      "hidden": false,
+      "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-биттер",
@@ -1550,7 +1554,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 45,
+      "stock": 0,
       "tags": [
         "Бленд"
       ],
@@ -1565,11 +1569,11 @@
         "цитрус",
         "карамель"
       ],
-      "hidden": false,
+      "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-хани",
@@ -1594,7 +1598,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 34,
+      "stock": 0,
       "tags": [
         "Бленд"
       ],
@@ -1608,11 +1612,11 @@
         "цитрус",
         "ваниль"
       ],
-      "hidden": false,
+      "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-венеция",
@@ -1637,7 +1641,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 31,
+      "stock": 0,
       "tags": [
         "Бленд"
       ],
@@ -1652,11 +1656,11 @@
         "специи",
         "табак"
       ],
-      "hidden": false,
+      "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-лунго",
@@ -1681,7 +1685,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 23,
+      "stock": 0,
       "tags": [
         "Бленд"
       ],
@@ -1697,11 +1701,11 @@
         "карамель",
         "мёд"
       ],
-      "hidden": false,
+      "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-drip-бразилия_сертао_жёлтый_бурбон",
@@ -1760,7 +1764,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 29,
+      "stock": 0,
       "tags": [
         "Удобно",
         "CHOCOLATE"
@@ -1773,11 +1777,11 @@
         "миндаль",
         "сухофрукты"
       ],
-      "hidden": false,
+      "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T12:39:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-drip-гватемала_финка_медина",
@@ -12431,7 +12435,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 7,
+      "stock": 118,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "tasting_notes": [
@@ -14103,7 +14107,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 37,
+      "stock": 4,
       "on_request": true,
       "subcategory": "espresso_mono",
       "roast": "E",
@@ -14121,7 +14125,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 15,
+      "stock": 9,
       "on_request": true,
       "subcategory": "espresso_mono",
       "roast": "E",
@@ -15260,6 +15264,142 @@
       "quarantined": true,
       "quarantined_at": "2026-05-19T03:35:48+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+    },
+    {
+      "id": "espresso_mono_бразилия_серрадо_дарк_темная_обжарка_эспрессо_1_кг",
+      "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 115,
+      "hidden": false,
+      "quarantined": false,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0
+        }
+      ],
+      "created_at": "2026-05-19T12:39:09+00:00",
+      "created_by": "sync_1c_v2"
+    },
+    {
+      "id": "espresso_mono_бразилия_серрадо_средняя_обжарка_эспрессо_1_кг",
+      "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 469,
+      "hidden": false,
+      "quarantined": false,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0
+        }
+      ],
+      "created_at": "2026-05-19T12:39:09+00:00",
+      "created_by": "sync_1c_v2"
+    },
+    {
+      "id": "espresso_mono_колумбия_андино_мытый_эспрессо_1_кг",
+      "name": "Колумбия Андино мытый эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 19,
+      "hidden": false,
+      "quarantined": false,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0
+        }
+      ],
+      "created_at": "2026-05-19T12:39:09+00:00",
+      "created_by": "sync_1c_v2"
+    },
+    {
+      "id": "espresso_mono_коста_рика_тарразу_ла_пастора_эспрессо_1_кг",
+      "name": "Коста-Рика Тарразу Ла Пастора эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 1,
+      "hidden": false,
+      "quarantined": false,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0
+        }
+      ],
+      "created_at": "2026-05-19T12:39:09+00:00",
+      "created_by": "sync_1c_v2"
+    },
+    {
+      "id": "espresso_mono_перу_монте_верде_гр_1_мытый_эспрессо_1_кг",
+      "name": "Перу Монте Верде гр.1 мытый эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 15,
+      "hidden": false,
+      "quarantined": false,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0
+        }
+      ],
+      "created_at": "2026-05-19T12:39:09+00:00",
+      "created_by": "sync_1c_v2"
+    },
+    {
+      "id": "espresso_mono_руанда_мутетели_15_мытый_1_кг",
+      "name": "Руанда Мутетели 15+ мытый  - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0
+        }
+      ],
+      "created_at": "2026-05-19T12:39:09+00:00",
+      "created_by": "sync_1c_v2"
+    },
+    {
+      "id": "espresso_mono_уганда_вугар_мытый_эспрессо_1_кг",
+      "name": "Уганда Вугар мытый -  эспрессо 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0
+        }
+      ],
+      "created_at": "2026-05-19T12:39:09+00:00",
+      "created_by": "sync_1c_v2"
+    },
+    {
+      "id": "espresso_mono_эфиопия_сидамо_гр_4_сухой_эспрессо_1_кг",
+      "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0
+        }
+      ],
+      "created_at": "2026-05-19T12:39:09+00:00",
+      "created_by": "sync_1c_v2"
     }
   ]
 }
