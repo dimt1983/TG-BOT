@@ -60,7 +60,8 @@
 const tg = window.Telegram?.WebApp;
 try { tg?.ready?.(); tg?.expand?.(); } catch(e) {}
 const IS_TG = !!(tg && tg.initData && tg.initData.length > 0);
-const IS_DARK = (tg?.colorScheme === 'dark') || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
+// Бренд Roastberry — всегда светлый кремовый фон, независимо от темы Telegram/системы.
+const IS_DARK = false;
 
 function authHeaders() { return IS_TG ? { 'X-Tma-InitData': tg.initData } : {}; }
 function haptic(kind = 'light') {
