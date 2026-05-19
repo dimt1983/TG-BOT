@@ -84,7 +84,7 @@ const STATE = {
   data: null,                    // products.json
   cart: [],                      // [{id, fasovka, qty}]
   favorites: [],                 // [id]
-  screen: 'home',                // home | catalog | product | cart | profile
+  screen: 'home',                // home | catalog | product | cart | checkout | profile
   cat: null,                     // top categoryId for catalog
   subcat: null,                  // drill-cursor — указывает где мы внутри иерархии (любой subcat id)
   showAll: false,                // true → пропускаем drill, рендерим плоский список
@@ -104,6 +104,27 @@ const STATE = {
     flavors: [],                 // ['шоколад','ягоды'...]
   },
   filterOpen: false,             // открыта ли панель фильтров
+  // Контакты для оформления заказа (persistent через localStorage rb_profile)
+  contact: {
+    type: 'person',              // 'person' | 'company'
+    name: '',
+    phone: '',
+    email: '',
+    company_name: '',
+    inn: '',
+    legal_address: '',
+    delivery: {
+      method: '',                // 'pickup' | 'courier' | 'cdek'
+      address: '',
+      city: '',
+      time: '',
+      recipient_name: '',
+      recipient_phone: '',
+    },
+    comment: '',
+    consent: false,              // согласие на обработку ПДн (обязательно)
+  },
+  submitting: false,             // флаг in-flight POST /tma/api/order
 };
 function resetFilters() {
   STATE.filters = { fasovka: null, inStock: false, countries: [], flavors: [] };
@@ -111,6 +132,7 @@ function resetFilters() {
 }
 
 const STORAGE_KEY = 'rb-v2-state-1';
+const PROFILE_KEY = 'rb-v2-profile-1';
 function saveLocal() {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ cart: STATE.cart, favorites: STATE.favorites })); } catch(e){}
 }
@@ -119,6 +141,21 @@ function loadLocal() {
     const j = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
     STATE.cart = j.cart || [];
     STATE.favorites = j.favorites || [];
+  } catch(e){}
+  try {
+    const p = JSON.parse(localStorage.getItem(PROFILE_KEY) || 'null');
+    if (p && typeof p === 'object') {
+      STATE.contact = Object.assign(STATE.contact, p, {
+        delivery: Object.assign(STATE.contact.delivery, p.delivery || {}),
+        consent: false,            // согласие подтверждается заново каждый заказ
+      });
+    }
+  } catch(e){}
+}
+function saveProfile() {
+  try {
+    const { consent, ...keep } = STATE.contact;  // согласие не персистим
+    localStorage.setItem(PROFILE_KEY, JSON.stringify(keep));
   } catch(e){}
 }
 
@@ -1328,6 +1365,165 @@ ${totalKg > 0 ? `
 }
 
 /* ════════════════════════════════════════════════════════════════════
+   SCREEN: CHECKOUT — контакты + доставка перед POST /tma/api/order
+   ════════════════════════════════════════════════════════════════════ */
+function screenCheckout() {
+  const c = STATE.contact;
+  const totalKg = cartWeightKg();
+  const subtotal = cartSubtotal();
+  const tier = tierFor(totalKg);
+  const total = subtotal * (1 - tier);
+  const itemsCount = STATE.cart.reduce((s, i) => s + (i.qty || 1), 0);
+
+  // Базовый input
+  const FIELD = `display:block; width:100%; box-sizing:border-box; padding:13px 14px; border:1px solid var(--line); border-radius:12px; background:var(--surface); font-size:15px; font-family:inherit; color:var(--ink); outline:none;`;
+  const LABEL = `display:block; margin:0 0 6px 2px; font-size:11px; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-soft); font-weight:600;`;
+  const SECT_TITLE = `font-family:var(--f-display); font-weight:800; font-size:16px; margin:0 0 10px;`;
+  const seg = (active) => `flex:1; height:44px; border:1px solid var(--line); background:${active ? 'var(--ink)' : 'var(--surface)'}; color:${active ? 'var(--bg)' : 'var(--ink)'}; border-radius:12px; font-family:var(--f-display); font-weight:700; font-size:13px; cursor:pointer; transition:all .15s;`;
+
+  return `
+${appHeader({ back: true, title: 'Оформление' })}
+
+<div style="padding:8px 16px 0;">
+  <h1 style="font-size:28px; line-height:1.05;">Контакты<br/><span style="color:var(--ink-soft); font-size:20px; font-weight:500;">и доставка</span></h1>
+  <div class="meta" style="margin-top:8px;">${itemsCount} ${itemsCount === 1 ? 'позиция' : 'позиций'} · ${totalKg.toFixed(1)} кг · ${fmt(total)} ₽</div>
+</div>
+
+<!-- Тип клиента -->
+<div style="padding:22px 16px 0;">
+  <div style="${SECT_TITLE}">Тип клиента</div>
+  <div style="display:flex; gap:8px;">
+    <button style="${seg(c.type === 'person')}" onclick="rb.setClientType('person')">Физлицо</button>
+    <button style="${seg(c.type === 'company')}" onclick="rb.setClientType('company')">Компания</button>
+  </div>
+</div>
+
+<!-- Имя + телефон -->
+<div style="padding:18px 16px 0;">
+  <div style="display:flex; flex-direction:column; gap:14px;">
+    <div>
+      <label style="${LABEL}">Имя</label>
+      <input style="${FIELD}" type="text" placeholder="Как к вам обращаться" value="${esc(c.name || '')}" oninput="rb.updateContact('name', this.value)"/>
+    </div>
+    <div>
+      <label style="${LABEL}">Телефон</label>
+      <input style="${FIELD}" type="tel" inputmode="tel" placeholder="+7 999 123-45-67" value="${esc(c.phone || '')}" oninput="rb.updateContact('phone', this.value)"/>
+    </div>
+    ${c.type === 'company' ? `
+      <div>
+        <label style="${LABEL}">Название компании</label>
+        <input style="${FIELD}" type="text" placeholder="ООО «Ромашка»" value="${esc(c.company_name || '')}" oninput="rb.updateContact('company_name', this.value)"/>
+      </div>
+      <div>
+        <label style="${LABEL}">ИНН</label>
+        <input style="${FIELD}" type="text" inputmode="numeric" placeholder="10 или 12 цифр" value="${esc(c.inn || '')}" oninput="rb.updateContact('inn', this.value)"/>
+      </div>
+      <div>
+        <label style="${LABEL}">Юр. адрес <span style="color:var(--ink-faint); font-weight:400; text-transform:none;">— опц.</span></label>
+        <input style="${FIELD}" type="text" placeholder="г. Пермь, ул. ..." value="${esc(c.legal_address || '')}" oninput="rb.updateContact('legal_address', this.value)"/>
+      </div>
+      <div>
+        <label style="${LABEL}">Email <span style="color:var(--ink-faint); font-weight:400; text-transform:none;">— для документов</span></label>
+        <input style="${FIELD}" type="email" inputmode="email" placeholder="info@company.ru" value="${esc(c.email || '')}" oninput="rb.updateContact('email', this.value)"/>
+      </div>
+    ` : ''}
+  </div>
+</div>
+
+<!-- Доставка -->
+<div style="padding:24px 16px 0;">
+  <div style="${SECT_TITLE}">Доставка</div>
+  <div style="display:flex; flex-direction:column; gap:8px;">
+    ${[
+      { id: 'pickup', t: 'Самовывоз', sub: 'Пермь, Карпинского 14' },
+      { id: 'courier', t: 'Курьер по Перми', sub: 'В пределах города' },
+      { id: 'cdek', t: 'СДЭК', sub: 'По всей России, от 290 ₽' },
+    ].map(opt => {
+      const active = c.delivery.method === opt.id;
+      return `<button onclick="rb.setDelivery('${opt.id}')" style="display:flex; align-items:center; gap:12px; text-align:left; padding:14px; border:1px solid ${active ? 'var(--ink)' : 'var(--line)'}; background:${active ? 'var(--surface-2)' : 'var(--surface)'}; border-radius:14px; cursor:pointer; transition:all .15s;">
+        <span style="flex:0 0 18px; width:18px; height:18px; border-radius:999px; border:2px solid ${active ? 'var(--ink)' : 'var(--ink-mute)'}; display:flex; align-items:center; justify-content:center;">${active ? '<span style="width:8px; height:8px; border-radius:999px; background:var(--ink);"></span>' : ''}</span>
+        <span style="flex:1;">
+          <span style="display:block; font-family:var(--f-display); font-weight:700; font-size:14px;">${opt.t}</span>
+          <span class="meta" style="display:block; margin-top:2px; font-size:11px;">${opt.sub}</span>
+        </span>
+      </button>`;
+    }).join('')}
+  </div>
+
+  ${c.delivery.method === 'courier' ? `
+    <div style="margin-top:14px; display:flex; flex-direction:column; gap:14px;">
+      <div>
+        <label style="${LABEL}">Адрес в Перми</label>
+        <input style="${FIELD}" type="text" placeholder="ул. Ленина 10, кв. 5" value="${esc(c.delivery.address || '')}" oninput="rb.updateContact('delivery.address', this.value)"/>
+      </div>
+      <div>
+        <label style="${LABEL}">Удобное время <span style="color:var(--ink-faint); font-weight:400; text-transform:none;">— опц.</span></label>
+        <input style="${FIELD}" type="text" placeholder="завтра до 17:00" value="${esc(c.delivery.time || '')}" oninput="rb.updateContact('delivery.time', this.value)"/>
+      </div>
+    </div>
+  ` : ''}
+
+  ${c.delivery.method === 'cdek' ? `
+    <div style="margin-top:14px; display:flex; flex-direction:column; gap:14px;">
+      <div>
+        <label style="${LABEL}">Город</label>
+        <input style="${FIELD}" type="text" placeholder="Москва" value="${esc(c.delivery.city || '')}" oninput="rb.updateContact('delivery.city', this.value)"/>
+      </div>
+      <div>
+        <label style="${LABEL}">Пункт выдачи или адрес</label>
+        <input style="${FIELD}" type="text" placeholder="ПВЗ или адрес доставки" value="${esc(c.delivery.address || '')}" oninput="rb.updateContact('delivery.address', this.value)"/>
+      </div>
+      <div>
+        <label style="${LABEL}">Получатель <span style="color:var(--ink-faint); font-weight:400; text-transform:none;">— если не вы</span></label>
+        <input style="${FIELD}" type="text" placeholder="Имя получателя" value="${esc(c.delivery.recipient_name || '')}" oninput="rb.updateContact('delivery.recipient_name', this.value)"/>
+      </div>
+      <div>
+        <input style="${FIELD}" type="tel" inputmode="tel" placeholder="Телефон получателя" value="${esc(c.delivery.recipient_phone || '')}" oninput="rb.updateContact('delivery.recipient_phone', this.value)"/>
+      </div>
+    </div>
+  ` : ''}
+</div>
+
+<!-- Комментарий -->
+<div style="padding:24px 16px 0;">
+  <label style="${LABEL}">Комментарий к заказу <span style="color:var(--ink-faint); font-weight:400; text-transform:none;">— опц.</span></label>
+  <textarea style="${FIELD} min-height:80px; resize:vertical;" placeholder="Помол, упаковка, особые пожелания" oninput="rb.updateContact('comment', this.value)">${esc(c.comment || '')}</textarea>
+</div>
+
+<!-- Итого -->
+<div style="padding:24px 16px 0;">
+  <div class="card" style="padding:16px; background:var(--surface);">
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <div style="display:flex; justify-content:space-between;"><span style="color:var(--ink-soft); font-size:14px;">Подсумма</span><span style="font-family:var(--f-mono); font-size:14px;">${fmt(subtotal)} ₽</span></div>
+      ${tier > 0 ? `<div style="display:flex; justify-content:space-between;"><span style="color:var(--green); font-size:14px; font-weight:600;">Скидка по весу −${Math.round(tier*100)}%</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:600; color:var(--green);">−${fmt(subtotal - total)} ₽</span></div>` : ''}
+      <hr class="hr"/>
+      <div style="display:flex; justify-content:space-between; align-items:baseline;">
+        <span style="font-family:var(--f-display); font-weight:700; font-size:16px;">К оплате</span>
+        <span style="font-family:var(--f-display); font-weight:900; font-size:24px;">${fmt(total)} ₽</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Согласие на ПДн -->
+<div style="padding:18px 16px 140px;">
+  <label style="display:flex; gap:12px; align-items:flex-start; cursor:pointer;" onclick="event.preventDefault(); rb.toggleConsent();">
+    <span style="flex:0 0 22px; width:22px; height:22px; border-radius:6px; border:2px solid ${c.consent ? 'var(--ink)' : 'var(--ink-mute)'}; background:${c.consent ? 'var(--ink)' : 'transparent'}; display:flex; align-items:center; justify-content:center; color:var(--bg); font-size:14px; font-weight:900;">${c.consent ? '✓' : ''}</span>
+    <span style="flex:1; font-size:13px; color:var(--ink-soft); line-height:1.45;">Согласен с обработкой персональных данных и условиями оферты. Менеджер свяжется для подтверждения деталей.</span>
+  </label>
+</div>
+
+<!-- Sticky CTA -->
+<div style="position:fixed; bottom:0; left:0; right:0; padding:12px 16px calc(env(safe-area-inset-bottom,18px) + 14px); background:color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter:blur(20px); border-top:1px solid var(--line); z-index:11;">
+  <button class="cta" ${STATE.submitting ? 'disabled' : ''} onclick="rb.submitOrder()">
+    <span>${STATE.submitting ? 'Отправляем…' : 'Подтвердить заказ'}</span>
+    <span style="font-family:var(--f-display); font-weight:800;">${fmt(total)} ₽</span>
+  </button>
+</div>
+`;
+}
+
+/* ════════════════════════════════════════════════════════════════════
    SCREEN: PROFILE (B2B)
    ════════════════════════════════════════════════════════════════════ */
 function screenProfile() {
@@ -1997,8 +2193,63 @@ const rb = {
       try { inp.setSelectionRange(pos, pos); } catch (e) {}
     }
   },
-  async checkout() {
-    haptic('success');
+  checkout() {
+    if (!STATE.cart.length) { toast('Корзина пустая'); return; }
+    haptic('light');
+    // Pre-fill имени из Telegram если ещё пусто
+    if (!STATE.contact.name && tg?.initDataUnsafe?.user) {
+      const u = tg.initDataUnsafe.user;
+      const nm = [u.first_name, u.last_name].filter(Boolean).join(' ');
+      if (nm) STATE.contact.name = nm;
+    }
+    rb.go('checkout');
+  },
+  updateContact(key, value) {
+    // key поддерживает dot-нотацию: 'delivery.method', 'delivery.city' и т.д.
+    if (key.includes('.')) {
+      const [a, b] = key.split('.');
+      STATE.contact[a] = STATE.contact[a] || {};
+      STATE.contact[a][b] = value;
+    } else {
+      STATE.contact[key] = value;
+    }
+  },
+  setClientType(t) {
+    STATE.contact.type = t;
+    haptic('light'); render();
+  },
+  setDelivery(method) {
+    STATE.contact.delivery.method = method;
+    haptic('light'); render();
+  },
+  toggleConsent() {
+    STATE.contact.consent = !STATE.contact.consent;
+    haptic('light'); render();
+  },
+  async submitOrder() {
+    if (STATE.submitting) return;
+    const c = STATE.contact;
+    // Валидация
+    const name = (c.name || '').trim();
+    const phone = (c.phone || '').trim();
+    const phoneDigits = phone.replace(/\D/g, '');
+    if (name.length < 2) { toast('Укажите имя'); haptic('error'); return; }
+    if (phoneDigits.length < 10) { toast('Укажите корректный телефон'); haptic('error'); return; }
+    if (!c.delivery.method) { toast('Выберите способ доставки'); haptic('error'); return; }
+    if (c.delivery.method === 'courier' && !(c.delivery.address || '').trim()) {
+      toast('Укажите адрес доставки'); haptic('error'); return;
+    }
+    if (c.delivery.method === 'cdek') {
+      if (!(c.delivery.city || '').trim()) { toast('Укажите город'); haptic('error'); return; }
+      if (!(c.delivery.address || '').trim()) { toast('Укажите пункт выдачи или адрес'); haptic('error'); return; }
+    }
+    if (c.type === 'company') {
+      const inn = (c.inn || '').replace(/\D/g, '');
+      if (!(c.company_name || '').trim()) { toast('Укажите название компании'); haptic('error'); return; }
+      if (inn.length !== 10 && inn.length !== 12) { toast('ИНН: 10 или 12 цифр'); haptic('error'); return; }
+    }
+    if (!c.consent) { toast('Подтвердите согласие на обработку ПДн'); haptic('error'); return; }
+
     const items = STATE.cart.map(i => {
       const p = findProduct(i.id); if (!p) return null;
       const f = (p.fasovka || []).find(x => x.size === i.fasovka) || (p.fasovka || [])[0] || {};
@@ -2011,27 +2262,69 @@ const rb = {
     const subtotal = cartSubtotal();
     const tier = tierFor(totalKg);
     const total = subtotal * (1 - tier);
-    const payload = { items, total_kg: totalKg, subtotal, discount_pct: tier, total };
 
+    const contactPayload = {
+      type: c.type,
+      name,
+      phone,
+      email: (c.email || '').trim() || undefined,
+      comment: (c.comment || '').trim() || undefined,
+      delivery: {
+        method: c.delivery.method,
+        address: (c.delivery.address || '').trim() || undefined,
+        city: (c.delivery.city || '').trim() || undefined,
+        time: (c.delivery.time || '').trim() || undefined,
+        recipient_name: (c.delivery.recipient_name || '').trim() || undefined,
+        recipient_phone: (c.delivery.recipient_phone || '').trim() || undefined,
+      },
+    };
+    if (c.type === 'company') {
+      contactPayload.company_name = (c.company_name || '').trim();
+      contactPayload.company = contactPayload.company_name;
+      contactPayload.inn = (c.inn || '').replace(/\D/g, '');
+      const legal = (c.legal_address || '').trim();
+      if (legal) contactPayload.legal_address = legal;
+    }
+    // address на верхнем уровне — для совместимости с бэкендом (orders.address)
+    contactPayload.address = contactPayload.delivery.address
+      || contactPayload.delivery.city
+      || (c.delivery.method === 'pickup' ? 'Самовывоз: Пермь, ул. Карпинского, 14' : '');
+
+    const payload = {
+      type: 'order',
+      items,
+      contact: contactPayload,
+      totalKg,
+      subtotal,
+      discount_pct: tier,
+      saved: subtotal - total,
+      total,
+    };
+
+    STATE.submitting = true; render();
     try {
       const r = await fetch('/tma/api/order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', ...authHeaders() },
         body: JSON.stringify(payload),
       });
-      if (r.ok) {
-        const j = await r.json();
+      const j = await r.json().catch(() => ({}));
+      if (r.ok && j.ok !== false) {
         STATE.cart = []; saveLocal();
+        saveProfile();
         haptic('success');
         toast('Заказ оформлен. №' + (j.order_id || ''));
+        STATE.contact.consent = false;
         setTimeout(() => rb.go('profile'), 1200);
       } else {
         haptic('error');
-        toast('Ошибка: ' + r.status);
+        toast(j.error || ('Ошибка: ' + r.status));
       }
     } catch (e) {
       haptic('error');
       toast('Сеть недоступна');
+    } finally {
+      STATE.submitting = false; render();
     }
   },
   /* ────────── ADMIN ────────── */
@@ -2223,6 +2516,7 @@ function render() {
     case 'catalog': body = screenCatalog(); break;
     case 'product': body = screenProduct(); break;
     case 'cart':    body = screenCart(); break;
+    case 'checkout': body = screenCheckout(); break;
     case 'profile': body = screenProfile(); break;
     case 'search':  body = screenSearch(); break;
     case 'admin':       body = screenAdmin(); break;
