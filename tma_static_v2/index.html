@@ -2562,6 +2562,15 @@ async function init() {
     try { tg.ready(); tg.expand(); } catch(e){}
     try { tg.setBackgroundColor('#FAF7F2'); } catch(e){}
     try { tg.setHeaderColor('#FAF7F2'); } catch(e){}
+    try { tg.setBottomBarColor && tg.setBottomBarColor('#FAF7F2'); } catch(e){}
+    // подстраховка: пере-устанавливаем цвет фона при ресайзе / переходе из background
+    // (некоторые версии Telegram забывают цвет когда viewport меняется)
+    try {
+      tg.onEvent && tg.onEvent('viewportChanged', () => {
+        try { tg.setBackgroundColor('#FAF7F2'); } catch(e){}
+        try { tg.setBottomBarColor && tg.setBottomBarColor('#FAF7F2'); } catch(e){}
+      });
+    } catch(e){}
     try { tg.disableVerticalSwipes && tg.disableVerticalSwipes(); } catch(e){}
     if (tg.BackButton) {
       try { tg.BackButton.onClick(() => rb.back()); } catch(e){}
