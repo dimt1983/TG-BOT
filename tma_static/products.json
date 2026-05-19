@@ -339,7 +339,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 314,
+      "stock": 434,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО ДАРК, 200 г",
@@ -516,7 +516,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 1,
+      "stock": 21,
       "tags": [],
       "photo": "assets/placeholders/ph_filter.svg",
       "ozon_offer_id": "RBR-F- БРАЗ СЕРРАДО ЖЕЛТЫЙ БУРБОН, 1кг",
@@ -855,7 +855,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 31,
+      "stock": 43,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-F-КОЛУМБИЯ АНДИНО, 1 кг",
@@ -1029,7 +1029,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 26,
+      "stock": 89,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-E-СИДАМО Гр.4",
@@ -1157,7 +1157,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 1,
+      "stock": 72,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RBR-F-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 1 кг",
@@ -1594,7 +1594,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 35,
+      "stock": 34,
       "tags": [
         "Бленд"
       ],
@@ -5150,7 +5150,7 @@
           "price": 635.0
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg",
       "_source": "https://botanikastories.ru/product/zhyoltyj-banan/",
@@ -5488,7 +5488,7 @@
           "price": 635.0
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "tags": [
         "Хит"
       ],
@@ -11751,7 +11751,7 @@
       "tags": [
         "Микролот"
       ],
-      "stock": 28,
+      "stock": 39,
       "fasovka": [
         {
           "size": "1 кг",
@@ -12431,7 +12431,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 11,
+      "stock": 7,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "tasting_notes": [
@@ -12531,7 +12531,7 @@
           "photo": null
         }
       ],
-      "stock": 87,
+      "stock": 81,
       "tags": [],
       "photo": null,
       "quarantined": false,
