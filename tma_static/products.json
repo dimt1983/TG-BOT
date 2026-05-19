@@ -14395,12 +14395,12 @@
       "id": "retail_e_roastberry_бразилия_паже_-_1_кг",
       "name": "E \"Roastberry\" Бразилия Паже",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "assets/placeholders/pack_roastberry.png",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2045,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/pack_roastberry.png"
         },
         {
           "size": "200 г",
@@ -14418,13 +14418,13 @@
       "id": "retail_e_roastberry_бразилия_сан_рафаель_-_1_кг",
       "name": "E \"Roastberry\" Бразилия Сан Рафаель",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "assets/placeholders/pack_roastberry.png",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2070.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/pack_roastberry.png"
         },
         {
           "size": "200 г",
@@ -14447,13 +14447,13 @@
       "id": "retail_e_roastberry_гватемала_декаф_-_1_кг",
       "name": "E \"Roastberry\" Гватемала Декаф",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "assets/placeholders/pack_roastberry.png",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2440.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/pack_roastberry.png"
         }
       ],
       "stock": 0,
@@ -14470,13 +14470,13 @@
       "id": "retail_e_roastberry_колумбия_андино_-_1_кг",
       "name": "E \"Roastberry\" Колумбия Андино",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "assets/placeholders/pack_roastberry.png",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2150.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/pack_roastberry.png"
         },
         {
           "size": "200 г",
@@ -14499,12 +14499,12 @@
       "id": "retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг",
       "name": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "assets/placeholders/pack_roastberry.png",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2175,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "assets/placeholders/pack_roastberry.png"
         },
         {
           "size": "200 г",
