@@ -293,7 +293,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 625,
+      "stock": 612,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
@@ -339,7 +339,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 319,
+      "stock": 315,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО ДАРК, 200 г",
@@ -385,7 +385,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 330,
+      "stock": 321,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ SAN RAFAEL, 1 кг",
@@ -516,7 +516,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 25,
+      "stock": 26,
       "tags": [],
       "photo": "assets/placeholders/ph_filter.svg",
       "ozon_offer_id": "RBR-F- БРАЗ СЕРРАДО ЖЕЛТЫЙ БУРБОН, 1кг",
@@ -643,7 +643,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 17,
+      "stock": 15,
       "tags": [],
       "taste": "Чёрный чай, вишня, шиповник, слива",
       "roast_descr": "светлая обжарка под фильтр",
@@ -987,7 +987,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 16,
+      "stock": 13,
       "tags": [],
       "photo": "assets/placeholders/ph_filter.svg",
       "ozon_offer_id": "RB-E-ЭФИОПИЯ ИРГАЧЕФФЕ Гр.2, 200г",
@@ -1637,7 +1637,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 35,
+      "stock": 34,
       "tags": [
         "Бленд"
       ],
@@ -5793,7 +5793,7 @@
           "price": 607.5
         }
       ],
-      "stock": 6,
+      "stock": 4,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -5885,7 +5885,7 @@
           "price": 660.0
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg",
       "_source": "https://botanikastories.ru/product/zelyonaya-myata/",
@@ -13954,7 +13954,7 @@
       "name": "CUP 6 Порошок для удаления кофейных масел 1 кг",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 18,
+      "stock": 17,
       "on_request": true,
       "price": null,
       "quarantined": false,
@@ -14181,7 +14181,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 25,
+      "stock": 24,
       "on_request": true,
       "subcategory": "filter_mono",
       "roast": "F",
@@ -14374,7 +14374,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 27,
+      "stock": 26,
       "on_request": true,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -14983,11 +14983,11 @@
           "price": 292
         }
       ],
-      "stock": 0,
+      "stock": 12,
       "on_request": true,
-      "quarantined": true,
-      "quarantined_at": "2026-05-19T04:36:42+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "cascara_кофеи_ная_шелуха_коста-рика_каскара_финка_сонора_с",
@@ -15017,11 +15017,11 @@
           "price": 1755
         }
       ],
-      "stock": 0,
+      "stock": 2,
       "on_request": true,
-      "quarantined": true,
-      "quarantined_at": "2026-05-19T04:36:42+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "other_сахар_althaus_в_стиках_по_5_г_2000_шт_кор",
