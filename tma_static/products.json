@@ -5127,6 +5127,69 @@
       "quarantine_reason": null
     },
     {
+      "id": "filter_micro_бразилия_sl28_хани_анаэроб_1_кг_filter",
+      "name": "Бразилия \"SL28 Хани анаэроб.\" 1 кг - FILTER",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 5,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Бразилия",
+      "process": "Хани, анаэробная",
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": "Редкий сорт SL28 в Бразилии, ферментирован в honey-обработке с анаэробной фазой. Сложный фруктовый профиль с винными нотами.",
+      "tasting_notes": [
+        "мёд",
+        "ягоды",
+        "вино",
+        "чёрная смородина",
+        "специи"
+      ],
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 3500,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
+      "created_by": "manual_v2"
+    },
+    {
+      "id": "filter_micro_бразилия_судан_руме_анаэроб_1_кг_filter",
+      "name": "Бразилия \"Судан Руме анаэроб.\" 1 кг - FILTER",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Бразилия",
+      "process": "Натуральный, анаэробный",
+      "altitude": "1380–1430 м",
+      "variety": null,
+      "roast": "F",
+      "description": "Карму-ди-Минас, фазенда Сантуарио Сулл. Разновидность Судан Руме. В аромате — миндаль, фундук, цукаты, молочный шоколад. Во вкусе — цветочный мёд, цукаты из цитрусов, молочный шоколад с орехами.",
+      "tasting_notes": [
+        "молочный шоколад",
+        "орех",
+        "цветочный мёд",
+        "цукаты"
+      ],
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 3500,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
+      "created_by": "manual_v2"
+    },
+    {
       "id": "c-nesp-бразилия_серрадо__nespresso_",
       "category": "drip",
       "subcategory": "drip_loose",
@@ -5193,6 +5256,38 @@
       "created_by": "manual_v2"
     },
     {
+      "id": "filter_mono_бразилия_серрадо_желтый_бурбон_сухой_1_кг_filter",
+      "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_mono",
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Бразилия",
+      "process": "Натуральная",
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": "Лимон, апельсин, сухофрукты, тёмный шоколад, какао. Q 84,25",
+      "tasting_notes": [
+        "тёмный шоколад",
+        "цитрус",
+        "сухофрукты",
+        "какао",
+        "карамель"
+      ],
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2120,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
+      "created_by": "manual_v2"
+    },
+    {
       "id": "espresso_mono_бразилия_серрадо_средняя_обжарка_эспрессо_1_кг",
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
@@ -5221,6 +5316,32 @@
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
+      "created_by": "manual_v2"
+    },
+    {
+      "id": "filter_mono_бразилия_фазенда_сертао_сухой_молотый_1_кг_filter",
+      "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_mono",
+      "stock": 31,
+      "hidden": false,
+      "quarantined": false,
+      "country": "CHOCOLATE",
+      "process": "Помол под фильтр",
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": "Цитрусы, сухофрукты, тёмный шоколад, какао.",
+      "tasting_notes": null,
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2"
     },
     {
@@ -5336,6 +5457,38 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null
+    },
+    {
+      "id": "filter_mono_гватемала_уеуетенанго_мытый_1_кг_filter",
+      "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
+      "category": "filter",
+      "subcategory": "filter_mono",
+      "stock": 1,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Гватемала",
+      "process": "Мытая",
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": "Курага, чернослив, изюм, карамель, какао, сладкая выпечка, пряности. Q 83",
+      "tasting_notes": [
+        "какао",
+        "карамель",
+        "чернослив",
+        "пряности",
+        "ваниль"
+      ],
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2355,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
+      "created_by": "manual_v2"
     },
     {
       "id": "t-генмайча_райсу_100г",
@@ -6097,6 +6250,32 @@
       "archived_reason": "not in xlsx 19.05.2026"
     },
     {
+      "id": "filter_mono_кения_аа_мытый_1_кг_filter",
+      "name": "Кения АА мытый - 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_mono",
+      "stock": 12,
+      "hidden": false,
+      "quarantined": false,
+      "country": null,
+      "process": null,
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": null,
+      "tasting_notes": null,
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
+      "created_by": "manual_v2"
+    },
+    {
       "id": "espresso_mono_кения_аб_мытый_1_кг_эспрессо",
       "name": "Кения АБ мытый - 1 кг эспрессо",
       "category": "espresso",
@@ -6120,6 +6299,64 @@
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
+      "created_by": "manual_v2"
+    },
+    {
+      "id": "filter_mono_кения_центральная_провинция_аб_мытый_1_кг_filter",
+      "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_mono",
+      "stock": 10,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Кения",
+      "process": "Мытая",
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": "Вишня, цитрус, ревень, карамель. Q 85",
+      "tasting_notes": [
+        "вишня",
+        "цитрус",
+        "карамель",
+        "ревень",
+        "цветочные"
+      ],
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2490,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
+      "created_by": "manual_v2"
+    },
+    {
+      "id": "filter_mono_китай_симао_гр_1_меллоу_мытый_1_кг_filter",
+      "name": "Китай Симао гр.1 Меллоу мытый 1 кг - FILTER",
+      "category": "filter",
+      "subcategory": "filter_mono",
+      "stock": 3,
+      "hidden": false,
+      "quarantined": false,
+      "country": null,
+      "process": null,
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": null,
+      "tasting_notes": null,
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2070,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2"
     },
     {
@@ -6505,6 +6742,32 @@
       "archived_reason": "not in xlsx 19.05.2026"
     },
     {
+      "id": "filter_mono_колумбия_андино_мытый_1_кг_filter",
+      "name": "Колумбия Андино мытый - 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_mono",
+      "stock": 7,
+      "hidden": false,
+      "quarantined": false,
+      "country": null,
+      "process": null,
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": null,
+      "tasting_notes": null,
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
+      "created_by": "manual_v2"
+    },
+    {
       "id": "espresso_mono_колумбия_андино_мытый_эспрессо_1_кг",
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
@@ -6533,6 +6796,37 @@
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
+      "created_by": "manual_v2"
+    },
+    {
+      "id": "filter_micro_колумбия_гонзало_кармана_катура_сухой_1_кг_filter",
+      "name": "Колумбия Гонзало Кармана Катура сухой - 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Колумбия",
+      "process": "Natural",
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": "Шоколад с ликёром, тропические фрукты, красные ягоды, цитрусы. Q 85,25",
+      "tasting_notes": [
+        "шоколад",
+        "тропики",
+        "красные ягоды",
+        "цитрус"
+      ],
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 3500,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2"
     },
     {
@@ -6571,6 +6865,32 @@
       "archived_reason": "not in xlsx 19.05.2026"
     },
     {
+      "id": "filter_micro_колумбия_кастильо_мытая_1_кг_filter",
+      "name": "Колумбия Кастильо мытая - 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 1,
+      "hidden": false,
+      "quarantined": false,
+      "country": null,
+      "process": null,
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": null,
+      "tasting_notes": null,
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
+      "created_by": "manual_v2"
+    },
+    {
       "id": "c-drip-колумбия_клаудиа_колменарес__drip_",
       "category": "drip",
       "subcategory": "drip_loose",
@@ -6604,6 +6924,70 @@
       "photo": "assets/placeholders/ph_espresso.svg",
       "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026"
+    },
+    {
+      "id": "filter_micro_колумбия_маракуйя_хани_инфьюз_1_кг_filter",
+      "name": "Колумбия Маракуйя Хани инфьюз.- 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Колумбия",
+      "process": "хани инфьюз",
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": "",
+      "tasting_notes": [
+        "маракуйя",
+        "цитрус",
+        "мёд",
+        "цветочные",
+        "ваниль"
+      ],
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 5922,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
+      "created_by": "manual_v2"
+    },
+    {
+      "id": "filter_micro_колумбия_пачамама_нат_анаэроб_1_кг_filter",
+      "name": "Колумбия Пачамама нат.анаэроб.- 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 3,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Колумбия",
+      "process": "натуральная анаэробная",
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": "",
+      "tasting_notes": [
+        "ягоды",
+        "мёд",
+        "цветочные",
+        "карамель",
+        "тропики"
+      ],
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 4842,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
+      "created_by": "manual_v2"
     },
     {
       "id": "c-drip-колумбия_супремо__drip_",
@@ -7747,6 +8131,38 @@
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
+      "created_by": "manual_v2"
+    },
+    {
+      "id": "filter_mono_руанда_мутетели_15_мытый_1_кг_filter",
+      "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_mono",
+      "stock": 22,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Руанда",
+      "process": "Мытая",
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": "Чёрный чай, вишня, шиповник, слива, лимон.",
+      "tasting_notes": [
+        "чёрный чай",
+        "вишня",
+        "шиповник",
+        "лимон",
+        "слива"
+      ],
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2230,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2"
     },
     {
@@ -11091,6 +11507,32 @@
       ]
     },
     {
+      "id": "filter_mono_танзания_аа_мытый_1_кг_filter",
+      "name": "Танзания АА мытый - 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_mono",
+      "stock": 2,
+      "hidden": false,
+      "quarantined": false,
+      "country": null,
+      "process": null,
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": null,
+      "tasting_notes": null,
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
+      "created_by": "manual_v2"
+    },
+    {
       "id": "s-топпинг_barline_банан_1кг",
       "category": "syrup",
       "subcategory": "syr_barline",
@@ -11350,6 +11792,32 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null
+    },
+    {
+      "id": "filter_mono_уганда_вугар_мытый_1_кг_filter",
+      "name": "Уганда Вугар мытый  - 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_mono",
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
+      "country": null,
+      "process": null,
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": null,
+      "tasting_notes": null,
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2070,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
+      "created_by": "manual_v2"
     },
     {
       "id": "espresso_mono_уганда_вугар_мытый_эспрессо_1_кг",
@@ -13052,6 +13520,37 @@
       "created_by": "manual_v2"
     },
     {
+      "id": "filter_micro_эфиопия_ададо_сухой_1_кг",
+      "name": "Эфиопия Ададо сухой - 1 кг",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 9,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Эфиопия",
+      "process": "Natural",
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": "Чёрный чай, красное яблоко, миндаль, цитрусы.",
+      "tasting_notes": [
+        "чёрный чай",
+        "красное яблоко",
+        "миндаль",
+        "цитрус"
+      ],
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2390,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
+      "created_by": "manual_v2"
+    },
+    {
       "id": "c-drip-эфиопия_иргачиф__drip_",
       "category": "drip",
       "subcategory": "drip_loose",
@@ -13086,6 +13585,37 @@
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026"
+    },
+    {
+      "id": "filter_mono_эфиопия_лиму_гр_2_мытый_1_кг_filter",
+      "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
+      "category": "filter",
+      "subcategory": "filter_mono",
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Эфиопия",
+      "process": "Мытая",
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": "Цитрусы, вишня, чёрный чай, шоколад. Q 84,5",
+      "tasting_notes": [
+        "цитрус",
+        "вишня",
+        "чёрный чай",
+        "шоколад"
+      ],
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2120,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
+      "created_by": "manual_v2"
     },
     {
       "id": "c-nesp-эфиопия_сидамо__nespresso_",
@@ -13148,6 +13678,38 @@
       "created_by": "manual_v2"
     },
     {
+      "id": "filter_micro_эфиопия_челелекту_гр_1_мытый_filter_1_кг",
+      "name": "Эфиопия Челелекту гр.1 мытый FILTER - 1 кг",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 12,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Эфиопия",
+      "process": "Washed",
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": "Пряности, цветы, черёмуха, чёрный чай, тёмные ягоды.",
+      "tasting_notes": [
+        "цветочные",
+        "чёрная смородина",
+        "специи",
+        "чёрный чай",
+        "бергамот"
+      ],
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2863,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
+      "created_by": "manual_v2"
+    },
+    {
       "id": "espresso_micro_эфиопия_челчеле_гр_1_мытый_эспрессо_1_кг",
       "name": "Эфиопия Челчеле гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
@@ -13175,6 +13737,32 @@
         }
       ],
       "created_at": "2026-05-19T13:09:32+00:00",
+      "created_by": "manual_v2"
+    },
+    {
+      "id": "filter_micro_эфиопия_челчеле_гр_1_сухой_filter_1_кг",
+      "name": "Эфиопия Челчеле гр.1 сухой FILTER - 1 кг",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 3,
+      "hidden": false,
+      "quarantined": false,
+      "country": null,
+      "process": null,
+      "altitude": null,
+      "variety": null,
+      "roast": "F",
+      "description": null,
+      "tasting_notes": null,
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2"
     }
   ]
