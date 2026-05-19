@@ -293,7 +293,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 633,
+      "stock": 625,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО, 200 г",
@@ -516,7 +516,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 26,
+      "stock": 25,
       "tags": [],
       "photo": "assets/placeholders/ph_filter.svg",
       "ozon_offer_id": "RBR-F- БРАЗ СЕРРАДО ЖЕЛТЫЙ БУРБОН, 1кг",
@@ -14983,11 +14983,11 @@
           "price": 292
         }
       ],
-      "stock": 12,
+      "stock": 0,
       "on_request": true,
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T04:36:42+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "cascara_кофеи_ная_шелуха_коста-рика_каскара_финка_сонора_с",
@@ -15017,11 +15017,11 @@
           "price": 1755
         }
       ],
-      "stock": 2,
+      "stock": 0,
       "on_request": true,
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined": true,
+      "quarantined_at": "2026-05-19T04:36:42+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "other_сахар_althaus_в_стиках_по_5_г_2000_шт_кор",
