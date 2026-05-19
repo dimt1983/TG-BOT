@@ -6,7 +6,7 @@
  *  Bump CACHE_VERSION whenever the shell ships.
  */
 
-const CACHE_VERSION = '2026-05-17.v2.r1';
+const CACHE_VERSION = '2026-05-19.v2.r2';
 const SHELL_CACHE   = `rb-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `rb-runtime-${CACHE_VERSION}`;
 const IMG_CACHE     = `rb-img-${CACHE_VERSION}`;

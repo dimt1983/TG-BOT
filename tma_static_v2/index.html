@@ -331,8 +331,12 @@ function isVisibleInCatalog(p) {
   }
   return true;
 }
+const NAME_COLLATOR = new Intl.Collator('ru', { sensitivity: 'base', numeric: true });
 function visibleProducts() {
-  return (STATE.data?.products || []).filter(isVisibleInCatalog);
+  return (STATE.data?.products || [])
+    .filter(isVisibleInCatalog)
+    .slice()
+    .sort((a, b) => NAME_COLLATOR.compare(a.name || '', b.name || ''));
 }
 
 /* ════════════════════════════════════════════════════════════════════
@@ -1829,6 +1833,7 @@ function screenAdminProducts() {
       return hay.includes(q);
     });
   }
+  list = list.slice().sort((a, b) => NAME_COLLATOR.compare(a.name || '', b.name || ''));
 
   const cntAll  = all.length;
   const cntQ    = all.filter(p => p.quarantined).length;
