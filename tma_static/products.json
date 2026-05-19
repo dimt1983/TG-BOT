@@ -5162,6 +5162,68 @@
       "archived_reason": "not in xlsx 19.05.2026"
     },
     {
+      "id": "espresso_mono_бразилия_серрадо_дарк_темная_обжарка_эспрессо_1_кг",
+      "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 115,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Бразилия",
+      "process": "Натуральная",
+      "altitude": "—",
+      "variety": "—",
+      "roast": "E",
+      "description": "Сухофрукты, нуга, жареные орехи, сливочная карамель, тёмный шоколад. Q 81,5",
+      "tasting_notes": [
+        "шоколад",
+        "орех",
+        "карамель",
+        "сухофрукты"
+      ],
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2015,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:15:29+00:00",
+      "created_by": "manual_v2"
+    },
+    {
+      "id": "espresso_mono_бразилия_серрадо_средняя_обжарка_эспрессо_1_кг",
+      "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 469,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Бразилия",
+      "process": "Натуральная",
+      "altitude": "—",
+      "variety": "Желтый бурбон",
+      "roast": "E",
+      "description": "Цитрусы, жёлтое яблоко, карамель, жареные орехи, тёмный шоколад. Q 81,5",
+      "tasting_notes": [
+        "шоколад",
+        "карамель",
+        "орех",
+        "цитрус"
+      ],
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2015,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:15:29+00:00",
+      "created_by": "manual_v2"
+    },
+    {
       "id": "filter-aeropress-350",
       "category": "other",
       "subcategory": "other_filters",
@@ -6035,6 +6097,32 @@
       "archived_reason": "not in xlsx 19.05.2026"
     },
     {
+      "id": "espresso_mono_кения_аб_мытый_1_кг_эспрессо",
+      "name": "Кения АБ мытый - 1 кг эспрессо",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
+      "country": null,
+      "process": null,
+      "altitude": null,
+      "variety": null,
+      "roast": "E",
+      "description": null,
+      "tasting_notes": null,
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:15:29+00:00",
+      "created_by": "manual_v2"
+    },
+    {
       "id": "t-китайский_чай_ассам_200г",
       "category": "tea",
       "subcategory": "tea_китайский_чай_loose",
@@ -6417,6 +6505,37 @@
       "archived_reason": "not in xlsx 19.05.2026"
     },
     {
+      "id": "espresso_mono_колумбия_андино_мытый_эспрессо_1_кг",
+      "name": "Колумбия Андино мытый эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 19,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Колумбия",
+      "process": "Мытая",
+      "altitude": null,
+      "variety": null,
+      "roast": "E",
+      "description": "Зелёное яблоко, красные ягоды, чёрная смородина, цитрусы, шиповник, абрикос. Q 83,75",
+      "tasting_notes": [
+        "чёрная смородина",
+        "цитрус",
+        "ягоды",
+        "карамель"
+      ],
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2175,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:15:29+00:00",
+      "created_by": "manual_v2"
+    },
+    {
       "id": "c-drip-колумбия_гонзало_кармона__drip_",
       "category": "drip",
       "subcategory": "drip_loose",
@@ -6670,6 +6789,37 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null
+    },
+    {
+      "id": "espresso_mono_коста_рика_тарразу_ла_пастора_эспрессо_1_кг",
+      "name": "Коста-Рика Тарразу Ла Пастора эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 1,
+      "hidden": false,
+      "quarantined": false,
+      "country": "CHOCOLATE",
+      "process": "Помол под фильтр",
+      "altitude": null,
+      "variety": null,
+      "roast": "E",
+      "description": "Цитрусы, красные ягоды, чёрный чай, тёмный шоколад.",
+      "tasting_notes": [
+        "шоколад",
+        "цитрус",
+        "ягоды",
+        "чёрный чай"
+      ],
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:15:29+00:00",
+      "created_by": "manual_v2"
     },
     {
       "id": "black_кофе_roastberry_black_бразилия_бразилия_sl28_хани_",
@@ -7321,6 +7471,58 @@
       "quarantine_reason": null
     },
     {
+      "id": "espresso_mono_перу_монте_верде_гр_1_мытый_эспрессо_1_кг",
+      "name": "Перу Монте Верде гр.1 мытый эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 15,
+      "hidden": false,
+      "quarantined": false,
+      "country": null,
+      "process": null,
+      "altitude": null,
+      "variety": null,
+      "roast": "E",
+      "description": null,
+      "tasting_notes": null,
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:15:29+00:00",
+      "created_by": "manual_v2"
+    },
+    {
+      "id": "espresso_mono_перу_монте_верде_гр_1_сухой_эспрессо_1_кг",
+      "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 9,
+      "hidden": false,
+      "quarantined": false,
+      "country": null,
+      "process": null,
+      "altitude": null,
+      "variety": null,
+      "roast": "E",
+      "description": null,
+      "tasting_notes": null,
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2870,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:15:29+00:00",
+      "created_by": "manual_v2"
+    },
+    {
       "id": "s-помпа_белая_28_мм_5_мл",
       "category": "syrup",
       "subcategory": "syr_sweetshot",
@@ -7514,6 +7716,38 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null
+    },
+    {
+      "id": "espresso_mono_руанда_мутетели_15_мытый_1_кг",
+      "name": "Руанда Мутетели 15+ мытый  - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Руанда",
+      "process": "Мытая",
+      "altitude": null,
+      "variety": null,
+      "roast": "E",
+      "description": "Чёрный чай, вишня, шиповник, слива, лимон.",
+      "tasting_notes": [
+        "чёрный чай",
+        "вишня",
+        "шиповник",
+        "лимон",
+        "слива"
+      ],
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2230,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:15:29+00:00",
+      "created_by": "manual_v2"
     },
     {
       "id": "other_сахар_althaus_в_стиках_по_5_г_2000_шт_кор",
@@ -11118,6 +11352,63 @@
       "quarantine_reason": null
     },
     {
+      "id": "espresso_mono_уганда_вугар_мытый_эспрессо_1_кг",
+      "name": "Уганда Вугар мытый -  эспрессо 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
+      "country": null,
+      "process": null,
+      "altitude": null,
+      "variety": null,
+      "roast": "E",
+      "description": null,
+      "tasting_notes": null,
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2070,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:15:29+00:00",
+      "created_by": "manual_v2"
+    },
+    {
+      "id": "espresso_mono_уганда_рувензори_сухой_эспрессо_1_кг",
+      "name": "Уганда Рувензори сухой -  эспрессо 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 10,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Уганда",
+      "process": "Натуральная",
+      "altitude": "—",
+      "variety": "—",
+      "roast": "E",
+      "description": "Шоколад, орехи, тост, сухофрукты. Q 81,75",
+      "tasting_notes": [
+        "шоколад",
+        "орех",
+        "карамель",
+        "тост"
+      ],
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2015,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:15:29+00:00",
+      "created_by": "manual_v2"
+    },
+    {
       "id": "t-улун_-_да_хун_пао_100_нун_сян_200_г_вкус_хлебная_к",
       "category": "tea",
       "subcategory": "tea_китайский_чай_loose",
@@ -12735,6 +13026,32 @@
       "quarantine_reason": null
     },
     {
+      "id": "espresso_mono_эфиопия_yirgacheffe_gr_4_сухой_эспрессо_1_кг",
+      "name": "Эфиопия Yirgacheffe Gr 4 сухой эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 118,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Эфиопия",
+      "process": "Натуральная",
+      "altitude": null,
+      "variety": null,
+      "roast": "E",
+      "description": "Абрикос, горький шоколад, красные ягоды, цитрусовые.",
+      "tasting_notes": null,
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2015,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:15:29+00:00",
+      "created_by": "manual_v2"
+    },
+    {
       "id": "c-drip-эфиопия_иргачиф__drip_",
       "category": "drip",
       "subcategory": "drip_loose",
@@ -12803,6 +13120,32 @@
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "photo": "assets/placeholders/ph_espresso.svg",
       "archived_reason": "not in xlsx 19.05.2026"
+    },
+    {
+      "id": "espresso_mono_эфиопия_сидамо_гр_4_сухой_эспрессо_1_кг",
+      "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
+      "country": "FLOWER",
+      "process": "Капсула",
+      "altitude": null,
+      "variety": null,
+      "roast": "E",
+      "description": "Персик, лимон, чёрный чай.",
+      "tasting_notes": null,
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:15:29+00:00",
+      "created_by": "manual_v2"
     },
     {
       "id": "espresso_micro_эфиопия_челчеле_гр_1_мытый_эспрессо_1_кг",
