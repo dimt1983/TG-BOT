@@ -339,7 +339,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 320,
+      "stock": 319,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ СЕРРАДО ДАРК, 200 г",
@@ -385,7 +385,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 332,
+      "stock": 330,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "ozon_offer_id": "RB-E-БРАЗИЛИЯ SAN RAFAEL, 1 кг",
@@ -643,7 +643,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 18,
+      "stock": 17,
       "tags": [],
       "taste": "Чёрный чай, вишня, шиповник, слива",
       "roast_descr": "светлая обжарка под фильтр",
@@ -725,7 +725,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 36,
+      "stock": 38,
       "tags": [],
       "taste": "молочный шоколад, йогурт, карамель",
       "roast_descr": "светлая обжарка под фильтр",
@@ -1269,7 +1269,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "tags": [
         "Black Edition"
       ],
@@ -11313,7 +11313,7 @@
           "price": 2290.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/t-улун_най_сян_дун_дин_80_200_г_молочный_улун_аромат.jpg",
       "quarantined": false,
@@ -12368,7 +12368,7 @@
           "photo": "photos/products/c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr.jpg"
         }
       ],
-      "stock": 197,
+      "stock": 187,
       "tags": [],
       "photo": "photos/products/c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr.jpg",
       "tasting_notes": [
@@ -12431,7 +12431,7 @@
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
-      "stock": 28,
+      "stock": 17,
       "tags": [],
       "photo": "assets/placeholders/ph_espresso.svg",
       "tasting_notes": [
@@ -12531,7 +12531,7 @@
           "photo": null
         }
       ],
-      "stock": 143,
+      "stock": 108,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12556,7 +12556,7 @@
           "photo": null
         }
       ],
-      "stock": 171,
+      "stock": 161,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12606,7 +12606,7 @@
           "photo": null
         }
       ],
-      "stock": 40,
+      "stock": 36,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13735,7 +13735,7 @@
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 42,
+      "stock": 38,
       "on_request": true,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
@@ -14181,7 +14181,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 26,
+      "stock": 25,
       "on_request": true,
       "subcategory": "filter_mono",
       "roast": "F",
@@ -14223,7 +14223,7 @@
           "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "on_request": true,
       "subcategory": "filter_mono",
       "roast": "F",
