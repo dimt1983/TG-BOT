@@ -1048,7 +1048,7 @@
         }
       ],
       "stock": 35,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1072,7 +1072,7 @@
         }
       ],
       "stock": 10,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1095,7 +1095,7 @@
         }
       ],
       "stock": 16,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1119,7 +1119,7 @@
         }
       ],
       "stock": 19,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1142,7 +1142,7 @@
         }
       ],
       "stock": 104,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1166,7 +1166,7 @@
         }
       ],
       "stock": 2,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1189,7 +1189,7 @@
         }
       ],
       "stock": 19,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1213,7 +1213,7 @@
         }
       ],
       "stock": 17,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1264,7 +1264,7 @@
         }
       ],
       "stock": 16,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1287,7 +1287,7 @@
         }
       ],
       "stock": 8,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1302,7 +1302,7 @@
       "category": "other",
       "subcategory": "other_chemistry",
       "stock": 4,
-      "on_request": true,
+      "on_request": false,
       "price": null,
       "quarantined": false,
       "quarantined_at": null,
@@ -1322,7 +1322,7 @@
       "category": "other",
       "subcategory": "other_chemistry",
       "stock": 7,
-      "on_request": true,
+      "on_request": false,
       "price": null,
       "quarantined": false,
       "quarantined_at": null,
@@ -1342,7 +1342,7 @@
       "category": "other",
       "subcategory": "other_chemistry",
       "stock": 2,
-      "on_request": true,
+      "on_request": false,
       "price": null,
       "quarantined": false,
       "quarantined_at": null,
@@ -1362,7 +1362,7 @@
       "category": "other",
       "subcategory": "other_chemistry",
       "stock": 18,
-      "on_request": true,
+      "on_request": false,
       "price": null,
       "quarantined": false,
       "quarantined_at": null,
@@ -1383,7 +1383,7 @@
       "category": "other",
       "subcategory": "other_chemistry",
       "stock": 1,
-      "on_request": true,
+      "on_request": false,
       "price": null,
       "quarantined": false,
       "quarantined_at": null,
@@ -1404,7 +1404,7 @@
       "category": "other",
       "subcategory": "other_chemistry",
       "stock": 11,
-      "on_request": true,
+      "on_request": false,
       "price": null,
       "quarantined": false,
       "quarantined_at": null,
@@ -1425,7 +1425,7 @@
       "category": "other",
       "subcategory": "other_chemistry",
       "stock": 17,
-      "on_request": true,
+      "on_request": false,
       "price": null,
       "quarantined": false,
       "quarantined_at": null,
@@ -1446,7 +1446,7 @@
       "category": "other",
       "subcategory": "other_chemistry",
       "stock": 10,
-      "on_request": true,
+      "on_request": false,
       "price": null,
       "quarantined": false,
       "quarantined_at": null,
@@ -1474,7 +1474,7 @@
         }
       ],
       "stock": 15,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг"
@@ -1493,7 +1493,7 @@
         }
       ],
       "stock": 12,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
@@ -1516,7 +1516,7 @@
         }
       ],
       "stock": 283,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1540,7 +1540,7 @@
         }
       ],
       "stock": 49,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1562,7 +1562,7 @@
         }
       ],
       "stock": 15,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Серадо  упак. 200 г",
@@ -1584,7 +1584,7 @@
         }
       ],
       "stock": 9,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Серадо Дарк  упак. 200 г",
@@ -1607,7 +1607,7 @@
         }
       ],
       "stock": 4,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1630,7 +1630,7 @@
         }
       ],
       "stock": 13,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гватемала Декаф упак. 200 гр.",
@@ -1652,7 +1652,7 @@
         }
       ],
       "stock": 7,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гватемала Уетенанго упак. 200 гр.",
@@ -1675,7 +1675,7 @@
         }
       ],
       "stock": 6,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1699,7 +1699,7 @@
         }
       ],
       "stock": 15,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1721,7 +1721,7 @@
         }
       ],
       "stock": 45,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг"
@@ -1740,7 +1740,7 @@
         }
       ],
       "stock": 14,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг",
@@ -1795,7 +1795,7 @@
         }
       ],
       "stock": 8,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Уганада Рувензор упак. 200 г",
@@ -1817,7 +1817,7 @@
         }
       ],
       "stock": 22,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ"
@@ -1835,7 +1835,7 @@
         }
       ],
       "stock": 2,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Гватемала Уетенанго - 1 кг"
@@ -1855,7 +1855,7 @@
         }
       ],
       "stock": 2,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1877,7 +1877,7 @@
         }
       ],
       "stock": 17,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Кения АА упак. 200 г",
@@ -1901,7 +1901,7 @@
         }
       ],
       "stock": 10,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1923,7 +1923,7 @@
         }
       ],
       "stock": 4,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Китай Симао упак. 200 г"
@@ -1942,7 +1942,7 @@
         }
       ],
       "stock": 18,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
       "quarantined_at": "2026-05-18T21:00:07+00:00",
@@ -1964,7 +1964,7 @@
         }
       ],
       "stock": 9,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Танзания упак. 200 гр"
@@ -1982,7 +1982,7 @@
         }
       ],
       "stock": 1,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Эфиопия Иргачиф Гр.2 упак. 200 г",
@@ -2004,7 +2004,7 @@
         }
       ],
       "stock": 11,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Эфиопия Лиму упак. 200 г",
@@ -2193,7 +2193,7 @@
       "category": "other",
       "subcategory": "other_chocolate",
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "price": null,
       "quarantined": false,
       "quarantined_at": null,
@@ -5533,7 +5533,7 @@
       "category": "other",
       "subcategory": "other_chocolate",
       "stock": 8,
-      "on_request": true,
+      "on_request": false,
       "price": null,
       "quarantined": false,
       "quarantined_at": null,
@@ -5554,7 +5554,7 @@
       "category": "other",
       "subcategory": "other_chocolate",
       "stock": 13,
-      "on_request": true,
+      "on_request": false,
       "price": null,
       "quarantined": false,
       "quarantined_at": null,
@@ -5828,7 +5828,7 @@
         }
       ],
       "stock": 65,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "drip_8pack"
     },
     {
@@ -5843,7 +5843,7 @@
         }
       ],
       "stock": 6,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "drip_8pack"
     },
     {
@@ -5858,7 +5858,7 @@
         }
       ],
       "stock": 3,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "drip_8pack"
     },
     {
@@ -6221,7 +6221,7 @@
         }
       ],
       "stock": 0,
-      "on_request": true,
+      "on_request": false,
       "quarantined": true,
       "quarantined_at": "2026-05-19T12:35:47+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
@@ -7237,7 +7237,7 @@
         }
       ],
       "stock": 13,
-      "on_request": true,
+      "on_request": false,
       "roast": "E",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BLACK\" Бразилия Бразилия \"SL28 Хани анаэроб.\" - 200 г"
@@ -7255,7 +7255,7 @@
         }
       ],
       "stock": 14,
-      "on_request": true,
+      "on_request": false,
       "roast": "E",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BLACK\" Колумбия \"Кастильо\" мытая  200 г"
@@ -7273,7 +7273,7 @@
         }
       ],
       "stock": 15,
-      "on_request": true,
+      "on_request": false,
       "roast": "E",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BLACK\" Эфиопия Ададо 200 г"
@@ -7291,7 +7291,7 @@
         }
       ],
       "stock": 4,
-      "on_request": true,
+      "on_request": false,
       "roast": "E",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BLACK\" Эфиопия Челелекту гр.1 мытый 200 г"
@@ -7309,7 +7309,7 @@
         }
       ],
       "stock": 10,
-      "on_request": true,
+      "on_request": false,
       "roast": "E",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BLACK\" Эфиопия Челчеле натур.200 г"
@@ -7327,7 +7327,7 @@
         }
       ],
       "stock": 10,
-      "on_request": true,
+      "on_request": false,
       "roast": "E",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BORЩ \"Бразилия \"Судан Руме анаэроб.\" анаэроб.\" 200 г"
@@ -7345,7 +7345,7 @@
         }
       ],
       "stock": 11,
-      "on_request": true,
+      "on_request": false,
       "roast": "E",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BORЩ \"Бразилия \"Фазенда Лагуинья мундо анаэроб.\" 200 г"
@@ -7363,7 +7363,7 @@
         }
       ],
       "stock": 10,
-      "on_request": true,
+      "on_request": false,
       "roast": "E",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Gonzalo Carmona Катура нату.\" 200 г"
@@ -7381,7 +7381,7 @@
         }
       ],
       "stock": 9,
-      "on_request": true,
+      "on_request": false,
       "roast": "E",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Маракуйя Хани инфьюз.\" 200 г"
@@ -7399,7 +7399,7 @@
         }
       ],
       "stock": 9,
-      "on_request": true,
+      "on_request": false,
       "roast": "E",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Пачамама\" нат.анаэроб.200 г"
@@ -7417,7 +7417,7 @@
         }
       ],
       "stock": 6,
-      "on_request": true,
+      "on_request": false,
       "roast": "E",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Хайро Арсила нат.\" 200 г"
@@ -7434,7 +7434,7 @@
         }
       ],
       "stock": 0,
-      "on_request": true,
+      "on_request": false,
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
@@ -8200,7 +8200,7 @@
         }
       ],
       "stock": 0,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
@@ -8219,7 +8219,7 @@
         }
       ],
       "stock": 0,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": true,
       "quarantined_at": "2026-05-18T14:33:37+00:00",
@@ -8238,7 +8238,7 @@
         }
       ],
       "stock": 0,
-      "on_request": true,
+      "on_request": false,
       "quarantined": true,
       "quarantined_at": "2026-05-19T12:35:47+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
@@ -11515,7 +11515,7 @@
       "category": "other",
       "subcategory": "other_chemistry",
       "stock": 1,
-      "on_request": true,
+      "on_request": false,
       "price": null,
       "quarantined": false,
       "quarantined_at": null,
@@ -12029,7 +12029,7 @@
       "category": "other",
       "subcategory": "other_filters",
       "stock": 38,
-      "on_request": true,
+      "on_request": false,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
       "photo": "photos/products/o-фильтры_bonomat_50шт.webp",
@@ -12046,7 +12046,7 @@
       "category": "other",
       "subcategory": "other_filters",
       "stock": 10,
-      "on_request": true,
+      "on_request": false,
       "price": null,
       "photo": "",
       "fasovka": [
