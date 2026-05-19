@@ -355,14 +355,22 @@ const CAT_PLACEHOLDER = {
 };
 
 /* Фотка товара.
-   p.photo === строка-путь, НЕ ведёт на placeholders/ → image
-   p.photo === строка с placeholders/ или '' / undefined → цветная плашка по категории,
-                                                            иначе legacy placeholder с label */
+   src ведёт на placeholders/pack_*.png  → брендированный пакет (contain на белом)
+   src ведёт на placeholders/ph_*.svg    → цветная плашка по категории
+   src — обычный путь                    → реальное фото (cover)
+   src пустой / undefined                → плашка по категории либо серый фон */
 function productImg(p, ratio = '1', extra = '', label = '') {
   const src = p?.photo;
-  const isPlaceholderPath = typeof src === 'string' && src.indexOf('placeholders/') !== -1;
-  const isRealPhoto = typeof src === 'string' && src.length > 0 && !isPlaceholderPath;
+  const isPack = typeof src === 'string' && /\/placeholders\/pack_/.test(src);
+  const isCategoryPlaceholder = typeof src === 'string' && /\/placeholders\/ph_/.test(src);
+  const isRealPhoto = typeof src === 'string' && src.length > 0 && !isPack && !isCategoryPlaceholder;
 
+  if (isPack) {
+    const url = /^https?:\/\//.test(src) ? src
+              : src.startsWith('/') ? src
+              : '/tma/' + src.replace(/^tma_static\//, '');
+    return `<div style="aspect-ratio:${ratio}; border-radius:var(--r-md); ${extra} background-image:url('${url}'); background-size:contain; background-position:center; background-repeat:no-repeat; background-color:#fafafa;"></div>`;
+  }
   if (isRealPhoto) {
     const url = /^https?:\/\//.test(src) ? src
               : src.startsWith('/') ? src
