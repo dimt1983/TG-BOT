@@ -438,6 +438,25 @@ function stepper(value, decAction, incAction, ink = false) {
     </div>`;
 }
 
+/* Кнопка добавления в корзину: «+» если qty=0, иначе встроенный stepper «− N +». */
+function cartButton(productId, fasovkaSize, sizePx = 32) {
+  const id = productId;
+  const fa = fasovkaSize || 'уп.';
+  const it = STATE.cart.find(x => x.id === id && x.fasovka === fa);
+  const qty = it ? it.qty : 0;
+  const idJs = esc(id);
+  const faJs = esc(fa);
+  if (qty === 0) {
+    return `<button onclick="event.stopPropagation(); rb.cartAdd('${idJs}', '${faJs}')" style="width:${sizePx}px; height:${sizePx}px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-size:${Math.round(sizePx*0.69)}px; line-height:1; font-weight:300; cursor:pointer;">+</button>`;
+  }
+  const btn = sizePx - 4;
+  return `<div onclick="event.stopPropagation()" style="display:inline-flex; align-items:center; gap:0; background:var(--ink); border-radius:999px; padding:2px; height:${sizePx}px;">
+    <button onclick="event.stopPropagation(); rb.cartChange('${idJs}', '${faJs}', -1)" style="width:${btn}px; height:${btn}px; border-radius:999px; background:transparent; color:var(--bg); border:0; font-size:18px; line-height:1; cursor:pointer; font-weight:400; padding:0;">−</button>
+    <span style="min-width:20px; padding:0 4px; text-align:center; color:var(--bg); font-family:var(--f-mono); font-weight:700; font-size:13px;">${qty}</span>
+    <button onclick="event.stopPropagation(); rb.cartChange('${idJs}', '${faJs}', 1)" style="width:${btn}px; height:${btn}px; border-radius:999px; background:transparent; color:var(--bg); border:0; font-size:18px; line-height:1; cursor:pointer; font-weight:400; padding:0;">+</button>
+  </div>`;
+}
+
 function freshDot(daysAgo) {
   const word = daysAgo === 1 ? 'день' : daysAgo < 5 ? 'дня' : 'дней';
   return `<span style="display:inline-flex; align-items:center; gap:6px; font-family:var(--f-mono); font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--green); font-weight:600;"><span style="width:6px; height:6px; border-radius:999px; background:var(--green)"></span>обжарено ${daysAgo} ${word} назад</span>`;
@@ -677,7 +696,7 @@ ${hits.length ? `
           <div style="margin-top:4px; font-family:var(--f-display); font-weight:700; font-size:16px; line-height:1.2;">${esc(p.name)}</div>
           <div style="margin-top:6px; font-family:var(--f-display); font-weight:800; font-size:17px;">${f.on_request || typeof f.price !== 'number' ? 'по запросу' : fmt(f.price) + ' '}<span style="font-size:11px; color:var(--ink-soft); margin-left:3px; font-weight:500;">${f.size ? '₽ / ' + esc(f.size) : ''}</span></div>
         </div>
-        <button onclick="event.stopPropagation(); rb.cartAdd('${esc(p.id)}', '${esc(f.size || '')}')" style="width:32px; height:32px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-size:22px; line-height:1; font-weight:300;">+</button>
+        ${cartButton(p.id, f.size, 32)}
       </div>`;
   }).join('')}
 </div>` : ''}
@@ -954,7 +973,7 @@ function screenCatalog() {
                     <span style="font-family:var(--f-display); font-weight:800; font-size:16px; line-height:1;">${typeof fa.price === 'number' && !fa.on_request ? fmt(fa.price) : '—'}</span>
                     <span style="font-size:10px; color:var(--ink-faint); margin-left:2px;">${typeof fa.price === 'number' && !fa.on_request ? '₽' : ''}</span>
                   </div>
-                  <button onclick="event.stopPropagation(); rb.cartAdd('${esc(p.id)}', '${esc(fa.size || size)}')" style="width:30px; height:30px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-size:18px; line-height:1; font-weight:300;">+</button>
+                  ${cartButton(p.id, fa.size || size, 30)}
                 </div>
               </div>
             `;
@@ -1049,7 +1068,7 @@ function screenCatalog() {
                     <span style="font-family:var(--f-display); font-weight:800; font-size:16px; line-height:1;">${typeof fa.price === 'number' && !fa.on_request ? fmt(fa.price) : '—'}</span>
                     <span style="font-size:10px; color:var(--ink-faint); margin-left:2px;">${typeof fa.price === 'number' && !fa.on_request ? '₽' : ''}</span>
                   </div>
-                  <button onclick="event.stopPropagation(); rb.cartAdd('${esc(p.id)}', '${esc(fa.size || '')}')" style="width:30px; height:30px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-size:18px; line-height:1; font-weight:300;">+</button>
+                  ${cartButton(p.id, fa.size || '', 30)}
                 </div>
               </div>
             `;
