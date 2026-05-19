@@ -1576,7 +1576,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 434,
+      "stock": 9,
       "on_request": true,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1599,7 +1599,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "on_request": true,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1666,7 +1666,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 63,
+      "stock": 43,
       "on_request": true,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1968,7 +1968,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 79,
+      "stock": 38,
       "on_request": true,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -1990,7 +1990,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 28,
+      "stock": 8,
       "on_request": true,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5163,7 +5163,7 @@
       "name": "Бразилия \"Судан Руме анаэроб.\" 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5229,7 +5229,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 115,
+      "stock": 425,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5260,7 +5260,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 8,
+      "stock": 21,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5292,7 +5292,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 469,
+      "stock": 568,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5323,7 +5323,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 31,
+      "stock": 37,
       "hidden": false,
       "quarantined": false,
       "country": "CHOCOLATE",
@@ -6254,7 +6254,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 12,
+      "stock": 37,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -6280,9 +6280,9 @@
       "name": "Кения АБ мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4,
+      "stock": 0,
       "hidden": false,
-      "quarantined": false,
+      "quarantined": true,
       "country": null,
       "process": null,
       "altitude": null,
@@ -6299,7 +6299,9 @@
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
-      "created_by": "manual_v2"
+      "created_by": "manual_v2",
+      "quarantined_at": "2026-05-19T13:35:50+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "filter_mono_кения_центральная_провинция_аб_мытый_1_кг_filter",
@@ -6338,7 +6340,7 @@
       "name": "Китай Симао гр.1 Меллоу мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 22,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -6746,7 +6748,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 7,
+      "stock": 20,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -6772,9 +6774,9 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 19,
+      "stock": 0,
       "hidden": false,
-      "quarantined": false,
+      "quarantined": true,
       "country": "Колумбия",
       "process": "Мытая",
       "altitude": null,
@@ -6796,14 +6798,16 @@
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
-      "created_by": "manual_v2"
+      "created_by": "manual_v2",
+      "quarantined_at": "2026-05-19T13:35:50+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "filter_micro_колумбия_гонзало_кармана_катура_сухой_1_кг_filter",
       "name": "Колумбия Гонзало Кармана Катура сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -6869,7 +6873,7 @@
       "name": "Колумбия Кастильо мытая - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 1,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -6962,7 +6966,7 @@
       "name": "Колумбия Пачамама нат.анаэроб.- 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 3,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7179,9 +7183,9 @@
       "name": "Коста-Рика Тарразу Ла Пастора эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 1,
+      "stock": 0,
       "hidden": false,
-      "quarantined": false,
+      "quarantined": true,
       "country": "CHOCOLATE",
       "process": "Помол под фильтр",
       "altitude": null,
@@ -7203,7 +7207,9 @@
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
-      "created_by": "manual_v2"
+      "created_by": "manual_v2",
+      "quarantined_at": "2026-05-19T13:35:50+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "black_кофе_roastberry_black_бразилия_бразилия_sl28_хани_",
@@ -7217,7 +7223,7 @@
           "photo": "assets/placeholders/ph_black.svg"
         }
       ],
-      "stock": 18,
+      "stock": 13,
       "on_request": true,
       "roast": "E",
       "subcategory": null,
@@ -7235,7 +7241,7 @@
           "photo": "assets/placeholders/ph_black.svg"
         }
       ],
-      "stock": 18,
+      "stock": 14,
       "on_request": true,
       "roast": "E",
       "subcategory": null,
@@ -7253,7 +7259,7 @@
           "photo": "assets/placeholders/ph_black.svg"
         }
       ],
-      "stock": 24,
+      "stock": 15,
       "on_request": true,
       "roast": "E",
       "subcategory": null,
@@ -7271,7 +7277,7 @@
           "photo": "assets/placeholders/ph_black.svg"
         }
       ],
-      "stock": 16,
+      "stock": 4,
       "on_request": true,
       "roast": "E",
       "subcategory": null,
@@ -7289,7 +7295,7 @@
           "photo": "assets/placeholders/ph_black.svg"
         }
       ],
-      "stock": 12,
+      "stock": 10,
       "on_request": true,
       "roast": "E",
       "subcategory": null,
@@ -7307,7 +7313,7 @@
           "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
-      "stock": 16,
+      "stock": 10,
       "on_request": true,
       "roast": "E",
       "subcategory": null,
@@ -7343,7 +7349,7 @@
           "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
-      "stock": 13,
+      "stock": 10,
       "on_request": true,
       "roast": "E",
       "subcategory": null,
@@ -7361,7 +7367,7 @@
           "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
-      "stock": 13,
+      "stock": 9,
       "on_request": true,
       "roast": "E",
       "subcategory": null,
@@ -7379,7 +7385,7 @@
           "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
-      "stock": 11,
+      "stock": 9,
       "on_request": true,
       "roast": "E",
       "subcategory": null,
@@ -7859,7 +7865,7 @@
       "name": "Перу Монте Верде гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 15,
+      "stock": 28,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -7885,7 +7891,7 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 9,
+      "stock": 15,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -8106,7 +8112,7 @@
       "name": "Руанда Мутетели 15+ мытый  - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 8,
+      "stock": 15,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -8138,9 +8144,9 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 22,
+      "stock": 0,
       "hidden": false,
-      "quarantined": false,
+      "quarantined": true,
       "country": "Руанда",
       "process": "Мытая",
       "altitude": null,
@@ -8163,7 +8169,9 @@
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
-      "created_by": "manual_v2"
+      "created_by": "manual_v2",
+      "quarantined_at": "2026-05-19T13:35:50+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "other_сахар_althaus_в_стиках_по_5_г_2000_шт_кор",
@@ -9492,7 +9500,7 @@
           "price": 635.0
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -11511,7 +11519,7 @@
       "name": "Танзания АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -11798,7 +11806,7 @@
       "name": "Уганда Вугар мытый  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -11824,9 +11832,9 @@
       "name": "Уганда Вугар мытый -  эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 8,
+      "stock": 0,
       "hidden": false,
-      "quarantined": false,
+      "quarantined": true,
       "country": null,
       "process": null,
       "altitude": null,
@@ -11843,7 +11851,9 @@
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
-      "created_by": "manual_v2"
+      "created_by": "manual_v2",
+      "quarantined_at": "2026-05-19T13:35:50+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "espresso_mono_уганда_рувензори_сухой_эспрессо_1_кг",
@@ -13498,7 +13508,7 @@
       "name": "Эфиопия Yirgacheffe Gr 4 сухой эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 118,
+      "stock": 41,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -13591,7 +13601,7 @@
       "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 8,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -13656,7 +13666,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 8,
+      "stock": 99,
       "hidden": false,
       "quarantined": false,
       "country": "FLOWER",
@@ -13682,7 +13692,7 @@
       "name": "Эфиопия Челелекту гр.1 мытый FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 12,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -13714,7 +13724,7 @@
       "name": "Эфиопия Челчеле гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_micro",
-      "stock": 3,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -13744,7 +13754,7 @@
       "name": "Эфиопия Челчеле гр.1 сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 3,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "country": null,
