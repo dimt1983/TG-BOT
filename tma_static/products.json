@@ -12803,6 +12803,36 @@
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "photo": "assets/placeholders/ph_espresso.svg",
       "archived_reason": "not in xlsx 19.05.2026"
+    },
+    {
+      "id": "espresso_micro_эфиопия_челчеле_гр_1_мытый_эспрессо_1_кг",
+      "name": "Эфиопия Челчеле гр.1 мытый эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_micro",
+      "stock": 3,
+      "hidden": false,
+      "quarantined": false,
+      "country": "Эфиопия",
+      "process": "Мытая",
+      "altitude": "1900–2100 м",
+      "roast": "E",
+      "description": "Регион Гедео. Эспрессо-обжарка мытой обработки. Чистый цитрусовый кислый профиль, цветочный аромат.",
+      "tasting_notes": [
+        "цитрус",
+        "цветочные",
+        "жасмин",
+        "бергамот"
+      ],
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2863,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-19T13:09:32+00:00",
+      "created_by": "manual_v2"
     }
   ]
 }
