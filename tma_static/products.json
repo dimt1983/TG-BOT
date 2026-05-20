@@ -5289,7 +5289,7 @@
         "какао",
         "карамель"
       ],
-      "photo": "assets/placeholders/ph_filter.svg",
+      "photo": "photos/products/filter_mono_бразилия_серрадо_желтый_бурбон_сухой_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
@@ -5305,7 +5305,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 654,
+      "stock": 651,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5492,7 +5492,7 @@
         "пряности",
         "ваниль"
       ],
-      "photo": "assets/placeholders/ph_filter.svg",
+      "photo": "photos/products/filter_mono_гватемала_уеуетенанго_мытый_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
@@ -6277,7 +6277,7 @@
       "roast": "F",
       "description": null,
       "tasting_notes": null,
-      "photo": "assets/placeholders/ph_filter.svg",
+      "photo": "photos/products/filter_mono_кения_аа_мытый_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
@@ -6353,7 +6353,7 @@
       "name": "Китай Симао гр.1 Меллоу мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -6771,7 +6771,7 @@
       "roast": "F",
       "description": null,
       "tasting_notes": null,
-      "photo": "assets/placeholders/ph_filter.svg",
+      "photo": "photos/products/filter_mono_колумбия_андино_мытый_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
@@ -8125,9 +8125,9 @@
       "name": "Руанда Мутетели 15+ мытый  - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
       "country": "Руанда",
       "process": "Мытая",
       "altitude": null,
@@ -8151,8 +8151,8 @@
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
-      "quarantined_at": "2026-05-19T14:00:08+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "filter_mono_руанда_мутетели_15_мытый_1_кг_filter",
@@ -13739,7 +13739,7 @@
       "name": "Эфиопия Челчеле гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_micro",
-      "stock": 1,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -13837,7 +13837,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 10,
+      "stock": 41,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -13930,6 +13930,26 @@
         }
       ],
       "created_at": "2026-05-20T10:00:08+00:00",
+      "created_by": "sync_catalog_v2"
+    },
+    {
+      "id": "filter_micro_вьетнам_блю_сонал_сухой_filter_1_кг",
+      "name": "Вьетнам Блю Сонал сухой FILTER - 1 кг",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "F",
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-05-20T11:00:09+00:00",
       "created_by": "sync_catalog_v2"
     }
   ]
