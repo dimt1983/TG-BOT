@@ -5294,7 +5294,7 @@
         {
           "size": "1 кг",
           "price": 2120,
-          "photo": "assets/placeholders/ph_filter.svg"
+          "photo": "photos/products/filter_mono_бразилия_серрадо_желтый_бурбон_сухой_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -5497,7 +5497,7 @@
         {
           "size": "1 кг",
           "price": 2355,
-          "photo": "assets/placeholders/ph_filter.svg"
+          "photo": "photos/products/filter_mono_гватемала_уеуетенанго_мытый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -6282,7 +6282,7 @@
         {
           "size": "1 кг",
           "price": 0,
-          "photo": "assets/placeholders/ph_filter.svg"
+          "photo": "photos/products/filter_mono_кения_аа_мытый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -6776,7 +6776,7 @@
         {
           "size": "1 кг",
           "price": 0,
-          "photo": "assets/placeholders/ph_filter.svg"
+          "photo": "photos/products/filter_mono_колумбия_андино_мытый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -7233,7 +7233,7 @@
         {
           "size": "200 г",
           "price": 780,
-          "photo": "assets/placeholders/ph_black.svg"
+          "photo": "photos/products/black_кофе_roastberry_black_бразилия_бразилия_sl28_хани_.jpg"
         }
       ],
       "stock": 13,
@@ -7251,7 +7251,7 @@
         {
           "size": "200 г",
           "price": 650,
-          "photo": "assets/placeholders/ph_black.svg"
+          "photo": "photos/products/black_кофе_roastberry_black_колумбия_кастильо_мытая_200_.jpg"
         }
       ],
       "stock": 14,
@@ -7269,7 +7269,7 @@
         {
           "size": "200 г",
           "price": 560,
-          "photo": "assets/placeholders/ph_black.svg"
+          "photo": "photos/products/black_кофе_roastberry_black_эфиопия_ададо_200_г.jpg"
         }
       ],
       "stock": 15,
@@ -7287,7 +7287,7 @@
         {
           "size": "200 г",
           "price": 655,
-          "photo": "assets/placeholders/ph_black.svg"
+          "photo": "photos/products/black_кофе_roastberry_black_эфиопия_челелекту_г1_мытыи_2.jpg"
         }
       ],
       "stock": 4,
@@ -7323,7 +7323,7 @@
         {
           "size": "200 г",
           "price": 780,
-          "photo": "assets/placeholders/ph_borshch.svg"
+          "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_судан_руме_анаэроб_а.jpg"
         }
       ],
       "stock": 10,
@@ -7341,7 +7341,7 @@
         {
           "size": "200 г",
           "price": 780,
-          "photo": "assets/placeholders/ph_borshch.svg"
+          "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg"
         }
       ],
       "stock": 11,
@@ -7377,7 +7377,7 @@
         {
           "size": "200 г",
           "price": 1265,
-          "photo": "assets/placeholders/ph_borshch.svg"
+          "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью.jpg"
         }
       ],
       "stock": 9,
@@ -7395,7 +7395,7 @@
         {
           "size": "200 г",
           "price": 4842,
-          "photo": "assets/placeholders/ph_borshch.svg"
+          "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_пачамама_нат_анаэроб.jpg"
         }
       ],
       "stock": 9,
