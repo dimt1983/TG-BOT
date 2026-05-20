@@ -13921,9 +13921,9 @@
       "name": "Эфиопия Челчеле гр.1 натуральный эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_micro",
-      "stock": 5,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Эфиопия",
       "process": "Натуральная",
       "altitude": "1900–2100 м",
@@ -13949,7 +13949,9 @@
         }
       ],
       "created_at": "2026-05-19T13:09:32+00:00",
-      "created_by": "manual_v2"
+      "created_by": "manual_v2",
+      "quarantined_at": "2026-05-20T18:00:09+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "filter_micro_эфиопия_челчеле_гр_1_сухой_filter_1_кг",
@@ -14137,6 +14139,26 @@
         }
       ],
       "created_at": "2026-05-20T11:00:09+00:00",
+      "created_by": "sync_catalog_v2"
+    },
+    {
+      "id": "espresso_micro_эфиопия_челчеле_гр_1_мытый_эспрессо_1_кг_2",
+      "name": "Эфиопия Челчеле гр.1 мытый эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_micro",
+      "stock": 5,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "E",
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-20T18:00:09+00:00",
       "created_by": "sync_catalog_v2"
     }
   ]
