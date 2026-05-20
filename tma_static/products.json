@@ -5242,7 +5242,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 415,
+      "stock": 413,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5305,7 +5305,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 574,
+      "stock": 654,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7196,7 +7196,7 @@
       "name": "Коста-Рика Тарразу Ла Пастора эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 22,
+      "stock": 20,
       "hidden": false,
       "quarantined": false,
       "country": "CHOCOLATE",
@@ -13523,7 +13523,7 @@
       "name": "Эфиопия Yirgacheffe Gr 4 сухой эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 2,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -13616,7 +13616,7 @@
       "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -13681,7 +13681,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 68,
+      "stock": 124,
       "hidden": false,
       "quarantined": false,
       "country": "FLOWER",
@@ -13910,6 +13910,26 @@
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
+      "created_by": "sync_catalog_v2"
+    },
+    {
+      "id": "espresso_mono_гватемала_уетенанго_мытый_1_кг_эспрессо",
+      "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "E",
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-20T10:00:08+00:00",
       "created_by": "sync_catalog_v2"
     }
   ]
