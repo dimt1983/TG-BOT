@@ -284,7 +284,8 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2250.0
+          "price": 2250.0,
+          "photo": "photos/products/t-althaus_ассам_меленг_чёрн_лист_250г.jpg"
         }
       ],
       "stock": 3,
@@ -309,7 +310,8 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 515.0
+          "price": 515.0,
+          "photo": "photos/products/t-althaus_ассам_меленг_чёрн_пакет_20х1_75г.jpg"
         }
       ],
       "stock": 0,
@@ -335,7 +337,8 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 998.0
+          "price": 998.0,
+          "photo": "photos/products/t-althaus_ассам_молти_кап_15х4г.jpg"
         }
       ],
       "stock": 6,
@@ -360,7 +363,8 @@
       "fasovka": [
         {
           "size": "3 г",
-          "price": 1220.0
+          "price": 1220.0,
+          "photo": "photos/products/t-althaus_благородная_ромашка_трав_15х3г.jpg"
         }
       ],
       "stock": 7,
@@ -385,7 +389,8 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 998.0
+          "price": 998.0,
+          "photo": "photos/products/t-althaus_горные_травы_чёрн_15х4г.jpg"
         }
       ],
       "stock": 0,
@@ -411,7 +416,8 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2320.0
+          "price": 2320.0,
+          "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg"
         }
       ],
       "stock": 5,
@@ -436,7 +442,8 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 998.0
+          "price": 998.0,
+          "photo": "photos/products/t-althaus_грюн_матинэ_зел_аром_15х4г.jpg"
         }
       ],
       "stock": 5,
@@ -461,7 +468,8 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 495.0
+          "price": 495.0,
+          "photo": "photos/products/t-althaus_грюн_матинэ_зел_аром_20х1_75г.jpg"
         }
       ],
       "stock": 0,
@@ -487,7 +495,8 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 480.0
+          "price": 480.0,
+          "photo": "photos/products/t-althaus_жасмин_тинг_юань_зел_аром_20х1_75г.jpg"
         }
       ],
       "stock": 0,
@@ -513,7 +522,8 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 998.0
+          "price": 998.0,
+          "photo": "photos/products/t-althaus_жасминовый_тинг_юань_15х4г.jpg"
         }
       ],
       "stock": 0,
@@ -539,7 +549,8 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 551.0
+          "price": 551.0,
+          "photo": "photos/products/t-althaus_женьшеневое_равновесие_трав_20х1_75г.jpg"
         }
       ],
       "stock": 0,
@@ -565,7 +576,8 @@
       "fasovka": [
         {
           "size": "150 г",
-          "price": 1760.0
+          "price": 1760.0,
+          "photo": "photos/products/t-althaus_лемон_минт_трав_150г.jpg"
         }
       ],
       "stock": 5,
@@ -590,7 +602,8 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 1630.0
+          "price": 1630.0,
+          "photo": "photos/products/t-althaus_молочный_улун_зел_15х4г.jpg"
         }
       ],
       "stock": 31,
@@ -615,7 +628,8 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 4490.0
+          "price": 4490.0,
+          "photo": "photos/products/t-althaus_молочный_улун_зел_лист_250г.jpg"
         }
       ],
       "stock": 2,
@@ -640,7 +654,8 @@
       "fasovka": [
         {
           "size": "3 г",
-          "price": 1130.0
+          "price": 1130.0,
+          "photo": "photos/products/t-althaus_нежная_мята_трав_15х3г.jpg"
         }
       ],
       "stock": 0,
@@ -666,7 +681,8 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 480.0
+          "price": 480.0,
+          "photo": "photos/products/t-althaus_персидское_яблоко_фрукт_20х2_5г.jpg"
         }
       ],
       "stock": 0,
@@ -692,7 +708,8 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1760.0
+          "price": 1760.0,
+          "photo": "photos/products/t-althaus_ред_фрут_флаш_фрукт_лист_250г.jpg"
         }
       ],
       "stock": 5,
@@ -717,7 +734,8 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 1063.0
+          "price": 1063.0,
+          "photo": "photos/products/t-althaus_ред_фрут_фраш_фрукт_15х4г.jpg"
         }
       ],
       "stock": 0,
@@ -743,7 +761,8 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 480.0
+          "price": 480.0,
+          "photo": "photos/products/t-althaus_ройал_эрл_грей_чёрн_аром_20х1_75г.jpg"
         }
       ],
       "stock": 6,
@@ -768,7 +787,8 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 609.0
+          "price": 609.0,
+          "photo": "photos/products/t-althaus_ройбуш_ваниль_пакет_20х1_75г.jpg"
         }
       ],
       "stock": 0,
@@ -794,7 +814,8 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 1200.0
+          "price": 1200.0,
+          "photo": "photos/products/t-althaus_ройбуш_ванильная_карамель_15х4г.jpg"
         }
       ],
       "stock": 0,
@@ -843,7 +864,8 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 551.0
+          "price": 551.0,
+          "photo": "photos/products/t-althaus_ромашковый_луг_трав_20х1_75г.jpg"
         }
       ],
       "stock": 0,
@@ -869,7 +891,8 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 998.0
+          "price": 998.0,
+          "photo": "photos/products/t-althaus_сенча_сенпай_зел_15х4г.jpg"
         }
       ],
       "stock": 0,
@@ -895,7 +918,8 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2215.0
+          "price": 2215.0,
+          "photo": "photos/products/t-althaus_сенча_сенпай_зел_лист_250г.jpg"
         }
       ],
       "stock": 4,
@@ -920,7 +944,8 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 515.0
+          "price": 515.0,
+          "photo": "photos/products/t-althaus_сенча_сенпай_зел_пакет_20х1_75г.jpg"
         }
       ],
       "stock": 0,
@@ -970,7 +995,8 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 536.0
+          "price": 536.0,
+          "photo": "photos/products/t-althaus_чистая_мята_трав_20х1_75г.jpg"
         }
       ],
       "stock": 0,
@@ -996,7 +1022,8 @@
       "fasovka": [
         {
           "size": "75 г",
-          "price": 1590.0
+          "price": 1590.0,
+          "photo": "photos/products/t-althaus_японская_липа_трав_75г.jpg"
         }
       ],
       "stock": 4,
@@ -1091,7 +1118,7 @@
           "size": "1 кг",
           "price": 2015.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
       "stock": 16,
@@ -1114,7 +1141,7 @@
           "size": "200 г",
           "price": 435.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg",
+          "photo": "photos/products/retail_be_roastberry_венеция_200_г.jpg",
           "stock": 19
         }
       ],
@@ -1138,7 +1165,7 @@
           "size": "1 кг",
           "price": 1975.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
       "stock": 104,
@@ -1161,7 +1188,7 @@
           "size": "200 г",
           "price": 425.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg",
+          "photo": "photos/products/retail_be_roastberry_классика_20_200_г.jpg",
           "stock": 2
         }
       ],
@@ -1185,7 +1212,7 @@
           "size": "1 кг",
           "price": 2015.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
       "stock": 19,
@@ -1208,7 +1235,7 @@
           "size": "200 г",
           "price": 435.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg",
+          "photo": "photos/products/retail_be_roastberry_хани_200_г.jpg",
           "stock": 17
         }
       ],
@@ -1260,7 +1287,7 @@
           "size": "1 кг",
           "price": 2015.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg"
         }
       ],
       "stock": 16,
@@ -1282,7 +1309,7 @@
         {
           "size": "200 г",
           "price": 435,
-          "photo": "assets/placeholders/ph_retail.svg",
+          "photo": "photos/products/retail_bf_roastberry_лунго_200_г.jpg",
           "stock": 8
         }
       ],
@@ -1373,7 +1400,8 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 735
+          "price": 735,
+          "photo": "photos/products/o-cup_3_жидкость_от_накипи_1000_мл.webp"
         }
       ]
     },
@@ -1394,7 +1422,8 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 495
+          "price": 495,
+          "photo": "photos/products/o-cup_3_жидкость_от_накипи_500_мл.webp"
         }
       ]
     },
@@ -1415,7 +1444,8 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 1150
+          "price": 1150,
+          "photo": "photos/products/o-cup_5_таблетки_для_удаления_кофейных_масел_2_г_100_шт.webp"
         }
       ]
     },
@@ -1436,7 +1466,8 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 900
+          "price": 900,
+          "photo": "photos/products/o-cup_6_порошок_для_удаления_кофейных_масел_1_кг.webp"
         }
       ]
     },
@@ -1457,7 +1488,8 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 680
+          "price": 680,
+          "photo": "photos/products/o-cup_7_жидкость_для_очистки_молочных_систем_1_л.webp"
         }
       ]
     },
@@ -1470,7 +1502,7 @@
         {
           "size": "1 кг",
           "price": 2045,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
       "stock": 15,
@@ -1488,7 +1520,7 @@
         {
           "size": "200 г",
           "price": 435.0,
-          "photo": "assets/placeholders/ph_retail.svg",
+          "photo": "photos/products/retail_e_roastberry_бразилия_паже_200_г.jpg",
           "stock": 12
         }
       ],
@@ -1512,7 +1544,7 @@
           "size": "1 кг",
           "price": 2070.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
       "stock": 283,
@@ -1535,7 +1567,7 @@
           "size": "200 г",
           "price": 445.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg",
+          "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_200_г.jpg",
           "stock": 49
         }
       ],
@@ -1671,7 +1703,7 @@
           "size": "1 кг",
           "price": 2150.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_e_roastberry_колумбия_андино_-_1_кг.jpg"
         }
       ],
       "stock": 6,
@@ -1694,7 +1726,7 @@
           "size": "200 г",
           "price": 465.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg",
+          "photo": "photos/products/retail_e_roastberry_колумбия_андино_200_г.jpg",
           "stock": 15
         }
       ],
@@ -1937,7 +1969,7 @@
         {
           "size": "200 г",
           "price": 465,
-          "photo": "assets/placeholders/ph_retail.svg",
+          "photo": "photos/products/retail_f_roastberry_колумбия_андино_200_г.jpg",
           "stock": 18
         }
       ],
@@ -1978,7 +2010,7 @@
         {
           "size": "200 г",
           "price": 455,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_f_roastberry_эфиопия_иргачиф_г2_200_г.jpg"
         }
       ],
       "stock": 1,
@@ -2203,7 +2235,8 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 1935
+          "price": 1935,
+          "photo": "photos/products/o-impassion_easy_какао_для_автомат_приготовления_1_кг.jpg"
         }
       ]
     },
@@ -2221,7 +2254,8 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 670.0
+          "price": 670.0,
+          "photo": "photos/products/t-niktea_горный_чабрец_чёрн_пакет_25х2г.jpg"
         }
       ],
       "stock": 0,
@@ -2271,7 +2305,8 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 190.0
+          "price": 190.0,
+          "photo": "photos/products/t-niktea_кения_сапфир_чёрн_пакет_25х2г.jpg"
         }
       ],
       "stock": 48,
@@ -2320,7 +2355,8 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 670.0
+          "price": 670.0,
+          "photo": "photos/products/t-niktea_королевский_завтрак_для_чайника_20х4г.jpg"
         }
       ],
       "stock": 0,
@@ -2346,7 +2382,8 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 185.0
+          "price": 185.0,
+          "photo": "photos/products/t-niktea_красная_поляна_пакет_25х1_75г.jpg"
         }
       ],
       "stock": 8,
@@ -2395,7 +2432,8 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 890.0
+          "price": 890.0,
+          "photo": "photos/products/t-niktea_молочный_улун_зел_аром_25х2г.jpg"
         }
       ],
       "stock": 0,
@@ -2445,7 +2483,8 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 190.0
+          "price": 190.0,
+          "photo": "photos/products/t-niktea_молочный_улун_пирамидки_15х2_7г.jpg"
         }
       ],
       "stock": 0,
@@ -2471,7 +2510,8 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 185.0
+          "price": 185.0,
+          "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg"
         }
       ],
       "stock": 0,
@@ -2521,7 +2561,8 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 215.0
+          "price": 215.0,
+          "photo": "photos/products/t-niktea_ройбуш_оранж_аром_25х2г.jpg"
         }
       ],
       "stock": 8,
@@ -2570,7 +2611,8 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 790.0
+          "price": 790.0,
+          "photo": "photos/products/t-niktea_сенча_классик_зел_для_чайника_20х4г.jpg"
         }
       ],
       "stock": 8,
@@ -2619,7 +2661,8 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 3600.0
+          "price": 3600.0,
+          "photo": "photos/products/t-niktea_фрут_маджента_фрукт_аром_25х2г.jpg"
         }
       ],
       "stock": 0,
@@ -2669,7 +2712,8 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 2320.0
+          "price": 2320.0,
+          "photo": "photos/products/t-niktea_эрл_грей_пирамидки_15х2_7г.jpg"
         }
       ],
       "stock": 1,
@@ -2694,7 +2738,8 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 185.0
+          "price": 185.0,
+          "photo": "photos/products/t-niktea_эрл_грей_ультрамарин_чёрн_аром_25х2г.jpg"
         }
       ],
       "stock": 0,
@@ -2720,7 +2765,8 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 780.0
+          "price": 780.0,
+          "photo": "photos/products/t-niktea_ягодный_коктейль_аром_для_чайника_20х4г.jpg"
         }
       ],
       "stock": 0,
@@ -3263,7 +3309,8 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 890.0
+          "price": 890.0,
+          "photo": "photos/products/t-rb_tea_лапсанг_сушонг_250_г.jpg"
         }
       ],
       "stock": 1,
@@ -3385,7 +3432,8 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 590.0
+          "price": 590.0,
+          "photo": "photos/products/t-rb_tea_эрл_грей_250_г_черный_чай.jpg"
         }
       ],
       "stock": 24,
@@ -3575,7 +3623,8 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 890.0
+          "price": 890.0,
+          "photo": "photos/products/t-rbr_tea_молочный_улун_250г.jpg"
         }
       ],
       "stock": 0,
@@ -3648,7 +3697,8 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 700.0
+          "price": 700.0,
+          "photo": "photos/products/t-rbr_tea_ройбуш_апельсин_250г.jpg"
         }
       ],
       "stock": 5,
@@ -3672,7 +3722,8 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 590.0
+          "price": 590.0,
+          "photo": "photos/products/t-rbr_tea_сенча_250г.jpg"
         }
       ],
       "stock": 20,
@@ -3742,7 +3793,8 @@
       "fasovka": [
         {
           "size": "50 пак",
-          "price": 78.0
+          "price": 78.0,
+          "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
       "stock": 0,
@@ -3767,7 +3819,8 @@
       "fasovka": [
         {
           "size": "50 пак",
-          "price": 78.0
+          "price": 78.0,
+          "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg"
         }
       ],
       "stock": 0,
@@ -3792,7 +3845,8 @@
       "fasovka": [
         {
           "size": "50 пак",
-          "price": 78.0
+          "price": 78.0,
+          "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg"
         }
       ],
       "stock": 0,
@@ -3817,7 +3871,8 @@
       "fasovka": [
         {
           "size": "50 пак",
-          "price": 80.0
+          "price": 80.0,
+          "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
       "stock": 0,
@@ -3842,7 +3897,8 @@
       "fasovka": [
         {
           "size": "50 пак",
-          "price": 80.0
+          "price": 80.0,
+          "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg"
         }
       ],
       "stock": 0,
@@ -3867,7 +3923,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 145.0
+          "price": 145.0,
+          "photo": "photos/products/t-restoranica_resta_апельсин_манго_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -3892,7 +3949,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 120.0
+          "price": 120.0,
+          "photo": "photos/products/t-restoranica_resta_апельсин_ройбуш_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -3917,7 +3975,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 125.0
+          "price": 125.0,
+          "photo": "photos/products/t-restoranica_resta_голубая_масала_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -3942,7 +4001,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 125.0
+          "price": 125.0,
+          "photo": "photos/products/t-restoranica_resta_иммунный_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -3967,7 +4027,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 135.0
+          "price": 135.0,
+          "photo": "photos/products/t-restoranica_resta_кедровый_с_чагой_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -3992,7 +4053,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 135.0
+          "price": 135.0,
+          "photo": "photos/products/t-restoranica_resta_киви_клубника_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -4017,7 +4079,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 135.0
+          "price": 135.0,
+          "photo": "photos/products/t-restoranica_resta_лесные_ягоды_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -4042,7 +4105,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 125.0
+          "price": 125.0,
+          "photo": "photos/products/t-restoranica_resta_мята_малина_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -4067,7 +4131,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 155.0
+          "price": 155.0,
+          "photo": "photos/products/t-restoranica_resta_пряный_глинтвейн_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -4092,7 +4157,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 125.0
+          "price": 125.0,
+          "photo": "photos/products/t-restoranica_resta_пуэр_саган_дайля_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -4117,7 +4183,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 135.0
+          "price": 135.0,
+          "photo": "photos/products/t-restoranica_resta_сладкая_клубника_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -4142,7 +4209,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 125.0
+          "price": 125.0,
+          "photo": "photos/products/t-restoranica_resta_смородиновый_черный_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -4167,7 +4235,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 125.0
+          "price": 125.0,
+          "photo": "photos/products/t-restoranica_resta_шиповник_чабрец_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -4192,7 +4261,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 120.0
+          "price": 120.0,
+          "photo": "photos/products/t-restoranica_resta_эрлберг_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -4217,7 +4287,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 120.0
+          "price": 120.0,
+          "photo": "photos/products/t-restoranica_resta_яблоко_можжевельник_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -4242,7 +4313,8 @@
       "fasovka": [
         {
           "size": "36 пак",
-          "price": 68.0
+          "price": 68.0,
+          "photo": "photos/products/t-restoranica_togo_ассам_с_шиповником_36пак.jpg"
         }
       ],
       "stock": 0,
@@ -4267,7 +4339,8 @@
       "fasovka": [
         {
           "size": "36 пак",
-          "price": 70.0
+          "price": 70.0,
+          "photo": "photos/products/t-restoranica_togo_голубая_масала_36пак.jpg"
         }
       ],
       "stock": 0,
@@ -4292,7 +4365,8 @@
       "fasovka": [
         {
           "size": "36 пак",
-          "price": 70.0
+          "price": 70.0,
+          "photo": "photos/products/t-restoranica_togo_иван-чай_с_малиной_36пак.jpg"
         }
       ],
       "stock": 0,
@@ -4317,7 +4391,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 380
+          "price": 380,
+          "photo": "photos/products/t-restoranica_togo_иммунный_с_облепихой_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -4342,7 +4417,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 70.0
+          "price": 70.0,
+          "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -4367,7 +4443,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 73.0
+          "price": 73.0,
+          "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -4392,7 +4469,8 @@
       "fasovka": [
         {
           "size": "60 пак",
-          "price": 68.0
+          "price": 68.0,
+          "photo": "photos/products/t-restoranica_togo_королевский_бергамот_60пак.jpg"
         }
       ],
       "stock": 0,
@@ -4417,7 +4495,8 @@
       "fasovka": [
         {
           "size": "36 пак",
-          "price": 67.0
+          "price": 67.0,
+          "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg"
         }
       ],
       "stock": 0,
@@ -4442,7 +4521,8 @@
       "fasovka": [
         {
           "size": "60 пак",
-          "price": 68.0
+          "price": 68.0,
+          "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg"
         }
       ],
       "stock": 0,
@@ -4467,7 +4547,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 68.0
+          "price": 68.0,
+          "photo": "photos/products/t-restoranica_togo_медовое_яблоко_с_имбирем_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -4492,7 +4573,8 @@
       "fasovka": [
         {
           "size": "60 пак",
-          "price": 68.0
+          "price": 68.0,
+          "photo": "photos/products/t-restoranica_togo_молочный_улун_с_мандарином_60пак.jpg"
         }
       ],
       "stock": 0,
@@ -4517,7 +4599,8 @@
       "fasovka": [
         {
           "size": "60 пак",
-          "price": 67.0
+          "price": 67.0,
+          "photo": "photos/products/t-restoranica_togo_ройбуш_с_апельсином_60пак.jpg"
         }
       ],
       "stock": 0,
@@ -4542,7 +4625,8 @@
       "fasovka": [
         {
           "size": "100 пак",
-          "price": 380
+          "price": 380,
+          "photo": "photos/products/t-restoranica_togo_улун_с_жасмином_100пак.jpg"
         }
       ],
       "stock": 0,
@@ -4567,7 +4651,8 @@
       "fasovka": [
         {
           "size": "60 пак",
-          "price": 67.0
+          "price": 67.0,
+          "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg"
         }
       ],
       "stock": 0,
@@ -4592,7 +4677,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 75.0
+          "price": 75.0,
+          "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -4617,7 +4703,8 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 69.0
+          "price": 69.0,
+          "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
         }
       ],
       "stock": 0,
@@ -4642,7 +4729,8 @@
       "fasovka": [
         {
           "size": "60 пак",
-          "price": 68.0
+          "price": 68.0,
+          "photo": "photos/products/t-restoranica_togo_яблоко_с_можжевельником_60пак.jpg"
         }
       ],
       "stock": 0,
@@ -5262,7 +5350,7 @@
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "assets/placeholders/ph_espresso.svg"
+          "photo": "photos/products/espresso_mono_бразилия_серрадо_дарк_темная_обжарка_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -5325,7 +5413,7 @@
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "assets/placeholders/ph_espresso.svg"
+          "photo": "photos/products/espresso_mono_бразилия_серрадо_средняя_обжарка_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -5544,7 +5632,8 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 1690
+          "price": 1690,
+          "photo": "photos/products/o-горячий_шоколад_cocaya_classic_brown_1_кг.webp"
         }
       ]
     },
@@ -5565,7 +5654,8 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 1785
+          "price": 1785,
+          "photo": "photos/products/o-горячий_шоколад_impassion_dense_1_кг.jpg"
         }
       ]
     },
@@ -5961,7 +6051,8 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 2007.2
+          "price": 2007.2,
+          "photo": "photos/products/t-желтый_хуо_шань_хуан_я_180_желтые_почки_с_горы_хуа.jpg"
         }
       ],
       "stock": 0,
@@ -6059,7 +6150,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1018.37
+          "price": 1018.37,
+          "photo": "photos/products/t-зеленый_моли_хуа_ча_с_жасмином_200_г.jpg"
         }
       ],
       "stock": 0,
@@ -6109,7 +6201,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1565.0
+          "price": 1565.0,
+          "photo": "photos/products/t-зеленый_юнь_у_200_г.jpg"
         }
       ],
       "stock": 0,
@@ -6159,7 +6252,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 915.0
+          "price": 915.0,
+          "photo": "photos/products/t-зеленый_с_доб_с_мятой_200_г_аромат_трава.jpg"
         }
       ],
       "stock": 0,
@@ -6388,7 +6482,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 750.0
+          "price": 750.0,
+          "photo": "photos/products/t-китайский_чай_ассам_200г.jpg"
         }
       ],
       "stock": 0,
@@ -6413,7 +6508,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1410.0
+          "price": 1410.0,
+          "photo": "photos/products/t-китайский_чай_зеленый_люй_чжу_200г.jpg"
         }
       ],
       "stock": 0,
@@ -6438,7 +6534,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 890
+          "price": 890,
+          "photo": "photos/products/t-китайский_чай_зеленый_с_мятой_200г.jpg"
         }
       ],
       "stock": 0,
@@ -6463,7 +6560,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1205.0
+          "price": 1205.0,
+          "photo": "photos/products/t-китайский_чай_иван-чай_с_ромашкой_200г.jpg"
         }
       ],
       "stock": 0,
@@ -6488,7 +6586,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 990.0
+          "price": 990.0,
+          "photo": "photos/products/t-китайский_чай_иван-чай_теплый_вечер_200г.jpg"
         }
       ],
       "stock": 10,
@@ -6512,7 +6611,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1620.74
+          "price": 1620.74,
+          "photo": "photos/products/t-китайский_чай_матча_молотый_200г.jpg"
         }
       ],
       "stock": 0,
@@ -6537,7 +6637,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1568.0
+          "price": 1568.0,
+          "photo": "photos/products/t-китайский_чай_пуэр_с_чабрецом_200г.jpg"
         }
       ],
       "stock": 0,
@@ -6562,7 +6663,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 721.0
+          "price": 721.0,
+          "photo": "photos/products/t-китайский_чай_тропический_микс_200г.jpg"
         }
       ],
       "stock": 5,
@@ -6586,7 +6688,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1490.0
+          "price": 1490.0,
+          "photo": "photos/products/t-китайский_чай_улун_да_хун_пао_200г.jpg"
         }
       ],
       "stock": 0,
@@ -6611,7 +6714,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1400.0
+          "price": 1400.0,
+          "photo": "photos/products/t-китайский_чай_улун_молочный_200г.jpg"
         }
       ],
       "stock": 0,
@@ -6636,7 +6740,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 890
+          "price": 890,
+          "photo": "photos/products/t-китайский_чай_улун_те_гуанинь_200г.jpg"
         }
       ],
       "stock": 0,
@@ -6661,7 +6766,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 890
+          "price": 890,
+          "photo": "photos/products/t-китайский_чай_черный_дянь_хун_200г.jpg"
         }
       ],
       "stock": 0,
@@ -6686,7 +6792,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 550.37
+          "price": 550.37,
+          "photo": "photos/products/t-китайский_чай_черный_цейлон_200г.jpg"
         }
       ],
       "stock": 0,
@@ -6807,7 +6914,7 @@
         {
           "size": "1 кг",
           "price": 2175,
-          "photo": "assets/placeholders/ph_espresso.svg"
+          "photo": "photos/products/espresso_mono_колумбия_андино_мытый_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -7449,7 +7556,8 @@
       "fasovka": [
         {
           "size": "Доступ к курсу",
-          "price": 7000
+          "price": 7000,
+          "photo": "photos/courses/consulting-course-2-barista.jpg"
         }
       ],
       "stock": 0,
@@ -7471,7 +7579,8 @@
       "fasovka": [
         {
           "size": "Доступ к курсу",
-          "price": 20000
+          "price": 20000,
+          "photo": "photos/courses/consulting-course-4-owner.jpg"
         }
       ],
       "stock": 0,
@@ -7493,7 +7602,8 @@
       "fasovka": [
         {
           "size": "Доступ к курсу",
-          "price": 3000
+          "price": 3000,
+          "photo": "photos/courses/consulting-course-1-amateur.jpg"
         }
       ],
       "stock": 0,
@@ -7515,7 +7625,8 @@
       "fasovka": [
         {
           "size": "Доступ к курсу",
-          "price": 10000
+          "price": 10000,
+          "photo": "photos/courses/consulting-course-3-pro.jpg"
         }
       ],
       "stock": 0,
@@ -7537,7 +7648,8 @@
       "fasovka": [
         {
           "size": "Доступ к курсу",
-          "price": 7000
+          "price": 7000,
+          "photo": "photos/courses/consulting-course-5-tea-author.jpg"
         }
       ],
       "stock": 0,
@@ -7664,7 +7776,8 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 1935.0
+          "price": 1935.0,
+          "photo": "photos/products/t-набор_tasteabrew_с_новым_годом_и_рождеством_.jpg"
         }
       ],
       "stock": 5,
@@ -7689,7 +7802,8 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 1950.0
+          "price": 1950.0,
+          "photo": "photos/products/t-набор_tasteabrew_согревающий_сет_.jpg"
         }
       ],
       "stock": 1,
@@ -7987,7 +8101,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1752.19
+          "price": 1752.19,
+          "photo": "photos/products/t-пуэр_гун_тин_пуэр_200_г_аромат_чабрец.jpg"
         }
       ],
       "stock": 0,
@@ -8540,7 +8655,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_айриш_крем_1л.jpg"
         }
       ],
       "stock": 5,
@@ -8657,7 +8773,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_бабл_гам_1л.jpg"
         }
       ],
       "stock": 27,
@@ -8682,7 +8799,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg"
         }
       ],
       "stock": 15,
@@ -8776,7 +8894,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_грейпфрут_розовый_1л.jpg"
         }
       ],
       "stock": 5,
@@ -8826,7 +8945,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_груша_сортовая_1л.jpg"
         }
       ],
       "stock": 5,
@@ -8874,7 +8994,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_дыня_зеленая_1л.jpg"
         }
       ],
       "stock": 6,
@@ -8922,7 +9043,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_зеленое_яблоко_1л.jpg"
         }
       ],
       "stock": 13,
@@ -8947,7 +9069,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_имбирный_пряник_1л.jpg"
         }
       ],
       "stock": 20,
@@ -9020,7 +9143,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_карамель_соленая_1л.jpg"
         }
       ],
       "stock": 15,
@@ -9231,7 +9355,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg"
         }
       ],
       "stock": 15,
@@ -9418,7 +9543,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 660.0
+          "price": 660.0,
+          "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg"
         }
       ],
       "stock": 1,
@@ -9535,7 +9661,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_черная_смородина_1л.jpg"
         }
       ],
       "stock": 4,
@@ -9607,7 +9734,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 721.0
+          "price": 721.0,
+          "photo": "photos/products/s-сироп_herbarista_бабл_гам_0_7л.jpg"
         }
       ],
       "stock": 0,
@@ -9680,7 +9808,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 659.0
+          "price": 659.0,
+          "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.jpg"
         }
       ],
       "stock": 9,
@@ -9705,7 +9834,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 659.0
+          "price": 659.0,
+          "photo": "photos/products/s-сироп_herbarista_груша_со_специями_0_7л.jpg"
         }
       ],
       "stock": 4,
@@ -9754,7 +9884,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 659.0
+          "price": 659.0,
+          "photo": "photos/products/s-сироп_herbarista_ежевика_с_листьями_0_7л.jpg"
         }
       ],
       "stock": 10,
@@ -9803,7 +9934,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771.0
+          "price": 771.0,
+          "photo": "photos/products/s-сироп_herbarista_ирландский_крем_0_7л.jpg"
         }
       ],
       "stock": 10,
@@ -9828,7 +9960,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771.0
+          "price": 771.0,
+          "photo": "photos/products/s-сироп_herbarista_карамель_двойного_обжига_0_7л.jpg"
         }
       ],
       "stock": 31,
@@ -9855,7 +9988,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 721.0
+          "price": 721.0,
+          "photo": "photos/products/s-сироп_herbarista_кленовый_с_каштаном_0_7л.jpg"
         }
       ],
       "stock": 4,
@@ -9880,7 +10014,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771.0
+          "price": 771.0,
+          "photo": "photos/products/s-сироп_herbarista_кокос_с_мякотью_0_7л.jpg"
         }
       ],
       "stock": 8,
@@ -9905,7 +10040,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771.0
+          "price": 771.0,
+          "photo": "photos/products/s-сироп_herbarista_конопляная_халва_0_7л.jpg"
         }
       ],
       "stock": 6,
@@ -10002,7 +10138,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 1100
+          "price": 1100,
+          "photo": "photos/products/s-сироп_herbarista_лайм_0_7л.jpg"
         }
       ],
       "stock": 0,
@@ -10028,7 +10165,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771.0
+          "price": 771.0,
+          "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.jpg"
         }
       ],
       "stock": 0,
@@ -10077,7 +10215,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771.0
+          "price": 771.0,
+          "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.jpg"
         }
       ],
       "stock": 5,
@@ -10126,7 +10265,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 885.0
+          "price": 885.0,
+          "photo": "photos/products/s-сироп_herbarista_мята_0_7л.jpg"
         }
       ],
       "stock": 0,
@@ -10152,7 +10292,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 721.0
+          "price": 721.0,
+          "photo": "photos/products/s-сироп_herbarista_попкорн_0_7л.jpg"
         }
       ],
       "stock": 0,
@@ -10178,7 +10319,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771.0
+          "price": 771.0,
+          "photo": "photos/products/s-сироп_herbarista_сгущенное_молоко_0_7л.jpg"
         }
       ],
       "stock": 9,
@@ -10203,7 +10345,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771.0
+          "price": 771.0,
+          "photo": "photos/products/s-сироп_herbarista_сливочная_ириска_0_7л.jpg"
         }
       ],
       "stock": 8,
@@ -10228,7 +10371,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 721.0
+          "price": 721.0,
+          "photo": "photos/products/s-сироп_herbarista_тропический_микс_0_7л.jpg"
         }
       ],
       "stock": 0,
@@ -10254,7 +10398,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771.0
+          "price": 771.0,
+          "photo": "photos/products/s-сироп_herbarista_тыква_0_7л.jpg"
         }
       ],
       "stock": 6,
@@ -10302,7 +10447,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 659.0
+          "price": 659.0,
+          "photo": "photos/products/s-сироп_herbarista_черная_смородина_с_листьями_0_7л.jpg"
         }
       ],
       "stock": 11,
@@ -10327,7 +10473,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 659.0
+          "price": 659.0,
+          "photo": "photos/products/s-сироп_herbarista_шоколадный_трюфель_0_7л.jpg"
         }
       ],
       "stock": 9,
@@ -10352,7 +10499,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 885.0
+          "price": 885.0,
+          "photo": "photos/products/s-сироп_herbarista_эвкалипт_и_мята_0_7л.jpg"
         }
       ],
       "stock": 8,
@@ -10472,7 +10620,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_sweetshot_ваниль_1л.jpg"
         }
       ],
       "stock": 0,
@@ -10521,7 +10670,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 820
+          "price": 820,
+          "photo": "photos/products/s-сироп_sweetshot_гренадин_1л.jpg"
         }
       ],
       "stock": 0,
@@ -10595,7 +10745,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 430.0
+          "price": 430.0,
+          "photo": "photos/products/s-сироп_sweetshot_желтый_банан_1л.jpg"
         }
       ],
       "stock": 0,
@@ -10692,7 +10843,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_sweetshot_карамель_1л.jpg"
         }
       ],
       "stock": 0,
@@ -10743,7 +10895,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 530.0
+          "price": 530.0,
+          "photo": "photos/products/s-сироп_sweetshot_клубника_1л.jpg"
         }
       ],
       "stock": 0,
@@ -10768,7 +10921,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 530.0
+          "price": 530.0,
+          "photo": "photos/products/s-сироп_sweetshot_кокос_1л.jpg"
         }
       ],
       "stock": 0,
@@ -10817,7 +10971,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 430.0
+          "price": 430.0,
+          "photo": "photos/products/s-сироп_sweetshot_лесной_орех_1л.jpg"
         }
       ],
       "stock": 0,
@@ -10865,7 +11020,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 493.5
+          "price": 493.5,
+          "photo": "photos/products/s-сироп_sweetshot_малина_1л.jpg"
         }
       ],
       "stock": 0,
@@ -10914,7 +11070,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 493.5
+          "price": 493.5,
+          "photo": "photos/products/s-сироп_sweetshot_маракуйя_1л.jpg"
         }
       ],
       "stock": 2,
@@ -10938,7 +11095,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 493.5
+          "price": 493.5,
+          "photo": "photos/products/s-сироп_sweetshot_миндаль_1л.jpg"
         }
       ],
       "stock": 0,
@@ -11011,7 +11169,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 493.5
+          "price": 493.5,
+          "photo": "photos/products/s-сироп_sweetshot_соленая_карамель_1л.jpg"
         }
       ],
       "stock": 0,
@@ -11086,7 +11245,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_sweetshot_шоколад_1л.jpg"
         }
       ],
       "stock": 0,
@@ -11354,7 +11514,8 @@
       "fasovka": [
         {
           "size": "30 шт",
-          "price": 11.0
+          "price": 11.0,
+          "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
         }
       ],
       "stock": 900,
@@ -11450,7 +11611,8 @@
       "fasovka": [
         {
           "size": "350 мл",
-          "price": 12.0
+          "price": 12.0,
+          "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg"
         }
       ],
       "stock": 0,
@@ -11475,7 +11637,8 @@
       "fasovka": [
         {
           "size": "500 мл",
-          "price": 11.0
+          "price": 11.0,
+          "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg"
         }
       ],
       "stock": 765,
@@ -11731,7 +11894,8 @@
       "fasovka": [
         {
           "size": "214 г",
-          "price": 905.0
+          "price": 905.0,
+          "photo": "photos/products/t-травяной_иван_чай_214_г_аромат_виноград.jpg"
         }
       ],
       "stock": 12,
@@ -11755,7 +11919,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1250.0
+          "price": 1250.0,
+          "photo": "photos/products/t-травяной_лада_200_г_иван_чай.jpg"
         }
       ],
       "stock": 0,
@@ -11940,7 +12105,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 865.92
+          "price": 865.92,
+          "photo": "photos/products/t-улун_лань_гуй_жень_женьшень_200_г_аромат_травы.jpg"
         }
       ],
       "stock": 1,
@@ -11964,7 +12130,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 2290.0
+          "price": 2290.0,
+          "photo": "photos/products/t-улун_най_сян_дун_дин_80_200_г_молочный_улун_аромат.jpg"
         }
       ],
       "stock": 3,
@@ -11988,7 +12155,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1520.0
+          "price": 1520.0,
+          "photo": "photos/products/t-улун_те_гуанинь_70_200_г_железная_бодхисаттва_гуан.jpg"
         }
       ],
       "stock": 6,
@@ -12036,7 +12204,8 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 400
+          "price": 400,
+          "photo": "photos/products/o-фильтры_bonomat_50шт.webp"
         }
       ]
     },
@@ -12094,7 +12263,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 2090.0
+          "price": 2090.0,
+          "photo": "photos/products/t-фруктовый_лань_мей_шень_200_г_аромат_гибискус.jpg"
         }
       ],
       "stock": 3,
@@ -12118,7 +12288,8 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 915.2
+          "price": 915.2,
+          "photo": "photos/products/t-фруктовый_ройбос_ройбуш_200_гаромат_сухое_дерево.jpg"
         }
       ],
       "stock": 0,
@@ -12216,7 +12387,8 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 125.0
+          "price": 125.0,
+          "photo": "photos/products/t-чай_tasteabrew_resta_650_для_чайника_молочный_улун.jpg"
         }
       ],
       "stock": 79,
@@ -12241,7 +12413,8 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 68.0
+          "price": 68.0,
+          "photo": "photos/products/t-чай_tasteabrew_togo_350_гун_тин_и_саган_дайля_100_.jpg"
         }
       ],
       "stock": 120,
@@ -12266,7 +12439,8 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 72.0
+          "price": 72.0,
+          "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg"
         }
       ],
       "stock": 211,
@@ -12291,7 +12465,8 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 62.0
+          "price": 62.0,
+          "photo": "photos/products/t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100.jpg"
         }
       ],
       "stock": 30,
@@ -12466,7 +12641,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1375.0
+          "price": 1375.0,
+          "photo": "photos/products/t-черный_дянь_хун_классический_черный_китайскй_200_г.jpg"
         }
       ],
       "stock": 6,
@@ -12490,7 +12666,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 805.0
+          "price": 805.0,
+          "photo": "photos/products/t-черный_кангаита_кеннийский_черный_200_г_аромат_дер.jpg"
         }
       ],
       "stock": 1,
@@ -12539,7 +12716,8 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 1783.36
+          "price": 1783.36,
+          "photo": "photos/products/t-черный_чжень_шань_сяо_чжун_150.jpg"
         }
       ],
       "stock": 0,
@@ -12564,7 +12742,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 615.04
+          "price": 615.04,
+          "photo": "photos/products/t-черный_с_доб_с_васильком_200_г_чайный_лист.jpg"
         }
       ],
       "stock": 3,
@@ -12588,7 +12767,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1055.0
+          "price": 1055.0,
+          "photo": "photos/products/t-черный_с_доб_со_специями_200_г_ассам.jpg"
         }
       ],
       "stock": 0,
@@ -12613,7 +12793,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 762.94
+          "price": 762.94,
+          "photo": "photos/products/t-черный_с_доб_чабрец_200_г_аромат_дерево.jpg"
         }
       ],
       "stock": 0,
@@ -12637,7 +12818,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 990.0
+          "price": 990.0,
+          "photo": "photos/products/t-черный_с_доб_эрл_грей_с_бергамотом_200_г_аромат_де.jpg"
         }
       ],
       "stock": 4,
@@ -13696,7 +13878,7 @@
         {
           "size": "1 кг",
           "price": 0,
-          "photo": "assets/placeholders/ph_espresso.svg"
+          "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_4_сухой_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -13846,7 +14028,7 @@
         {
           "size": "1 кг",
           "price": 0,
-          "photo": "assets/placeholders/ph_espresso.svg"
+          "photo": "photos/products/espresso_mono_эфиопия_yirgacheffe_gr_2_мытый_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
