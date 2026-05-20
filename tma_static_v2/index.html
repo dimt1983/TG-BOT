@@ -245,18 +245,26 @@ function tastingForProduct(p) {
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   COUNTRY FLAGS — 2-letter code by country name
+   ORIGIN / BRAND MARKERS — compact dot by country or product line
    ════════════════════════════════════════════════════════════════════ */
 const FLAG_CODES = {
   'Бразилия':'br','Эфиопия':'et','Колумбия':'co','Кения':'ke','Гватемала':'gt',
   'Россия':'ru','Германия':'de','Перу':'pe','Гондурас':'hn','Никарагуа':'ni',
   'Танзания':'tz','Уганда':'ug','Руанда':'rw','Китай':'cn','Коста-Рика':'cr',
   'Коста-Рико':'cr','Индия':'in','Индонезия':'id','Йемен':'ye','Мьянма':'mm',
-  'Эквадор':'ec','Боливия':'bo','Сальвадор':'sv','Мексика':'mx',
+  'Эквадор':'ec','Боливия':'bo','Сальвадор':'sv','Мексика':'mx','Вьетнам':'vn',
+  'Китайский':'cn','Китайский чай':'cn',
+  'Roastberry':'rb','RBR TEA':'rbrtea','NIKTEA':'niktea','ALTHAUS':'althaus',
+  'Tasteabrew':'tasteabrew','RESTORANICA':'restoranica',
+  'BOTANIKA':'botanika','Herbarista':'herbarista','SweetShot':'sweetshot',
+  'BARLINE':'barline','Кордиал и другие':'cordial','КОРДИАЛ':'cordial',
+  'Миллер&Миллер':'miller','CHOCOLATE':'chocolate','FRUIT':'fruit',
+  'FLOWER':'flower','FUNKI':'funki',
 };
 function flagDot(country) {
-  const code = FLAG_CODES[country] || '';
-  return code ? `<span class="flag flag--${code}"></span>` : `<span class="flag"></span>`;
+  const key = String(country || '').trim();
+  const code = FLAG_CODES[key] || FLAG_CODES[key.toUpperCase()] || '';
+  return code ? `<span class="flag flag--${code}"></span>` : `<span class="flag flag--neutral"></span>`;
 }
 
 /* ════════════════════════════════════════════════════════════════════

@@ -290,12 +290,48 @@
   width: 16px; height: 16px;
   border-radius: 50%;
   display: inline-block;
-  background: linear-gradient(135deg, #009C3B 0 50%, #FFDF00 50% 100%);
+  background: linear-gradient(135deg, var(--coffee) 0%, var(--copper) 100%);
+  border: 1px solid rgba(26,20,16,0.12);
   flex: 0 0 auto;
 }
+.rb .flag--neutral { background: linear-gradient(135deg, var(--coffee) 0%, var(--copper) 100%); }
+.rb .flag--br { background: radial-gradient(circle at 50% 50%, #002776 0 22%, #FFDF00 23% 44%, #009C3B 45% 100%); }
 .rb .flag--et { background: linear-gradient(180deg, #078930 33%, #FCDD09 33% 66%, #DA121A 66%); }
 .rb .flag--co { background: linear-gradient(180deg, #FCD116 50%, #003893 50% 75%, #CE1126 75%); }
 .rb .flag--ke { background: linear-gradient(180deg, #000 33%, #BB0000 33% 66%, #006600 66%); }
 .rb .flag--gt { background: linear-gradient(90deg, #4997D0 33%, #fff 33% 66%, #4997D0 66%); }
 .rb .flag--ru { background: linear-gradient(180deg, #fff 33%, #0039A6 33% 66%, #D52B1E 66%); }
 .rb .flag--de { background: linear-gradient(180deg, #000 33%, #DD0000 33% 66%, #FFCE00 66%); }
+.rb .flag--pe { background: linear-gradient(90deg, #D91023 33%, #fff 33% 66%, #D91023 66%); }
+.rb .flag--hn,
+.rb .flag--ni,
+.rb .flag--sv { background: linear-gradient(180deg, #0D5EAF 33%, #fff 33% 66%, #0D5EAF 66%); }
+.rb .flag--tz { background: linear-gradient(135deg, #1EB53A 0 38%, #FCD116 38% 44%, #000 44% 56%, #FCD116 56% 62%, #00A3DD 62% 100%); }
+.rb .flag--ug { background: linear-gradient(180deg, #000 16%, #FCDC04 16% 32%, #D90000 32% 50%, #000 50% 66%, #FCDC04 66% 82%, #D90000 82%); }
+.rb .flag--rw { background: linear-gradient(180deg, #00A1DE 50%, #FAD201 50% 75%, #20603D 75%); }
+.rb .flag--cn,
+.rb .flag--vn { background: radial-gradient(circle at 62% 38%, #FFDE00 0 18%, transparent 19%), #DE2910; }
+.rb .flag--cr { background: linear-gradient(180deg, #002B7F 20%, #fff 20% 35%, #CE1126 35% 65%, #fff 65% 80%, #002B7F 80%); }
+.rb .flag--in { background: linear-gradient(180deg, #FF9933 33%, #fff 33% 66%, #138808 66%); }
+.rb .flag--id { background: linear-gradient(180deg, #CE1126 50%, #fff 50%); }
+.rb .flag--ye { background: linear-gradient(180deg, #CE1126 33%, #fff 33% 66%, #000 66%); }
+.rb .flag--mm { background: linear-gradient(180deg, #FECB00 33%, #34B233 33% 66%, #EA2839 66%); }
+.rb .flag--ec { background: linear-gradient(180deg, #FCD116 50%, #003893 50% 75%, #CE1126 75%); }
+.rb .flag--bo { background: linear-gradient(180deg, #D52B1E 33%, #F9E300 33% 66%, #007934 66%); }
+.rb .flag--mx { background: linear-gradient(90deg, #006847 33%, #fff 33% 66%, #CE1126 66%); }
+.rb .flag--rb,
+.rb .flag--rbrtea { background: linear-gradient(135deg, #1A1410 0 45%, #C9A66B 45% 70%, #5E7A4F 70%); }
+.rb .flag--niktea { background: linear-gradient(135deg, #2E7D32 0 50%, #F2C94C 50%); }
+.rb .flag--althaus { background: linear-gradient(135deg, #111 0 45%, #D71920 45% 68%, #C9A66B 68%); }
+.rb .flag--tasteabrew { background: linear-gradient(135deg, #86BA41 0 55%, #F4D35E 55%); }
+.rb .flag--restoranica { background: linear-gradient(135deg, #1F2937 0 55%, #C9A66B 55%); }
+.rb .flag--botanika { background: linear-gradient(135deg, #0F7A4D 0 55%, #7CC7A2 55%); }
+.rb .flag--herbarista { background: linear-gradient(135deg, #416D42 0 50%, #D7C18B 50%); }
+.rb .flag--sweetshot { background: linear-gradient(135deg, #D13F3F 0 52%, #F7A541 52%); }
+.rb .flag--barline { background: linear-gradient(135deg, #111827 0 54%, #CBD5E1 54%); }
+.rb .flag--cordial { background: linear-gradient(135deg, #5B2C83 0 52%, #F59E0B 52%); }
+.rb .flag--miller { background: linear-gradient(135deg, #4B2E1E 0 54%, #D8B26E 54%); }
+.rb .flag--chocolate { background: linear-gradient(135deg, #3B2118 0 55%, #B7791F 55%); }
+.rb .flag--fruit { background: linear-gradient(135deg, #E11D48 0 36%, #FACC15 36% 68%, #16A34A 68%); }
+.rb .flag--flower { background: linear-gradient(135deg, #EC4899 0 52%, #FDE68A 52%); }
+.rb .flag--funki { background: linear-gradient(135deg, #6D28D9 0 55%, #84CC16 55%); }
