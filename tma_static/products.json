@@ -14209,6 +14209,84 @@
       ],
       "created_at": "2026-05-20T19:00:07+00:00",
       "created_by": "sync_catalog_v2"
+    },
+    {
+      "id": "f-вьетнам_блю_шонла",
+      "category": "filter",
+      "subcategory": "filter_mono",
+      "name": "Вьетнам Блю Шонла",
+      "country": "Вьетнам",
+      "roast": "F",
+      "process": "Мытый",
+      "description": "Чернослив, шоколад, орехи, специи",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2135
+        }
+      ],
+      "stock": 10,
+      "tags": [
+        "моносорт",
+        "Азия",
+        "Вьетнам",
+        "мытый"
+      ],
+      "photo": null
+    },
+    {
+      "id": "e-вьетнам_блю_шонла",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "name": "Вьетнам Блю Шонла",
+      "country": "Вьетнам",
+      "roast": "E",
+      "process": "Мытый",
+      "description": "Чернослив, шоколад, орехи, специи",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2135
+        }
+      ],
+      "stock": 10,
+      "tags": [
+        "моносорт",
+        "Азия",
+        "Вьетнам",
+        "мытый"
+      ],
+      "photo": null
+    },
+    {
+      "id": "r-вьетнам_блю_шонла",
+      "category": "retail",
+      "subcategory": "retail_espresso",
+      "name": "Вьетнам Блю Шонла",
+      "country": "Вьетнам",
+      "roast": "E F",
+      "process": "Мытый",
+      "description": "Чернослив, шоколад, орехи, специи",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 455
+        }
+      ],
+      "stock": 10,
+      "tags": [
+        "моносорт",
+        "Азия",
+        "Вьетнам",
+        "мытый"
+      ],
+      "photo": null
     }
   ]
 }
