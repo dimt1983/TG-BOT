@@ -5417,7 +5417,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 630,
+      "stock": 579,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5448,7 +5448,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 37,
+      "stock": 20,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6390,7 +6390,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 34,
+      "stock": 31,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6897,7 +6897,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 10,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -12027,7 +12027,7 @@
       "name": "Уганда Вугар мытый  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
@@ -13904,7 +13904,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 124,
+      "stock": 122,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14069,7 +14069,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 41,
+      "stock": 40,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14132,7 +14132,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 9,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -14227,14 +14227,18 @@
           "price": 2135
         }
       ],
-      "stock": 10,
+      "stock": 0,
       "tags": [
         "моносорт",
         "Азия",
         "Вьетнам",
         "мытый"
       ],
-      "photo": null
+      "photo": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-21T08:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "hidden": true
     },
     {
       "id": "e-вьетнам_блю_шонла",
@@ -14253,14 +14257,18 @@
           "price": 2135
         }
       ],
-      "stock": 10,
+      "stock": 0,
       "tags": [
         "моносорт",
         "Азия",
         "Вьетнам",
         "мытый"
       ],
-      "photo": null
+      "photo": null,
+      "quarantined": true,
+      "quarantined_at": "2026-05-21T08:00:07+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "hidden": true
     },
     {
       "id": "r-вьетнам_блю_шонла",
