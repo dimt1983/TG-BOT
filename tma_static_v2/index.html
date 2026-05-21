@@ -70,6 +70,12 @@ function haptic(kind = 'light') {
     else tg?.HapticFeedback?.impactOccurred?.(kind);
   } catch (e) {}
 }
+function askManagerFor(p, fasovka) {
+  const size = fasovka?.size || fasovka || '';
+  const text = `Здравствуйте! Подскажите по ${p?.name || 'товару'}${size ? ', фасовка ' + size : ''}.`;
+  const url = `https://t.me/rcr_btb_bot?text=${encodeURIComponent(text)}`;
+  if (tg?.openTelegramLink) tg.openTelegramLink(url); else window.open(url, '_blank');
+}
 function toast(msg, ms = 1600) {
   const el = document.getElementById('rb-toast');
   el.textContent = msg;
@@ -181,6 +187,7 @@ const ICONS = {
   doc:'M7 3h7l5 5v13H7V3Z M14 3v5h5 M9 13h7M9 17h7',
   scale:'M12 5v14 M5 8h14 M5 8l-2 7a4 4 0 0 0 8 0L9 8 M15 8l-2 7a4 4 0 0 0 8 0l-2-7',
   clock:'M12 7v6l4 2 M12 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18Z',
+  message:'M4 5h16v11H8l-4 4V5Z',
   drop:'M12 3c0 0 6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11Z',
   therm:'M12 14a3 3 0 1 0 1 5.8V8a3 3 0 0 0-6 0v0Z M12 4v10 M12 4a2 2 0 0 1 2 2v8',
   grind:'M5 5h14v4H5V5Zm0 5h14v3l-2 8H7l-2-8v-3Z M9 5v-2h6v2',
@@ -1283,8 +1290,8 @@ ${p.description ? `
 <!-- Sticky CTA -->
 <div style="position:fixed; bottom:0; left:0; right:0; padding:12px 16px calc(env(safe-area-inset-bottom,18px) + 14px); background:color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter:blur(20px); border-top:1px solid var(--line); z-index:11; display:flex; gap:10px; align-items:center;">
   ${stepper(kg, 'rb.setKg(' + (kg - 1) + ')', 'rb.setKg(' + (kg + 1) + ')')}
-  <button class="cta" onclick="rb.cartAdd('${esc(p.id)}', '${esc(curFas.size)}', ${kg}); rb.go('cart')">
-    <span style="display:flex; align-items:center; gap:8px;">${icon('bag', 16)} В корзину</span>
+  <button class="cta" onclick="${curFas.on_request || typeof curFas.price !== 'number' ? `rb.askManager('${esc(p.id)}', '${esc(curFas.size)}')` : `rb.cartAdd('${esc(p.id)}', '${esc(curFas.size)}', ${kg}); rb.go('cart')`}">
+    <span style="display:flex; align-items:center; gap:8px;">${icon(curFas.on_request || typeof curFas.price !== 'number' ? 'message' : 'bag', 16)} ${curFas.on_request || typeof curFas.price !== 'number' ? 'Написать менеджеру' : 'В корзину'}</span>
     <span style="font-family:var(--f-display); font-weight:800;">${curFas.on_request ? 'по запросу' : fmt(total) + ' ₽'}</span>
   </button>
 </div>
@@ -1832,11 +1839,355 @@ ${items.length ? `
 
 <div style="padding:0 16px 24px; display:flex; gap:8px;">
   ${o.phone || o.client_phone ? `<a href="tel:${esc(o.phone || o.client_phone)}" class="btn-ghost" style="flex:1; justify-content:center; height:44px;">📞 Позвонить</a>` : ''}
-  ${o.user_id || o.client_id ? `<button class="btn-ghost" style="flex:1; justify-content:center; height:44px;" onclick="rb.adminOpenChat('${esc(o.user_id || o.client_id)}')">💬 В чат</button>` : ''}
+  ${(o.user_id && o.user_id > 0) ? `<button class="btn-ghost" style="flex:1; justify-content:center; height:44px;" onclick="rb.adminOpenChat('${esc(o.user_id)}', '${esc(o.client_name || o.name || '')}')">💬 В чат</button>` : ''}
 </div>
 
 <div style="height:60px"></div>
 `;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ADMIN: Карточка клиента (реквизиты, тариф, скидки, DM, заказы)
+   ════════════════════════════════════════════════════════════════════ */
+function screenAdminUser() {
+  const u = STATE.adminUserData;
+  if (!u) return `${appHeader({ back: true, title: 'Клиент' })}<div style="padding:60px 0; text-align:center;"><div class="rb-spinner"></div></div>`;
+  if (u.error) return `${appHeader({ back: true, title: 'Клиент' })}<div style="padding:40px 24px; color:var(--danger); text-align:center;">${esc(u.error)}</div>`;
+
+  const tg = u.tg_name ? '@' + esc(u.tg_name) : (u.user_id < 0 ? 'гость' : 'tg ' + u.user_id);
+  const TIERS_LABEL = {
+    standard: 'Стандартная',
+    discount_10: 'Опт −10%',
+    discount_20: 'Опт −20%',
+    stm: 'СТМ-прайс',
+  };
+  const tier = u.price_tier || 'standard';
+
+  const orders = u.orders || [];
+  const rules = STATE.adminUserPricing || [];
+
+  const fieldRow = (label, value, field) => `
+    <div onclick="rb.adminEditUserField('${field}', '${esc(label)}')" style="display:flex; justify-content:space-between; align-items:center; padding:10px 12px; background:var(--surface); cursor:pointer; gap:10px;">
+      <div style="flex:1; min-width:0;">
+        <div class="meta" style="font-size:10px;">${esc(label)}</div>
+        <div style="font-size:13px; margin-top:2px; ${value ? '' : 'color:var(--ink-faint);'} overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${value ? esc(value) : '— нажми чтобы заполнить'}</div>
+      </div>
+      <span style="color:var(--ink-faint); font-size:11px; flex:0 0 auto;">✏️</span>
+    </div>
+  `;
+
+  const ruleScopeLabel = (r) => {
+    if (r.scope === 'product') return 'Товар ' + (r.target_id || '');
+    if (r.scope === 'subcategory') return 'Подкатегория «' + (r.target_id || '') + '»';
+    if (r.scope === 'category') return 'Категория «' + (r.target_id || '') + '»';
+    return r.scope;
+  };
+  const ruleValueLabel = (r) => {
+    if (r.fixed_price !== null && r.fixed_price !== undefined) return 'фикс ' + fmt(r.fixed_price) + ' ₽';
+    if (r.discount_pct !== null && r.discount_pct !== undefined) return '−' + r.discount_pct + '%';
+    return '—';
+  };
+
+  return `
+${appHeader({ back: true, title: esc((u.name || 'Клиент').slice(0, 24)) })}
+
+<div style="padding:0 16px 12px;">
+  <div class="card" style="padding:16px;">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; gap:8px;">
+      <span style="font-family:var(--f-display); font-weight:700; font-size:18px;">${esc(u.name || '—')}</span>
+      <span class="meta" style="font-size:11px;">${tg}</span>
+    </div>
+    ${u.user_type ? `<div class="meta" style="margin-top:4px; color:var(--copper);">${esc(u.user_type === 'company' ? 'Юр.лицо' : 'Физлицо')}</div>` : ''}
+    <div style="display:flex; gap:8px; margin-top:12px;">
+      ${u.user_id > 0 ? `<button onclick="rb.adminOpenDm()" class="btn-ghost" style="flex:1; justify-content:center; height:40px; font-size:13px;">💬 Написать в чат</button>` : ''}
+      ${u.phone ? `<a href="tel:${esc(u.phone)}" class="btn-ghost" style="flex:1; justify-content:center; height:40px; font-size:13px; text-decoration:none;">📞 Позвонить</a>` : ''}
+    </div>
+  </div>
+</div>
+
+<div style="padding:0 16px 12px;">
+  <div class="meta" style="margin-bottom:6px; padding-left:4px;">Тариф (колонка прайса)</div>
+  <div onclick="rb.adminSetUserTier()" class="card" style="padding:14px 16px; cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+    <span style="font-family:var(--f-display); font-weight:700; font-size:15px;">${esc(TIERS_LABEL[tier] || tier)}</span>
+    <span class="chip chip--copper" style="height:22px; font-size:11px; padding:0 10px;">сменить</span>
+  </div>
+</div>
+
+<div style="padding:0 16px 12px;">
+  <div class="meta" style="margin-bottom:6px; padding-left:4px;">Реквизиты</div>
+  <div style="display:flex; flex-direction:column; gap:1px; background:var(--line); border-radius:var(--r-md); overflow:hidden; border:1px solid var(--line);">
+    ${fieldRow('Имя', u.name, 'name')}
+    ${fieldRow('Телефон', u.phone, 'phone')}
+    ${fieldRow('Email', u.email, 'email')}
+    ${fieldRow('Тип (individual/company)', u.user_type, 'user_type')}
+    ${fieldRow('Название компании', u.company_name, 'company_name')}
+    ${fieldRow('ИНН', u.inn, 'inn')}
+    ${fieldRow('Юр.адрес', u.legal_address, 'legal_address')}
+  </div>
+</div>
+
+<div style="padding:0 16px 12px;">
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; padding:0 4px;">
+    <span class="meta">Персональные скидки · ${rules.length}</span>
+    <button onclick="rb.adminAddPricing()" style="height:28px; padding:0 12px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-size:11px; font-weight:600; cursor:pointer;">+ правило</button>
+  </div>
+  ${rules.length === 0
+    ? `<div class="card" style="padding:14px 16px; text-align:center; color:var(--ink-soft); font-size:13px;">Скидок нет — действует тариф «${esc(TIERS_LABEL[tier] || tier)}»</div>`
+    : `<div style="display:flex; flex-direction:column; gap:1px; background:var(--line); border-radius:var(--r-md); overflow:hidden; border:1px solid var(--line);">
+        ${rules.map(r => `
+          <div style="background:var(--surface); padding:10px 12px; display:flex; align-items:center; gap:8px;">
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:12px; font-weight:600;">${esc(ruleScopeLabel(r))}</div>
+              <div class="meta" style="font-size:10px; margin-top:2px;">${esc(ruleValueLabel(r))}${r.fasovka ? ' · фасовка ' + esc(r.fasovka) : ''}</div>
+            </div>
+            <button onclick="rb.adminDelPricing(${r.id})" style="width:30px; height:30px; border-radius:999px; background:transparent; border:1px solid var(--line); color:var(--danger); font-size:13px; cursor:pointer; padding:0;">×</button>
+          </div>
+        `).join('')}
+      </div>`}
+</div>
+
+${orders.length ? `
+<div style="padding:0 16px 12px;">
+  <div class="meta" style="margin-bottom:6px; padding-left:4px;">История заказов · ${orders.length}</div>
+  <div style="display:flex; flex-direction:column; gap:6px;">
+    ${orders.slice(0, 20).map(o => `
+      <div onclick="rb.openAdminOrder('${esc(o.id)}')" class="card" style="padding:10px 12px; cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <div style="font-family:var(--f-mono); font-size:12px; font-weight:700;">#${esc(o.id)} · <span class="chip${(o.status||'').includes('cancel') ? '' : ' chip--coffee'}" style="height:16px; font-size:9px; padding:0 6px;">${esc(o.status || 'new')}</span></div>
+          <div class="meta" style="font-size:9.5px; margin-top:2px;">${esc((o.created_at || '').slice(0, 16))}</div>
+        </div>
+        <span style="font-family:var(--f-display); font-weight:700; font-size:13px;">${fmt(o.total || 0)} ₽</span>
+      </div>
+    `).join('')}
+  </div>
+</div>` : ''}
+
+<div style="height:80px"></div>
+`;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ADMIN: модалки (DM, правило скидки, редактор карточки)
+   ════════════════════════════════════════════════════════════════════ */
+function _adminCloseModal() {
+  const m = document.getElementById('rb-admin-modal');
+  if (m) m.remove();
+}
+function _adminModal(html) {
+  _adminCloseModal();
+  const d = document.createElement('div');
+  d.id = 'rb-admin-modal';
+  d.style.cssText = 'position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; display:flex; align-items:flex-end; justify-content:center;';
+  d.onclick = (e) => { if (e.target === d) _adminCloseModal(); };
+  d.innerHTML = `<div style="background:var(--surface); width:100%; max-width:480px; max-height:92vh; overflow-y:auto; border-radius:18px 18px 0 0; padding:20px 18px calc(20px + env(safe-area-inset-bottom));">${html}</div>`;
+  document.body.appendChild(d);
+}
+function _openDmModal(uid, name) {
+  _adminModal(`
+    <div style="font-family:var(--f-display); font-weight:700; font-size:17px; margin-bottom:4px;">Чат с клиентом</div>
+    <div class="meta" style="margin-bottom:14px;">${esc(name)} · id <code>${esc(String(uid))}</code></div>
+    <textarea id="rb-dm-text" rows="5" placeholder="Сообщение клиенту..."
+      style="width:100%; padding:12px; border:1px solid var(--line-strong); border-radius:10px; font-family:var(--f-body); font-size:14px; background:var(--surface); color:var(--ink); resize:vertical; min-height:90px; box-sizing:border-box;"></textarea>
+    <div class="meta" style="margin-top:8px; font-size:10px;">Уйдёт в личку через @Rb_buy_bot. Если клиент ещё не начинал диалог — Telegram не доставит.</div>
+    <div style="display:flex; gap:8px; margin-top:14px;">
+      <button onclick="_adminCloseModal()" style="flex:1; height:44px; border-radius:999px; background:transparent; border:1px solid var(--line-strong); color:var(--ink-soft); font-weight:600; cursor:pointer;">Отмена</button>
+      <button onclick="rb._sendDm(${uid})" id="rb-dm-send" style="flex:1; height:44px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-weight:600; cursor:pointer;">Отправить</button>
+    </div>
+  `);
+  setTimeout(() => document.getElementById('rb-dm-text')?.focus(), 50);
+}
+
+function _openPricingModal(uid) {
+  const meta = STATE.adminCatalogMeta || { categories: [], subcategories: {}, fasovkas: [], products_lite: [] };
+  const cats = meta.categories || [];
+  const fas = meta.fasovkas || [];
+  _adminModal(`
+    <div style="font-family:var(--f-display); font-weight:700; font-size:17px; margin-bottom:14px;">Новое правило скидки</div>
+
+    <label style="display:block; margin-bottom:10px;">
+      <div class="meta" style="margin-bottom:4px;">Область действия</div>
+      <select id="rb-pr-scope" onchange="_renderPricingTargetField()"
+        style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:var(--surface); color:var(--ink); font-family:var(--f-body); font-size:14px;">
+        <option value="category">Категория (вся группа)</option>
+        <option value="subcategory">Подкатегория</option>
+        <option value="product">Конкретный товар</option>
+      </select>
+    </label>
+
+    <div id="rb-pr-target-wrap" style="margin-bottom:10px;">
+      <div class="meta" style="margin-bottom:4px;">Категория</div>
+      <select id="rb-pr-target" style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:var(--surface); color:var(--ink); font-family:var(--f-body); font-size:14px;">
+        ${cats.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}
+      </select>
+    </div>
+
+    <label style="display:block; margin-bottom:10px;">
+      <div class="meta" style="margin-bottom:4px;">Фасовка (опционально)</div>
+      <select id="rb-pr-fasovka" style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:var(--surface); color:var(--ink); font-family:var(--f-body); font-size:14px;">
+        <option value="">— любая —</option>
+        ${fas.map(f => `<option value="${esc(f)}">${esc(f)}</option>`).join('')}
+      </select>
+    </label>
+
+    <div style="display:flex; gap:10px; margin-bottom:14px;">
+      <label style="flex:1;">
+        <div class="meta" style="margin-bottom:4px;">Скидка, %</div>
+        <input id="rb-pr-pct" type="number" min="0" max="100" step="0.5" placeholder="напр. 15"
+          style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:#fff; color:var(--ink); font-family:var(--f-body); font-size:14px; box-sizing:border-box;">
+      </label>
+      <label style="flex:1;">
+        <div class="meta" style="margin-bottom:4px;">или фикс. цена, ₽</div>
+        <input id="rb-pr-fixed" type="number" min="0" step="1" placeholder="напр. 1500"
+          style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:#fff; color:var(--ink); font-family:var(--f-body); font-size:14px; box-sizing:border-box;">
+      </label>
+    </div>
+
+    <div style="display:flex; gap:8px;">
+      <button onclick="_adminCloseModal()" style="flex:1; height:44px; border-radius:999px; background:transparent; border:1px solid var(--line-strong); color:var(--ink-soft); font-weight:600; cursor:pointer;">Отмена</button>
+      <button onclick="rb._savePricing(${uid})" style="flex:1; height:44px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-weight:600; cursor:pointer;">Сохранить</button>
+    </div>
+  `);
+}
+
+function _renderPricingTargetField() {
+  const meta = STATE.adminCatalogMeta || { categories: [], subcategories: {}, products_lite: [] };
+  const scope = document.getElementById('rb-pr-scope')?.value || 'category';
+  const wrap = document.getElementById('rb-pr-target-wrap');
+  if (!wrap) return;
+  if (scope === 'category') {
+    wrap.innerHTML = `<div class="meta" style="margin-bottom:4px;">Категория</div>
+      <select id="rb-pr-target" style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:var(--surface); color:var(--ink); font-family:var(--f-body); font-size:14px;">
+        ${(meta.categories || []).map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}
+      </select>`;
+  } else if (scope === 'subcategory') {
+    const allSubs = [];
+    for (const [c, subs] of Object.entries(meta.subcategories || {})) {
+      for (const s of subs) allSubs.push({ c, s });
+    }
+    wrap.innerHTML = `<div class="meta" style="margin-bottom:4px;">Подкатегория</div>
+      <select id="rb-pr-target" style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:var(--surface); color:var(--ink); font-family:var(--f-body); font-size:14px;">
+        ${allSubs.map(x => `<option value="${esc(x.s)}">${esc(x.c)} · ${esc(x.s)}</option>`).join('')}
+      </select>`;
+  } else {
+    const list = (meta.products_lite || []).slice(0, 500);
+    wrap.innerHTML = `<div class="meta" style="margin-bottom:4px;">Товар (поиск)</div>
+      <input id="rb-pr-target-q" type="text" placeholder="начни вводить имя..." oninput="_filterPricingProducts(this.value)"
+        style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:#fff; color:var(--ink); font-family:var(--f-body); font-size:14px; box-sizing:border-box; margin-bottom:6px;">
+      <select id="rb-pr-target" size="6" style="width:100%; padding:6px; border:1px solid var(--line-strong); border-radius:10px; background:var(--surface); color:var(--ink); font-family:var(--f-body); font-size:13px;">
+        ${list.map(p => `<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('')}
+      </select>`;
+  }
+}
+function _filterPricingProducts(q) {
+  const meta = STATE.adminCatalogMeta || { products_lite: [] };
+  const ql = (q || '').toLowerCase().trim();
+  const list = (meta.products_lite || []).filter(p => p.name.toLowerCase().includes(ql)).slice(0, 200);
+  const sel = document.getElementById('rb-pr-target');
+  if (sel) sel.innerHTML = list.map(p => `<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('');
+}
+
+function _openCardEditor(p) {
+  const meta = STATE.adminCatalogMeta || { categories: [], subcategories: {} };
+  const cats = meta.categories || [];
+  const fasovka = Array.isArray(p.fasovka) ? p.fasovka : [];
+  const escA = (v) => esc(v == null ? '' : String(v));
+  _adminModal(`
+    <div style="font-family:var(--f-display); font-weight:700; font-size:17px; margin-bottom:4px;">Редактор карточки</div>
+    <div class="meta" style="margin-bottom:14px;">id <code>${escA(p.id)}</code></div>
+
+    <label style="display:block; margin-bottom:10px;">
+      <div class="meta" style="margin-bottom:4px;">Название</div>
+      <input id="rb-ce-name" type="text" value="${escA(p.name)}"
+        style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:#fff; color:var(--ink); font-family:var(--f-body); font-size:14px; box-sizing:border-box;">
+    </label>
+
+    <div style="display:flex; gap:10px; margin-bottom:10px;">
+      <label style="flex:1;">
+        <div class="meta" style="margin-bottom:4px;">Категория</div>
+        <input id="rb-ce-cat" type="text" value="${escA(p.category)}" list="rb-ce-cat-list"
+          style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:#fff; color:var(--ink); font-family:var(--f-body); font-size:14px; box-sizing:border-box;">
+        <datalist id="rb-ce-cat-list">${cats.map(c => `<option value="${escA(c)}">`).join('')}</datalist>
+      </label>
+      <label style="flex:1;">
+        <div class="meta" style="margin-bottom:4px;">Подкатегория</div>
+        <input id="rb-ce-sub" type="text" value="${escA(p.subcategory)}"
+          style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:#fff; color:var(--ink); font-family:var(--f-body); font-size:14px; box-sizing:border-box;">
+      </label>
+    </div>
+
+    <div style="display:flex; gap:10px; margin-bottom:10px;">
+      <label style="flex:1;">
+        <div class="meta" style="margin-bottom:4px;">Страна</div>
+        <input id="rb-ce-country" type="text" value="${escA(p.country)}"
+          style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:#fff; color:var(--ink); font-family:var(--f-body); font-size:14px; box-sizing:border-box;">
+      </label>
+      <label style="flex:1;">
+        <div class="meta" style="margin-bottom:4px;">Обжарка (E/F/EF...)</div>
+        <input id="rb-ce-roast" type="text" value="${escA(p.roast)}"
+          style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:#fff; color:var(--ink); font-family:var(--f-body); font-size:14px; box-sizing:border-box;">
+      </label>
+    </div>
+
+    <label style="display:block; margin-bottom:10px;">
+      <div class="meta" style="margin-bottom:4px;">Описание</div>
+      <textarea id="rb-ce-desc" rows="3"
+        style="width:100%; padding:10px 12px; border:1px solid var(--line-strong); border-radius:10px; background:#fff; color:var(--ink); font-family:var(--f-body); font-size:13px; resize:vertical; box-sizing:border-box;">${escA(p.description)}</textarea>
+    </label>
+
+    <div style="margin-bottom:10px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+        <span class="meta">Фасовки</span>
+        <button onclick="_ceAddFasovka()" style="height:28px; padding:0 12px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-size:11px; font-weight:600; cursor:pointer;">+ фасовка</button>
+      </div>
+      <div id="rb-ce-fasovka">
+        ${fasovka.map((f, i) => _ceFasovkaRow(f, i)).join('')}
+      </div>
+    </div>
+
+    <label style="display:block; margin-bottom:14px;">
+      <div class="meta" style="margin-bottom:4px;">Фото карточки</div>
+      <div style="display:flex; gap:10px; align-items:center;">
+        ${p.photo ? `<div style="width:60px; height:60px; border-radius:8px; background:#fff url('${escA(p.photo)}') center/cover no-repeat; border:1px solid var(--line); flex:0 0 auto;"></div>` : ''}
+        <input type="file" accept="image/jpeg,image/png,image/webp" onchange="rb.adminUploadPhoto('${escA(p.id)}', this.files[0])"
+          style="flex:1; font-size:12px;">
+      </div>
+    </label>
+
+    <div style="display:flex; gap:8px; margin-bottom:8px;">
+      <label style="flex:1; display:flex; align-items:center; gap:6px; font-size:13px;">
+        <input id="rb-ce-hidden" type="checkbox" ${p.hidden ? 'checked' : ''}> Скрыт
+      </label>
+      <label style="flex:1; display:flex; align-items:center; gap:6px; font-size:13px;">
+        <input id="rb-ce-onreq" type="checkbox" ${p.on_request ? 'checked' : ''}> По запросу
+      </label>
+    </div>
+
+    <div style="display:flex; gap:8px; margin-top:8px;">
+      <button onclick="_adminCloseModal()" style="flex:1; height:44px; border-radius:999px; background:transparent; border:1px solid var(--line-strong); color:var(--ink-soft); font-weight:600; cursor:pointer;">Отмена</button>
+      <button onclick="rb._saveCard('${escA(p.id)}')" style="flex:1; height:44px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-weight:600; cursor:pointer;">Сохранить</button>
+    </div>
+  `);
+}
+function _ceFasovkaRow(f, i) {
+  return `
+    <div data-fa style="display:flex; gap:6px; align-items:center; padding:6px 0; border-bottom:1px solid var(--line);">
+      <input data-fasize type="text" placeholder="1 кг / 200 г" value="${esc(f.size || '')}"
+        style="flex:1; height:36px; padding:0 10px; border:1px solid var(--line-strong); border-radius:8px; background:#fff; color:var(--ink); font-size:13px; box-sizing:border-box;">
+      <input data-faprice type="number" min="0" step="1" placeholder="₽" value="${f.price != null ? f.price : ''}"
+        style="width:90px; height:36px; padding:0 10px; border:1px solid var(--line-strong); border-radius:8px; background:#fff; color:var(--ink); font-size:13px; box-sizing:border-box;">
+      <label style="display:flex; align-items:center; gap:4px; font-size:10px; color:var(--ink-soft);">
+        <input data-faonreq type="checkbox" ${f.on_request ? 'checked' : ''}> по запр.
+      </label>
+      <button onclick="this.closest('[data-fa]').remove()" style="width:28px; height:28px; border-radius:999px; background:transparent; border:1px solid var(--line); color:var(--danger); cursor:pointer; padding:0;">×</button>
+    </div>
+  `;
+}
+function _ceAddFasovka() {
+  const wrap = document.getElementById('rb-ce-fasovka');
+  if (!wrap) return;
+  const tmp = document.createElement('div');
+  tmp.innerHTML = _ceFasovkaRow({ size: '', price: '', on_request: false }, wrap.children.length);
+  wrap.appendChild(tmp.firstElementChild);
 }
 
 /* ════════════════════════════════════════════════════════════════════
@@ -1907,7 +2258,7 @@ function screenAdminProducts() {
           return `
             <div style="background:var(--surface); display:flex; gap:10px; padding:10px 12px; align-items:center;${isQ ? ' opacity:0.62;' : ''}">
               ${productImg(p, '1', 'width:42px; height:42px; flex:0 0 auto; border-radius:6px;')}
-              <div style="flex:1; min-width:0; overflow:hidden;">
+              <div onclick="rb.adminEditCard('${esc(p.id)}')" style="flex:1; min-width:0; overflow:hidden; cursor:pointer;">
                 <div style="font-family:var(--f-display); font-weight:700; font-size:13px; line-height:1.15; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${esc(p.name)}</div>
                 <div class="meta" style="font-size:9px; color:var(--ink-faint); margin-top:2px;">${esc(p.category || '')}${p.country ? ' · ' + esc(p.country) : ''}${isQ ? ' · <span style="color:var(--danger)">в карантине</span>' : ''}</div>
               </div>
@@ -1915,7 +2266,7 @@ function screenAdminProducts() {
                 <button onclick="rb.adminAdjustStock('${esc(p.id)}', -1)" style="width:26px; height:26px; border-radius:999px; background:var(--surface-2); border:1px solid var(--line); color:var(--ink); font-size:14px; cursor:pointer; padding:0;">−</button>
                 <button onclick="rb.adminSetStock('${esc(p.id)}')" style="min-width:38px; padding:0 6px; height:26px; border-radius:8px; background:transparent; border:1px solid var(--line); color:${stockColor}; font-family:var(--f-mono); font-weight:700; font-size:12px; cursor:pointer;">${s === null ? '—' : s}</button>
                 <button onclick="rb.adminAdjustStock('${esc(p.id)}', 1)" style="width:26px; height:26px; border-radius:999px; background:var(--surface-2); border:1px solid var(--line); color:var(--ink); font-size:14px; cursor:pointer; padding:0;">+</button>
-                <button onclick="rb.adminSetPrices('${esc(p.id)}')" title="Цены по фасовкам" style="min-width:28px; padding:0 6px; height:26px; border-radius:8px; background:transparent; border:1px solid ${hasPrice(p) ? 'var(--line)' : 'var(--danger)'}; color:${hasPrice(p) ? 'var(--ink)' : 'var(--danger)'}; font-family:var(--f-mono); font-weight:700; font-size:11px; cursor:pointer; margin-left:4px;">₽</button>
+                <button onclick="rb.adminEditCard('${esc(p.id)}')" title="Редактор карточки" style="width:28px; height:28px; border-radius:999px; background:transparent; border:1px solid var(--line-strong); color:var(--ink); font-size:12px; cursor:pointer; padding:0; margin-left:4px;">✏️</button>
                 <button onclick="rb.adminToggleQuarantine('${esc(p.id)}')" title="${isQ ? 'Вернуть в каталог' : 'В карантин'}" style="width:28px; height:28px; border-radius:999px; background:${isQ ? 'var(--green)' : 'transparent'}; border:1px solid ${isQ ? 'var(--green)' : 'var(--line-strong)'}; color:${isQ ? '#fff' : 'var(--ink-soft)'}; font-size:13px; cursor:pointer; padding:0; margin-left:2px;">${isQ ? '✓' : '⛔'}</button>
               </div>
             </div>`;
@@ -1933,9 +2284,10 @@ function screenAdmin() {
   const data = STATE.adminPayload;
   const tabs = [
     { id: 'products',   label: 'Товары' },
+    { id: 'orders',     label: 'Заказы' },
+    { id: 'users',      label: 'Клиенты' },
     { id: 'quarantine', label: 'Карантин' },
     { id: 'pending',    label: 'Pending' },
-    { id: 'orders',     label: 'Заказы' },
   ];
 
   let body = '';
@@ -1975,6 +2327,58 @@ function screenAdmin() {
             </div>`).join('')}
         </div>
       </div>` : `<div style="padding:60px 24px; text-align:center; color:var(--ink-soft);">Pending пустой 🟢</div>`;
+  } else if (tab === 'users') {
+    const items = data.users || data.items || [];
+    const q = (STATE.adminUsersQuery || '').trim().toLowerCase();
+    const filtered = q
+      ? items.filter(u => {
+          const hay = ((u.name || '') + ' ' + (u.phone || '') + ' ' + (u.tg_name || '') + ' ' + (u.user_id || '')).toLowerCase();
+          return hay.includes(q);
+        })
+      : items;
+    const tierBadge = (t) => {
+      const map = { discount_10: '−10%', discount_20: '−20%', stm: 'СТМ' };
+      const label = map[t];
+      if (!label) return '';
+      return `<span class="chip chip--copper" style="height:18px; font-size:9.5px; padding:0 6px; margin-left:4px;">${esc(label)}</span>`;
+    };
+    body = `
+      <div style="padding:0 16px 8px;">
+        <div style="display:flex; align-items:center; gap:10px; background:var(--surface); border:1.5px solid ${q ? 'var(--ink)' : 'var(--line-strong)'}; border-radius:999px; padding:0 14px; height:40px; margin-bottom:10px;">
+          <span style="color:var(--ink-soft);">${icon('search', 14)}</span>
+          <input type="text" autocomplete="off" autocapitalize="off" autocorrect="off"
+            placeholder="Поиск по имени / телефону / id"
+            value="${esc(q)}"
+            oninput="rb.adminUsersSearch(this.value)"
+            style="flex:1; border:0; outline:0; background:transparent; font-size:13px; font-family:var(--f-body); color:var(--ink); min-width:0;" />
+          ${q ? `<button onclick="rb.adminUsersSearch('')" style="background:transparent; border:0; color:var(--ink-soft); font-size:16px; padding:2px 4px; cursor:pointer;">×</button>` : ''}
+        </div>
+      </div>
+      ${filtered.length === 0
+        ? `<div style="padding:60px 24px; text-align:center; color:var(--ink-soft);">Клиентов не найдено</div>`
+        : `<div style="padding:0 16px 24px;">
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            ${filtered.slice(0, 200).map(u => {
+              const tg = u.tg_name ? '@' + esc(u.tg_name) : (u.user_id < 0 ? 'гость' : 'tg ' + u.user_id);
+              const orderCount = u.order_count || 0;
+              const totalSpent = u.total_spent || 0;
+              return `
+                <div onclick="rb.openAdminUser(${u.user_id})" class="card" style="padding:12px; cursor:pointer;">
+                  <div style="display:flex; justify-content:space-between; align-items:baseline; gap:8px;">
+                    <span style="font-family:var(--f-display); font-weight:700; font-size:14px; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${esc(u.name || '—')}${tierBadge(u.price_tier)}</span>
+                    <span class="meta" style="font-size:10px;">${tg}</span>
+                  </div>
+                  ${u.phone ? `<div class="meta" style="margin-top:3px;">${esc(u.phone)}</div>` : ''}
+                  <div style="display:flex; gap:12px; margin-top:6px; font-size:11px; color:var(--ink-soft); flex-wrap:wrap;">
+                    <span>📦 ${orderCount} ${orderCount === 1 ? 'заказ' : (orderCount < 5 ? 'заказа' : 'заказов')}</span>
+                    ${totalSpent ? `<span>💰 <b>${fmt(totalSpent)} ₽</b></span>` : ''}
+                    ${u.last_order_at ? `<span style="margin-left:auto; color:var(--ink-faint);">${esc((u.last_order_at || '').slice(0, 10))}</span>` : ''}
+                  </div>
+                </div>`;
+            }).join('')}
+          </div>
+          ${filtered.length > 200 ? `<div class="meta" style="text-align:center; margin-top:12px;">Показаны первые 200 из ${filtered.length}</div>` : ''}
+        </div>`}`;
   } else if (tab === 'orders') {
     const items = data.orders || data.items || [];
     body = items.length ? `
@@ -2104,12 +2508,22 @@ const rb = {
     haptic('light');
     render();
   },
+  askManager(id, fasovka) {
+    const p = findProduct(id);
+    const f = (p?.fasovka || []).find(x => x.size === fasovka) || { size: fasovka };
+    askManagerFor(p, f);
+  },
   cartAdd(id, fasovka, qty) {
     const p = findProduct(id);
     if (!p) return;
     if (!fasovka) {
       const f = (p.fasovka || [])[0];
       fasovka = f?.size || 'уп.';
+    }
+    const f = (p.fasovka || []).find(x => x.size === fasovka) || (p.fasovka || [])[0] || {};
+    if (f.on_request || typeof f.price !== 'number') {
+      askManagerFor(p, f.size || fasovka);
+      return;
     }
     const ex = STATE.cart.find(x => x.id === id && x.fasovka === fasovka);
     if (ex) ex.qty += (qty || 1);
@@ -2380,6 +2794,12 @@ const rb = {
     STATE.history.push(snap);
     render();
     if (STATE.adminTab !== 'products') await rb.loadAdmin();
+    if (!STATE.adminCatalogMeta) {
+      try {
+        const r = await fetch('/tma/api/admin/catalog_meta', { headers: authHeaders() });
+        if (r.ok) STATE.adminCatalogMeta = await r.json();
+      } catch (e) {}
+    }
   },
   setAdminTab(tab) {
     STATE.adminTab = tab;
@@ -2391,7 +2811,10 @@ const rb = {
     const tab = STATE.adminTab;
     if (tab === 'products') { render(); return; }
     try {
-      let url = '/tma/api/admin/' + (tab === 'pending' ? 'pending' : tab === 'orders' ? 'orders' : 'quarantine');
+      const map = {
+        pending: 'pending', orders: 'orders', users: 'users', quarantine: 'quarantine',
+      };
+      const url = '/tma/api/admin/' + (map[tab] || 'quarantine');
       const r = await fetch(url, { headers: authHeaders() });
       STATE.adminPayload = r.ok ? await r.json() : { error: 'HTTP ' + r.status };
     } catch (e) {
@@ -2399,6 +2822,7 @@ const rb = {
     }
     render();
   },
+  adminUsersSearch(q) { STATE.adminUsersQuery = q; render(); },
   async adminQuarantineRelease(id) {
     if (!confirm('Вернуть из карантина: ' + id + '?')) return;
     try {
@@ -2522,8 +2946,223 @@ const rb = {
       render();
     } catch (e) { haptic('error'); toast('Сеть недоступна'); }
   },
-  adminOpenChat(userId) {
-    toast('Чат с клиентом — в работе');
+  adminOpenChat(userId, clientName) {
+    const uid = String(userId || '').replace(/[^0-9-]/g, '');
+    if (!uid) { toast('Нет user_id у клиента'); return; }
+    const name = clientName || ('id ' + uid);
+    _openDmModal(uid, name);
+  },
+
+  /* ────────── ADMIN: КЛИЕНТ ────────── */
+  async openAdminUser(uid) {
+    if (!STATE.isAdmin) { toast('Только для админов'); return; }
+    const snap = _navSnapshot();
+    STATE.screen = 'admin-user';
+    STATE.adminUserId = uid;
+    STATE.adminUserData = null;
+    STATE.adminUserPricing = null;
+    STATE.history.push(snap);
+    haptic();
+    window.scrollTo(0, 0);
+    render();
+    try {
+      const [r1, r2, r3] = await Promise.all([
+        fetch('/tma/api/admin/user/' + uid, { headers: authHeaders() }),
+        fetch('/tma/api/admin/user/' + uid + '/pricing', { headers: authHeaders() }),
+        fetch('/tma/api/admin/catalog_meta', { headers: authHeaders() }),
+      ]);
+      STATE.adminUserData = r1.ok ? await r1.json() : { error: 'HTTP ' + r1.status };
+      STATE.adminUserPricing = r2.ok ? (await r2.json()).rules || [] : [];
+      STATE.adminCatalogMeta = r3.ok ? await r3.json() : { categories: [], subcategories: {}, fasovkas: [], products_lite: [] };
+    } catch (e) {
+      STATE.adminUserData = { error: String(e) };
+    }
+    render();
+  },
+
+  async adminSaveUserField(field, value) {
+    const uid = STATE.adminUserId;
+    if (!uid) return;
+    const body = {}; body[field] = value;
+    try {
+      const r = await fetch('/tma/api/admin/user/' + uid, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
+        body: JSON.stringify(body),
+      });
+      if (!r.ok) { haptic('error'); toast('Ошибка: ' + r.status); return; }
+      const j = await r.json();
+      if (j.user) STATE.adminUserData = { ...STATE.adminUserData, ...j.user };
+      haptic('success'); toast('Сохранено', 'success');
+      render();
+    } catch (e) { haptic('error'); toast('Сеть недоступна'); }
+  },
+
+  async adminSetUserTier() {
+    const cur = (STATE.adminUserData?.price_tier || 'standard');
+    const TIERS = [
+      { id: 'standard',    label: 'Стандартная цена (1кг / 200г)' },
+      { id: 'discount_10', label: 'Опт −10% (от 10кг)' },
+      { id: 'discount_20', label: 'Опт −20% (от 25кг)' },
+      { id: 'stm',         label: 'СТМ-прайс' },
+    ];
+    const lines = TIERS.map((t, i) => `${i + 1}. ${t.label}${t.id === cur ? '  ✓ текущий' : ''}`).join('\n');
+    const pick = prompt('Тариф клиента — выбери номер:\n\n' + lines, String(TIERS.findIndex(t => t.id === cur) + 1));
+    if (!pick) return;
+    const idx = parseInt(pick, 10) - 1;
+    if (!Number.isFinite(idx) || idx < 0 || idx >= TIERS.length) { toast('Неверный номер'); return; }
+    await rb.adminSaveUserField('price_tier', TIERS[idx].id);
+  },
+
+  async adminEditUserField(field, label) {
+    const cur = STATE.adminUserData?.[field] || '';
+    const v = prompt(label + ':', String(cur));
+    if (v === null) return;
+    await rb.adminSaveUserField(field, v.trim());
+  },
+
+  adminAddPricing() {
+    if (!STATE.adminUserId) return;
+    _openPricingModal(STATE.adminUserId);
+  },
+
+  async adminDelPricing(ruleId) {
+    if (!confirm('Удалить правило?')) return;
+    try {
+      const r = await fetch('/tma/api/admin/pricing/' + ruleId + '/delete', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', ...authHeaders() },
+      });
+      if (!r.ok) { haptic('error'); toast('Ошибка: ' + r.status); return; }
+      STATE.adminUserPricing = (STATE.adminUserPricing || []).filter(r => r.id !== ruleId);
+      haptic('success'); toast('Удалено', 'success'); render();
+    } catch (e) { haptic('error'); toast('Сеть недоступна'); }
+  },
+
+  adminOpenDm() {
+    const u = STATE.adminUserData;
+    if (!u) return;
+    if (u.user_id < 0) { toast('Гость — нельзя писать в Telegram'); return; }
+    _openDmModal(u.user_id, u.name || ('id ' + u.user_id));
+  },
+
+  /* ────────── ADMIN: РЕДАКТОР КАРТОЧКИ ────────── */
+  adminEditCard(id) {
+    const p = (STATE.data?.products || []).find(x => x.id === id);
+    if (!p) return;
+    _openCardEditor(p);
+  },
+
+  async _sendDm(uid) {
+    const ta = document.getElementById('rb-dm-text');
+    const btn = document.getElementById('rb-dm-send');
+    const text = (ta?.value || '').trim();
+    if (!text) { toast('Введи текст'); return; }
+    if (btn) { btn.disabled = true; btn.innerHTML = 'Отправляю…'; }
+    try {
+      const r = await fetch('/tma/api/admin/dm/' + uid, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
+        body: JSON.stringify({ text }),
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || !j.ok) {
+        haptic('error');
+        toast('Не отправлено: ' + (j.error || r.status));
+        if (btn) { btn.disabled = false; btn.innerHTML = 'Отправить'; }
+        return;
+      }
+      haptic('success'); toast('Отправлено клиенту', 'success');
+      _adminCloseModal();
+    } catch (e) {
+      haptic('error'); toast('Сеть недоступна');
+      if (btn) { btn.disabled = false; btn.innerHTML = 'Отправить'; }
+    }
+  },
+
+  async _savePricing(uid) {
+    const scope = document.getElementById('rb-pr-scope')?.value || '';
+    const targetEl = document.getElementById('rb-pr-target');
+    const target_id = targetEl?.value || '';
+    const fasovka = document.getElementById('rb-pr-fasovka')?.value || '';
+    const pctRaw = document.getElementById('rb-pr-pct')?.value || '';
+    const fixedRaw = document.getElementById('rb-pr-fixed')?.value || '';
+    if (!target_id) { toast('Выбери цель'); return; }
+    const hasPct = pctRaw !== '' && !isNaN(parseFloat(pctRaw));
+    const hasFix = fixedRaw !== '' && !isNaN(parseFloat(fixedRaw));
+    if (hasPct === hasFix) { toast('Заполни ОДНО из полей: % или фикс'); return; }
+    const body = { scope, target_id };
+    if (fasovka) body.fasovka = fasovka;
+    if (hasPct) body.discount_pct = parseFloat(pctRaw);
+    else body.fixed_price = parseFloat(fixedRaw);
+    try {
+      const r = await fetch('/tma/api/admin/user/' + uid + '/pricing', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
+        body: JSON.stringify(body),
+      });
+      if (!r.ok) { const j = await r.json().catch(() => ({})); haptic('error'); toast('Ошибка: ' + (j.error || r.status)); return; }
+      haptic('success'); toast('Сохранено', 'success'); _adminCloseModal();
+      const r2 = await fetch('/tma/api/admin/user/' + uid + '/pricing', { headers: authHeaders() });
+      if (r2.ok) { STATE.adminUserPricing = (await r2.json()).rules || []; render(); }
+    } catch (e) { haptic('error'); toast('Сеть недоступна'); }
+  },
+
+  async _saveCard(id) {
+    const $ = (i) => document.getElementById(i);
+    const fas = [];
+    document.querySelectorAll('#rb-ce-fasovka [data-fa]').forEach(row => {
+      const size = row.querySelector('[data-fasize]').value.trim();
+      if (!size) return;
+      const onreq = row.querySelector('[data-faonreq]').checked;
+      const priceRaw = row.querySelector('[data-faprice]').value.trim();
+      const entry = { size };
+      if (onreq) { entry.on_request = true; }
+      else if (priceRaw !== '') { entry.price = parseFloat(priceRaw); }
+      fas.push(entry);
+    });
+    const body = {
+      name: $('rb-ce-name').value.trim(),
+      category: $('rb-ce-cat').value.trim(),
+      subcategory: $('rb-ce-sub').value.trim(),
+      country: $('rb-ce-country').value.trim(),
+      roast: $('rb-ce-roast').value.trim(),
+      description: $('rb-ce-desc').value,
+      hidden: $('rb-ce-hidden').checked,
+      on_request: $('rb-ce-onreq').checked,
+      fasovka: fas,
+    };
+    if (!body.name) { toast('Имя обязательно'); return; }
+    try {
+      const r = await fetch('/tma/api/admin/product/' + encodeURIComponent(id), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
+        body: JSON.stringify(body),
+      });
+      if (!r.ok) { const j = await r.json().catch(() => ({})); haptic('error'); toast('Ошибка: ' + (j.error || r.status)); return; }
+      const j = await r.json();
+      const p = (STATE.data?.products || []).find(x => x.id === id);
+      if (p && j.product) Object.assign(p, j.product);
+      haptic('success'); toast('Карточка сохранена', 'success'); _adminCloseModal(); render();
+    } catch (e) { haptic('error'); toast('Сеть недоступна'); }
+  },
+
+  async adminUploadPhoto(id, file) {
+    if (!file) return;
+    if (file.size > 5 * 1024 * 1024) { toast('Фото > 5 МБ — ужми'); return; }
+    const ct = file.type || 'image/jpeg';
+    if (!/^image\/(jpe?g|png|webp)$/.test(ct)) { toast('Только jpg/png/webp'); return; }
+    try {
+      const r = await fetch('/tma/api/admin/product/' + encodeURIComponent(id) + '/photo', {
+        method: 'POST',
+        headers: { 'Content-Type': ct, ...authHeaders() },
+        body: file,
+      });
+      if (!r.ok) { haptic('error'); toast('Ошибка фото: ' + r.status); return; }
+      const j = await r.json();
+      const p = (STATE.data?.products || []).find(x => x.id === id);
+      if (p && j.photo) p.photo = j.photo + '?v=' + Date.now();
+      haptic('success'); toast('Фото загружено', 'success'); render();
+    } catch (e) { haptic('error'); toast('Сеть недоступна'); }
   },
 };
 window.rb = rb;
@@ -2554,6 +3193,7 @@ function render() {
     case 'search':  body = screenSearch(); break;
     case 'admin':       body = screenAdmin(); break;
     case 'admin-order': body = screenAdminOrder(); break;
+    case 'admin-user':  body = screenAdminUser(); break;
     default: body = screenHome();
   }
   root.innerHTML = `<div class="rb${IS_DARK ? ' rb--dark' : ''}">${body}</div>`;

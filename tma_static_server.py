@@ -273,6 +273,90 @@ def _ensure_pricing_schema():
         con.close()
 
 
+# ─── Personal pricing helpers ─────────────────────────────────────────────────
+# Применяются при создании заказа: tier → колонка прайса (через live_prices_api),
+# user_pricing → точечные правила (категория / подкатегория / товар).
+
+# Маппинг tier → имя колонки в xlsx-прайсе (Bishop / live_prices_api).
+# Если live_prices_api не вернул нужную колонку — fallback на standard.
+TIER_PRICE_COLUMNS = {
+    "standard":    "price",
+    "discount_10": "price_10kg",
+    "discount_20": "price_25kg",
+    "stm":         "price_stm",
+}
+
+
+def _user_tier(con: sqlite3.Connection, user_id: int) -> str:
+    try:
+        row = con.execute(
+            "SELECT price_tier FROM users WHERE user_id=?", (user_id,)
+        ).fetchone()
+        if row and row[0]:
+            return str(row[0])
+    except Exception:
+        pass
+    return "standard"
+
+
+def _user_pricing_rules(con: sqlite3.Connection, user_id: int) -> list[dict]:
+    try:
+        rows = con.execute(
+            "SELECT id, scope, target_id, discount_pct, fixed_price, fasovka, created_at "
+            "FROM user_pricing WHERE user_id=? ORDER BY id DESC",
+            (user_id,),
+        ).fetchall()
+        return [dict(r) for r in rows]
+    except Exception:
+        return []
+
+
+def _match_pricing_rule(rules: list[dict], *, tma_id: str, category: str,
+                        subcategory: str, fasovka_size: str) -> dict | None:
+    """Возвращает правило с приоритетом: product > subcategory > category.
+    fasovka_size — если у правила задана фасовка, применяется только при совпадении."""
+    by_scope = {"product": [], "subcategory": [], "category": []}
+    for r in rules:
+        scope = r.get("scope")
+        if scope not in by_scope:
+            continue
+        tgt = (r.get("target_id") or "").strip().lower()
+        if scope == "product" and tgt != (tma_id or "").lower():
+            continue
+        if scope == "subcategory" and tgt != (subcategory or "").lower():
+            continue
+        if scope == "category" and tgt != (category or "").lower():
+            continue
+        rule_fa = (r.get("fasovka") or "").strip().lower()
+        if rule_fa and rule_fa != (fasovka_size or "").lower():
+            continue
+        by_scope[scope].append(r)
+    for scope in ("product", "subcategory", "category"):
+        if by_scope[scope]:
+            return by_scope[scope][0]
+    return None
+
+
+def _apply_pricing_rule(base_price: float, rule: dict) -> float:
+    if not rule:
+        return base_price
+    fixed = rule.get("fixed_price")
+    if fixed is not None:
+        try:
+            return float(fixed)
+        except (TypeError, ValueError):
+            return base_price
+    pct = rule.get("discount_pct")
+    if pct is not None:
+        try:
+            p = float(pct)
+            if 0 <= p <= 100:
+                return round(base_price * (1 - p / 100), 2)
+        except (TypeError, ValueError):
+            pass
+    return base_price
+
+
 def _ensure_idempotency_table():
     con = sqlite3.connect(DB_PATH)
     try:
@@ -661,6 +745,68 @@ class Handler(BaseHTTPRequestHandler):
                 return
             status, rbody, rctype = _proxy_shop_admin("GET", "/admin/products")
             self._send(status, rbody, rctype, {"Cache-Control": "no-cache"})
+            return
+
+        # ── /tma/api/admin/user/<id>/pricing — список правил клиента ─────────
+        m_pr_get = re.match(r"^/tma/api/admin/user/(\d+)/pricing$", path)
+        if m_pr_get:
+            user = _get_request_user(self)
+            if not (user and user.get("id") in ADMIN_IDS):
+                self._send(403, _j({"error": "Доступ запрещён"}),
+                           "application/json; charset=utf-8")
+                return
+            uid = int(m_pr_get.group(1))
+            try:
+                _ensure_pricing_schema()
+                con = sqlite3.connect(DB_PATH)
+                con.row_factory = sqlite3.Row
+                try:
+                    rules = _user_pricing_rules(con, uid)
+                finally:
+                    con.close()
+                self._send(200, _j({"rules": rules}),
+                           "application/json; charset=utf-8", {"Cache-Control": "no-cache"})
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
+            return
+
+        # ── /tma/api/admin/catalog_meta — категории + подкатегории + товары
+        #     для select-фильтров в редакторах. Без полной products.json (легче).
+        if path == "/tma/api/admin/catalog_meta":
+            user = _get_request_user(self)
+            if not (user and user.get("id") in ADMIN_IDS):
+                self._send(403, _j({"error": "Доступ запрещён"}),
+                           "application/json; charset=utf-8")
+                return
+            try:
+                with open(os.path.join(TMA_ROOT, "products.json"), encoding="utf-8") as f:
+                    pdata = json.load(f)
+                prods = pdata if isinstance(pdata, list) else (pdata.get("products") or [])
+                cats = sorted({(p.get("category") or "").strip()
+                               for p in prods if p.get("category")})
+                subs_by_cat: dict[str, set] = {}
+                fasovkas: set = set()
+                for p in prods:
+                    c = (p.get("category") or "").strip()
+                    s = (p.get("subcategory") or "").strip()
+                    if c and s:
+                        subs_by_cat.setdefault(c, set()).add(s)
+                    for fa in (p.get("fasovka") or []):
+                        fz = (fa.get("size") or "").strip()
+                        if fz:
+                            fasovkas.add(fz)
+                self._send(200, _j({
+                    "categories": cats,
+                    "subcategories": {k: sorted(v) for k, v in subs_by_cat.items()},
+                    "fasovkas": sorted(fasovkas),
+                    "products_lite": [
+                        {"id": p.get("id"), "name": p.get("name"),
+                         "category": p.get("category"), "subcategory": p.get("subcategory")}
+                        for p in prods if p.get("id") and p.get("name")
+                    ],
+                }), "application/json; charset=utf-8", {"Cache-Control": "no-cache, max-age=60"})
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
             return
 
         # ── /tma/api/admin/quarantine → прокси на VPS ─────────────────────────
@@ -1367,6 +1513,107 @@ class Handler(BaseHTTPRequestHandler):
                     con.close()
                 self._send(200, _j({"ok": True, "user": dict(u)}),
                            "application/json; charset=utf-8")
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
+            return
+
+        # ── POST /tma/api/admin/user/<id>/pricing — добавить персональное правило ─
+        m_pr_add = re.match(r"^/tma/api/admin/user/(\d+)/pricing$", path)
+        if m_pr_add:
+            user = _get_request_user(self)
+            if not (user and user.get("id") in ADMIN_IDS):
+                self._send(403, _j({"error": "Доступ запрещён"}),
+                           "application/json; charset=utf-8")
+                return
+            uid = int(m_pr_add.group(1))
+            payload = self._read_body() or {}
+            scope = (payload.get("scope") or "").strip().lower()
+            target_id = (payload.get("target_id") or "").strip()
+            fasovka = (payload.get("fasovka") or "").strip() or None
+            if scope not in {"product", "subcategory", "category"}:
+                self._send(400, _j({"error": "scope must be product|subcategory|category"}),
+                           "application/json; charset=utf-8")
+                return
+            if not target_id:
+                self._send(400, _j({"error": "target_id required"}),
+                           "application/json; charset=utf-8")
+                return
+            discount_pct = payload.get("discount_pct")
+            fixed_price = payload.get("fixed_price")
+            if (discount_pct is None) == (fixed_price is None):
+                self._send(400, _j({"error": "either discount_pct or fixed_price (not both)"}),
+                           "application/json; charset=utf-8")
+                return
+            if discount_pct is not None:
+                try:
+                    discount_pct = float(discount_pct)
+                except (TypeError, ValueError):
+                    self._send(400, _j({"error": "discount_pct must be number"}),
+                               "application/json; charset=utf-8")
+                    return
+                if not (0 <= discount_pct <= 100):
+                    self._send(400, _j({"error": "discount_pct in 0..100"}),
+                               "application/json; charset=utf-8")
+                    return
+                fixed_price = None
+            else:
+                try:
+                    fixed_price = float(fixed_price)
+                except (TypeError, ValueError):
+                    self._send(400, _j({"error": "fixed_price must be number"}),
+                               "application/json; charset=utf-8")
+                    return
+                if fixed_price < 0:
+                    self._send(400, _j({"error": "fixed_price >= 0"}),
+                               "application/json; charset=utf-8")
+                    return
+                discount_pct = None
+            try:
+                _ensure_pricing_schema()
+                con = sqlite3.connect(DB_PATH)
+                try:
+                    u = con.execute("SELECT 1 FROM users WHERE user_id=?", (uid,)).fetchone()
+                    if not u:
+                        self._send(404, _j({"error": "Клиент не найден"}),
+                                   "application/json; charset=utf-8")
+                        return
+                    # Upsert: при совпадении (user_id, scope, target_id, fasovka) — обновляем.
+                    con.execute(
+                        "INSERT INTO user_pricing "
+                        "(user_id, scope, target_id, discount_pct, fixed_price, fasovka) "
+                        "VALUES (?,?,?,?,?,?) "
+                        "ON CONFLICT(user_id, scope, target_id, fasovka) DO UPDATE SET "
+                        "discount_pct=excluded.discount_pct, fixed_price=excluded.fixed_price",
+                        (uid, scope, target_id, discount_pct, fixed_price, fasovka),
+                    )
+                    con.commit()
+                    rule_id = con.execute("SELECT last_insert_rowid()").fetchone()[0]
+                finally:
+                    con.close()
+                self._send(200, _j({"ok": True, "id": rule_id}),
+                           "application/json; charset=utf-8")
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
+            return
+
+        # ── POST /tma/api/admin/pricing/<rule_id>/delete ─────────────────────
+        m_pr_del = re.match(r"^/tma/api/admin/pricing/(\d+)/delete$", path)
+        if m_pr_del:
+            user = _get_request_user(self)
+            if not (user and user.get("id") in ADMIN_IDS):
+                self._send(403, _j({"error": "Доступ запрещён"}),
+                           "application/json; charset=utf-8")
+                return
+            rid = int(m_pr_del.group(1))
+            try:
+                _ensure_pricing_schema()
+                con = sqlite3.connect(DB_PATH)
+                try:
+                    con.execute("DELETE FROM user_pricing WHERE id=?", (rid,))
+                    con.commit()
+                finally:
+                    con.close()
+                self._send(200, _j({"ok": True}), "application/json; charset=utf-8")
             except Exception as e:
                 self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
             return

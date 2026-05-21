@@ -204,6 +204,64 @@ def _upsert_user_profile(con, user_id: int, payload: dict) -> None:
     con.commit()
 
 
+def _apply_personal_pricing(con, user_id: int, items: list) -> None:
+    """Пересчитывает price у каждой позиции с учётом user_pricing-правил клиента.
+    Меняет items in-place. Tier (опт-колонки прайса) тут не обрабатывается —
+    он применяется фронтом через live_prices_api при отображении каталога.
+    Серверный пересчёт нужен чтобы клиент не мог подделать цену.
+
+    Правило выбирается по приоритету product > subcategory > category,
+    с опциональным фильтром по фасовке. Если правил нет — цена не меняется."""
+    if user_id <= 0 or not items:
+        return
+    try:
+        from tma_static_server import (
+            _user_pricing_rules, _match_pricing_rule, _apply_pricing_rule,
+            _ensure_pricing_schema,
+        )
+    except Exception:
+        return
+    try:
+        _ensure_pricing_schema()
+        rules = _user_pricing_rules(con, user_id)
+        if not rules:
+            return
+        roast_map = _build_roast_map()
+        prod_meta = {}
+        try:
+            with open(_PRODUCTS_JSON, encoding="utf-8") as f:
+                j = json.load(f)
+            for p in (j if isinstance(j, list) else j.get("products", [])):
+                pid = p.get("id")
+                if pid:
+                    prod_meta[pid] = {
+                        "category": p.get("category") or "",
+                        "subcategory": p.get("subcategory") or "",
+                    }
+        except Exception:
+            pass
+        for it in items:
+            tma_id = it.get("id") or ""
+            meta = prod_meta.get(tma_id, {})
+            category = meta.get("category") or it.get("category") or ""
+            subcategory = meta.get("subcategory") or it.get("subcategory") or ""
+            fasovka_size = it.get("fasovka") or ""
+            rule = _match_pricing_rule(
+                rules, tma_id=tma_id,
+                category=category, subcategory=subcategory,
+                fasovka_size=fasovka_size,
+            )
+            if not rule:
+                continue
+            base = float(it.get("price") or 0)
+            new_price = _apply_pricing_rule(base, rule)
+            if abs(new_price - base) > 0.01:
+                it["price"] = new_price
+                it["_personal_rule_id"] = rule.get("id")
+    except Exception as e:
+        log.warning(f"_apply_personal_pricing failed: {e}")
+
+
 def create_order_from_tma(con, user_id: int, payload: dict) -> int:
     """
     Создаёт заказ из payload, который пришёл из TMA.
@@ -220,11 +278,12 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
     """
     items = payload.get("items", [])
     contact = payload.get("contact") or {}
-    no_price = [
-        f"{it.get('name','?')} ({it.get('fasovka','')})".strip(" ()")
-        for it in items
-        if it.get("price") is None or it.get("on_request")
-    ]
+    no_price = []
+    for it in items:
+        if it.get("price") is None or it.get("on_request"):
+            label = it.get("name") or "товар"
+            fasovka = it.get("fasovka") or ""
+            no_price.append(f"{label} ({fasovka})" if fasovka else label)
     if no_price:
         raise ValueError(
             "В корзине есть позиции «по запросу» (без цены): "
@@ -232,6 +291,7 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
             + (f" и ещё {len(no_price)-5}" if len(no_price) > 5 else "")
             + ". Уберите их из корзины или напишите менеджеру — оформим вручную."
         )
+    _apply_personal_pricing(con, user_id, items)
     subtotal = sum((it.get("price") or 0) * it["qty"] for it in items)
     total_kg = payload.get("totalKg") or sum(
         (parse_kg(it.get("fasovka", "")) or 0) * it["qty"] for it in items
