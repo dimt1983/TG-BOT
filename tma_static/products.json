@@ -1050,12 +1050,12 @@
           "size": "1 кг",
           "price": 2160.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/c-be_roastberry_fresh_-_1_кг.jpg"
         }
       ],
       "stock": 6,
       "tags": [],
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/c-be_roastberry_fresh_-_1_кг.jpg",
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
@@ -1065,13 +1065,13 @@
       "id": "retail_be_roastberry_биттер_-_1_кг",
       "name": "BE \"Roastberry\" БИТТЕР",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_be_roastberry_биттер_-_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 1910.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_be_roastberry_биттер_-_1_кг.jpg"
         }
       ],
       "stock": 35,
@@ -1088,13 +1088,13 @@
       "id": "retail_be_roastberry_биттер_200_г",
       "name": "BE \"Roastberry\" БИТТЕР",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_be_roastberry_биттер_200_г.jpg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 410.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg",
+          "photo": "photos/products/retail_be_roastberry_биттер_200_г.jpg",
           "stock": 10
         }
       ],
@@ -1589,12 +1589,12 @@
       "id": "retail_e_roastberry_бразилия_серадо_200_г",
       "name": "E \"Roastberry\" Бразилия Серадо",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_e_roastberry_бразилия_серадо_200_г.jpg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 435,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_e_roastberry_бразилия_серадо_200_г.jpg"
         }
       ],
       "stock": 15,
@@ -1612,12 +1612,12 @@
       "id": "retail_e_roastberry_бразилия_серадо_дарк_200_г",
       "name": "E \"Roastberry\" Бразилия Серадо Дарк",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 430,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
       "stock": 9,
@@ -1635,13 +1635,13 @@
       "id": "retail_e_roastberry_гватемала_декаф_-_1_кг",
       "name": "E \"Roastberry\" Гватемала Декаф",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_e_roastberry_гватемала_декаф_-_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2440.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_e_roastberry_гватемала_декаф_-_1_кг.jpg"
         }
       ],
       "stock": 4,
@@ -1659,12 +1659,12 @@
       "id": "retail_e_roastberry_гватемала_декаф_200_г",
       "name": "E \"Roastberry\" Гватемала Декаф",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_e_roastberry_гватемала_декаф_200_г.jpg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 520,
-          "photo": "assets/placeholders/ph_retail.svg",
+          "photo": "photos/products/retail_e_roastberry_гватемала_декаф_200_г.jpg",
           "stock": 13
         }
       ],
@@ -1683,12 +1683,12 @@
       "id": "retail_e_roastberry_гватемала_уетенанго_200_г",
       "name": "E \"Roastberry\" Гватемала Уетенанго",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_e_roastberry_гватемала_уетенанго_200_г.jpg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 495,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_e_roastberry_гватемала_уетенанго_200_г.jpg"
         }
       ],
       "stock": 7,
@@ -1755,12 +1755,12 @@
       "id": "retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг",
       "name": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2175,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг.jpg"
         }
       ],
       "stock": 45,
@@ -1774,12 +1774,12 @@
       "id": "retail_e_roastberry_коста-рика_тарразу_ла_пастора_200_г",
       "name": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_200_г.jpg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 460,
-          "photo": "assets/placeholders/ph_retail.svg",
+          "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_200_г.jpg",
           "stock": 14
         }
       ],
@@ -1831,12 +1831,12 @@
       "id": "retail_e_roastberry_уганада_рувензор_200_г",
       "name": "E \"Roastberry\" Уганада Рувензор",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_e_roastberry_уганада_рувензор_200_г.jpg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 435,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_e_roastberry_уганада_рувензор_200_г.jpg"
         }
       ],
       "stock": 8,
@@ -1854,12 +1854,12 @@
       "id": "retail_f_roastberry_бразилия_сертао_200_г_молотыи",
       "name": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 450,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
       "stock": 22,
@@ -1873,12 +1873,12 @@
       "id": "retail_f_roastberry_гватемала_уетенанго_-_1_кг",
       "name": "F \"Roastberry\" Гватемала Уетенанго",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_-_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2310,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_-_1_кг.jpg"
         }
       ],
       "stock": 2,
@@ -1892,13 +1892,13 @@
       "id": "retail_f_roastberry_гватемала_уетенанго_200_г",
       "name": "F \"Roastberry\" Гватемала Уетенанго",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_200_г.jpg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 495.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg",
+          "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_200_г.jpg",
           "stock": 2
         }
       ],
@@ -1917,12 +1917,12 @@
       "id": "retail_f_roastberry_кения_аа_200_г",
       "name": "F \"Roastberry\" Кения АА",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_f_roastberry_кения_аа_200_г.jpg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 550,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_f_roastberry_кения_аа_200_г.jpg"
         }
       ],
       "stock": 17,
@@ -1940,13 +1940,13 @@
       "id": "retail_f_roastberry_кения_аб_200_г",
       "name": "F \"Roastberry\" Кения АБ",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_f_roastberry_кения_аб_200_г.jpg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 530.0,
           "on_request": false,
-          "photo": "assets/placeholders/ph_retail.svg",
+          "photo": "photos/products/retail_f_roastberry_кения_аб_200_г.jpg",
           "stock": 10
         }
       ],
@@ -1965,12 +1965,12 @@
       "id": "retail_f_roastberry_китаи_симао_200_г",
       "name": "F \"Roastberry\" Китай Симао",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_f_roastberry_китаи_симао_200_г.jpg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 445,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_f_roastberry_китаи_симао_200_г.jpg"
         }
       ],
       "stock": 4,
@@ -2008,12 +2008,12 @@
       "id": "retail_f_roastberry_танзания_200_г",
       "name": "F \"Roastberry\" Танзания",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_f_roastberry_танзания_200_г.jpg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 495,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_f_roastberry_танзания_200_г.jpg"
         }
       ],
       "stock": 9,
@@ -2050,12 +2050,12 @@
       "id": "retail_f_roastberry_эфиопия_лиму_200_г",
       "name": "F \"Roastberry\" Эфиопия Лиму",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/retail_f_roastberry_эфиопия_лиму_200_г.jpg",
       "fasovka": [
         {
           "size": "200 г",
           "price": 455,
-          "photo": "assets/placeholders/ph_retail.svg"
+          "photo": "photos/products/retail_f_roastberry_эфиопия_лиму_200_г.jpg"
         }
       ],
       "stock": 11,
