@@ -206,11 +206,11 @@ def _upsert_user_profile(con, user_id: int, payload: dict) -> None:
 
 def _apply_personal_pricing(con, user_id: int, items: list) -> None:
     """Пересчитывает price у каждой позиции с учётом user_pricing-правил клиента.
-    Меняет items in-place. Несколько правил на одну позицию СУММИРУЮТСЯ
-    (например 'на всё −10%' + 'на категорию coffee −15%' → −25%).
-    Если есть fixed_price — берём минимальный, остальные правила игнорируем.
+    Меняет items in-place. Правила НЕ суммируются — берётся самое выгодное
+    клиенту (минимальная цена). На позиции с user_pricing tier/volume-скидка
+    больше НЕ применяется (item['_personal_priced'] = True).
 
-    Не трогает tier-скидку: она применяется отдельно в _apply_tier_and_volume()."""
+    Не трогает tier-скидку: она применяется отдельно в _compute_order_discount()."""
     if user_id <= 0 or not items:
         return
     try:
@@ -255,6 +255,7 @@ def _apply_personal_pricing(con, user_id: int, items: list) -> None:
             new_price = _apply_pricing_rules(base, applicable)
             if abs(new_price - base) > 0.01:
                 it["price"] = new_price
+                it["_personal_priced"] = True
                 it["_personal_rule_ids"] = [r.get("id") for r in applicable]
 
 
@@ -262,19 +263,17 @@ def _apply_personal_pricing(con, user_id: int, items: list) -> None:
         log.warning(f"_apply_personal_pricing failed: {e}")
 
 
-def _compute_order_discount(con, user_id: int, items: list, total_kg: float,
-                            subtotal: float) -> tuple[float, dict]:
-    """Возвращает (final_pct, breakdown_dict).
+def _compute_order_discount(con, user_id: int, items: list) -> tuple[float, float, dict]:
+    """Считает скидку на ОБЩИЕ позиции (без user_pricing). Скидки НЕ суммируются —
+    берётся max(tier_pct, volume_pct).
 
-    Логика суммирования:
-      - tier_pct: от price_tier клиента (10% / 20% / 0%). Применяется ко ВСЕМУ
-        заказу — и кофе, и чай, и сиропу.
-      - volume_pct: 20% если total_kg ≥ 25, 10% если ≥ 10. Считается от веса всех
-        весомых товаров (кг/г из фасовки), не только кофе.
-      - Эти две суммируются (но не >50% совокупно — защита).
-      - user_pricing уже применены ранее per-позиция в _apply_personal_pricing.
+    Возвращает (subtotal_personal, subtotal_general_after_discount, breakdown).
+      - subtotal_personal: сумма позиций с user_pricing (цена уже снижена)
+      - subtotal_general_after_discount: сумма позиций без user_pricing после max-скидки
 
-    breakdown — для красивого отображения клиенту/админу."""
+    Логика: позиции с персональной скидкой уже получили выгодную цену — общая
+    оптовая (tier/volume) к ним НЕ применяется. К остальным — max(tier, volume).
+    Так клиент не получает «двойную» скидку."""
     tier_pct = 0.0
     tier_name = "standard"
     try:
@@ -284,19 +283,32 @@ def _compute_order_discount(con, user_id: int, items: list, total_kg: float,
     except Exception:
         pass
 
-    volume_pct = 20.0 if total_kg >= 25 else (10.0 if total_kg >= 10 else 0.0)
+    subtotal_personal = 0.0
+    subtotal_general = 0.0
+    total_kg_general = 0.0
+    for it in items:
+        line = float(it.get("price") or 0) * float(it.get("qty") or 0)
+        kg = (parse_kg(it.get("fasovka", "")) or 0) * float(it.get("qty") or 0)
+        if it.get("_personal_priced"):
+            subtotal_personal += line
+        else:
+            subtotal_general += line
+            total_kg_general += kg
 
-    final_pct = tier_pct + volume_pct
-    if final_pct > 50.0:
-        final_pct = 50.0  # cap
+    volume_pct = 20.0 if total_kg_general >= 25 else (10.0 if total_kg_general >= 10 else 0.0)
+    # НЕ суммируем — берём максимум (бизнес-правило: одна скидка на позицию).
+    general_pct = max(tier_pct, volume_pct)
+    subtotal_general_after = round(subtotal_general * (1 - general_pct / 100), 2)
 
-    return final_pct, {
+    return subtotal_personal, subtotal_general_after, {
         "tier_pct": tier_pct,
         "tier_name": tier_name,
         "volume_pct": volume_pct,
-        "total_kg": total_kg,
-        "final_pct": final_pct,
-        "subtotal": subtotal,
+        "general_pct": general_pct,
+        "total_kg": total_kg_general,
+        "subtotal_personal": subtotal_personal,
+        "subtotal_general": subtotal_general,
+        "subtotal_general_after": subtotal_general_after,
     }
 
 
@@ -331,14 +343,9 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
         )
     _apply_personal_pricing(con, user_id, items)
     subtotal = sum((it.get("price") or 0) * it["qty"] for it in items)
-    # Считаем total_kg по ВСЕМ весомым товарам (не только кофе): чай 250г, и т.д.
-    total_kg = sum(
-        (parse_kg(it.get("fasovka", "")) or 0) * it["qty"] for it in items
-    )
-    final_pct, breakdown = _compute_order_discount(con, user_id, items, total_kg, subtotal)
-    discount_pct = final_pct / 100.0
-    discount_amt = round(subtotal * discount_pct)
-    total = subtotal - discount_amt
+    sub_personal, sub_general_after, breakdown = _compute_order_discount(con, user_id, items)
+    total = round(sub_personal + sub_general_after, 2)
+    discount_amt = round(subtotal - total)
     payload["_discount_breakdown"] = breakdown
     payload["_final_total"] = total
     payload["_final_subtotal"] = subtotal
@@ -474,35 +481,36 @@ async def process_tma_order(
     order_id = create_order_from_tma(con, user_id, payload)
     con.close()
 
-    # Используем серверный пересчёт из create_order_from_tma (с tier + user_pricing + auto)
     bd = payload.get("_discount_breakdown") or {}
     subtotal = payload.get("_final_subtotal") or sum((it.get("price") or 0) * it["qty"] for it in items)
     total = payload.get("_final_total") or subtotal
     saved = round(subtotal - total)
+    sub_personal = bd.get("subtotal_personal") or 0
     kg = bd.get("total_kg") or sum((parse_kg(it.get("fasovka", "")) or 0) * it["qty"] for it in items)
-    disc_pct = (bd.get("final_pct") or 0) / 100.0
     tier_pct = bd.get("tier_pct") or 0
     vol_pct = bd.get("volume_pct") or 0
+    general_pct = bd.get("general_pct") or 0
     tier_name = bd.get("tier_name") or "standard"
     TIER_LABEL = {"standard": "Стандартный", "discount_10": "Опт −10%",
                   "discount_20": "Опт −20%", "stm": "СТМ"}
 
-    # Сообщение покупателю
     lines = [f"✅ <b>Заказ №{order_id} оформлен!</b>\n"]
     for it in items[:15]:
+        mark = " ⭐" if it.get("_personal_priced") else ""
         lines.append(
-            f"• {it['name'][:48]}\n  <i>{it['qty']} × {it.get('price') or 0} ₽ ({it.get('fasovka','')})</i>"
+            f"• {it['name'][:48]}{mark}\n  <i>{it['qty']} × {it.get('price') or 0} ₽ ({it.get('fasovka','')})</i>"
         )
     if len(items) > 15:
         lines.append(f"... и ещё {len(items) - 15} позиций")
     lines.append(f"\n💰 Сумма: {subtotal:.0f} ₽")
+    if sub_personal:
+        lines.append(f"⭐ С вашими персональными ценами: {sub_personal:.0f} ₽")
     lines.append(f"⚖️ Вес: {kg:.2f} кг")
-    if tier_pct:
-        lines.append(f"🏷 Тариф «{TIER_LABEL.get(tier_name, tier_name)}»: −{tier_pct:.0f}%")
-    if vol_pct:
-        lines.append(f"📦 Скидка за объём ({kg:.1f} кг): −{vol_pct:.0f}%")
+    if general_pct:
+        why = f"тариф «{TIER_LABEL.get(tier_name, tier_name)}»" if tier_pct >= vol_pct else f"за объём ({kg:.1f} кг)"
+        lines.append(f"📦 Скидка на остальное −{general_pct:.0f}% ({why})")
     if saved:
-        lines.append(f"🎁 <b>Итого скидка {disc_pct*100:.0f}%: −{saved} ₽</b>")
+        lines.append(f"🎁 <b>Экономия: −{saved} ₽</b>")
     lines.append(f"\n💳 <b>К оплате: {total:.0f} ₽</b>")
     lines.append(
         "\n📦 <b>Сроки</b>\n"
@@ -587,12 +595,12 @@ async def process_tma_order(
         if len(items) > 25:
             adm_lines.append(f"... и ещё {len(items) - 25} позиций")
         adm_lines.append(f"\n⚖️ {kg:.2f} кг   💰 {subtotal:.0f} ₽")
-        if tier_pct:
-            adm_lines.append(f"🏷 Тариф «{TIER_LABEL.get(tier_name, tier_name)}»: −{tier_pct:.0f}%")
-        if vol_pct:
-            adm_lines.append(f"📦 Объём ({kg:.1f} кг): −{vol_pct:.0f}%")
+        if sub_personal:
+            adm_lines.append(f"⭐ Персональные цены: {sub_personal:.0f} ₽")
+        if general_pct:
+            adm_lines.append(f"📦 Общая скидка −{general_pct:.0f}% (max от tier={tier_pct:.0f}% / volume={vol_pct:.0f}%)")
         if saved:
-            adm_lines.append(f"🎁 <b>Итого скидка {disc_pct*100:.0f}%: −{saved} ₽</b>")
+            adm_lines.append(f"🎁 <b>Экономия клиента: −{saved} ₽</b>")
         adm_lines.append(f"💳 <b>К оплате: {total:.0f} ₽</b> · оплата: {pay}")
         adm_text = "\n".join(adm_lines)
         kb = order_status_keyboard(order_id, "new")

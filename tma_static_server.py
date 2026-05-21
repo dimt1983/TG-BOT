@@ -336,28 +336,27 @@ def _matching_pricing_rules(rules: list[dict], *, tma_id: str, category: str,
 
 
 def _apply_pricing_rules(base_price: float, rules: list[dict]) -> float:
-    """Применяет список правил к базовой цене. Логика:
-    - Если есть fixed_price → берём минимальный (выгоднее клиенту), остальные правила игнорируем.
-    - Иначе суммируем все discount_pct (но не больше 100%) и применяем."""
+    """Применяет ОДНО — самое выгодное клиенту — правило из списка.
+    Скидки НЕ суммируются: берём минимальную итоговую цену."""
     if not rules:
         return base_price
-    fixed_prices = [float(r["fixed_price"]) for r in rules
-                    if r.get("fixed_price") is not None]
-    if fixed_prices:
-        return min(fixed_prices)
-    total_pct = 0.0
+    candidates = [base_price]
     for r in rules:
+        fixed = r.get("fixed_price")
+        if fixed is not None:
+            try:
+                candidates.append(float(fixed))
+            except (TypeError, ValueError):
+                pass
         pct = r.get("discount_pct")
-        if pct is None:
-            continue
-        try:
-            p = float(pct)
-            if 0 <= p <= 100:
-                total_pct += p
-        except (TypeError, ValueError):
-            pass
-    total_pct = min(total_pct, 95.0)  # защита: не больше 95% совокупной скидки
-    return round(base_price * (1 - total_pct / 100), 2)
+        if pct is not None:
+            try:
+                p = float(pct)
+                if 0 <= p <= 100:
+                    candidates.append(round(base_price * (1 - p / 100), 2))
+            except (TypeError, ValueError):
+                pass
+    return min(candidates)
 
 
 # Тариф клиента → % автоскидки на весь заказ.
@@ -1959,8 +1958,8 @@ class Handler(BaseHTTPRequestHandler):
                 # Auto-volume скидка (старая логика, через get_discount от bot.py).
                 gd = _TMA_CTX.get("get_discount")
                 auto_pct = float(gd(total_kg)) * 100 if gd else 0.0
-                # Суммируем (cap 50%).
-                final_pct = min(tier_pct + auto_pct, 50.0)
+                # НЕ суммируем — берём max (бизнес-правило: одна скидка на заказ).
+                final_pct = max(tier_pct, auto_pct)
                 discount_pct = final_pct / 100.0
                 total_after = total * (1 - discount_pct)
 

@@ -2206,107 +2206,195 @@ function _prRender() {
 }
 
 function _openCardEditor(p) {
-  const meta = STATE.adminCatalogMeta || { categories: [], subcategories: {} };
-  const cats = meta.categories || [];
-  const fasovka = Array.isArray(p.fasovka) ? p.fasovka : [];
-  const escA = (v) => esc(v == null ? '' : String(v));
-  _adminModal(`
-    <div style="font-family:var(--f-display); font-weight:700; font-size:17px; margin-bottom:4px;">Редактор карточки</div>
-    <div class="meta" style="margin-bottom:14px;">id <code>${escA(p.id)}</code></div>
-
-    <label style="display:block; margin-bottom:10px;">
-      <div class="meta" style="margin-bottom:4px;">Название</div>
-      <input id="rb-ce-name" type="text" value="${escA(p.name)}"
-        style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:#fff; color:var(--ink); font-family:var(--f-body); font-size:14px; box-sizing:border-box;">
-    </label>
-
-    <div style="display:flex; gap:10px; margin-bottom:10px;">
-      <label style="flex:1;">
-        <div class="meta" style="margin-bottom:4px;">Категория</div>
-        <input id="rb-ce-cat" type="text" value="${escA(p.category)}" list="rb-ce-cat-list"
-          style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:#fff; color:var(--ink); font-family:var(--f-body); font-size:14px; box-sizing:border-box;">
-        <datalist id="rb-ce-cat-list">${cats.map(c => `<option value="${escA(c)}">`).join('')}</datalist>
-      </label>
-      <label style="flex:1;">
-        <div class="meta" style="margin-bottom:4px;">Подкатегория</div>
-        <input id="rb-ce-sub" type="text" value="${escA(p.subcategory)}"
-          style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:#fff; color:var(--ink); font-family:var(--f-body); font-size:14px; box-sizing:border-box;">
-      </label>
-    </div>
-
-    <div style="display:flex; gap:10px; margin-bottom:10px;">
-      <label style="flex:1;">
-        <div class="meta" style="margin-bottom:4px;">Страна</div>
-        <input id="rb-ce-country" type="text" value="${escA(p.country)}"
-          style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:#fff; color:var(--ink); font-family:var(--f-body); font-size:14px; box-sizing:border-box;">
-      </label>
-      <label style="flex:1;">
-        <div class="meta" style="margin-bottom:4px;">Обжарка (E/F/EF...)</div>
-        <input id="rb-ce-roast" type="text" value="${escA(p.roast)}"
-          style="width:100%; height:42px; padding:0 12px; border:1px solid var(--line-strong); border-radius:10px; background:#fff; color:var(--ink); font-family:var(--f-body); font-size:14px; box-sizing:border-box;">
-      </label>
-    </div>
-
-    <label style="display:block; margin-bottom:10px;">
-      <div class="meta" style="margin-bottom:4px;">Описание</div>
-      <textarea id="rb-ce-desc" rows="3"
-        style="width:100%; padding:10px 12px; border:1px solid var(--line-strong); border-radius:10px; background:#fff; color:var(--ink); font-family:var(--f-body); font-size:13px; resize:vertical; box-sizing:border-box;">${escA(p.description)}</textarea>
-    </label>
-
-    <div style="margin-bottom:10px;">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-        <span class="meta">Фасовки</span>
-        <button onclick="_ceAddFasovka()" style="height:28px; padding:0 12px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-size:11px; font-weight:600; cursor:pointer;">+ фасовка</button>
-      </div>
-      <div id="rb-ce-fasovka">
-        ${fasovka.map((f, i) => _ceFasovkaRow(f, i)).join('')}
-      </div>
-    </div>
-
-    <label style="display:block; margin-bottom:14px;">
-      <div class="meta" style="margin-bottom:4px;">Фото карточки</div>
-      <div style="display:flex; gap:10px; align-items:center;">
-        ${p.photo ? `<div style="width:60px; height:60px; border-radius:8px; background:#fff url('${escA(p.photo)}') center/cover no-repeat; border:1px solid var(--line); flex:0 0 auto;"></div>` : ''}
-        <input type="file" accept="image/jpeg,image/png,image/webp" onchange="rb.adminUploadPhoto('${escA(p.id)}', this.files[0])"
-          style="flex:1; font-size:12px;">
-      </div>
-    </label>
-
-    <div style="display:flex; gap:8px; margin-bottom:8px;">
-      <label style="flex:1; display:flex; align-items:center; gap:6px; font-size:13px;">
-        <input id="rb-ce-hidden" type="checkbox" ${p.hidden ? 'checked' : ''}> Скрыт
-      </label>
-      <label style="flex:1; display:flex; align-items:center; gap:6px; font-size:13px;">
-        <input id="rb-ce-onreq" type="checkbox" ${p.on_request ? 'checked' : ''}> По запросу
-      </label>
-    </div>
-
-    <div style="display:flex; gap:8px; margin-top:8px;">
-      <button onclick="_adminCloseModal()" style="flex:1; height:44px; border-radius:999px; background:transparent; border:1px solid var(--line-strong); color:var(--ink-soft); font-weight:600; cursor:pointer;">Отмена</button>
-      <button onclick="rb._saveCard('${escA(p.id)}')" style="flex:1; height:44px; border-radius:999px; background:var(--ink); color:var(--bg); border:0; font-weight:600; cursor:pointer;">Сохранить</button>
-    </div>
-  `);
+  STATE._ce = JSON.parse(JSON.stringify(p));
+  if (!Array.isArray(STATE._ce.fasovka)) STATE._ce.fasovka = [];
+  _adminModal('<div id="rb-ce-host"></div>');
+  _ceRender();
 }
-function _ceFasovkaRow(f, i) {
-  return `
-    <div data-fa style="display:flex; gap:6px; align-items:center; padding:6px 0; border-bottom:1px solid var(--line);">
-      <input data-fasize type="text" placeholder="1 кг / 200 г" value="${esc(f.size || '')}"
-        style="flex:1; height:36px; padding:0 10px; border:1px solid var(--line-strong); border-radius:8px; background:#fff; color:var(--ink); font-size:13px; box-sizing:border-box;">
-      <input data-faprice type="number" min="0" step="1" placeholder="₽" value="${f.price != null ? f.price : ''}"
-        style="width:90px; height:36px; padding:0 10px; border:1px solid var(--line-strong); border-radius:8px; background:#fff; color:var(--ink); font-size:13px; box-sizing:border-box;">
-      <label style="display:flex; align-items:center; gap:4px; font-size:10px; color:var(--ink-soft);">
-        <input data-faonreq type="checkbox" ${f.on_request ? 'checked' : ''}> по запр.
+
+function _ceRender() {
+  const host = document.getElementById('rb-ce-host');
+  if (!host) return;
+  const p = STATE._ce;
+  const meta = STATE.adminCatalogMeta || { categories: [], subcategories: {}, fasovkas: [] };
+  const cats = meta.categories || [];
+  const subsByCat = meta.subcategories || {};
+  const subOpts = subsByCat[p.category] || [];
+  const photoUrl = p.photo ? p.photo : '';
+
+  // ── Стили (общие на весь экран) ──────────────────────────────
+  const ST = {
+    section: 'margin:0 -18px 16px; padding:14px 18px; background:#FAF7F2; border-top:1px solid #EFE9DF; border-bottom:1px solid #EFE9DF;',
+    label: 'font-size:11px; font-weight:600; color:#665D52; text-transform:uppercase; letter-spacing:0.4px; margin-bottom:6px;',
+    input: 'width:100%; height:46px; padding:0 14px; border:1.5px solid #E0DAD2; border-radius:12px; background:#fff; color:#1B1815; font-family:inherit; font-size:15px; box-sizing:border-box; outline:none;',
+    inputBig: 'width:100%; padding:14px; border:1.5px solid #E0DAD2; border-radius:12px; background:#fff; color:#1B1815; font-family:inherit; font-size:15px; box-sizing:border-box; outline:none; resize:vertical; min-height:90px; line-height:1.4;',
+    chip: (active) => `padding:8px 14px; border-radius:999px; background:${active ? '#1B1815' : '#fff'}; color:${active ? '#fff' : '#1B1815'}; border:1.5px solid ${active ? '#1B1815' : '#E0DAD2'}; font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap;`,
+    primaryBtn: 'flex:2; height:50px; border-radius:999px; background:#1B1815; color:#FAF7F2; border:0; font-weight:700; font-size:15px; cursor:pointer; box-shadow:0 2px 8px rgba(27,24,21,0.25);',
+    ghostBtn: 'flex:1; height:50px; border-radius:999px; background:#fff; border:1.5px solid #E0DAD2; color:#665D52; font-weight:600; font-size:14px; cursor:pointer;',
+  };
+
+  // ── HEADER: превью + фото-кнопка ─────────────────────────────
+  const headerHTML = `
+    <div style="display:flex; gap:14px; align-items:flex-start; margin-bottom:8px;">
+      <label style="position:relative; flex:0 0 auto; width:88px; height:88px; border-radius:14px; overflow:hidden; cursor:pointer; background:${photoUrl ? `#fff url('${esc(photoUrl)}') center/cover no-repeat` : '#F0EAE0'}; border:1.5px solid #E0DAD2; display:flex; align-items:center; justify-content:center;">
+        ${photoUrl ? '' : '<span style="font-size:28px; opacity:0.4;">📷</span>'}
+        <input type="file" accept="image/jpeg,image/png,image/webp"
+          onchange="rb._cePhotoChange(this.files[0])"
+          style="position:absolute; inset:0; opacity:0; cursor:pointer;">
+        <div style="position:absolute; bottom:0; left:0; right:0; padding:3px 0; background:rgba(0,0,0,0.55); color:#fff; font-size:9px; text-align:center; font-weight:600; letter-spacing:0.5px; text-transform:uppercase;">${photoUrl ? 'СМЕНИТЬ' : 'ФОТО'}</div>
       </label>
-      <button onclick="this.closest('[data-fa]').remove()" style="width:28px; height:28px; border-radius:999px; background:transparent; border:1px solid var(--line); color:var(--danger); cursor:pointer; padding:0;">×</button>
+      <div style="flex:1; min-width:0; padding-top:4px;">
+        <div style="font-family:var(--f-display); font-weight:800; font-size:20px; color:#1B1815; line-height:1.2;">Редактор товара</div>
+        <div style="font-size:11px; color:#999; margin-top:6px; font-family:monospace; word-break:break-all;">${esc(p.id || '— новый —')}</div>
+      </div>
     </div>
   `;
+
+  // ── Название + категория ─────────────────────────────────────
+  const nameBlock = `
+    <div style="margin-bottom:14px;">
+      <div style="${ST.label}">Название</div>
+      <input id="rb-ce-name" type="text" value="${esc(p.name || '')}"
+        oninput="STATE._ce.name = this.value"
+        style="${ST.input} font-weight:600;">
+    </div>
+  `;
+
+  // Категории chip-style
+  const catBlock = `
+    <div style="margin-bottom:14px;">
+      <div style="${ST.label}">Категория</div>
+      <div style="display:flex; flex-wrap:wrap; gap:6px;">
+        ${cats.map(c => `<button onclick="STATE._ce.category='${esc(c)}'; STATE._ce.subcategory=''; _ceRender();" style="${ST.chip(p.category === c)}">${esc(c)}</button>`).join('')}
+      </div>
+      ${p.category && !cats.includes(p.category) ? `
+        <div style="margin-top:6px; font-size:11px; color:#999;">Текущая (не в списке): <code>${esc(p.category)}</code></div>
+      ` : ''}
+    </div>
+  `;
+
+  // Подкатегории
+  const subBlock = `
+    <div style="margin-bottom:14px;">
+      <div style="${ST.label}">Подкатегория</div>
+      ${subOpts.length ? `
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px;">
+          ${subOpts.map(s => `<button onclick="STATE._ce.subcategory='${esc(s)}'; _ceRender();" style="${ST.chip(p.subcategory === s)}">${esc(s)}</button>`).join('')}
+        </div>
+      ` : ''}
+      <input type="text" placeholder="${subOpts.length ? 'или своя' : 'введи подкатегорию'}" value="${esc(p.subcategory || '')}"
+        oninput="STATE._ce.subcategory = this.value"
+        style="${ST.input}">
+    </div>
+  `;
+
+  // Country / roast
+  const ROASTS = ['E', 'F', 'EF', 'BE', 'BF', 'ДРИП', 'NESPRESSO', ''];
+  const roastBlock = `
+    <div style="display:flex; gap:12px; margin-bottom:14px;">
+      <div style="flex:2;">
+        <div style="${ST.label}">Страна</div>
+        <input id="rb-ce-country" type="text" value="${esc(p.country || '')}"
+          oninput="STATE._ce.country = this.value"
+          placeholder="напр. Бразилия"
+          style="${ST.input}">
+      </div>
+      <div style="flex:3;">
+        <div style="${ST.label}">Обжарка</div>
+        <div style="display:flex; flex-wrap:wrap; gap:5px;">
+          ${ROASTS.map(r => `<button onclick="STATE._ce.roast='${esc(r)}'; _ceRender();" style="${ST.chip((p.roast || '') === r)} padding:8px 10px;">${esc(r || '—')}</button>`).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Описание
+  const descBlock = `
+    <div style="margin-bottom:14px;">
+      <div style="${ST.label}">Описание</div>
+      <textarea oninput="STATE._ce.description = this.value" placeholder="Вкусовой профиль, регион, аромат..."
+        style="${ST.inputBig}">${esc(p.description || '')}</textarea>
+    </div>
+  `;
+
+  // Фасовки — карточный layout
+  const fasovkaBlock = `
+    <div style="${ST.section}">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <div style="${ST.label} margin:0;">Фасовки · ${p.fasovka.length}</div>
+        <button onclick="STATE._ce.fasovka.push({size:'', price:0}); _ceRender();"
+          style="height:34px; padding:0 14px; border-radius:999px; background:#1B1815; color:#fff; border:0; font-size:12px; font-weight:700; cursor:pointer;">+ ДОБАВИТЬ</button>
+      </div>
+      ${p.fasovka.length === 0 ? `
+        <div style="padding:24px; text-align:center; color:#999; font-size:13px; background:#fff; border-radius:12px; border:1.5px dashed #E0DAD2;">
+          У товара пока нет фасовок<br><span style="font-size:11px;">нажми <b>+ ДОБАВИТЬ</b> чтобы создать</span>
+        </div>
+      ` : `
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          ${p.fasovka.map((f, i) => _ceFasovkaCard(f, i)).join('')}
+        </div>
+      `}
+    </div>
+  `;
+
+  // Флаги (toggle карточки)
+  const flagsBlock = `
+    <div style="display:flex; gap:10px; margin-bottom:18px;">
+      <button onclick="STATE._ce.hidden = !STATE._ce.hidden; _ceRender();"
+        style="flex:1; padding:14px; border-radius:14px; background:${p.hidden ? '#1B1815' : '#fff'}; color:${p.hidden ? '#fff' : '#1B1815'}; border:1.5px solid ${p.hidden ? '#1B1815' : '#E0DAD2'}; font-size:13px; cursor:pointer; text-align:left;">
+        <div style="font-size:20px; margin-bottom:4px;">${p.hidden ? '🙈' : '👁'}</div>
+        <div style="font-weight:700;">${p.hidden ? 'Скрыт' : 'Виден'}</div>
+        <div style="font-size:10px; opacity:0.7; margin-top:2px;">в каталоге</div>
+      </button>
+      <button onclick="STATE._ce.on_request = !STATE._ce.on_request; _ceRender();"
+        style="flex:1; padding:14px; border-radius:14px; background:${p.on_request ? '#1B1815' : '#fff'}; color:${p.on_request ? '#fff' : '#1B1815'}; border:1.5px solid ${p.on_request ? '#1B1815' : '#E0DAD2'}; font-size:13px; cursor:pointer; text-align:left;">
+        <div style="font-size:20px; margin-bottom:4px;">${p.on_request ? '📞' : '💰'}</div>
+        <div style="font-weight:700;">${p.on_request ? 'По запросу' : 'Цена видна'}</div>
+        <div style="font-size:10px; opacity:0.7; margin-top:2px;">без онлайн-заказа</div>
+      </button>
+    </div>
+  `;
+
+  // Sticky footer
+  const footer = `
+    <div style="position:sticky; bottom:-20px; left:-18px; right:-18px; margin:0 -18px -20px; padding:14px 18px calc(14px + env(safe-area-inset-bottom)); background:#fff; border-top:1px solid #EFE9DF; display:flex; gap:10px;">
+      <button onclick="_adminCloseModal()" style="${ST.ghostBtn}">Отмена</button>
+      <button onclick="rb._saveCardFromState()" style="${ST.primaryBtn}">💾 Сохранить</button>
+    </div>
+  `;
+
+  host.innerHTML = headerHTML + nameBlock + catBlock + subBlock + roastBlock + descBlock + fasovkaBlock + flagsBlock + footer;
 }
-function _ceAddFasovka() {
-  const wrap = document.getElementById('rb-ce-fasovka');
-  if (!wrap) return;
-  const tmp = document.createElement('div');
-  tmp.innerHTML = _ceFasovkaRow({ size: '', price: '', on_request: false }, wrap.children.length);
-  wrap.appendChild(tmp.firstElementChild);
+
+function _ceFasovkaCard(f, idx) {
+  const onReq = !!f.on_request;
+  const price = f.price != null ? f.price : '';
+  return `
+    <div style="background:#fff; border-radius:12px; padding:12px; border:1.5px solid #E0DAD2;">
+      <div style="display:flex; gap:8px; align-items:center; margin-bottom:10px;">
+        <input type="text" placeholder="напр. 1 кг" value="${esc(f.size || '')}"
+          oninput="STATE._ce.fasovka[${idx}].size = this.value"
+          style="flex:1; height:42px; padding:0 12px; border:1.5px solid #E0DAD2; border-radius:10px; background:#FAF7F2; color:#1B1815; font-size:15px; font-weight:700; box-sizing:border-box; outline:none;">
+        <button onclick="STATE._ce.fasovka.splice(${idx}, 1); _ceRender();"
+          title="Удалить фасовку"
+          style="flex:0 0 auto; width:42px; height:42px; border-radius:10px; background:#fff; border:1.5px solid #E0DAD2; color:#C45A4A; font-size:18px; cursor:pointer; padding:0;">🗑</button>
+      </div>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <div style="flex:2; position:relative;">
+          <input type="number" min="0" step="1" placeholder="0" value="${onReq ? '' : price}" ${onReq ? 'disabled' : ''}
+            oninput="STATE._ce.fasovka[${idx}].price = parseFloat(this.value) || 0"
+            style="width:100%; height:42px; padding:0 36px 0 12px; border:1.5px solid #E0DAD2; border-radius:10px; background:${onReq ? '#F5F0E8' : '#fff'}; color:${onReq ? '#999' : '#1B1815'}; font-size:16px; font-weight:700; box-sizing:border-box; outline:none;">
+          <span style="position:absolute; right:14px; top:50%; transform:translateY(-50%); color:#999; font-size:14px; pointer-events:none;">₽</span>
+        </div>
+        <label style="flex:3; display:flex; align-items:center; gap:8px; padding:0 12px; height:42px; background:${onReq ? '#1B1815' : '#fff'}; color:${onReq ? '#fff' : '#1B1815'}; border:1.5px solid ${onReq ? '#1B1815' : '#E0DAD2'}; border-radius:10px; cursor:pointer; font-size:12px; font-weight:600;">
+          <input type="checkbox" ${onReq ? 'checked' : ''}
+            onchange="STATE._ce.fasovka[${idx}].on_request = this.checked; _ceRender();"
+            style="width:16px; height:16px; accent-color:${onReq ? '#fff' : '#1B1815'};">
+          <span>${onReq ? '✓ По запросу' : 'По запросу'}</span>
+        </label>
+      </div>
+    </div>
+  `;
 }
 
 /* ════════════════════════════════════════════════════════════════════
@@ -3225,31 +3313,31 @@ const rb = {
     } catch (e) { haptic('error'); toast('Сеть недоступна'); }
   },
 
-  async _saveCard(id) {
-    const $ = (i) => document.getElementById(i);
-    const fas = [];
-    document.querySelectorAll('#rb-ce-fasovka [data-fa]').forEach(row => {
-      const size = row.querySelector('[data-fasize]').value.trim();
-      if (!size) return;
-      const onreq = row.querySelector('[data-faonreq]').checked;
-      const priceRaw = row.querySelector('[data-faprice]').value.trim();
-      const entry = { size };
-      if (onreq) { entry.on_request = true; }
-      else if (priceRaw !== '') { entry.price = parseFloat(priceRaw); }
-      fas.push(entry);
-    });
+  async _saveCardFromState() {
+    const p = STATE._ce;
+    if (!p) return;
+    const id = p.id;
+    if (!p.name || !p.name.trim()) { toast('Введи название'); return; }
+    // Нормализуем фасовки: пустой size — выкидываем
+    const fas = (p.fasovka || [])
+      .filter(f => (f.size || '').trim())
+      .map(f => {
+        const e = { size: f.size.trim() };
+        if (f.on_request) e.on_request = true;
+        else e.price = parseFloat(f.price) || 0;
+        return e;
+      });
     const body = {
-      name: $('rb-ce-name').value.trim(),
-      category: $('rb-ce-cat').value.trim(),
-      subcategory: $('rb-ce-sub').value.trim(),
-      country: $('rb-ce-country').value.trim(),
-      roast: $('rb-ce-roast').value.trim(),
-      description: $('rb-ce-desc').value,
-      hidden: $('rb-ce-hidden').checked,
-      on_request: $('rb-ce-onreq').checked,
+      name: (p.name || '').trim(),
+      category: (p.category || '').trim(),
+      subcategory: (p.subcategory || '').trim(),
+      country: (p.country || '').trim(),
+      roast: (p.roast || '').trim(),
+      description: p.description || '',
+      hidden: !!p.hidden,
+      on_request: !!p.on_request,
       fasovka: fas,
     };
-    if (!body.name) { toast('Имя обязательно'); return; }
     try {
       const r = await fetch('/tma/api/admin/product/' + encodeURIComponent(id), {
         method: 'POST',
@@ -3258,17 +3346,20 @@ const rb = {
       });
       if (!r.ok) { const j = await r.json().catch(() => ({})); haptic('error'); toast('Ошибка: ' + (j.error || r.status)); return; }
       const j = await r.json();
-      const p = (STATE.data?.products || []).find(x => x.id === id);
-      if (p && j.product) Object.assign(p, j.product);
-      haptic('success'); toast('Карточка сохранена', 'success'); _adminCloseModal(); render();
+      const target = (STATE.data?.products || []).find(x => x.id === id);
+      if (target && j.product) Object.assign(target, j.product);
+      haptic('success'); toast('Сохранено', 'success'); _adminCloseModal(); render();
     } catch (e) { haptic('error'); toast('Сеть недоступна'); }
   },
 
-  async adminUploadPhoto(id, file) {
-    if (!file) return;
+  async _cePhotoChange(file) {
+    if (!file || !STATE._ce) return;
+    const id = STATE._ce.id;
+    if (!id) { toast('Сначала сохрани карточку'); return; }
     if (file.size > 5 * 1024 * 1024) { toast('Фото > 5 МБ — ужми'); return; }
     const ct = file.type || 'image/jpeg';
     if (!/^image\/(jpe?g|png|webp)$/.test(ct)) { toast('Только jpg/png/webp'); return; }
+    toast('Загружаю фото...');
     try {
       const r = await fetch('/tma/api/admin/product/' + encodeURIComponent(id) + '/photo', {
         method: 'POST',
@@ -3277,11 +3368,16 @@ const rb = {
       });
       if (!r.ok) { haptic('error'); toast('Ошибка фото: ' + r.status); return; }
       const j = await r.json();
-      const p = (STATE.data?.products || []).find(x => x.id === id);
-      if (p && j.photo) p.photo = j.photo + '?v=' + Date.now();
-      haptic('success'); toast('Фото загружено', 'success'); render();
+      const newPhoto = (j.photo || '') + '?v=' + Date.now();
+      STATE._ce.photo = newPhoto;
+      const target = (STATE.data?.products || []).find(x => x.id === id);
+      if (target) target.photo = newPhoto;
+      haptic('success'); toast('Фото обновлено ✓', 'success'); _ceRender();
     } catch (e) { haptic('error'); toast('Сеть недоступна'); }
   },
+
+  // Старый stub для обратной совместимости с другими вызовами
+  async adminUploadPhoto(id, file) { return rb._cePhotoChange(file); },
 };
 window.rb = rb;
 
