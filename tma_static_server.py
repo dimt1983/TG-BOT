@@ -313,9 +313,10 @@ def _user_pricing_rules(con: sqlite3.Connection, user_id: int) -> list[dict]:
 
 def _match_pricing_rule(rules: list[dict], *, tma_id: str, category: str,
                         subcategory: str, fasovka_size: str) -> dict | None:
-    """Возвращает правило с приоритетом: product > subcategory > category.
-    fasovka_size — если у правила задана фасовка, применяется только при совпадении."""
-    by_scope = {"product": [], "subcategory": [], "category": []}
+    """Возвращает правило с приоритетом: product > subcategory > category > all.
+    fasovka_size — если у правила задана фасовка, применяется только при совпадении.
+    scope="all" — глобальная скидка клиента на весь заказ (target_id игнорируется)."""
+    by_scope = {"product": [], "subcategory": [], "category": [], "all": []}
     for r in rules:
         scope = r.get("scope")
         if scope not in by_scope:
@@ -327,11 +328,12 @@ def _match_pricing_rule(rules: list[dict], *, tma_id: str, category: str,
             continue
         if scope == "category" and tgt != (category or "").lower():
             continue
+        # all — без проверки target_id
         rule_fa = (r.get("fasovka") or "").strip().lower()
         if rule_fa and rule_fa != (fasovka_size or "").lower():
             continue
         by_scope[scope].append(r)
-    for scope in ("product", "subcategory", "category"):
+    for scope in ("product", "subcategory", "category", "all"):
         if by_scope[scope]:
             return by_scope[scope][0]
     return None
@@ -1530,11 +1532,13 @@ class Handler(BaseHTTPRequestHandler):
             scope = (payload.get("scope") or "").strip().lower()
             target_id = (payload.get("target_id") or "").strip()
             fasovka = (payload.get("fasovka") or "").strip() or None
-            if scope not in {"product", "subcategory", "category"}:
-                self._send(400, _j({"error": "scope must be product|subcategory|category"}),
+            if scope not in {"product", "subcategory", "category", "all"}:
+                self._send(400, _j({"error": "scope must be product|subcategory|category|all"}),
                            "application/json; charset=utf-8")
                 return
-            if not target_id:
+            if scope == "all":
+                target_id = "*"
+            elif not target_id:
                 self._send(400, _j({"error": "target_id required"}),
                            "application/json; charset=utf-8")
                 return
