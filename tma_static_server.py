@@ -311,15 +311,15 @@ def _user_pricing_rules(con: sqlite3.Connection, user_id: int) -> list[dict]:
         return []
 
 
-def _match_pricing_rule(rules: list[dict], *, tma_id: str, category: str,
-                        subcategory: str, fasovka_size: str) -> dict | None:
-    """Возвращает правило с приоритетом: product > subcategory > category > all.
-    fasovka_size — если у правила задана фасовка, применяется только при совпадении.
-    scope="all" — глобальная скидка клиента на весь заказ (target_id игнорируется)."""
-    by_scope = {"product": [], "subcategory": [], "category": [], "all": []}
+def _matching_pricing_rules(rules: list[dict], *, tma_id: str, category: str,
+                             subcategory: str, fasovka_size: str) -> list[dict]:
+    """Возвращает ВСЕ применимые правила (для суммирования процентов).
+    Скидки на 'all' + 'category' + 'subcategory' + 'product' складываются.
+    Если есть fixed_price — он перебивает (берём минимальный)."""
+    out = []
     for r in rules:
         scope = r.get("scope")
-        if scope not in by_scope:
+        if scope not in {"all", "category", "subcategory", "product"}:
             continue
         tgt = (r.get("target_id") or "").strip().lower()
         if scope == "product" and tgt != (tma_id or "").lower():
@@ -328,35 +328,58 @@ def _match_pricing_rule(rules: list[dict], *, tma_id: str, category: str,
             continue
         if scope == "category" and tgt != (category or "").lower():
             continue
-        # all — без проверки target_id
         rule_fa = (r.get("fasovka") or "").strip().lower()
         if rule_fa and rule_fa != (fasovka_size or "").lower():
             continue
-        by_scope[scope].append(r)
-    for scope in ("product", "subcategory", "category", "all"):
-        if by_scope[scope]:
-            return by_scope[scope][0]
-    return None
+        out.append(r)
+    return out
 
 
-def _apply_pricing_rule(base_price: float, rule: dict) -> float:
-    if not rule:
+def _apply_pricing_rules(base_price: float, rules: list[dict]) -> float:
+    """Применяет список правил к базовой цене. Логика:
+    - Если есть fixed_price → берём минимальный (выгоднее клиенту), остальные правила игнорируем.
+    - Иначе суммируем все discount_pct (но не больше 100%) и применяем."""
+    if not rules:
         return base_price
-    fixed = rule.get("fixed_price")
-    if fixed is not None:
-        try:
-            return float(fixed)
-        except (TypeError, ValueError):
-            return base_price
-    pct = rule.get("discount_pct")
-    if pct is not None:
+    fixed_prices = [float(r["fixed_price"]) for r in rules
+                    if r.get("fixed_price") is not None]
+    if fixed_prices:
+        return min(fixed_prices)
+    total_pct = 0.0
+    for r in rules:
+        pct = r.get("discount_pct")
+        if pct is None:
+            continue
         try:
             p = float(pct)
             if 0 <= p <= 100:
-                return round(base_price * (1 - p / 100), 2)
+                total_pct += p
         except (TypeError, ValueError):
             pass
-    return base_price
+    total_pct = min(total_pct, 95.0)  # защита: не больше 95% совокупной скидки
+    return round(base_price * (1 - total_pct / 100), 2)
+
+
+# Тариф клиента → % автоскидки на весь заказ.
+# Применяется СЕРВЕРНО при создании заказа, поверх user_pricing.
+# Live_prices_api для кофе показывает оптовые цены в каталоге — там скидка уже в цене.
+# Здесь же гарантируем что и чай/сироп/прочее получат тот же тариф.
+TIER_AUTO_PCT = {
+    "standard":    0.0,
+    "discount_10": 10.0,
+    "discount_20": 20.0,
+    # stm — отдельный прайс, не применяем generic %
+}
+
+
+# Обратная совместимость для tma_handler.py (которая импортирует старые имена).
+def _match_pricing_rule(rules, **kwargs):
+    matched = _matching_pricing_rules(rules, **kwargs)
+    return matched[0] if matched else None
+
+
+def _apply_pricing_rule(base_price, rule):
+    return _apply_pricing_rules(base_price, [rule] if rule else [])
 
 
 def _ensure_idempotency_table():
@@ -1918,15 +1941,27 @@ class Handler(BaseHTTPRequestHandler):
                 if comment:
                     full_address = f"{address} | {comment}".strip(" |")
 
+                # Универсальный парс веса из имени товара: "1 кг", "200 г", "250 г" и т.д.
+                # Не только кофе — чай / прочее весомое тоже идёт в общий вес.
+                weight_re = re.compile(r"(\d+(?:[\.,]\d+)?)\s*(кг|г)\b", re.IGNORECASE)
                 total_kg = 0.0
                 for ri in resolved_items:
-                    nl = ri["product_name"].lower()
-                    if "1 кг" in nl or "1кг" in nl:
-                        total_kg += ri["quantity"]
-                    elif "200 г" in nl or "200г" in nl:
-                        total_kg += ri["quantity"] * 0.2
+                    m = weight_re.search(ri["product_name"].lower())
+                    if m:
+                        v = float(m.group(1).replace(",", "."))
+                        if m.group(2).lower() == "г":
+                            v /= 1000
+                        total_kg += v * ri["quantity"]
+                # Применяем tier клиента (если есть в БД).
+                _ensure_pricing_schema()
+                tier_name = _user_tier(con, user_id)
+                tier_pct = TIER_AUTO_PCT.get(tier_name, 0.0)
+                # Auto-volume скидка (старая логика, через get_discount от bot.py).
                 gd = _TMA_CTX.get("get_discount")
-                discount_pct = gd(total_kg) if gd else 0.0
+                auto_pct = float(gd(total_kg)) * 100 if gd else 0.0
+                # Суммируем (cap 50%).
+                final_pct = min(tier_pct + auto_pct, 50.0)
+                discount_pct = final_pct / 100.0
                 total_after = total * (1 - discount_pct)
 
                 cur = con.execute(
