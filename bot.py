@@ -1454,6 +1454,16 @@ async def start_handler(message: Message, state: FSMContext):
         "Можно задать вопрос текстом — отвечу что знаю про каталог, заказы и доставку."
     )
     await message.answer(text, parse_mode="Markdown", reply_markup=main_keyboard)
+    if TMA_URL:
+        await message.answer(
+            "Открыть каталог:",
+            reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
+                InlineKeyboardButton(
+                    text="🛍 Открыть магазин",
+                    web_app=WebAppInfo(url=TMA_URL),
+                )
+            ]]),
+        )
 
 @dp.callback_query(F.data == "reg_individual", RegStates.choosing_type)
 async def reg_individual(callback: CallbackQuery, state: FSMContext):

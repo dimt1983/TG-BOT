@@ -3859,21 +3859,14 @@ function toast(msg) {
 }
 
 function shareShop() {
-  // Шарим WEB-ссылку — она открывается у всех:
-  //   • в Telegram WebView предложит «Открыть в приложении» (mini app),
-  //   • в обычном браузере покажет каталог + кнопку входа (TG или гость).
-  // Так получатель сам выбирает удобный способ.
-  const url = 'https://tg-bot-production-ae5c.up.railway.app/tma/';
-  const text = 'Магазин Roastberry — свежеобжаренный кофе, чай, сиропы. Опт от 10 кг — 10%, от 25 кг — 20%.';
+  const url = 'https://t.me/RCR_BtB_bot?start=shop';
+  const text = 'Магазин Roastberry: кофе, чай, сиропы и оптовые скидки. Откройте каталог в Telegram:';
   try {
     if (tg?.openTelegramLink) {
-      // Внутри Telegram — открываем нативный share-sheet
       tg.openTelegramLink(`https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`);
     } else if (navigator.share) {
-      // В браузере (iOS/Android) — нативный share через Web Share API
       navigator.share({ title: 'Roastberry — магазин', text, url }).catch(() => {});
     } else {
-      // Desktop fallback — копируем в буфер
       navigator.clipboard?.writeText(url);
       toast('Ссылка скопирована');
     }
