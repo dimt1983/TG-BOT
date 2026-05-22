@@ -592,6 +592,7 @@ function screenHome() {
     { t: 'Дрипы',       n: cntCat('drip') + ' SKU',     bg: '#7A5538', fg: '#F5EBDD', accent: '#C9A66B', cat: 'drip' },
     { t: 'Каскара',     n: cntCat('cascara') + ' SKU',  bg: '#B8693A', fg: '#FAF7F2', accent: '#FFE3B0', cat: 'cascara' },
     { t: 'Наборы',      n: cntCat('sets') + ' SKU',     bg: '#A06080', fg: '#F5EBDD', accent: '#F5C77E', cat: 'sets' },
+    ...(cntCat('lemonade') ? [{ t: 'BAKUNIN\nЛимонады', n: cntCat('lemonade') + ' SKU', bg: '#F47A32', fg: '#1A1410', accent: '#FFF3D6', cat: 'lemonade' }] : []),
   ];
 
   return `
@@ -601,7 +602,7 @@ ${appHeader({ logo: true })}
   <a href="/tma/v1/" style="font-family:var(--f-mono); font-size:10px; letter-spacing:0.04em; color:var(--ink-soft); text-decoration:none; opacity:0.6; padding:4px 8px; border:1px solid var(--line); border-radius:999px;">Открыть старую версию →</a>
 </div>
 
-<!-- HERO carousel: 3 слайда — обжарка / аренда / академия (стили — _brand/palettes/COLORS.md + v1 рабочие плашки) -->
+<!-- HERO carousel: обжарка / лимонады / аренда / академия (стили — _brand/palettes/COLORS.md + v1 рабочие плашки) -->
 <style>
   #rb-hero-track { display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; }
   #rb-hero-track::-webkit-scrollbar { display:none; }
@@ -628,7 +629,18 @@ ${appHeader({ logo: true })}
       </div>
     </div>
 
-    <!-- Slide 2: Аренда (фон — Nimbus, overlay coffee + green tint) -->
+    <!-- Slide 2: Лимонады Bakunin (фон — материалы презентации поставщика) -->
+    <div class="rb-hero-slide" style="background-color:#F47A32; background-image:url('/tma/assets/lemonades/bakunin_lemonades_hero.jpg');">
+      <div class="rb-hero-slide__shade" style="background:linear-gradient(168deg, rgba(20,14,10,0.12) 0%, rgba(68,35,18,0.38) 46%, rgba(20,14,10,0.88) 100%);"></div>
+      <div class="rb-hero-slide__body">
+        <div class="rb-hero-slide__eyebrow" style="color:#FFF3D6;">● Скоро в магазине</div>
+        <div class="rb-hero-slide__title">Bakunin<br/>лимонады<br/><span style="color:#FFE08A;">0,33&nbsp;л</span></div>
+        <div class="rb-hero-slide__desc">14 вкусов по счету №320. Карточки заведены скрытыми до прихода, прайс-презентация уже готова.</div>
+        <a href="/tma/assets/lemonades/bakunin_lemonades_price_2026.pdf" target="_blank" class="rb-hero-slide__cta" style="background:#FFF3D6; color:#1A1410; text-decoration:none;">Прайс PDF<span>→</span></a>
+      </div>
+    </div>
+
+    <!-- Slide 3: Аренда (фон — Nimbus, overlay coffee + green tint) -->
     <div class="rb-hero-slide" style="background-color:#1F2A1E; background-image:url('/tma/assets/nimbus_hero.jpg');">
       <div class="rb-hero-slide__shade" style="background:linear-gradient(165deg, rgba(8,32,30,0.35) 0%, rgba(30,55,48,0.65) 45%, rgba(15,18,12,0.95) 100%);"></div>
       <div class="rb-hero-slide__body">
@@ -639,7 +651,7 @@ ${appHeader({ logo: true })}
       </div>
     </div>
 
-    <!-- Slide 3: Академия (фон — academy_hero, overlay coffee-deep + copper tint) -->
+    <!-- Slide 4: Академия (фон — academy_hero, overlay coffee-deep + copper tint) -->
     <div class="rb-hero-slide" style="background-color:#2A1B12; background-image:url('/tma/assets/academy_hero.jpg');">
       <div class="rb-hero-slide__shade" style="background:linear-gradient(165deg, rgba(26,20,16,0.30) 0%, rgba(74,52,34,0.55) 40%, rgba(26,20,16,0.95) 100%);"></div>
       <div class="rb-hero-slide__body">
@@ -655,6 +667,7 @@ ${appHeader({ logo: true })}
     <span data-i="0" style="width:24px; height:4px; border-radius:2px; background:var(--ink); transition:all 0.25s;"></span>
     <span data-i="1" style="width:8px;  height:4px; border-radius:2px; background:var(--ink); opacity:0.22; transition:all 0.25s;"></span>
     <span data-i="2" style="width:8px;  height:4px; border-radius:2px; background:var(--ink); opacity:0.22; transition:all 0.25s;"></span>
+    <span data-i="3" style="width:8px;  height:4px; border-radius:2px; background:var(--ink); opacity:0.22; transition:all 0.25s;"></span>
   </div>
 </div>
 

@@ -71,6 +71,13 @@
       "tile": "assets/cat_syrup.jpg"
     },
     {
+      "id": "lemonade",
+      "icon": "🥤",
+      "name": "Лимонады",
+      "color": "#f47a32",
+      "tile": "assets/lemonades/bakunin_lemonades_hero.jpg"
+    },
+    {
       "id": "milk",
       "icon": "🥛",
       "name": "Молоко",
@@ -267,6 +274,11 @@
       "id": "consulting_courses",
       "parent": "consulting",
       "name": "📚 Roastberry Academy"
+    },
+    {
+      "id": "lemonade_bakunin",
+      "parent": "lemonade",
+      "name": "Bakunin Botanicals"
     }
   ],
   "products": [
@@ -5354,7 +5366,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 107,
+      "stock": 106,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6390,7 +6402,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 25,
+      "stock": 23,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -14153,7 +14165,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 2,
+      "stock": 23,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14297,6 +14309,452 @@
         "мытый"
       ],
       "photo": null
+    },
+    {
+      "id": "lemonade_bakunin_organic_cola",
+      "category": "lemonade",
+      "subcategory": "lemonade_bakunin",
+      "name": "ORGANIC COLA",
+      "country": "Bakunin Botanicals",
+      "roast": "",
+      "process": "",
+      "description": "Сок лайма с натуральными СО2-экстрактами специй и цитрусовой цедры.",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "0,33 л",
+          "price": 125,
+          "photo": "assets/lemonades/organic_cola.jpg"
+        }
+      ],
+      "stock": 12,
+      "tags": [
+        "лимонад",
+        "Bakunin",
+        "постоянный ассортимент"
+      ],
+      "on_request": false,
+      "quarantined": false,
+      "hidden": true,
+      "photo": "assets/lemonades/organic_cola.jpg"
+    },
+    {
+      "id": "lemonade_bakunin_greypfrut",
+      "category": "lemonade",
+      "subcategory": "lemonade_bakunin",
+      "name": "ГРЕЙПФРУТ",
+      "country": "Bakunin Botanicals",
+      "roast": "",
+      "process": "",
+      "description": "Свежевыжатый сок грейпфрута, настоянный на грейпфрутовой цедре.",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "0,33 л",
+          "price": 125,
+          "photo": "assets/lemonades/greipfrut.jpg"
+        }
+      ],
+      "stock": 24,
+      "tags": [
+        "лимонад",
+        "Bakunin",
+        "постоянный ассортимент"
+      ],
+      "on_request": false,
+      "quarantined": false,
+      "hidden": true,
+      "photo": "assets/lemonades/greipfrut.jpg"
+    },
+    {
+      "id": "lemonade_bakunin_grinkel_vovel",
+      "category": "lemonade",
+      "subcategory": "lemonade_bakunin",
+      "name": "ГРИНКЕЛЬ ВОВЕЛЬ",
+      "country": "Bakunin Botanicals",
+      "roast": "",
+      "process": "",
+      "description": "Напиток Bakunin Botanicals 0,33 л. Описание уточняется по материалам поставщика.",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "0,33 л",
+          "price": 125,
+          "photo": "assets/lemonades/grinkel_vovel.jpg"
+        }
+      ],
+      "stock": 12,
+      "tags": [
+        "лимонад",
+        "Bakunin",
+        "ротация"
+      ],
+      "on_request": false,
+      "quarantined": false,
+      "hidden": true,
+      "photo": "assets/lemonades/grinkel_vovel.jpg"
+    },
+    {
+      "id": "lemonade_bakunin_grusha_i_zhasmin",
+      "category": "lemonade",
+      "subcategory": "lemonade_bakunin",
+      "name": "ГРУША И ЖАСМИН",
+      "country": "Bakunin Botanicals",
+      "roast": "",
+      "process": "",
+      "description": "Жасминовый чай колд брю и пюре из спелой груши.",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "0,33 л",
+          "price": 125,
+          "photo": "assets/lemonades/grusha_i_zhasmin.jpg"
+        }
+      ],
+      "stock": 24,
+      "tags": [
+        "лимонад",
+        "Bakunin",
+        "постоянный ассортимент"
+      ],
+      "on_request": false,
+      "quarantined": false,
+      "hidden": true,
+      "photo": "assets/lemonades/grusha_i_zhasmin.jpg"
+    },
+    {
+      "id": "lemonade_bakunin_grusha_rozmarin_i_perec",
+      "category": "lemonade",
+      "subcategory": "lemonade_bakunin",
+      "name": "ГРУША, РОЗМАРИН И ПЕРЕЦ",
+      "country": "Bakunin Botanicals",
+      "roast": "",
+      "process": "",
+      "description": "Напиток Bakunin 0,33 л с грушей, розмарином и перцем. Описание уточняется по материалам поставщика.",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "0,33 л",
+          "price": 125,
+          "photo": "assets/lemonades/grusha_rozmarin_perec.jpg"
+        }
+      ],
+      "stock": 12,
+      "tags": [
+        "лимонад",
+        "Bakunin",
+        "из счета, нет строки в Excel"
+      ],
+      "on_request": false,
+      "quarantined": false,
+      "hidden": true,
+      "photo": "assets/lemonades/grusha_rozmarin_perec.jpg"
+    },
+    {
+      "id": "lemonade_bakunin_guava_i_bergamot",
+      "category": "lemonade",
+      "subcategory": "lemonade_bakunin",
+      "name": "ГУАВА И БЕРГАМОТ",
+      "country": "Bakunin Botanicals",
+      "roast": "",
+      "process": "",
+      "description": "Сок спелой гуавы с натуральным СО2-экстрактом бергамота и отваром лимонной вербены.",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "0,33 л",
+          "price": 125,
+          "photo": "assets/lemonades/guava_i_bergamot.jpg"
+        }
+      ],
+      "stock": 12,
+      "tags": [
+        "лимонад",
+        "Bakunin",
+        "постоянный ассортимент"
+      ],
+      "on_request": false,
+      "quarantined": false,
+      "hidden": true,
+      "photo": "assets/lemonades/guava_i_bergamot.jpg"
+    },
+    {
+      "id": "lemonade_bakunin_ezhevika_i_karkade",
+      "category": "lemonade",
+      "subcategory": "lemonade_bakunin",
+      "name": "ЕЖЕВИКА И КАРКАДЕ",
+      "country": "Bakunin Botanicals",
+      "roast": "",
+      "process": "",
+      "description": "Сок ежевики с добавлением заваренного каркаде по технологии колд брю.",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "0,33 л",
+          "price": 125,
+          "photo": "assets/lemonades/ezhevika_i_karkade.jpg"
+        }
+      ],
+      "stock": 24,
+      "tags": [
+        "лимонад",
+        "Bakunin",
+        "постоянный ассортимент"
+      ],
+      "on_request": false,
+      "quarantined": false,
+      "hidden": true,
+      "photo": "assets/lemonades/ezhevika_i_karkade.jpg"
+    },
+    {
+      "id": "lemonade_bakunin_ivanchay_i_myata",
+      "category": "lemonade",
+      "subcategory": "lemonade_bakunin",
+      "name": "ИВАНЧАЙ И МЯТА",
+      "country": "Bakunin Botanicals",
+      "roast": "",
+      "process": "",
+      "description": "Локальный иван-чай и мята, заваренные по технологии колд брю.",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "0,33 л",
+          "price": 125,
+          "photo": "assets/lemonades/ivan_chai_i_myata.jpg"
+        }
+      ],
+      "stock": 12,
+      "tags": [
+        "лимонад",
+        "Bakunin",
+        "постоянный ассортимент"
+      ],
+      "on_request": false,
+      "quarantined": false,
+      "hidden": true,
+      "photo": "assets/lemonades/ivan_chai_i_myata.jpg"
+    },
+    {
+      "id": "lemonade_bakunin_marakuyya_i_persik",
+      "category": "lemonade",
+      "subcategory": "lemonade_bakunin",
+      "name": "МАРАКУЙЯ И ПЕРСИК",
+      "country": "Bakunin Botanicals",
+      "roast": "",
+      "process": "",
+      "description": "Сок спелого персика и пюре свежей маракуйи.",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "0,33 л",
+          "price": 125,
+          "photo": "assets/lemonades/marakuya_i_persik.jpg"
+        }
+      ],
+      "stock": 24,
+      "tags": [
+        "лимонад",
+        "Bakunin",
+        "постоянный ассортимент"
+      ],
+      "on_request": false,
+      "quarantined": false,
+      "hidden": true,
+      "photo": "assets/lemonades/marakuya_i_persik.jpg"
+    },
+    {
+      "id": "lemonade_bakunin_portovyy_gleg",
+      "category": "lemonade",
+      "subcategory": "lemonade_bakunin",
+      "name": "ПОРТОВЫЙ ГЛЁГ",
+      "country": "Bakunin Botanicals",
+      "roast": "",
+      "process": "",
+      "description": "Сезонный напиток на базе вишни, винограда, цитрусов и пряных СО2-экстрактов.",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "0,33 л",
+          "price": 125,
+          "photo": "assets/lemonades/portovy_gleg.jpg"
+        }
+      ],
+      "stock": 12,
+      "tags": [
+        "лимонад",
+        "Bakunin",
+        "сезонный"
+      ],
+      "on_request": false,
+      "quarantined": false,
+      "hidden": true,
+      "photo": "assets/lemonades/portovy_gleg.jpg"
+    },
+    {
+      "id": "lemonade_bakunin_tonik",
+      "category": "lemonade",
+      "subcategory": "lemonade_bakunin",
+      "name": "ТОНИК",
+      "country": "Bakunin Botanicals",
+      "roast": "",
+      "process": "",
+      "description": "Кордиал из цедры цитрусов с натуральным экстрактом хинина.",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "0,33 л",
+          "price": 125,
+          "photo": "assets/lemonades/tonik.jpg"
+        }
+      ],
+      "stock": 12,
+      "tags": [
+        "лимонад",
+        "Bakunin",
+        "постоянный ассортимент"
+      ],
+      "on_request": false,
+      "quarantined": false,
+      "hidden": true,
+      "photo": "assets/lemonades/tonik.jpg"
+    },
+    {
+      "id": "lemonade_bakunin_tonik_ilang_ilang",
+      "category": "lemonade",
+      "subcategory": "lemonade_bakunin",
+      "name": "ТОНИК ИЛАНГ-ИЛАНГ",
+      "country": "Bakunin Botanicals",
+      "roast": "",
+      "process": "",
+      "description": "Тоник Bakunin 0,33 л с иланг-илангом. Описание уточняется по материалам поставщика.",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "0,33 л",
+          "price": 125,
+          "photo": "assets/lemonades/tonik_ilang_ilang.jpg"
+        }
+      ],
+      "stock": 12,
+      "tags": [
+        "лимонад",
+        "Bakunin",
+        "из счета, нет строки в Excel"
+      ],
+      "on_request": false,
+      "quarantined": false,
+      "hidden": true,
+      "photo": "assets/lemonades/tonik_ilang_ilang.jpg"
+    },
+    {
+      "id": "lemonade_bakunin_tonik_yudzu",
+      "category": "lemonade",
+      "subcategory": "lemonade_bakunin",
+      "name": "ТОНИК ЮДЗУ",
+      "country": "Bakunin Botanicals",
+      "roast": "",
+      "process": "",
+      "description": "Базовый тоник с добавлением пюре юдзу.",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "0,33 л",
+          "price": 125,
+          "photo": "assets/lemonades/tonik_yudzu.jpg"
+        }
+      ],
+      "stock": 12,
+      "tags": [
+        "лимонад",
+        "Bakunin",
+        "постоянный ассортимент"
+      ],
+      "on_request": false,
+      "quarantined": false,
+      "hidden": true,
+      "photo": "assets/lemonades/tonik_yudzu.jpg"
+    },
+    {
+      "id": "lemonade_bakunin_yagody_i_elki",
+      "category": "lemonade",
+      "subcategory": "lemonade_bakunin",
+      "name": "ЯГОДЫ И ЁЛКИ",
+      "country": "Bakunin Botanicals",
+      "roast": "",
+      "process": "",
+      "description": "Ягодная база с хвойными экстрактами и добавлением груши дымной сушки.",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "size": "0,33 л",
+          "price": 125,
+          "photo": "assets/lemonades/yagody_i_elki.jpg"
+        }
+      ],
+      "stock": 12,
+      "tags": [
+        "лимонад",
+        "Bakunin",
+        "постоянный ассортимент"
+      ],
+      "on_request": false,
+      "quarantined": false,
+      "hidden": true,
+      "photo": "assets/lemonades/yagody_i_elki.jpg"
+    },
+    {
+      "id": "espresso_mono_гондурас_сан_николас_темная_обжарка_1_кг",
+      "name": "Гондурас Сан Николас темная обжарка - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 10,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "E",
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-22T12:00:08+00:00",
+      "created_by": "sync_catalog_v2"
+    },
+    {
+      "id": "espresso_mono_колумбия_супремо_эспрессо_1_кг",
+      "name": "Колумбия Супремо эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 10,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "E",
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-22T12:00:08+00:00",
+      "created_by": "sync_catalog_v2"
     }
   ]
 }
