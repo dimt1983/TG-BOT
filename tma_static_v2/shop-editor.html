@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Roastberry Editor</title>
+<meta name="theme-color" content="#FAF7F2" />
+<link rel="stylesheet" href="tokens.css?v=20260522-editor" />
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  html, body { margin:0; min-height:100%; background:#FAF7F2; }
+  body { font-family:Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+  .rb { min-height:100vh; }
+  .editor { min-height:100vh; display:grid; grid-template-rows:auto 1fr; background:var(--bg); color:var(--ink); }
+  .editor-top { position:sticky; top:0; z-index:30; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 18px; background:color-mix(in oklab, var(--bg) 92%, transparent); border-bottom:1px solid var(--line); backdrop-filter:blur(18px) saturate(160%); -webkit-backdrop-filter:blur(18px) saturate(160%); }
+  .brand { display:flex; align-items:baseline; gap:12px; min-width:0; }
+  .brand-title { font-family:var(--f-display); font-size:22px; font-weight:900; letter-spacing:0; white-space:nowrap; }
+  .brand-sub { font-family:var(--f-mono); font-size:10px; letter-spacing:0.08em; color:var(--ink-soft); text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .top-actions { display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+  .layout { display:grid; grid-template-columns:minmax(300px, 380px) minmax(0, 1fr); gap:0; min-height:0; }
+  .sidebar { border-right:1px solid var(--line); min-height:0; display:grid; grid-template-rows:auto auto 1fr; background:var(--bg-2); }
+  .search-wrap { padding:14px; display:grid; gap:10px; border-bottom:1px solid var(--line); }
+  .search-row { height:42px; display:flex; align-items:center; gap:9px; padding:0 12px; background:var(--surface); border:1px solid var(--line-strong); border-radius:8px; }
+  .search-row:focus-within { border-color:var(--ink); }
+  .search-row input { width:100%; min-width:0; border:0; outline:0; background:transparent; color:var(--ink); font:500 14px var(--f-body); }
+  .select-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  select, input, textarea { font-family:var(--f-body); }
+  .select-row select, .field input, .field textarea, .field select, .fa-input { width:100%; border:1px solid var(--line-strong); border-radius:8px; background:var(--surface); color:var(--ink); outline:0; box-sizing:border-box; }
+  .select-row select { height:38px; padding:0 10px; font-size:13px; }
+  .tree { display:grid; gap:8px; }
+  .tree-row { display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; }
+  .tree-row::-webkit-scrollbar { display:none; }
+  .tree-btn { flex:0 0 auto; min-height:30px; padding:0 10px; border-radius:999px; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink); font:800 11px var(--f-body); cursor:pointer; }
+  .tree-btn.active { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  .tree-btn.child { background:#FFFDF9; }
+  .filters { display:flex; gap:6px; overflow-x:auto; padding:10px 14px; border-bottom:1px solid var(--line); scrollbar-width:none; }
+  .filters::-webkit-scrollbar { display:none; }
+  .filter-btn { flex:0 0 auto; height:30px; padding:0 10px; border-radius:999px; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink); font:700 11px var(--f-body); cursor:pointer; }
+  .filter-btn.active { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  .list { min-height:0; overflow:auto; }
+  .product-row { width:100%; display:grid; grid-template-columns:52px 1fr auto; gap:10px; align-items:center; padding:10px 12px; border:0; border-bottom:1px solid var(--line); background:var(--surface); color:var(--ink); font:inherit; cursor:pointer; }
+  .product-row:hover { background:var(--surface-2); }
+  .product-row.active { box-shadow:inset 3px 0 0 var(--ink); background:#FFFDF9; }
+  .thumb { width:52px; height:52px; border-radius:8px; background:var(--surface-2); border:1px solid var(--line); background-size:cover; background-position:center; overflow:hidden; }
+  .thumb.placeholder { display:flex; align-items:flex-end; justify-content:flex-start; padding:7px; color:var(--ink-faint); font:700 9px var(--f-mono); letter-spacing:0.08em; text-transform:uppercase; background-image:repeating-linear-gradient(135deg, transparent 0 9px, rgba(26,20,16,0.045) 9px 10px); }
+  .row-title { font-family:var(--f-display); font-size:13px; line-height:1.1; font-weight:800; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; letter-spacing:0; }
+  .row-meta { margin-top:4px; font-family:var(--f-mono); font-size:9.5px; color:var(--ink-faint); letter-spacing:0.04em; text-transform:uppercase; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .row-stock { min-width:38px; height:28px; display:inline-flex; align-items:center; justify-content:center; border-radius:8px; border:1px solid var(--line); background:var(--surface-2); font:800 12px var(--f-mono); }
+  .stock-bad { color:var(--danger); }
+  .stock-low { color:var(--amber); }
+  .workspace { min-width:0; min-height:0; overflow:auto; }
+  .work-inner { display:grid; grid-template-columns:minmax(0, 1fr) minmax(280px, 360px); gap:18px; padding:18px; align-items:start; }
+  .panel { background:var(--surface); border:1px solid var(--line); border-radius:8px; }
+  .panel-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:16px; border-bottom:1px solid var(--line); }
+  .panel-title { font-family:var(--f-display); font-size:20px; line-height:1.05; font-weight:900; letter-spacing:0; }
+  .panel-note { margin-top:6px; font-size:12px; color:var(--ink-soft); word-break:break-all; }
+  .form { padding:16px; display:grid; gap:18px; }
+  .section { display:grid; gap:12px; }
+  .section-title { font:800 12px var(--f-display); letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-soft); }
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+  .field { display:grid; gap:6px; min-width:0; }
+  .field label { font-size:12px; font-weight:700; color:var(--ink-soft); }
+  .field input, .field select { height:42px; padding:0 12px; font-size:14px; }
+  .field textarea { min-height:94px; padding:11px 12px; font-size:14px; line-height:1.45; resize:vertical; }
+  .field input:focus, .field textarea:focus, .field select:focus, .fa-input:focus { border-color:var(--ink); }
+  .toggles { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:8px; }
+  .toggle { min-height:54px; display:flex; align-items:center; gap:9px; padding:10px; border:1px solid var(--line-strong); border-radius:8px; background:var(--surface); cursor:pointer; }
+  .toggle input { width:18px; height:18px; accent-color:var(--ink); }
+  .toggle span { display:block; font-size:12px; line-height:1.2; font-weight:700; }
+  .fasovka-head { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .fasovka-list { display:grid; gap:8px; }
+  .fasovka-row { display:grid; grid-template-columns:1.1fr 0.8fr 1fr 36px; gap:8px; align-items:center; padding:10px; border:1px solid var(--line); border-radius:8px; background:var(--surface-2); }
+  .fa-input { height:38px; padding:0 10px; font-size:13px; }
+  .fa-check { display:flex; align-items:center; gap:8px; height:38px; padding:0 10px; border-radius:8px; border:1px solid var(--line); background:var(--surface); font-size:12px; font-weight:700; }
+  .fa-check input { width:16px; height:16px; accent-color:var(--ink); }
+  .preview { position:sticky; top:86px; display:grid; gap:12px; }
+  .preview-card { overflow:hidden; border-radius:8px; background:var(--surface); border:1px solid var(--line); }
+  .preview-img { aspect-ratio:1; background:var(--surface-2); background-size:cover; background-position:center; display:flex; align-items:flex-end; padding:12px; color:var(--ink-faint); font:700 10px var(--f-mono); letter-spacing:0.08em; text-transform:uppercase; }
+  .preview-body { padding:14px; display:grid; gap:10px; }
+  .preview-name { font-family:var(--f-display); font-size:19px; line-height:1.05; font-weight:900; letter-spacing:0; }
+  .price-line { display:flex; align-items:baseline; gap:5px; font-family:var(--f-display); font-size:24px; font-weight:900; }
+  .price-line small { font:600 11px var(--f-body); color:var(--ink-soft); }
+  .preview-desc { font-size:13px; color:var(--ink-soft); line-height:1.45; max-height:90px; overflow:hidden; }
+  .photo-box { padding:14px; display:grid; gap:10px; }
+  .photo-input { display:none; }
+  .btn, .icon-btn { border:1px solid var(--line-strong); background:var(--surface); color:var(--ink); cursor:pointer; font-family:var(--f-body); font-weight:800; }
+  .btn { min-height:38px; padding:0 14px; border-radius:999px; font-size:13px; display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; }
+  .btn.primary { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  .btn.danger { color:var(--danger); }
+  .btn:disabled { opacity:.45; cursor:not-allowed; }
+  .icon-btn { width:36px; height:36px; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; font-size:18px; line-height:1; }
+  .status { display:inline-flex; align-items:center; gap:7px; min-height:28px; padding:0 10px; border-radius:999px; background:var(--surface-2); border:1px solid var(--line); font:700 11px var(--f-body); color:var(--ink-soft); }
+  .status.dirty { background:var(--amber-soft); color:#8B5224; border-color:transparent; }
+  .status.saved { background:var(--green-soft); color:#3D5232; border-color:transparent; }
+  .empty { display:grid; place-items:center; min-height:420px; padding:30px; text-align:center; color:var(--ink-soft); }
+  .empty h1 { margin:0 0 8px; color:var(--ink); }
+  .login-card { width:min(440px, calc(100vw - 32px)); background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:24px; display:grid; gap:16px; }
+  .login-card h1 { font-size:28px; }
+  .login-card p { margin:0; color:var(--ink-soft); line-height:1.45; }
+  .widget-wrap { min-height:56px; display:flex; justify-content:center; align-items:center; }
+  .toast { position:fixed; left:50%; bottom:26px; transform:translateX(-50%); z-index:100; background:var(--ink); color:var(--bg); border-radius:999px; padding:11px 16px; font:800 13px var(--f-body); box-shadow:var(--sh-2); opacity:0; pointer-events:none; transition:opacity .18s; }
+  .toast.show { opacity:1; }
+  .rb-spinner { display:inline-block; width:18px; height:18px; margin-bottom:14px; border:2px solid var(--ink-mute); border-top-color:var(--ink); border-radius:50%; animation:rb-spin .75s linear infinite; }
+  @keyframes rb-spin { to { transform:rotate(360deg); } }
+  @media (max-width: 980px) {
+    .layout { grid-template-columns:1fr; }
+    .sidebar { border-right:0; border-bottom:1px solid var(--line); max-height:48vh; }
+    .work-inner { grid-template-columns:1fr; padding:12px; }
+    .preview { position:static; order:-1; }
+  }
+  @media (max-width: 640px) {
+    .editor-top { align-items:flex-start; flex-direction:column; padding:12px; }
+    .top-actions { width:100%; justify-content:stretch; }
+    .top-actions .btn, .top-actions .status { flex:1; }
+    .select-row, .grid-2, .grid-3, .toggles { grid-template-columns:1fr; }
+    .fasovka-row { grid-template-columns:1fr 1fr; }
+    .fasovka-row .icon-btn { width:100%; }
+  }
+</style>
+</head>
+<body>
+<div id="root" class="rb"></div>
+<div id="toast" class="toast"></div>
+
+<script>
+"use strict";
+
+const tg = window.Telegram?.WebApp;
+try { tg?.ready?.(); tg?.expand?.(); tg?.setBackgroundColor?.("#FAF7F2"); } catch (e) {}
+
+const params = new URLSearchParams(location.search);
+const IS_TG = !!(tg && tg.initData && tg.initData.length > 0);
+const DEMO = params.get("demo") === "1";
+let browserJwt = (!IS_TG && localStorage.getItem("rb_jwt")) || "";
+let browserUser = null;
+try { browserUser = JSON.parse(localStorage.getItem("rb_user") || "null"); } catch (e) {}
+
+const state = {
+  phase: "loading",
+  products: [],
+  categories: [],
+  subcategories: [],
+  catalogNode: "all",
+  selectedId: params.get("id") || "",
+  original: null,
+  draft: null,
+  query: "",
+  filter: "all",
+  category: "all",
+  dirty: false,
+  saving: false,
+  message: "",
+};
+
+const root = document.getElementById("root");
+const toastEl = document.getElementById("toast");
+const collator = new Intl.Collator("ru", { sensitivity: "base", numeric: true });
+
+function authHeaders(extra = {}) {
+  if (IS_TG) return { ...extra, "X-Tma-InitData": tg.initData };
+  if (browserJwt) return { ...extra, "Authorization": "Bearer " + browserJwt };
+  return { ...extra };
+}
+
+function toast(text, ms = 1800) {
+  toastEl.textContent = text;
+  toastEl.classList.add("show");
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => toastEl.classList.remove("show"), ms);
+}
+
+function esc(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function clone(value) {
+  return JSON.parse(JSON.stringify(value ?? null));
+}
+
+function normalizeList(value) {
+  if (Array.isArray(value)) return value.map(x => String(x).trim()).filter(Boolean);
+  return String(value || "").split(",").map(x => x.trim()).filter(Boolean);
+}
+
+function listText(value) {
+  return Array.isArray(value) ? value.join(", ") : String(value || "");
+}
+
+function fmt(n) {
+  if (typeof n !== "number" || !Number.isFinite(n)) return "";
+  return Math.round(n).toLocaleString("ru-RU");
+}
+
+function imageUrl(src) {
+  if (!src) return "";
+  const clean = String(src).split("?")[0];
+  if (/^(https?:|data:|blob:)/i.test(clean)) return clean;
+  return "/tma/" + clean.replace(/^\/?tma\//, "").replace(/^tma_static\//, "");
+}
+
+function productImageStyle(product) {
+  const url = imageUrl(product?.photo);
+  return url ? `background-image:url('${esc(url)}?v=${Date.now()}')` : "";
+}
+
+function firstPrice(product) {
+  const f = (product?.fasovka || []).find(x => typeof x.price === "number" && !x.on_request);
+  return f || (product?.fasovka || [])[0] || null;
+}
+
+function hasRealPhoto(product) {
+  return !!(product?.photo && !String(product.photo).includes("placeholders/"));
+}
+
+function hasPrice(product) {
+  return Array.isArray(product?.fasovka) && product.fasovka.some(f => typeof f.price === "number" && f.price > 0 && !f.on_request);
+}
+
+function normalizeCategoryMeta(raw, products) {
+  const used = [...new Set(products.map(p => p.category).filter(Boolean))];
+  const out = [];
+  const seen = new Set();
+  if (Array.isArray(raw)) {
+    for (const item of raw) {
+      const id = typeof item === "string" ? item : item?.id;
+      if (!id || seen.has(id)) continue;
+      seen.add(id);
+      out.push({
+        id,
+        name: typeof item === "string" ? item : (item.name || id),
+        icon: typeof item === "string" ? "" : (item.icon || ""),
+      });
+    }
+  }
+  for (const id of used) {
+    if (seen.has(id)) continue;
+    seen.add(id);
+    out.push({ id, name: id, icon: "" });
+  }
+  return out;
+}
+
+function normalizeSubcategoryMeta(raw) {
+  if (!Array.isArray(raw)) return [];
+  return raw
+    .filter(item => item && item.id && item.parent)
+    .map(item => ({ id: item.id, parent: item.parent, name: item.name || item.id }));
+}
+
+function categoryById(id) {
+  return state.categories.find(c => c.id === id) || { id, name: id, icon: "" };
+}
+
+function subcategoryById(id) {
+  return state.subcategories.find(s => s.id === id) || { id, name: id, parent: "" };
+}
+
+function childrenByParent(parentId) {
+  return state.subcategories.filter(s => s.parent === parentId);
+}
+
+function nodeValue(kind, id) {
+  return kind + ":" + id;
+}
+
+function nodeKind(value = state.catalogNode) {
+  if (value === "all") return "all";
+  return value.split(":", 1)[0];
+}
+
+function nodeId(value = state.catalogNode) {
+  return value === "all" ? "" : value.slice(value.indexOf(":") + 1);
+}
+
+function descendantSubIds(subId) {
+  const out = new Set([subId]);
+  const queue = [subId];
+  while (queue.length) {
+    const cur = queue.shift();
+    for (const child of childrenByParent(cur)) {
+      if (out.has(child.id)) continue;
+      out.add(child.id);
+      queue.push(child.id);
+    }
+  }
+  return out;
+}
+
+function nodeMatchesProduct(product, value = state.catalogNode) {
+  if (value === "all") return true;
+  const kind = nodeKind(value);
+  const id = nodeId(value);
+  if (kind === "cat") return product.category === id;
+  if (kind === "sub") {
+    const ids = descendantSubIds(id);
+    return ids.has(product.subcategory) || (Array.isArray(product.subcategories) && product.subcategories.some(s => ids.has(s)));
+  }
+  return true;
+}
+
+function baseProducts() {
+  return state.products.filter(p => nodeMatchesProduct(p, state.catalogNode));
+}
+
+function stockClass(product) {
+  const s = Number(product?.stock);
+  if (!Number.isFinite(s) || product?.on_request) return "";
+  if (s <= 0) return "stock-bad";
+  if (s < 5) return "stock-low";
+  return "";
+}
+
+function filteredProducts() {
+  const q = state.query.trim().toLowerCase();
+  let out = baseProducts();
+  if (state.filter === "attention") out = out.filter(p => p.quarantined || p.hidden || !hasRealPhoto(p) || !hasPrice(p) || (typeof p.stock === "number" && p.stock < 5 && !p.on_request));
+  if (state.filter === "no_photo") out = out.filter(p => !hasRealPhoto(p));
+  if (state.filter === "no_price") out = out.filter(p => !hasPrice(p) && !p.on_request);
+  if (state.filter === "zero") out = out.filter(p => typeof p.stock === "number" && p.stock <= 0 && !p.on_request);
+  if (state.filter === "low") out = out.filter(p => typeof p.stock === "number" && p.stock > 0 && p.stock < 5);
+  if (state.filter === "hidden") out = out.filter(p => p.hidden);
+  if (state.filter === "quarantine") out = out.filter(p => p.quarantined);
+  if (q) {
+    out = out.filter(p => `${p.name || ""} ${p.id || ""} ${p.country || ""} ${p.category || ""} ${p.subcategory || ""}`.toLowerCase().includes(q));
+  }
+  return out.slice().sort((a, b) => collator.compare(a.name || "", b.name || ""));
+}
+
+function nodeLabel(value) {
+  if (value === "all") return "Весь каталог";
+  const kind = nodeKind(value);
+  const id = nodeId(value);
+  if (kind === "cat") {
+    const c = categoryById(id);
+    return `${c.icon ? c.icon + " " : ""}${c.name || id}`;
+  }
+  return subcategoryById(id).name || id;
+}
+
+function nodeCount(value) {
+  return state.products.filter(p => nodeMatchesProduct(p, value)).length;
+}
+
+function treeOptionHTML() {
+  const rows = [`<option value="all" ${state.catalogNode === "all" ? "selected" : ""}>Весь каталог · ${state.products.length}</option>`];
+  const walk = (parentId, depth) => {
+    for (const sub of childrenByParent(parentId)) {
+      const val = nodeValue("sub", sub.id);
+      rows.push(`<option value="${esc(val)}" ${state.catalogNode === val ? "selected" : ""}>${"&nbsp;".repeat(depth * 4)}${esc(sub.name)} · ${nodeCount(val)}</option>`);
+      walk(sub.id, depth + 1);
+    }
+  };
+  for (const cat of state.categories) {
+    const val = nodeValue("cat", cat.id);
+    rows.push(`<option value="${esc(val)}" ${state.catalogNode === val ? "selected" : ""}>${esc((cat.icon ? cat.icon + " " : "") + (cat.name || cat.id))} · ${nodeCount(val)}</option>`);
+    walk(cat.id, 1);
+  }
+  return rows.join("");
+}
+
+function selectedCategoryId() {
+  const kind = nodeKind();
+  if (kind === "cat") return nodeId();
+  if (kind !== "sub") return "";
+  let cur = subcategoryById(nodeId());
+  while (cur?.parent) {
+    if (state.categories.some(c => c.id === cur.parent)) return cur.parent;
+    cur = subcategoryById(cur.parent);
+  }
+  return "";
+}
+
+function selectedBranchParentId() {
+  if (state.catalogNode === "all") return "";
+  const id = nodeId();
+  const direct = childrenByParent(id);
+  if (direct.length) return id;
+  if (nodeKind() === "sub") return subcategoryById(id).parent || "";
+  return id;
+}
+
+function categoryTreeHTML() {
+  const selectedCat = selectedCategoryId();
+  const parentId = selectedBranchParentId();
+  const children = parentId ? childrenByParent(parentId) : [];
+  const top = [
+    `<button class="tree-btn ${state.catalogNode === "all" ? "active" : ""}" data-catalog-node="all">Все · ${state.products.length}</button>`,
+    ...state.categories.map(c => {
+      const val = nodeValue("cat", c.id);
+      return `<button class="tree-btn ${state.catalogNode === val || selectedCat === c.id ? "active" : ""}" data-catalog-node="${esc(val)}">${esc(c.icon || "")} ${esc(c.name || c.id)} · ${nodeCount(val)}</button>`;
+    })
+  ].join("");
+  const childRow = children.length ? `
+    <div class="tree-row">
+      ${children.map(s => {
+        const val = nodeValue("sub", s.id);
+        return `<button class="tree-btn child ${state.catalogNode === val ? "active" : ""}" data-catalog-node="${esc(val)}">${esc(s.name)} · ${nodeCount(val)}</button>`;
+      }).join("")}
+    </div>` : "";
+  return `<div class="tree" id="editor-category-tree"><div class="tree-row">${top}</div>${childRow}</div>`;
+}
+
+function selectProduct(id, pushUrl = true) {
+  const product = state.products.find(p => p.id === id) || state.products[0] || null;
+  state.selectedId = product?.id || "";
+  state.original = clone(product);
+  state.draft = clone(product);
+  if (state.draft && !Array.isArray(state.draft.fasovka)) state.draft.fasovka = [];
+  state.dirty = false;
+  state.message = "";
+  if (pushUrl && state.selectedId) {
+    const next = new URL(location.href);
+    next.searchParams.set("id", state.selectedId);
+    if (DEMO) next.searchParams.set("demo", "1");
+    history.replaceState(null, "", next.toString());
+  }
+  render();
+}
+
+async function verifyAdmin() {
+  if (DEMO) return true;
+  if (!IS_TG && !browserJwt) return false;
+  const r = await fetch("/tma/api/admin/check", { headers: authHeaders() });
+  if (r.status === 401) {
+    localStorage.removeItem("rb_jwt");
+    browserJwt = "";
+  }
+  if (!r.ok) return false;
+  const j = await r.json().catch(() => ({}));
+  return !!j.is_admin;
+}
+
+async function loadProducts() {
+  const url = DEMO ? "/tma/products.json?v=" + Date.now() : "/tma/api/admin/products";
+  const r = await fetch(url, { cache: "no-store", headers: DEMO ? {} : authHeaders() });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.error || "HTTP " + r.status);
+  const products = j.products || j.data?.products || [];
+  if (!Array.isArray(products)) throw new Error("products must be array");
+  state.products = products;
+  state.categories = normalizeCategoryMeta(j.categories || j.data?.categories, products);
+  state.subcategories = normalizeSubcategoryMeta(j.subcategories || j.data?.subcategories);
+  if (!state.selectedId || !products.some(p => p.id === state.selectedId)) state.selectedId = products[0]?.id || "";
+  selectProduct(state.selectedId, false);
+}
+
+async function boot() {
+  state.phase = "loading";
+  render();
+  try {
+    const ok = await verifyAdmin();
+    if (!ok) {
+      state.phase = (!IS_TG && !browserJwt) ? "login" : "denied";
+      render();
+      return;
+    }
+    state.phase = "editor";
+    await loadProducts();
+  } catch (e) {
+    state.phase = "error";
+    state.message = String(e.message || e);
+    render();
+  }
+}
+
+window.onTelegramAuth = async function(user) {
+  try {
+    const r = await fetch("/tma/api/auth/telegram", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || !j.token) throw new Error(j.error || "auth failed");
+    browserJwt = j.token;
+    browserUser = j.user || user;
+    localStorage.setItem("rb_jwt", browserJwt);
+    localStorage.setItem("rb_user", JSON.stringify(browserUser));
+    await boot();
+  } catch (e) {
+    toast("Не удалось войти: " + (e.message || e), 2600);
+  }
+};
+
+function render() {
+  if (state.phase === "loading") {
+    root.innerHTML = loadingHTML();
+    return;
+  }
+  if (state.phase === "login") {
+    root.innerHTML = loginHTML();
+    injectTelegramWidget();
+    return;
+  }
+  if (state.phase === "denied") {
+    root.innerHTML = emptyHTML("Нет доступа", "Этот редактор открывается только администраторам магазина.", true);
+    bindBase();
+    return;
+  }
+  if (state.phase === "error") {
+    root.innerHTML = emptyHTML("Редактор не загрузился", state.message || "Проверь API магазина.", false);
+    bindBase();
+    return;
+  }
+  root.innerHTML = editorHTML();
+  bindEditor();
+}
+
+function loadingHTML() {
+  return `<div class="editor"><div class="empty"><div><span class="rb-spinner"></span><h1>Загружаю редактор</h1><p>Roastberry catalog</p></div></div></div>`;
+}
+
+function emptyHTML(title, text, logout) {
+  return `
+    <div class="editor">
+      <div class="empty">
+        <div class="login-card">
+          <div>
+            <div class="brand-title">ROASTBERRY</div>
+            <div class="brand-sub">Shop editor</div>
+          </div>
+          <div>
+            <h1>${esc(title)}</h1>
+            <p>${esc(text)}</p>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            ${logout ? `<button class="btn" data-action="logout">Выйти</button>` : ""}
+            <button class="btn primary" data-action="reload">Обновить</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function loginHTML() {
+  return `
+    <div class="editor">
+      <div class="empty">
+        <div class="login-card">
+          <div>
+            <div class="brand-title">ROASTBERRY</div>
+            <div class="brand-sub">Shop editor</div>
+          </div>
+          <div>
+            <h1>Вход сотрудника</h1>
+            <p>Доступ проверяется по Telegram ID из списка администраторов.</p>
+          </div>
+          <div class="widget-wrap" id="login-widget-wrap"></div>
+          <a class="btn" href="/tma/">Открыть магазин</a>
+        </div>
+      </div>
+    </div>`;
+}
+
+function injectTelegramWidget() {
+  const host = document.getElementById("login-widget-wrap");
+  if (!host) return;
+  host.innerHTML = "";
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = "https://telegram.org/js/telegram-widget.js?22";
+  script.setAttribute("data-telegram-login", "RCR_BtB_bot");
+  script.setAttribute("data-size", "large");
+  script.setAttribute("data-radius", "8");
+  script.setAttribute("data-onauth", "onTelegramAuth(user)");
+  script.setAttribute("data-request-access", "write");
+  host.appendChild(script);
+}
+
+function editorHTML() {
+  const current = state.draft;
+  const visible = filteredProducts();
+  const counts = countFilters();
+  const baseCount = baseProducts().length;
+  const dirtyClass = state.saving ? "" : state.dirty ? "dirty" : "saved";
+  const dirtyText = state.saving ? "Сохраняю" : state.dirty ? "Есть правки" : "Сохранено";
+  return `
+    <div class="editor">
+      <header class="editor-top">
+        <div class="brand">
+          <div class="brand-title">ROASTBERRY</div>
+          <div class="brand-sub">web editor · ${state.products.length} SKU${DEMO ? " · demo" : ""}</div>
+        </div>
+        <div class="top-actions">
+          <span id="dirty-status" class="status ${dirtyClass}">${dirtyText}</span>
+          <a class="btn" href="/tma/" target="_blank" rel="noopener">Магазин</a>
+          <button class="btn" data-action="refresh">Обновить</button>
+          <button class="btn primary" id="save-btn" data-action="save" ${!state.dirty || state.saving || DEMO ? "disabled" : ""}>Сохранить</button>
+        </div>
+      </header>
+      <main class="layout">
+        <aside class="sidebar">
+          <div class="search-wrap">
+            <div class="search-row">
+              <span style="color:var(--ink-soft)">⌕</span>
+              <input id="editor-search" type="search" value="${esc(state.query)}" placeholder="Поиск по названию, id, стране" autocomplete="off" />
+            </div>
+            <div class="select-row">
+              <select id="editor-node-select">${treeOptionHTML()}</select>
+              <select id="sort-select" disabled>
+                <option>${visible.length} позиций</option>
+              </select>
+            </div>
+            ${categoryTreeHTML()}
+          </div>
+          <div class="filters" id="editor-filter">
+            ${filterButton("all", "Все", baseCount)}
+            ${filterButton("attention", "Внимание", counts.attention)}
+            ${filterButton("no_photo", "Без фото", counts.no_photo)}
+            ${filterButton("no_price", "Без цены", counts.no_price)}
+            ${filterButton("zero", "Ноль", counts.zero)}
+            ${filterButton("low", "Мало", counts.low)}
+            ${filterButton("hidden", "Скрыты", counts.hidden)}
+            ${filterButton("quarantine", "Карантин", counts.quarantine)}
+          </div>
+          <div class="list" id="editor-product-list">
+            ${visible.length ? visible.map(productRowHTML).join("") : `<div class="empty" style="min-height:240px;">Ничего не найдено</div>`}
+          </div>
+        </aside>
+        <section class="workspace">
+          ${current ? `<div class="work-inner"><div id="editor-form">${formHTML(current)}</div><div id="editor-preview">${previewHTML(current)}</div></div>` : `<div class="empty">Выберите товар</div>`}
+        </section>
+      </main>
+    </div>`;
+}
+
+function countFilters() {
+  const all = baseProducts();
+  return {
+    attention: all.filter(p => p.quarantined || p.hidden || !hasRealPhoto(p) || !hasPrice(p) || (typeof p.stock === "number" && p.stock < 5 && !p.on_request)).length,
+    no_photo: all.filter(p => !hasRealPhoto(p)).length,
+    no_price: all.filter(p => !hasPrice(p) && !p.on_request).length,
+    zero: all.filter(p => typeof p.stock === "number" && p.stock <= 0 && !p.on_request).length,
+    low: all.filter(p => typeof p.stock === "number" && p.stock > 0 && p.stock < 5).length,
+    hidden: all.filter(p => p.hidden).length,
+    quarantine: all.filter(p => p.quarantined).length,
+  };
+}
+
+function filterButton(id, label, count) {
+  return `<button class="filter-btn ${state.filter === id ? "active" : ""}" data-filter="${esc(id)}">${esc(label)} · ${count}</button>`;
+}
+
+function productRowHTML(product) {
+  const active = product.id === state.selectedId ? " active" : "";
+  const thumb = hasRealPhoto(product)
+    ? `<div class="thumb" style="${productImageStyle(product)}"></div>`
+    : `<div class="thumb placeholder">NO PHOTO</div>`;
+  const flags = [product.hidden ? "hidden" : "", product.quarantined ? "quarantine" : "", !hasPrice(product) && !product.on_request ? "no price" : ""].filter(Boolean).join(" · ");
+  const stock = typeof product.stock === "number" ? product.stock : "—";
+  return `
+    <button class="product-row${active}" data-product-id="${esc(product.id)}">
+      ${thumb}
+      <div style="min-width:0; text-align:left;">
+        <div class="row-title">${esc(product.name || "Без названия")}</div>
+        <div class="row-meta">${esc(product.category || "—")}${product.country ? " · " + esc(product.country) : ""}${flags ? " · " + esc(flags) : ""}</div>
+      </div>
+      <span class="row-stock ${stockClass(product)}">${esc(stock)}</span>
+    </button>`;
+}
+
+function formHTML(product) {
+  return `
+    <div class="panel">
+      <div class="panel-head">
+        <div>
+          <div class="panel-title">${esc(product.name || "Без названия")}</div>
+          <div class="panel-note">${esc(product.id || "")}</div>
+        </div>
+        <button class="btn" data-action="copy-id">ID</button>
+      </div>
+      <div class="form">
+        <div class="section">
+          <div class="section-title">Карточка</div>
+          <div class="field">
+            <label for="field-name">Название</label>
+            <input id="field-name" data-field="name" value="${esc(product.name || "")}" />
+          </div>
+          <div class="grid-3">
+            ${textField("field-category", "category", "Категория", product.category)}
+            ${textField("field-subcategory", "subcategory", "Подкатегория", product.subcategory)}
+            ${textField("field-stock", "stock", "Остаток", product.stock, "number")}
+          </div>
+          <div class="grid-3">
+            ${textField("field-country", "country", "Страна / бренд", product.country)}
+            ${textField("field-roast", "roast", "Обжарка", product.roast)}
+            ${textField("field-process", "process", "Обработка", product.process)}
+          </div>
+          <div class="grid-3">
+            ${textField("field-altitude", "altitude", "Высота", product.altitude)}
+            ${textField("field-variety", "variety", "Разновидность", product.variety)}
+            ${textField("field-source", "_source", "Источник", product._source, "text", true)}
+          </div>
+          <div class="toggles">
+            ${toggleField("field-hidden", "hidden", "Скрыт в каталоге", product.hidden)}
+            ${toggleField("field-on-request", "on_request", "По запросу", product.on_request)}
+            ${toggleField("field-quarantined", "quarantined", "Карантин", product.quarantined)}
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Текст</div>
+          ${textareaField("field-description", "description", "Описание", product.description)}
+          <div class="grid-2">
+            ${textareaField("field-recipe-e", "recipe_e", "Рецепт E", product.recipe_e)}
+            ${textareaField("field-recipe-f", "recipe_f", "Рецепт F", product.recipe_f)}
+          </div>
+          <div class="grid-2">
+            ${textField("field-tags", "tags", "Теги через запятую", listText(product.tags))}
+            ${textField("field-tasting-notes", "tasting_notes", "Вкус через запятую", listText(product.tasting_notes))}
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="fasovka-head">
+            <div class="section-title">Фасовки</div>
+            <button class="btn" data-action="add-fasovka">Добавить</button>
+          </div>
+          <div class="fasovka-list" id="fasovka-list">
+            ${(product.fasovka || []).map(fasovkaHTML).join("") || `<div class="panel" style="padding:16px; color:var(--ink-soft);">Фасовок нет</div>`}
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function textField(id, field, label, value, type = "text", disabled = false) {
+  return `<div class="field"><label for="${esc(id)}">${esc(label)}</label><input id="${esc(id)}" data-field="${esc(field)}" type="${esc(type)}" value="${esc(value ?? "")}" ${disabled ? "disabled" : ""} /></div>`;
+}
+
+function textareaField(id, field, label, value) {
+  return `<div class="field"><label for="${esc(id)}">${esc(label)}</label><textarea id="${esc(id)}" data-field="${esc(field)}">${esc(value || "")}</textarea></div>`;
+}
+
+function toggleField(id, field, label, value) {
+  return `<label class="toggle" for="${esc(id)}"><input id="${esc(id)}" type="checkbox" data-bool="${esc(field)}" ${value ? "checked" : ""} /><span>${esc(label)}</span></label>`;
+}
+
+function fasovkaHTML(f, idx) {
+  return `
+    <div class="fasovka-row" data-fa-row="${idx}">
+      <input class="fa-input" data-fa="${idx}" data-fa-field="size" value="${esc(f.size || "")}" placeholder="1 кг" />
+      <input class="fa-input" data-fa="${idx}" data-fa-field="price" type="number" min="0" step="1" value="${f.on_request ? "" : esc(f.price ?? "")}" placeholder="Цена" ${f.on_request ? "disabled" : ""} />
+      <label class="fa-check"><input type="checkbox" data-fa="${idx}" data-fa-field="on_request" ${f.on_request ? "checked" : ""} /> По запросу</label>
+      <button class="icon-btn danger" data-action="remove-fasovka" data-fa-index="${idx}" title="Удалить">×</button>
+      <input class="fa-input" style="grid-column:1 / -1;" data-fa="${idx}" data-fa-field="photo" value="${esc(f.photo || "")}" placeholder="Фото фасовки, если отличается" />
+    </div>`;
+}
+
+function previewHTML(product) {
+  const price = firstPrice(product);
+  const photoStyle = productImageStyle(product);
+  const desc = product.description || product.recipe_e || product.recipe_f || "";
+  return `
+    <div class="preview">
+      <div class="preview-card">
+        <div class="preview-img ${photoStyle ? "" : "thumb placeholder"}" style="${photoStyle}">${photoStyle ? "" : "PRODUCT"}</div>
+        <div class="preview-body">
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            ${product.category ? `<span class="chip chip--coffee">${esc(product.category)}</span>` : ""}
+            ${product.roast ? `<span class="roast">${esc(product.roast)}</span>` : ""}
+            ${product.hidden ? `<span class="chip chip--amber">Скрыт</span>` : ""}
+            ${product.quarantined ? `<span class="chip" style="color:var(--danger)">Карантин</span>` : ""}
+          </div>
+          <div class="preview-name">${esc(product.name || "Без названия")}</div>
+          <div class="row-meta">${esc(product.country || "")}${product.process ? " · " + esc(product.process) : ""}</div>
+          <div class="price-line">${price && !price.on_request && typeof price.price === "number" ? fmt(price.price) : "по запросу"}<small>${price?.size ? "₽ / " + esc(price.size) : ""}</small></div>
+          ${desc ? `<div class="preview-desc">${esc(desc)}</div>` : ""}
+        </div>
+      </div>
+      <div class="panel photo-box">
+        <input id="photo-upload" class="photo-input" type="file" accept="image/jpeg,image/png,image/webp" />
+        <label class="btn primary" for="photo-upload">Загрузить фото</label>
+        <div class="row-meta">${esc(product.photo || "Фото не задано")}</div>
+      </div>
+    </div>`;
+}
+
+function bindBase() {
+  root.querySelector('[data-action="reload"]')?.addEventListener("click", () => location.reload());
+  root.querySelector('[data-action="logout"]')?.addEventListener("click", () => {
+    localStorage.removeItem("rb_jwt");
+    localStorage.removeItem("rb_user");
+    browserJwt = "";
+    boot();
+  });
+}
+
+function bindEditor() {
+  document.getElementById("editor-search")?.addEventListener("input", e => {
+    state.query = e.target.value;
+    render();
+  });
+  document.getElementById("editor-node-select")?.addEventListener("change", e => {
+    state.catalogNode = e.target.value;
+    state.filter = "all";
+    render();
+  });
+  root.querySelectorAll("[data-catalog-node]").forEach(btn => btn.addEventListener("click", () => {
+    state.catalogNode = btn.dataset.catalogNode;
+    state.filter = "all";
+    render();
+  }));
+  root.querySelectorAll("[data-filter]").forEach(btn => btn.addEventListener("click", () => {
+    state.filter = btn.dataset.filter;
+    render();
+  }));
+  root.querySelectorAll("[data-product-id]").forEach(btn => btn.addEventListener("click", () => {
+    if (state.dirty && !confirm("Есть несохраненные правки. Перейти без сохранения?")) return;
+    selectProduct(btn.dataset.productId);
+  }));
+  root.querySelectorAll("[data-field]").forEach(input => input.addEventListener("input", () => {
+    setField(input.dataset.field, input.value, input.type);
+  }));
+  root.querySelectorAll("[data-bool]").forEach(input => input.addEventListener("change", () => {
+    state.draft[input.dataset.bool] = input.checked;
+    markDirty();
+  }));
+  root.querySelectorAll("[data-fa]").forEach(input => input.addEventListener(input.type === "checkbox" ? "change" : "input", () => {
+    setFasovka(input);
+  }));
+  root.querySelector('[data-action="add-fasovka"]')?.addEventListener("click", () => {
+    state.draft.fasovka.push({ size: "", price: 0 });
+    markDirty();
+    render();
+  });
+  root.querySelectorAll('[data-action="remove-fasovka"]').forEach(btn => btn.addEventListener("click", () => {
+    state.draft.fasovka.splice(Number(btn.dataset.faIndex), 1);
+    markDirty();
+    render();
+  }));
+  root.querySelector('[data-action="copy-id"]')?.addEventListener("click", async () => {
+    await navigator.clipboard?.writeText?.(state.draft.id || "");
+    toast("ID скопирован");
+  });
+  root.querySelector('[data-action="refresh"]')?.addEventListener("click", async () => {
+    if (state.dirty && !confirm("Обновить каталог и потерять несохраненные правки?")) return;
+    state.phase = "editor";
+    await loadProducts().catch(e => { state.phase = "error"; state.message = String(e.message || e); render(); });
+  });
+  root.querySelector('[data-action="save"]')?.addEventListener("click", saveProduct);
+  document.getElementById("photo-upload")?.addEventListener("change", e => uploadPhoto(e.target.files?.[0]));
+}
+
+function setField(field, value, type) {
+  if (!state.draft) return;
+  if (field === "stock") state.draft[field] = value === "" ? 0 : Math.max(0, parseInt(value, 10) || 0);
+  else if (field === "tags" || field === "tasting_notes") state.draft[field] = normalizeList(value);
+  else state.draft[field] = value;
+  markDirty();
+  updatePreviewOnly();
+}
+
+function setFasovka(input) {
+  const idx = Number(input.dataset.fa);
+  const field = input.dataset.faField;
+  const row = state.draft?.fasovka?.[idx];
+  if (!row) return;
+  if (field === "on_request") {
+    row.on_request = input.checked;
+    if (row.on_request) delete row.price;
+  } else if (field === "price") {
+    row.price = input.value === "" ? 0 : parseFloat(input.value) || 0;
+  } else {
+    row[field] = input.value;
+  }
+  markDirty();
+  updatePreviewOnly();
+  if (field === "on_request") render();
+}
+
+function markDirty() {
+  state.dirty = true;
+  const el = document.getElementById("dirty-status");
+  const btn = document.getElementById("save-btn");
+  if (el) { el.textContent = "Есть правки"; el.className = "status dirty"; }
+  if (btn && !DEMO) btn.disabled = false;
+}
+
+function updatePreviewOnly() {
+  const host = document.getElementById("editor-preview");
+  if (host && state.draft) host.innerHTML = previewHTML(state.draft);
+  document.getElementById("photo-upload")?.addEventListener("change", e => uploadPhoto(e.target.files?.[0]));
+}
+
+function buildPayload() {
+  const p = state.draft;
+  const fasovka = (p.fasovka || [])
+    .filter(f => String(f.size || "").trim())
+    .map(f => {
+      const out = { size: String(f.size || "").trim() };
+      if (f.on_request) out.on_request = true;
+      else out.price = Math.max(0, parseFloat(f.price) || 0);
+      if (String(f.photo || "").trim()) out.photo = String(f.photo).trim();
+      return out;
+    });
+  return {
+    name: String(p.name || "").trim(),
+    category: String(p.category || "").trim(),
+    subcategory: String(p.subcategory || "").trim(),
+    country: String(p.country || "").trim(),
+    roast: String(p.roast || "").trim(),
+    process: String(p.process || "").trim(),
+    description: String(p.description || ""),
+    recipe_e: String(p.recipe_e || ""),
+    recipe_f: String(p.recipe_f || ""),
+    tags: normalizeList(p.tags),
+    tasting_notes: normalizeList(p.tasting_notes),
+    altitude: String(p.altitude || "").trim(),
+    variety: String(p.variety || "").trim(),
+    stock: Math.max(0, parseInt(p.stock, 10) || 0),
+    hidden: !!p.hidden,
+    on_request: !!p.on_request,
+    quarantined: !!p.quarantined,
+    fasovka,
+  };
+}
+
+async function saveProduct() {
+  if (!state.draft || state.saving || DEMO) return;
+  const body = buildPayload();
+  if (!body.name) { toast("Название обязательно"); return; }
+  state.saving = true;
+  render();
+  try {
+    const r = await fetch("/tma/api/admin/product/" + encodeURIComponent(state.draft.id), {
+      method: "POST",
+      headers: authHeaders({ "Content-Type": "application/json" }),
+      body: JSON.stringify(body),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || j.ok === false) throw new Error(j.error || "HTTP " + r.status);
+    const saved = j.product || { ...state.draft, ...body };
+    const idx = state.products.findIndex(p => p.id === state.draft.id);
+    if (idx >= 0) state.products[idx] = saved;
+    state.original = clone(saved);
+    state.draft = clone(saved);
+    state.dirty = false;
+    toast("Сохранено");
+  } catch (e) {
+    toast("Ошибка: " + (e.message || e), 3200);
+  } finally {
+    state.saving = false;
+    render();
+  }
+}
+
+async function compressImage(file) {
+  if (!file) return null;
+  if (!/^image\/(jpe?g|png|webp)$/i.test(file.type || "")) throw new Error("Только JPG, PNG или WEBP");
+  const url = URL.createObjectURL(file);
+  try {
+    const img = await new Promise((resolve, reject) => {
+      const image = new Image();
+      image.onload = () => resolve(image);
+      image.onerror = reject;
+      image.src = url;
+    });
+    const maxSide = 1600;
+    const scale = Math.min(1, maxSide / Math.max(img.width, img.height));
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(img.width * scale));
+    canvas.height = Math.max(1, Math.round(img.height * scale));
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#FAF7F2";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    return await new Promise(resolve => canvas.toBlob(resolve, "image/jpeg", 0.84));
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+}
+
+async function uploadPhoto(file) {
+  if (!file || !state.draft || DEMO) return;
+  try {
+    toast("Готовлю фото");
+    const blob = await compressImage(file);
+    if (!blob) throw new Error("Не удалось обработать фото");
+    const r = await fetch("/tma/api/admin/product/" + encodeURIComponent(state.draft.id) + "/photo", {
+      method: "POST",
+      headers: authHeaders({ "Content-Type": blob.type || "image/jpeg" }),
+      body: blob,
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || j.ok === false) throw new Error(j.error || "HTTP " + r.status);
+    const cleanPhoto = j.photo || "";
+    state.draft.photo = cleanPhoto;
+    const idx = state.products.findIndex(p => p.id === state.draft.id);
+    if (idx >= 0) state.products[idx].photo = cleanPhoto;
+    toast("Фото обновлено");
+    render();
+  } catch (e) {
+    toast("Фото не загрузилось: " + (e.message || e), 3200);
+  }
+}
+
+window.addEventListener("beforeunload", e => {
+  if (!state.dirty) return;
+  e.preventDefault();
+  e.returnValue = "";
+});
+
+boot();
+</script>
+</body>
+</html>

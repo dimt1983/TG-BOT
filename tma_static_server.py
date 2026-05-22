@@ -1079,7 +1079,7 @@ class Handler(BaseHTTPRequestHandler):
                 extra = {}
                 if any(full_path.endswith(e) for e in (".jpg", ".png", ".webp", ".svg", ".ico")):
                     extra["Cache-Control"] = "public, max-age=3600, must-revalidate"
-                elif full_path.endswith(("index.html", "sw.js", ".webmanifest")):
+                elif full_path.endswith((".html", "sw.js", ".webmanifest")):
                     extra["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
                     extra["Pragma"] = "no-cache"
                     extra["Expires"] = "0"
@@ -1113,7 +1113,7 @@ class Handler(BaseHTTPRequestHandler):
                 extra = {}
                 if any(full_path.endswith(e) for e in (".jpg", ".png", ".webp", ".svg", ".ico")):
                     extra["Cache-Control"] = "public, max-age=3600, must-revalidate"
-                elif full_path.endswith(("index.html", "sw.js", ".webmanifest")):
+                elif full_path.endswith((".html", "sw.js", ".webmanifest")):
                     extra["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
                     extra["Pragma"] = "no-cache"
                     extra["Expires"] = "0"
