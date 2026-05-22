@@ -17,8 +17,8 @@
   .brand-title { font-family:var(--f-display); font-size:22px; font-weight:900; letter-spacing:0; white-space:nowrap; }
   .brand-sub { font-family:var(--f-mono); font-size:10px; letter-spacing:0.08em; color:var(--ink-soft); text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .top-actions { display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
-  .layout { display:grid; grid-template-columns:minmax(300px, 380px) minmax(0, 1fr); gap:0; min-height:0; }
-  .sidebar { border-right:1px solid var(--line); min-height:0; display:grid; grid-template-rows:auto auto 1fr; background:var(--bg-2); }
+  .layout { display:grid; grid-template-columns:minmax(340px, 420px) minmax(0, 1fr); gap:0; height:calc(100vh - 67px); min-height:0; overflow:hidden; }
+  .sidebar { border-right:1px solid var(--line); min-width:0; min-height:0; height:100%; display:grid; grid-template-rows:auto auto minmax(0, 1fr); background:var(--bg-2); overflow:hidden; }
   .search-wrap { padding:14px; display:grid; gap:10px; border-bottom:1px solid var(--line); }
   .search-row { height:42px; display:flex; align-items:center; gap:9px; padding:0 12px; background:var(--surface); border:1px solid var(--line-strong); border-radius:8px; }
   .search-row:focus-within { border-color:var(--ink); }
@@ -27,14 +27,12 @@
   select, input, textarea { font-family:var(--f-body); }
   .select-row select, .field input, .field textarea, .field select, .fa-input { width:100%; border:1px solid var(--line-strong); border-radius:8px; background:var(--surface); color:var(--ink); outline:0; box-sizing:border-box; }
   .select-row select { height:38px; padding:0 10px; font-size:13px; }
-  .tree { display:grid; gap:8px; }
-  .tree-row { display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; }
-  .tree-row::-webkit-scrollbar { display:none; }
+  .tree { display:grid; gap:8px; max-height:220px; overflow:auto; padding-right:2px; }
+  .tree-row { display:flex; gap:6px; flex-wrap:wrap; align-items:flex-start; }
   .tree-btn { flex:0 0 auto; min-height:30px; padding:0 10px; border-radius:999px; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink); font:800 11px var(--f-body); cursor:pointer; }
   .tree-btn.active { background:var(--ink); color:var(--bg); border-color:var(--ink); }
   .tree-btn.child { background:#FFFDF9; }
-  .filters { display:flex; gap:6px; overflow-x:auto; padding:10px 14px; border-bottom:1px solid var(--line); scrollbar-width:none; }
-  .filters::-webkit-scrollbar { display:none; }
+  .filters { display:flex; gap:6px; flex-wrap:wrap; overflow:visible; padding:10px 14px; border-bottom:1px solid var(--line); scrollbar-width:none; }
   .filter-btn { flex:0 0 auto; height:30px; padding:0 10px; border-radius:999px; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink); font:700 11px var(--f-body); cursor:pointer; }
   .filter-btn.active { background:var(--ink); color:var(--bg); border-color:var(--ink); }
   .list { min-height:0; overflow:auto; }
@@ -48,7 +46,7 @@
   .row-stock { min-width:38px; height:28px; display:inline-flex; align-items:center; justify-content:center; border-radius:8px; border:1px solid var(--line); background:var(--surface-2); font:800 12px var(--f-mono); }
   .stock-bad { color:var(--danger); }
   .stock-low { color:var(--amber); }
-  .workspace { min-width:0; min-height:0; overflow:auto; }
+  .workspace { min-width:0; min-height:0; height:100%; overflow:auto; }
   .work-inner { display:grid; grid-template-columns:minmax(0, 1fr) minmax(280px, 360px); gap:18px; padding:18px; align-items:start; }
   .panel { background:var(--surface); border:1px solid var(--line); border-radius:8px; }
   .panel-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:16px; border-bottom:1px solid var(--line); }
@@ -83,11 +81,13 @@
   .price-line small { font:600 11px var(--f-body); color:var(--ink-soft); }
   .preview-desc { font-size:13px; color:var(--ink-soft); line-height:1.45; max-height:90px; overflow:hidden; }
   .photo-box { padding:14px; display:grid; gap:10px; }
+  .photo-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
   .photo-input { display:none; }
   .btn, .icon-btn { border:1px solid var(--line-strong); background:var(--surface); color:var(--ink); cursor:pointer; font-family:var(--f-body); font-weight:800; }
   .btn { min-height:38px; padding:0 14px; border-radius:999px; font-size:13px; display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; }
   .btn.primary { background:var(--ink); color:var(--bg); border-color:var(--ink); }
-  .btn.danger { color:var(--danger); }
+  .btn.danger { color:var(--danger); border-color:color-mix(in oklab, var(--danger) 35%, var(--line-strong)); }
+  .btn.danger.solid { background:var(--danger); color:#fff; border-color:var(--danger); }
   .btn:disabled { opacity:.45; cursor:not-allowed; }
   .icon-btn { width:36px; height:36px; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; font-size:18px; line-height:1; }
   .status { display:inline-flex; align-items:center; gap:7px; min-height:28px; padding:0 10px; border-radius:999px; background:var(--surface-2); border:1px solid var(--line); font:700 11px var(--f-body); color:var(--ink-soft); }
@@ -104,10 +104,16 @@
   .rb-spinner { display:inline-block; width:18px; height:18px; margin-bottom:14px; border:2px solid var(--ink-mute); border-top-color:var(--ink); border-radius:50%; animation:rb-spin .75s linear infinite; }
   @keyframes rb-spin { to { transform:rotate(360deg); } }
   @media (max-width: 980px) {
-    .layout { grid-template-columns:1fr; }
-    .sidebar { border-right:0; border-bottom:1px solid var(--line); max-height:48vh; }
+    .layout { grid-template-columns:1fr; height:auto; overflow:visible; }
+    .sidebar { border-right:0; border-bottom:1px solid var(--line); height:auto; max-height:none; overflow:visible; }
+    .workspace { height:auto; overflow:visible; }
     .work-inner { grid-template-columns:1fr; padding:12px; }
     .preview { position:static; order:-1; }
+  }
+  @media (min-width: 981px) and (max-width: 1240px) {
+    .work-inner { grid-template-columns:1fr; }
+    .preview { position:static; order:-1; }
+    .preview-card, .photo-box { max-width:420px; }
   }
   @media (max-width: 640px) {
     .editor-top { align-items:flex-start; flex-direction:column; padding:12px; }
@@ -384,25 +390,51 @@ function selectedBranchParentId() {
   return id;
 }
 
+function parentCategoryOfSub(subId) {
+  let cur = subcategoryById(subId);
+  while (cur?.parent) {
+    if (state.categories.some(c => c.id === cur.parent)) return cur.parent;
+    cur = subcategoryById(cur.parent);
+  }
+  return "";
+}
+
 function categoryTreeHTML() {
-  const selectedCat = selectedCategoryId();
-  const parentId = selectedBranchParentId();
-  const children = parentId ? childrenByParent(parentId) : [];
-  const top = [
-    `<button class="tree-btn ${state.catalogNode === "all" ? "active" : ""}" data-catalog-node="all">Все · ${state.products.length}</button>`,
-    ...state.categories.map(c => {
+  let chips = [];
+  if (state.catalogNode === "all") {
+    chips = state.categories.map(c => {
       const val = nodeValue("cat", c.id);
-      return `<button class="tree-btn ${state.catalogNode === val || selectedCat === c.id ? "active" : ""}" data-catalog-node="${esc(val)}">${esc(c.icon || "")} ${esc(c.name || c.id)} · ${nodeCount(val)}</button>`;
-    })
-  ].join("");
-  const childRow = children.length ? `
-    <div class="tree-row">
-      ${children.map(s => {
+      return `<button class="tree-btn" data-catalog-node="${esc(val)}">${esc(c.icon || "")} ${esc(c.name || c.id)} · ${nodeCount(val)}</button>`;
+    });
+  } else if (nodeKind() === "cat") {
+    const catId = nodeId();
+    const cat = categoryById(catId);
+    const children = childrenByParent(catId);
+    chips = [
+      `<button class="tree-btn" data-catalog-node="all">Все · ${state.products.length}</button>`,
+      `<button class="tree-btn active" data-catalog-node="${esc(nodeValue("cat", catId))}">${esc(cat.icon || "")} ${esc(cat.name || catId)} · ${nodeCount(nodeValue("cat", catId))}</button>`,
+      ...children.map(s => {
         const val = nodeValue("sub", s.id);
-        return `<button class="tree-btn child ${state.catalogNode === val ? "active" : ""}" data-catalog-node="${esc(val)}">${esc(s.name)} · ${nodeCount(val)}</button>`;
-      }).join("")}
-    </div>` : "";
-  return `<div class="tree" id="editor-category-tree"><div class="tree-row">${top}</div>${childRow}</div>`;
+        return `<button class="tree-btn child" data-catalog-node="${esc(val)}">${esc(s.name)} · ${nodeCount(val)}</button>`;
+      })
+    ];
+  } else {
+    const subId = nodeId();
+    const sub = subcategoryById(subId);
+    const catId = parentCategoryOfSub(subId);
+    const parentId = sub.parent || catId;
+    const siblings = parentId ? childrenByParent(parentId) : [];
+    const cat = categoryById(catId);
+    chips = [
+      `<button class="tree-btn" data-catalog-node="all">Все · ${state.products.length}</button>`,
+      catId ? `<button class="tree-btn" data-catalog-node="${esc(nodeValue("cat", catId))}">${esc(cat.icon || "")} ${esc(cat.name || catId)} · ${nodeCount(nodeValue("cat", catId))}</button>` : "",
+      ...siblings.map(s => {
+        const val = nodeValue("sub", s.id);
+        return `<button class="tree-btn child ${s.id === sub.id ? "active" : ""}" data-catalog-node="${esc(val)}">${esc(s.name)} · ${nodeCount(val)}</button>`;
+      })
+    ].filter(Boolean);
+  }
+  return `<div class="tree" id="editor-category-tree"><div class="tree-row">${chips.join("")}</div></div>`;
 }
 
 function selectProduct(id, pushUrl = true) {
@@ -672,7 +704,10 @@ function formHTML(product) {
           <div class="panel-title">${esc(product.name || "Без названия")}</div>
           <div class="panel-note">${esc(product.id || "")}</div>
         </div>
-        <button class="btn" data-action="copy-id">ID</button>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+          <button class="btn" data-action="copy-id">ID</button>
+          <button class="btn danger" id="delete-product-btn" data-action="delete-product">Удалить позицию</button>
+        </div>
       </div>
       <div class="form">
         <div class="section">
@@ -775,7 +810,10 @@ function previewHTML(product) {
       </div>
       <div class="panel photo-box">
         <input id="photo-upload" class="photo-input" type="file" accept="image/jpeg,image/png,image/webp" />
-        <label class="btn primary" for="photo-upload">Загрузить фото</label>
+        <div class="photo-actions">
+          <label class="btn primary" for="photo-upload">Загрузить фото</label>
+          <button class="btn danger" id="delete-photo-btn" data-action="delete-photo" ${product.photo ? "" : "disabled"}>Очистить фото</button>
+        </div>
         <div class="row-meta">${esc(product.photo || "Фото не задано")}</div>
       </div>
     </div>`;
@@ -838,6 +876,8 @@ function bindEditor() {
     await navigator.clipboard?.writeText?.(state.draft.id || "");
     toast("ID скопирован");
   });
+  root.querySelector('[data-action="delete-product"]')?.addEventListener("click", deleteProduct);
+  root.querySelector('[data-action="delete-photo"]')?.addEventListener("click", deletePhoto);
   root.querySelector('[data-action="refresh"]')?.addEventListener("click", async () => {
     if (state.dirty && !confirm("Обновить каталог и потерять несохраненные правки?")) return;
     state.phase = "editor";
@@ -947,6 +987,96 @@ async function saveProduct() {
   } finally {
     state.saving = false;
     render();
+  }
+}
+
+function removeProductLocally(id) {
+  const idx = state.products.findIndex(p => p.id === id);
+  if (idx < 0) return;
+  state.products.splice(idx, 1);
+  const next = state.products[Math.max(0, Math.min(idx, state.products.length - 1))] || null;
+  if (next) selectProduct(next.id, true);
+  else {
+    state.selectedId = "";
+    state.original = null;
+    state.draft = null;
+    state.dirty = false;
+    render();
+  }
+}
+
+async function deleteProduct() {
+  const p = state.draft;
+  if (!p?.id) return;
+  if (!confirm(`Удалить позицию целиком?\n\n${p.name || p.id}\n\nЭто уберет карточку из каталога.`)) return;
+  if (DEMO) {
+    removeProductLocally(p.id);
+    toast("В демо позиция убрана локально");
+    return;
+  }
+  try {
+    const r = await fetch("/tma/api/admin/product/" + encodeURIComponent(p.id) + "/delete", {
+      method: "POST",
+      headers: authHeaders(),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || j.ok === false) throw new Error(j.error || "HTTP " + r.status);
+    removeProductLocally(p.id);
+    toast("Позиция удалена");
+  } catch (e) {
+    toast("Не удалилось: " + (e.message || e), 3200);
+  }
+}
+
+function clearPhotoLocally(product, savedProduct = null) {
+  const old = product?.photo || "";
+  if (savedProduct) {
+    const idx = state.products.findIndex(p => p.id === savedProduct.id);
+    if (idx >= 0) state.products[idx] = savedProduct;
+    state.original = clone(savedProduct);
+    state.draft = clone(savedProduct);
+    state.dirty = false;
+    return;
+  }
+  if (!product) return;
+  product.photo = "";
+  for (const fa of product.fasovka || []) {
+    if (fa.photo === old) delete fa.photo;
+  }
+  const idx = state.products.findIndex(p => p.id === product.id);
+  if (idx >= 0) {
+    state.products[idx].photo = "";
+    for (const fa of state.products[idx].fasovka || []) {
+      if (fa.photo === old) delete fa.photo;
+    }
+  }
+  state.original = clone(product);
+  state.dirty = false;
+}
+
+async function deletePhoto() {
+  const p = state.draft;
+  if (!p?.id || !p.photo) return;
+  if (!confirm(`Очистить фото у карточки?\n\n${p.name || p.id}`)) return;
+  if (DEMO) {
+    clearPhotoLocally(p);
+    toast("В демо фото очищено локально");
+    render();
+    return;
+  }
+  try {
+    const r = await fetch("/tma/api/admin/product/" + encodeURIComponent(p.id), {
+      method: "POST",
+      headers: authHeaders({ "Content-Type": "application/json" }),
+      body: JSON.stringify({ photo: "" }),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || j.ok === false) throw new Error(j.error || "HTTP " + r.status);
+    clearPhotoLocally(p, j.product || { ...p, photo: "" });
+    toast("Фото очищено");
+    render();
+  } catch (e) {
+    toast("Фото не очищено: " + (e.message || e), 3200);
   }
 }
 
