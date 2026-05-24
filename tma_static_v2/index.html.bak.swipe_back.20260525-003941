@@ -2668,72 +2668,11 @@ function _navSnapshot() {
     showAll: STATE.showAll,
     fasovkaSplit: STATE.fasovkaSplit,
     productId: STATE.productId,
-    productFasovka: STATE.productFasovka,
   };
 }
 function _isSameNav(a, b) {
   return a && b && a.screen === b.screen && a.cat === b.cat && a.subcat === b.subcat
-      && a.showAll === b.showAll && a.fasovkaSplit === b.fasovkaSplit && a.productId === b.productId
-      && a.productFasovka === b.productFasovka;
-}
-function _applyNavSnapshot(snap) {
-  const s = snap || { screen: 'home' };
-  STATE.screen = s.screen || 'home';
-  STATE.cat = s.cat || null;
-  STATE.subcat = s.subcat || null;
-  STATE.showAll = !!s.showAll;
-  STATE.fasovkaSplit = s.fasovkaSplit || null;
-  STATE.productId = s.productId || null;
-  STATE.productFasovka = s.productFasovka || null;
-  if (STATE.screen !== 'product') STATE.productKg = 1;
-}
-function _cloneNavStack(stack = STATE.history) {
-  return (stack || []).map(s => Object.assign({}, s));
-}
-
-const RB_BROWSER_HISTORY_KEY = 'rbShopV2';
-let RB_BROWSER_HISTORY_READY = false;
-let RB_APPLYING_BROWSER_HISTORY = false;
-let RB_BACK_FALLBACK_TIMER = null;
-let RB_LAST_POPSTATE_AT = 0;
-
-function _browserNavState() {
-  return {
-    [RB_BROWSER_HISTORY_KEY]: true,
-    nav: _navSnapshot(),
-    stack: _cloneNavStack(),
-  };
-}
-function _writeBrowserNav(mode = 'push') {
-  if (RB_APPLYING_BROWSER_HISTORY || !window.history || !window.history.pushState) return;
-  try {
-    const method = (!RB_BROWSER_HISTORY_READY || mode === 'replace') ? 'replaceState' : 'pushState';
-    window.history[method](_browserNavState(), '', window.location.href);
-    RB_BROWSER_HISTORY_READY = true;
-  } catch (e) {}
-}
-function _rememberNav(snap) {
-  if (_isSameNav(snap, _navSnapshot())) return;
-  STATE.history.push(snap);
-  _writeBrowserNav('push');
-}
-function _afterNavRender() {
-  haptic();
-  window.scrollTo(0, 0);
-  render();
-  if (STATE.screen === 'profile' && STATE.myOrders === undefined) rb.loadMyOrders();
-}
-function _backInternal(syncBrowser = true) {
-  const prev = STATE.history.pop();
-  if (prev) {
-    _applyNavSnapshot(prev);
-  } else if (STATE.screen !== 'home') {
-    _applyNavSnapshot({ screen: 'home' });
-  } else {
-    return;
-  }
-  if (syncBrowser) _writeBrowserNav('replace');
-  _afterNavRender();
+      && a.showAll === b.showAll && a.fasovkaSplit === b.fasovkaSplit && a.productId === b.productId;
 }
 
 const rb = {
@@ -2749,22 +2688,26 @@ const rb = {
       if ('cat' in params) STATE.cat = params.cat || null;
       if ('subcat' in params) STATE.subcat = params.subcat || null;
     }
-    _rememberNav(snap);
-    _afterNavRender();
+    if (!_isSameNav(snap, _navSnapshot())) STATE.history.push(snap);
+    haptic();
+    window.scrollTo(0, 0);
+    render();
+    if (screen === 'profile' && STATE.myOrders === undefined) rb.loadMyOrders();
   },
   back() {
-    if (STATE.history.length && RB_BROWSER_HISTORY_READY && !RB_APPLYING_BROWSER_HISTORY) {
-      const before = _navSnapshot();
-      try {
-        window.history.back();
-        clearTimeout(RB_BACK_FALLBACK_TIMER);
-        RB_BACK_FALLBACK_TIMER = setTimeout(() => {
-          if (_isSameNav(before, _navSnapshot())) _backInternal(false);
-        }, 320);
-        return;
-      } catch (e) {}
+    const prev = STATE.history.pop();
+    if (prev) {
+      STATE.screen = prev.screen;
+      STATE.cat = prev.cat;
+      STATE.subcat = prev.subcat;
+      STATE.showAll = prev.showAll;
+      STATE.productId = prev.productId;
+      haptic();
+      window.scrollTo(0, 0);
+      render();
+    } else {
+      rb.go('home');
     }
-    _backInternal();
   },
   openProduct(id) {
     const snap = _navSnapshot();
@@ -2772,8 +2715,10 @@ const rb = {
     STATE.productId = id;
     STATE.productFasovka = STATE.fasovkaSplit || null;
     STATE.productKg = 1;
-    _rememberNav(snap);
-    _afterNavRender();
+    STATE.history.push(snap);
+    haptic();
+    window.scrollTo(0, 0);
+    render();
   },
   async sendKP() {
     const btn = document.getElementById('rb-kp-btn');
@@ -2856,8 +2801,10 @@ const rb = {
     STATE.showAll = false;
     STATE.fasovkaSplit = null;
     resetFilters();
-    _rememberNav(snap);
-    _afterNavRender();
+    if (!_isSameNav(snap, _navSnapshot())) STATE.history.push(snap);
+    haptic();
+    window.scrollTo(0, 0);
+    render();
   },
   openSubcat(subId) {
     const snap = _navSnapshot();
@@ -2875,8 +2822,10 @@ const rb = {
     STATE.showAll = false;
     STATE.fasovkaSplit = null;
     resetFilters();
-    _rememberNav(snap);
-    _afterNavRender();
+    if (!_isSameNav(snap, _navSnapshot())) STATE.history.push(snap);
+    haptic();
+    window.scrollTo(0, 0);
+    render();
   },
   openFasovkaSplit(size) {
     const snap = _navSnapshot();
@@ -2884,14 +2833,17 @@ const rb = {
     // STATE.subcat НЕ сбрасываем — он нужен для определения какой retail-подкатегории показать товары.
     STATE.showAll = false;
     resetFilters();
-    _rememberNav(snap);
-    _afterNavRender();
+    if (!_isSameNav(snap, _navSnapshot())) STATE.history.push(snap);
+    haptic();
+    window.scrollTo(0, 0);
+    render();
   },
   openSubcatAll() {
-    const snap = _navSnapshot();
+    // принудительно показываем плоский список под текущим cursor
     STATE.showAll = true;
-    _rememberNav(snap);
-    _afterNavRender();
+    haptic();
+    window.scrollTo(0, 0);
+    render();
   },
   toggleFasovka(s) {
     STATE.filters.fasovka = STATE.filters.fasovka === s ? null : s;
@@ -3083,7 +3035,7 @@ const rb = {
     STATE.screen = 'admin';
     STATE.adminTab = STATE.adminTab || 'products';
     STATE.adminPayload = null;
-    _rememberNav(snap);
+    STATE.history.push(snap);
     render();
     if (STATE.adminTab !== 'products') await rb.loadAdmin();
     if (!STATE.adminCatalogMeta) {
@@ -3211,7 +3163,7 @@ const rb = {
     STATE.screen = 'admin-order';
     STATE.adminOrderId = id;
     STATE.adminOrderData = null;
-    _rememberNav(snap);
+    STATE.history.push(snap);
     haptic();
     window.scrollTo(0, 0);
     render();
@@ -3253,7 +3205,7 @@ const rb = {
     STATE.adminUserId = uid;
     STATE.adminUserData = null;
     STATE.adminUserPricing = null;
-    _rememberNav(snap);
+    STATE.history.push(snap);
     haptic();
     window.scrollTo(0, 0);
     render();
@@ -3466,51 +3418,6 @@ const rb = {
 };
 window.rb = rb;
 
-window.addEventListener('popstate', (event) => {
-  const state = event.state;
-  if (!state || state[RB_BROWSER_HISTORY_KEY] !== true) return;
-  clearTimeout(RB_BACK_FALLBACK_TIMER);
-  RB_LAST_POPSTATE_AT = Date.now();
-  RB_APPLYING_BROWSER_HISTORY = true;
-  try {
-    STATE.history = Array.isArray(state.stack) ? _cloneNavStack(state.stack) : [];
-    _applyNavSnapshot(state.nav);
-    window.scrollTo(0, 0);
-    render();
-    if (STATE.screen === 'profile' && STATE.myOrders === undefined) rb.loadMyOrders();
-  } finally {
-    RB_APPLYING_BROWSER_HISTORY = false;
-  }
-});
-
-function installEdgeBackSwipe() {
-  let sx = 0;
-  let sy = 0;
-  let edge = false;
-  document.addEventListener('touchstart', (event) => {
-    const t = event.touches && event.touches[0];
-    if (!t) return;
-    sx = t.clientX;
-    sy = t.clientY;
-    edge = sx < 34 && STATE.history.length > 0;
-  }, { passive: true });
-  document.addEventListener('touchend', (event) => {
-    if (!edge) return;
-    edge = false;
-    const t = event.changedTouches && event.changedTouches[0];
-    if (!t) return;
-    const dx = t.clientX - sx;
-    const dy = Math.abs(t.clientY - sy);
-    if (dx > 56 && dy < 70 && dx > dy * 1.35) {
-      const popAt = RB_LAST_POPSTATE_AT;
-      setTimeout(() => {
-        if (RB_LAST_POPSTATE_AT === popAt && STATE.history.length > 0) rb.back();
-      }, 120);
-    }
-  }, { passive: true });
-}
-installEdgeBackSwipe();
-
 /* ════════════════════════════════════════════════════════════════════
    RENDER
    ════════════════════════════════════════════════════════════════════ */
@@ -3596,7 +3503,6 @@ async function init() {
     return;
   }
   await checkAdmin();
-  _writeBrowserNav('replace');
   render();
   // Service Worker не регистрируем: внутри Telegram он только мешает (агрессивный кэш HTML/JS).
   // Если хочешь PWA-режим в браузере — раскомментируй ниже.
