@@ -44,8 +44,17 @@ def http_bytes(url):
         return None
 
 
+_TRUSTED_HOSTS = (
+    "basket-",  # wbbasket.ru — товарные карточки Wildberries
+    ".wbbasket.ru",
+    "ozone.ru",       # Ozon CDN
+    "ya-marketing.ru",
+)
+
+
 def yandex_image_search(query: str) -> list[str]:
-    """Yandex.Images HTML scraping — извлекаем прямые URL товаров (преимущественно wbbasket.ru)."""
+    """Только trusted-источники: wbbasket / ozon / другие маркетплейсы.
+    Yandex картинки общего поиска часто отдают мусор (логотипы, иллюстрации, шарики)."""
     q = urllib.parse.quote(query)
     url = f"https://yandex.ru/images/search?text={q}"
     try:
@@ -58,13 +67,10 @@ def yandex_image_search(query: str) -> list[str]:
             html = r.read().decode("utf-8", "replace")
     except Exception:
         return []
-    # Приоритет: wbbasket.ru (Wildberries CDN — высокого качества)
+    # ТОЛЬКО Wildberries-CDN и Ozon-CDN — это товарные карточки маркетплейсов
     wb = re.findall(r'(https://basket-\d+\.wbbasket\.ru/vol\d+/part\d+/\d+/images/big/\d+\.webp)', html)
-    # Затем общие .jpg/.png
-    other = re.findall(r'(https://[^\s"\']+\.(?:jpg|jpeg|png))', html)
-    # Откинем превьюшки yandex и иконки UI
-    other = [u for u in other if 'yastatic' not in u and 'serp' not in u and 'avatars' not in u]
-    return wb + other[:5]
+    ozon = re.findall(r'(https://cdn\d?\.ozone\.ru/[^\s"\']+\.(?:jpg|jpeg|png|webp))', html)
+    return wb + ozon
 
 
 def wb_image_url(nm_id: int) -> str:
@@ -167,42 +173,56 @@ def query_for(p: dict) -> str:
     return name
 
 
-def main():
+def main(force_revalidate: bool = False):
+    """Если force_revalidate=True — переобрабатывает ВСЕ товары (включая уже с фото)
+    через trusted-источники. Несматченные обнуляются."""
     data = json.loads(PRODUCTS.read_text(encoding="utf-8"))
-    targets = [p for p in data["products"]
-               if not p.get("photo") and p.get("category") in ("tea", "syrup", "milk")
-               and p.get("name") != "Помпа белая (28 мм) 5 мл"]
-    print(f"Целевых товаров без фото: {len(targets)}")
+    if force_revalidate:
+        targets = [p for p in data["products"]
+                   if p.get("category") in ("tea", "syrup", "milk")
+                   and "Помпа" not in p.get("name", "")]
+    else:
+        targets = [p for p in data["products"]
+                   if not p.get("photo") and p.get("category") in ("tea", "syrup", "milk")
+                   and "Помпа" not in p.get("name", "")]
+    print(f"Целевых товаров: {len(targets)} (revalidate={force_revalidate})")
 
     matched = 0
-    failed = []
+    cleared = 0
     for i, p in enumerate(targets, 1):
-        if i % 20 == 0:
-            print(f"  [{i}/{len(targets)}] прогресс: matched={matched}")
+        if i % 30 == 0:
+            print(f"  [{i}/{len(targets)}] matched={matched}, cleared={cleared}")
         q = query_for(p)
         result = find_photo(q)
         if not result:
-            failed.append(p["name"])
-            time.sleep(0.5)
+            # Не нашли в trusted — удаляем старое фото если было
+            if p.get("photo"):
+                old = PHOTOS / f"{p['id']}.jpg"
+                if old.exists(): old.unlink()
+                p["photo"] = None
+                cleared += 1
+            time.sleep(0.4)
             continue
-        jpg_bytes, src_name = result
+        jpg_bytes, src_url = result
         dest = PHOTOS / f"{p['id']}.jpg"
         dest.write_bytes(jpg_bytes)
         p["photo"] = f"photos/products/{p['id']}.jpg"
         matched += 1
-        if matched % 10 == 0:
-            # промежуточное сохранение чтобы не потерять результаты
+        if matched % 20 == 0:
             PRODUCTS.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-        time.sleep(0.3)
+        time.sleep(0.25)
 
     PRODUCTS.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
     print(f"\n=== Итого ===")
-    print(f"Сматчено: {matched} / {len(targets)}")
-    print(f"Не найдено: {len(failed)}")
-    if failed[:10]:
-        print(f"Примеры:")
-        for n in failed[:10]: print(f"  - {n[:60]}")
+    print(f"Сматчено через WB/Ozon: {matched}")
+    print(f"Удалено сомнительных старых фото: {cleared}")
+    print(f"Остались без фото: {len(targets) - matched}")
+
+
+if __name__ == "__main__":
+    import sys
+    main(force_revalidate=("--revalidate" in sys.argv))
 
 
 if __name__ == "__main__":
