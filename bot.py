@@ -1457,13 +1457,32 @@ async def start_handler(message: Message, state: FSMContext):
     if TMA_URL:
         await message.answer(
             "Открыть каталог:",
-            reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
-                InlineKeyboardButton(
+            reply_markup=InlineKeyboardMarkup(inline_keyboard=[
+                [InlineKeyboardButton(
                     text="🛍 Открыть магазин",
                     web_app=WebAppInfo(url=TMA_URL),
-                )
-            ]]),
+                )],
+                [InlineKeyboardButton(
+                    text="🌐 Нет Telegram? Веб-версия",
+                    url=TMA_URL,
+                )],
+            ]),
         )
+
+# ─── /link — ссылка для клиентов без Telegram ─────────────────────────────────
+@dp.message(Command("link"))
+async def link_handler(message: Message):
+    if not TMA_URL:
+        await message.answer("Ссылка не настроена (TMA_URL не задан).")
+        return
+    await message.answer(
+        f"🌐 *Магазин Roastberry — веб-версия*\n\n"
+        f"Открывается в любом браузере, без Telegram:\n`{TMA_URL}`",
+        parse_mode="Markdown",
+        reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
+            InlineKeyboardButton(text="🌐 Открыть магазин", url=TMA_URL)
+        ]]),
+    )
 
 @dp.callback_query(F.data == "reg_individual", RegStates.choosing_type)
 async def reg_individual(callback: CallbackQuery, state: FSMContext):

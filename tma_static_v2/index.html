@@ -84,6 +84,20 @@ function toast(msg, ms = 1600) {
   toast._t = setTimeout(() => el.classList.remove('show'), ms);
 }
 
+function rbShareWebLink() {
+  const url = window.location.origin + '/tma/';
+  if (navigator.share) {
+    navigator.share({ title: 'Магазин Roastberry', url }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(url).then(() => {
+      toast('Ссылка скопирована');
+    }).catch(() => {
+      prompt('Ссылка на магазин:', url);
+    });
+  }
+  haptic('light');
+}
+
 /* ════════════════════════════════════════════════════════════════════
    STATE
    ════════════════════════════════════════════════════════════════════ */
@@ -193,6 +207,7 @@ const ICONS = {
   grind:'M5 5h14v4H5V5Zm0 5h14v3l-2 8H7l-2-8v-3Z M9 5v-2h6v2',
   arrowR:'M5 12h14M13 6l6 6-6 6',
   gear:'M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 4.6 9 1.7 1.7 0 0 0 4.3 7.2l-.1-.1A2 2 0 1 1 7 4.3l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z',
+  link:'M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71',
 };
 function icon(name, size = 18, sw = 1.6) {
   const d = ICONS[name] || '';
@@ -598,8 +613,11 @@ function screenHome() {
   return `
 ${appHeader({ logo: true })}
 
-<div style="padding:6px 16px 0; display:flex; justify-content:flex-end;">
-  <a href="/tma/v1/" style="font-family:var(--f-mono); font-size:10px; letter-spacing:0.04em; color:var(--ink-soft); text-decoration:none; opacity:0.6; padding:4px 8px; border:1px solid var(--line); border-radius:999px;">Открыть старую версию →</a>
+<div style="padding:6px 16px 0; display:flex; justify-content:space-between; align-items:center;">
+  <button onclick="rbShareWebLink()" style="font-family:var(--f-mono); font-size:10px; letter-spacing:0.04em; color:var(--ink-soft); background:none; border:1px solid var(--line); border-radius:999px; padding:4px 10px; cursor:pointer; display:flex; align-items:center; gap:5px; -webkit-tap-highlight-color:transparent;">
+    ${icon('link', 13, 1.8)} Ссылка для клиента →
+  </button>
+  <a href="/tma/v1/" style="font-family:var(--f-mono); font-size:10px; letter-spacing:0.04em; color:var(--ink-soft); text-decoration:none; opacity:0.6; padding:4px 8px; border:1px solid var(--line); border-radius:999px;">старая версия →</a>
 </div>
 
 <!-- HERO carousel: обжарка / лимонады / аренда / академия (стили — _brand/palettes/COLORS.md + v1 рабочие плашки) -->
@@ -1618,6 +1636,7 @@ ${appHeader({ title: 'Профиль', action: `<button class="btn-ghost" style=
       ['doc',   'Прайс-лист',                'PDF / XLSX', null],
       ['truck', 'Адреса доставки',           'добавить', null],
       ['cup',   'Подписка «Свежая обжарка»', 'скоро', null],
+      ['link',  IS_TG ? 'Ссылка для клиента без Telegram' : 'Скопировать ссылку на магазин', 'открывается в браузере', 'rbShareWebLink()'],
     ].map((r, i, arr) => `
       <div onclick="${r[3] || ''}" style="display:flex; align-items:center; gap:12px; padding:14px; ${i < arr.length - 1 ? 'border-bottom:1px solid var(--line);' : ''} ${r[3] ? 'cursor:pointer;' : ''}">
         <span style="width:36px; height:36px; border-radius:10px; background:var(--surface-2); color:var(--coffee); display:flex; align-items:center; justify-content:center;">${icon(r[0])}</span>
