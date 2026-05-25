@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 224,
+      "stock": 289,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 18,
+      "stock": 33,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1704,7 +1704,7 @@
           "photo": "photos/products/retail_e_roastberry_гватемала_декаф_-_1_кг.jpg"
         }
       ],
-      "stock": 1,
+      "stock": 5,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1731,7 +1731,7 @@
           "stock": 13
         }
       ],
-      "stock": 7,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2169,7 +2169,7 @@
           "photo": "photos/products/retail_f_roastberry_эфиопия_лиму_200_г.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -8091,7 +8091,7 @@
           "photo": null
         }
       ],
-      "stock": 258,
+      "stock": 255,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8201,9 +8201,9 @@
       "name": "Перу Монте Верде гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 31,
+      "hidden": false,
+      "quarantined": false,
       "country": "Перу",
       "process": null,
       "altitude": null,
@@ -8223,15 +8223,15 @@
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-05-25T08:00:11+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "espresso_mono_перу_монте_верде_гр_1_сухой_эспрессо_1_кг",
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 3,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -14243,7 +14243,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 21,
+      "stock": 32,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
