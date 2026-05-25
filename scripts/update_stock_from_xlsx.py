@@ -486,14 +486,18 @@ def main() -> int:
     print(f"{'updated/restored' if args.apply else 'would update/restore'}: {len(changes)}")
     print(f"report: {args.report}")
 
-    print("\n=== Zero stock check ===")
-    print(f"all zero total: {sum(all_zero.values())}")
-    for cat, n in sorted(all_zero.items(), key=lambda kv: -kv[1]):
-        print(f"  all {cat}: {n}")
     visible_total = sum(len(v) for v in visible_zero.values())
+    print("\n=== Visible zero stock check ===")
     print(f"visible zero total: {visible_total}")
+    if not visible_total:
+        print("  OK: no visible zero-stock products")
     for cat, names in sorted(visible_zero.items(), key=lambda kv: -len(kv[1])):
         print(f"  visible {cat}: {len(names)} | {', '.join(names[:5])}")
+
+    print("\n=== Hidden/quarantined zero stock (informational) ===")
+    print(f"all zero total (informational): {sum(all_zero.values())}")
+    for cat, n in sorted(all_zero.items(), key=lambda kv: -kv[1]):
+        print(f"  all {cat}: {n}")
 
     if args.apply and changes:
         ts = datetime.now().strftime("%Y%m%d-%H%M%S")

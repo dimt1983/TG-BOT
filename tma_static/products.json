@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 20,
+      "stock": 19,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1784,7 +1784,7 @@
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_-_1_кг.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 2,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1946,7 +1946,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 48,
+      "stock": 34,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -9021,7 +9021,7 @@
           "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg",
       "_source": "https://botanikastories.ru/product/zhyoltyj-banan/",
@@ -11736,7 +11736,7 @@
           "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
         }
       ],
-      "stock": 630,
+      "stock": 540,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg",
       "quarantined": false,
@@ -13338,7 +13338,7 @@
           "price": 790.0
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13386,7 +13386,7 @@
           "price": 800.0
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13410,7 +13410,7 @@
           "price": 800.0
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
