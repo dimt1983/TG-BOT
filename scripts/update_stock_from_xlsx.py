@@ -209,6 +209,13 @@ def json_dumps(obj: Any) -> str:
     return json.dumps(obj, ensure_ascii=False, indent=2)
 
 
+def readable_file(path: Path) -> bool:
+    try:
+        return path.exists() and path.is_file() and path.stat().st_size > 0
+    except OSError:
+        return False
+
+
 def fetch_xlsx() -> Path:
     DIFF_DIR.mkdir(parents=True, exist_ok=True)
     tmp = DIFF_DIR / "rb-bot.latest.tmp.xlsx"
@@ -228,7 +235,7 @@ def fetch_xlsx() -> Path:
     except Exception as e:
         print(f"[warn] rclone unavailable, fallback to local copy: {e}", file=sys.stderr)
 
-    candidates = [p for p in FALLBACK_XLSX if p.exists()]
+    candidates = [p for p in [FETCHED_XLSX, *FALLBACK_XLSX] if readable_file(p)]
     if not candidates:
         raise FileNotFoundError("No rb-bot.xlsx source found")
     return max(candidates, key=lambda p: p.stat().st_mtime)
@@ -385,7 +392,15 @@ def main() -> int:
     ap.add_argument("--report", type=Path, default=DIFF_DIR / "stock_sync_report.json")
     args = ap.parse_args()
 
-    xlsx = args.xlsx or (max([p for p in [FETCHED_XLSX, *FALLBACK_XLSX] if p.exists()], key=lambda p: p.stat().st_mtime) if args.skip_fetch else fetch_xlsx())
+    if args.xlsx:
+        xlsx = args.xlsx
+    elif args.skip_fetch:
+        candidates = [p for p in [FETCHED_XLSX, *FALLBACK_XLSX] if readable_file(p)]
+        if not candidates:
+            raise FileNotFoundError("No readable rb-bot.xlsx source found")
+        xlsx = max(candidates, key=lambda p: p.stat().st_mtime)
+    else:
+        xlsx = fetch_xlsx()
     items = load_excel_items(xlsx)
     by_norm: dict[str, dict[str, Any]] = {}
     for it in items:
