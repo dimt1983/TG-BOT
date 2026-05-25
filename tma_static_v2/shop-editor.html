@@ -138,6 +138,11 @@ try { tg?.ready?.(); tg?.expand?.(); tg?.setBackgroundColor?.("#FAF7F2"); } catc
 const params = new URLSearchParams(location.search);
 const IS_TG = !!(tg && tg.initData && tg.initData.length > 0);
 const DEMO = params.get("demo") === "1";
+const _jwtParam = !IS_TG && params.get("jwt");
+if (_jwtParam) {
+  localStorage.setItem("rb_jwt", _jwtParam);
+  try { const u = new URL(location.href); u.searchParams.delete("jwt"); history.replaceState(null, "", u.toString()); } catch (e) {}
+}
 let browserJwt = (!IS_TG && localStorage.getItem("rb_jwt")) || "";
 let browserUser = null;
 try { browserUser = JSON.parse(localStorage.getItem("rb_user") || "null"); } catch (e) {}

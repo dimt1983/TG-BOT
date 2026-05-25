@@ -14,7 +14,7 @@ admin.py — минимальный модуль с константами и у
 
 from aiogram import Bot, Dispatcher
 
-ADMIN_IDS = [466755177, 1403852636, 5199643600]  # Дмитрий, Алёна, Елена Левченко
+ADMIN_IDS = [466755177, 1403852636, 5199643600, 851246472]  # Дмитрий, Алёна, Елена Левченко, Дмитрий (owner)
 
 
 async def notify_new_order(bot: Bot, order_id: int, user_name: str, total: float):

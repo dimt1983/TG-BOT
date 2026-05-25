@@ -1166,6 +1166,28 @@ class Handler(BaseHTTPRequestHandler):
                        "application/json; charset=utf-8", {"Cache-Control": "no-store"})
             return
 
+        # ── Авторизация из Panel (внутренний токен) → JWT ───────────────────
+        if path == "/tma/api/auth/panel_token":
+            panel_tok = os.environ.get("PANEL_INTERNAL_TOKEN", "")
+            auth_hdr = self.headers.get("Authorization", "")
+            if not panel_tok or auth_hdr != f"Bearer {panel_tok}":
+                self._send(403, _j({"error": "forbidden"}),
+                           "application/json; charset=utf-8")
+                return
+            payload = self._read_body() or {}
+            tg_id = int(payload.get("tg_id", 0))
+            name  = str(payload.get("name", "")).strip()[:80] or "Admin"
+            if not tg_id:
+                self._send(400, _j({"error": "tg_id required"}),
+                           "application/json; charset=utf-8")
+                return
+            user = {"id": tg_id, "first_name": name, "last_name": "",
+                    "username": "", "photo_url": ""}
+            token = jwt_sign(user)
+            self._send(200, _j({"token": token, "user": user}),
+                       "application/json; charset=utf-8", {"Cache-Control": "no-store"})
+            return
+
         # ── Гостевой логин (для клиентов без Telegram) → JWT ─────────────────
         # Принимает {name, phone, email?}, валидирует телефон, выдаёт JWT с
         # отрицательным guest_id (стабильный hash от phone, чтобы повторные
