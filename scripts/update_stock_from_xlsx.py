@@ -89,13 +89,16 @@ CATEGORY_GROUPS = {
 }
 
 SKIP_CATEGORIES = {"consulting", "sets"}
+FIXED_STOCK_CATEGORIES = {"consulting": 1}
 
 UNIT_RE = re.compile(
-    r"(?:\b\d+(?:[.,]\d+)?\s*(?:кг|г|гр|мл|л|ml|kg|gr|шт|штук|пак\.?|пакет\w*)\b)"
-    r"|(?:\d+\s*[xх]\s*\d+(?:[.,]\d+)?)"
-    r"|(?:фильтр[- ]?пакет\w*)|(?:валом)",
+    r"(?:\b\d+(?:[.,]\d+)?\s*(?:\u043a\u0433|\u0433|\u0433\u0440|\u043c\u043b|\u043b|ml|kg|gr|\u0448\u0442|\u0448\u0442\u0443\u043a|\u043f\u0430\u043a\.?|\u043f\u0430\u043a\u0435\u0442\w*)\b)"
+    r"|(?:\d+\s*[x\u0445]\s*\d+(?:[.,]\d+)?)"
+    r"|(?:\(\s*\d+\s*\))|(?:\b\d+\s*\u043f\u0430\u043a\b)"
+    r"|(?:\u0444\u0438\u043b\u044c\u0442\u0440[- ]?\u043f\u0430\u043a\u0435\u0442\w*)|(?:\u0432\u0430\u043b\u043e\u043c)",
     re.IGNORECASE,
 )
+
 
 KNOWN_GROUPS = {
     "1000 г", "200 г", "200 г black", "200 г borщ", "200 г борщ",
@@ -106,9 +109,9 @@ KNOWN_GROUPS = {
 NOISE = {
     "ЧАЙ", "ЧАИ", "ЧЕРНЫЙ", "ЧЕРН", "ЧЕРН.", "ЗЕЛЕНЫЙ", "ЗЕЛЕН", "ЗЕЛ",
     "БЕЛЫЙ", "КРАСНЫЙ", "ФРУКТОВЫЙ", "ФРУКТ", "ТРАВЯНОЙ", "ТРАВ",
-    "ЛИСТОВОЙ", "ЛИСТ", "БАЙХОВЫЙ", "БАЙХ", "ПАКЕТ", "ПАКЕТИР",
+    "ЛИСТОВОЙ", "ЛИСТ", "БАЙХОВЫЙ", "БАЙХ", "ПАКЕТ", "ПАК", "ПАКЕТИР",
     "ПАКЕТИРОВАННЫЙ", "ПИРАМИДКИ", "ПИРАМИДКА", "АРОМАТ", "АРОМАТИЗ",
-    "НАПИТОК", "ДЛЯ", "Д", "NEW", "НОВ", "СИРОП", "ТОППИНГ", "СИРОПЫ",
+    "НАПИТОК", "ДЛЯ", "ЧАЙНИКА", "Д", "NEW", "НОВ", "СИРОП", "ТОППИНГ", "СИРОПЫ",
     "КОРДИАЛ", "ПАРФЮМ", "БУТ", "СТЕКЛ", "БАНКА", "БАН", "МОЛОКО",
     "КОФЕ", "МОЛОТЫЙ", "МОЛОТ", "ЭСПРЕССО", "ФИЛЬТР", "FILTER", "ESPRESSO",
     "RBR", "ROASTBERRY", "ALTHAUS", "АЛЬТХАУС", "АЛЬТАУС", "NIKTEA",
@@ -160,10 +163,10 @@ def norm(s: str) -> str:
 def tokens(s: str) -> set[str]:
     out: set[str] = set()
     for raw in norm(s).replace(",", " ").replace(".", " ").split():
-        w = raw.strip("-")
-        if len(w) < 3 or w.isdigit() or ARTICLE_RE.match(w) or w in NOISE:
-            continue
-        out.add(w)
+        for w in re.split(r"[-/]", raw.strip("-")):
+            if len(w) < 3 or w.isdigit() or ARTICLE_RE.match(w) or w in NOISE:
+                continue
+            out.add(w)
     return out
 
 
@@ -383,6 +386,115 @@ def zero_report(products: list[dict[str, Any]]) -> tuple[dict[str, int], dict[st
     return dict(all_zero), dict(visible_zero)
 
 
+def _return_entry(
+    p: dict[str, Any],
+    hit: dict[str, Any] | None,
+    method: str,
+    score: float,
+    top: list[tuple[float, str]],
+    reason: str,
+) -> dict[str, Any]:
+    entry = {
+        "id": p.get("id"),
+        "name": p.get("name"),
+        "category": p.get("category"),
+        "old": p.get("stock") or 0,
+        "hidden": bool(p.get("hidden")),
+        "quarantined": bool(p.get("quarantined")),
+        "archived": bool(p.get("archived")),
+        "reason": reason,
+        "method": method,
+        "score": round(score, 3),
+    }
+    if hit:
+        entry.update({
+            "new": hit["qty"],
+            "xlsx": hit["name"],
+            "row": hit["row"],
+        })
+    if top:
+        entry["top"] = top[:5]
+    return entry
+
+
+def build_return_candidates(
+    products: list[dict[str, Any]],
+    items: list[dict[str, Any]],
+    by_norm: dict[str, dict[str, Any]],
+    category: str | None = None,
+) -> dict[str, Any]:
+    report: dict[str, Any] = {
+        "summary": {
+            "can_restore": 0,
+            "needs_review": 0,
+            "matched_zero": 0,
+            "no_match": 0,
+        },
+        "can_restore": [],
+        "needs_review": [],
+        "matched_zero": [],
+        "no_match": [],
+    }
+
+    for p in products:
+        if p.get("category") in SKIP_CATEGORIES:
+            continue
+        if category and p.get("category") != category:
+            continue
+        is_hidden = bool(p.get("hidden"))
+        is_quar = bool(p.get("quarantined"))
+        is_archived = bool(p.get("archived"))
+        if not (is_hidden or is_quar):
+            continue
+
+        hit, method, score, top = match_product(p, items, by_norm)
+        if not hit:
+            report["no_match"].append(_return_entry(p, None, method, score, top, "no_match"))
+            continue
+
+        if not hit["qty"]:
+            report["matched_zero"].append(_return_entry(p, hit, method, score, top, "matched_but_1c_stock_is_zero"))
+            continue
+
+        if is_archived:
+            report["needs_review"].append(_return_entry(p, hit, method, score, top, "archived_needs_manual_review"))
+        elif is_quar:
+            report["can_restore"].append(_return_entry(p, hit, method, score, top, "quarantined_with_1c_stock"))
+        else:
+            report["needs_review"].append(_return_entry(p, hit, method, score, top, "hidden_not_quarantined"))
+
+    for key in ("can_restore", "needs_review", "matched_zero", "no_match"):
+        report["summary"][key] = len(report[key])
+    return report
+
+
+def print_return_candidates(report: dict[str, Any], limit: int = 40) -> None:
+    summary = report.get("summary", {})
+    print("\n=== Hidden/quarantined return candidates ===")
+    print(f"can_restore: {summary.get('can_restore', 0)}")
+    print(f"needs_review: {summary.get('needs_review', 0)}")
+    print(f"matched_zero: {summary.get('matched_zero', 0)}")
+    print(f"no_match: {summary.get('no_match', 0)}")
+
+    def show(title: str, rows: list[dict[str, Any]]) -> None:
+        if not rows:
+            return
+        print(f"\n{title}:")
+        for row in rows[:limit]:
+            new = row.get("new", "?")
+            xlsx = row.get("xlsx", "no xlsx match")
+            print(
+                f"  - {row.get('id')} | {row.get('old')} -> {new} | "
+                f"{row.get('method')} {row.get('score')} | {row.get('name')} <= {xlsx}"
+            )
+        if len(rows) > limit:
+            print(f"  ... and {len(rows) - limit} more")
+
+    show("can_restore", report.get("can_restore", []))
+    show("needs_review", report.get("needs_review", []))
+    show("no_match", report.get("no_match", []))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true", help="Write products.json")
@@ -390,6 +502,9 @@ def main() -> int:
     ap.add_argument("--skip-fetch", action="store_true", help="Use latest local/fallback xlsx without rclone")
     ap.add_argument("--no-unquarantine", action="store_true", help="Do not return matched quarantined cards")
     ap.add_argument("--report", type=Path, default=DIFF_DIR / "stock_sync_report.json")
+    ap.add_argument("--return-candidates", action="store_true", help="Report hidden/quarantined products that have positive 1C stock")
+    ap.add_argument("--return-candidates-only", action="store_true", help="Only print hidden/quarantined return candidates and exit")
+    ap.add_argument("--category", default=None, help="Limit return-candidates report to one category, e.g. tea")
     args = ap.parse_args()
 
     if args.xlsx:
@@ -409,12 +524,54 @@ def main() -> int:
     data = json.loads(PJSON.read_text(encoding="utf-8"))
     products = data.get("products", [])
 
+    return_candidates = build_return_candidates(products, items, by_norm, args.category)
+
+    if args.return_candidates_only:
+        report = {
+            "xlsx": str(xlsx),
+            "xlsx_items": len(items),
+            "return_candidates": return_candidates,
+        }
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(json_dumps(report) + "\n", encoding="utf-8")
+        print("\n=== Stock return candidate summary ===")
+        print(f"xlsx: {xlsx}")
+        print(f"xlsx items: {len(items)}")
+        print(f"report: {args.report}")
+        print_return_candidates(return_candidates)
+        return 0
+
     changes = []
     unmatched_visible_zero = []
     matched = 0
     skipped = 0
 
     for p in products:
+        fixed_stock = FIXED_STOCK_CATEGORIES.get(p.get("category"))
+        if fixed_stock is not None:
+            old_stock = p.get("stock") or 0
+            was_hidden = bool(p.get("hidden"))
+            was_quar = bool(p.get("quarantined"))
+            if old_stock != fixed_stock or was_hidden or was_quar:
+                changes.append({
+                    "id": p.get("id"),
+                    "name": p.get("name"),
+                    "old": old_stock,
+                    "new": fixed_stock,
+                    "category": p.get("category"),
+                    "xlsx": "fixed category stock",
+                    "method": "fixed_category_stock",
+                    "score": 100,
+                    "restored": was_quar,
+                })
+                if args.apply:
+                    p["stock"] = fixed_stock
+                    p["hidden"] = False
+                    p["quarantined"] = False
+                    p["quarantined_at"] = None
+                    p["quarantine_reason"] = None
+            skipped += 1
+            continue
         if p.get("category") in SKIP_CATEGORIES:
             continue
         hit, method, score, top = match_product(p, items, by_norm)
@@ -465,6 +622,7 @@ def main() -> int:
         "skipped_products": skipped,
         "changes": changes,
         "unmatched_visible_zero": unmatched_visible_zero,
+        "return_candidates": return_candidates,
         "zero_all_by_category": all_zero,
         "zero_visible_by_category": {k: len(v) for k, v in visible_zero.items()},
         "zero_visible_examples": {k: v[:15] for k, v in visible_zero.items()},
@@ -485,6 +643,8 @@ def main() -> int:
     print(f"matched products: {matched}")
     print(f"{'updated/restored' if args.apply else 'would update/restore'}: {len(changes)}")
     print(f"report: {args.report}")
+    if args.return_candidates:
+        print_return_candidates(return_candidates)
 
     visible_total = sum(len(v) for v in visible_zero.values())
     print("\n=== Visible zero stock check ===")

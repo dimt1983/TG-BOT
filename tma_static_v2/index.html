@@ -101,6 +101,13 @@ function rbShareWebLink() {
 /* ════════════════════════════════════════════════════════════════════
    STATE
    ════════════════════════════════════════════════════════════════════ */
+const COFFEE_CATALOG_URL = '/tma/data/Roastberry_%D0%9F%D1%80%D0%B0%D0%B9%D1%81_2026.xlsx';
+function rbOpenCoffeeCatalog() {
+  const url = window.location.origin + COFFEE_CATALOG_URL;
+  if (tg?.openLink) tg.openLink(url); else window.open(url, '_blank', 'noopener');
+  haptic('light');
+}
+
 const STATE = {
   data: null,                    // products.json
   cart: [],                      // [{id, fasovka, qty}]
@@ -136,6 +143,7 @@ const STATE = {
     legal_address: '',
     delivery: {
       method: '',                // 'pickup' | 'courier' | 'cdek'
+      pickup_point: '',
       address: '',
       city: '',
       time: '',
@@ -292,6 +300,30 @@ function flagDot(country) {
 /* ════════════════════════════════════════════════════════════════════
    DISCOUNT TIERS — лестница скидок по весу
    ════════════════════════════════════════════════════════════════════ */
+const PICKUP_POINTS = [
+  {
+    id: 'woodshop',
+    title: 'ул. Деревообделочная, 8, корп. 6',
+    subtitle: 'Цех Roastberry',
+    address: 'цех Roastberry, ул. Деревообделочная, 8, корп. 6',
+  },
+  {
+    id: 'revolution',
+    title: 'ул. Революции, 24',
+    subtitle: 'Кофейня Roastberry',
+    address: 'кофейня Roastberry, ул. Революции, 24',
+  },
+  {
+    id: 'lenina',
+    title: 'ул. Ленина, 68',
+    subtitle: 'Кофейня Roastberry',
+    address: 'кофейня Roastberry, ул. Ленина, 68',
+  },
+];
+function pickupPointById(id) {
+  return PICKUP_POINTS.find(p => p.id === id) || null;
+}
+
 const TIERS = [
   { min: 25, d: 0.20 },
   { min: 10, d: 0.10 },
@@ -850,6 +882,7 @@ const TILE_THEME = {
   drip:                   { bg:'#7A5538', fg:'#F5EBDD', accent:'#C9A66B' },
   cascara:                { bg:'#B8693A', fg:'#FAF7F2', accent:'#FFE3B0' },
   sets:                   { bg:'#A06080', fg:'#F5EBDD', accent:'#F5C77E' },
+  consulting:             { bg:'#1A1410', fg:'#F5EBDD', accent:'#C9A66B' },
   // v2 subcategories
   espresso_mono:          { bg:'#3A2A1F', fg:'#F5EBDD', accent:'#C9A66B' },
   espresso_micro:         { bg:'#1A1410', fg:'#F5EBDD', accent:'#C9A66B' },
@@ -1510,7 +1543,7 @@ ${appHeader({ back: true, title: 'Оформление' })}
   <div style="${SECT_TITLE}">Доставка</div>
   <div style="display:flex; flex-direction:column; gap:8px;">
     ${[
-      { id: 'pickup', t: 'Самовывоз', sub: 'Пермь, Карпинского 14' },
+      { id: 'pickup', t: 'Самовывоз', sub: 'выберите точку Roastberry' },
       { id: 'courier', t: 'Курьер по Перми', sub: 'В пределах города' },
       { id: 'cdek', t: 'СДЭК', sub: 'По всей России, от 290 ₽' },
     ].map(opt => {
@@ -1524,6 +1557,23 @@ ${appHeader({ back: true, title: 'Оформление' })}
       </button>`;
     }).join('')}
   </div>
+
+  ${c.delivery.method === 'pickup' ? `
+    <div style="margin-top:14px; display:flex; flex-direction:column; gap:8px;">
+      <label style="${LABEL}">Пункт самовывоза</label>
+      ${PICKUP_POINTS.map(pt => {
+        const active = c.delivery.pickup_point === pt.id;
+        return `<button onclick="rb.setPickupPoint('${pt.id}')" style="display:flex; align-items:center; gap:12px; text-align:left; padding:13px 14px; border:1px solid ${active ? 'var(--ink)' : 'var(--line)'}; background:${active ? 'var(--surface-2)' : 'var(--surface)'}; border-radius:14px; cursor:pointer; transition:all .15s;">
+          <span style="flex:0 0 18px; width:18px; height:18px; border-radius:999px; border:2px solid ${active ? 'var(--ink)' : 'var(--ink-mute)'}; display:flex; align-items:center; justify-content:center;">${active ? '<span style="width:8px; height:8px; border-radius:999px; background:var(--ink);"></span>' : ''}</span>
+          <span style="flex:1; min-width:0;">
+            <span style="display:block; font-family:var(--f-display); font-weight:750; font-size:14px;">${esc(pt.title)}</span>
+            <span class="meta" style="display:block; margin-top:2px; font-size:11px;">${esc(pt.subtitle)}</span>
+          </span>
+        </button>`;
+      }).join('')}
+    </div>
+  ` : ''}
+
 
   ${c.delivery.method === 'courier' ? `
     <div style="margin-top:14px; display:flex; flex-direction:column; gap:14px;">
@@ -1633,7 +1683,7 @@ ${appHeader({ title: 'Профиль', action: `<button class="btn-ghost" style=
   <div class="card" style="overflow:hidden;">
     ${[
       ['flame', 'Повторить последний заказ', 'скоро', null],
-      ['doc',   'Прайс-лист',                'PDF / XLSX', null],
+      ['doc',   'Каталог кофейный',          'XLSX · актуальный прайс', 'rbOpenCoffeeCatalog()'],
       ['truck', 'Адреса доставки',           'добавить', null],
       ['cup',   'Подписка «Свежая обжарка»', 'скоро', null],
       ['link',  IS_TG ? 'Ссылка для клиента без Telegram' : 'Скопировать ссылку на магазин', 'открывается в браузере', 'rbShareWebLink()'],
@@ -2961,6 +3011,10 @@ const rb = {
     STATE.contact.delivery.method = method;
     haptic('light'); render();
   },
+  setPickupPoint(id) {
+    STATE.contact.delivery.pickup_point = id;
+    haptic('light'); render();
+  },
   toggleConsent() {
     STATE.contact.consent = !STATE.contact.consent;
     haptic('light'); render();
@@ -2968,6 +3022,8 @@ const rb = {
   async submitOrder() {
     if (STATE.submitting) return;
     const c = STATE.contact;
+    const selectedPickup = c.delivery.method === 'pickup' ? pickupPointById(c.delivery.pickup_point) : null;
+    const pickupAddress = selectedPickup ? 'Самовывоз: ' + selectedPickup.address : '';
     // Валидация
     const name = (c.name || '').trim();
     const phone = (c.phone || '').trim();
@@ -2975,6 +3031,9 @@ const rb = {
     if (name.length < 2) { toast('Укажите имя'); haptic('error'); return; }
     if (phoneDigits.length < 10) { toast('Укажите корректный телефон'); haptic('error'); return; }
     if (!c.delivery.method) { toast('Выберите способ доставки'); haptic('error'); return; }
+    if (c.delivery.method === 'pickup' && !selectedPickup) {
+      toast('Выберите пункт самовывоза'); haptic('error'); return;
+    }
     if (c.delivery.method === 'courier' && !(c.delivery.address || '').trim()) {
       toast('Укажите адрес доставки'); haptic('error'); return;
     }
@@ -3010,8 +3069,10 @@ const rb = {
       comment: (c.comment || '').trim() || undefined,
       delivery: {
         method: c.delivery.method,
-        address: (c.delivery.address || '').trim() || undefined,
-        city: (c.delivery.city || '').trim() || undefined,
+        pickup_point: selectedPickup ? selectedPickup.id : undefined,
+        pickup_title: selectedPickup ? selectedPickup.title : undefined,
+        address: selectedPickup ? pickupAddress : ((c.delivery.address || '').trim() || undefined),
+        city: selectedPickup ? 'Пермь' : ((c.delivery.city || '').trim() || undefined),
         time: (c.delivery.time || '').trim() || undefined,
         recipient_name: (c.delivery.recipient_name || '').trim() || undefined,
         recipient_phone: (c.delivery.recipient_phone || '').trim() || undefined,
@@ -3027,7 +3088,7 @@ const rb = {
     // address на верхнем уровне — для совместимости с бэкендом (orders.address)
     contactPayload.address = contactPayload.delivery.address
       || contactPayload.delivery.city
-      || (c.delivery.method === 'pickup' ? 'Самовывоз: Пермь, ул. Карпинского, 14' : '');
+      || '';
 
     const payload = {
       type: 'order',

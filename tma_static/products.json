@@ -7769,15 +7769,15 @@
           "photo": "photos/courses/consulting-course-2-barista.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 1,
       "tags": [
         "course"
       ],
       "photo": "photos/courses/consulting-course-2-barista.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "consulting-course-4-owner",
@@ -7792,15 +7792,15 @@
           "photo": "photos/courses/consulting-course-4-owner.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 1,
       "tags": [
         "course"
       ],
       "photo": "photos/courses/consulting-course-4-owner.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "consulting-course-1-amateur",
@@ -7815,15 +7815,15 @@
           "photo": "photos/courses/consulting-course-1-amateur.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 1,
       "tags": [
         "course"
       ],
       "photo": "photos/courses/consulting-course-1-amateur.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "consulting-course-3-pro",
@@ -7838,15 +7838,15 @@
           "photo": "photos/courses/consulting-course-3-pro.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 1,
       "tags": [
         "course"
       ],
       "photo": "photos/courses/consulting-course-3-pro.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "consulting-course-5-tea-author",
@@ -7861,15 +7861,15 @@
           "photo": "photos/courses/consulting-course-5-tea-author.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 1,
       "tags": [
         "course"
       ],
       "photo": "photos/courses/consulting-course-5-tea-author.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "s-линейка_барная_botanika",
