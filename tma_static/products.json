@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 33,
+      "stock": 28,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1861,7 +1861,7 @@
           "stock": 14
         }
       ],
-      "stock": 7,
+      "stock": 5,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -3790,7 +3790,7 @@
           "price": 890.0
         }
       ],
-      "stock": 5,
+      "stock": 1,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -5470,7 +5470,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 92,
+      "stock": 86,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5536,7 +5536,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 545,
+      "stock": 530,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8419,7 +8419,7 @@
           "price": 2215.0
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8551,7 +8551,7 @@
           "price": 1
         }
       ],
-      "stock": 5600,
+      "stock": 5000,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -12193,7 +12193,7 @@
           "photo": null
         }
       ],
-      "stock": 21,
+      "stock": 20,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12358,7 +12358,7 @@
           "photo": "photos/products/t-улун_най_сян_дун_дин_80_200_г_молочный_улун_аромат.jpg"
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": "photos/products/t-улун_най_сян_дун_дин_80_200_г_молочный_улун_аромат.jpg",
       "quarantined": false,
@@ -12420,7 +12420,7 @@
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 91,
+      "stock": 71,
       "on_request": false,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
@@ -13410,7 +13410,7 @@
           "price": 800.0
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14269,7 +14269,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 24,
+      "stock": 19,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
