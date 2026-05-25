@@ -3109,7 +3109,7 @@
           "price": 185.0
         }
       ],
-      "stock": 31,
+      "stock": 30,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3935,13 +3935,13 @@
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 42,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_icedtea_малиновый_мохито_50пак",
@@ -3961,13 +3961,13 @@
           "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 29,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_icedtea_манго_и_апельсин_50пак",
@@ -3987,13 +3987,13 @@
           "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 48,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_icedtea_маракуйя_тропик_50пак",
@@ -4013,13 +4013,13 @@
           "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 47,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_icedtea_спелая_смородина_50пак",
@@ -4039,13 +4039,13 @@
           "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 80,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_resta_апельсин_манго_30пак",
@@ -4065,13 +4065,13 @@
           "photo": "photos/products/t-restoranica_resta_апельсин_манго_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 58,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_апельсин_манго_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_resta_апельсин_ройбуш_30пак",
@@ -4091,13 +4091,13 @@
           "photo": "photos/products/t-restoranica_resta_апельсин_ройбуш_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 33,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_апельсин_ройбуш_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_resta_голубая_масала_30пак",
@@ -4117,13 +4117,13 @@
           "photo": "photos/products/t-restoranica_resta_голубая_масала_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 41,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_голубая_масала_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_resta_иммунный_30пак",
@@ -4143,13 +4143,13 @@
           "photo": "photos/products/t-restoranica_resta_иммунный_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 47,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_иммунный_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_resta_кедровый_с_чагой_30пак",
@@ -4169,13 +4169,13 @@
           "photo": "photos/products/t-restoranica_resta_кедровый_с_чагой_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 34,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_кедровый_с_чагой_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_resta_киви_клубника_30пак",
@@ -4195,13 +4195,13 @@
           "photo": "photos/products/t-restoranica_resta_киви_клубника_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 48,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_киви_клубника_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_resta_лесные_ягоды_30пак",
@@ -4221,13 +4221,13 @@
           "photo": "photos/products/t-restoranica_resta_лесные_ягоды_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 32,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_лесные_ягоды_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_resta_мята_малина_30пак",
@@ -4247,13 +4247,13 @@
           "photo": "photos/products/t-restoranica_resta_мята_малина_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 18,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_мята_малина_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_resta_пряный_глинтвейн_30пак",
@@ -4273,13 +4273,13 @@
           "photo": "photos/products/t-restoranica_resta_пряный_глинтвейн_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 36,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_пряный_глинтвейн_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_resta_пуэр_саган_дайля_30пак",
@@ -4299,13 +4299,13 @@
           "photo": "photos/products/t-restoranica_resta_пуэр_саган_дайля_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 50,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_пуэр_саган_дайля_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_resta_сладкая_клубника_30пак",
@@ -4325,13 +4325,13 @@
           "photo": "photos/products/t-restoranica_resta_сладкая_клубника_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 35,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_сладкая_клубника_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_resta_смородиновый_черный_30пак",
@@ -4351,13 +4351,13 @@
           "photo": "photos/products/t-restoranica_resta_смородиновый_черный_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 45,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_смородиновый_черный_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_resta_шиповник_чабрец_30пак",
@@ -4377,13 +4377,13 @@
           "photo": "photos/products/t-restoranica_resta_шиповник_чабрец_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 17,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_шиповник_чабрец_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_resta_эрлберг_30пак",
@@ -4403,13 +4403,13 @@
           "photo": "photos/products/t-restoranica_resta_эрлберг_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 45,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_эрлберг_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_resta_яблоко_можжевельник_30пак",
@@ -4429,13 +4429,13 @@
           "photo": "photos/products/t-restoranica_resta_яблоко_можжевельник_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 47,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_яблоко_можжевельник_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_togo_ассам_с_шиповником_36пак",
@@ -4455,13 +4455,13 @@
           "photo": "photos/products/t-restoranica_togo_ассам_с_шиповником_36пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 55,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_ассам_с_шиповником_36пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_togo_голубая_масала_36пак",
@@ -4481,13 +4481,13 @@
           "photo": "photos/products/t-restoranica_togo_голубая_масала_36пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 91,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_голубая_масала_36пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_togo_иван-чай_с_малиной_36пак",
@@ -4507,13 +4507,13 @@
           "photo": "photos/products/t-restoranica_togo_иван-чай_с_малиной_36пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 69,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_иван-чай_с_малиной_36пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_togo_иммунный_с_облепихой_30пак",
@@ -4559,13 +4559,13 @@
           "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 65,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_togo_китайский_улун_с_земляникой_30пак",
@@ -4585,13 +4585,13 @@
           "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 65,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_togo_королевский_бергамот_60пак",
@@ -4611,13 +4611,13 @@
           "photo": "photos/products/t-restoranica_togo_королевский_бергамот_60пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 95,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_королевский_бергамот_60пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_togo_малина_с_мятой_36пак",
@@ -4637,13 +4637,13 @@
           "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 156,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_togo_манго_с_апельсином_60пак",
@@ -4663,13 +4663,13 @@
           "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 125,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_togo_медовое_яблоко_с_имбирем_30пак",
@@ -4689,13 +4689,13 @@
           "photo": "photos/products/t-restoranica_togo_медовое_яблоко_с_имбирем_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 227,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_медовое_яблоко_с_имбирем_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_togo_молочный_улун_с_мандарином_60пак",
@@ -4741,13 +4741,13 @@
           "photo": "photos/products/t-restoranica_togo_ройбуш_с_апельсином_60пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 61,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_ройбуш_с_апельсином_60пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_togo_улун_с_жасмином_100пак",
@@ -4793,13 +4793,13 @@
           "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 102,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_togo_чайный_глинтвейн_30пак",
@@ -4819,13 +4819,13 @@
           "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 221,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_togo_черный_со_смородиной_30пак",
@@ -4845,13 +4845,13 @@
           "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 172,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-restoranica_togo_яблоко_с_можжевельником_60пак",
@@ -4871,13 +4871,13 @@
           "photo": "photos/products/t-restoranica_togo_яблоко_с_можжевельником_60пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 59,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_яблоко_с_можжевельником_60пак.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-ts04_узбекский_чай_95",
@@ -12618,10 +12618,10 @@
       "stock": 79,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_resta_650_для_чайника_молочный_улун.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-чай_tasteabrew_togo_350_гун_тин_и_саган_дайля_100_",
@@ -12644,10 +12644,10 @@
       "stock": 120,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_гун_тин_и_саган_дайля_100_.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_",
@@ -12667,13 +12667,13 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg"
         }
       ],
-      "stock": 211,
+      "stock": 141,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100",
@@ -12693,13 +12693,13 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100.jpg"
         }
       ],
-      "stock": 30,
+      "stock": 28,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100.jpg",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "t-чай_ганпаудер_премиум_зеленый_0_5кг_",
