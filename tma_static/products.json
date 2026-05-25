@@ -724,7 +724,7 @@
           "photo": "photos/products/t-althaus_ред_фрут_флаш_фрукт_лист_250г.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/t-althaus_ред_фрут_флаш_фрукт_лист_250г.jpg",
       "_source": "alephtrade",
@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 251,
+      "stock": 233,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2652,7 +2652,7 @@
           "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg"
         }
       ],
-      "stock": 18,
+      "stock": 17,
       "tags": [],
       "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg",
       "_source": "alephtrade",
@@ -5470,7 +5470,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 99,
+      "stock": 98,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5503,7 +5503,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 24,
+      "stock": 21,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5536,7 +5536,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 670,
+      "stock": 634,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8091,7 +8091,7 @@
           "photo": null
         }
       ],
-      "stock": 264,
+      "stock": 258,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8549,7 +8549,7 @@
           "price": 1
         }
       ],
-      "stock": 6000,
+      "stock": 5600,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -14090,7 +14090,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 65,
+      "stock": 64,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
