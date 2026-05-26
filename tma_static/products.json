@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 6,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 279,
+      "stock": 271,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 28,
+      "stock": 22,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1731,7 +1731,7 @@
           "stock": 13
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1946,7 +1946,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 33,
+      "stock": 28,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -3935,7 +3935,7 @@
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
       "quarantined": false,
@@ -3987,7 +3987,7 @@
           "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg"
         }
       ],
-      "stock": 48,
+      "stock": 47,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg",
       "quarantined": false,
@@ -4013,7 +4013,7 @@
           "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
-      "stock": 37,
+      "stock": 36,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
       "quarantined": false,
@@ -4039,7 +4039,7 @@
           "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg"
         }
       ],
-      "stock": 50,
+      "stock": 49,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg",
       "quarantined": false,
@@ -4351,7 +4351,7 @@
           "photo": "photos/products/t-restoranica_resta_смородиновый_черный_30пак.jpg"
         }
       ],
-      "stock": 40,
+      "stock": 39,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_смородиновый_черный_30пак.jpg",
       "quarantined": false,
@@ -5503,7 +5503,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 21,
+      "stock": 20,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5536,7 +5536,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 510,
+      "stock": 455,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5710,7 +5710,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 8,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -6522,7 +6522,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 12,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -7034,7 +7034,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 11,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -14192,9 +14192,9 @@
       "name": "Эфиопия Челчеле гр.1 сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 1,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Эфиопия",
       "process": null,
       "altitude": null,
@@ -14212,7 +14212,9 @@
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
+      "quarantined_at": "2026-05-26T04:36:17+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "espresso_mono_китай_симао_гр_1_меллоу_мытый_эспрессо_1_кг",
@@ -14243,7 +14245,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 32,
+      "stock": 22,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14339,7 +14341,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
