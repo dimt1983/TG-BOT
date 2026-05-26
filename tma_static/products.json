@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 267,
+      "stock": 259,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 21,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -3377,7 +3377,7 @@
           "price": 690.0
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5470,7 +5470,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 81,
+      "stock": 73,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -9365,7 +9365,7 @@
           "photo": "photos/products/s-сироп_botanika_карамель_соленая_1л.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "tags": [
         "Хит"
       ],
@@ -13338,7 +13338,7 @@
           "price": 790.0
         }
       ],
-      "stock": 9,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14092,7 +14092,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 40,
+      "stock": 141,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14364,7 +14364,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 13,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
