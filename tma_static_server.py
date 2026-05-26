@@ -1168,9 +1168,18 @@ class Handler(BaseHTTPRequestHandler):
 
         # ── Авторизация из Panel (внутренний токен) → JWT ───────────────────
         if path == "/tma/api/auth/panel_token":
-            panel_tok = os.environ.get("PANEL_INTERNAL_TOKEN", "")
             auth_hdr = self.headers.get("Authorization", "")
-            if not panel_tok or auth_hdr != f"Bearer {panel_tok}":
+            auth_token = auth_hdr[7:].strip() if auth_hdr.startswith("Bearer ") else ""
+            panel_tokens = {
+                tok.strip()
+                for tok in (
+                    os.environ.get("PANEL_INTERNAL_TOKEN", ""),
+                    os.environ.get("SHOP_ADMIN_TOKEN", ""),
+                    os.environ.get("SHOP_INTERNAL_TOKEN", ""),
+                )
+                if tok.strip()
+            }
+            if not panel_tokens or auth_token not in panel_tokens:
                 self._send(403, _j({"error": "forbidden"}),
                            "application/json; charset=utf-8")
                 return
