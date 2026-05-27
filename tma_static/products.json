@@ -353,7 +353,7 @@
           "photo": "photos/products/t-althaus_ассам_молти_кап_15х4г.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 2,
       "tags": [],
       "photo": "photos/products/t-althaus_ассам_молти_кап_15х4г.jpg",
       "_source": "alephtrade",
@@ -405,7 +405,7 @@
           "photo": "photos/products/t-althaus_горные_травы_чёрн_15х4г.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/t-althaus_горные_травы_чёрн_15х4г.jpg",
       "_source": "alephtrade",
@@ -750,7 +750,7 @@
           "photo": "photos/products/t-althaus_ред_фрут_фраш_фрукт_15х4г.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": "photos/products/t-althaus_ред_фрут_фраш_фрукт_15х4г.jpg",
       "_source": "alephtrade",
@@ -907,7 +907,7 @@
           "photo": "photos/products/t-althaus_сенча_сенпай_зел_15х4г.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/t-althaus_сенча_сенпай_зел_15х4г.jpg",
       "_source": "alephtrade",
@@ -1326,7 +1326,7 @@
           "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 7,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 28,
+      "stock": 27,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -8370,7 +8370,7 @@
           "price": 998.0
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8551,7 +8551,7 @@
           "price": 1
         }
       ],
-      "stock": 4600,
+      "stock": 4400,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -14094,7 +14094,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 139,
+      "stock": 190,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14390,9 +14390,9 @@
       "name": "Вьетнам Блю Сонал сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 5,
+      "hidden": false,
+      "quarantined": false,
       "roast": "F",
       "photo": "assets/placeholders/ph_filter.svg",
       "fasovka": [
@@ -14405,8 +14405,8 @@
       "created_at": "2026-05-20T11:00:09+00:00",
       "created_by": "sync_catalog_v2",
       "country": "Вьетнам",
-      "quarantined_at": "2026-05-22T08:00:07+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "quarantined_at": null,
+      "quarantine_reason": null,
       "description": "Вьетнам Блю Шонла. Шоколад, орех, низкая кислотность.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
