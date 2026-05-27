@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 262,
+      "stock": 252,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1677,7 +1677,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 21,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1731,7 +1731,7 @@
           "stock": 13
         }
       ],
-      "stock": 9,
+      "stock": 7,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -4637,7 +4637,7 @@
           "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg"
         }
       ],
-      "stock": 144,
+      "stock": 124,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -4819,7 +4819,7 @@
           "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg"
         }
       ],
-      "stock": 214,
+      "stock": 204,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg",
       "quarantined": false,
@@ -4845,7 +4845,7 @@
           "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
         }
       ],
-      "stock": 155,
+      "stock": 135,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -5470,7 +5470,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 122,
+      "stock": 121,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5503,7 +5503,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 17,
+      "stock": 15,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5536,7 +5536,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 426,
+      "stock": 347,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5569,7 +5569,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 16,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -10030,7 +10030,7 @@
           "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.jpg",
       "_source": "herbarista_pdf",
@@ -10156,7 +10156,7 @@
           "photo": "photos/products/s-сироп_herbarista_ирландский_крем_0_7л.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_ирландский_крем_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -10567,7 +10567,7 @@
           "photo": "photos/products/s-сироп_herbarista_сливочная_ириска_0_7л.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_сливочная_ириска_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -11736,7 +11736,7 @@
           "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
         }
       ],
-      "stock": 510,
+      "stock": 420,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg",
       "quarantined": false,
@@ -11833,7 +11833,7 @@
           "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg"
         }
       ],
-      "stock": 450,
+      "stock": 400,
       "tags": [],
       "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg",
       "quarantined": false,
@@ -11859,7 +11859,7 @@
           "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg"
         }
       ],
-      "stock": 405,
+      "stock": 360,
       "tags": [],
       "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg",
       "quarantined": false,
@@ -14366,7 +14366,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 8,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
