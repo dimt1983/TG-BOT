@@ -8,7 +8,7 @@
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
-<meta name="build" content="20260519-2055" />
+<meta name="build" content="20260527-linkshare" />
 <link rel="manifest" href="manifest.webmanifest?v=20260519-2055" />
 <link rel="stylesheet" href="tokens.css?v=20260519-2055" />
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -84,18 +84,104 @@ function toast(msg, ms = 1600) {
   toast._t = setTimeout(() => el.classList.remove('show'), ms);
 }
 
-function rbShareWebLink() {
-  const url = window.location.origin + '/tma/';
-  if (navigator.share) {
-    navigator.share({ title: 'Магазин Roastberry', url }).catch(() => {});
+const RB_CLIENT_SHOP_URL = 'https://tg-bot-production-ae5c.up.railway.app/tma/';
+const RB_CLIENT_SHOP_TITLE = 'Магазин Roastberry';
+const RB_CLIENT_SHOP_MESSAGE = 'Roastberry B2B: каталог, актуальные остатки и быстрый заказ.';
+
+async function rbCopyText(text) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch (e) {}
+
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.setAttribute('readonly', '');
+  ta.style.cssText = 'position:fixed;left:-9999px;top:0;opacity:0;';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch (e) {}
+  ta.remove();
+  return ok;
+}
+
+function rbOpenExternalLink(url) {
+  if (tg?.openLink) tg.openLink(url);
+  else window.open(url, '_blank', 'noopener');
+}
+
+function rbCloseClientLinkDialog() {
+  document.getElementById('rb-client-link-dialog')?.remove();
+}
+
+function rbShowClientLinkDialog() {
+  rbCloseClientLinkDialog();
+  const url = RB_CLIENT_SHOP_URL;
+  const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(RB_CLIENT_SHOP_MESSAGE)}`;
+  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(RB_CLIENT_SHOP_MESSAGE + '\n' + url)}`;
+  const el = document.createElement('div');
+  el.id = 'rb-client-link-dialog';
+  el.style.cssText = 'position:fixed;inset:0;z-index:99999;display:grid;place-items:end center;background:rgba(20,15,10,.34);padding:16px;';
+  el.innerHTML = `
+    <div style="width:min(420px,100%);background:#FAF7F2;color:#1F1B16;border:1px solid rgba(31,27,22,.12);border-radius:24px;box-shadow:0 24px 70px rgba(0,0,0,.24);padding:18px;">
+      <div style="display:flex;align-items:flex-start;gap:12px;">
+        <div style="flex:1;min-width:0;">
+          <div style="font-family:var(--f-display);font-size:20px;font-weight:800;line-height:1.1;">Ссылка на магазин</div>
+          <div style="margin-top:6px;color:var(--ink-soft);font-size:13px;line-height:1.35;">Готовая клиентская ссылка. Откроется в браузере, даже без Telegram.</div>
+        </div>
+        <button onclick="rbCloseClientLinkDialog()" style="width:38px;height:38px;border-radius:999px;border:1px solid var(--line);background:#fff;color:#1F1B16;font-size:24px;line-height:1;cursor:pointer;">×</button>
+      </div>
+      <input id="rb-client-link-input" readonly value="${url}" style="margin-top:14px;width:100%;height:46px;border-radius:14px;border:1px solid var(--line);background:#fff;color:#1F1B16;padding:0 12px;font-size:13px;font-family:var(--f-mono);" />
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;">
+        <button onclick="rbCopyClientLinkFromDialog()" style="height:46px;border:0;border-radius:999px;background:#1F1B16;color:#FAF7F2;font-weight:750;cursor:pointer;">Скопировать</button>
+        <button onclick="rbOpenExternalLink('${url}')" style="height:46px;border:1px solid var(--line);border-radius:999px;background:#fff;color:#1F1B16;font-weight:750;cursor:pointer;">Открыть</button>
+        <button onclick="rbOpenExternalLink('${telegramUrl}')" style="height:44px;border:1px solid var(--line);border-radius:999px;background:#fff;color:#1F1B16;font-weight:700;cursor:pointer;">Telegram</button>
+        <button onclick="rbOpenExternalLink('${whatsappUrl}')" style="height:44px;border:1px solid var(--line);border-radius:999px;background:#fff;color:#1F1B16;font-weight:700;cursor:pointer;">WhatsApp</button>
+      </div>
+    </div>`;
+  el.addEventListener('click', e => { if (e.target === el) rbCloseClientLinkDialog(); });
+  document.body.appendChild(el);
+  const input = document.getElementById('rb-client-link-input');
+  input?.focus();
+  input?.select();
+}
+
+async function rbCopyClientLinkFromDialog() {
+  const ok = await rbCopyText(RB_CLIENT_SHOP_URL);
+  if (ok) {
+    toast('Ссылка скопирована');
+    haptic('success');
   } else {
-    navigator.clipboard.writeText(url).then(() => {
-      toast('Ссылка скопирована');
-    }).catch(() => {
-      prompt('Ссылка на магазин:', url);
-    });
+    document.getElementById('rb-client-link-input')?.select();
+    toast('Выдели ссылку и скопируй вручную', 2400);
+    haptic('warning');
   }
-  haptic('light');
+}
+
+async function rbShareWebLink() {
+  const url = RB_CLIENT_SHOP_URL;
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: RB_CLIENT_SHOP_TITLE, text: RB_CLIENT_SHOP_MESSAGE, url });
+      haptic('success');
+      return;
+    } catch (e) {
+      if (e && e.name === 'AbortError') return;
+    }
+  }
+
+  const ok = await rbCopyText(url);
+  if (ok) {
+    toast('Ссылка скопирована');
+    haptic('success');
+  } else {
+    rbShowClientLinkDialog();
+    haptic('warning');
+  }
 }
 
 /* ════════════════════════════════════════════════════════════════════
