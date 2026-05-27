@@ -326,7 +326,7 @@
           "photo": "photos/products/t-althaus_ассам_меленг_чёрн_пакет_20х1_75г.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 7,
       "tags": [],
       "photo": "photos/products/t-althaus_ассам_меленг_чёрн_пакет_20х1_75г.jpg",
       "_source": "alephtrade",
@@ -960,7 +960,7 @@
           "photo": "photos/products/t-althaus_сенча_сенпай_зел_пакет_20х1_75г.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/t-althaus_сенча_сенпай_зел_пакет_20х1_75г.jpg",
       "_source": "alephtrade",
@@ -1011,7 +1011,7 @@
           "photo": "photos/products/t-althaus_чистая_мята_трав_20х1_75г.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/t-althaus_чистая_мята_трав_20х1_75г.jpg",
       "_source": "alephtrade",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 252,
+      "stock": 262,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 19,
+      "stock": 49,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5536,7 +5536,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 468,
+      "stock": 445,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8231,7 +8231,7 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 13,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
