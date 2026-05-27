@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 18,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1326,7 +1326,7 @@
           "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 29,
+      "stock": 28,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 259,
+      "stock": 258,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 20,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5470,7 +5470,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 73,
+      "stock": 71,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5503,7 +5503,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 23,
+      "stock": 19,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5536,7 +5536,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 509,
+      "stock": 508,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14972,6 +14972,46 @@
       "quarantined": false,
       "hidden": true,
       "photo": "assets/lemonades/yagody_i_elki.jpg"
+    },
+    {
+      "id": "espresso_micro_бразилия_sl28_хани_анаэроб_1_кг_эспрессо",
+      "name": "Бразилия \"SL28 Хани анаэроб.\" 1 кг - эспрессо",
+      "category": "espresso",
+      "subcategory": "espresso_micro",
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "E",
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-27T03:36:13+00:00",
+      "created_by": "sync_catalog_v2"
+    },
+    {
+      "id": "espresso_micro_бразилия_фазенда_лагуинья_мундо_анаэроб_эспрессо_1_кг",
+      "name": "Бразилия \"Фазенда Лагуинья мундо анаэроб.\" эспрессо 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_micro",
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "E",
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-05-27T03:36:13+00:00",
+      "created_by": "sync_catalog_v2"
     }
   ]
 }
