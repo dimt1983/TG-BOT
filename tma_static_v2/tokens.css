@@ -132,6 +132,7 @@
 .rb .chip--amber  { background: var(--amber-soft);  border-color: transparent; color: #8B5224; }
 .rb .chip--copper { background: var(--copper-soft); border-color: transparent; color: #7C5E2C; }
 .rb .chip--ink    { background: var(--ink); color: var(--bg); border-color: transparent; }
+.rb .chip--blue { background: rgba(43,108,176,0.14); color: #2B6CB0; }
 
 .rb--dark .chip--green  { color: #B4C8A0; }
 .rb--dark .chip--amber  { color: #E4B07D; }

@@ -63,7 +63,16 @@ const IS_TG = !!(tg && tg.initData && tg.initData.length > 0);
 // Бренд Roastberry — всегда светлый кремовый фон, независимо от темы Telegram/системы.
 const IS_DARK = false;
 
-function authHeaders() { return IS_TG ? { 'X-Tma-InitData': tg.initData } : {}; }
+const JWT_KEY = 'rb_v2_jwt';
+function getJwt() { try { return localStorage.getItem(JWT_KEY) || ''; } catch (e) { return ''; } }
+function setJwt(t) { try { t ? localStorage.setItem(JWT_KEY, t) : localStorage.removeItem(JWT_KEY); } catch (e) {} }
+// Личность есть, если открыто в Telegram ИЛИ есть гостевой/web JWT.
+function hasIdentity() { return IS_TG || !!getJwt(); }
+function authHeaders() {
+  if (IS_TG) return { 'X-Tma-InitData': tg.initData };
+  const t = getJwt();
+  return t ? { 'Authorization': 'Bearer ' + t } : {};
+}
 function haptic(kind = 'light') {
   try {
     if (kind === 'success' || kind === 'error' || kind === 'warning') tg?.HapticFeedback?.notificationOccurred?.(kind);
@@ -198,6 +207,7 @@ const STATE = {
   data: null,                    // products.json
   cart: [],                      // [{id, fasovka, qty}]
   favorites: [],                 // [id]
+  boughtBefore: [],              // [tma_id] — товары, что клиент уже заказывал
   screen: 'home',                // home | catalog | product | cart | checkout | profile
   cat: null,                     // top categoryId for catalog
   subcat: null,                  // drill-cursor — указывает где мы внутри иерархии (любой subcat id)
@@ -1135,6 +1145,7 @@ function screenCatalog() {
                     ${p.roast ? `<span class="roast${p.roast === 'F' ? ' roast--f' : ''}" style="width:16px; height:16px; font-size:9px;">${esc(p.roast)}</span>` : ''}
                     ${isLim ? `<span class="chip chip--copper" style="padding:1px 7px; font-size:10px; height:18px;">Лимит</span>` : ''}
                     ${stockBadge(p)}
+                    ${wasBought(p) ? `<span class="chip chip--ink" style="padding:1px 7px; font-size:10px; height:18px;">Брали раньше</span>` : ''}
                   </div>
                   <div style="font-family:var(--f-display); font-weight:700; font-size:15px; line-height:1.15; margin-bottom:3px;">${esc(p.name)}</div>
                   <div class="meta" style="font-size:9.5px; color:var(--ink-faint);">${esc(meta || ' ')}</div>
@@ -1230,6 +1241,7 @@ function screenCatalog() {
                     ${p.roast ? `<span class="roast${p.roast === 'F' ? ' roast--f' : ''}" style="width:16px; height:16px; font-size:9px;">${esc(p.roast)}</span>` : ''}
                     ${isLim ? `<span class="chip chip--copper" style="padding:1px 7px; font-size:10px; height:18px;">Лимит</span>` : ''}
                     ${stockBadge(p)}
+                    ${wasBought(p) ? `<span class="chip chip--ink" style="padding:1px 7px; font-size:10px; height:18px;">Брали раньше</span>` : ''}
                   </div>
                   <div style="font-family:var(--f-display); font-weight:700; font-size:15px; line-height:1.15; margin-bottom:3px;">${esc(p.name)}</div>
                   <div class="meta" style="font-size:9.5px; color:var(--ink-faint);">${esc(meta || ' ')}</div>
@@ -1300,7 +1312,7 @@ function screenProduct() {
 <div style="position:sticky; top:0; z-index:12; display:flex; align-items:center; justify-content:space-between; padding:54px 16px 12px; background:transparent;">
   <button onclick="rb.back()" style="width:38px; height:38px; border-radius:999px; background:rgba(255,255,255,0.85); backdrop-filter:blur(10px); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;">${icon('back')}</button>
   <div style="display:flex; gap:6px;">
-    <button style="width:38px; height:38px; border-radius:999px; background:rgba(255,255,255,0.85); backdrop-filter:blur(10px); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;">${icon('heart')}</button>
+    <button onclick="rb.toggleFav('${esc(p.id)}')" style="width:38px; height:38px; border-radius:999px; background:rgba(255,255,255,0.85); backdrop-filter:blur(10px); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color:${rb.isFav(p) ? 'var(--danger)' : 'var(--ink-soft)'};">${icon('heart')}</button>
     <button style="width:38px; height:38px; border-radius:999px; background:rgba(255,255,255,0.85); backdrop-filter:blur(10px); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;">${icon('more')}</button>
   </div>
 </div>
@@ -1737,6 +1749,21 @@ ${appHeader({ back: true, title: 'Оформление' })}
 /* ════════════════════════════════════════════════════════════════════
    SCREEN: PROFILE (B2B)
    ════════════════════════════════════════════════════════════════════ */
+const ORDER_STATUS = {
+  new:       { label: 'Новый',    cls: 'ink'   },
+  confirmed: { label: 'Принят',   cls: 'blue'  },
+  paid:      { label: 'Оплачен',  cls: 'green' },
+  done:      { label: 'Выполнен', cls: 'green' },
+  cancelled: { label: 'Отменён',  cls: 'amber' },
+};
+function orderStatusView(s) {
+  return ORDER_STATUS[String(s || 'new').toLowerCase()] || { label: String(s || ''), cls: 'ink' };
+}
+function wasBought(p) {
+  if (!p || !STATE.boughtBefore || !STATE.boughtBefore.length) return false;
+  const ids = STATE.boughtBefore.map(String);
+  return ids.indexOf(String(p.id)) !== -1 || (p.tma_id != null && ids.indexOf(String(p.tma_id)) !== -1);
+}
 function screenProfile() {
   const tgUser = tg?.initDataUnsafe?.user;
   const name = tgUser ? (tgUser.first_name || '') + (tgUser.last_name ? ' ' + tgUser.last_name : '') : 'Гость';
@@ -1768,7 +1795,7 @@ ${appHeader({ title: 'Профиль', action: `<button class="btn-ghost" style=
   <div class="eyebrow" style="margin-bottom:10px;">Быстро</div>
   <div class="card" style="overflow:hidden;">
     ${[
-      ['flame', 'Повторить последний заказ', 'скоро', null],
+      ['flame', 'Заказывали раньше', STATE.boughtBefore.length ? STATE.boughtBefore.length + ' тов.' : 'пока пусто', STATE.boughtBefore.length ? "rb.go('bought')" : null],
       ['doc',   'Каталог кофейный',          'XLSX · актуальный прайс', 'rbOpenCoffeeCatalog()'],
       ['truck', 'Адреса доставки',           'добавить', null],
       ['cup',   'Подписка «Свежая обжарка»', 'скоро', null],
@@ -1799,8 +1826,7 @@ ${(() => {
     </div>
     <div style="padding:0 16px; display:flex; flex-direction:column; gap:8px;">
       ${orders.slice(0, 5).map(o => {
-        const status = o.status || 'new';
-        const statusColor = /доставлен|complete|paid|оплачен/i.test(status) ? 'green' : /отмен|cancel/i.test(status) ? 'amber' : 'ink';
+        const sv = orderStatusView(o.status);
         const itemsCount = Array.isArray(o.items) ? o.items.length : (o.items_count || 0);
         const dt = (o.created_at || '').replace(/T/, ' ').slice(0, 16);
         return `
@@ -1808,7 +1834,7 @@ ${(() => {
             <div style="flex:1; min-width:0;">
               <div style="display:flex; align-items:center; gap:8px;">
                 <span style="font-family:var(--f-mono); font-size:12px; font-weight:600;">#${esc(o.id || o.order_id || '')}</span>
-                <span class="chip chip--${statusColor}" style="height:18px; font-size:10px; padding:0 6px;">${esc(status)}</span>
+                <span class="chip chip--${sv.cls}" style="height:18px; font-size:10px; padding:0 6px;">${esc(sv.label)}</span>
               </div>
               <div style="margin-top:4px; font-size:13px; color:var(--ink-soft);">${esc(dt)}${itemsCount ? ' · ' + itemsCount + ' поз.' : ''}</div>
             </div>
@@ -3089,8 +3115,48 @@ const rb = {
       STATE.contact[key] = value;
     }
   },
+  obType(t) { STATE.contact.type = t; render(); },
+  obSkip() {
+    localStorage.setItem('rb_v2_onboarded', '1');
+    STATE.screen = 'home'; render();
+  },
+  async obSubmit() {
+    const web = !IS_TG;
+    if (web) {
+      const nm = (document.getElementById('ob-name')?.value || '').trim();
+      const ph = (document.getElementById('ob-phone')?.value || '').trim();
+      if (!nm) { toast('Введите имя'); return; }
+      if (ph.replace(/\D/g, '').length < 10) { toast('Введите телефон'); return; }
+      STATE.contact.name = nm; STATE.contact.phone = ph;
+      try {
+        const r = await fetch('/tma/api/auth/guest', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: nm, phone: ph })
+        });
+        const j = await r.json();
+        if (!r.ok || !j.token) { toast(j.error || 'Не удалось войти'); return; }
+        setJwt(j.token);
+      } catch (e) { toast('Сеть недоступна'); return; }
+    }
+    try {
+      await fetch('/tma/api/user/type', {
+        method: 'POST', headers: Object.assign({ 'Content-Type': 'application/json' }, authHeaders()),
+        body: JSON.stringify({ user_type: STATE.contact.type === 'company' ? 'company' : 'individual' })
+      });
+    } catch (e) {}
+    localStorage.setItem('rb_v2_onboarded', '1');
+    saveProfile();
+    STATE.screen = 'home'; render();
+    syncFavoritesFromServer();
+  },
   setClientType(t) {
     STATE.contact.type = t;
+    if (hasIdentity()) {
+      fetch('/tma/api/user/type', {
+        method: 'POST', headers: Object.assign({ 'Content-Type': 'application/json' }, authHeaders()),
+        body: JSON.stringify({ user_type: t === 'company' ? 'company' : 'individual' })
+      }).catch(() => {});
+    }
     haptic('light'); render();
   },
   setDelivery(method) {
@@ -3215,14 +3281,46 @@ const rb = {
   },
   /* ────────── ADMIN ────────── */
   async loadMyOrders() {
-    if (!IS_TG) { STATE.myOrders = []; return; }
+    if (!hasIdentity()) { STATE.myOrders = []; return; }
     try {
-      const r = await fetch('/tma/api/my_orders?limit=10', { headers: authHeaders() });
-      if (!r.ok) { STATE.myOrders = []; return; }
+      const r = await fetch('/tma/api/my_orders', { headers: authHeaders() });
+      if (!r.ok) { STATE.myOrders = []; render(); return; }
       const j = await r.json();
       STATE.myOrders = Array.isArray(j) ? j : (j.orders || j.items || []);
     } catch (e) { STATE.myOrders = []; }
     render();
+  },
+  async loadBoughtBefore() {
+    if (!hasIdentity()) { STATE.boughtBefore = []; return; }
+    try {
+      const r = await fetch('/tma/api/my_products', { headers: authHeaders() });
+      if (!r.ok) { STATE.boughtBefore = []; return; }
+      const j = await r.json();
+      STATE.boughtBefore = Array.isArray(j.tma_ids) ? j.tma_ids : [];
+    } catch (e) { STATE.boughtBefore = []; }
+    render();
+  },
+  isFav(p) {
+    if (!p) return false;
+    const ids = (STATE.favorites || []).map(String);
+    return ids.indexOf(String(p.id)) !== -1 || (p.tma_id != null && ids.indexOf(String(p.tma_id)) !== -1);
+  },
+  async toggleFav(id) {
+    id = String(id);
+    const arr = (STATE.favorites || []).map(String);
+    const i = arr.indexOf(id);
+    if (i === -1) arr.push(id); else arr.splice(i, 1);   // оптимистично
+    STATE.favorites = arr;
+    saveLocal(); render(); haptic('light');
+    if (!hasIdentity()) return;
+    try {
+      const r = await fetch('/tma/api/favorites/toggle', {
+        method: 'POST', headers: Object.assign({ 'Content-Type': 'application/json' }, authHeaders()),
+        body: JSON.stringify({ tma_id: id })
+      });
+      const j = await r.json();
+      if (r.ok && Array.isArray(j.tma_ids)) { STATE.favorites = j.tma_ids.map(String); saveLocal(); render(); }
+    } catch (e) {}
   },
   async openAdmin() {
     if (!STATE.isAdmin) { toast('Только для админов'); return; }
@@ -3671,16 +3769,84 @@ function rbHeroSync(el) {
   });
 }
 
+function screenOnboarding() {
+  const web = !IS_TG;
+  const c = STATE.contact;
+  const seg = (on) => `flex:1;padding:13px;border-radius:12px;border:1px solid var(--line);font-weight:600;${on ? 'background:var(--coffee);color:#F5EBDD;' : 'background:var(--surface-2);color:var(--ink);'}`;
+  return `
+<div style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:32px 20px;gap:20px;">
+  <div style="text-align:center;">
+    <div style="font-family:var(--f-display);font-weight:800;font-size:26px;">Добро пожаловать в Roastberry</div>
+    <div style="margin-top:8px;color:var(--ink-soft);font-size:14px;">Пара деталей — и вы в каталоге.</div>
+  </div>
+  ${web ? `
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    <input id="ob-name" placeholder="Ваше имя" value="${esc(c.name || '')}" style="padding:13px;border-radius:12px;border:1px solid var(--line);font-size:15px;">
+    <input id="ob-phone" placeholder="Телефон" inputmode="tel" value="${esc(c.phone || '')}" style="padding:13px;border-radius:12px;border:1px solid var(--line);font-size:15px;">
+  </div>` : ''}
+  <div>
+    <div class="eyebrow" style="margin-bottom:8px;">Вы покупаете как</div>
+    <div style="display:flex;gap:8px;">
+      <button id="ob-type-person" style="${seg(c.type !== 'company')}" onclick="rb.obType('person')">Физлицо</button>
+      <button id="ob-type-company" style="${seg(c.type === 'company')}" onclick="rb.obType('company')">Компания</button>
+    </div>
+  </div>
+  <button class="cta cta--coffee" style="width:100%;padding:15px;font-size:16px;" onclick="rb.obSubmit()">Продолжить</button>
+  <div style="text-align:center;"><a style="cursor:pointer;color:var(--ink-soft);font-size:13px;" onclick="rb.obSkip()">Пропустить</a></div>
+</div>`;
+}
+
+function screenBought() {
+  const ids = new Set((STATE.boughtBefore || []).map(String));
+  const list = (STATE.data?.products || []).filter(p => ids.has(String(p.id)) || (p.tma_id != null && ids.has(String(p.tma_id))));
+  return `
+${appHeader({ title: 'Заказывали раньше', back: true })}
+<div style="padding:12px 16px; display:flex; flex-direction:column; gap:8px;">
+  ${list.length ? list.map(p => `
+    <div class="card" onclick="rb.openProduct('${esc(p.id)}')" style="display:flex; gap:12px; padding:12px; align-items:center; cursor:pointer;">
+      ${productImg(p, '1', 'width:52px; height:52px; flex:0 0 auto; border-radius:8px;')}
+      <div style="flex:1; min-width:0;">
+        <div style="font-family:var(--f-display); font-weight:700; font-size:14px; line-height:1.15;">${esc(p.name)}</div>
+        <div class="meta" style="font-size:9.5px; margin-top:2px; color:var(--ink-faint);">${esc(p.country || '')}</div>
+      </div>
+      <span style="color:var(--ink-faint);">→</span>
+    </div>`).join('') : `<div class="card" style="padding:24px; text-align:center; color:var(--ink-soft); font-size:13px;">Здесь появятся товары, которые вы уже заказывали.</div>`}
+</div>`;
+}
+
+async function syncFavoritesFromServer() {
+  if (!hasIdentity()) return;
+  try {
+    if (!localStorage.getItem('rb_v2_fav_migrated') && (STATE.favorites || []).length) {
+      // одноразовая миграция localStorage → сервер (add-only, ничего не теряем)
+      const rm = await fetch('/tma/api/favorites/merge', {
+        method: 'POST', headers: Object.assign({ 'Content-Type': 'application/json' }, authHeaders()),
+        body: JSON.stringify({ tma_ids: STATE.favorites.map(String) })
+      });
+      const jm = await rm.json();
+      if (rm.ok && Array.isArray(jm.tma_ids)) STATE.favorites = jm.tma_ids.map(String);
+      localStorage.setItem('rb_v2_fav_migrated', '1');
+    } else {
+      const r = await fetch('/tma/api/favorites', { headers: authHeaders() });
+      const j = await r.json();
+      if (r.ok && Array.isArray(j.tma_ids)) STATE.favorites = j.tma_ids.map(String);
+    }
+    saveLocal(); render();
+  } catch (e) {}
+}
+
 function render() {
   const root = document.getElementById('root');
   let body = '';
   switch (STATE.screen) {
+    case 'onboarding': body = screenOnboarding(); break;
     case 'home':    body = screenHome(); break;
     case 'catalog': body = screenCatalog(); break;
     case 'product': body = screenProduct(); break;
     case 'cart':    body = screenCart(); break;
     case 'checkout': body = screenCheckout(); break;
     case 'profile': body = screenProfile(); break;
+    case 'bought':  body = screenBought(); break;
     case 'search':  body = screenSearch(); break;
     case 'admin':       body = screenAdmin(); break;
     case 'admin-order': body = screenAdminOrder(); break;
@@ -3743,8 +3909,15 @@ async function init() {
     return;
   }
   await checkAdmin();
+  // Онбординг только для новых: не онбордились ранее и нет сохранённого профиля.
+  const _hasProfile = !!(STATE.contact && STATE.contact.name);
+  if (!localStorage.getItem('rb_v2_onboarded') && !_hasProfile) {
+    STATE.screen = 'onboarding';
+  }
   _writeBrowserNav('replace');
   render();
+  rb.loadBoughtBefore();
+  syncFavoritesFromServer();
   // Service Worker не регистрируем: внутри Telegram он только мешает (агрессивный кэш HTML/JS).
   // Если хочешь PWA-режим в браузере — раскомментируй ниже.
   // if ('serviceWorker' in navigator && !(tg && tg.initData)) {
