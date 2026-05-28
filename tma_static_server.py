@@ -33,6 +33,7 @@ from http.server import HTTPServer, ThreadingHTTPServer, BaseHTTPRequestHandler
 from urllib.parse import unquote, parse_qsl, urlparse, parse_qs, quote
 import urllib.request
 import urllib.error
+import customer_account
 
 PORT = int(os.environ.get("PORT", 10000))
 TMA_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tma_static")
@@ -101,6 +102,14 @@ def set_tma_api_handler(bot, get_db, notify_new_order, main_loop, bot_token,
         pass
     try:
         _ensure_pricing_schema()
+    except Exception:
+        pass
+    try:
+        con_fav = sqlite3.connect(DB_PATH)
+        try:
+            customer_account.ensure_favorites_table(con_fav)
+        finally:
+            con_fav.close()
     except Exception:
         pass
 
@@ -713,43 +722,77 @@ class Handler(BaseHTTPRequestHandler):
 
         # ── /tma/api/my_orders ───────────────────────────────────────────────
         if path == "/tma/api/my_orders":
-            qs = parse_qs(urlparse(self.path).query)
-            tg_id_raw = qs.get("tg_id", [""])[0]
-            # Допускаем отрицательные id для гостей (guest_id = -hash(phone))
-            try:
-                tg_id = int(tg_id_raw)
-            except (TypeError, ValueError):
-                self._send(400, b'{"error":"tg_id required"}', "application/json")
+            user = _get_request_user(self)
+            if not user or not user.get("id"):
+                self._send(401, _j({"error": "auth required"}), "application/json; charset=utf-8")
                 return
+            uid = int(user["id"])
             try:
                 con = sqlite3.connect(DB_PATH)
                 con.row_factory = sqlite3.Row
                 try:
-                    ord_cols = {r[1] for r in con.execute("PRAGMA table_info(orders)").fetchall()}
-                    it_cols  = {r[1] for r in con.execute("PRAGMA table_info(order_items)").fetchall()}
+                    ord_cols = {r[1] for r in con.execute("PRAGMA table_info(orders)")}
+                    it_cols  = {r[1] for r in con.execute("PRAGMA table_info(order_items)")}
+                    order_ids = customer_account.resolve_customer_order_ids(con, uid)[:50]
                     extra = [c for c in ("total_kg", "discount", "comment") if c in ord_cols]
                     sel = ",".join(["id", "total", "status", "created_at"] + extra)
-                    orders = con.execute(
-                        f"SELECT {sel} FROM orders WHERE user_id=? ORDER BY id DESC LIMIT 50",
-                        (tg_id,)
-                    ).fetchall()
                     name_expr    = "oi.product_name" if "product_name" in it_cols else "p.name as product_name"
                     fasovka_expr = "oi.fasovka"       if "fasovka"       in it_cols else "NULL as fasovka"
                     out = []
-                    for o in orders:
+                    for oid in order_ids:
+                        o = con.execute(f"SELECT {sel} FROM orders WHERE id=?", (oid,)).fetchone()
+                        if not o:
+                            continue
                         items = con.execute(
                             f"SELECT oi.quantity, oi.price, {name_expr}, {fasovka_expr} "
                             f"FROM order_items oi LEFT JOIN products p ON oi.product_id=p.id "
                             f"WHERE oi.order_id=? ORDER BY oi.id",
-                            (o["id"],)
+                            (oid,),
                         ).fetchall()
                         out.append({**dict(o), "items": [dict(i) for i in items]})
                 finally:
                     con.close()
                 self._send(200, _j({"orders": out}), "application/json; charset=utf-8",
-                           {"Cache-Control": "no-cache"})
+                           {"Cache-Control": "no-store"})
             except Exception as e:
                 self._send(500, _j({"error": str(e)}), "application/json")
+            return
+
+        if path == "/tma/api/my_products":
+            user = _get_request_user(self)
+            if not user or not user.get("id"):
+                self._send(401, _j({"error": "auth required"}), "application/json; charset=utf-8")
+                return
+            try:
+                con = sqlite3.connect(DB_PATH)
+                con.row_factory = sqlite3.Row
+                try:
+                    tma_ids = customer_account.get_purchased_tma_ids(con, int(user["id"]))
+                finally:
+                    con.close()
+                self._send(200, _j({"tma_ids": tma_ids}), "application/json; charset=utf-8",
+                           {"Cache-Control": "no-store"})
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
+            return
+
+        if path == "/tma/api/favorites":
+            user = _get_request_user(self)
+            if not user or not user.get("id"):
+                self._send(401, _j({"error": "auth required"}), "application/json; charset=utf-8")
+                return
+            try:
+                con = sqlite3.connect(DB_PATH)
+                con.row_factory = sqlite3.Row
+                try:
+                    customer_account.ensure_favorites_table(con)
+                    ids = customer_account.get_favorites(con, int(user["id"]))
+                finally:
+                    con.close()
+                self._send(200, _j({"tma_ids": ids}), "application/json; charset=utf-8",
+                           {"Cache-Control": "no-store"})
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
             return
 
         # ── /tma/api/admin/check ─────────────────────────────────────────────
@@ -1239,6 +1282,72 @@ class Handler(BaseHTTPRequestHandler):
         # ── Создать заказ ────────────────────────────────────────────────────
         if path == "/tma/api/order":
             self._handle_tma_order()
+            return
+
+        if path == "/tma/api/user/type":
+            user = _get_request_user(self)
+            if not user or not user.get("id"):
+                self._send(401, _j({"error": "auth required"}), "application/json; charset=utf-8")
+                return
+            body = self._read_body() or {}
+            try:
+                con = sqlite3.connect(DB_PATH)
+                try:
+                    customer_account.set_user_type(con, int(user["id"]),
+                                                   str(body.get("user_type", "")))
+                finally:
+                    con.close()
+                self._send(200, _j({"ok": True}), "application/json; charset=utf-8")
+            except ValueError as e:
+                self._send(400, _j({"error": str(e)}), "application/json; charset=utf-8")
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
+            return
+
+        if path == "/tma/api/favorites/toggle":
+            user = _get_request_user(self)
+            if not user or not user.get("id"):
+                self._send(401, _j({"error": "auth required"}), "application/json; charset=utf-8")
+                return
+            body = self._read_body() or {}
+            tma_id = str(body.get("tma_id", "")).strip()
+            if not tma_id:
+                self._send(400, _j({"error": "tma_id required"}), "application/json; charset=utf-8")
+                return
+            try:
+                con = sqlite3.connect(DB_PATH)
+                con.row_factory = sqlite3.Row
+                try:
+                    customer_account.ensure_favorites_table(con)
+                    ids = customer_account.toggle_favorite(con, int(user["id"]), tma_id)
+                finally:
+                    con.close()
+                self._send(200, _j({"tma_ids": ids}), "application/json; charset=utf-8")
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
+            return
+
+        if path == "/tma/api/favorites/merge":
+            user = _get_request_user(self)
+            if not user or not user.get("id"):
+                self._send(401, _j({"error": "auth required"}), "application/json; charset=utf-8")
+                return
+            body = self._read_body() or {}
+            tma_ids = body.get("tma_ids") or []
+            if not isinstance(tma_ids, list):
+                self._send(400, _j({"error": "tma_ids must be a list"}), "application/json; charset=utf-8")
+                return
+            try:
+                con = sqlite3.connect(DB_PATH)
+                con.row_factory = sqlite3.Row
+                try:
+                    customer_account.ensure_favorites_table(con)
+                    ids = customer_account.merge_favorites(con, int(user["id"]), tma_ids)
+                finally:
+                    con.close()
+                self._send(200, _j({"tma_ids": ids}), "application/json; charset=utf-8")
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
             return
 
         # ── Отправить КП аренды в личку ──────────────────────────────────────
@@ -1745,11 +1854,10 @@ class Handler(BaseHTTPRequestHandler):
             self._send(503, _j({"ok": False, "error": "API не инициализирован"}),
                        "application/json")
             return
-        init_data = self.headers.get("X-Tma-InitData", "")
-        user = verify_tma_init_data(init_data, _TMA_CTX["bot_token"])
+        user = _get_request_user(self)
         if not user or not user.get("id"):
             self._send(401, _j({"ok": False,
-                                "error": "Откройте магазин из Telegram (initData невалидна)"}),
+                                "error": "Требуется авторизация (Telegram или гостевой вход)"}),
                        "application/json; charset=utf-8")
             return
         payload = self._read_body()
