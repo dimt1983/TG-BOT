@@ -296,7 +296,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2250,
+          "price": 2250.0,
           "photo": "photos/products/t-althaus_ассам_меленг_чёрн_лист_250г.jpg"
         }
       ],
@@ -322,7 +322,7 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 515,
+          "price": 515.0,
           "photo": "photos/products/t-althaus_ассам_меленг_чёрн_пакет_20х1_75г.jpg"
         }
       ],
@@ -349,7 +349,7 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 998,
+          "price": 998.0,
           "photo": "photos/products/t-althaus_ассам_молти_кап_15х4г.jpg"
         }
       ],
@@ -375,7 +375,7 @@
       "fasovka": [
         {
           "size": "3 г",
-          "price": 1220,
+          "price": 1220.0,
           "photo": "photos/products/t-althaus_благородная_ромашка_трав_15х3г.jpg"
         }
       ],
@@ -401,7 +401,7 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 998,
+          "price": 998.0,
           "photo": "photos/products/t-althaus_горные_травы_чёрн_15х4г.jpg"
         }
       ],
@@ -428,11 +428,11 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2320,
+          "price": 2320.0,
           "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 4,
       "tags": [],
       "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg",
       "_source": "alephtrade",
@@ -454,7 +454,7 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 998,
+          "price": 998.0,
           "photo": "photos/products/t-althaus_грюн_матинэ_зел_аром_15х4г.jpg"
         }
       ],
@@ -480,7 +480,7 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 495,
+          "price": 495.0,
           "photo": "photos/products/t-althaus_грюн_матинэ_зел_аром_20х1_75г.jpg"
         }
       ],
@@ -507,7 +507,7 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 480,
+          "price": 480.0,
           "photo": "photos/products/t-althaus_жасмин_тинг_юань_зел_аром_20х1_75г.jpg"
         }
       ],
@@ -534,7 +534,7 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 998,
+          "price": 998.0,
           "photo": "photos/products/t-althaus_жасминовый_тинг_юань_15х4г.jpg"
         }
       ],
@@ -561,7 +561,7 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 551,
+          "price": 551.0,
           "photo": "photos/products/t-althaus_женьшеневое_равновесие_трав_20х1_75г.jpg"
         }
       ],
@@ -588,7 +588,7 @@
       "fasovka": [
         {
           "size": "150 г",
-          "price": 1760,
+          "price": 1760.0,
           "photo": "photos/products/t-althaus_лемон_минт_трав_150г.jpg"
         }
       ],
@@ -614,7 +614,7 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 1630,
+          "price": 1630.0,
           "photo": "photos/products/t-althaus_молочный_улун_зел_15х4г.jpg"
         }
       ],
@@ -640,7 +640,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 4490,
+          "price": 4490.0,
           "photo": "photos/products/t-althaus_молочный_улун_зел_лист_250г.jpg"
         }
       ],
@@ -666,7 +666,7 @@
       "fasovka": [
         {
           "size": "3 г",
-          "price": 1130,
+          "price": 1130.0,
           "photo": "photos/products/t-althaus_нежная_мята_трав_15х3г.jpg"
         }
       ],
@@ -693,7 +693,7 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 480,
+          "price": 480.0,
           "photo": "photos/products/t-althaus_персидское_яблоко_фрукт_20х2_5г.jpg"
         }
       ],
@@ -720,7 +720,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1760,
+          "price": 1760.0,
           "photo": "photos/products/t-althaus_ред_фрут_флаш_фрукт_лист_250г.jpg"
         }
       ],
@@ -746,7 +746,7 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 1063,
+          "price": 1063.0,
           "photo": "photos/products/t-althaus_ред_фрут_фраш_фрукт_15х4г.jpg"
         }
       ],
@@ -773,7 +773,7 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 480,
+          "price": 480.0,
           "photo": "photos/products/t-althaus_ройал_эрл_грей_чёрн_аром_20х1_75г.jpg"
         }
       ],
@@ -799,7 +799,7 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 609,
+          "price": 609.0,
           "photo": "photos/products/t-althaus_ройбуш_ваниль_пакет_20х1_75г.jpg"
         }
       ],
@@ -826,7 +826,7 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 1200,
+          "price": 1200.0,
           "photo": "photos/products/t-althaus_ройбуш_ванильная_карамель_15х4г.jpg"
         }
       ],
@@ -853,10 +853,10 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1200
+          "price": 1200.0
         }
       ],
-      "stock": 4,
+      "stock": 1,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -876,7 +876,7 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 551,
+          "price": 551.0,
           "photo": "photos/products/t-althaus_ромашковый_луг_трав_20х1_75г.jpg"
         }
       ],
@@ -903,7 +903,7 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 998,
+          "price": 998.0,
           "photo": "photos/products/t-althaus_сенча_сенпай_зел_15х4г.jpg"
         }
       ],
@@ -930,7 +930,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2215,
+          "price": 2215.0,
           "photo": "photos/products/t-althaus_сенча_сенпай_зел_лист_250г.jpg"
         }
       ],
@@ -956,7 +956,7 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 515,
+          "price": 515.0,
           "photo": "photos/products/t-althaus_сенча_сенпай_зел_пакет_20х1_75г.jpg"
         }
       ],
@@ -983,7 +983,7 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 609
+          "price": 609.0
         }
       ],
       "stock": 4,
@@ -1007,7 +1007,7 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 536,
+          "price": 536.0,
           "photo": "photos/products/t-althaus_чистая_мята_трав_20х1_75г.jpg"
         }
       ],
@@ -1034,11 +1034,11 @@
       "fasovka": [
         {
           "size": "75 г",
-          "price": 1590,
+          "price": 1590.0,
           "photo": "photos/products/t-althaus_японская_липа_трав_75г.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 4,
       "tags": [],
       "photo": "photos/products/t-althaus_японская_липа_трав_75г.jpg",
       "_source": "alephtrade",
@@ -1060,11 +1060,9 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2160,
+          "price": 2160.0,
           "on_request": false,
-          "photo": "photos/products/c-be_roastberry_fresh_-_1_кг.jpg",
-          "gtin": "04627529014859",
-          "marking_required": true
+          "photo": "photos/products/c-be_roastberry_fresh_-_1_кг.jpg"
         }
       ],
       "stock": 6,
@@ -1073,8 +1071,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "_source": "BE \"Roastberry\" FRESH  - 1 кг",
-      "tasting_notes": "Свежеобжаренный кофе. Сбалансированный вкус."
+      "_source": "BE \"Roastberry\" FRESH  - 1 кг"
     },
     {
       "id": "retail_be_roastberry_биттер_-_1_кг",
@@ -1084,14 +1081,12 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 1910,
+          "price": 1910.0,
           "on_request": false,
-          "photo": "photos/products/retail_be_roastberry_биттер_-_1_кг.jpg",
-          "gtin": "04627529014866",
-          "marking_required": true
+          "photo": "photos/products/retail_be_roastberry_биттер_-_1_кг.jpg"
         }
       ],
-      "stock": 31,
+      "stock": 21,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1102,11 +1097,7 @@
       "_source": "BE \"Roastberry\" БИТТЕР - 1 кг",
       "description": "Бразилия + Индия Робуста. Классический горьковато-шоколадный профиль.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо; штат Эспириту-Санту",
-      "altitude": "1380-1430",
-      "process": "Натуральный",
-      "tasting_notes": "Классический горьковато-шоколадный профиль."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_be_roastberry_биттер_200_г",
@@ -1116,12 +1107,10 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 410,
+          "price": 410.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_биттер_200_г.jpg",
-          "stock": 10,
-          "gtin": "04640668930033",
-          "marking_required": true
+          "stock": 10
         }
       ],
       "stock": 10,
@@ -1135,11 +1124,7 @@
       "_source": "BE \"Roastberry\" БИТТЕР - 1 кг",
       "description": "Бразилия + Индия Робуста. Классический горьковато-шоколадный профиль.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо; штат Эспириту-Санту",
-      "altitude": "1380-1430",
-      "process": "Натуральный",
-      "tasting_notes": "Классический горьковато-шоколадный профиль."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_be_roastberry_венеция_-_1_кг",
@@ -1149,14 +1134,12 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2015,
+          "price": 2015.0,
           "on_request": false,
-          "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg",
-          "gtin": "04627529014873",
-          "marking_required": true
+          "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1167,11 +1150,7 @@
       "_source": "BE \"Roastberry\" ВЕНЕЦИЯ - 1 кг",
       "description": "Классическая итальянская эспрессо-смесь. Шоколад, орех, плотное тело.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо; Сидамо",
-      "altitude": "—",
-      "process": "Мытая,натуральная",
-      "tasting_notes": "Классическая итальянская эспрессо-смесь. Шоколад, орех, плотное тело."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_be_roastberry_венеция_200_г",
@@ -1181,12 +1160,10 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 435,
+          "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_венеция_200_г.jpg",
-          "stock": 19,
-          "gtin": "04640668930040",
-          "marking_required": true
+          "stock": 19
         }
       ],
       "stock": 19,
@@ -1200,11 +1177,7 @@
       "_source": "BE \"Roastberry\" ВЕНЕЦИЯ - 1 кг",
       "description": "Классическая итальянская эспрессо-смесь. Шоколад, орех, плотное тело.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо; Сидамо",
-      "altitude": "—",
-      "process": "Мытая,натуральная",
-      "tasting_notes": "Классическая итальянская эспрессо-смесь. Шоколад, орех, плотное тело."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_be_roastberry_классика_20_-_1_кг",
@@ -1214,11 +1187,9 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 1975,
+          "price": 1975.0,
           "on_request": false,
-          "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg",
-          "gtin": "04627529014880",
-          "marking_required": true
+          "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
       "stock": 104,
@@ -1232,11 +1203,7 @@
       "_source": "BE \"Roastberry\" КЛАССИКА   - 1 кг",
       "description": "Классическая смесь для эспрессо. Сбалансированный вкус с шоколадными и ореховыми нотами.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо; штат Эспириту-Санту",
-      "altitude": "—",
-      "process": "Натуральная",
-      "tasting_notes": "Классическая смесь для эспрессо. Сбалансированный вкус с шоколадными и ореховыми нотами."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_be_roastberry_классика_20_200_г",
@@ -1246,12 +1213,10 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 425,
+          "price": 425.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_классика_20_200_г.jpg",
-          "stock": 2,
-          "gtin": "04640668930057",
-          "marking_required": true
+          "stock": 2
         }
       ],
       "stock": 2,
@@ -1265,11 +1230,7 @@
       "_source": "BE \"Roastberry\" КЛАССИКА   - 1 кг",
       "description": "Классическая смесь для эспрессо. Сбалансированный вкус с шоколадными и ореховыми нотами.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо; штат Эспириту-Санту",
-      "altitude": "—",
-      "process": "Натуральная",
-      "tasting_notes": "Классическая смесь для эспрессо. Сбалансированный вкус с шоколадными и ореховыми нотами."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_be_roastberry_хани_-_1_кг",
@@ -1279,14 +1240,12 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2015,
+          "price": 2015.0,
           "on_request": false,
-          "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg",
-          "gtin": "04627529014897",
-          "marking_required": true
+          "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 18,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1297,11 +1256,7 @@
       "_source": "BE \"Roastberry\" ХАНИ - 1 кг",
       "description": "Бразилия + Эфиопия натуральная. Сладкая смесь с нотами мёда и сухофруктов.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо, Сидамо",
-      "altitude": "—",
-      "process": "Мытая, натуральная",
-      "tasting_notes": "Сладкая смесь с нотами мёда и сухофруктов."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_be_roastberry_хани_200_г",
@@ -1311,12 +1266,10 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 435,
+          "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_хани_200_г.jpg",
-          "stock": 17,
-          "gtin": "04640668930064",
-          "marking_required": true
+          "stock": 17
         }
       ],
       "stock": 17,
@@ -1330,11 +1283,7 @@
       "_source": "BE \"Roastberry\" ХАНИ - 1 кг",
       "description": "Бразилия + Эфиопия натуральная. Сладкая смесь с нотами мёда и сухофруктов.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо, Сидамо",
-      "altitude": "—",
-      "process": "Мытая, натуральная",
-      "tasting_notes": "Сладкая смесь с нотами мёда и сухофруктов."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "c-be_roastberry_эспрессо_смесь_-_1_кг",
@@ -1372,14 +1321,12 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2015,
+          "price": 2015.0,
           "on_request": false,
-          "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg",
-          "gtin": "04627529014903",
-          "marking_required": true
+          "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 7,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1390,11 +1337,7 @@
       "_source": "BF \"Roastberry\" ЛУНГО - 1 кг",
       "description": "Смесь для эспрессо с акцентом на объём и чистоту.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Сидамо, Серрадо",
-      "altitude": "—",
-      "process": "Мытая, натуральная",
-      "tasting_notes": "Смесь для эспрессо с акцентом на объём и чистоту."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_bf_roastberry_лунго_200_г",
@@ -1406,9 +1349,7 @@
           "size": "200 г",
           "price": 435,
           "photo": "photos/products/retail_bf_roastberry_лунго_200_г.jpg",
-          "stock": 8,
-          "gtin": "04640668930071",
-          "marking_required": true
+          "stock": 8
         }
       ],
       "stock": 8,
@@ -1422,11 +1363,7 @@
       "_source": "BF \"Roastberry\" ЛУНГО - 1 кг",
       "description": "Смесь для эспрессо с акцентом на объём и чистоту.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Сидамо, Серрадо",
-      "altitude": "—",
-      "process": "Мытая, натуральная",
-      "tasting_notes": "Смесь для эспрессо с акцентом на объём и чистоту."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "o-cafetto_brew_clean_tablets_для_фильтровых_кофемашин",
@@ -1607,12 +1544,10 @@
         {
           "size": "1 кг",
           "price": 2045,
-          "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg",
-          "gtin": "04627529014910",
-          "marking_required": true
+          "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1620,11 +1555,7 @@
       "country": "Бразилия",
       "description": "Бразилия, натуральная обработка. Шоколад, орех, карамель.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо Минейро",
-      "altitude": "1380-1430",
-      "process": "Натуральная",
-      "tasting_notes": "Шоколад, орех, карамель."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_e_roastberry_бразилия_паже_200_г",
@@ -1634,11 +1565,9 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 435,
+          "price": 435.0,
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_200_г.jpg",
-          "stock": 12,
-          "gtin": "04640668930088",
-          "marking_required": true
+          "stock": 12
         }
       ],
       "stock": 27,
@@ -1653,11 +1582,7 @@
       "country": "Бразилия",
       "description": "Бразилия, натуральная обработка. Шоколад, орех, карамель.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо Минейро",
-      "altitude": "1380-1430",
-      "process": "Натуральная",
-      "tasting_notes": "Шоколад, орех, карамель."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_e_roastberry_бразилия_сан_рафаель_-_1_кг",
@@ -1667,14 +1592,12 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2070,
+          "price": 2070.0,
           "on_request": false,
-          "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg",
-          "gtin": "04627529014927",
-          "marking_required": true
+          "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 214,
+      "stock": 250,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1686,11 +1609,7 @@
       "country": "Бразилия",
       "description": "Бразилия, натуральная обработка. Шоколад, орех, карамель.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо",
-      "altitude": "1380-1430",
-      "process": "Натуральный",
-      "tasting_notes": "Шоколад, орех, карамель."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_e_roastberry_бразилия_сан_рафаель_200_г",
@@ -1700,15 +1619,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 445,
+          "price": 445.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_200_г.jpg",
-          "stock": 49,
-          "gtin": "04640668930095",
-          "marking_required": true
+          "stock": 49
         }
       ],
-      "stock": 23,
+      "stock": 46,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1720,11 +1637,7 @@
       "country": "Бразилия",
       "description": "Бразилия, натуральная обработка. Шоколад, орех, карамель.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо",
-      "altitude": "1380-1430",
-      "process": "Натуральный",
-      "tasting_notes": "Шоколад, орех, карамель."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_e_roastberry_бразилия_серадо_200_г",
@@ -1735,9 +1648,7 @@
         {
           "size": "200 г",
           "price": 435,
-          "photo": "photos/products/retail_e_roastberry_бразилия_серадо_200_г.jpg",
-          "gtin": "04640668930101",
-          "marking_required": true
+          "photo": "photos/products/retail_e_roastberry_бразилия_серадо_200_г.jpg"
         }
       ],
       "stock": 15,
@@ -1752,11 +1663,7 @@
       "country": "Бразилия",
       "description": "Бразилия, натуральная обработка. Шоколад, орех, карамель.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо",
-      "altitude": "1380-1430",
-      "process": "Натуральная",
-      "tasting_notes": "Шоколад, орех, карамель."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_e_roastberry_бразилия_серадо_дарк_200_г",
@@ -1767,12 +1674,10 @@
         {
           "size": "200 г",
           "price": 430,
-          "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg",
-          "gtin": "04640668930118",
-          "marking_required": true
+          "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 19,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1784,11 +1689,7 @@
       "country": "Бразилия",
       "description": "Бразилия, натуральная обработка. Шоколад, орех, карамель.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо",
-      "altitude": "1380-1430",
-      "process": "Натуральная",
-      "tasting_notes": "Шоколад, орех, карамель."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_e_roastberry_гватемала_декаф_-_1_кг",
@@ -1798,11 +1699,9 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2440,
+          "price": 2440.0,
           "on_request": false,
-          "photo": "photos/products/retail_e_roastberry_гватемала_декаф_-_1_кг.jpg",
-          "gtin": "04627529014934",
-          "marking_required": true
+          "photo": "photos/products/retail_e_roastberry_гватемала_декаф_-_1_кг.jpg"
         }
       ],
       "stock": 5,
@@ -1817,10 +1716,7 @@
       "country": "Гватемала",
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Центральная Америка",
-      "process": "Декаф",
-      "tasting_notes": "Шоколад, цитрус, средняя кислотность."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_e_roastberry_гватемала_декаф_200_г",
@@ -1832,9 +1728,7 @@
           "size": "200 г",
           "price": 520,
           "photo": "photos/products/retail_e_roastberry_гватемала_декаф_200_г.jpg",
-          "stock": 13,
-          "gtin": "04640668930125",
-          "marking_required": true
+          "stock": 13
         }
       ],
       "stock": 7,
@@ -1849,10 +1743,7 @@
       "country": "Гватемала",
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Центральная Америка",
-      "process": "Декаф",
-      "tasting_notes": "Шоколад, цитрус, средняя кислотность."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_e_roastberry_гватемала_уетенанго_200_г",
@@ -1863,9 +1754,7 @@
         {
           "size": "200 г",
           "price": 495,
-          "photo": "photos/products/retail_e_roastberry_гватемала_уетенанго_200_г.jpg",
-          "gtin": "04627529014941",
-          "marking_required": true
+          "photo": "photos/products/retail_e_roastberry_гватемала_уетенанго_200_г.jpg"
         }
       ],
       "stock": 7,
@@ -1880,11 +1769,7 @@
       "country": "Гватемала",
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Уэуэтенанго",
-      "altitude": "—",
-      "process": "Мытая",
-      "tasting_notes": "Шоколад, цитрус, средняя кислотность."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_e_roastberry_колумбия_андино_-_1_кг",
@@ -1894,14 +1779,12 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2150,
+          "price": 2150.0,
           "on_request": false,
-          "photo": "photos/products/retail_e_roastberry_колумбия_андино_-_1_кг.jpg",
-          "gtin": "04627529014965",
-          "marking_required": true
+          "photo": "photos/products/retail_e_roastberry_колумбия_андино_-_1_кг.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1913,11 +1796,7 @@
       "country": "Колумбия",
       "description": "Колумбия. Сбалансированный вкус, карамель, орех.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Армения,Киндио",
-      "altitude": "1400-2200",
-      "process": "Мытая",
-      "tasting_notes": "Сбалансированный вкус, карамель, орех."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_e_roastberry_колумбия_андино_200_г",
@@ -1927,12 +1806,10 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 465,
+          "price": 465.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 15,
-          "gtin": "04640668930156",
-          "marking_required": true
+          "stock": 15
         }
       ],
       "stock": 15,
@@ -1947,11 +1824,7 @@
       "country": "Колумбия",
       "description": "Колумбия. Сбалансированный вкус, карамель, орех.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Армения,Киндио",
-      "altitude": "1400-2200",
-      "process": "Мытая",
-      "tasting_notes": "Сбалансированный вкус, карамель, орех."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг",
@@ -1962,9 +1835,7 @@
         {
           "size": "1 кг",
           "price": 2175,
-          "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг.jpg",
-          "gtin": "04640668930439",
-          "marking_required": true
+          "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг.jpg"
         }
       ],
       "stock": 45,
@@ -1975,9 +1846,7 @@
       "country": "Коста-Рика",
       "description": "Коста-Рика. Чистый вкус, цитрус, карамель.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Тарразу",
-      "tasting_notes": "Чистый вкус, цитрус, карамель."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_e_roastberry_коста-рика_тарразу_ла_пастора_200_г",
@@ -1989,9 +1858,7 @@
           "size": "200 г",
           "price": 460,
           "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_200_г.jpg",
-          "stock": 14,
-          "gtin": "04640668930446",
-          "marking_required": true
+          "stock": 14
         }
       ],
       "stock": 5,
@@ -2006,9 +1873,7 @@
       "country": "Коста-Рика",
       "description": "Коста-Рика. Чистый вкус, цитрус, карамель.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Тарразу",
-      "tasting_notes": "Чистый вкус, цитрус, карамель."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "c-e_roastberry_перу_схг_упак_200_г",
@@ -2024,23 +1889,24 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 475,
-          "photo": "assets/placeholders/ph_retail.svg",
-          "gtin": "04640668930170",
-          "marking_required": true
+          "price": 475.0,
+          "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
       "stock": 1,
       "tags": [],
       "photo": "assets/placeholders/ph_retail.svg",
-      "tasting_notes": "молочный шоколад, сухофрукты, цитрус, карамель.",
+      "tasting_notes": [
+        "молочный шоколад",
+        "сухофрукты",
+        "цитрус",
+        "карамель"
+      ],
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
       "hidden": false,
-      "archived_reason": "not in xlsx 19.05.2026",
-      "region": "Провинция Амазонии",
-      "altitude": "1 400–1 800"
+      "archived_reason": "not in xlsx 19.05.2026"
     },
     {
       "id": "retail_e_roastberry_уганада_рувензор_200_г",
@@ -2051,9 +1917,7 @@
         {
           "size": "200 г",
           "price": 435,
-          "photo": "photos/products/retail_e_roastberry_уганада_рувензор_200_г.jpg",
-          "gtin": "04640668930187",
-          "marking_required": true
+          "photo": "photos/products/retail_e_roastberry_уганада_рувензор_200_г.jpg"
         }
       ],
       "stock": 16,
@@ -2068,9 +1932,7 @@
       "country": "Уганда",
       "description": "Свежеобжаренный кофе. Сбалансированный вкус.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Рувензор",
-      "tasting_notes": "Свежеобжаренный кофе. Сбалансированный вкус."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_f_roastberry_бразилия_сертао_200_г_молотыи",
@@ -2081,12 +1943,10 @@
         {
           "size": "200 г",
           "price": 450,
-          "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg",
-          "gtin": "04640668930224",
-          "marking_required": true
+          "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 68,
+      "stock": 65,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2094,9 +1954,7 @@
       "country": "Бразилия",
       "description": "Бразилия, натуральная обработка. Шоколад, орех, карамель.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Сертао",
-      "tasting_notes": "Шоколад, орех, карамель."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_f_roastberry_гватемала_уетенанго_-_1_кг",
@@ -2107,9 +1965,7 @@
         {
           "size": "1 кг",
           "price": 2310,
-          "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_-_1_кг.jpg",
-          "gtin": "04640668930002",
-          "marking_required": true
+          "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_-_1_кг.jpg"
         }
       ],
       "stock": 9,
@@ -2120,10 +1976,7 @@
       "country": "Гватемала",
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Уэуэтенанго",
-      "process": "Мытая",
-      "tasting_notes": "Шоколад, цитрус, средняя кислотность."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_f_roastberry_гватемала_уетенанго_200_г",
@@ -2133,12 +1986,10 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 495,
+          "price": 495.0,
           "on_request": false,
           "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_200_г.jpg",
-          "stock": 2,
-          "gtin": "04640668930231",
-          "marking_required": true
+          "stock": 2
         }
       ],
       "stock": 2,
@@ -2153,10 +2004,7 @@
       "country": "Гватемала",
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Уэуэтенанго",
-      "process": "Мытая",
-      "tasting_notes": "Шоколад, цитрус, средняя кислотность."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_f_roastberry_кения_аа_200_г",
@@ -2167,9 +2015,7 @@
         {
           "size": "200 г",
           "price": 550,
-          "photo": "photos/products/retail_f_roastberry_кения_аа_200_г.jpg",
-          "gtin": "04640668930248",
-          "marking_required": true
+          "photo": "photos/products/retail_f_roastberry_кения_аа_200_г.jpg"
         }
       ],
       "stock": 17,
@@ -2184,10 +2030,7 @@
       "country": "Кения",
       "description": "Кения. Яркая кислотность, чёрная смородина, цитрус.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Округ Киамбу",
-      "process": "Мытая",
-      "tasting_notes": "Яркая кислотность, чёрная смородина, цитрус."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_f_roastberry_кения_аб_200_г",
@@ -2197,12 +2040,10 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 530,
+          "price": 530.0,
           "on_request": false,
           "photo": "photos/products/retail_f_roastberry_кения_аб_200_г.jpg",
-          "stock": 10,
-          "gtin": "04640668930255",
-          "marking_required": true
+          "stock": 10
         }
       ],
       "stock": 10,
@@ -2217,11 +2058,7 @@
       "country": "Кения",
       "description": "Кения. Яркая кислотность, чёрная смородина, цитрус.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Центральная провинция, округ Ньери, округ Кириньяга",
-      "altitude": "1600-1800",
-      "process": "Мытая",
-      "tasting_notes": "Яркая кислотность, чёрная смородина, цитрус."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_f_roastberry_китаи_симао_200_г",
@@ -2232,12 +2069,10 @@
         {
           "size": "200 г",
           "price": 445,
-          "photo": "photos/products/retail_f_roastberry_китаи_симао_200_г.jpg",
-          "gtin": "04640668930262",
-          "marking_required": true
+          "photo": "photos/products/retail_f_roastberry_китаи_симао_200_г.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2245,9 +2080,7 @@
       "country": "Китай",
       "description": "Китай Симао. Лёгкий, чайный профиль.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Симао",
-      "tasting_notes": "Китай Симао. Лёгкий, чайный профиль."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_f_roastberry_колумбия_андино_200_г",
@@ -2259,9 +2092,7 @@
           "size": "200 г",
           "price": 465,
           "photo": "photos/products/retail_f_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 18,
-          "gtin": "04640668930279",
-          "marking_required": true
+          "stock": 18
         }
       ],
       "stock": 18,
@@ -2276,11 +2107,7 @@
       "country": "Колумбия",
       "description": "Колумбия. Сбалансированный вкус, карамель, орех.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Армения,Киндио",
-      "altitude": "1400-2200",
-      "process": "Мытая",
-      "tasting_notes": "Сбалансированный вкус, карамель, орех."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_f_roastberry_танзания_200_г",
@@ -2291,9 +2118,7 @@
         {
           "size": "200 г",
           "price": 495,
-          "photo": "photos/products/retail_f_roastberry_танзания_200_г.jpg",
-          "gtin": "04640668930293",
-          "marking_required": true
+          "photo": "photos/products/retail_f_roastberry_танзания_200_г.jpg"
         }
       ],
       "stock": 9,
@@ -2304,10 +2129,7 @@
       "country": "Танзания",
       "description": "Танзания. Чёрная смородина, цитрус, винные ноты.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Склоны гор Килиманджаро",
-      "process": "Мытая",
-      "tasting_notes": "Чёрная смородина, цитрус, винные ноты."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_f_roastberry_эфиопия_иргачиф_г2_200_г",
@@ -2318,9 +2140,7 @@
         {
           "size": "200 г",
           "price": 455,
-          "photo": "photos/products/retail_f_roastberry_эфиопия_иргачиф_г2_200_г.jpg",
-          "gtin": "04640668930309",
-          "marking_required": true
+          "photo": "photos/products/retail_f_roastberry_эфиопия_иргачиф_г2_200_г.jpg"
         }
       ],
       "stock": 1,
@@ -2335,11 +2155,7 @@
       "country": "Эфиопия",
       "description": "Эфиопия. Цветочные и фруктовые ноты, чайный профиль.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Иргачеффе,Кочере,Абайя",
-      "altitude": "-",
-      "process": "Мытая",
-      "tasting_notes": "Цветочные и фруктовые ноты, чайный профиль."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "retail_f_roastberry_эфиопия_лиму_200_г",
@@ -2350,12 +2166,10 @@
         {
           "size": "200 г",
           "price": 455,
-          "photo": "photos/products/retail_f_roastberry_эфиопия_лиму_200_г.jpg",
-          "gtin": "04640668930316",
-          "marking_required": true
+          "photo": "photos/products/retail_f_roastberry_эфиопия_лиму_200_г.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2367,9 +2181,7 @@
       "country": "Эфиопия",
       "description": "Эфиопия. Цветочные и фруктовые ноты, чайный профиль.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Лиму",
-      "tasting_notes": "Цветочные и фруктовые ноты, чайный профиль."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "m-green_milk_банановый_напиток_соевый_1л",
@@ -2580,7 +2392,7 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 670,
+          "price": 670.0,
           "photo": "photos/products/t-niktea_горный_чабрец_чёрн_пакет_25х2г.jpg"
         }
       ],
@@ -2607,7 +2419,7 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 300
+          "price": 300.0
         }
       ],
       "stock": 0,
@@ -2631,7 +2443,7 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 190,
+          "price": 190.0,
           "photo": "photos/products/t-niktea_кения_сапфир_чёрн_пакет_25х2г.jpg"
         }
       ],
@@ -2657,7 +2469,7 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 360
+          "price": 360.0
         }
       ],
       "stock": 0,
@@ -2681,7 +2493,7 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 670,
+          "price": 670.0,
           "photo": "photos/products/t-niktea_королевский_завтрак_для_чайника_20х4г.jpg"
         }
       ],
@@ -2708,7 +2520,7 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 185,
+          "price": 185.0,
           "photo": "photos/products/t-niktea_красная_поляна_пакет_25х1_75г.jpg"
         }
       ],
@@ -2734,7 +2546,7 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 300
+          "price": 300.0
         }
       ],
       "stock": 0,
@@ -2758,7 +2570,7 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 890,
+          "price": 890.0,
           "photo": "photos/products/t-niktea_молочный_улун_зел_аром_25х2г.jpg"
         }
       ],
@@ -2785,7 +2597,7 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 280
+          "price": 280.0
         }
       ],
       "stock": 0,
@@ -2809,7 +2621,7 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 190,
+          "price": 190.0,
           "photo": "photos/products/t-niktea_молочный_улун_пирамидки_15х2_7г.jpg"
         }
       ],
@@ -2836,11 +2648,11 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 185,
+          "price": 185.0,
           "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg"
         }
       ],
-      "stock": 30,
+      "stock": 15,
       "tags": [],
       "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg",
       "_source": "alephtrade",
@@ -2863,7 +2675,7 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 180
+          "price": 180.0
         }
       ],
       "stock": 9,
@@ -2887,7 +2699,7 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 215,
+          "price": 215.0,
           "photo": "photos/products/t-niktea_ройбуш_оранж_аром_25х2г.jpg"
         }
       ],
@@ -2913,7 +2725,7 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 330
+          "price": 330.0
         }
       ],
       "stock": 0,
@@ -2937,7 +2749,7 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 790,
+          "price": 790.0,
           "photo": "photos/products/t-niktea_сенча_классик_зел_для_чайника_20х4г.jpg"
         }
       ],
@@ -2963,7 +2775,7 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 300
+          "price": 300.0
         }
       ],
       "stock": 0,
@@ -2987,7 +2799,7 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 3600,
+          "price": 3600.0,
           "photo": "photos/products/t-niktea_фрут_маджента_фрукт_аром_25х2г.jpg"
         }
       ],
@@ -3014,15 +2826,15 @@
       "fasovka": [
         {
           "size": "1 г",
-          "price": 180
+          "price": 180.0
         }
       ],
-      "stock": 24,
+      "stock": 0,
       "tags": [],
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
-      "hidden": false
+      "quarantined": true,
+      "quarantined_at": "2026-05-14T09:19:40+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "hidden": true
     },
     {
       "id": "t-niktea_эрл_грей_пирамидки_15х2_7г",
@@ -3038,7 +2850,7 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 2320,
+          "price": 2320.0,
           "photo": "photos/products/t-niktea_эрл_грей_пирамидки_15х2_7г.jpg"
         }
       ],
@@ -3064,7 +2876,7 @@
       "fasovka": [
         {
           "size": "2 г",
-          "price": 185,
+          "price": 185.0,
           "photo": "photos/products/t-niktea_эрл_грей_ультрамарин_чёрн_аром_25х2г.jpg"
         }
       ],
@@ -3091,7 +2903,7 @@
       "fasovka": [
         {
           "size": "4 г",
-          "price": 780,
+          "price": 780.0,
           "photo": "photos/products/t-niktea_ягодный_коктейль_аром_для_чайника_20х4г.jpg"
         }
       ],
@@ -3144,7 +2956,7 @@
       "fasovka": [
         {
           "size": "15х2.7г",
-          "price": 280
+          "price": 280.0
         }
       ],
       "stock": 0,
@@ -3169,7 +2981,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 280,
+          "price": 280.0,
           "photo": null
         }
       ],
@@ -3194,7 +3006,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 300,
+          "price": 300.0,
           "photo": null
         }
       ],
@@ -3219,7 +3031,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 280,
+          "price": 280.0,
           "photo": null
         }
       ],
@@ -3244,7 +3056,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 300,
+          "price": 300.0,
           "photo": null
         }
       ],
@@ -3269,7 +3081,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 330,
+          "price": 330.0,
           "photo": null
         }
       ],
@@ -3294,7 +3106,7 @@
       "fasovka": [
         {
           "size": "500х2г",
-          "price": 185
+          "price": 185.0
         }
       ],
       "stock": 30,
@@ -3318,7 +3130,7 @@
       "fasovka": [
         {
           "size": "15х2.7г",
-          "price": 280
+          "price": 280.0
         }
       ],
       "stock": 4,
@@ -3342,7 +3154,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 300,
+          "price": 300.0,
           "photo": null
         }
       ],
@@ -3367,7 +3179,7 @@
       "fasovka": [
         {
           "size": "25х48.75г",
-          "price": 225
+          "price": 225.0
         }
       ],
       "stock": 8,
@@ -3391,7 +3203,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 360,
+          "price": 360.0,
           "photo": null
         }
       ],
@@ -3416,7 +3228,7 @@
       "fasovka": [
         {
           "size": "25х2г",
-          "price": 185
+          "price": 185.0
         }
       ],
       "stock": 4,
@@ -3440,7 +3252,7 @@
       "fasovka": [
         {
           "size": "25х2г",
-          "price": 190
+          "price": 190.0
         }
       ],
       "stock": 18,
@@ -3464,7 +3276,7 @@
       "fasovka": [
         {
           "size": "20х4г",
-          "price": 670
+          "price": 670.0
         }
       ],
       "stock": 16,
@@ -3488,7 +3300,7 @@
       "fasovka": [
         {
           "size": "20х4г",
-          "price": 670
+          "price": 670.0
         }
       ],
       "stock": 25,
@@ -3513,7 +3325,7 @@
       "fasovka": [
         {
           "size": "20х4г",
-          "price": 670
+          "price": 670.0
         }
       ],
       "stock": 0,
@@ -3538,10 +3350,10 @@
       "fasovka": [
         {
           "size": "20х4г",
-          "price": 780
+          "price": 780.0
         }
       ],
-      "stock": 10,
+      "stock": 11,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3562,7 +3374,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 690
+          "price": 690.0
         }
       ],
       "stock": 1,
@@ -3586,7 +3398,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 590,
+          "price": 590.0,
           "photo": null
         }
       ],
@@ -3611,7 +3423,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 650
+          "price": 650.0
         }
       ],
       "stock": 4,
@@ -3635,7 +3447,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 890,
+          "price": 890.0,
           "photo": "photos/products/t-rb_tea_лапсанг_сушонг_250_г.jpg"
         }
       ],
@@ -3660,7 +3472,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 690,
+          "price": 690.0,
           "photo": null
         }
       ],
@@ -3685,7 +3497,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 890,
+          "price": 890.0,
           "photo": null
         }
       ],
@@ -3710,7 +3522,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 890
+          "price": 890.0
         }
       ],
       "stock": 7,
@@ -3734,7 +3546,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 620
+          "price": 620.0
         }
       ],
       "stock": 20,
@@ -3758,7 +3570,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 590,
+          "price": 590.0,
           "photo": "photos/products/t-rb_tea_эрл_грей_250_г_черный_чай.jpg"
         }
       ],
@@ -3783,7 +3595,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 590
+          "price": 590.0
         }
       ],
       "stock": 8,
@@ -3807,7 +3619,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1150
+          "price": 1150.0
         }
       ],
       "stock": 8,
@@ -3830,7 +3642,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 755
+          "price": 755.0
         }
       ],
       "stock": 2,
@@ -3854,7 +3666,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 590
+          "price": 590.0
         }
       ],
       "stock": 6,
@@ -3878,7 +3690,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 590
+          "price": 590.0
         }
       ],
       "stock": 11,
@@ -3901,7 +3713,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1550
+          "price": 1550.0
         }
       ],
       "stock": 6,
@@ -3925,7 +3737,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 690
+          "price": 690.0
         }
       ],
       "stock": 1,
@@ -3949,7 +3761,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 890,
+          "price": 890.0,
           "photo": "photos/products/t-rbr_tea_молочный_улун_250г.jpg"
         }
       ],
@@ -3975,7 +3787,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 890
+          "price": 890.0
         }
       ],
       "stock": 1,
@@ -4023,7 +3835,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 700,
+          "price": 700.0,
           "photo": "photos/products/t-rbr_tea_ройбуш_апельсин_250г.jpg"
         }
       ],
@@ -4048,7 +3860,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 590,
+          "price": 590.0,
           "photo": "photos/products/t-rbr_tea_сенча_250г.jpg"
         }
       ],
@@ -4073,7 +3885,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 615
+          "price": 615.0
         }
       ],
       "stock": 8,
@@ -4096,7 +3908,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 590
+          "price": 590.0
         }
       ],
       "stock": 23,
@@ -4119,7 +3931,7 @@
       "fasovka": [
         {
           "size": "50 пак",
-          "price": 78,
+          "price": 78.0,
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
@@ -4145,7 +3957,7 @@
       "fasovka": [
         {
           "size": "50 пак",
-          "price": 78,
+          "price": 78.0,
           "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg"
         }
       ],
@@ -4171,11 +3983,11 @@
       "fasovka": [
         {
           "size": "50 пак",
-          "price": 78,
+          "price": 78.0,
           "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg"
         }
       ],
-      "stock": 44,
+      "stock": 45,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg",
       "quarantined": false,
@@ -4197,11 +4009,11 @@
       "fasovka": [
         {
           "size": "50 пак",
-          "price": 80,
+          "price": 80.0,
           "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
-      "stock": 31,
+      "stock": 34,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
       "quarantined": false,
@@ -4223,7 +4035,7 @@
       "fasovka": [
         {
           "size": "50 пак",
-          "price": 80,
+          "price": 80.0,
           "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg"
         }
       ],
@@ -4249,7 +4061,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 145,
+          "price": 145.0,
           "photo": "photos/products/t-restoranica_resta_апельсин_манго_30пак.jpg"
         }
       ],
@@ -4275,7 +4087,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 120,
+          "price": 120.0,
           "photo": "photos/products/t-restoranica_resta_апельсин_ройбуш_30пак.jpg"
         }
       ],
@@ -4301,7 +4113,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 125,
+          "price": 125.0,
           "photo": "photos/products/t-restoranica_resta_голубая_масала_30пак.jpg"
         }
       ],
@@ -4327,7 +4139,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 125,
+          "price": 125.0,
           "photo": "photos/products/t-restoranica_resta_иммунный_30пак.jpg"
         }
       ],
@@ -4353,7 +4165,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 135,
+          "price": 135.0,
           "photo": "photos/products/t-restoranica_resta_кедровый_с_чагой_30пак.jpg"
         }
       ],
@@ -4379,7 +4191,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 135,
+          "price": 135.0,
           "photo": "photos/products/t-restoranica_resta_киви_клубника_30пак.jpg"
         }
       ],
@@ -4405,7 +4217,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 135,
+          "price": 135.0,
           "photo": "photos/products/t-restoranica_resta_лесные_ягоды_30пак.jpg"
         }
       ],
@@ -4431,7 +4243,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 125,
+          "price": 125.0,
           "photo": "photos/products/t-restoranica_resta_мята_малина_30пак.jpg"
         }
       ],
@@ -4457,7 +4269,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 155,
+          "price": 155.0,
           "photo": "photos/products/t-restoranica_resta_пряный_глинтвейн_30пак.jpg"
         }
       ],
@@ -4483,7 +4295,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 125,
+          "price": 125.0,
           "photo": "photos/products/t-restoranica_resta_пуэр_саган_дайля_30пак.jpg"
         }
       ],
@@ -4509,7 +4321,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 135,
+          "price": 135.0,
           "photo": "photos/products/t-restoranica_resta_сладкая_клубника_30пак.jpg"
         }
       ],
@@ -4535,7 +4347,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 125,
+          "price": 125.0,
           "photo": "photos/products/t-restoranica_resta_смородиновый_черный_30пак.jpg"
         }
       ],
@@ -4561,7 +4373,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 125,
+          "price": 125.0,
           "photo": "photos/products/t-restoranica_resta_шиповник_чабрец_30пак.jpg"
         }
       ],
@@ -4587,7 +4399,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 120,
+          "price": 120.0,
           "photo": "photos/products/t-restoranica_resta_эрлберг_30пак.jpg"
         }
       ],
@@ -4613,7 +4425,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 120,
+          "price": 120.0,
           "photo": "photos/products/t-restoranica_resta_яблоко_можжевельник_30пак.jpg"
         }
       ],
@@ -4639,7 +4451,7 @@
       "fasovka": [
         {
           "size": "36 пак",
-          "price": 68,
+          "price": 68.0,
           "photo": "photos/products/t-restoranica_togo_ассам_с_шиповником_36пак.jpg"
         }
       ],
@@ -4665,7 +4477,7 @@
       "fasovka": [
         {
           "size": "36 пак",
-          "price": 70,
+          "price": 70.0,
           "photo": "photos/products/t-restoranica_togo_голубая_масала_36пак.jpg"
         }
       ],
@@ -4691,7 +4503,7 @@
       "fasovka": [
         {
           "size": "36 пак",
-          "price": 70,
+          "price": 70.0,
           "photo": "photos/products/t-restoranica_togo_иван-чай_с_малиной_36пак.jpg"
         }
       ],
@@ -4743,7 +4555,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 70,
+          "price": 70.0,
           "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg"
         }
       ],
@@ -4769,11 +4581,11 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 73,
+          "price": 73.0,
           "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg"
         }
       ],
-      "stock": 55,
+      "stock": 58,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg",
       "quarantined": false,
@@ -4795,7 +4607,7 @@
       "fasovka": [
         {
           "size": "60 пак",
-          "price": 68,
+          "price": 68.0,
           "photo": "photos/products/t-restoranica_togo_королевский_бергамот_60пак.jpg"
         }
       ],
@@ -4821,7 +4633,7 @@
       "fasovka": [
         {
           "size": "36 пак",
-          "price": 67,
+          "price": 67.0,
           "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg"
         }
       ],
@@ -4847,7 +4659,7 @@
       "fasovka": [
         {
           "size": "60 пак",
-          "price": 68,
+          "price": 68.0,
           "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg"
         }
       ],
@@ -4873,7 +4685,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 68,
+          "price": 68.0,
           "photo": "photos/products/t-restoranica_togo_медовое_яблоко_с_имбирем_30пак.jpg"
         }
       ],
@@ -4899,7 +4711,7 @@
       "fasovka": [
         {
           "size": "60 пак",
-          "price": 68,
+          "price": 68.0,
           "photo": "photos/products/t-restoranica_togo_молочный_улун_с_мандарином_60пак.jpg"
         }
       ],
@@ -4925,7 +4737,7 @@
       "fasovka": [
         {
           "size": "60 пак",
-          "price": 67,
+          "price": 67.0,
           "photo": "photos/products/t-restoranica_togo_ройбуш_с_апельсином_60пак.jpg"
         }
       ],
@@ -4977,7 +4789,7 @@
       "fasovka": [
         {
           "size": "60 пак",
-          "price": 67,
+          "price": 67.0,
           "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg"
         }
       ],
@@ -5003,7 +4815,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 75,
+          "price": 75.0,
           "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg"
         }
       ],
@@ -5029,7 +4841,7 @@
       "fasovka": [
         {
           "size": "30 пак",
-          "price": 69,
+          "price": 69.0,
           "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
         }
       ],
@@ -5055,7 +4867,7 @@
       "fasovka": [
         {
           "size": "60 пак",
-          "price": 68,
+          "price": 68.0,
           "photo": "photos/products/t-restoranica_togo_яблоко_с_можжевельником_60пак.jpg"
         }
       ],
@@ -5081,7 +4893,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 728
+          "price": 728.0
         }
       ],
       "stock": 5,
@@ -5105,7 +4917,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 850
+          "price": 850.0
         }
       ],
       "stock": 1,
@@ -5129,7 +4941,7 @@
       "fasovka": [
         {
           "size": "150 г",
-          "price": 680
+          "price": 680.0
         }
       ],
       "stock": 2,
@@ -5153,10 +4965,10 @@
       "fasovka": [
         {
           "size": "150 г",
-          "price": 1260
+          "price": 1260.0
         }
       ],
-      "stock": 8,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5177,7 +4989,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1360
+          "price": 1360.0
         }
       ],
       "stock": 2,
@@ -5201,7 +5013,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1750
+          "price": 1750.0
         }
       ],
       "stock": 1,
@@ -5226,7 +5038,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1750,
+          "price": 1750.0,
           "photo": null
         }
       ],
@@ -5251,7 +5063,7 @@
       "fasovka": [
         {
           "size": "100 г",
-          "price": 620
+          "price": 620.0
         }
       ],
       "stock": 3,
@@ -5276,7 +5088,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 620,
+          "price": 620.0,
           "photo": null
         }
       ],
@@ -5301,7 +5113,7 @@
       "fasovka": [
         {
           "size": "150 г",
-          "price": 1800
+          "price": 1800.0
         }
       ],
       "stock": 7,
@@ -5325,7 +5137,7 @@
       "fasovka": [
         {
           "size": "100 г",
-          "price": 1090
+          "price": 1090.0
         }
       ],
       "stock": 2,
@@ -5350,7 +5162,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 1090,
+          "price": 1090.0,
           "photo": null
         }
       ],
@@ -5375,7 +5187,7 @@
       "fasovka": [
         {
           "size": "150 г",
-          "price": 370
+          "price": 370.0
         }
       ],
       "stock": 4,
@@ -5399,7 +5211,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2610
+          "price": 2610.0
         }
       ],
       "stock": 1,
@@ -5423,7 +5235,7 @@
       "fasovka": [
         {
           "size": "100 г",
-          "price": 1080
+          "price": 1080.0
         }
       ],
       "stock": 3,
@@ -5447,7 +5259,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1760
+          "price": 1760.0
         }
       ],
       "stock": 6,
@@ -5471,7 +5283,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1170
+          "price": 1170.0
         }
       ],
       "stock": 1,
@@ -5495,7 +5307,7 @@
       "fasovka": [
         {
           "size": "75 г",
-          "price": 1130
+          "price": 1130.0
         }
       ],
       "stock": 2,
@@ -5519,7 +5331,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 900
+          "price": 900.0
         }
       ],
       "stock": 1,
@@ -5543,7 +5355,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2175
+          "price": 2175.0
         }
       ],
       "stock": 1,
@@ -5558,62 +5370,65 @@
       "name": "Бразилия \"SL28 Хани анаэроб.\" 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
       "process": "Хани, анаэробная",
-      "altitude": "1380-1430",
+      "altitude": null,
       "variety": null,
       "roast": "F",
       "description": "Бразилия SL28 Хани анаэроб. Сложный профиль с нотами тропических фруктов, мёда и лёгкой ферментации.",
-      "tasting_notes": "мёд, ягоды, вино, чёрная смородина, специи.",
+      "tasting_notes": [
+        "мёд",
+        "ягоды",
+        "вино",
+        "чёрная смородина",
+        "специи"
+      ],
       "photo": "photos/products/filter_micro_бразилия_sl28_хани_анаэроб_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 3500,
-          "photo": "photos/products/filter_micro_бразилия_sl28_хани_анаэроб_1_кг_filter.jpg",
-          "gtin": "04627529014224",
-          "marking_required": true
+          "photo": "photos/products/filter_micro_бразилия_sl28_хани_анаэроб_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Кармо-ди-Минас, фазенда Сантуарио Суль"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_micro_бразилия_судан_руме_анаэроб_1_кг_filter",
       "name": "Бразилия \"Судан Руме анаэроб.\" 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 3,
+      "hidden": false,
+      "quarantined": false,
       "country": "Бразилия",
       "process": "Натуральный, анаэробный",
       "altitude": "1380–1430 м",
       "variety": null,
       "roast": "F",
       "description": "Бразилия Судан Руме анаэроб. Редкий сорт с яркими фруктовыми нотами и винной кислотностью.",
-      "tasting_notes": "молочный шоколад, орех, цветочный мёд, цукаты.",
+      "tasting_notes": [
+        "молочный шоколад",
+        "орех",
+        "цветочный мёд",
+        "цукаты"
+      ],
       "photo": "photos/products/filter_micro_бразилия_судан_руме_анаэроб_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 3500,
-          "photo": "photos/products/filter_micro_бразилия_судан_руме_анаэроб_1_кг_filter.jpg",
-          "gtin": "04627529014231",
-          "marking_required": true
+          "photo": "photos/products/filter_micro_бразилия_судан_руме_анаэроб_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Кармо-ди-Минас, фазенда Сантуарио Суль",
-      "quarantined_at": "2026-05-29T06:36:15+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "c-nesp-бразилия_серрадо__nespresso_",
@@ -5655,7 +5470,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 175,
+      "stock": 120,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5664,59 +5479,64 @@
       "variety": "—",
       "roast": "E",
       "description": "Бразилия Серрадо. Классический бразильский профиль: шоколад, орех, низкая кислотность.",
-      "tasting_notes": "шоколад, орех, карамель, сухофрукты.",
+      "tasting_notes": [
+        "шоколад",
+        "орех",
+        "карамель",
+        "сухофрукты"
+      ],
       "photo": "photos/products/espresso_mono_бразилия_серрадо_дарк_темная_обжарка_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "photos/products/espresso_mono_бразилия_серрадо_дарк_темная_обжарка_эспрессо_1_кг.jpg",
-          "gtin": "04627529014026",
-          "marking_required": true
+          "photo": "photos/products/espresso_mono_бразилия_серрадо_дарк_темная_обжарка_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_mono_бразилия_серрадо_желтый_бурбон_сухой_1_кг_filter",
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 18,
+      "stock": 15,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
       "process": "Натуральная",
-      "altitude": "1380-1430",
+      "altitude": null,
       "variety": null,
       "roast": "F",
       "description": "Бразилия Серрадо. Классический бразильский профиль: шоколад, орех, низкая кислотность.",
-      "tasting_notes": "тёмный шоколад, цитрус, сухофрукты, какао, карамель.",
+      "tasting_notes": [
+        "тёмный шоколад",
+        "цитрус",
+        "сухофрукты",
+        "какао",
+        "карамель"
+      ],
       "photo": "photos/products/filter_mono_бразилия_серрадо_желтый_бурбон_сухой_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2120,
-          "photo": "photos/products/filter_mono_бразилия_серрадо_желтый_бурбон_сухой_1_кг_filter.jpg",
-          "gtin": "04627529014347",
-          "marking_required": true
+          "photo": "photos/products/filter_mono_бразилия_серрадо_желтый_бурбон_сухой_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "espresso_mono_бразилия_серрадо_средняя_обжарка_эспрессо_1_кг",
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 717,
+      "stock": 342,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5725,29 +5545,31 @@
       "variety": "Желтый бурбон",
       "roast": "E",
       "description": "Бразилия Серрадо. Классический бразильский профиль: шоколад, орех, низкая кислотность.",
-      "tasting_notes": "шоколад, карамель, орех, цитрус.",
+      "tasting_notes": [
+        "шоколад",
+        "карамель",
+        "орех",
+        "цитрус"
+      ],
       "photo": "photos/products/espresso_mono_бразилия_серрадо_средняя_обжарка_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "photos/products/espresso_mono_бразилия_серрадо_средняя_обжарка_эспрессо_1_кг.jpg",
-          "gtin": "04627529014040",
-          "marking_required": true
+          "photo": "photos/products/espresso_mono_бразилия_серрадо_средняя_обжарка_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Серрадо"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_mono_бразилия_фазенда_сертао_сухой_молотый_1_кг_filter",
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 28,
+      "stock": 16,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5756,23 +5578,18 @@
       "variety": null,
       "roast": "F",
       "description": "Свежеобжаренный кофе с чистым и сбалансированным вкусом.",
-      "tasting_notes": "Свежеобжаренный кофе с чистым и сбалансированным вкусом.",
+      "tasting_notes": null,
       "photo": "assets/placeholders/ph_filter.svg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "assets/placeholders/ph_filter.svg",
-          "gtin": "04627529014354",
-          "marking_required": true
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": null,
-      "quarantine_reason": null,
-      "region": "Фазенда Сертао"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter-aeropress-350",
@@ -5854,7 +5671,7 @@
       "fasovka": [
         {
           "size": "75 г",
-          "price": 1130
+          "price": 1130.0
         }
       ],
       "stock": 4,
@@ -5878,7 +5695,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2215
+          "price": 2215.0
         }
       ],
       "stock": 1,
@@ -5893,7 +5710,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 9,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -5902,21 +5719,24 @@
       "variety": null,
       "roast": "F",
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность, хорошая сладость.",
-      "tasting_notes": "какао, карамель, чернослив, пряности, ваниль.",
+      "tasting_notes": [
+        "какао",
+        "карамель",
+        "чернослив",
+        "пряности",
+        "ваниль"
+      ],
       "photo": "photos/products/filter_mono_гватемала_уеуетенанго_мытый_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2355,
-          "photo": "photos/products/filter_mono_гватемала_уеуетенанго_мытый_1_кг_filter.jpg",
-          "gtin": "04627529014361",
-          "marking_required": true
+          "photo": "photos/products/filter_mono_гватемала_уеуетенанго_мытый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Уэуэтенанго"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "t-генмайча_райсу_100г",
@@ -5932,7 +5752,7 @@
       "fasovka": [
         {
           "size": "100 г",
-          "price": 1980
+          "price": 1980.0
         }
       ],
       "stock": 2,
@@ -6000,7 +5820,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2160
+          "price": 2160.0
         }
       ],
       "stock": 1,
@@ -6024,7 +5844,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2215
+          "price": 2215.0
         }
       ],
       "stock": 1,
@@ -6048,7 +5868,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1760
+          "price": 1760.0
         }
       ],
       "stock": 1,
@@ -6072,7 +5892,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2215
+          "price": 2215.0
         }
       ],
       "stock": 1,
@@ -6096,16 +5916,16 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1770
+          "price": 1770.0
         }
       ],
-      "stock": 6,
+      "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
-      "hidden": false
+      "quarantined": true,
+      "quarantined_at": "2026-05-14T09:19:40+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "hidden": true
     },
     {
       "id": "c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи",
@@ -6304,11 +6124,11 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 550,
+          "price": 550.0,
           "photo": null
         }
       ],
-      "stock": 326,
+      "stock": 332,
       "tags": [],
       "photo": "",
       "tasting_notes": [
@@ -6335,11 +6155,11 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 465,
+          "price": 465.0,
           "photo": "photos/products/c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr.jpg"
         }
       ],
-      "stock": 157,
+      "stock": 163,
       "tags": [],
       "photo": "photos/products/c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr.jpg",
       "tasting_notes": [
@@ -6366,10 +6186,10 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2320
+          "price": 2320.0
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -6416,7 +6236,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1710
+          "price": 1710.0
         }
       ],
       "stock": 1,
@@ -6440,7 +6260,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 2215
+          "price": 2215.0
         }
       ],
       "stock": 1,
@@ -6464,7 +6284,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1410,
+          "price": 1410.0,
           "photo": null
         }
       ],
@@ -6540,7 +6360,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1565,
+          "price": 1565.0,
           "photo": "photos/products/t-зеленый_юнь_у_200_г.jpg"
         }
       ],
@@ -6566,7 +6386,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1565,
+          "price": 1565.0,
           "photo": null
         }
       ],
@@ -6591,7 +6411,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 915,
+          "price": 915.0,
           "photo": "photos/products/t-зеленый_с_доб_с_мятой_200_г_аромат_трава.jpg"
         }
       ],
@@ -6617,7 +6437,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2215
+          "price": 2215.0
         }
       ],
       "stock": 2,
@@ -6702,54 +6522,49 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 12,
+      "stock": 17,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
-      "process": "Мытая",
+      "process": null,
       "altitude": null,
       "variety": null,
       "roast": "F",
       "description": "Кения. Классический кенийский профиль: чёрная смородина, томат, яркая кислотность.",
-      "tasting_notes": "Классический кенийский профиль: чёрная смородина, томат, яркая кислотность.",
+      "tasting_notes": null,
       "photo": "photos/products/filter_mono_кения_аа_мытый_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2595,
-          "photo": "photos/products/filter_mono_кения_аа_мытый_1_кг_filter.jpg",
-          "gtin": "04627529014378",
-          "marking_required": true
+          "photo": "photos/products/filter_mono_кения_аа_мытый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Округ Киамбу"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "espresso_mono_кения_аб_мытый_1_кг_эспрессо",
       "name": "Кения АБ мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
-      "process": "Мытая",
-      "altitude": "1600-1800",
+      "process": null,
+      "altitude": null,
       "variety": null,
       "roast": "E",
       "description": "Кения. Классический кенийский профиль: чёрная смородина, томат, яркая кислотность.",
-      "tasting_notes": "Классический кенийский профиль: чёрная смородина, томат, яркая кислотность.",
+      "tasting_notes": null,
       "photo": "photos/products/espresso_mono_кения_аб_мытый_1_кг_эспрессо.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2595,
-          "photo": "photos/products/espresso_mono_кения_аб_мытый_1_кг_эспрессо.jpg",
-          "gtin": "04627529014071",
-          "marking_required": true
+          "photo": "photos/products/espresso_mono_кения_аб_мытый_1_кг_эспрессо.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -6757,68 +6572,67 @@
       "quarantined_at": null,
       "quarantine_reason": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Центральная провинция, округ Ньери, округ Кириньяга"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_mono_кения_центральная_провинция_аб_мытый_1_кг_filter",
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 8,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
       "process": "Мытая",
-      "altitude": "1600-1800",
+      "altitude": null,
       "variety": null,
       "roast": "F",
       "description": "Кения. Классический кенийский профиль: чёрная смородина, томат, яркая кислотность.",
-      "tasting_notes": "вишня, цитрус, карамель, ревень, цветочные.",
+      "tasting_notes": [
+        "вишня",
+        "цитрус",
+        "карамель",
+        "ревень",
+        "цветочные"
+      ],
       "photo": "photos/products/filter_mono_кения_центральная_провинция_аб_мытый_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2490,
-          "photo": "photos/products/filter_mono_кения_центральная_провинция_аб_мытый_1_кг_filter.jpg",
-          "gtin": "04627529014385",
-          "marking_required": true
+          "photo": "photos/products/filter_mono_кения_центральная_провинция_аб_мытый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Центральная провинция, округ Ньери, округ Кириньяга"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_mono_китай_симао_гр_1_меллоу_мытый_1_кг_filter",
       "name": "Китай Симао гр.1 Меллоу мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": "Китай",
-      "process": "Мытая",
+      "process": null,
       "altitude": null,
       "variety": null,
       "roast": "F",
       "description": "Китай Симао. Лёгкий чайный профиль с нотами сухофруктов и ореха.",
-      "tasting_notes": "Китай Симао. Лёгкий чайный профиль с нотами сухофруктов и ореха.",
+      "tasting_notes": null,
       "photo": "photos/products/filter_mono_китай_симао_гр_1_меллоу_мытый_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2070,
-          "photo": "photos/products/filter_mono_китай_симао_гр_1_меллоу_мытый_1_кг_filter.jpg",
-          "gtin": "04627529014392",
-          "marking_required": true
+          "photo": "photos/products/filter_mono_китай_симао_гр_1_меллоу_мытый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Симао"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "t-китайский_чай_ассам_200г",
@@ -6834,7 +6648,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 750,
+          "price": 750.0,
           "photo": "photos/products/t-китайский_чай_ассам_200г.jpg"
         }
       ],
@@ -6860,7 +6674,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1410,
+          "price": 1410.0,
           "photo": "photos/products/t-китайский_чай_зеленый_люй_чжу_200г.jpg"
         }
       ],
@@ -6912,7 +6726,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1205,
+          "price": 1205.0,
           "photo": "photos/products/t-китайский_чай_иван-чай_с_ромашкой_200г.jpg"
         }
       ],
@@ -6938,7 +6752,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 990,
+          "price": 990.0,
           "photo": "photos/products/t-китайский_чай_иван-чай_теплый_вечер_200г.jpg"
         }
       ],
@@ -6989,7 +6803,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1568,
+          "price": 1568.0,
           "photo": "photos/products/t-китайский_чай_пуэр_с_чабрецом_200г.jpg"
         }
       ],
@@ -7015,7 +6829,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 721,
+          "price": 721.0,
           "photo": "photos/products/t-китайский_чай_тропический_микс_200г.jpg"
         }
       ],
@@ -7040,7 +6854,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1490,
+          "price": 1490.0,
           "photo": "photos/products/t-китайский_чай_улун_да_хун_пао_200г.jpg"
         }
       ],
@@ -7066,7 +6880,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1400,
+          "price": 1400.0,
           "photo": "photos/products/t-китайский_чай_улун_молочный_200г.jpg"
         }
       ],
@@ -7170,7 +6984,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1480
+          "price": 1480.0
         }
       ],
       "stock": 2,
@@ -7220,54 +7034,54 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 9,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
-      "process": "Мытая",
-      "altitude": "1400-2200",
+      "process": null,
+      "altitude": null,
       "variety": null,
       "roast": "F",
       "description": "Свежеобжаренный кофе с чистым и сбалансированным вкусом.",
-      "tasting_notes": "Свежеобжаренный кофе с чистым и сбалансированным вкусом.",
+      "tasting_notes": null,
       "photo": "photos/products/filter_mono_колумбия_андино_мытый_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2175,
-          "photo": "photos/products/filter_mono_колумбия_андино_мытый_1_кг_filter.jpg",
-          "gtin": "04627529014408",
-          "marking_required": true
+          "photo": "photos/products/filter_mono_колумбия_андино_мытый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Армения,Киндио"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "espresso_mono_колумбия_андино_мытый_эспрессо_1_кг",
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 15,
+      "stock": 14,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
       "process": "Мытая",
-      "altitude": "1400-2200",
+      "altitude": null,
       "variety": null,
       "roast": "E",
       "description": "Свежеобжаренный кофе с чистым и сбалансированным вкусом.",
-      "tasting_notes": "чёрная смородина, цитрус, ягоды, карамель.",
+      "tasting_notes": [
+        "чёрная смородина",
+        "цитрус",
+        "ягоды",
+        "карамель"
+      ],
       "photo": "photos/products/espresso_mono_колумбия_андино_мытый_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2175,
-          "photo": "photos/products/espresso_mono_колумбия_андино_мытый_эспрессо_1_кг.jpg",
-          "gtin": "04627529014095",
-          "marking_required": true
+          "photo": "photos/products/espresso_mono_колумбия_андино_мытый_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -7275,8 +7089,7 @@
       "quarantined_at": null,
       "quarantine_reason": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Армения,Киндио"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_micro_колумбия_гонзало_кармана_катура_сухой_1_кг_filter",
@@ -7288,25 +7101,27 @@
       "quarantined": false,
       "country": "Колумбия",
       "process": "Natural",
-      "altitude": "1700-2100",
+      "altitude": null,
       "variety": null,
       "roast": "F",
       "description": "Колумбия, Caturra натуральная. Сладость, орех, средняя кислотность.",
-      "tasting_notes": "шоколад, тропики, красные ягоды, цитрус.",
+      "tasting_notes": [
+        "шоколад",
+        "тропики",
+        "красные ягоды",
+        "цитрус"
+      ],
       "photo": "photos/products/filter_micro_колумбия_гонзало_кармана_катура_сухой_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 3500,
-          "photo": "photos/products/filter_micro_колумбия_гонзало_кармана_катура_сухой_1_кг_filter.jpg",
-          "gtin": "04627529014255",
-          "marking_required": true
+          "photo": "photos/products/filter_micro_колумбия_гонзало_кармана_катура_сухой_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Антиокия"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "c-drip-колумбия_гонзало_кармона__drip_",
@@ -7348,30 +7163,27 @@
       "name": "Колумбия Кастильо мытая - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 7,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
-      "process": "Мытая",
-      "altitude": 1400,
+      "process": null,
+      "altitude": null,
       "variety": null,
       "roast": "F",
       "description": "Колумбия Кастильо мытая. Чистый, сбалансированный вкус с карамелью и лёгкой кислотностью.",
-      "tasting_notes": "Чистый, сбалансированный вкус с карамелью и лёгкой кислотностью.",
+      "tasting_notes": null,
       "photo": "photos/products/filter_micro_колумбия_кастильо_мытая_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2847.5,
-          "photo": "photos/products/filter_micro_колумбия_кастильо_мытая_1_кг_filter.jpg",
-          "gtin": "04640668930453",
-          "marking_required": true
+          "photo": "photos/products/filter_micro_колумбия_кастильо_мытая_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Рисаральда"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "c-drip-колумбия_клаудиа_колменарес__drip_",
@@ -7413,60 +7225,66 @@
       "name": "Колумбия Маракуйя Хани инфьюз.- 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 2,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
       "process": "хани инфьюз",
-      "altitude": "1450-1550",
+      "altitude": null,
       "variety": null,
       "roast": "F",
       "description": "Колумбия Маракуйя Хани инфьюз. Яркие цитрусовые и тропические ноты с лёгкой ферментацией.",
-      "tasting_notes": "маракуйя, цитрус, мёд, цветочные, ваниль.",
+      "tasting_notes": [
+        "маракуйя",
+        "цитрус",
+        "мёд",
+        "цветочные",
+        "ваниль"
+      ],
       "photo": "photos/products/filter_micro_колумбия_маракуйя_хани_инфьюз_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 5922,
-          "photo": "photos/products/filter_micro_колумбия_маракуйя_хани_инфьюз_1_кг_filter.jpg",
-          "gtin": "04640668930460",
-          "marking_required": true
+          "photo": "photos/products/filter_micro_колумбия_маракуйя_хани_инфьюз_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Рисаральда"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_micro_колумбия_пачамама_нат_анаэроб_1_кг_filter",
       "name": "Колумбия Пачамама нат.анаэроб.- 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
       "process": "натуральная анаэробная",
-      "altitude": "1450-1550",
+      "altitude": null,
       "variety": null,
       "roast": "F",
       "description": "Колумбия Пачамама натуральная анаэроб. Глубокий фруктовый профиль, шоколад и специи.",
-      "tasting_notes": "ягоды, мёд, цветочные, карамель, тропики.",
+      "tasting_notes": [
+        "ягоды",
+        "мёд",
+        "цветочные",
+        "карамель",
+        "тропики"
+      ],
       "photo": "photos/products/filter_micro_колумбия_пачамама_нат_анаэроб_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 4842,
-          "photo": "photos/products/filter_micro_колумбия_пачамама_нат_анаэроб_1_кг_filter.jpg",
-          "gtin": "04640668930477",
-          "marking_required": true
+          "photo": "photos/products/filter_micro_колумбия_пачамама_нат_анаэроб_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Рисаральда"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "c-drip-колумбия_супремо__drip_",
@@ -7523,15 +7341,15 @@
       "fasovka": [
         {
           "size": "0.75 л",
-          "price": 896
+          "price": 896.0
         }
       ],
-      "stock": 2,
+      "stock": 0,
       "tags": [],
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
-      "hidden": false
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T10:34:38+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "hidden": true
     },
     {
       "id": "s-кордиал_barbacks_роза_ревень_грейпфрут_0_75л",
@@ -7550,12 +7368,12 @@
           "price": 1290
         }
       ],
-      "stock": 2,
+      "stock": 0,
       "tags": [],
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
-      "hidden": false
+      "quarantined": true,
+      "quarantined_at": "2026-05-18T10:34:38+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "hidden": true
     },
     {
       "id": "s-кордиал_barbaсks_голубика",
@@ -7571,7 +7389,7 @@
       "fasovka": [
         {
           "size": "0.75 л",
-          "price": 896
+          "price": 896.0
         }
       ],
       "stock": 0,
@@ -7596,7 +7414,7 @@
       "fasovka": [
         {
           "size": "0.75 л",
-          "price": 980
+          "price": 980.0
         }
       ],
       "stock": 2,
@@ -7619,7 +7437,7 @@
       "fasovka": [
         {
           "size": "0.75 л",
-          "price": 896
+          "price": 896.0
         }
       ],
       "stock": 0,
@@ -7644,7 +7462,7 @@
       "fasovka": [
         {
           "size": "0.75 л",
-          "price": 896
+          "price": 896.0
         }
       ],
       "stock": 2,
@@ -7658,7 +7476,7 @@
       "name": "Коста-Рика Тарразу Ла Пастора эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 15,
+      "stock": 20,
       "hidden": false,
       "quarantined": false,
       "country": "Коста-Рика",
@@ -7667,15 +7485,18 @@
       "variety": null,
       "roast": "E",
       "description": "Коста-Рика Тарразу. Чистый, яркий вкус с цитрусом и карамелью.",
-      "tasting_notes": "шоколад, цитрус, ягоды, чёрный чай.",
+      "tasting_notes": [
+        "шоколад",
+        "цитрус",
+        "ягоды",
+        "чёрный чай"
+      ],
       "photo": "photos/products/espresso_mono_коста_рика_тарразу_ла_пастора_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2250,
-          "photo": "photos/products/espresso_mono_коста_рика_тарразу_ла_пастора_эспрессо_1_кг.jpg",
-          "gtin": "04640668930484",
-          "marking_required": true
+          "photo": "photos/products/espresso_mono_коста_рика_тарразу_ла_пастора_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -7683,8 +7504,7 @@
       "quarantined_at": null,
       "quarantine_reason": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Тарразу"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "black_кофе_roastberry_black_бразилия_бразилия_sl28_хани_",
@@ -7695,23 +7515,17 @@
         {
           "size": "200 г",
           "price": 780,
-          "photo": "photos/products/black_кофе_roastberry_black_бразилия_бразилия_sl28_хани_.jpg",
-          "gtin": "04640668930491",
-          "marking_required": true
+          "photo": "photos/products/black_кофе_roastberry_black_бразилия_бразилия_sl28_хани_.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 10,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BLACK\" Бразилия Бразилия \"SL28 Хани анаэроб.\" - 200 г",
       "country": "Бразилия",
       "description": "Бразилия SL28 Хани анаэроб. Сложный профиль с нотами тропических фруктов, мёда и лёгкой ферментации.",
-      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "region": "Кармо-ди-Минас, фазенда Сантуарио Суль",
-      "altitude": "1380-1430",
-      "process": "Хани, анаэробная",
-      "tasting_notes": "Сложный профиль с нотами тропических фруктов, мёда и лёгкой ферментации."
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C."
     },
     {
       "id": "black_кофе_roastberry_black_колумбия_кастильо_мытая_200_",
@@ -7722,23 +7536,17 @@
         {
           "size": "200 г",
           "price": 650,
-          "photo": "photos/products/black_кофе_roastberry_black_колумбия_кастильо_мытая_200_.jpg",
-          "gtin": "04640668930507",
-          "marking_required": true
+          "photo": "photos/products/black_кофе_roastberry_black_колумбия_кастильо_мытая_200_.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 11,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BLACK\" Колумбия \"Кастильо\" мытая  200 г",
       "country": "Колумбия",
       "description": "Колумбия Кастильо мытая. Чистый, сбалансированный вкус с карамелью и лёгкой кислотностью.",
-      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "region": "Рисаральда",
-      "altitude": 1400,
-      "process": "Мытая",
-      "tasting_notes": "Чистый, сбалансированный вкус с карамелью и лёгкой кислотностью."
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C."
     },
     {
       "id": "black_кофе_roastberry_black_эфиопия_ададо_200_г",
@@ -7749,23 +7557,17 @@
         {
           "size": "200 г",
           "price": 560,
-          "photo": "photos/products/black_кофе_roastberry_black_эфиопия_ададо_200_г.jpg",
-          "gtin": "04640668930347",
-          "marking_required": true
+          "photo": "photos/products/black_кофе_roastberry_black_эфиопия_ададо_200_г.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 9,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BLACK\" Эфиопия Ададо 200 г",
       "country": "Эфиопия",
       "description": "Эфиопия Ададо. Фруктово-цветочный профиль с нотами персика и жасмина.",
-      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "region": "Народы юга, станция Ададо",
-      "altitude": "1800-2000",
-      "process": "Натуральный",
-      "tasting_notes": "Фруктово-цветочный профиль с нотами персика и жасмина."
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C."
     },
     {
       "id": "black_кофе_roastberry_black_эфиопия_челелекту_г1_мытыи_2",
@@ -7776,23 +7578,17 @@
         {
           "size": "200 г",
           "price": 655,
-          "photo": "photos/products/black_кофе_roastberry_black_эфиопия_челелекту_г1_мытыи_2.jpg",
-          "gtin": "04640668930361",
-          "marking_required": true
+          "photo": "photos/products/black_кофе_roastberry_black_эфиопия_челелекту_г1_мытыи_2.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 9,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BLACK\" Эфиопия Челелекту гр.1 мытый 200 г",
       "country": "Эфиопия",
       "description": "Эфиопия Челелекту мытая. Чистый чайный профиль с цветочными и цитрусовыми нотами.",
-      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "region": "Йергачифф",
-      "altitude": "1850-2200",
-      "process": "Мытая",
-      "tasting_notes": "Чистый чайный профиль с цветочными и цитрусовыми нотами."
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C."
     },
     {
       "id": "black_кофе_roastberry_black_эфиопия_челчеле_натур_200_г",
@@ -7803,23 +7599,17 @@
         {
           "size": "200 г",
           "price": 655,
-          "photo": "assets/placeholders/ph_black.svg",
-          "gtin": "04640668930378",
-          "marking_required": true
+          "photo": "assets/placeholders/ph_black.svg"
         }
       ],
-      "stock": 19,
+      "stock": 11,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BLACK\" Эфиопия Челчеле натур.200 г",
       "country": "Эфиопия",
       "description": "Эфиопия Челчеле. Цветочные и ягодные ноты, чайный профиль, высокая кислотность.",
-      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "region": "Гедео",
-      "altitude": "1900-2100",
-      "process": "Натуральная",
-      "tasting_notes": "Цветочные и ягодные ноты, чайный профиль, высокая кислотность."
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C."
     },
     {
       "id": "borshch_кофе_roastberry_borщ_бразилия_судан_руме_анаэроб_а",
@@ -7830,23 +7620,17 @@
         {
           "size": "200 г",
           "price": 780,
-          "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_судан_руме_анаэроб_а.jpg",
-          "gtin": "04640668930514",
-          "marking_required": true
+          "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_судан_руме_анаэроб_а.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 9,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BORЩ \"Бразилия \"Судан Руме анаэроб.\" анаэроб.\" 200 г",
       "country": "Бразилия",
       "description": "Бразилия Судан Руме анаэроб. Редкий сорт с яркими фруктовыми нотами и винной кислотностью.",
-      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "region": "Кармо-ди-Минас, фазенда Сантуарио Суль",
-      "altitude": "1380–1430 м",
-      "process": "Натуральный, анаэробный",
-      "tasting_notes": "Редкий сорт с яркими фруктовыми нотами и винной кислотностью."
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C."
     },
     {
       "id": "borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун",
@@ -7857,23 +7641,17 @@
         {
           "size": "200 г",
           "price": 780,
-          "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg",
-          "gtin": "04640668930521",
-          "marking_required": true
+          "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 8,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BORЩ \"Бразилия \"Фазенда Лагуинья мундо анаэроб.\" 200 г",
       "country": "Бразилия",
       "description": "Бразилия Фазенда Лагуинья, Mundo Novo анаэроб. Глубокий шоколад, сухофрукты, плотное тело.",
-      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "region": "Карму-да-Кашуэра, фазенда Лагуинья",
-      "altitude": "1000-1100",
-      "process": "Натуральная, анаэробная",
-      "tasting_notes": "Глубокий шоколад, сухофрукты, плотное тело."
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C."
     },
     {
       "id": "borshch_кофе_roastberry_borщ_колумбия_gonzalo_carmona_кату",
@@ -7884,23 +7662,17 @@
         {
           "size": "200 г",
           "price": 780,
-          "photo": "assets/placeholders/ph_borshch.svg",
-          "gtin": "04640668930385",
-          "marking_required": true
+          "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
-      "stock": 2,
+      "stock": 4,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Gonzalo Carmona Катура нату.\" 200 г",
       "country": "Колумбия",
       "description": "Микролот специальной обжарки. Интенсивный, сложный профиль с яркими фруктовыми и шоколадными нотами.",
-      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "region": "Антиокия",
-      "altitude": "1700-2100",
-      "process": "натуральная",
-      "tasting_notes": "Микролот специальной обжарки. Интенсивный, сложный профиль с яркими фруктовыми и шоколадными нотами."
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C."
     },
     {
       "id": "borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью",
@@ -7911,23 +7683,17 @@
         {
           "size": "200 г",
           "price": 1265,
-          "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью.jpg",
-          "gtin": "04640668930538",
-          "marking_required": true
+          "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 17,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Маракуйя Хани инфьюз.\" 200 г",
       "country": "Колумбия",
       "description": "Колумбия Маракуйя Хани инфьюз. Яркие цитрусовые и тропические ноты с лёгкой ферментацией.",
-      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "region": "Рисаральда",
-      "altitude": "1450-1550",
-      "process": "хани инфьюз",
-      "tasting_notes": "Яркие цитрусовые и тропические ноты с лёгкой ферментацией."
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C."
     },
     {
       "id": "borshch_кофе_roastberry_borщ_колумбия_пачамама_нат_анаэроб",
@@ -7938,23 +7704,17 @@
         {
           "size": "200 г",
           "price": 4842,
-          "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_пачамама_нат_анаэроб.jpg",
-          "gtin": "04640668930545",
-          "marking_required": true
+          "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_пачамама_нат_анаэроб.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 7,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Пачамама\" нат.анаэроб.200 г",
       "country": "Колумбия",
       "description": "Колумбия Пачамама натуральная анаэроб. Глубокий фруктовый профиль, шоколад и специи.",
-      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "region": "Рисаральда",
-      "altitude": "1450-1550",
-      "process": "натуральная анаэробная",
-      "tasting_notes": "Глубокий фруктовый профиль, шоколад и специи."
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C."
     },
     {
       "id": "borshch_кофе_roastberry_borщ_колумбия_хаи_ро_арсила_нат_20",
@@ -7965,9 +7725,7 @@
         {
           "size": "200 г",
           "price": 655,
-          "photo": "assets/placeholders/ph_borshch.svg",
-          "gtin": "04640668930392",
-          "marking_required": true
+          "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
       "stock": 6,
@@ -7977,11 +7735,7 @@
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Хайро Арсила нат.\" 200 г",
       "country": "Колумбия",
       "description": "Колумбия Хайро Арсила натуральная. Сложный профиль с нотами красных фруктов и шоколада.",
-      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "region": "Армения, Киндио",
-      "altitude": "1200-1700",
-      "process": "Натуральная, двойная ферментация",
-      "tasting_notes": "Сложный профиль с нотами красных фруктов и шоколада."
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C."
     },
     {
       "id": "cascara_кофеи_ная_шелуха_коста-рика_каскара_финка_сонора_с",
@@ -8131,7 +7885,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 165
+          "price": 165.0
         }
       ],
       "stock": 4,
@@ -8156,7 +7910,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1760
+          "price": 1760.0
         }
       ],
       "stock": 2,
@@ -8206,7 +7960,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 1950
+          "price": 1950.0
         }
       ],
       "stock": 4,
@@ -8231,7 +7985,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 1935,
+          "price": 1935.0,
           "photo": "photos/products/t-набор_tasteabrew_с_новым_годом_и_рождеством_.jpg"
         }
       ],
@@ -8257,7 +8011,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 1950,
+          "price": 1950.0,
           "photo": "photos/products/t-набор_tasteabrew_согревающий_сет_.jpg"
         }
       ],
@@ -8283,7 +8037,7 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 166,
+          "price": 166.0,
           "photo": null
         }
       ],
@@ -8308,7 +8062,7 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 166,
+          "price": 166.0,
           "photo": null
         }
       ],
@@ -8333,11 +8087,11 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 166,
+          "price": 166.0,
           "photo": null
         }
       ],
-      "stock": 253,
+      "stock": 254,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8358,7 +8112,7 @@
       "fasovka": [
         {
           "size": "25х2г",
-          "price": 240
+          "price": 240.0
         }
       ],
       "stock": 24,
@@ -8382,7 +8136,7 @@
       "fasovka": [
         {
           "size": "25х1.75г",
-          "price": 185
+          "price": 185.0
         }
       ],
       "stock": 0,
@@ -8407,7 +8161,7 @@
       "fasovka": [
         {
           "size": "25х2г",
-          "price": 190
+          "price": 190.0
         }
       ],
       "stock": 0,
@@ -8432,7 +8186,7 @@
       "fasovka": [
         {
           "size": "0.03 л",
-          "price": 640
+          "price": 640.0
         }
       ],
       "stock": 2,
@@ -8451,20 +8205,18 @@
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
-      "process": "Мытая",
-      "altitude": "1 400–1 800",
+      "process": null,
+      "altitude": null,
       "variety": null,
       "roast": "E",
       "description": "Перу. Шоколад, сухофрукты, лёгкая кислотность, чистый профиль.",
-      "tasting_notes": "Шоколад, сухофрукты, лёгкая кислотность, чистый профиль.",
+      "tasting_notes": null,
       "photo": "photos/products/espresso_mono_перу_монте_верде_гр_1_мытый_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2620,
-          "photo": "photos/products/espresso_mono_перу_монте_верде_гр_1_мытый_эспрессо_1_кг.jpg",
-          "gtin": "04627529014125",
-          "marking_required": true
+          "photo": "photos/products/espresso_mono_перу_монте_верде_гр_1_мытый_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -8472,39 +8224,35 @@
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "quarantined_at": null,
-      "quarantine_reason": null,
-      "region": "Провинция Амазонки"
+      "quarantine_reason": null
     },
     {
       "id": "espresso_mono_перу_монте_верде_гр_1_сухой_эспрессо_1_кг",
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 9,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
-      "process": "Натуральная",
-      "altitude": "1 400–1 800",
+      "process": null,
+      "altitude": null,
       "variety": null,
       "roast": "E",
       "description": "Перу. Шоколад, сухофрукты, лёгкая кислотность, чистый профиль.",
-      "tasting_notes": "Шоколад, сухофрукты, лёгкая кислотность, чистый профиль.",
+      "tasting_notes": null,
       "photo": "photos/products/espresso_mono_перу_монте_верде_гр_1_сухой_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2870,
-          "photo": "photos/products/espresso_mono_перу_монте_верде_гр_1_сухой_эспрессо_1_кг.jpg",
-          "gtin": "04627529014132",
-          "marking_required": true
+          "photo": "photos/products/espresso_mono_перу_монте_верде_гр_1_сухой_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Провинция Амазонки"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "s-помпа_белая_28_мм_5_мл",
@@ -8520,7 +8268,7 @@
       "fasovka": [
         {
           "size": "5 мл",
-          "price": 400
+          "price": 400.0
         }
       ],
       "stock": 9,
@@ -8544,7 +8292,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2420
+          "price": 2420.0
         }
       ],
       "stock": 1,
@@ -8594,7 +8342,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1568,
+          "price": 1568.0,
           "photo": null
         }
       ],
@@ -8619,7 +8367,7 @@
       "fasovka": [
         {
           "size": "15х4г",
-          "price": 998
+          "price": 998.0
         }
       ],
       "stock": 6,
@@ -8644,7 +8392,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2215
+          "price": 2215.0
         }
       ],
       "stock": 4,
@@ -8668,7 +8416,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2215
+          "price": 2215.0
         }
       ],
       "stock": 4,
@@ -8692,7 +8440,7 @@
       "fasovka": [
         {
           "size": "75 г",
-          "price": 1130
+          "price": 1130.0
         }
       ],
       "stock": 3,
@@ -8707,24 +8455,28 @@
       "name": "Руанда Мутетели 15+ мытый  - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 1,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
       "process": "Мытая",
-      "altitude": "1700-2200",
+      "altitude": null,
       "variety": null,
       "roast": "E",
       "description": "Свежеобжаренный кофе с чистым и сбалансированным вкусом.",
-      "tasting_notes": "чёрный чай, вишня, шиповник, лимон, слива.",
+      "tasting_notes": [
+        "чёрный чай",
+        "вишня",
+        "шиповник",
+        "лимон",
+        "слива"
+      ],
       "photo": "photos/products/espresso_mono_руанда_мутетели_15_мытый_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2230,
-          "photo": "photos/products/espresso_mono_руанда_мутетели_15_мытый_1_кг.jpg",
-          "gtin": "04627529014149",
-          "marking_required": true
+          "photo": "photos/products/espresso_mono_руанда_мутетели_15_мытый_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -8732,40 +8484,42 @@
       "quarantined_at": null,
       "quarantine_reason": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Западная, Южная, Северная провинция"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_mono_руанда_мутетели_15_мытый_1_кг_filter",
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 9,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
       "process": "Мытая",
-      "altitude": "1700-2200",
+      "altitude": null,
       "variety": null,
       "roast": "F",
       "description": "Свежеобжаренный кофе с чистым и сбалансированным вкусом.",
-      "tasting_notes": "чёрный чай, вишня, шиповник, лимон, слива.",
+      "tasting_notes": [
+        "чёрный чай",
+        "вишня",
+        "шиповник",
+        "лимон",
+        "слива"
+      ],
       "photo": "photos/products/filter_mono_руанда_мутетели_15_мытый_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2230,
-          "photo": "photos/products/filter_mono_руанда_мутетели_15_мытый_1_кг_filter.jpg",
-          "gtin": "04627529014422",
-          "marking_required": true
+          "photo": "photos/products/filter_mono_руанда_мутетели_15_мытый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "quarantined_at": null,
       "quarantine_reason": null,
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Западная, Южная, Северная провинция"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "other_сахар_althaus_в_стиках_по_5_г_2000_шт_кор",
@@ -8778,7 +8532,7 @@
           "price": 2400
         }
       ],
-      "stock": 6,
+      "stock": 1,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -8797,7 +8551,7 @@
           "price": 1
         }
       ],
-      "stock": 12000,
+      "stock": 4400,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -8837,7 +8591,7 @@
       "fasovka": [
         {
           "size": "0.75 л",
-          "price": 342
+          "price": 342.0
         }
       ],
       "stock": 1,
@@ -8861,7 +8615,7 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 406
+          "price": 406.0
         }
       ],
       "stock": 1,
@@ -8885,7 +8639,7 @@
       "fasovka": [
         {
           "size": "1200 мл",
-          "price": 319
+          "price": 319.0
         }
       ],
       "stock": 1,
@@ -8909,7 +8663,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 550
+          "price": 550.0
         }
       ],
       "stock": 5,
@@ -8932,7 +8686,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 530
+          "price": 530.0
         }
       ],
       "stock": 4,
@@ -8955,7 +8709,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 771
+          "price": 771.0
         }
       ],
       "stock": 5,
@@ -8979,7 +8733,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 4,
@@ -9003,7 +8757,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 565
+          "price": 565.0
         }
       ],
       "stock": 5,
@@ -9050,7 +8804,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 560
+          "price": 560.0
         }
       ],
       "stock": 6,
@@ -9073,7 +8827,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 573
+          "price": 573.0
         }
       ],
       "stock": 2,
@@ -9096,7 +8850,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 540
+          "price": 540.0
         }
       ],
       "stock": 1,
@@ -9119,7 +8873,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635,
+          "price": 635.0,
           "photo": "photos/products/s-сироп_botanika_айриш_крем_1л.jpg"
         }
       ],
@@ -9145,7 +8899,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 7,
@@ -9168,7 +8922,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 4,
@@ -9191,7 +8945,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 771
+          "price": 771.0
         }
       ],
       "stock": 6,
@@ -9214,7 +8968,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 6,
@@ -9237,7 +8991,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635,
+          "price": 635.0,
           "photo": "photos/products/s-сироп_botanika_бабл_гам_1л.jpg"
         }
       ],
@@ -9263,7 +9017,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635,
+          "price": 635.0,
           "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg"
         }
       ],
@@ -9289,7 +9043,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 546
+          "price": 546.0
         }
       ],
       "stock": 13,
@@ -9312,7 +9066,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 3,
@@ -9335,7 +9089,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 3,
@@ -9358,7 +9112,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635,
+          "price": 635.0,
           "photo": "photos/products/s-сироп_botanika_грейпфрут_розовый_1л.jpg"
         }
       ],
@@ -9384,7 +9138,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 11,
@@ -9409,7 +9163,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635,
+          "price": 635.0,
           "photo": "photos/products/s-сироп_botanika_груша_сортовая_1л.jpg"
         }
       ],
@@ -9435,7 +9189,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 23,
@@ -9458,7 +9212,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635,
+          "price": 635.0,
           "photo": "photos/products/s-сироп_botanika_дыня_зеленая_1л.jpg"
         }
       ],
@@ -9484,7 +9238,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 7,
@@ -9507,7 +9261,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635,
+          "price": 635.0,
           "photo": "photos/products/s-сироп_botanika_зеленое_яблоко_1л.jpg"
         }
       ],
@@ -9533,7 +9287,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635,
+          "price": 635.0,
           "photo": "photos/products/s-сироп_botanika_имбирный_пряник_1л.jpg"
         }
       ],
@@ -9559,7 +9313,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 4,
@@ -9582,7 +9336,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 546
+          "price": 546.0
         }
       ],
       "stock": 21,
@@ -9607,11 +9361,11 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635,
+          "price": 635.0,
           "photo": "photos/products/s-сироп_botanika_карамель_соленая_1л.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 14,
       "tags": [
         "Хит"
       ],
@@ -9635,7 +9389,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 660
+          "price": 660.0
         }
       ],
       "stock": 5,
@@ -9658,7 +9412,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 11,
@@ -9681,7 +9435,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 16,
@@ -9704,7 +9458,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 6,
@@ -9727,7 +9481,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 11,
@@ -9750,7 +9504,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 9,
@@ -9773,7 +9527,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 7,
@@ -9796,7 +9550,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 1060
+          "price": 1060.0
         }
       ],
       "stock": 6,
@@ -9819,11 +9573,11 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635,
+          "price": 635.0,
           "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg",
       "_source": "https://botanikastories.ru/product/lesnoj-oreh/",
@@ -9845,7 +9599,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 6,
@@ -9868,7 +9622,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 13,
@@ -9891,7 +9645,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 14,
@@ -9937,7 +9691,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 7,
@@ -9960,7 +9714,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 14,
@@ -9983,7 +9737,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 660
+          "price": 660.0
         }
       ],
       "stock": 0,
@@ -10007,7 +9761,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 660,
+          "price": 660.0,
           "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg"
         }
       ],
@@ -10033,7 +9787,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 4,
@@ -10056,7 +9810,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 8,
@@ -10079,7 +9833,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 13,
@@ -10102,7 +9856,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 16,
@@ -10125,7 +9879,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635,
+          "price": 635.0,
           "photo": "photos/products/s-сироп_botanika_черная_смородина_1л.jpg"
         }
       ],
@@ -10151,7 +9905,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 575
+          "price": 575.0
         }
       ],
       "stock": 8,
@@ -10198,7 +9952,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 721,
+          "price": 721.0,
           "photo": "photos/products/s-сироп_herbarista_бабл_гам_0_7л.jpg"
         }
       ],
@@ -10225,7 +9979,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 546
+          "price": 546.0
         }
       ],
       "stock": 0,
@@ -10249,10 +10003,10 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771
+          "price": 771.0
         }
       ],
-      "stock": 10,
+      "stock": 12,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10272,11 +10026,11 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 659,
+          "price": 659.0,
           "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 7,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.jpg",
       "_source": "herbarista_pdf",
@@ -10298,7 +10052,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 659,
+          "price": 659.0,
           "photo": "photos/products/s-сироп_herbarista_груша_со_специями_0_7л.jpg"
         }
       ],
@@ -10324,7 +10078,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 659
+          "price": 659.0
         }
       ],
       "stock": 0,
@@ -10348,7 +10102,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 659,
+          "price": 659.0,
           "photo": "photos/products/s-сироп_herbarista_ежевика_с_листьями_0_7л.jpg"
         }
       ],
@@ -10374,7 +10128,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 721
+          "price": 721.0
         }
       ],
       "stock": 9,
@@ -10398,7 +10152,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771,
+          "price": 771.0,
           "photo": "photos/products/s-сироп_herbarista_ирландский_крем_0_7л.jpg"
         }
       ],
@@ -10424,7 +10178,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771,
+          "price": 771.0,
           "photo": "photos/products/s-сироп_herbarista_карамель_двойного_обжига_0_7л.jpg"
         }
       ],
@@ -10452,7 +10206,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 721,
+          "price": 721.0,
           "photo": "photos/products/s-сироп_herbarista_кленовый_с_каштаном_0_7л.jpg"
         }
       ],
@@ -10478,7 +10232,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771,
+          "price": 771.0,
           "photo": "photos/products/s-сироп_herbarista_кокос_с_мякотью_0_7л.jpg"
         }
       ],
@@ -10504,7 +10258,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771,
+          "price": 771.0,
           "photo": "photos/products/s-сироп_herbarista_конопляная_халва_0_7л.jpg"
         }
       ],
@@ -10530,7 +10284,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 659
+          "price": 659.0
         }
       ],
       "stock": 0,
@@ -10554,7 +10308,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 885
+          "price": 885.0
         }
       ],
       "stock": 0,
@@ -10578,7 +10332,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 659
+          "price": 659.0
         }
       ],
       "stock": 0,
@@ -10629,11 +10383,11 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771,
+          "price": 771.0,
           "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 11,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -10656,7 +10410,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 604
+          "price": 604.0
         }
       ],
       "stock": 0,
@@ -10679,11 +10433,11 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771,
+          "price": 771.0,
           "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -10705,7 +10459,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 980
+          "price": 980.0
         }
       ],
       "stock": 0,
@@ -10729,7 +10483,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 885,
+          "price": 885.0,
           "photo": "photos/products/s-сироп_herbarista_мята_0_7л.jpg"
         }
       ],
@@ -10756,7 +10510,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 721,
+          "price": 721.0,
           "photo": "photos/products/s-сироп_herbarista_попкорн_0_7л.jpg"
         }
       ],
@@ -10783,7 +10537,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771,
+          "price": 771.0,
           "photo": "photos/products/s-сироп_herbarista_сгущенное_молоко_0_7л.jpg"
         }
       ],
@@ -10809,7 +10563,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771,
+          "price": 771.0,
           "photo": "photos/products/s-сироп_herbarista_сливочная_ириска_0_7л.jpg"
         }
       ],
@@ -10835,7 +10589,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 721,
+          "price": 721.0,
           "photo": "photos/products/s-сироп_herbarista_тропический_микс_0_7л.jpg"
         }
       ],
@@ -10862,7 +10616,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771,
+          "price": 771.0,
           "photo": "photos/products/s-сироп_herbarista_тыква_0_7л.jpg"
         }
       ],
@@ -10888,7 +10642,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 530
+          "price": 530.0
         }
       ],
       "stock": 14,
@@ -10911,7 +10665,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 659,
+          "price": 659.0,
           "photo": "photos/products/s-сироп_herbarista_черная_смородина_с_листьями_0_7л.jpg"
         }
       ],
@@ -10937,7 +10691,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 659,
+          "price": 659.0,
           "photo": "photos/products/s-сироп_herbarista_шоколадный_трюфель_0_7л.jpg"
         }
       ],
@@ -10963,7 +10717,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 885,
+          "price": 885.0,
           "photo": "photos/products/s-сироп_herbarista_эвкалипт_и_мята_0_7л.jpg"
         }
       ],
@@ -10989,7 +10743,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 741
+          "price": 741.0
         }
       ],
       "stock": 0,
@@ -11037,10 +10791,10 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 530
+          "price": 530.0
         }
       ],
-      "stock": 6,
+      "stock": 7,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -11061,7 +10815,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 660
+          "price": 660.0
         }
       ],
       "stock": 6,
@@ -11084,7 +10838,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635,
+          "price": 635.0,
           "photo": "photos/products/s-сироп_sweetshot_ваниль_1л.jpg"
         }
       ],
@@ -11110,7 +10864,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 493
+          "price": 493.0
         }
       ],
       "stock": 0,
@@ -11209,7 +10963,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 430,
+          "price": 430.0,
           "photo": "photos/products/s-сироп_sweetshot_желтый_банан_1л.jpg"
         }
       ],
@@ -11259,10 +11013,10 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 530
+          "price": 530.0
         }
       ],
-      "stock": 4,
+      "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -11283,7 +11037,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 494
+          "price": 494.0
         }
       ],
       "stock": 8,
@@ -11307,7 +11061,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635,
+          "price": 635.0,
           "photo": "photos/products/s-сироп_sweetshot_карамель_1л.jpg"
         }
       ],
@@ -11359,7 +11113,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 530,
+          "price": 530.0,
           "photo": "photos/products/s-сироп_sweetshot_клубника_1л.jpg"
         }
       ],
@@ -11385,7 +11139,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 530,
+          "price": 530.0,
           "photo": "photos/products/s-сироп_sweetshot_кокос_1л.jpg"
         }
       ],
@@ -11411,7 +11165,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 430
+          "price": 430.0
         }
       ],
       "stock": 0,
@@ -11435,7 +11189,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 430,
+          "price": 430.0,
           "photo": "photos/products/s-сироп_sweetshot_лесной_орех_1л.jpg"
         }
       ],
@@ -11461,7 +11215,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 525
+          "price": 525.0
         }
       ],
       "stock": 7,
@@ -11585,7 +11339,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 493
+          "price": 493.0
         }
       ],
       "stock": 0,
@@ -11661,7 +11415,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 430
+          "price": 430.0
         }
       ],
       "stock": 0,
@@ -11685,7 +11439,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 530
+          "price": 530.0
         }
       ],
       "stock": 0,
@@ -11709,7 +11463,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635,
+          "price": 635.0,
           "photo": "photos/products/s-сироп_sweetshot_шоколад_1л.jpg"
         }
       ],
@@ -11735,7 +11489,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 625
+          "price": 625.0
         }
       ],
       "stock": 2,
@@ -11759,7 +11513,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 2,
@@ -11783,7 +11537,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 0,
@@ -11808,7 +11562,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 1,
@@ -11832,7 +11586,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 771,
+          "price": 771.0,
           "photo": null
         }
       ],
@@ -11857,7 +11611,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 1,
@@ -11881,7 +11635,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 659,
+          "price": 659.0,
           "photo": null
         }
       ],
@@ -11906,7 +11660,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 2,
@@ -11930,7 +11684,7 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
       "stock": 5,
@@ -11954,10 +11708,10 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635
+          "price": 635.0
         }
       ],
-      "stock": 6,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -11978,7 +11732,7 @@
       "fasovka": [
         {
           "size": "30 шт",
-          "price": 11,
+          "price": 11.0,
           "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
         }
       ],
@@ -12003,7 +11757,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1760
+          "price": 1760.0
         }
       ],
       "stock": 3,
@@ -12027,7 +11781,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2215
+          "price": 2215.0
         }
       ],
       "stock": 2,
@@ -12051,7 +11805,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1930
+          "price": 1930.0
         }
       ],
       "stock": 2,
@@ -12075,7 +11829,7 @@
       "fasovka": [
         {
           "size": "350 мл",
-          "price": 12,
+          "price": 12.0,
           "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg"
         }
       ],
@@ -12101,7 +11855,7 @@
       "fasovka": [
         {
           "size": "500 мл",
-          "price": 11,
+          "price": 11.0,
           "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg"
         }
       ],
@@ -12126,7 +11880,7 @@
       "fasovka": [
         {
           "size": "70 г",
-          "price": 1530
+          "price": 1530.0
         }
       ],
       "stock": 1,
@@ -12161,30 +11915,27 @@
       "name": "Танзания АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Танзания",
-      "process": "Мытая",
+      "process": null,
       "altitude": null,
       "variety": null,
       "roast": "F",
       "description": "Танзания АА. Чёрная смородина, винные ноты, средняя кислотность.",
-      "tasting_notes": "Чёрная смородина, винные ноты, средняя кислотность.",
+      "tasting_notes": null,
       "photo": "photos/products/filter_mono_танзания_аа_мытый_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2335,
-          "photo": "photos/products/filter_mono_танзания_аа_мытый_1_кг_filter.jpg",
-          "gtin": "04627529014439",
-          "marking_required": true
+          "photo": "photos/products/filter_mono_танзания_аа_мытый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Склоны гор Килиманджаро"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "s-топпинг_barline_банан_1кг",
@@ -12200,7 +11951,7 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 1300
+          "price": 1300.0
         }
       ],
       "stock": 3,
@@ -12223,7 +11974,7 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 525
+          "price": 525.0
         }
       ],
       "stock": 2,
@@ -12246,7 +11997,7 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 530
+          "price": 530.0
         }
       ],
       "stock": 2,
@@ -12269,7 +12020,7 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 526
+          "price": 526.0
         }
       ],
       "stock": 4,
@@ -12315,7 +12066,7 @@
       "fasovka": [
         {
           "size": "1200.0 мл",
-          "price": 319
+          "price": 319.0
         }
       ],
       "stock": 5,
@@ -12338,7 +12089,7 @@
       "fasovka": [
         {
           "size": "1200.0 мл",
-          "price": 980
+          "price": 980.0
         }
       ],
       "stock": 0,
@@ -12362,7 +12113,7 @@
       "fasovka": [
         {
           "size": "214 г",
-          "price": 905,
+          "price": 905.0,
           "photo": "photos/products/t-травяной_иван_чай_214_г_аромат_виноград.jpg"
         }
       ],
@@ -12387,7 +12138,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1250,
+          "price": 1250.0,
           "photo": "photos/products/t-травяной_лада_200_г_иван_чай.jpg"
         }
       ],
@@ -12413,7 +12164,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1250,
+          "price": 1250.0,
           "photo": null
         }
       ],
@@ -12438,7 +12189,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1205,
+          "price": 1205.0,
           "photo": null
         }
       ],
@@ -12458,26 +12209,23 @@
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
-      "process": "Мытая",
-      "altitude": "1200-2200",
+      "process": null,
+      "altitude": null,
       "variety": null,
       "roast": "F",
       "description": "Уганда. Шоколад, орех, низкая кислотность, плотное тело.",
-      "tasting_notes": "Шоколад, орех, низкая кислотность, плотное тело.",
+      "tasting_notes": null,
       "photo": "photos/products/filter_mono_уганда_вугар_мытый_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2070,
-          "photo": "photos/products/filter_mono_уганда_вугар_мытый_1_кг_filter.jpg",
-          "gtin": "04640668930552",
-          "marking_required": true
+          "photo": "photos/products/filter_mono_уганда_вугар_мытый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Окрестности горы Элгон"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "espresso_mono_уганда_вугар_мытый_эспрессо_1_кг",
@@ -12488,20 +12236,18 @@
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
-      "process": "Мытая",
-      "altitude": "1200-2200",
+      "process": null,
+      "altitude": null,
       "variety": null,
       "roast": "E",
       "description": "Уганда. Шоколад, орех, низкая кислотность, плотное тело.",
-      "tasting_notes": "Шоколад, орех, низкая кислотность, плотное тело.",
+      "tasting_notes": null,
       "photo": "photos/products/espresso_mono_уганда_вугар_мытый_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2070,
-          "photo": "photos/products/espresso_mono_уганда_вугар_мытый_эспрессо_1_кг.jpg",
-          "gtin": "04627529014156",
-          "marking_required": true
+          "photo": "photos/products/espresso_mono_уганда_вугар_мытый_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -12509,8 +12255,7 @@
       "quarantined_at": null,
       "quarantine_reason": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Окрестности горы Элгон"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "espresso_mono_уганда_рувензори_сухой_эспрессо_1_кг",
@@ -12526,22 +12271,24 @@
       "variety": "—",
       "roast": "E",
       "description": "Уганда. Шоколад, орех, низкая кислотность, плотное тело.",
-      "tasting_notes": "шоколад, орех, карамель, тост.",
+      "tasting_notes": [
+        "шоколад",
+        "орех",
+        "карамель",
+        "тост"
+      ],
       "photo": "photos/products/espresso_mono_уганда_рувензори_сухой_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "photos/products/espresso_mono_уганда_рувензори_сухой_эспрессо_1_кг.jpg",
-          "gtin": "04627529014163",
-          "marking_required": true
+          "photo": "photos/products/espresso_mono_уганда_рувензори_сухой_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Рувензор"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "t-улун_-_да_хун_пао_100_нун_сян_200_г_вкус_хлебная_к",
@@ -12557,7 +12304,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1490,
+          "price": 1490.0,
           "photo": null
         }
       ],
@@ -12607,7 +12354,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 2290,
+          "price": 2290.0,
           "photo": "photos/products/t-улун_най_сян_дун_дин_80_200_г_молочный_улун_аромат.jpg"
         }
       ],
@@ -12632,7 +12379,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1520,
+          "price": 1520.0,
           "photo": "photos/products/t-улун_те_гуанинь_70_200_г_железная_бодхисаттва_гуан.jpg"
         }
       ],
@@ -12661,7 +12408,7 @@
           "photo": null
         }
       ],
-      "stock": 58,
+      "stock": 22,
       "tags": [],
       "photo": "",
       "quarantined": false,
@@ -12673,7 +12420,7 @@
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 47,
+      "stock": 71,
       "on_request": false,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
@@ -12716,7 +12463,7 @@
       "fasovka": [
         {
           "size": "125 г",
-          "price": 1590
+          "price": 1590.0
         }
       ],
       "stock": 3,
@@ -12740,7 +12487,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 2090,
+          "price": 2090.0,
           "photo": "photos/products/t-фруктовый_лань_мей_шень_200_г_аромат_гибискус.jpg"
         }
       ],
@@ -12791,7 +12538,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1025,
+          "price": 1025.0,
           "photo": null
         }
       ],
@@ -12816,7 +12563,7 @@
       "fasovka": [
         {
           "size": "175 г",
-          "price": 2215
+          "price": 2215.0
         }
       ],
       "stock": 5,
@@ -12840,7 +12587,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2215
+          "price": 2215.0
         }
       ],
       "stock": 2,
@@ -12864,7 +12611,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 125,
+          "price": 125.0,
           "photo": "photos/products/t-чай_tasteabrew_resta_650_для_чайника_молочный_улун.jpg"
         }
       ],
@@ -12890,7 +12637,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 68,
+          "price": 68.0,
           "photo": "photos/products/t-чай_tasteabrew_togo_350_гун_тин_и_саган_дайля_100_.jpg"
         }
       ],
@@ -12916,7 +12663,7 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 72,
+          "price": 72.0,
           "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg"
         }
       ],
@@ -12942,11 +12689,11 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 62,
+          "price": 62.0,
           "photo": "photos/products/t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100.jpg"
         }
       ],
-      "stock": 20,
+      "stock": 21,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100.jpg",
       "quarantined": false,
@@ -12968,7 +12715,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 750,
+          "price": 750.0,
           "photo": null
         }
       ],
@@ -12993,7 +12740,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1300,
+          "price": 1300.0,
           "photo": null
         }
       ],
@@ -13018,7 +12765,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1300,
+          "price": 1300.0,
           "photo": null
         }
       ],
@@ -13043,7 +12790,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1040,
+          "price": 1040.0,
           "photo": null
         }
       ],
@@ -13093,7 +12840,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 750,
+          "price": 750.0,
           "photo": null
         }
       ],
@@ -13118,7 +12865,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1375,
+          "price": 1375.0,
           "photo": "photos/products/t-черный_дянь_хун_классический_черный_китайскй_200_г.jpg"
         }
       ],
@@ -13143,7 +12890,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 805,
+          "price": 805.0,
           "photo": "photos/products/t-черный_кангаита_кеннийский_черный_200_г_аромат_дер.jpg"
         }
       ],
@@ -13244,7 +12991,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 1055,
+          "price": 1055.0,
           "photo": "photos/products/t-черный_с_доб_со_специями_200_г_ассам.jpg"
         }
       ],
@@ -13296,7 +13043,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 990,
+          "price": 990.0,
           "photo": "photos/products/t-черный_с_доб_эрл_грей_с_бергамотом_200_г_аромат_де.jpg"
         }
       ],
@@ -13321,7 +13068,7 @@
       "fasovka": [
         {
           "size": "500х1.75г",
-          "price": 2300
+          "price": 2300.0
         }
       ],
       "stock": 3,
@@ -13345,7 +13092,7 @@
       "fasovka": [
         {
           "size": "300х1.75г",
-          "price": 1269
+          "price": 1269.0
         }
       ],
       "stock": 2,
@@ -13369,7 +13116,7 @@
       "fasovka": [
         {
           "size": "500х1.75г",
-          "price": 2300
+          "price": 2300.0
         }
       ],
       "stock": 0,
@@ -13394,7 +13141,7 @@
       "fasovka": [
         {
           "size": "25х1.75г",
-          "price": 145
+          "price": 145.0
         }
       ],
       "stock": 2,
@@ -13418,7 +13165,7 @@
       "fasovka": [
         {
           "size": "500х1.5г",
-          "price": 2300
+          "price": 2300.0
         }
       ],
       "stock": 1,
@@ -13442,7 +13189,7 @@
       "fasovka": [
         {
           "size": "500х1.75г",
-          "price": 2200
+          "price": 2200.0
         }
       ],
       "stock": 0,
@@ -13467,7 +13214,7 @@
       "fasovka": [
         {
           "size": "25х2г",
-          "price": 235
+          "price": 235.0
         }
       ],
       "stock": 8,
@@ -13491,7 +13238,7 @@
       "fasovka": [
         {
           "size": "300х1.75г",
-          "price": 1350
+          "price": 1350.0
         }
       ],
       "stock": 1,
@@ -13515,7 +13262,7 @@
       "fasovka": [
         {
           "size": "500х1.75г",
-          "price": 2200
+          "price": 2200.0
         }
       ],
       "stock": 0,
@@ -13540,7 +13287,7 @@
       "fasovka": [
         {
           "size": "500х1.75г",
-          "price": 2300
+          "price": 2300.0
         }
       ],
       "stock": 6,
@@ -13564,10 +13311,10 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 790
+          "price": 790.0
         }
       ],
-      "stock": 6,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13588,10 +13335,10 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 790
+          "price": 790.0
         }
       ],
-      "stock": 6,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13612,7 +13359,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1280
+          "price": 1280.0
         }
       ],
       "stock": 7,
@@ -13636,10 +13383,10 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 800
+          "price": 800.0
         }
       ],
-      "stock": 3,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13660,10 +13407,10 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 800
+          "price": 800.0
         }
       ],
-      "stock": 9,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13684,10 +13431,10 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1710
+          "price": 1710.0
         }
       ],
-      "stock": 5,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13708,7 +13455,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1260
+          "price": 1260.0
         }
       ],
       "stock": 3,
@@ -13732,7 +13479,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1200
+          "price": 1200.0
         }
       ],
       "stock": 10,
@@ -13756,7 +13503,7 @@
       "fasovka": [
         {
           "size": "500 г",
-          "price": 2385
+          "price": 2385.0
         }
       ],
       "stock": 1,
@@ -13780,7 +13527,7 @@
       "fasovka": [
         {
           "size": "500 г",
-          "price": 1218
+          "price": 1218.0
         }
       ],
       "stock": 6,
@@ -13804,7 +13551,7 @@
       "fasovka": [
         {
           "size": "150 г",
-          "price": 500
+          "price": 500.0
         }
       ],
       "stock": 3,
@@ -13828,10 +13575,10 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1310
+          "price": 1310.0
         }
       ],
-      "stock": 1,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13852,7 +13599,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 845
+          "price": 845.0
         }
       ],
       "stock": 2,
@@ -13901,7 +13648,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 680
+          "price": 680.0
         }
       ],
       "stock": 3,
@@ -13925,7 +13672,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 680
+          "price": 680.0
         }
       ],
       "stock": 3,
@@ -13949,10 +13696,10 @@
       "fasovka": [
         {
           "size": "600 г",
-          "price": 1090
+          "price": 1090.0
         }
       ],
-      "stock": 10,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13973,10 +13720,10 @@
       "fasovka": [
         {
           "size": "600 г",
-          "price": 1090
+          "price": 1090.0
         }
       ],
-      "stock": 9,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13997,7 +13744,7 @@
       "fasovka": [
         {
           "size": "600 г",
-          "price": 1290
+          "price": 1290.0
         }
       ],
       "stock": 1,
@@ -14021,11 +13768,11 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 890,
+          "price": 890.0,
           "photo": null
         }
       ],
-      "stock": 6,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14046,10 +13793,10 @@
       "fasovka": [
         {
           "size": "600 г",
-          "price": 1400
+          "price": 1400.0
         }
       ],
-      "stock": 9,
+      "stock": 11,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14070,7 +13817,7 @@
       "fasovka": [
         {
           "size": "400 г",
-          "price": 890
+          "price": 890.0
         }
       ],
       "stock": 8,
@@ -14095,11 +13842,11 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 890,
+          "price": 890.0,
           "photo": null
         }
       ],
-      "stock": 6,
+      "stock": 8,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14120,10 +13867,10 @@
       "fasovka": [
         {
           "size": "800 г",
-          "price": 1700
+          "price": 1700.0
         }
       ],
-      "stock": 5,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14144,7 +13891,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 2215
+          "price": 2215.0
         }
       ],
       "stock": 2,
@@ -14168,7 +13915,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2070
+          "price": 2070.0
         }
       ],
       "stock": 2,
@@ -14213,30 +13960,32 @@
       "name": "Эфиопия Ададо сухой - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 2,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
-      "process": "Натуральный",
-      "altitude": "1800-2000",
+      "process": "Natural",
+      "altitude": null,
       "variety": null,
       "roast": "F",
       "description": "Эфиопия Ададо. Фруктово-цветочный профиль с нотами персика и жасмина.",
-      "tasting_notes": "чёрный чай, красное яблоко, миндаль, цитрус.",
+      "tasting_notes": [
+        "чёрный чай",
+        "красное яблоко",
+        "миндаль",
+        "цитрус"
+      ],
       "photo": "photos/products/filter_micro_эфиопия_ададо_сухой_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2390,
-          "photo": "photos/products/filter_micro_эфиопия_ададо_сухой_1_кг.jpg",
-          "gtin": "04627529014293",
-          "marking_required": true
+          "photo": "photos/products/filter_micro_эфиопия_ададо_сухой_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Народы юга, станция Ададо"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "c-drip-эфиопия_иргачиф__drip_",
@@ -14279,7 +14028,7 @@
       "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14288,21 +14037,23 @@
       "variety": null,
       "roast": "F",
       "description": "Эфиопия Лиму. Сбалансированный профиль с нотами ягод и шоколада.",
-      "tasting_notes": "цитрус, вишня, чёрный чай, шоколад.",
+      "tasting_notes": [
+        "цитрус",
+        "вишня",
+        "чёрный чай",
+        "шоколад"
+      ],
       "photo": "photos/products/filter_mono_эфиопия_лиму_гр_2_мытый_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2120,
-          "photo": "photos/products/filter_mono_эфиопия_лиму_гр_2_мытый_1_кг_filter.jpg",
-          "gtin": "04627529014453",
-          "marking_required": true
+          "photo": "photos/products/filter_mono_эфиопия_лиму_гр_2_мытый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Лиму"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "c-nesp-эфиопия_сидамо__nespresso_",
@@ -14343,7 +14094,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 133,
+      "stock": 190,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14352,52 +14103,52 @@
       "variety": null,
       "roast": "E",
       "description": "Эфиопия Сидамо. Фруктовые и цветочные ноты, средняя кислотность.",
-      "tasting_notes": "Фруктовые и цветочные ноты, средняя кислотность.",
+      "tasting_notes": null,
       "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_4_сухой_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2120,
-          "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_4_сухой_эспрессо_1_кг.jpg",
-          "gtin": "04627529014200",
-          "marking_required": true
+          "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_4_сухой_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Сидамо"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_micro_эфиопия_челелекту_гр_1_мытый_filter_1_кг",
       "name": "Эфиопия Челелекту гр.1 мытый FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
-      "process": "Мытая",
-      "altitude": "1850-2200",
+      "process": "Washed",
+      "altitude": null,
       "variety": null,
       "roast": "F",
       "description": "Эфиопия Челелекту мытая. Чистый чайный профиль с цветочными и цитрусовыми нотами.",
-      "tasting_notes": "цветочные, чёрная смородина, специи, чёрный чай, бергамот.",
+      "tasting_notes": [
+        "цветочные",
+        "чёрная смородина",
+        "специи",
+        "чёрный чай",
+        "бергамот"
+      ],
       "photo": "photos/products/filter_micro_эфиопия_челелекту_гр_1_мытый_filter_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2863,
-          "photo": "photos/products/filter_micro_эфиопия_челелекту_гр_1_мытый_filter_1_кг.jpg",
-          "gtin": "04627529014323",
-          "marking_required": true
+          "photo": "photos/products/filter_micro_эфиопия_челелекту_гр_1_мытый_filter_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Йергачифф"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "espresso_micro_эфиопия_челчеле_гр_1_мытый_эспрессо_1_кг",
@@ -14443,50 +14194,45 @@
       "name": "Эфиопия Челчеле гр.1 сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 6,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
-      "process": "Натуральная",
-      "altitude": "1900-2100",
+      "process": null,
+      "altitude": null,
       "variety": null,
       "roast": "F",
       "description": "Эфиопия Челчеле. Цветочные и ягодные ноты, чайный профиль, высокая кислотность.",
-      "tasting_notes": "Цветочные и ягодные ноты, чайный профиль, высокая кислотность.",
+      "tasting_notes": null,
       "photo": "photos/products/filter_micro_эфиопия_челчеле_гр_1_сухой_filter_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2862.5,
-          "photo": "photos/products/filter_micro_эфиопия_челчеле_гр_1_сухой_filter_1_кг.jpg",
-          "gtin": "04627529014330",
-          "marking_required": true
+          "photo": "photos/products/filter_micro_эфиопия_челчеле_гр_1_сухой_filter_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "quarantined_at": null,
-      "quarantine_reason": null,
-      "region": "Гедео"
+      "quarantine_reason": null
     },
     {
       "id": "espresso_mono_китай_симао_гр_1_меллоу_мытый_эспрессо_1_кг",
       "name": "Китай Симао гр.1 Меллоу мытый эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 9,
+      "hidden": false,
+      "quarantined": false,
       "roast": "E",
       "photo": "photos/products/espresso_mono_китай_симао_гр_1_меллоу_мытый_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "photos/products/espresso_mono_китай_симао_гр_1_меллоу_мытый_эспрессо_1_кг.jpg",
-          "gtin": "04627529014088",
-          "marking_required": true
+          "photo": "photos/products/espresso_mono_китай_симао_гр_1_меллоу_мытый_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
@@ -14494,12 +14240,7 @@
       "country": "Китай",
       "description": "Китай Симао. Лёгкий чайный профиль с нотами сухофруктов и ореха.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Симао",
-      "process": "Мытая",
-      "tasting_notes": "Китай Симао. Лёгкий чайный профиль с нотами сухофруктов и ореха.",
-      "quarantined_at": "2026-05-29T06:36:15+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "espresso_mono_эфиопия_milk_сидамо_гр_4_эспрессо_1_кг",
@@ -14515,9 +14256,7 @@
         {
           "size": "1 кг",
           "price": 2120,
-          "photo": "assets/placeholders/ph_espresso.svg",
-          "gtin": "04627529014170",
-          "marking_required": true
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
@@ -14527,28 +14266,23 @@
       "country": "Эфиопия",
       "description": "Эфиопия Сидамо. Фруктовые и цветочные ноты, средняя кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Сидамо",
-      "process": "Мытая",
-      "tasting_notes": "Фруктовые и цветочные ноты, средняя кислотность."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "espresso_mono_эфиопия_yirgacheffe_gr_2_мытый_эспрессо_1_кг",
       "name": "Эфиопия Yirgacheffe Gr 2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 19,
+      "hidden": false,
+      "quarantined": false,
       "roast": "E",
       "photo": "photos/products/espresso_mono_эфиопия_yirgacheffe_gr_2_мытый_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2120,
-          "photo": "photos/products/espresso_mono_эфиопия_yirgacheffe_gr_2_мытый_эспрессо_1_кг.jpg",
-          "gtin": "04627529014170",
-          "marking_required": true
+          "photo": "photos/products/espresso_mono_эфиопия_yirgacheffe_gr_2_мытый_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
@@ -14556,50 +14290,37 @@
       "country": "Эфиопия",
       "description": "Эфиопия Yirgacheffe. Классический цветочно-чайный профиль с высокой кислотностью.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Иргачеффе,Кочере,Абайя",
-      "process": "Мытая",
-      "tasting_notes": "Классический цветочно-чайный профиль с высокой кислотностью.",
-      "quarantined_at": "2026-05-29T06:36:15+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_micro_бразилия_фазенда_лагуинья_мундо_анаэроб_1_кг_filter",
       "name": "Бразилия \"Фазенда Лагуинья мундо анаэроб.\" 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 5,
+      "hidden": false,
+      "quarantined": false,
       "roast": "F",
       "photo": "photos/products/filter_micro_бразилия_фазенда_лагуинья_мундо_анаэроб_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 3500,
-          "photo": "photos/products/filter_micro_бразилия_фазенда_лагуинья_мундо_анаэроб_1_кг_filter.jpg",
-          "gtin": "04627529014248",
-          "marking_required": true
+          "photo": "photos/products/filter_micro_бразилия_фазенда_лагуинья_мундо_анаэроб_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
       "created_by": "sync_catalog_v2",
       "country": "Бразилия",
       "description": "Бразилия Фазенда Лагуинья, Mundo Novo анаэроб. Глубокий шоколад, сухофрукты, плотное тело.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Карму-да-Кашуэра, фазенда Лагуинья",
-      "altitude": "1000-1100",
-      "process": "Натуральная, анаэробная",
-      "tasting_notes": "Глубокий шоколад, сухофрукты, плотное тело.",
-      "quarantined_at": "2026-05-29T06:36:15+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_mono_перу_монте_верде_гр_1_сухой_1_кг_filter",
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -14608,27 +14329,21 @@
         {
           "size": "1 кг",
           "price": 2620,
-          "photo": "photos/products/filter_mono_перу_монте_верде_гр_1_сухой_1_кг_filter.jpg",
-          "gtin": "04627529014415",
-          "marking_required": true
+          "photo": "photos/products/filter_mono_перу_монте_верде_гр_1_сухой_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
       "created_by": "sync_catalog_v2",
       "country": "Перу",
       "description": "Перу. Шоколад, сухофрукты, лёгкая кислотность, чистый профиль.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Провинция Амазонки",
-      "altitude": "1 400–1 800",
-      "process": "Натуральная",
-      "tasting_notes": "Шоколад, сухофрукты, лёгкая кислотность, чистый профиль."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter",
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 17,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -14637,26 +14352,21 @@
         {
           "size": "1 кг",
           "price": 2120,
-          "photo": "photos/products/filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter.jpg",
-          "gtin": "04627529014446",
-          "marking_required": true
+          "photo": "photos/products/filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
       "created_by": "sync_catalog_v2",
       "country": "Эфиопия",
       "description": "Эфиопия Yirgacheffe. Классический цветочно-чайный профиль с высокой кислотностью.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Иргачеффе,Кочере,Абайя",
-      "process": "Мытая",
-      "tasting_notes": "Классический цветочно-чайный профиль с высокой кислотностью."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "espresso_mono_гватемала_уетенанго_мытый_1_кг_эспрессо",
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 14,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14665,9 +14375,7 @@
         {
           "size": "1 кг",
           "price": 2440,
-          "photo": "photos/products/espresso_mono_гватемала_уетенанго_мытый_1_кг_эспрессо.jpg",
-          "gtin": "04627529014057",
-          "marking_required": true
+          "photo": "photos/products/espresso_mono_гватемала_уетенанго_мытый_1_кг_эспрессо.jpg"
         }
       ],
       "created_at": "2026-05-20T10:00:08+00:00",
@@ -14675,17 +14383,14 @@
       "country": "Гватемала",
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность, хорошая сладость.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Уэуэтенанго",
-      "process": "Мытая",
-      "tasting_notes": "Шоколад, цитрус, средняя кислотность, хорошая сладость."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_micro_вьетнам_блю_сонал_сухой_filter_1_кг",
       "name": "Вьетнам Блю Сонал сухой FILTER - 1 кг",
       "category": "filter",
-      "subcategory": "filter_mono",
-      "stock": 1,
+      "subcategory": "filter_micro",
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -14694,9 +14399,7 @@
         {
           "size": "1 кг",
           "price": 2135,
-          "photo": "assets/placeholders/ph_filter.svg",
-          "gtin": "04640668930569",
-          "marking_required": true
+          "photo": "assets/placeholders/ph_filter.svg"
         }
       ],
       "created_at": "2026-05-20T11:00:09+00:00",
@@ -14705,11 +14408,7 @@
       "quarantined_at": null,
       "quarantine_reason": null,
       "description": "Вьетнам Блю Шонла. Шоколад, орех, низкая кислотность.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Шонла",
-      "altitude": "800-1400",
-      "process": "Натуральная",
-      "tasting_notes": "Шоколад, орех, низкая кислотность."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "espresso_micro_эфиопия_челчеле_гр_1_мытый_эспрессо_1_кг_2",
@@ -14725,20 +14424,14 @@
         {
           "size": "1 кг",
           "price": 2862.5,
-          "photo": "assets/placeholders/ph_espresso.svg",
-          "gtin": "04627529014019",
-          "marking_required": true
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "created_at": "2026-05-20T19:00:07+00:00",
       "created_by": "sync_catalog_v2",
       "description": "Эфиопия Челчеле. Цветочные и ягодные ноты, чайный профиль, высокая кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "region": "Гедео",
-      "altitude": "1900-2100",
-      "process": "Мытая",
-      "tasting_notes": "Цветочные и ягодные ноты, чайный профиль, высокая кислотность."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "f-вьетнам_блю_шонла",
@@ -14814,8 +14507,7 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 455,
-          "marking_required": true
+          "price": 455
         }
       ],
       "stock": 10,
@@ -14825,10 +14517,7 @@
         "Вьетнам",
         "мытый"
       ],
-      "photo": null,
-      "region": "Шонла",
-      "altitude": "800-1400",
-      "tasting_notes": "Шоколад, орех, низкая кислотность."
+      "photo": null
     },
     {
       "id": "espresso_mono_гондурас_сан_николас_темная_обжарка_1_кг",
@@ -15291,7 +14980,7 @@
       "name": "Бразилия \"SL28 Хани анаэроб.\" 1 кг - эспрессо",
       "category": "espresso",
       "subcategory": "espresso_micro",
-      "stock": 7,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15299,24 +14988,19 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 3500,
-          "photo": "assets/placeholders/ph_espresso.svg",
-          "gtin": "04627529014224",
-          "marking_required": true
+          "price": 3500.0,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "created_at": "2026-05-27T03:36:13+00:00",
-      "created_by": "sync_catalog_v2",
-      "region": "Кармо-ди-Минас, фазенда Сантуарио Суль",
-      "altitude": "1380-1430",
-      "process": "Хани, анаэробная"
+      "created_by": "sync_catalog_v2"
     },
     {
       "id": "espresso_micro_бразилия_фазенда_лагуинья_мундо_анаэроб_эспрессо_1_кг",
       "name": "Бразилия \"Фазенда Лагуинья мундо анаэроб.\" эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_micro",
-      "stock": 7,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15324,17 +15008,12 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 3500,
-          "photo": "assets/placeholders/ph_espresso.svg",
-          "gtin": "04627529014248",
-          "marking_required": true
+          "price": 3500.0,
+          "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
       "created_at": "2026-05-27T03:36:13+00:00",
-      "created_by": "sync_catalog_v2",
-      "region": "Карму-да-Кашуэра, фазенда Лагуинья",
-      "altitude": "1000-1100",
-      "process": "Натуральная, анаэробная"
+      "created_by": "sync_catalog_v2"
     }
   ]
 }
