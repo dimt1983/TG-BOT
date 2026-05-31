@@ -1038,7 +1038,7 @@
           "photo": "photos/products/t-althaus_японская_липа_трав_75г.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "tags": [],
       "photo": "photos/products/t-althaus_японская_липа_трав_75г.jpg",
       "_source": "alephtrade",
@@ -2326,7 +2326,7 @@
       "name": "Hario VCF-02-100WK Бумажные фильтры 100 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 4,
+      "stock": 3,
       "on_request": true,
       "price": null,
       "photo": ""
@@ -2350,7 +2350,7 @@
           "photo": null
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": "",
       "quarantined": false,
@@ -5538,7 +5538,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 714,
+      "stock": 712,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7688,7 +7688,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7709,7 +7709,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_пачамама_нат_анаэроб.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8553,7 +8553,7 @@
           "price": 1
         }
       ],
-      "stock": 11600,
+      "stock": 10800,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -12310,7 +12310,7 @@
           "photo": null
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12544,7 +12544,7 @@
           "photo": null
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14096,7 +14096,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 113,
+      "stock": 123,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14124,7 +14124,7 @@
       "name": "Эфиопия Челелекту гр.1 мытый FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14251,7 +14251,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 44,
+      "stock": 24,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
