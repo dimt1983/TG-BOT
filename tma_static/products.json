@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 204,
+      "stock": 200,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5538,7 +5538,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 707,
+      "stock": 699,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -9023,7 +9023,7 @@
           "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg"
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg",
       "_source": "https://botanikastories.ru/product/zhyoltyj-banan/",
@@ -14096,7 +14096,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 123,
+      "stock": 112,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14351,7 +14351,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 16,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
