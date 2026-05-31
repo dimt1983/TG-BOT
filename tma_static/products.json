@@ -1326,7 +1326,7 @@
           "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 27,
+      "stock": 26,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 209,
+      "stock": 207,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1677,7 +1677,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 19,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1731,7 +1731,7 @@
           "stock": 13
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1861,7 +1861,7 @@
           "stock": 14
         }
       ],
-      "stock": 5,
+      "stock": 2,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1920,7 +1920,7 @@
           "photo": "photos/products/retail_e_roastberry_уганада_рувензор_200_г.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2169,7 +2169,7 @@
           "photo": "photos/products/retail_f_roastberry_эфиопия_лиму_200_г.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5370,7 +5370,7 @@
       "name": "Бразилия \"SL28 Хани анаэроб.\" 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 175,
+      "stock": 171,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5538,7 +5538,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 717,
+      "stock": 714,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6524,7 +6524,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 12,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -7227,7 +7227,7 @@
       "name": "Колумбия Маракуйя Хани инфьюз.- 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 2,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7520,7 +7520,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_бразилия_бразилия_sl28_хани_.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7541,7 +7541,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_колумбия_кастильо_мытая_200_.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 6,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7562,7 +7562,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_эфиопия_ададо_200_г.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 5,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7583,7 +7583,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_эфиопия_челелекту_г1_мытыи_2.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 2,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7604,7 +7604,7 @@
           "photo": "assets/placeholders/ph_black.svg"
         }
       ],
-      "stock": 19,
+      "stock": 18,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7625,7 +7625,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_судан_руме_анаэроб_а.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7646,7 +7646,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7688,7 +7688,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 10,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7709,7 +7709,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_пачамама_нат_анаэроб.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8093,7 +8093,7 @@
           "photo": null
         }
       ],
-      "stock": 253,
+      "stock": 229,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8203,7 +8203,7 @@
       "name": "Перу Монте Верде гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 31,
+      "stock": 27,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -8553,7 +8553,7 @@
           "price": 1
         }
       ],
-      "stock": 11800,
+      "stock": 11600,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -12410,7 +12410,7 @@
           "photo": null
         }
       ],
-      "stock": 58,
+      "stock": 57,
       "tags": [],
       "photo": "",
       "quarantined": false,
@@ -13962,7 +13962,7 @@
       "name": "Эфиопия Ададо сухой - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 2,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14030,7 +14030,7 @@
       "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14096,7 +14096,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 125,
+      "stock": 113,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14351,7 +14351,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 17,
+      "stock": 16,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
