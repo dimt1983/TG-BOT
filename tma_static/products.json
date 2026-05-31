@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 214,
+      "stock": 209,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -8553,7 +8553,7 @@
           "price": 1
         }
       ],
-      "stock": 12000,
+      "stock": 11800,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -15008,7 +15008,7 @@
       "name": "Бразилия \"Фазенда Лагуинья мундо анаэроб.\" эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_micro",
-      "stock": 7,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
