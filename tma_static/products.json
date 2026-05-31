@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 26,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 207,
+      "stock": 204,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 23,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1784,7 +1784,7 @@
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_-_1_кг.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 6,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1861,7 +1861,7 @@
           "stock": 14
         }
       ],
-      "stock": 2,
+      "stock": 0,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1920,7 +1920,7 @@
           "photo": "photos/products/retail_e_roastberry_уганада_рувензор_200_г.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5538,7 +5538,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 712,
+      "stock": 707,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7604,7 +7604,7 @@
           "photo": "assets/placeholders/ph_black.svg"
         }
       ],
-      "stock": 18,
+      "stock": 17,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7646,7 +7646,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7688,7 +7688,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
