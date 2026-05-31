@@ -3987,7 +3987,7 @@
           "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg"
         }
       ],
-      "stock": 44,
+      "stock": 43,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg",
       "quarantined": false,
@@ -4013,7 +4013,7 @@
           "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
-      "stock": 31,
+      "stock": 30,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
       "quarantined": false,
@@ -4585,7 +4585,7 @@
           "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg"
         }
       ],
-      "stock": 55,
+      "stock": 54,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg",
       "quarantined": false,
@@ -12695,7 +12695,7 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100.jpg"
         }
       ],
-      "stock": 20,
+      "stock": 18,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100.jpg",
       "quarantined": false,
@@ -14096,7 +14096,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 133,
+      "stock": 125,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
