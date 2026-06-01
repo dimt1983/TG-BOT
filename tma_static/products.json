@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 188,
+      "stock": 185,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5403,9 +5403,9 @@
       "name": "Бразилия \"Судан Руме анаэроб.\" 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 2,
+      "hidden": false,
+      "quarantined": false,
       "country": "Бразилия",
       "process": "Натуральный, анаэробный",
       "altitude": "1380–1430 м",
@@ -5429,8 +5429,8 @@
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-05-29T20:00:08+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "c-nesp-бразилия_серрадо__nespresso_",
@@ -7625,7 +7625,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_судан_руме_анаэроб_а.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 15,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7646,7 +7646,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 16,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -11917,7 +11917,7 @@
       "name": "Танзания АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "country": "Танзания",
@@ -14303,9 +14303,9 @@
       "name": "Бразилия \"Фазенда Лагуинья мундо анаэроб.\" 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 2,
+      "hidden": false,
+      "quarantined": false,
       "roast": "F",
       "photo": "photos/products/filter_micro_бразилия_фазенда_лагуинья_мундо_анаэроб_1_кг_filter.jpg",
       "fasovka": [
@@ -14320,8 +14320,8 @@
       "country": "Бразилия",
       "description": "Бразилия Фазенда Лагуинья, Mundo Novo анаэроб. Глубокий шоколад, сухофрукты, плотное тело.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-05-29T20:00:08+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "filter_mono_перу_монте_верде_гр_1_сухой_1_кг_filter",
@@ -14398,7 +14398,7 @@
       "name": "Вьетнам Блю Сонал сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 1,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
