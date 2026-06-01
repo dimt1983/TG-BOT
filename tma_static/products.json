@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 200,
+      "stock": 197,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1677,7 +1677,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 171,
+      "stock": 170,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5505,7 +5505,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 18,
+      "stock": 17,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8203,7 +8203,7 @@
       "name": "Перу Монте Верде гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 27,
+      "stock": 19,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
