@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1784,7 +1784,7 @@
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_-_1_кг.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 7,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1946,7 +1946,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 60,
+      "stock": 52,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5505,7 +5505,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 17,
+      "stock": 15,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5538,7 +5538,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 594,
+      "stock": 591,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5571,7 +5571,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 22,
+      "stock": 20,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8493,7 +8493,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 9,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -9023,7 +9023,7 @@
           "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg"
         }
       ],
-      "stock": 2,
+      "stock": 8,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg",
       "_source": "https://botanikastories.ru/product/zhyoltyj-banan/",
@@ -9885,7 +9885,7 @@
           "photo": "photos/products/s-сироп_botanika_черная_смородина_1л.jpg"
         }
       ],
-      "stock": 3,
+      "stock": 9,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_черная_смородина_1л.jpg",
       "_source": "https://botanikastories.ru/product/chernaya-smorodina-2/",
