@@ -1946,7 +1946,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 68,
+      "stock": 60,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -4065,7 +4065,7 @@
           "photo": "photos/products/t-restoranica_resta_апельсин_манго_30пак.jpg"
         }
       ],
-      "stock": 58,
+      "stock": 55,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_апельсин_манго_30пак.jpg",
       "quarantined": false,
@@ -4091,7 +4091,7 @@
           "photo": "photos/products/t-restoranica_resta_апельсин_ройбуш_30пак.jpg"
         }
       ],
-      "stock": 33,
+      "stock": 30,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_апельсин_ройбуш_30пак.jpg",
       "quarantined": false,
@@ -4117,7 +4117,7 @@
           "photo": "photos/products/t-restoranica_resta_голубая_масала_30пак.jpg"
         }
       ],
-      "stock": 41,
+      "stock": 38,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_голубая_масала_30пак.jpg",
       "quarantined": false,
@@ -4143,7 +4143,7 @@
           "photo": "photos/products/t-restoranica_resta_иммунный_30пак.jpg"
         }
       ],
-      "stock": 42,
+      "stock": 39,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_иммунный_30пак.jpg",
       "quarantined": false,
@@ -4169,7 +4169,7 @@
           "photo": "photos/products/t-restoranica_resta_кедровый_с_чагой_30пак.jpg"
         }
       ],
-      "stock": 34,
+      "stock": 31,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_кедровый_с_чагой_30пак.jpg",
       "quarantined": false,
@@ -4195,7 +4195,7 @@
           "photo": "photos/products/t-restoranica_resta_киви_клубника_30пак.jpg"
         }
       ],
-      "stock": 48,
+      "stock": 45,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_киви_клубника_30пак.jpg",
       "quarantined": false,
@@ -4221,7 +4221,7 @@
           "photo": "photos/products/t-restoranica_resta_лесные_ягоды_30пак.jpg"
         }
       ],
-      "stock": 32,
+      "stock": 29,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_лесные_ягоды_30пак.jpg",
       "quarantined": false,
@@ -4247,7 +4247,7 @@
           "photo": "photos/products/t-restoranica_resta_мята_малина_30пак.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 10,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_мята_малина_30пак.jpg",
       "quarantined": false,
@@ -4273,7 +4273,7 @@
           "photo": "photos/products/t-restoranica_resta_пряный_глинтвейн_30пак.jpg"
         }
       ],
-      "stock": 31,
+      "stock": 28,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_пряный_глинтвейн_30пак.jpg",
       "quarantined": false,
@@ -4325,7 +4325,7 @@
           "photo": "photos/products/t-restoranica_resta_сладкая_клубника_30пак.jpg"
         }
       ],
-      "stock": 35,
+      "stock": 32,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_сладкая_клубника_30пак.jpg",
       "quarantined": false,
@@ -4351,7 +4351,7 @@
           "photo": "photos/products/t-restoranica_resta_смородиновый_черный_30пак.jpg"
         }
       ],
-      "stock": 39,
+      "stock": 36,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_смородиновый_черный_30пак.jpg",
       "quarantined": false,
@@ -4377,7 +4377,7 @@
           "photo": "photos/products/t-restoranica_resta_шиповник_чабрец_30пак.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 14,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_шиповник_чабрец_30пак.jpg",
       "quarantined": false,
@@ -4403,7 +4403,7 @@
           "photo": "photos/products/t-restoranica_resta_эрлберг_30пак.jpg"
         }
       ],
-      "stock": 45,
+      "stock": 42,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_эрлберг_30пак.jpg",
       "quarantined": false,
@@ -4429,7 +4429,7 @@
           "photo": "photos/products/t-restoranica_resta_яблоко_можжевельник_30пак.jpg"
         }
       ],
-      "stock": 47,
+      "stock": 44,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_яблоко_можжевельник_30пак.jpg",
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 168,
+      "stock": 167,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5538,7 +5538,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 626,
+      "stock": 594,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5571,7 +5571,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 28,
+      "stock": 22,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6524,7 +6524,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 10,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -10569,7 +10569,7 @@
           "photo": "photos/products/s-сироп_herbarista_сливочная_ириска_0_7л.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_сливочная_ириска_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -12617,7 +12617,7 @@
           "photo": "photos/products/t-чай_tasteabrew_resta_650_для_чайника_молочный_улун.jpg"
         }
       ],
-      "stock": 79,
+      "stock": 76,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_resta_650_для_чайника_молочный_улун.jpg",
       "quarantined": false,
@@ -14096,7 +14096,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 102,
+      "stock": 101,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
