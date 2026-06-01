@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 195,
+      "stock": 192,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5538,7 +5538,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 628,
+      "stock": 626,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -13629,7 +13629,7 @@
           "photo": null
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14096,7 +14096,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 112,
+      "stock": 102,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
