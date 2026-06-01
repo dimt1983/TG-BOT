@@ -2072,7 +2072,7 @@
           "photo": "photos/products/retail_f_roastberry_китаи_симао_200_г.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 167,
+      "stock": 160,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6614,7 +6614,7 @@
       "name": "Китай Симао гр.1 Меллоу мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "country": "Китай",
@@ -7562,7 +7562,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_эфиопия_ададо_200_г.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 13,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -13962,7 +13962,7 @@
       "name": "Эфиопия Ададо сухой - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 1,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14225,9 +14225,9 @@
       "name": "Китай Симао гр.1 Меллоу мытый эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
       "roast": "E",
       "photo": "photos/products/espresso_mono_китай_симао_гр_1_меллоу_мытый_эспрессо_1_кг.jpg",
       "fasovka": [
@@ -14243,8 +14243,8 @@
       "description": "Китай Симао. Лёгкий чайный профиль с нотами сухофруктов и ореха.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-05-29T20:00:08+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "espresso_mono_эфиопия_milk_сидамо_гр_4_эспрессо_1_кг",
