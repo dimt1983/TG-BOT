@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 197,
+      "stock": 195,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -3935,7 +3935,7 @@
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 100,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
       "quarantined": false,
@@ -3961,7 +3961,7 @@
           "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 100,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg",
       "quarantined": false,
@@ -3987,7 +3987,7 @@
           "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg"
         }
       ],
-      "stock": 43,
+      "stock": 143,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg",
       "quarantined": false,
@@ -4013,7 +4013,7 @@
           "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
-      "stock": 30,
+      "stock": 130,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
       "quarantined": false,
@@ -4039,7 +4039,7 @@
           "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg"
         }
       ],
-      "stock": 45,
+      "stock": 145,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg",
       "quarantined": false,
@@ -4455,7 +4455,7 @@
           "photo": "photos/products/t-restoranica_togo_ассам_с_шиповником_36пак.jpg"
         }
       ],
-      "stock": 84,
+      "stock": 156,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_ассам_с_шиповником_36пак.jpg",
       "quarantined": false,
@@ -4507,7 +4507,7 @@
           "photo": "photos/products/t-restoranica_togo_иван-чай_с_малиной_36пак.jpg"
         }
       ],
-      "stock": 98,
+      "stock": 170,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_иван-чай_с_малиной_36пак.jpg",
       "quarantined": false,
@@ -4585,7 +4585,7 @@
           "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg"
         }
       ],
-      "stock": 54,
+      "stock": 114,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg",
       "quarantined": false,
@@ -4637,7 +4637,7 @@
           "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg"
         }
       ],
-      "stock": 124,
+      "stock": 232,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -4741,7 +4741,7 @@
           "photo": "photos/products/t-restoranica_togo_ройбуш_с_апельсином_60пак.jpg"
         }
       ],
-      "stock": 54,
+      "stock": 114,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_ройбуш_с_апельсином_60пак.jpg",
       "quarantined": false,
@@ -4871,7 +4871,7 @@
           "photo": "photos/products/t-restoranica_togo_яблоко_с_можжевельником_60пак.jpg"
         }
       ],
-      "stock": 51,
+      "stock": 111,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_яблоко_с_можжевельником_60пак.jpg",
       "quarantined": false,
@@ -9885,7 +9885,7 @@
           "photo": "photos/products/s-сироп_botanika_черная_смородина_1л.jpg"
         }
       ],
-      "stock": 2,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_черная_смородина_1л.jpg",
       "_source": "https://botanikastories.ru/product/chernaya-smorodina-2/",
@@ -11567,7 +11567,7 @@
           "price": 635.0
         }
       ],
-      "stock": 1,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -11616,7 +11616,7 @@
           "price": 635.0
         }
       ],
-      "stock": 1,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
