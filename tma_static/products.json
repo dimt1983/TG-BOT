@@ -1838,7 +1838,7 @@
           "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг.jpg"
         }
       ],
-      "stock": 45,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2169,7 +2169,7 @@
           "photo": "photos/products/retail_f_roastberry_эфиопия_лиму_200_г.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5538,7 +5538,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 453,
+      "stock": 445,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5712,7 +5712,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 9,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -6066,7 +6066,7 @@
           "price": 760
         }
       ],
-      "stock": 65,
+      "stock": 59,
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Эфиопия",
@@ -7063,9 +7063,9 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 5,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Колумбия",
       "process": "Мытая",
       "altitude": null,
@@ -7088,8 +7088,8 @@
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined_at": "2026-06-02T09:33:33+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
@@ -7478,9 +7478,9 @@
       "name": "Коста-Рика Тарразу Ла Пастора эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 15,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Коста-Рика",
       "process": "Помол под фильтр",
       "altitude": null,
@@ -7503,8 +7503,8 @@
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined_at": "2026-06-02T09:33:33+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
@@ -7541,7 +7541,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_колумбия_кастильо_мытая_200_.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7562,7 +7562,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_эфиопия_ададо_200_г.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8203,7 +8203,7 @@
       "name": "Перу Монте Верде гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 29,
+      "stock": 28,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -8457,9 +8457,9 @@
       "name": "Руанда Мутетели 15+ мытый  - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 1,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Руанда",
       "process": "Мытая",
       "altitude": null,
@@ -8483,8 +8483,8 @@
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined_at": "2026-06-02T09:33:33+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
@@ -8493,7 +8493,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 18,
+      "stock": 17,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -10389,7 +10389,7 @@
           "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -12119,7 +12119,7 @@
           "photo": "photos/products/t-травяной_иван_чай_214_г_аромат_виноград.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "tags": [],
       "photo": "photos/products/t-травяной_иван_чай_214_г_аромат_виноград.jpg",
       "quarantined": false,
@@ -12422,7 +12422,7 @@
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 47,
+      "stock": 45,
       "on_request": false,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
@@ -14096,7 +14096,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 139,
+      "stock": 125,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14351,9 +14351,9 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 7,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "F",
       "photo": "photos/products/filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter.jpg",
       "fasovka": [
@@ -14367,7 +14367,9 @@
       "created_by": "sync_catalog_v2",
       "country": "Эфиопия",
       "description": "Эфиопия Yirgacheffe. Классический цветочно-чайный профиль с высокой кислотностью.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
+      "quarantined_at": "2026-06-02T09:33:33+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "espresso_mono_гватемала_уетенанго_мытый_1_кг_эспрессо",
