@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 168,
+      "stock": 166,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 42,
+      "stock": 40,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 160,
+      "stock": 159,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6524,7 +6524,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 9,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -7036,7 +7036,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 9,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -14351,7 +14351,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 12,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
