@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 36,
+      "stock": 30,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5538,7 +5538,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 503,
+      "stock": 473,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
