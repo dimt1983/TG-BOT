@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 19,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1677,7 +1677,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1861,7 +1861,7 @@
           "stock": 14
         }
       ],
-      "stock": 0,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5712,7 +5712,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 8,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -6524,7 +6524,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 24,
+      "stock": 23,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -7478,9 +7478,9 @@
       "name": "Коста-Рика Тарразу Ла Пастора эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 17,
+      "hidden": false,
+      "quarantined": false,
       "country": "Коста-Рика",
       "process": "Помол под фильтр",
       "altitude": null,
@@ -7503,8 +7503,8 @@
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
-      "quarantined_at": "2026-06-02T09:33:33+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "quarantined_at": null,
+      "quarantine_reason": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
@@ -8493,7 +8493,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 17,
+      "stock": 27,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
