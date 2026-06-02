@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 40,
+      "stock": 36,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1946,7 +1946,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 52,
+      "stock": 47,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2652,7 +2652,7 @@
           "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg"
         }
       ],
-      "stock": 30,
+      "stock": 29,
       "tags": [],
       "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg",
       "_source": "alephtrade",
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 159,
+      "stock": 147,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -12410,7 +12410,7 @@
           "photo": null
         }
       ],
-      "stock": 57,
+      "stock": 59,
       "tags": [],
       "photo": "",
       "quarantined": false,
