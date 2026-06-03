@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 34,
+      "stock": 28,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 127,
+      "stock": 122,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 8,
+      "stock": 38,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1784,7 +1784,7 @@
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_-_1_кг.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 4,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1861,7 +1861,7 @@
           "stock": 14
         }
       ],
-      "stock": 15,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1920,7 +1920,7 @@
           "photo": "photos/products/retail_e_roastberry_уганада_рувензор_200_г.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 7,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1968,7 +1968,7 @@
           "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_-_1_кг.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2072,7 +2072,7 @@
           "photo": "photos/products/retail_f_roastberry_китаи_симао_200_г.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5403,7 +5403,7 @@
       "name": "Бразилия \"Судан Руме анаэроб.\" 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 2,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5505,9 +5505,9 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 7,
+      "hidden": false,
+      "quarantined": false,
       "country": "Бразилия",
       "process": "Натуральная",
       "altitude": null,
@@ -5532,15 +5532,15 @@
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-06-03T04:31:38+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "espresso_mono_бразилия_серрадо_средняя_обжарка_эспрессо_1_кг",
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 391,
+      "stock": 385,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7543,7 +7543,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_колумбия_кастильо_мытая_200_.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7585,7 +7585,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_эфиопия_челелекту_г1_мытыи_2.jpg"
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7648,7 +7648,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7711,7 +7711,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_пачамама_нат_анаэроб.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8205,7 +8205,7 @@
       "name": "Перу Монте Верде гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 28,
+      "stock": 22,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -8495,7 +8495,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 25,
+      "stock": 24,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -11919,7 +11919,7 @@
       "name": "Танзания АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "country": "Танзания",
@@ -12424,7 +12424,7 @@
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 42,
+      "stock": 41,
       "on_request": false,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
@@ -14305,7 +14305,7 @@
       "name": "Бразилия \"Фазенда Лагуинья мундо анаэроб.\" 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 2,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -15025,6 +15025,46 @@
         }
       ],
       "created_at": "2026-05-27T03:36:13+00:00",
+      "created_by": "sync_catalog_v2"
+    },
+    {
+      "id": "filter_micro_кения_киавамуруру_1_кг_filter",
+      "name": "Кения КиаваМуруру 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "F",
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-06-03T07:31:36+00:00",
+      "created_by": "sync_catalog_v2"
+    },
+    {
+      "id": "filter_micro_кения_маакиоу_пиберри_1_кг_filter",
+      "name": "Кения Маакиоу Пиберри 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "F",
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-06-03T07:31:36+00:00",
       "created_by": "sync_catalog_v2"
     }
   ]
