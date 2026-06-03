@@ -1677,7 +1677,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 136,
+      "stock": 126,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7065,9 +7065,9 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 9,
+      "hidden": false,
+      "quarantined": false,
       "country": "Колумбия",
       "process": "Мытая",
       "altitude": null,
@@ -7090,8 +7090,8 @@
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
-      "quarantined_at": "2026-06-02T09:33:33+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "quarantined_at": null,
+      "quarantine_reason": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
@@ -9369,7 +9369,7 @@
           "photo": "photos/products/s-сироп_botanika_карамель_соленая_1л.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "tags": [
         "Хит"
       ],
@@ -10441,7 +10441,7 @@
           "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -14378,7 +14378,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 2,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
