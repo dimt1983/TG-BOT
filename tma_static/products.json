@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 152,
+      "stock": 127,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 426,
+      "stock": 391,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6583,7 +6583,7 @@
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 8,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -9369,7 +9369,7 @@
           "photo": "photos/products/s-сироп_botanika_карамель_соленая_1л.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "tags": [
         "Хит"
       ],
@@ -9581,7 +9581,7 @@
           "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg"
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg",
       "_source": "https://botanikastories.ru/product/lesnoj-oreh/",
@@ -14353,7 +14353,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
