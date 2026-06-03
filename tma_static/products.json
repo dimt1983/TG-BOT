@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 122,
+      "stock": 111,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 126,
+      "stock": 123,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 363,
+      "stock": 341,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6526,7 +6526,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 20,
+      "stock": 19,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -7038,7 +7038,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 1,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -8999,7 +8999,7 @@
           "photo": "photos/products/s-сироп_botanika_бабл_гам_1л.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_бабл_гам_1л.jpg",
       "_source": "https://botanikastories.ru/product/babl-gam/",
@@ -9369,7 +9369,7 @@
           "photo": "photos/products/s-сироп_botanika_карамель_соленая_1л.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "tags": [
         "Хит"
       ],
@@ -14353,7 +14353,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
