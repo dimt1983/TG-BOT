@@ -432,7 +432,7 @@
           "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 7,
       "tags": [],
       "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg",
       "_source": "alephtrade",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 168,
+      "stock": 165,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1704,7 +1704,7 @@
           "photo": "photos/products/retail_e_roastberry_гватемала_декаф_-_1_кг.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 1,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2652,7 +2652,7 @@
           "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg"
         }
       ],
-      "stock": 29,
+      "stock": 27,
       "tags": [],
       "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg",
       "_source": "alephtrade",
@@ -3109,7 +3109,7 @@
           "price": 185.0
         }
       ],
-      "stock": 29,
+      "stock": 27,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3935,7 +3935,7 @@
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
-      "stock": 100,
+      "stock": 95,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
       "quarantined": false,
@@ -3961,7 +3961,7 @@
           "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg"
         }
       ],
-      "stock": 100,
+      "stock": 97,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg",
       "quarantined": false,
@@ -4013,7 +4013,7 @@
           "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
-      "stock": 130,
+      "stock": 127,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
       "quarantined": false,
@@ -4559,7 +4559,7 @@
           "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg"
         }
       ],
-      "stock": 58,
+      "stock": 53,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg",
       "quarantined": false,
@@ -4585,7 +4585,7 @@
           "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg"
         }
       ],
-      "stock": 114,
+      "stock": 104,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg",
       "quarantined": false,
@@ -4611,7 +4611,7 @@
           "photo": "photos/products/t-restoranica_togo_королевский_бергамот_60пак.jpg"
         }
       ],
-      "stock": 93,
+      "stock": 88,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_королевский_бергамот_60пак.jpg",
       "quarantined": false,
@@ -4663,7 +4663,7 @@
           "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg"
         }
       ],
-      "stock": 118,
+      "stock": 113,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg",
       "quarantined": false,
@@ -4741,7 +4741,7 @@
           "photo": "photos/products/t-restoranica_togo_ройбуш_с_апельсином_60пак.jpg"
         }
       ],
-      "stock": 114,
+      "stock": 109,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_ройбуш_с_апельсином_60пак.jpg",
       "quarantined": false,
@@ -4793,7 +4793,7 @@
           "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg"
         }
       ],
-      "stock": 100,
+      "stock": 90,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg",
       "quarantined": false,
@@ -4845,7 +4845,7 @@
           "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
         }
       ],
-      "stock": 135,
+      "stock": 130,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -6526,7 +6526,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 18,
+      "stock": 17,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -12645,7 +12645,7 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_гун_тин_и_саган_дайля_100_.jpg"
         }
       ],
-      "stock": 118,
+      "stock": 113,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_гун_тин_и_саган_дайля_100_.jpg",
       "quarantined": false,
