@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 146,
+      "stock": 131,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -6526,7 +6526,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 16,
+      "stock": 23,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6583,7 +6583,7 @@
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
