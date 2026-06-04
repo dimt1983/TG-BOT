@@ -1677,7 +1677,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -4039,7 +4039,7 @@
           "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg"
         }
       ],
-      "stock": 145,
+      "stock": 144,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg",
       "quarantined": false,
@@ -5116,7 +5116,7 @@
           "price": 1800.0
         }
       ],
-      "stock": 7,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 466,
+      "stock": 465,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7648,7 +7648,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 13,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8205,7 +8205,7 @@
       "name": "Перу Монте Верде гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 12,
+      "stock": 42,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -13631,7 +13631,7 @@
           "photo": null
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14098,7 +14098,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 145,
+      "stock": 144,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
