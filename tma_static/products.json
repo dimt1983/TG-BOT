@@ -326,7 +326,7 @@
           "photo": "photos/products/t-althaus_ассам_меленг_чёрн_пакет_20х1_75г.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/t-althaus_ассам_меленг_чёрн_пакет_20х1_75г.jpg",
       "_source": "alephtrade",
@@ -353,7 +353,7 @@
           "photo": "photos/products/t-althaus_ассам_молти_кап_15х4г.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 2,
       "tags": [],
       "photo": "photos/products/t-althaus_ассам_молти_кап_15х4г.jpg",
       "_source": "alephtrade",
@@ -405,7 +405,7 @@
           "photo": "photos/products/t-althaus_горные_травы_чёрн_15х4г.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/t-althaus_горные_травы_чёрн_15х4г.jpg",
       "_source": "alephtrade",
@@ -432,7 +432,7 @@
           "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 7,
       "tags": [],
       "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg",
       "_source": "alephtrade",
@@ -592,7 +592,7 @@
           "photo": "photos/products/t-althaus_лемон_минт_трав_150г.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/t-althaus_лемон_минт_трав_150г.jpg",
       "_source": "alephtrade",
@@ -724,7 +724,7 @@
           "photo": "photos/products/t-althaus_ред_фрут_флаш_фрукт_лист_250г.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 1,
       "tags": [],
       "photo": "photos/products/t-althaus_ред_фрут_флаш_фрукт_лист_250г.jpg",
       "_source": "alephtrade",
@@ -750,7 +750,7 @@
           "photo": "photos/products/t-althaus_ред_фрут_фраш_фрукт_15х4г.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 4,
       "tags": [],
       "photo": "photos/products/t-althaus_ред_фрут_фраш_фрукт_15х4г.jpg",
       "_source": "alephtrade",
@@ -830,7 +830,7 @@
           "photo": "photos/products/t-althaus_ройбуш_ванильная_карамель_15х4г.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/t-althaus_ройбуш_ванильная_карамель_15х4г.jpg",
       "_source": "alephtrade",
@@ -907,7 +907,7 @@
           "photo": "photos/products/t-althaus_сенча_сенпай_зел_15х4г.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 2,
       "tags": [],
       "photo": "photos/products/t-althaus_сенча_сенпай_зел_15х4г.jpg",
       "_source": "alephtrade",
@@ -960,7 +960,7 @@
           "photo": "photos/products/t-althaus_сенча_сенпай_зел_пакет_20х1_75г.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/t-althaus_сенча_сенпай_зел_пакет_20х1_75г.jpg",
       "_source": "alephtrade",
@@ -986,7 +986,7 @@
           "price": 609.0
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -1011,7 +1011,7 @@
           "photo": "photos/products/t-althaus_чистая_мята_трав_20х1_75г.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/t-althaus_чистая_мята_трав_20х1_75г.jpg",
       "_source": "alephtrade",
@@ -1038,7 +1038,7 @@
           "photo": "photos/products/t-althaus_японская_липа_трав_75г.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 8,
       "tags": [],
       "photo": "photos/products/t-althaus_японская_липа_трав_75г.jpg",
       "_source": "alephtrade",
@@ -2652,7 +2652,7 @@
           "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg"
         }
       ],
-      "stock": 32,
+      "stock": 27,
       "tags": [],
       "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg",
       "_source": "alephtrade",
@@ -2678,7 +2678,7 @@
           "price": 180.0
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -2829,7 +2829,7 @@
           "price": 180.0
         }
       ],
-      "stock": 3,
+      "stock": 24,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -3010,7 +3010,7 @@
           "photo": null
         }
       ],
-      "stock": 5,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3109,7 +3109,7 @@
           "price": 185.0
         }
       ],
-      "stock": 37,
+      "stock": 27,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3279,7 +3279,7 @@
           "price": 670.0
         }
       ],
-      "stock": 7,
+      "stock": 15,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3353,7 +3353,7 @@
           "price": 780.0
         }
       ],
-      "stock": 6,
+      "stock": 10,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3426,7 +3426,7 @@
           "price": 650.0
         }
       ],
-      "stock": 7,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3501,7 +3501,7 @@
           "photo": null
         }
       ],
-      "stock": 17,
+      "stock": 15,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3549,7 +3549,7 @@
           "price": 620.0
         }
       ],
-      "stock": 24,
+      "stock": 20,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3864,7 +3864,7 @@
           "photo": "photos/products/t-rbr_tea_сенча_250г.jpg"
         }
       ],
-      "stock": 21,
+      "stock": 17,
       "tags": [],
       "photo": "photos/products/t-rbr_tea_сенча_250г.jpg",
       "quarantined": false,
@@ -3911,7 +3911,7 @@
           "price": 590.0
         }
       ],
-      "stock": 28,
+      "stock": 23,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -3935,7 +3935,7 @@
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
-      "stock": 117,
+      "stock": 95,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
       "quarantined": false,
@@ -3961,7 +3961,7 @@
           "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg"
         }
       ],
-      "stock": 106,
+      "stock": 97,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg",
       "quarantined": false,
@@ -3987,7 +3987,7 @@
           "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg"
         }
       ],
-      "stock": 91,
+      "stock": 143,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg",
       "quarantined": false,
@@ -4013,7 +4013,7 @@
           "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
-      "stock": 104,
+      "stock": 127,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
       "quarantined": false,
@@ -4039,7 +4039,7 @@
           "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg"
         }
       ],
-      "stock": 162,
+      "stock": 145,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg",
       "quarantined": false,
@@ -4065,7 +4065,7 @@
           "photo": "photos/products/t-restoranica_resta_апельсин_манго_30пак.jpg"
         }
       ],
-      "stock": 28,
+      "stock": 55,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_апельсин_манго_30пак.jpg",
       "quarantined": false,
@@ -4091,7 +4091,7 @@
           "photo": "photos/products/t-restoranica_resta_апельсин_ройбуш_30пак.jpg"
         }
       ],
-      "stock": 33,
+      "stock": 30,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_апельсин_ройбуш_30пак.jpg",
       "quarantined": false,
@@ -4117,7 +4117,7 @@
           "photo": "photos/products/t-restoranica_resta_голубая_масала_30пак.jpg"
         }
       ],
-      "stock": 41,
+      "stock": 38,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_голубая_масала_30пак.jpg",
       "quarantined": false,
@@ -4143,7 +4143,7 @@
           "photo": "photos/products/t-restoranica_resta_иммунный_30пак.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 39,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_иммунный_30пак.jpg",
       "quarantined": false,
@@ -4169,7 +4169,7 @@
           "photo": "photos/products/t-restoranica_resta_кедровый_с_чагой_30пак.jpg"
         }
       ],
-      "stock": 34,
+      "stock": 31,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_кедровый_с_чагой_30пак.jpg",
       "quarantined": false,
@@ -4195,7 +4195,7 @@
           "photo": "photos/products/t-restoranica_resta_киви_клубника_30пак.jpg"
         }
       ],
-      "stock": 48,
+      "stock": 45,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_киви_клубника_30пак.jpg",
       "quarantined": false,
@@ -4221,7 +4221,7 @@
           "photo": "photos/products/t-restoranica_resta_лесные_ягоды_30пак.jpg"
         }
       ],
-      "stock": 32,
+      "stock": 29,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_лесные_ягоды_30пак.jpg",
       "quarantined": false,
@@ -4247,7 +4247,7 @@
           "photo": "photos/products/t-restoranica_resta_мята_малина_30пак.jpg"
         }
       ],
-      "stock": 18,
+      "stock": 10,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_мята_малина_30пак.jpg",
       "quarantined": false,
@@ -4273,7 +4273,7 @@
           "photo": "photos/products/t-restoranica_resta_пряный_глинтвейн_30пак.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 28,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_пряный_глинтвейн_30пак.jpg",
       "quarantined": false,
@@ -4325,7 +4325,7 @@
           "photo": "photos/products/t-restoranica_resta_сладкая_клубника_30пак.jpg"
         }
       ],
-      "stock": 35,
+      "stock": 32,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_сладкая_клубника_30пак.jpg",
       "quarantined": false,
@@ -4351,7 +4351,7 @@
           "photo": "photos/products/t-restoranica_resta_смородиновый_черный_30пак.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 36,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_смородиновый_черный_30пак.jpg",
       "quarantined": false,
@@ -4377,7 +4377,7 @@
           "photo": "photos/products/t-restoranica_resta_шиповник_чабрец_30пак.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 14,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_шиповник_чабрец_30пак.jpg",
       "quarantined": false,
@@ -4403,7 +4403,7 @@
           "photo": "photos/products/t-restoranica_resta_эрлберг_30пак.jpg"
         }
       ],
-      "stock": 45,
+      "stock": 42,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_эрлберг_30пак.jpg",
       "quarantined": false,
@@ -4429,7 +4429,7 @@
           "photo": "photos/products/t-restoranica_resta_яблоко_можжевельник_30пак.jpg"
         }
       ],
-      "stock": 47,
+      "stock": 44,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_яблоко_можжевельник_30пак.jpg",
       "quarantined": false,
@@ -4455,7 +4455,7 @@
           "photo": "photos/products/t-restoranica_togo_ассам_с_шиповником_36пак.jpg"
         }
       ],
-      "stock": 99,
+      "stock": 156,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_ассам_с_шиповником_36пак.jpg",
       "quarantined": false,
@@ -4481,7 +4481,7 @@
           "photo": "photos/products/t-restoranica_togo_голубая_масала_36пак.jpg"
         }
       ],
-      "stock": 115,
+      "stock": 84,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_голубая_масала_36пак.jpg",
       "quarantined": false,
@@ -4507,7 +4507,7 @@
           "photo": "photos/products/t-restoranica_togo_иван-чай_с_малиной_36пак.jpg"
         }
       ],
-      "stock": 185,
+      "stock": 170,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_иван-чай_с_малиной_36пак.jpg",
       "quarantined": false,
@@ -4559,7 +4559,7 @@
           "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg"
         }
       ],
-      "stock": 102,
+      "stock": 53,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg",
       "quarantined": false,
@@ -4585,7 +4585,7 @@
           "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg"
         }
       ],
-      "stock": 145,
+      "stock": 104,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg",
       "quarantined": false,
@@ -4611,7 +4611,7 @@
           "photo": "photos/products/t-restoranica_togo_королевский_бергамот_60пак.jpg"
         }
       ],
-      "stock": 91,
+      "stock": 88,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_королевский_бергамот_60пак.jpg",
       "quarantined": false,
@@ -4637,7 +4637,7 @@
           "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg"
         }
       ],
-      "stock": 147,
+      "stock": 232,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -4663,7 +4663,7 @@
           "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg"
         }
       ],
-      "stock": 190,
+      "stock": 113,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg",
       "quarantined": false,
@@ -4689,7 +4689,7 @@
           "photo": "photos/products/t-restoranica_togo_медовое_яблоко_с_имбирем_30пак.jpg"
         }
       ],
-      "stock": 202,
+      "stock": 220,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_медовое_яблоко_с_имбирем_30пак.jpg",
       "quarantined": false,
@@ -4741,7 +4741,7 @@
           "photo": "photos/products/t-restoranica_togo_ройбуш_с_апельсином_60пак.jpg"
         }
       ],
-      "stock": 119,
+      "stock": 109,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_ройбуш_с_апельсином_60пак.jpg",
       "quarantined": false,
@@ -4793,7 +4793,7 @@
           "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg"
         }
       ],
-      "stock": 92,
+      "stock": 90,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg",
       "quarantined": false,
@@ -4819,7 +4819,7 @@
           "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg"
         }
       ],
-      "stock": 213,
+      "stock": 204,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg",
       "quarantined": false,
@@ -4845,7 +4845,7 @@
           "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
         }
       ],
-      "stock": 134,
+      "stock": 130,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -4871,7 +4871,7 @@
           "photo": "photos/products/t-restoranica_togo_яблоко_с_можжевельником_60пак.jpg"
         }
       ],
-      "stock": 133,
+      "stock": 111,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_яблоко_с_можжевельником_60пак.jpg",
       "quarantined": false,
@@ -4968,7 +4968,7 @@
           "price": 1260.0
         }
       ],
-      "stock": 3,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5116,7 +5116,7 @@
           "price": 1800.0
         }
       ],
-      "stock": 5,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5190,7 +5190,7 @@
           "price": 370.0
         }
       ],
-      "stock": 3,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5923,7 +5923,7 @@
           "price": 1770.0
         }
       ],
-      "stock": 2,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -6106,7 +6106,7 @@
           "price": 710
         }
       ],
-      "stock": 1,
+      "stock": 4,
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Колумбия",
@@ -6193,7 +6193,7 @@
           "price": 2320.0
         }
       ],
-      "stock": 5,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -6292,7 +6292,7 @@
           "photo": null
         }
       ],
-      "stock": 9,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -6526,7 +6526,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 17,
+      "stock": 16,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -7229,7 +7229,7 @@
       "name": "Колумбия Маракуйя Хани инфьюз.- 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 1,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7348,7 +7348,7 @@
           "price": 896.0
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -7585,7 +7585,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_эфиопия_челелекту_г1_мытыи_2.jpg"
         }
       ],
-      "stock": 1,
+      "stock": 12,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7690,7 +7690,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 10,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7917,7 +7917,7 @@
           "price": 1760.0
         }
       ],
-      "stock": 4,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8350,7 +8350,7 @@
           "photo": null
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8374,7 +8374,7 @@
           "price": 998.0
         }
       ],
-      "stock": 3,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8399,7 +8399,7 @@
           "price": 2215.0
         }
       ],
-      "stock": 6,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8423,7 +8423,7 @@
           "price": 2215.0
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8646,7 +8646,7 @@
           "price": 635.0
         }
       ],
-      "stock": 6,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8881,7 +8881,7 @@
           "photo": "photos/products/s-сироп_botanika_айриш_крем_1л.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_айриш_крем_1л.jpg",
       "_source": "https://botanikastories.ru/product/ajrish-krem/",
@@ -8999,7 +8999,7 @@
           "photo": "photos/products/s-сироп_botanika_бабл_гам_1л.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_бабл_гам_1л.jpg",
       "_source": "https://botanikastories.ru/product/babl-gam/",
@@ -9025,7 +9025,7 @@
           "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 8,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg",
       "_source": "https://botanikastories.ru/product/zhyoltyj-banan/",
@@ -9269,7 +9269,7 @@
           "photo": "photos/products/s-сироп_botanika_зеленое_яблоко_1л.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 7,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_зеленое_яблоко_1л.jpg",
       "_source": "https://botanikastories.ru/product/zelyonoe-yabloko/",
@@ -9369,7 +9369,7 @@
           "photo": "photos/products/s-сироп_botanika_карамель_соленая_1л.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 9,
       "tags": [
         "Хит"
       ],
@@ -9769,7 +9769,7 @@
           "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg",
       "_source": "https://botanikastories.ru/product/zelyonaya-myata/",
@@ -9887,7 +9887,7 @@
           "photo": "photos/products/s-сироп_botanika_черная_смородина_1л.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 9,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_черная_смородина_1л.jpg",
       "_source": "https://botanikastories.ru/product/chernaya-smorodina-2/",
@@ -10010,7 +10010,7 @@
           "price": 771.0
         }
       ],
-      "stock": 7,
+      "stock": 10,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10034,7 +10034,7 @@
           "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.jpg",
       "_source": "herbarista_pdf",
@@ -10060,7 +10060,7 @@
           "photo": "photos/products/s-сироп_herbarista_груша_со_специями_0_7л.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 4,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_груша_со_специями_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -10110,7 +10110,7 @@
           "photo": "photos/products/s-сироп_herbarista_ежевика_с_листьями_0_7л.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_ежевика_с_листьями_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -10160,7 +10160,7 @@
           "photo": "photos/products/s-сироп_herbarista_ирландский_крем_0_7л.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 9,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_ирландский_крем_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -10240,7 +10240,7 @@
           "photo": "photos/products/s-сироп_herbarista_кокос_с_мякотью_0_7л.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 8,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_кокос_с_мякотью_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -10441,7 +10441,7 @@
           "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -10571,7 +10571,7 @@
           "photo": "photos/products/s-сироп_herbarista_сливочная_ириска_0_7л.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_сливочная_ириска_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -10699,7 +10699,7 @@
           "photo": "photos/products/s-сироп_herbarista_шоколадный_трюфель_0_7л.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 9,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_шоколадный_трюфель_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -10725,7 +10725,7 @@
           "photo": "photos/products/s-сироп_herbarista_эвкалипт_и_мята_0_7л.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 7,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_эвкалипт_и_мята_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -11569,7 +11569,7 @@
           "price": 635.0
         }
       ],
-      "stock": 3,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -11618,7 +11618,7 @@
           "price": 635.0
         }
       ],
-      "stock": 2,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -11715,7 +11715,7 @@
           "price": 635.0
         }
       ],
-      "stock": 1,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -11740,7 +11740,7 @@
           "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
         }
       ],
-      "stock": 1740,
+      "stock": 420,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg",
       "quarantined": false,
@@ -11837,7 +11837,7 @@
           "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg"
         }
       ],
-      "stock": 625,
+      "stock": 400,
       "tags": [],
       "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg",
       "quarantined": false,
@@ -11863,7 +11863,7 @@
           "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg"
         }
       ],
-      "stock": 1080,
+      "stock": 360,
       "tags": [],
       "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg",
       "quarantined": false,
@@ -12121,7 +12121,7 @@
           "photo": "photos/products/t-травяной_иван_чай_214_г_аромат_виноград.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "tags": [],
       "photo": "photos/products/t-травяной_иван_чай_214_г_аромат_виноград.jpg",
       "quarantined": false,
@@ -12197,7 +12197,7 @@
           "photo": null
         }
       ],
-      "stock": 22,
+      "stock": 20,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12312,7 +12312,7 @@
           "photo": null
         }
       ],
-      "stock": 6,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12362,7 +12362,7 @@
           "photo": "photos/products/t-улун_най_сян_дун_дин_80_200_г_молочный_улун_аромат.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 2,
       "tags": [],
       "photo": "photos/products/t-улун_най_сян_дун_дин_80_200_г_молочный_улун_аромат.jpg",
       "quarantined": false,
@@ -12387,7 +12387,7 @@
           "photo": "photos/products/t-улун_те_гуанинь_70_200_г_железная_бодхисаттва_гуан.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/t-улун_те_гуанинь_70_200_г_железная_бодхисаттва_гуан.jpg",
       "quarantined": false,
@@ -12546,7 +12546,7 @@
           "photo": null
         }
       ],
-      "stock": 9,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12570,7 +12570,7 @@
           "price": 2215.0
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12594,7 +12594,7 @@
           "price": 2215.0
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12619,7 +12619,7 @@
           "photo": "photos/products/t-чай_tasteabrew_resta_650_для_чайника_молочный_улун.jpg"
         }
       ],
-      "stock": 19,
+      "stock": 76,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_resta_650_для_чайника_молочный_улун.jpg",
       "quarantined": false,
@@ -12645,7 +12645,7 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_гун_тин_и_саган_дайля_100_.jpg"
         }
       ],
-      "stock": 120,
+      "stock": 113,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_гун_тин_и_саган_дайля_100_.jpg",
       "quarantined": false,
@@ -12671,7 +12671,7 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg"
         }
       ],
-      "stock": 190,
+      "stock": 164,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg",
       "quarantined": false,
@@ -12697,7 +12697,7 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100.jpg"
         }
       ],
-      "stock": 36,
+      "stock": 18,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100.jpg",
       "quarantined": false,
@@ -12723,7 +12723,7 @@
           "photo": null
         }
       ],
-      "stock": 0,
+      "stock": 0.5,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12748,7 +12748,7 @@
           "photo": null
         }
       ],
-      "stock": 4,
+      "stock": 4.04,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12773,7 +12773,7 @@
           "photo": null
         }
       ],
-      "stock": 4,
+      "stock": 4.5,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12848,7 +12848,7 @@
           "photo": null
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12873,7 +12873,7 @@
           "photo": "photos/products/t-черный_дянь_хун_классический_черный_китайскй_200_г.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/t-черный_дянь_хун_классический_черный_китайскй_200_г.jpg",
       "quarantined": false,
@@ -13318,7 +13318,7 @@
           "price": 790.0
         }
       ],
-      "stock": 8,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13342,7 +13342,7 @@
           "price": 790.0
         }
       ],
-      "stock": 4,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13366,7 +13366,7 @@
           "price": 1280.0
         }
       ],
-      "stock": 3,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13390,7 +13390,7 @@
           "price": 800.0
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13414,7 +13414,7 @@
           "price": 800.0
         }
       ],
-      "stock": 9,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13438,7 +13438,7 @@
           "price": 1710.0
         }
       ],
-      "stock": 3,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13486,7 +13486,7 @@
           "price": 1200.0
         }
       ],
-      "stock": 14,
+      "stock": 10,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13679,7 +13679,7 @@
           "price": 680.0
         }
       ],
-      "stock": 1,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13703,7 +13703,7 @@
           "price": 1090.0
         }
       ],
-      "stock": 3,
+      "stock": 9,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13727,7 +13727,7 @@
           "price": 1090.0
         }
       ],
-      "stock": 2,
+      "stock": 9,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13800,7 +13800,7 @@
           "price": 1400.0
         }
       ],
-      "stock": 11,
+      "stock": 9,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13874,7 +13874,7 @@
           "price": 1700.0
         }
       ],
-      "stock": 2,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13922,7 +13922,7 @@
           "price": 2070.0
         }
       ],
-      "stock": 4,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14126,7 +14126,7 @@
       "name": "Эфиопия Челелекту гр.1 мытый FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 2,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
