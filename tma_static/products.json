@@ -1677,7 +1677,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1731,7 +1731,7 @@
           "stock": 13
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5403,9 +5403,9 @@
       "name": "Бразилия \"Судан Руме анаэроб.\" 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
       "country": "Бразилия",
       "process": "Натуральный, анаэробный",
       "altitude": "1380–1430 м",
@@ -5429,8 +5429,8 @@
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-06-03T08:31:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "c-nesp-бразилия_серрадо__nespresso_",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 465,
+      "stock": 464,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5714,7 +5714,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -6526,7 +6526,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 16,
+      "stock": 23,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6583,7 +6583,7 @@
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -7648,7 +7648,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -13964,7 +13964,7 @@
       "name": "Эфиопия Ададо сухой - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 1,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
