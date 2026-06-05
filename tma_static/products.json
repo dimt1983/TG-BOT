@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 30,
+      "stock": 32,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 109,
+      "stock": 107,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 493,
+      "stock": 588,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7229,7 +7229,7 @@
       "name": "Колумбия Маракуйя Хани инфьюз.- 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 3,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7606,7 +7606,7 @@
           "photo": "assets/placeholders/ph_black.svg"
         }
       ],
-      "stock": 16,
+      "stock": 17,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7690,7 +7690,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 20,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -14198,7 +14198,7 @@
       "name": "Эфиопия Челчеле гр.1 сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 5,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14330,7 +14330,7 @@
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
