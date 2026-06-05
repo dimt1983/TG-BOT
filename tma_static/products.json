@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 19,
+      "stock": 18,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1946,7 +1946,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 19,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
