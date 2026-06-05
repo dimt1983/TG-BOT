@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 18,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 125,
+      "stock": 110,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1861,7 +1861,7 @@
           "stock": 14
         }
       ],
-      "stock": 5,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 454,
+      "stock": 446,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -15078,7 +15078,7 @@
       "name": "Кения КиаваМуруру нат.анаэроб.1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 3,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -15100,7 +15100,7 @@
       "name": "Кения Маакиоу Пиберри мытая 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 3,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
