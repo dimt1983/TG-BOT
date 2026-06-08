@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 113,
+      "stock": 107,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 521,
+      "stock": 493,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6526,7 +6526,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 22,
+      "stock": 21,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -7543,7 +7543,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_колумбия_кастильо_мытая_200_.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7627,7 +7627,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_судан_руме_анаэроб_а.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7648,7 +7648,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7711,7 +7711,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_пачамама_нат_анаэроб.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -9025,7 +9025,7 @@
           "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg",
       "_source": "https://botanikastories.ru/product/zhyoltyj-banan/",
