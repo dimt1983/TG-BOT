@@ -2169,7 +2169,7 @@
           "photo": "photos/products/retail_f_roastberry_эфиопия_лиму_200_г.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5190,7 +5190,7 @@
           "price": 370.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 94,
+      "stock": 82,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 454,
+      "stock": 441,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -12412,7 +12412,7 @@
           "photo": null
         }
       ],
-      "stock": 58,
+      "stock": 55,
       "tags": [],
       "photo": "",
       "quarantined": false,
@@ -13727,7 +13727,7 @@
           "price": 1090.0
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13874,7 +13874,7 @@
           "price": 1700.0
         }
       ],
-      "stock": 5,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14032,7 +14032,7 @@
       "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
