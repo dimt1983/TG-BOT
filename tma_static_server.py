@@ -38,6 +38,7 @@ import customer_account
 PORT = int(os.environ.get("PORT", 10000))
 TMA_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tma_static")
 TMA_ROOT_V2 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tma_static_v2")
+ADMIN_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "admin_static")
 PRICE_SYNC_ENABLED = os.environ.get("BISHOP_PRICE_SYNC", "1") != "0"
 
 DB_PATH = os.environ.get("DB_PATH", "/app/data/shop.db")
@@ -671,6 +672,39 @@ class Handler(BaseHTTPRequestHandler):
         # ── Healthcheck ──────────────────────────────────────────────────────
         if path in ("/", ""):
             self._send(200, b"OK", "text/plain")
+            return
+
+        # ── /admin/* — десктоп-админка (заказы, клиенты, каталог) ────────────
+        # Отдельная браузерная страница вне Telegram. Авторизация — Telegram
+        # Login Widget → JWT (тот же канал, что /tma/api/auth/telegram).
+        if path == "/admin" or path.startswith("/admin/"):
+            rel = path[len("/admin/"):] if path.startswith("/admin/") else ""
+            if rel == "" or rel.endswith("/"):
+                rel = (rel + "index.html").lstrip("/")
+            full_path = os.path.normpath(os.path.join(ADMIN_ROOT, rel))
+            if not full_path.startswith(ADMIN_ROOT):
+                self._send(403, b"Forbidden", "text/plain")
+                return
+            if not os.path.isfile(full_path):
+                full_path = os.path.join(ADMIN_ROOT, "index.html")
+                if not os.path.isfile(full_path):
+                    self._send(404, b"Not found", "text/plain")
+                    return
+            ctype, _ = mimetypes.guess_type(full_path)
+            ctype = ctype or "application/octet-stream"
+            try:
+                with open(full_path, "rb") as f:
+                    body = f.read()
+                extra = {}
+                if full_path.endswith((".html", ".js", ".webmanifest")):
+                    extra["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+                    extra["Pragma"] = "no-cache"
+                    extra["Expires"] = "0"
+                elif any(full_path.endswith(e) for e in (".jpg", ".png", ".webp", ".svg", ".ico", ".css")):
+                    extra["Cache-Control"] = "public, max-age=3600, must-revalidate"
+                self._send(200, body, ctype, extra)
+            except Exception as e:
+                self._send(500, str(e).encode(), "text/plain")
             return
 
         # ── /sync (Bearer) ───────────────────────────────────────────────────
