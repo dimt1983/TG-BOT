@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 32,
+      "stock": 27,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 85,
+      "stock": 118,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 36,
+      "stock": 28,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1704,7 +1704,7 @@
           "photo": "photos/products/retail_e_roastberry_гватемала_декаф_-_1_кг.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 441,
+      "stock": 544,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -15115,6 +15115,26 @@
         }
       ],
       "created_at": "2026-06-03T11:33:47+00:00",
+      "created_by": "sync_catalog_v2"
+    },
+    {
+      "id": "espresso_mono_мексика_чьяпас_мытый_эспрессо_1_кг",
+      "name": "Мексика Чьяпас мытый эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 26,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "E",
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-06-08T13:32:50+00:00",
       "created_by": "sync_catalog_v2"
     }
   ]
