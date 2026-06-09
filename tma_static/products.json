@@ -432,7 +432,7 @@
           "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg",
       "_source": "alephtrade",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 155,
+      "stock": 145,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -3353,7 +3353,7 @@
           "price": 780.0
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3426,7 +3426,7 @@
           "price": 650.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3501,7 +3501,7 @@
           "photo": null
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3549,7 +3549,7 @@
           "price": 620.0
         }
       ],
-      "stock": 19,
+      "stock": 18,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3864,7 +3864,7 @@
           "photo": "photos/products/t-rbr_tea_сенча_250г.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "tags": [],
       "photo": "photos/products/t-rbr_tea_сенча_250г.jpg",
       "quarantined": false,
@@ -3911,7 +3911,7 @@
           "price": 590.0
         }
       ],
-      "stock": 23,
+      "stock": 22,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -4968,7 +4968,7 @@
           "price": 1260.0
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 79,
+      "stock": 71,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 630,
+      "stock": 628,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8555,7 +8555,7 @@
           "price": 1
         }
       ],
-      "stock": 10000,
+      "stock": 9800,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -9887,7 +9887,7 @@
           "photo": "photos/products/s-сироп_botanika_черная_смородина_1л.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_черная_смородина_1л.jpg",
       "_source": "https://botanikastories.ru/product/chernaya-smorodina-2/",
@@ -10822,7 +10822,7 @@
           "price": 660.0
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -11715,7 +11715,7 @@
           "price": 635.0
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12424,7 +12424,7 @@
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 51,
+      "stock": 50,
       "on_request": false,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
@@ -13342,7 +13342,7 @@
           "price": 790.0
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13366,7 +13366,7 @@
           "price": 1280.0
         }
       ],
-      "stock": 7,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14032,7 +14032,7 @@
       "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
