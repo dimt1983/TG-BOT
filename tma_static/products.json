@@ -1731,7 +1731,7 @@
           "stock": 13
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 633,
+      "stock": 630,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7690,7 +7690,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью.jpg"
         }
       ],
-      "stock": 19,
+      "stock": 18,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8495,7 +8495,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 18,
+      "stock": 17,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
