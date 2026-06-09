@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 2,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 169,
+      "stock": 168,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1677,7 +1677,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -14279,7 +14279,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 15,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
