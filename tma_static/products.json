@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 156,
+      "stock": 169,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 28,
+      "stock": 27,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1784,7 +1784,7 @@
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_-_1_кг.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 541,
+      "stock": 633,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14378,7 +14378,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 16,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15122,7 +15122,7 @@
       "name": "Мексика Чьяпас мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 26,
+      "stock": 16,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
