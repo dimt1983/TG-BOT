@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 27,
+      "stock": 25,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1946,7 +1946,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 64,
+      "stock": 66,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 82,
+      "stock": 80,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 544,
+      "stock": 509,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5573,7 +5573,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8555,7 +8555,7 @@
           "price": 1
         }
       ],
-      "stock": 10200,
+      "stock": 10000,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -9581,7 +9581,7 @@
           "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg",
       "_source": "https://botanikastories.ru/product/lesnoj-oreh/",
@@ -9769,7 +9769,7 @@
           "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg",
       "_source": "https://botanikastories.ru/product/zelyonaya-myata/",
@@ -13414,7 +13414,7 @@
           "price": 800.0
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
