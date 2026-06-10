@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 9,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 25,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 145,
+      "stock": 142,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 27,
+      "stock": 23,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2169,7 +2169,7 @@
           "photo": "photos/products/retail_f_roastberry_эфиопия_лиму_200_г.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 628,
+      "stock": 627,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5949,7 +5949,7 @@
           "photo": "photos/products/c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи.jpg"
         }
       ],
-      "stock": 57,
+      "stock": 54,
       "tags": [],
       "photo": "photos/products/c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи.jpg",
       "tasting_notes": [
@@ -5980,7 +5980,7 @@
           "photo": null
         }
       ],
-      "stock": 65,
+      "stock": 62,
       "tags": [],
       "photo": "",
       "tasting_notes": [
@@ -7711,7 +7711,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_пачамама_нат_анаэроб.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 13,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8235,7 +8235,7 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 9,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -8555,7 +8555,7 @@
           "price": 1
         }
       ],
-      "stock": 9800,
+      "stock": 9400,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -14253,7 +14253,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 42,
+      "stock": 32,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14353,7 +14353,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 8,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -15124,7 +15124,7 @@
       "name": "Мексика Чьяпас мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 16,
+      "stock": 14,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
