@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 19,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 141,
+      "stock": 136,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -6068,7 +6068,7 @@
           "price": 760
         }
       ],
-      "stock": 55,
+      "stock": 51,
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Эфиопия",
@@ -12266,7 +12266,7 @@
       "name": "Уганда Рувензори сухой -  эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 1,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
