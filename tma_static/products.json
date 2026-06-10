@@ -1038,7 +1038,7 @@
           "photo": "photos/products/t-althaus_японская_липа_трав_75г.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": "photos/products/t-althaus_японская_липа_трав_75г.jpg",
       "_source": "alephtrade",
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 56,
+      "stock": 46,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 695,
+      "stock": 687,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8555,7 +8555,7 @@
           "price": 1
         }
       ],
-      "stock": 8800,
+      "stock": 8400,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -11715,7 +11715,7 @@
           "price": 635.0
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14279,9 +14279,9 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 8,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "E",
       "photo": "photos/products/espresso_mono_эфиопия_yirgacheffe_gr_2_мытый_эспрессо_1_кг.jpg",
       "fasovka": [
@@ -14297,8 +14297,8 @@
       "description": "Эфиопия Yirgacheffe. Классический цветочно-чайный профиль с высокой кислотностью.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined_at": "2026-06-10T16:32:04+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "filter_micro_бразилия_фазенда_лагуинья_мундо_анаэроб_1_кг_filter",
