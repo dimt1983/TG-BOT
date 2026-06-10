@@ -592,7 +592,7 @@
           "photo": "photos/products/t-althaus_лемон_минт_трав_150г.jpg"
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "photo": "photos/products/t-althaus_лемон_минт_трав_150г.jpg",
       "_source": "alephtrade",
@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 19,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 21,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 136,
+      "stock": 85,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1731,7 +1731,7 @@
           "stock": 13
         }
       ],
-      "stock": 14,
+      "stock": 11,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1861,7 +1861,7 @@
           "stock": 14
         }
       ],
-      "stock": 19,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1920,7 +1920,7 @@
           "photo": "photos/products/retail_e_roastberry_уганада_рувензор_200_г.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 3,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2326,7 +2326,7 @@
       "name": "Hario VCF-02-100WK Бумажные фильтры 100 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 3,
+      "stock": 1,
       "on_request": true,
       "price": null,
       "photo": ""
@@ -2652,7 +2652,7 @@
           "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg"
         }
       ],
-      "stock": 25,
+      "stock": 23,
       "tags": [],
       "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg",
       "_source": "alephtrade",
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 59,
+      "stock": 56,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 609,
+      "stock": 599,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5949,7 +5949,7 @@
           "photo": "photos/products/c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи.jpg"
         }
       ],
-      "stock": 54,
+      "stock": 53,
       "tags": [],
       "photo": "photos/products/c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи.jpg",
       "tasting_notes": [
@@ -6526,7 +6526,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 17,
+      "stock": 16,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -7229,7 +7229,7 @@
       "name": "Колумбия Маракуйя Хани инфьюз.- 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -8495,7 +8495,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 17,
+      "stock": 16,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -8555,7 +8555,7 @@
           "price": 1
         }
       ],
-      "stock": 9400,
+      "stock": 8800,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -10010,7 +10010,7 @@
           "price": 771.0
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10391,7 +10391,7 @@
           "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 13,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -12424,7 +12424,7 @@
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 49,
+      "stock": 28,
       "on_request": false,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
@@ -14098,7 +14098,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 160,
+      "stock": 156,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14279,7 +14279,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 11,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14330,7 +14330,7 @@
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
