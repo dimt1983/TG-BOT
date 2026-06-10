@@ -3426,7 +3426,7 @@
           "price": 650.0
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3574,7 +3574,7 @@
           "photo": "photos/products/t-rb_tea_эрл_грей_250_г_черный_чай.jpg"
         }
       ],
-      "stock": 23,
+      "stock": 22,
       "tags": [],
       "photo": "photos/products/t-rb_tea_эрл_грей_250_г_черный_чай.jpg",
       "quarantined": false,
@@ -3864,7 +3864,7 @@
           "photo": "photos/products/t-rbr_tea_сенча_250г.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "tags": [],
       "photo": "photos/products/t-rbr_tea_сенча_250г.jpg",
       "quarantined": false,
@@ -3911,7 +3911,7 @@
           "price": 590.0
         }
       ],
-      "stock": 22,
+      "stock": 21,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 697,
+      "stock": 695,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14032,7 +14032,7 @@
       "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14378,7 +14378,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 9,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
