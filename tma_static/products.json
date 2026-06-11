@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 597,
+      "stock": 600,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7711,7 +7711,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_пачамама_нат_анаэроб.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
