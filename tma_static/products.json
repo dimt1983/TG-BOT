@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 141,
+      "stock": 140,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 19,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 32,
+      "stock": 67,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 671,
+      "stock": 659,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -13703,7 +13703,7 @@
           "price": 1090.0
         }
       ],
-      "stock": 9,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
