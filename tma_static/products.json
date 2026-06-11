@@ -724,7 +724,7 @@
           "photo": "photos/products/t-althaus_ред_фрут_флаш_фрукт_лист_250г.jpg"
         }
       ],
-      "stock": 1,
+      "stock": 7,
       "tags": [],
       "photo": "photos/products/t-althaus_ред_фрут_флаш_фрукт_лист_250г.jpg",
       "_source": "alephtrade",
@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 19,
+      "stock": 18,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 686,
+      "stock": 685,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7348,7 +7348,7 @@
           "price": 896.0
         }
       ],
-      "stock": 1,
+      "stock": 4,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -7372,7 +7372,7 @@
           "price": 1290
         }
       ],
-      "stock": 1,
+      "stock": 4,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -7543,7 +7543,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_колумбия_кастильо_мытая_200_.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7917,7 +7917,7 @@
           "price": 1760.0
         }
       ],
-      "stock": 2,
+      "stock": 8,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -10010,7 +10010,7 @@
           "price": 771.0
         }
       ],
-      "stock": 16,
+      "stock": 14,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10240,7 +10240,7 @@
           "photo": "photos/products/s-сироп_herbarista_кокос_с_мякотью_0_7л.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_кокос_с_мякотью_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -13342,7 +13342,7 @@
           "price": 790.0
         }
       ],
-      "stock": 4,
+      "stock": 9,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13390,7 +13390,7 @@
           "price": 800.0
         }
       ],
-      "stock": 2,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13414,7 +13414,7 @@
           "price": 800.0
         }
       ],
-      "stock": 6,
+      "stock": 11,
       "tags": [],
       "photo": null,
       "quarantined": false,
