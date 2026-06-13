@@ -13250,7 +13250,8 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "hidden": true
     },
     {
       "id": "t-чн008_500_молочный_улун",
