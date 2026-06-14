@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Roastberry — Админка</title>
+<meta name="theme-color" content="#FAF7F2" />
+<link rel="stylesheet" href="/tma/v2/tokens.css?v=admin-1" />
+<style>
+  :root { --side: 360px; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; height:100%; background:var(--bg, #FAF7F2); color:var(--ink, #1A1410); }
+  body { font-family: Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size:14px; }
+  button { font-family:inherit; cursor:pointer; }
+  a { color:inherit; }
+  .mono { font-family: var(--f-mono, ui-monospace, monospace); }
+
+  /* ── Layout ── */
+  .app { display:grid; grid-template-rows:auto 1fr; height:100vh; }
+  .topbar { position:sticky; top:0; z-index:20; display:flex; align-items:center; gap:18px;
+            padding:0 20px; height:58px; background:color-mix(in oklab, var(--bg) 92%, transparent);
+            border-bottom:1px solid var(--line, #E6DFD4); backdrop-filter:blur(16px); }
+  .brand { font-family:var(--f-display, inherit); font-weight:900; font-size:19px; letter-spacing:-.01em; white-space:nowrap; }
+  .brand small { display:block; font:600 9px/1 var(--f-mono, monospace); letter-spacing:.14em; color:var(--ink-soft, #6b6258); text-transform:uppercase; margin-top:3px; }
+  .tabs { display:flex; gap:4px; margin-left:8px; }
+  .tab { height:34px; padding:0 16px; border:0; border-radius:8px; background:transparent;
+         color:var(--ink-soft, #6b6258); font-weight:700; font-size:13px; }
+  .tab.active { background:var(--ink, #1A1410); color:var(--bg, #fff); }
+  .tab .badge { margin-left:7px; font:700 11px var(--f-mono, monospace); opacity:.7; }
+  .spacer { flex:1; }
+  .who { display:flex; align-items:center; gap:9px; font-size:13px; color:var(--ink-soft); }
+  .who img { width:28px; height:28px; border-radius:50%; object-fit:cover; }
+  .btn-ghost { height:32px; padding:0 12px; border:1px solid var(--line-strong, #d9d0c2); border-radius:8px;
+               background:var(--surface, #fff); color:var(--ink); font-weight:600; font-size:12px; }
+  .btn-ghost:hover { background:var(--surface-2, #f4efe7); }
+
+  .main { min-height:0; overflow:hidden; }
+  .view { height:100%; display:none; }
+  .view.active { display:block; }
+
+  /* ── Master-detail (orders, clients) ── */
+  .md { display:grid; grid-template-columns:minmax(0,1fr) var(--side); height:100%; min-height:0; }
+  .md.no-detail { grid-template-columns:1fr; }
+  .md-list { min-width:0; min-height:0; overflow:auto; }
+  .md-detail { border-left:1px solid var(--line); background:var(--bg-2, #FBF8F2); overflow:auto; min-height:0; }
+  .md-detail.empty { display:flex; align-items:center; justify-content:center; color:var(--ink-faint, #9a9085); font-size:13px; }
+
+  .toolbar { position:sticky; top:0; z-index:5; display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+             padding:12px 16px; background:var(--bg); border-bottom:1px solid var(--line); }
+  .chip { height:30px; padding:0 13px; border:1px solid var(--line-strong); border-radius:999px;
+          background:var(--surface); color:var(--ink); font:700 12px var(--f-body, inherit); }
+  .chip.active { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  .chip .n { margin-left:6px; font-family:var(--f-mono, monospace); opacity:.65; }
+  .search { height:32px; min-width:200px; flex:1; max-width:340px; padding:0 12px; border:1px solid var(--line-strong);
+            border-radius:8px; background:var(--surface); color:var(--ink); outline:0; font-size:13px; }
+  .search:focus { border-color:var(--ink); }
+
+  table.grid { width:100%; border-collapse:collapse; }
+  table.grid th { position:sticky; top:55px; z-index:4; text-align:left; font:700 10px var(--f-mono, monospace);
+                  letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); background:var(--bg);
+                  padding:9px 16px; border-bottom:1px solid var(--line); white-space:nowrap; }
+  table.grid td { padding:11px 16px; border-bottom:1px solid var(--line); vertical-align:middle; }
+  table.grid tr.row { cursor:pointer; }
+  table.grid tr.row:hover td { background:var(--surface-2); }
+  table.grid tr.row.sel td { background:#FFFDF9; box-shadow:inset 3px 0 0 var(--ink); }
+  .num { font-family:var(--f-mono, monospace); white-space:nowrap; }
+  .muted { color:var(--ink-soft); }
+  .faint { color:var(--ink-faint); }
+  .right { text-align:right; }
+  .ellip { max-width:1px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .strong { font-weight:700; }
+
+  /* status pill */
+  .st { display:inline-flex; align-items:center; gap:6px; height:24px; padding:0 10px; border-radius:999px;
+        font:700 11px var(--f-body, inherit); white-space:nowrap; border:1px solid transparent; }
+  .st::before { content:""; width:6px; height:6px; border-radius:50%; background:currentColor; }
+  .st-new       { color:#1d6fd4; background:#e8f1fd; }
+  .st-confirmed { color:#0a7d4f; background:#e4f6ec; }
+  .st-shipped   { color:#8a5a00; background:#fbf0d8; }
+  .st-done      { color:#5b6470; background:#eef0f2; }
+  .st-cancelled { color:#b3261e; background:#fbe7e6; }
+  .st-paid      { color:#0a7d4f; background:#e4f6ec; }
+
+  /* detail panel */
+  .dp { padding:18px; }
+  .dp h2 { font-family:var(--f-display, inherit); font-size:20px; font-weight:900; margin:0 0 2px; }
+  .dp .sub { color:var(--ink-soft); font-size:12px; margin-bottom:16px; }
+  .dp .close { float:right; }
+  .card { background:var(--surface, #fff); border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:14px; }
+  .kv { display:grid; grid-template-columns:96px 1fr; gap:6px 12px; font-size:13px; }
+  .kv dt { color:var(--ink-faint); font-size:11px; text-transform:uppercase; letter-spacing:.04em; align-self:center; }
+  .kv dd { margin:0; word-break:break-word; }
+  .sec-title { font:800 11px var(--f-display, inherit); letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 9px; }
+  .items { width:100%; border-collapse:collapse; font-size:13px; }
+  .items td { padding:7px 0; border-bottom:1px solid var(--line); }
+  .items tr:last-child td { border-bottom:0; }
+  .items .q { font-family:var(--f-mono, monospace); color:var(--ink-soft); white-space:nowrap; }
+  .total-row { display:flex; justify-content:space-between; align-items:baseline; margin-top:12px; padding-top:12px; border-top:2px solid var(--ink); }
+  .total-row b { font-family:var(--f-display, inherit); font-size:22px; }
+  .actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:4px; }
+  .act { height:38px; padding:0 16px; border:1px solid var(--line-strong); border-radius:9px; background:var(--surface);
+         color:var(--ink); font-weight:700; font-size:13px; }
+  .act:hover { background:var(--surface-2); }
+  .act.primary { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  .act.danger { color:#b3261e; border-color:#f0c4c1; }
+  .act.danger:hover { background:#fbe7e6; }
+  .act[disabled] { opacity:.45; pointer-events:none; }
+
+  /* states */
+  .state { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; height:100%;
+           text-align:center; color:var(--ink-soft); padding:40px; }
+  .state h1 { font-family:var(--f-display, inherit); font-size:26px; margin:0; color:var(--ink); }
+  .center { display:flex; align-items:center; justify-content:center; height:100vh; padding:24px; }
+  .login-card { width:min(420px, 100%); background:var(--surface, #fff); border:1px solid var(--line);
+                border-radius:16px; padding:36px 32px; text-align:center; box-shadow:0 18px 60px rgba(26,20,16,.08); }
+  .login-card .logo { font-family:var(--f-display, inherit); font-weight:900; font-size:30px; letter-spacing:-.02em; }
+  .login-card .logo small { display:block; font:600 10px/1 var(--f-mono, monospace); letter-spacing:.18em; color:var(--ink-soft); text-transform:uppercase; margin-top:6px; }
+  .login-card p { color:var(--ink-soft); font-size:14px; margin:18px 0 24px; }
+  #tg-login-btn { display:flex; justify-content:center; min-height:46px; }
+
+  .frame { width:100%; height:100%; border:0; display:block; }
+
+  .spin { width:28px; height:28px; border:3px solid var(--line-strong); border-top-color:var(--ink);
+          border-radius:50%; animation:spin .8s linear infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+
+  #toast { position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(20px);
+           background:var(--ink, #1A1410); color:var(--bg, #fff); padding:11px 18px; border-radius:10px;
+           font-size:13px; font-weight:600; opacity:0; pointer-events:none; transition:.22s; z-index:90; max-width:90vw; }
+  #toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+  @media (max-width: 920px) {
+    .md { grid-template-columns:1fr; }
+    .md-detail { position:fixed; inset:0; top:58px; z-index:30; --side:auto; }
+    .md:not(.show-detail) .md-detail { display:none; }
+    .md.show-detail .md-list { display:none; }
+  }
+</style>
+</head>
+<body>
+<div id="root"><div class="center"><div class="spin"></div></div></div>
+<div id="toast"></div>
+
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+// КОНФИГ. BOT_USERNAME — username бота БЕЗ @. Домен этой страницы должен быть
+// прописан в @BotFather: /setdomain → выбрать бота → указать хост админки.
+// ─────────────────────────────────────────────────────────────────────────────
+const BOT_USERNAME = "RCR_BtB_bot";
+
+const JWT_KEY = "rb_jwt";          // тот же ключ, что у shop-editor.html
+const USER_KEY = "rb_user";
+
+const ST_LABELS = { new:"Новый", paid:"Оплачен", confirmed:"Подтверждён",
+                    shipped:"Отправлен", done:"Выполнен", cancelled:"Отменён" };
+const ST_ORDER = ["new","paid","confirmed","shipped","done","cancelled"];
+// разрешённые переходы (бэкенд: ORDER_STATUSES_VALID)
+const ST_ACTIONS = ["confirmed","shipped","done","cancelled"];
+
+const state = {
+  tab: "orders",
+  jwt: localStorage.getItem(JWT_KEY) || "",
+  user: JSON.parse(localStorage.getItem(USER_KEY) || "null"),
+  orders: { rows:[], counts:{}, filter:"", q:"", sel:null, detail:null, loading:false },
+  clients: { rows:[], q:"", sel:null, detail:null, loading:false },
+  catalogLoaded: false,
+};
+
+// ── helpers ──
+const $ = (s, r=document) => r.querySelector(s);
+const el = (id) => document.getElementById(id);
+function esc(s){ return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function authHeaders(extra){ return Object.assign({ "Authorization":"Bearer "+state.jwt }, extra||{}); }
+function fmt(n){ const v = Number(n); return Number.isFinite(v) ? v.toLocaleString("ru-RU") : "—"; }
+function money(n){ return fmt(Math.round(Number(n)||0)) + " ₽"; }
+function dt(s){
+  if(!s) return "—";
+  const d = new Date(String(s).replace(" ","T") + (String(s).includes("Z")?"":"Z"));
+  if(isNaN(d)) return esc(s);
+  return d.toLocaleString("ru-RU", { day:"2-digit", month:"2-digit", year:"2-digit", hour:"2-digit", minute:"2-digit" });
+}
+function dtShort(s){
+  if(!s) return "—";
+  const d = new Date(String(s).replace(" ","T") + (String(s).includes("Z")?"":"Z"));
+  if(isNaN(d)) return esc(s);
+  return d.toLocaleDateString("ru-RU", { day:"2-digit", month:"2-digit", year:"2-digit" });
+}
+function stPill(s){ const k = ST_LABELS[s]?s:"new"; return `<span class="st st-${esc(k)}">${esc(ST_LABELS[s]||s||"—")}</span>`; }
+let toastT;
+function toast(msg, ms=2200){ const t=el("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove("show"), ms); }
+
+async function api(path, opts){
+  const r = await fetch(path, Object.assign({ cache:"no-store" }, opts, { headers: authHeaders((opts&&opts.headers)||{}) }));
+  if(r.status === 401 || r.status === 403){ logout(true); throw new Error("Нет доступа"); }
+  const j = await r.json().catch(()=>({}));
+  if(!r.ok || j.error) throw new Error(j.error || ("HTTP "+r.status));
+  return j;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// AUTH
+// ─────────────────────────────────────────────────────────────────────────────
+window.onTelegramAuth = async function(user){
+  try {
+    const r = await fetch("/tma/api/auth/telegram", {
+      method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(user)
+    });
+    const j = await r.json().catch(()=>({}));
+    if(!r.ok || !j.token) throw new Error(j.error || "Не удалось войти");
+    state.jwt = j.token; state.user = j.user || user;
+    localStorage.setItem(JWT_KEY, state.jwt);
+    localStorage.setItem(USER_KEY, JSON.stringify(state.user));
+    boot();
+  } catch(e){ toast(e.message || "Ошибка входа", 3000); }
+};
+
+function logout(silent){
+  state.jwt=""; state.user=null;
+  localStorage.removeItem(JWT_KEY); localStorage.removeItem(USER_KEY);
+  if(!silent) renderLogin(); else { renderLogin(); toast("Сессия истекла — войдите снова", 2600); }
+}
+
+async function boot(){
+  if(!state.jwt){ renderLogin(); return; }
+  el("root").innerHTML = `<div class="center"><div class="spin"></div></div>`;
+  try {
+    const r = await fetch("/tma/api/admin/check", { headers: authHeaders() });
+    if(r.status===401){ logout(); return; }
+    const j = await r.json().catch(()=>({}));
+    if(!j.is_admin){ renderDenied(); return; }
+    renderApp();
+    loadOrders();
+  } catch(e){ renderError(e.message||String(e)); }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SHELL
+// ─────────────────────────────────────────────────────────────────────────────
+function renderLogin(){
+  el("root").innerHTML = `
+    <div class="center"><div class="login-card">
+      <div class="logo">Roastberry<small>Admin Console</small></div>
+      <p>Войдите через Telegram. Доступ только для администраторов магазина.</p>
+      <div id="tg-login-btn"><div class="spin" style="margin:0 auto"></div></div>
+    </div></div>`;
+  const s = document.createElement("script");
+  s.src = "https://telegram.org/js/telegram-widget.js?22";
+  s.async = true;
+  s.setAttribute("data-telegram-login", BOT_USERNAME);
+  s.setAttribute("data-size", "large");
+  s.setAttribute("data-radius", "9");
+  s.setAttribute("data-onauth", "onTelegramAuth(user)");
+  s.setAttribute("data-request-access", "write");
+  const host = el("tg-login-btn"); host.innerHTML=""; host.appendChild(s);
+}
+
+function renderDenied(){
+  el("root").innerHTML = `
+    <div class="state">
+      <h1>Доступ запрещён</h1>
+      <p>Аккаунт ${esc(state.user?.first_name||"")} не в списке администраторов (TMA_ADMIN_IDS).</p>
+      <button class="act" onclick="logout()">Войти другим аккаунтом</button>
+    </div>`;
+}
+function renderError(msg){
+  el("root").innerHTML = `<div class="state"><h1>Ошибка</h1><p class="mono">${esc(msg)}</p>
+    <button class="act" onclick="boot()">Повторить</button></div>`;
+}
+
+function renderApp(){
+  const u = state.user || {};
+  el("root").innerHTML = `
+    <div class="app">
+      <div class="topbar">
+        <div class="brand">Roastberry<small>Admin Console</small></div>
+        <div class="tabs">
+          <button class="tab" data-tab="orders">Заказы <span class="badge" id="tab-orders-n"></span></button>
+          <button class="tab" data-tab="clients">Клиенты</button>
+          <button class="tab" data-tab="catalog">Каталог</button>
+        </div>
+        <div class="spacer"></div>
+        <div class="who">
+          ${u.photo_url?`<img src="${esc(u.photo_url)}" alt="">`:""}
+          <span>${esc(u.first_name||"")} ${esc(u.last_name||"")}</span>
+        </div>
+        <button class="btn-ghost" onclick="logout()">Выйти</button>
+      </div>
+      <div class="main">
+        <div class="view" id="view-orders"></div>
+        <div class="view" id="view-clients"></div>
+        <div class="view" id="view-catalog">
+          <iframe class="frame" id="catalog-frame" title="Каталог"></iframe>
+        </div>
+      </div>
+    </div>`;
+  document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", ()=>switchTab(b.dataset.tab)));
+  switchTab(state.tab);
+}
+
+function switchTab(tab){
+  state.tab = tab;
+  document.querySelectorAll(".tab").forEach(b => b.classList.toggle("active", b.dataset.tab===tab));
+  document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+  el("view-"+tab).classList.add("active");
+  if(tab==="orders" && !state.orders.rows.length && !state.orders.loading) loadOrders();
+  if(tab==="clients" && !state.clients.rows.length && !state.clients.loading) loadClients();
+  if(tab==="catalog" && !state.catalogLoaded){
+    el("catalog-frame").src = "/tma/v2/shop-editor.html";
+    state.catalogLoaded = true;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ORDERS
+// ─────────────────────────────────────────────────────────────────────────────
+async function loadOrders(){
+  const o = state.orders; o.loading = true; renderOrders();
+  try {
+    const qs = new URLSearchParams({ limit:"200" });
+    if(o.filter) qs.set("status", o.filter);
+    const j = await api("/tma/api/admin/orders?"+qs.toString());
+    o.rows = j.orders || []; o.counts = j.counts || {};
+  } catch(e){ toast(e.message); o.rows=[]; }
+  o.loading = false; renderOrders();
+  const total = Object.values(state.orders.counts).reduce((a,b)=>a+b,0);
+  const b = el("tab-orders-n"); if(b) b.textContent = total ? "· "+total : "";
+}
+
+function orderRowsFiltered(){
+  const o = state.orders; const q = o.q.trim().toLowerCase();
+  if(!q) return o.rows;
+  return o.rows.filter(r => [r.id, r.name, r.phone, r.tg_name, r.address].some(v => String(v||"").toLowerCase().includes(q)));
+}
+
+function renderOrders(){
+  const o = state.orders;
+  const counts = o.counts || {};
+  const totalAll = Object.values(counts).reduce((a,b)=>a+b,0);
+  const chips = [`<button class="chip ${o.filter===""?"active":""}" onclick="setOrderFilter('')">Все <span class="n">${totalAll}</span></button>`]
+    .concat(ST_ORDER.filter(s=>counts[s]).map(s =>
+      `<button class="chip ${o.filter===s?"active":""}" onclick="setOrderFilter('${s}')">${esc(ST_LABELS[s])} <span class="n">${counts[s]}</span></button>`));
+
+  const rows = orderRowsFiltered();
+  let listHTML;
+  if(o.loading) listHTML = `<div class="state"><div class="spin"></div></div>`;
+  else if(!rows.length) listHTML = `<div class="state"><p>Заказов нет</p></div>`;
+  else listHTML = `<table class="grid">
+      <thead><tr><th>№</th><th>Дата</th><th>Клиент</th><th>Телефон</th><th class="right">Поз.</th><th class="right">Сумма</th><th>Статус</th></tr></thead>
+      <tbody>${rows.map(r => `
+        <tr class="row ${o.sel===r.id?"sel":""}" onclick="openOrder(${r.id})">
+          <td class="num strong">${r.id}</td>
+          <td class="num muted">${dtShort(r.created_at)}</td>
+          <td class="ellip" style="max-width:200px">${esc(r.name||r.tg_name||"—")}</td>
+          <td class="num muted">${esc(r.phone||"—")}</td>
+          <td class="right num muted">${r.items_count ?? "—"}</td>
+          <td class="right num strong">${money(r.total)}</td>
+          <td>${stPill(r.status)}</td>
+        </tr>`).join("")}</tbody></table>`;
+
+  el("view-orders").innerHTML = `
+    <div class="md ${o.detail?"show-detail":"no-detail"}">
+      <div class="md-list">
+        <div class="toolbar">
+          ${chips.join("")}
+          <div class="spacer"></div>
+          <input class="search" id="ord-search" placeholder="Поиск: №, имя, телефон…" value="${esc(o.q)}">
+        </div>
+        ${listHTML}
+      </div>
+      ${o.detail ? `<div class="md-detail">${orderDetailHTML(o.detail)}</div>` : ``}
+    </div>`;
+  const s = el("ord-search");
+  if(s) s.oninput = (e)=>{ o.q = e.target.value; const t=el("view-orders"); /* re-render list only */ renderOrders(); el("ord-search").focus(); el("ord-search").setSelectionRange(o.q.length,o.q.length); };
+}
+
+function setOrderFilter(f){ state.orders.filter=f; state.orders.detail=null; state.orders.sel=null; loadOrders(); }
+
+async function openOrder(id){
+  const o = state.orders; o.sel = id; renderOrders();
+  try {
+    o.detail = await api("/tma/api/admin/order/"+id);
+  } catch(e){ toast(e.message); o.detail=null; o.sel=null; }
+  renderOrders();
+}
+function closeOrder(){ state.orders.detail=null; state.orders.sel=null; renderOrders(); }
+
+function orderDetailHTML(d){
+  const items = d.items || [];
+  return `<div class="dp">
+    <button class="btn-ghost close" onclick="closeOrder()">Закрыть ✕</button>
+    <h2>Заказ №${d.id}</h2>
+    <div class="sub">${dt(d.created_at)} · ${stPill(d.status)}</div>
+
+    <div class="card">
+      <dl class="kv">
+        <dt>Клиент</dt><dd>${esc(d.name||d.tg_name||"—")}</dd>
+        <dt>Телефон</dt><dd class="mono">${esc(d.phone||"—")}</dd>
+        <dt>Адрес</dt><dd>${esc(d.address||"—")}</dd>
+        ${d.city?`<dt>Город</dt><dd>${esc(d.city)}</dd>`:""}
+        <dt>User ID</dt><dd class="mono faint">${esc(d.user_id)}</dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <div class="sec-title">Состав · ${items.length}</div>
+      <table class="items"><tbody>
+        ${items.map(it => `<tr>
+          <td>${esc(it.product_name||"—")}${it.roast?` <span class="faint">· ${esc(it.roast)}</span>`:""}</td>
+          <td class="q right">${esc(it.quantity)}×${fmt(it.price)}</td>
+          <td class="num right strong">${money((Number(it.quantity)||0)*(Number(it.price)||0))}</td>
+        </tr>`).join("") || `<tr><td class="muted">Позиции не найдены</td></tr>`}
+      </tbody></table>
+      <div class="total-row"><span class="muted">Итого</span><b>${money(d.total)}</b></div>
+    </div>
+
+    <div class="card">
+      <div class="sec-title">Сменить статус</div>
+      <div class="actions">
+        ${ST_ACTIONS.map(s => `<button class="act ${s==="cancelled"?"danger":(s==="confirmed"?"primary":"")}" ${d.status===s?"disabled":""}
+            onclick="setOrderStatus(${d.id},'${s}')">${esc(ST_LABELS[s])}</button>`).join("")}
+      </div>
+    </div>
+  </div>`;
+}
+
+async function setOrderStatus(id, status){
+  if(!confirm(`Сменить статус заказа №${id} на «${ST_LABELS[status]}»?`)) return;
+  try {
+    await api("/tma/api/admin/order/"+id+"/status", {
+      method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify({ status })
+    });
+    toast("Статус обновлён, клиент уведомлён");
+    // обновить в списке + детали без полной перезагрузки
+    const row = state.orders.rows.find(r=>r.id===id); if(row) row.status=status;
+    if(state.orders.detail && state.orders.detail.id===id) state.orders.detail.status=status;
+    await loadOrders();
+    if(state.orders.sel===id) await openOrder(id);
+  } catch(e){ toast(e.message, 3000); }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CLIENTS
+// ─────────────────────────────────────────────────────────────────────────────
+async function loadClients(){
+  const c = state.clients; c.loading=true; renderClients();
+  try { const j = await api("/tma/api/admin/users"); c.rows = j.users || []; }
+  catch(e){ toast(e.message); c.rows=[]; }
+  c.loading=false; renderClients();
+}
+
+function clientRowsFiltered(){
+  const c = state.clients; const q = c.q.trim().toLowerCase();
+  if(!q) return c.rows;
+  return c.rows.filter(r => [r.name, r.phone, r.tg_name, r.user_id].some(v => String(v||"").toLowerCase().includes(q)));
+}
+
+function renderClients(){
+  const c = state.clients;
+  const rows = clientRowsFiltered();
+  let listHTML;
+  if(c.loading) listHTML = `<div class="state"><div class="spin"></div></div>`;
+  else if(!rows.length) listHTML = `<div class="state"><p>Клиентов нет</p></div>`;
+  else listHTML = `<table class="grid">
+      <thead><tr><th>Клиент</th><th>Телефон</th><th class="right">Заказов</th><th class="right">Сумма</th><th>Последний</th></tr></thead>
+      <tbody>${rows.map(r => `
+        <tr class="row ${c.sel===r.user_id?"sel":""}" onclick="openClient(${r.user_id})">
+          <td><div class="strong ellip" style="max-width:220px">${esc(r.name||r.tg_name||"—")}</div>
+              ${r.tg_name?`<div class="faint mono" style="font-size:11px">@${esc(String(r.tg_name).replace(/^@/,""))}</div>`:""}</td>
+          <td class="num muted">${esc(r.phone||"—")}</td>
+          <td class="right num">${r.order_count ?? 0}</td>
+          <td class="right num strong">${money(r.total_spent)}</td>
+          <td class="num muted">${dtShort(r.last_order_at)}</td>
+        </tr>`).join("")}</tbody></table>`;
+
+  el("view-clients").innerHTML = `
+    <div class="md ${c.detail?"show-detail":"no-detail"}">
+      <div class="md-list">
+        <div class="toolbar">
+          <input class="search" id="cl-search" placeholder="Поиск: имя, телефон, @ник…" value="${esc(c.q)}">
+          <div class="spacer"></div>
+          <span class="muted mono" style="font-size:12px">${rows.length} из ${c.rows.length}</span>
+        </div>
+        ${listHTML}
+      </div>
+      ${c.detail ? `<div class="md-detail">${clientDetailHTML(c.detail)}</div>` : ``}
+    </div>`;
+  const s = el("cl-search");
+  if(s) s.oninput = (e)=>{ c.q=e.target.value; renderClients(); el("cl-search").focus(); el("cl-search").setSelectionRange(c.q.length,c.q.length); };
+}
+
+async function openClient(id){
+  const c = state.clients; c.sel=id; renderClients();
+  try { c.detail = await api("/tma/api/admin/user/"+id); }
+  catch(e){ toast(e.message); c.detail=null; c.sel=null; }
+  renderClients();
+}
+function closeClient(){ state.clients.detail=null; state.clients.sel=null; renderClients(); }
+
+function clientDetailHTML(d){
+  const orders = d.orders || [];
+  const rowsKV = [
+    ["Имя", d.name || d.tg_name],
+    ["Телефон", d.phone],
+    ["Тип", d.user_type],
+    ["Компания", d.company_name],
+    ["ИНН", d.inn],
+    ["Email", d.email],
+    ["Город", d.city],
+    ["Адрес", d.address || d.actual_address],
+    ["User ID", d.user_id],
+  ].filter(([,v]) => v!==undefined && v!==null && v!=="");
+  return `<div class="dp">
+    <button class="btn-ghost close" onclick="closeClient()">Закрыть ✕</button>
+    <h2>${esc(d.name||d.tg_name||("Клиент "+d.user_id))}</h2>
+    <div class="sub">${d.tg_name?("@"+esc(String(d.tg_name).replace(/^@/,""))+" · "):""}рег. ${dtShort(d.created_at)}</div>
+
+    <div class="card"><dl class="kv">
+      ${rowsKV.map(([k,v]) => `<dt>${esc(k)}</dt><dd${k==="User ID"||k==="ИНН"||k==="Телефон"?' class="mono"':""}>${esc(v)}</dd>`).join("")}
+    </dl></div>
+
+    <div class="card">
+      <div class="sec-title">Заказы · ${orders.length}</div>
+      <table class="items"><tbody>
+        ${orders.map(o => `<tr style="cursor:pointer" onclick="gotoOrder(${o.id})">
+          <td class="num strong">№${o.id}</td>
+          <td class="muted">${dtShort(o.created_at)}</td>
+          <td>${stPill(o.status)}</td>
+          <td class="num right strong">${money(o.total)}</td>
+        </tr>`).join("") || `<tr><td class="muted">Заказов нет</td></tr>`}
+      </tbody></table>
+    </div>
+  </div>`;
+}
+
+async function gotoOrder(id){ switchTab("orders"); state.orders.filter=""; await loadOrders(); await openOrder(id); }
+
+// ─────────────────────────────────────────────────────────────────────────────
+boot();
+</script>
+</body>
+</html>
