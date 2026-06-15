@@ -5116,7 +5116,7 @@
           "price": 1800.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 101,
+      "stock": 92,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 600,
+      "stock": 616,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7545,7 +7545,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_колумбия_кастильо_мытая_200_.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 5,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7919,7 +7919,7 @@
           "price": 1760.0
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8557,7 +8557,7 @@
           "price": 1
         }
       ],
-      "stock": 6800,
+      "stock": 4200,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -13706,7 +13706,7 @@
           "price": 1090.0
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14101,7 +14101,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 76,
+      "stock": 74,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14256,7 +14256,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 18,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14282,7 +14282,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 9,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
