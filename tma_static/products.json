@@ -405,7 +405,7 @@
           "photo": "photos/products/t-althaus_горные_травы_чёрн_15х4г.jpg"
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": "photos/products/t-althaus_горные_травы_чёрн_15х4г.jpg",
       "_source": "alephtrade",
@@ -750,7 +750,7 @@
           "photo": "photos/products/t-althaus_ред_фрут_фраш_фрукт_15х4г.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/t-althaus_ред_фрут_фраш_фрукт_15х4г.jpg",
       "_source": "alephtrade",
@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 5,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -3911,7 +3911,7 @@
           "price": 590.0
         }
       ],
-      "stock": 19,
+      "stock": 18,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -3935,7 +3935,7 @@
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
-      "stock": 58,
+      "stock": 55,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
       "quarantined": false,
@@ -3961,7 +3961,7 @@
           "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg"
         }
       ],
-      "stock": 92,
+      "stock": 89,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg",
       "quarantined": false,
@@ -4013,7 +4013,7 @@
           "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
-      "stock": 121,
+      "stock": 118,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
       "quarantined": false,
@@ -4039,7 +4039,7 @@
           "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg"
         }
       ],
-      "stock": 129,
+      "stock": 126,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg",
       "quarantined": false,
@@ -4559,7 +4559,7 @@
           "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg"
         }
       ],
-      "stock": 45,
+      "stock": 43,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg",
       "quarantined": false,
@@ -4585,7 +4585,7 @@
           "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg"
         }
       ],
-      "stock": 101,
+      "stock": 99,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg",
       "quarantined": false,
@@ -4689,7 +4689,7 @@
           "photo": "photos/products/t-restoranica_togo_медовое_яблоко_с_имбирем_30пак.jpg"
         }
       ],
-      "stock": 198,
+      "stock": 196,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_медовое_яблоко_с_имбирем_30пак.jpg",
       "quarantined": false,
@@ -4793,7 +4793,7 @@
           "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg"
         }
       ],
-      "stock": 86,
+      "stock": 84,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 616,
+      "stock": 597,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8237,7 +8237,7 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 7,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -9027,7 +9027,7 @@
           "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg",
       "_source": "https://botanikastories.ru/product/zhyoltyj-banan/",
@@ -9583,7 +9583,7 @@
           "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg",
       "_source": "https://botanikastories.ru/product/lesnoj-oreh/",
@@ -9771,7 +9771,7 @@
           "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg",
       "_source": "https://botanikastories.ru/product/zelyonaya-myata/",
@@ -9889,7 +9889,7 @@
           "photo": "photos/products/s-сироп_botanika_черная_смородина_1л.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_черная_смородина_1л.jpg",
       "_source": "https://botanikastories.ru/product/chernaya-smorodina-2/",
@@ -11742,7 +11742,7 @@
           "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
         }
       ],
-      "stock": 1020,
+      "stock": 990,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg",
       "quarantined": false,
@@ -11865,7 +11865,7 @@
           "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg"
         }
       ],
-      "stock": 855,
+      "stock": 810,
       "tags": [],
       "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg",
       "quarantined": false,
@@ -12268,7 +12268,7 @@
       "name": "Уганда Рувензори сухой -  эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 7,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
@@ -12673,7 +12673,7 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg"
         }
       ],
-      "stock": 110,
+      "stock": 108,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg",
       "quarantined": false,
@@ -13369,7 +13369,7 @@
           "price": 1280.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13417,7 +13417,7 @@
           "price": 800.0
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14101,7 +14101,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 74,
+      "stock": 134,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14381,9 +14381,9 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 6,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "E",
       "photo": "photos/products/espresso_mono_гватемала_уетенанго_мытый_1_кг_эспрессо.jpg",
       "fasovka": [
@@ -14398,7 +14398,9 @@
       "country": "Гватемала",
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность, хорошая сладость.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
+      "quarantined_at": "2026-06-15T14:31:57+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "filter_micro_вьетнам_блю_сонал_сухой_filter_1_кг",
@@ -15127,7 +15129,7 @@
       "name": "Мексика Чьяпас мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 14,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
