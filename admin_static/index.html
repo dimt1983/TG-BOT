@@ -52,11 +52,11 @@
   .view.active { display:block; }
 
   /* ── master-detail ── */
-  .md { display:grid; grid-template-columns:minmax(0,1fr) 380px; height:100%; min-height:0; }
-  .md.no-detail { grid-template-columns:1fr; }
+  .md { display:grid; grid-template-columns:1fr; height:100%; min-height:0; }
+  .md.has-detail { grid-template-columns:minmax(0,1fr) 400px; }
   .md-list { min-width:0; min-height:0; overflow:auto; }
-  .md-detail { border-left:1px solid var(--line); background:var(--bg-2); overflow:auto; min-height:0;
-               animation:slideIn .22s cubic-bezier(.16,1,.3,1); }
+  .md-detail { display:none; border-left:1px solid var(--line); background:var(--bg-2); overflow:auto; min-height:0; }
+  .md.has-detail .md-detail { display:block; animation:slideIn .2s cubic-bezier(.16,1,.3,1); }
   @keyframes slideIn { from { opacity:0; transform:translateX(10px); } to { opacity:1; transform:none; } }
 
   /* ── toolbar ── */
@@ -114,8 +114,11 @@
   .rb--dark .st-cancelled { color:#E08A7D; }
 
   /* ── detail panel ── */
-  .dp { padding:18px; }
-  .dp-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:16px; }
+  .dp { padding:0 16px 18px; }
+  .dp-top { position:sticky; top:0; z-index:5; background:var(--bg-2); margin:0 -16px 14px; padding:15px 16px 13px; border-bottom:1px solid var(--line); }
+  .dp-actions { display:flex; gap:7px; flex-wrap:wrap; margin-top:12px; }
+  .dp-actions .act { height:34px; padding:0 13px; font-size:12.5px; }
+  .dp-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
   .dp h2 { font-family:var(--f-display); font-size:21px; font-weight:900; letter-spacing:-0.02em; margin:0; }
   .dp .dp-sub { color:var(--ink-soft); font-size:12px; margin-top:5px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
   .card { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-md); padding:15px; margin-bottom:13px; box-shadow:var(--sh-1); }
@@ -180,11 +183,31 @@
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration:.001ms !important; transition-duration:.001ms !important; }
   }
+  /* ── forms / editor ── */
+  .form { display:grid; gap:11px; }
+  .field { display:grid; gap:5px; min-width:0; }
+  .field > label { font:600 10px/1 var(--f-mono); letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-faint); }
+  .field input, .field select { height:36px; padding:0 11px; border:1px solid var(--line-strong); border-radius:var(--r-sm); background:var(--surface); color:var(--ink); font-size:13.5px; outline:0; width:100%; }
+  .field input:focus, .field select:focus { border-color:var(--coffee); }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:11px; }
+  .form-actions { display:flex; gap:8px; margin-top:4px; }
+  .seg { display:flex; gap:3px; background:var(--surface-2); border:1px solid var(--line); border-radius:var(--r-sm); padding:3px; flex-wrap:wrap; }
+  .seg button { flex:1 1 auto; min-width:60px; height:30px; border:0; border-radius:5px; background:transparent; color:var(--ink-soft); font-weight:600; font-size:12px; }
+  .seg button.on { background:var(--surface); color:var(--ink); box-shadow:var(--sh-1); }
+  .rule { display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:1px solid var(--line); font-size:13px; }
+  .rule:last-of-type { border-bottom:0; }
+  .rule .r-main { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .rule .r-val { font-weight:700; white-space:nowrap; }
+  .link { background:transparent; border:0; color:var(--coffee); font-weight:600; font-size:13px; padding:0; display:inline-flex; align-items:center; gap:6px; }
+  .link:hover { text-decoration:underline; }
+  .link .ico { width:15px; height:15px; }
+  #toast .toast-act { margin-left:6px; background:transparent; border:0; color:var(--copper); font-weight:700; font-size:13px; padding:4px 8px; border-radius:6px; }
+  #toast .toast-act:hover { background:rgba(255,255,255,.14); }
+
   @media (max-width: 980px) {
-    .md { grid-template-columns:1fr; }
-    .md-detail { position:fixed; inset:60px 0 0; z-index:30; border-left:0; }
-    .md:not(.show-detail) .md-detail { display:none; }
-    .md.show-detail .md-list { display:none; }
+    .md.has-detail { grid-template-columns:1fr; }
+    .md.has-detail .md-detail { position:fixed; inset:60px 0 0; z-index:30; border-left:0; }
+    .md.has-detail .md-list { display:none; }
     .brand-txt small { display:none; }
   }
 </style>
@@ -213,6 +236,10 @@ const SVG = {
   inbox:'<path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>',
   alert:'<path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/>',
   check:'<path d="M20 6 9 17l-5-5"/>',
+  edit:'<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
+  trash:'<path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>',
+  plus:'<path d="M12 5v14M5 12h14"/>',
+  tag:'<path d="M12.6 2.6a2 2 0 0 0-1.4-.6H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.2 8.2a2 2 0 0 0 2.8 0l6.8-6.8a2 2 0 0 0 0-2.8z"/><circle cx="7" cy="7" r="1.2"/>',
   mark:'<g stroke="currentColor" stroke-width="8.5" stroke-linecap="round" fill="none"><circle cx="50" cy="50" r="43.8"/><path d="M 22.9 21.1 C 64.9 36.9, 35.1 63.1, 77.1 78.9"/></g>',
 };
 function ico(name, cls){
@@ -245,7 +272,13 @@ function dtShort(s){ const d=parseD(s); return d ? d.toLocaleDateString("ru-RU",
 function parseD(s){ if(!s) return null; const d=new Date(String(s).replace(" ","T")+(String(s).includes("Z")?"":"Z")); return isNaN(d)?null:d; }
 function stPill(s){ const k=ST_LABELS[s]?s:"new"; return `<span class="st st-${esc(k)}">${esc(ST_LABELS[s]||s||"-")}</span>`; }
 let toastT;
-function toast(msg, kind){ const t=el("toast"); t.innerHTML=(kind==="err"?ico("alert"):kind==="ok"?ico("check"):"")+`<span>${esc(msg)}</span>`; t.classList.add("show"); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove("show"), 3000); }
+function toast(msg, kind, action){
+  const t=el("toast");
+  t.innerHTML=(kind==="err"?ico("alert"):kind==="ok"?ico("check"):"")+`<span>${esc(msg)}</span>`+(action?`<button class="toast-act" id="toast-act">${esc(action.label)}</button>`:"");
+  t.classList.add("show");
+  if(action){ const a=el("toast-act"); if(a) a.onclick=()=>{ t.classList.remove("show"); action.cb(); }; }
+  clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove("show"), action?6000:3000);
+}
 function sortRows(rows, sort){
   const {key,dir}=sort, m=dir==="asc"?1:-1;
   return [...rows].sort((a,b)=>{
@@ -388,6 +421,12 @@ function skeletonTable(cols, rows){
 function emptyState(icon, title, text){ return `<div class="state">${ico(icon)}<h3>${esc(title)}</h3><p>${esc(text)}</p></div>`; }
 function errorState(msg, retry){ return `<div class="state">${ico("alert")}<h3>Не удалось загрузить</h3><p class="num" style="font-size:12px">${esc(msg)}</p><button class="act" onclick="${retry}">${ico("refresh")}<span>Повторить</span></button></div>`; }
 
+// catalog meta cache (для целей правил цен)
+let META=null;
+async function ensureMeta(){ if(META) return META; try{ META=await api("/tma/api/admin/catalog_meta"); }catch(_){ META={categories:[],subcategories:{},fasovkas:[],products_lite:[]}; } return META; }
+const TIERS=[["standard","Стандарт"],["discount_10","Опт −10кг"],["discount_20","Опт −25кг"],["stm","СТМ"]];
+const TIER_LABEL=Object.fromEntries(TIERS);
+
 // ─────────────────────────── ORDERS ───────────────────────────
 async function loadOrders(){
   const o=state.orders; o.loading=true; o.err=""; renderOrders();
@@ -406,51 +445,68 @@ function ordersFiltered(){
   if(q) rows=rows.filter(r=>[r.id,r.name,r.phone,r.tg_name,r.address].some(v=>String(v||"").toLowerCase().includes(q)));
   return sortRows(rows, o.sort);
 }
-function sortOrders(key){ const s=state.orders.sort; s.dir = s.key===key && s.dir==="desc" ? "asc":"desc"; s.key=key; renderOrders(); }
+function sortOrders(key){ const s=state.orders.sort; s.dir = s.key===key && s.dir==="desc" ? "asc":"desc"; s.key=key; renderOrdersBody(); }
 function setOrderFilter(f){ state.orders.filter=f; state.orders.detail=null; state.orders.sel=null; loadOrders(); }
 
-function renderOrders(){
-  const o=state.orders, counts=o.counts||{};
-  const totalAll=Object.values(counts).reduce((a,b)=>a+b,0);
-  const chips=[`<button class="fchip ${o.filter===""?"active":""}" onclick="setOrderFilter('')">Все <span class="n">${totalAll}</span></button>`]
-    .concat(ST_ORDER.filter(s=>counts[s]).map(s=>`<button class="fchip ${o.filter===s?"active":""}" onclick="setOrderFilter('${s}')">${esc(ST_LABELS[s])} <span class="n">${counts[s]}</span></button>`));
+function ordersChipsHTML(){
+  const o=state.orders, counts=o.counts||{}, total=Object.values(counts).reduce((a,b)=>a+b,0);
+  return [`<button class="fchip ${o.filter===""?"active":""}" onclick="setOrderFilter('')">Все <span class="n">${total}</span></button>`]
+    .concat(ST_ORDER.filter(s=>counts[s]).map(s=>`<button class="fchip ${o.filter===s?"active":""}" onclick="setOrderFilter('${s}')">${esc(ST_LABELS[s])} <span class="n">${counts[s]}</span></button>`)).join("");
+}
+function ordersBodyHTML(){
+  const o=state.orders;
+  if(o.loading) return skeletonTable(7);
+  if(o.err) return errorState(o.err,"loadOrders()");
   const rows=ordersFiltered();
-  let body;
-  if(o.loading) body=skeletonTable(7);
-  else if(o.err) body=errorState(o.err,"loadOrders()");
-  else if(!rows.length) body=emptyState("inbox", o.q?"Ничего не найдено":"Заказов нет", o.q?"Измени запрос или сбрось фильтр.":"Заказы появятся здесь, как только поступят.");
-  else body=`<table class="grid"><thead><tr>
-      ${thSort("№","id",o.sort,"sortOrders")}
-      ${thSort("Дата","created_at",o.sort,"sortOrders")}
+  if(!rows.length) return emptyState("inbox", o.q?"Ничего не найдено":"Заказов нет", o.q?"Измени запрос или сбрось фильтр.":"Заказы появятся здесь, как только поступят.");
+  return `<table class="grid"><thead><tr>
+      ${thSort("№","id",o.sort,"sortOrders")} ${thSort("Дата","created_at",o.sort,"sortOrders")}
       <th>Клиент</th><th>Телефон</th>
-      ${thSort("Поз.","items_count",o.sort,"sortOrders","right")}
-      ${thSort("Сумма","total",o.sort,"sortOrders","right")}
+      ${thSort("Поз.","items_count",o.sort,"sortOrders","right")} ${thSort("Сумма","total",o.sort,"sortOrders","right")}
       <th>Статус</th></tr></thead><tbody>
-      ${rows.map(r=>`<tr class="row ${o.sel===r.id?"sel":""}" tabindex="0" onclick="openOrder(${r.id})" onkeydown="rowKey(event,()=>openOrder(${r.id}))">
+      ${rows.map(r=>`<tr class="row ${o.sel===r.id?"sel":""}" data-oid="${r.id}" tabindex="0" onclick="openOrder(${r.id})" onkeydown="rowKey(event,()=>openOrder(${r.id}))">
         <td class="num strong">${r.id}</td>
         <td class="num muted">${dtShort(r.created_at)}</td>
         <td class="ellip" style="max-width:200px">${esc(r.name||r.tg_name||"-")}</td>
         <td class="num muted">${esc(r.phone||"-")}</td>
         <td class="right num muted">${r.items_count ?? "-"}</td>
         <td class="right num strong">${money(r.total)}</td>
-        <td>${stPill(r.status)}</td></tr>`).join("")}</tbody></table>`;
-  el("view-orders").innerHTML=`<div class="md ${o.detail?"show-detail":"no-detail"}">
-      <div class="md-list">
-        <div class="toolbar">${chips.join("")}<div class="spacer"></div>
-          <div class="search">${ico("search")}<input id="ord-search" placeholder="Поиск: №, имя, телефон" value="${esc(o.q)}" aria-label="Поиск заказов"></div></div>
-        ${body}</div>
-      ${o.detail?`<div class="md-detail">${orderDetailHTML(o.detail)}</div>`:``}</div>`;
-  wireSearch("ord-search", v=>{ o.q=v; renderOrders(); });
+        <td class="stcell">${stPill(r.status)}</td></tr>`).join("")}</tbody></table>`;
 }
-
-async function openOrder(id){ const o=state.orders; o.sel=id; renderOrders(); try{ o.detail=await api("/tma/api/admin/order/"+id);}catch(e){ toast(e.message,"err"); o.detail=null; o.sel=null; } renderOrders(); }
-function closeOrder(){ state.orders.detail=null; state.orders.sel=null; renderOrders(); }
+function renderOrdersChips(){ const w=el("ord-chips"); if(w) w.innerHTML=ordersChipsHTML(); }
+function renderOrdersBody(){ const w=el("ord-body"); if(w) w.innerHTML=ordersBodyHTML(); }
+function renderOrders(){
+  const o=state.orders;
+  el("view-orders").innerHTML=`<div class="md ${o.detail?"has-detail":""}" id="ord-md">
+      <div class="md-list">
+        <div class="toolbar"><div class="chips" id="ord-chips">${ordersChipsHTML()}</div><div class="spacer"></div>
+          <div class="search">${ico("search")}<input id="ord-search" placeholder="Поиск: №, имя, телефон" value="${esc(o.q)}" aria-label="Поиск заказов"></div></div>
+        <div id="ord-body">${ordersBodyHTML()}</div></div>
+      <div class="md-detail" id="ord-detail">${o.detail?orderDetailHTML(o.detail):""}</div></div>`;
+  wireSearch("ord-search", v=>{ o.q=v; renderOrdersBody(); });
+}
+function markOrderSel(){ document.querySelectorAll("#ord-body tr.row").forEach(tr=>tr.classList.toggle("sel", Number(tr.dataset.oid)===state.orders.sel)); }
+function renderOrderDetail(){
+  const md=el("ord-md"), d=el("ord-detail"); if(!md||!d) return;
+  md.classList.toggle("has-detail", !!state.orders.detail);
+  d.innerHTML=state.orders.detail?orderDetailHTML(state.orders.detail):"";
+}
+async function openOrder(id){
+  const o=state.orders; o.sel=id; markOrderSel();
+  const md=el("ord-md"), d=el("ord-detail"); if(md&&d){ md.classList.add("has-detail"); d.innerHTML=`<div class="state"><div class="spin"></div></div>`; }
+  try{ o.detail=await api("/tma/api/admin/order/"+id); }
+  catch(e){ toast(e.message,"err"); o.detail=null; o.sel=null; markOrderSel(); }
+  renderOrderDetail();
+}
+function closeOrder(){ state.orders.detail=null; state.orders.sel=null; renderOrderDetail(); markOrderSel(); }
 function orderDetailHTML(d){
   const items=d.items||[];
   return `<div class="dp">
-    <div class="dp-head"><div><h2>Заказ №${d.id}</h2>
-      <div class="dp-sub">${stPill(d.status)}<span class="num">${dt(d.created_at)}</span></div></div>
-      <button class="iconbtn" aria-label="Закрыть" onclick="closeOrder()">${ico("x")}</button></div>
+    <div class="dp-top">
+      <div class="dp-head"><div><h2>Заказ №${d.id}</h2>
+        <div class="dp-sub">${stPill(d.status)}<span class="num">${dt(d.created_at)}</span></div></div>
+        <button class="iconbtn" aria-label="Закрыть" onclick="closeOrder()">${ico("x")}</button></div>
+      <div class="dp-actions">${ST_ACTIONS.map(s=>`<button class="act ${s==="cancelled"?"danger":(s==="confirmed"?"primary":"")}" ${d.status===s?"disabled":""} onclick="setOrderStatus(${d.id},'${s}')">${esc(ST_LABELS[s])}</button>`).join("")}</div></div>
     <div class="card"><dl class="kv">
       <dt>Клиент</dt><dd>${esc(d.name||d.tg_name||"-")}</dd>
       <dt>Телефон</dt><dd class="num">${esc(d.phone||"-")}</dd>
@@ -462,19 +518,34 @@ function orderDetailHTML(d){
         <td>${esc(it.product_name||"-")}${it.roast?` <span class="faint">${esc(it.roast)}</span>`:""}</td>
         <td class="q right num">${esc(it.quantity)}×${fmt(it.price)}</td>
         <td class="num right strong">${money((Number(it.quantity)||0)*(Number(it.price)||0))}</td></tr>`).join("")||`<tr><td class="muted">Позиции не найдены</td></tr>`}</tbody></table>
-      <div class="total-row"><span class="muted">Итого</span><b class="num">${money(d.total)}</b></div></div>
-    <div class="card"><div class="sec-title">Сменить статус</div><div class="actions">
-      ${ST_ACTIONS.map(s=>`<button class="act ${s==="cancelled"?"danger":(s==="confirmed"?"primary":"")}" ${d.status===s?"disabled":""} onclick="setOrderStatus(${d.id},'${s}')">${esc(ST_LABELS[s])}</button>`).join("")}</div></div></div>`;
+      <div class="total-row"><span class="muted">Итого</span><b class="num">${money(d.total)}</b></div></div></div>`;
 }
-async function setOrderStatus(id, status){
-  if(!confirm(`Сменить статус заказа №${id} на «${ST_LABELS[status]}»?`)) return;
+function patchOrderRow(id, status){
+  const o=state.orders;
+  const tr=document.querySelector(`#ord-body tr.row[data-oid="${id}"]`);
+  if(!tr){ if(!o.filter||o.filter===status) renderOrdersBody(); return; }
+  if(o.filter && o.filter!==status){ tr.remove(); return; }
+  const cell=tr.querySelector(".stcell"); if(cell) cell.innerHTML=stPill(status);
+}
+async function setOrderStatus(id, status, opts){
+  opts=opts||{};
+  const o=state.orders;
+  const row=o.rows.find(r=>r.id===id);
+  const prev=(o.detail&&o.detail.id===id?o.detail.status:undefined) ?? (row&&row.status);
+  if(prev===status) return;
+  if(row) row.status=status;
+  if(o.detail&&o.detail.id===id) o.detail.status=status;
+  if(o.counts){ if(prev&&o.counts[prev]!=null) o.counts[prev]=Math.max(0,o.counts[prev]-1); o.counts[status]=(o.counts[status]||0)+1; }
+  renderOrdersChips(); patchOrderRow(id,status); renderOrderDetail();
   try {
     await api("/tma/api/admin/order/"+id+"/status",{ method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify({ status }) });
-    toast("Статус обновлён, клиент уведомлён","ok");
-    const row=state.orders.rows.find(r=>r.id===id); if(row) row.status=status;
-    if(state.orders.detail && state.orders.detail.id===id) state.orders.detail.status=status;
-    await loadOrders(); if(state.orders.sel===id) await openOrder(id);
-  } catch(e){ toast(e.message,"err"); }
+    if(!opts.isUndo) toast(`Статус: ${ST_LABELS[status]}`,"ok",{ label:"Отменить", cb:()=>setOrderStatus(id,prev,{isUndo:true}) });
+  } catch(e){
+    if(row) row.status=prev; if(o.detail&&o.detail.id===id) o.detail.status=prev;
+    if(o.counts){ if(o.counts[status]!=null) o.counts[status]=Math.max(0,o.counts[status]-1); if(prev) o.counts[prev]=(o.counts[prev]||0)+1; }
+    renderOrdersChips(); renderOrdersBody(); renderOrderDetail();
+    toast(e.message||"Не удалось обновить статус","err");
+  }
 }
 
 // ─────────────────────────── CLIENTS ───────────────────────────
@@ -490,49 +561,182 @@ function clientsFiltered(){
   if(q) rows=rows.filter(r=>[r.name,r.phone,r.tg_name,r.user_id].some(v=>String(v||"").toLowerCase().includes(q)));
   return sortRows(rows, c.sort);
 }
-function sortClients(key){ const s=state.clients.sort; s.dir = s.key===key && s.dir==="desc" ? "asc":"desc"; s.key=key; renderClients(); }
-
-function renderClients(){
+function sortClients(key){ const s=state.clients.sort; s.dir = s.key===key && s.dir==="desc" ? "asc":"desc"; s.key=key; renderClientsBody(); }
+function clientsBodyHTML(){
   const c=state.clients, rows=clientsFiltered();
-  let body;
-  if(c.loading) body=skeletonTable(5);
-  else if(c.err) body=errorState(c.err,"loadClients()");
-  else if(!rows.length) body=emptyState("clients", c.q?"Ничего не найдено":"Клиентов нет", c.q?"Измени запрос.":"Клиенты появятся после первых заказов.");
-  else body=`<table class="grid"><thead><tr>
+  if(c.loading) return skeletonTable(5);
+  if(c.err) return errorState(c.err,"loadClients()");
+  if(!rows.length) return emptyState("clients", c.q?"Ничего не найдено":"Клиентов нет", c.q?"Измени запрос.":"Клиенты появятся после первых заказов.");
+  return `<table class="grid"><thead><tr>
       ${thSort("Клиент","name",c.sort,"sortClients")}<th>Телефон</th>
       ${thSort("Заказов","order_count",c.sort,"sortClients","right")}
       ${thSort("Сумма","total_spent",c.sort,"sortClients","right")}
       ${thSort("Последний","last_order_at",c.sort,"sortClients")}</tr></thead><tbody>
-      ${rows.map(r=>`<tr class="row ${c.sel===r.user_id?"sel":""}" tabindex="0" onclick="openClient(${r.user_id})" onkeydown="rowKey(event,()=>openClient(${r.user_id}))">
+      ${rows.map(r=>`<tr class="row ${c.sel===r.user_id?"sel":""}" data-cid="${r.user_id}" tabindex="0" onclick="openClient(${r.user_id})" onkeydown="rowKey(event,()=>openClient(${r.user_id}))">
         <td><div class="strong ellip" style="max-width:220px">${esc(r.name||r.tg_name||"-")}</div>
             ${r.tg_name?`<div class="sub num">@${esc(String(r.tg_name).replace(/^@/,""))}</div>`:""}</td>
         <td class="num muted">${esc(r.phone||"-")}</td>
         <td class="right num">${r.order_count ?? 0}</td>
         <td class="right num strong">${money(r.total_spent)}</td>
         <td class="num muted">${dtShort(r.last_order_at)}</td></tr>`).join("")}</tbody></table>`;
-  el("view-clients").innerHTML=`<div class="md ${c.detail?"show-detail":"no-detail"}">
+}
+function renderClientsBody(){ const w=el("cl-body"); if(w) w.innerHTML=clientsBodyHTML(); const cc=el("cl-count"); if(cc) cc.textContent=`${clientsFiltered().length} из ${state.clients.rows.length}`; }
+function renderClients(){
+  const c=state.clients;
+  el("view-clients").innerHTML=`<div class="md ${c.detail?"has-detail":""}" id="cl-md">
       <div class="md-list"><div class="toolbar">
           <div class="search">${ico("search")}<input id="cl-search" placeholder="Поиск: имя, телефон, ник" value="${esc(c.q)}" aria-label="Поиск клиентов"></div>
-          <div class="spacer"></div><span class="count">${rows.length} из ${c.rows.length}</span></div>
-        ${body}</div>
-      ${c.detail?`<div class="md-detail">${clientDetailHTML(c.detail)}</div>`:``}</div>`;
-  wireSearch("cl-search", v=>{ c.q=v; renderClients(); });
+          <div class="spacer"></div><span class="count" id="cl-count">${clientsFiltered().length} из ${c.rows.length}</span></div>
+        <div id="cl-body">${clientsBodyHTML()}</div></div>
+      <div class="md-detail" id="cl-detail">${c.detail?clientDetailHTML(c.detail):""}</div></div>`;
+  wireSearch("cl-search", v=>{ c.q=v; renderClientsBody(); });
 }
-async function openClient(id){ const c=state.clients; c.sel=id; renderClients(); try{ c.detail=await api("/tma/api/admin/user/"+id);}catch(e){ toast(e.message,"err"); c.detail=null; c.sel=null; } renderClients(); }
-function closeClient(){ state.clients.detail=null; state.clients.sel=null; renderClients(); }
+function markClientSel(){ document.querySelectorAll("#cl-body tr.row").forEach(tr=>tr.classList.toggle("sel", Number(tr.dataset.cid)===state.clients.sel)); }
+function renderClientDetail(){
+  const md=el("cl-md"), d=el("cl-detail"); if(!md||!d) return;
+  md.classList.toggle("has-detail", !!state.clients.detail);
+  d.innerHTML=state.clients.detail?clientDetailHTML(state.clients.detail):"";
+}
+async function openClient(id){
+  const c=state.clients; c.sel=id; c.edit=false; c.addRule=false; markClientSel();
+  const md=el("cl-md"), d=el("cl-detail"); if(md&&d){ md.classList.add("has-detail"); d.innerHTML=`<div class="state"><div class="spin"></div></div>`; }
+  try{
+    const [u, pr] = await Promise.all([
+      api("/tma/api/admin/user/"+id),
+      api("/tma/api/admin/user/"+id+"/pricing").catch(()=>({rules:[]})),
+      ensureMeta(),
+    ]);
+    u._rules = pr.rules||[];
+    c.detail=u;
+  }catch(e){ toast(e.message,"err"); c.detail=null; c.sel=null; markClientSel(); }
+  renderClientDetail();
+}
+function closeClient(){ const c=state.clients; c.detail=null; c.sel=null; c.edit=false; c.addRule=false; renderClientDetail(); markClientSel(); }
+
 function clientDetailHTML(d){
+  const c=state.clients;
   const orders=d.orders||[];
-  const kv=[["Имя",d.name||d.tg_name],["Телефон",d.phone],["Тип",d.user_type],["Компания",d.company_name],["ИНН",d.inn],["Email",d.email],["Город",d.city],["Адрес",d.address||d.actual_address],["User ID",d.user_id]]
-    .filter(([,v])=>v!==undefined&&v!==null&&v!=="");
+  const tier=d.price_tier||"standard";
+  const profileBlock = c.edit ? clientEditFormHTML(d) : `
+    <dl class="kv">${[["Имя",d.name||d.tg_name],["Телефон",d.phone],["Тип",d.user_type],["Компания",d.company_name],["ИНН",d.inn],["Email",d.email],["Город",d.city],["Адрес",d.address||d.actual_address],["User ID",d.user_id]]
+      .filter(([,v])=>v!==undefined&&v!==null&&v!=="")
+      .map(([k,v])=>`<dt>${esc(k)}</dt><dd${(k==="User ID"||k==="ИНН"||k==="Телефон")?' class="num"':""}>${esc(v)}</dd>`).join("")}</dl>
+    <div style="margin-top:12px"><button class="link" onclick="editClient()">${ico("edit")}<span>Редактировать данные</span></button></div>`;
+  const rules=d._rules||[];
   return `<div class="dp">
-    <div class="dp-head"><div><h2>${esc(d.name||d.tg_name||("Клиент "+d.user_id))}</h2>
+    <div class="dp-top"><div class="dp-head"><div><h2>${esc(d.name||d.tg_name||("Клиент "+d.user_id))}</h2>
       <div class="dp-sub">${d.tg_name?`<span class="num">@${esc(String(d.tg_name).replace(/^@/,""))}</span>`:""}<span>рег. ${dtShort(d.created_at)}</span></div></div>
-      <button class="iconbtn" aria-label="Закрыть" onclick="closeClient()">${ico("x")}</button></div>
-    <div class="card"><dl class="kv">${kv.map(([k,v])=>`<dt>${esc(k)}</dt><dd${(k==="User ID"||k==="ИНН"||k==="Телефон")?' class="num"':""}>${esc(v)}</dd>`).join("")}</dl></div>
+      <button class="iconbtn" aria-label="Закрыть" onclick="closeClient()">${ico("x")}</button></div></div>
+
+    <div class="card"><div class="sec-title">Данные клиента</div>${profileBlock}</div>
+
+    <div class="card"><div class="sec-title">Прайс-уровень</div>
+      <div class="seg">${TIERS.map(([v,l])=>`<button class="${tier===v?"on":""}" onclick="setTier(${d.user_id},'${v}')">${esc(l)}</button>`).join("")}</div>
+      <div class="sub" style="margin-top:8px">Базовая колонка прайса для клиента. Опт = оптовые цены Bishop.</div></div>
+
+    <div class="card"><div class="sec-title">Персональные скидки · ${rules.length}</div>
+      ${rules.length?rules.map(r=>ruleRowHTML(r)).join(""):`<div class="muted" style="font-size:13px">Точечных правил нет.</div>`}
+      ${c.addRule?addRuleFormHTML(d):`<div style="margin-top:12px"><button class="link" onclick="toggleAddRule()">${ico("plus")}<span>Добавить правило</span></button></div>`}</div>
+
     <div class="card"><div class="sec-title">Заказы · ${orders.length}</div>
       <table class="items"><tbody>${orders.map(o=>`<tr class="orow" onclick="gotoOrder(${o.id})">
         <td class="num strong">№${o.id}</td><td class="muted num">${dtShort(o.created_at)}</td>
         <td>${stPill(o.status)}</td><td class="num right strong">${money(o.total)}</td></tr>`).join("")||`<tr><td class="muted">Заказов нет</td></tr>`}</tbody></table></div></div>`;
+}
+function clientEditFormHTML(d){
+  const f=(id,label,val,type)=>`<div class="field"><label for="ce-${id}">${esc(label)}</label><input id="ce-${id}" type="${type||"text"}" value="${esc(val||"")}"></div>`;
+  return `<div class="form">
+    ${f("name","Имя / Название",d.name)}
+    <div class="grid2">${f("phone","Телефон",d.phone,"tel")}${f("email","Email",d.email,"email")}</div>
+    <div class="field"><label for="ce-user_type">Тип</label><select id="ce-user_type">
+      ${[["individual","Физлицо"],["b2b","B2B / Опт"],["company","Компания"]].map(([v,l])=>`<option value="${v}" ${(d.user_type||"")===v?"selected":""}>${l}</option>`).join("")}</select></div>
+    ${f("company_name","Компания",d.company_name)}
+    <div class="grid2">${f("inn","ИНН",d.inn)}${f("actual_address","Адрес",d.actual_address||d.address)}</div>
+    ${f("legal_address","Юр. адрес",d.legal_address)}
+    <div class="form-actions"><button class="act primary" onclick="saveClient(${d.user_id})">${ico("check")}<span>Сохранить</span></button>
+      <button class="act" onclick="cancelEditClient()">Отмена</button></div></div>`;
+}
+function ruleRowHTML(r){
+  const scopeLbl={all:"Весь заказ",category:"Категория",subcategory:"Подкатегория",product:"Товар"}[r.scope]||r.scope;
+  const tgt = r.scope==="all" ? "" : (r.scope==="product" ? (metaProductName(r.target_id)) : r.target_id);
+  const val = r.discount_pct!=null ? `−${fmt(r.discount_pct)}%` : (r.fixed_price!=null ? money(r.fixed_price) : "");
+  return `<div class="rule"><div class="r-main"><span class="muted">${esc(scopeLbl)}</span> ${esc(tgt||"")}${r.fasovka?` <span class="faint">· ${esc(r.fasovka)}</span>`:""}</div>
+    <span class="r-val">${val}</span>
+    <button class="iconbtn" aria-label="Удалить правило" onclick="delRule(${r.id})">${ico("trash")}</button></div>`;
+}
+function metaProductName(id){ const p=(META&&META.products_lite||[]).find(x=>x.id===id); return p?p.name:id; }
+function addRuleFormHTML(d){
+  const subs=[...new Set(Object.values((META&&META.subcategories)||{}).flat())].sort();
+  return `<div class="form" style="margin-top:12px; padding-top:12px; border-top:1px solid var(--line)">
+    <div class="grid2">
+      <div class="field"><label for="pr-scope">Область</label><select id="pr-scope" onchange="onScopeChange()">
+        ${[["all","Весь заказ"],["category","Категория"],["subcategory","Подкатегория"],["product","Товар"]].map(([v,l])=>`<option value="${v}">${l}</option>`).join("")}</select></div>
+      <div class="field" id="pr-target-wrap"><label for="pr-target">Цель</label><select id="pr-target"></select></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label for="pr-type">Тип</label><select id="pr-type">
+        <option value="discount">Скидка %</option><option value="fixed">Фикс. цена ₽</option></select></div>
+      <div class="field"><label for="pr-value">Значение</label><input id="pr-value" type="number" min="0" step="1" placeholder="напр. 15"></div>
+    </div>
+    <div class="form-actions"><button class="act primary" onclick="saveRule(${d.user_id})">${ico("plus")}<span>Добавить</span></button>
+      <button class="act" onclick="toggleAddRule()">Отмена</button></div></div>`;
+}
+const META_SUBS=()=>[...new Set(Object.values((META&&META.subcategories)||{}).flat())].sort();
+function onScopeChange(){
+  const scope=el("pr-scope").value, wrap=el("pr-target-wrap"), sel=el("pr-target");
+  if(scope==="all"){ wrap.style.display="none"; return; }
+  wrap.style.display="";
+  let opts=[];
+  if(scope==="category") opts=(META.categories||[]).map(v=>[v,v]);
+  else if(scope==="subcategory") opts=META_SUBS().map(v=>[v,v]);
+  else if(scope==="product") opts=(META.products_lite||[]).map(p=>[p.id,p.name]);
+  sel.innerHTML=opts.map(([v,l])=>`<option value="${esc(v)}">${esc(l)}</option>`).join("")||`<option value="">нет данных</option>`;
+}
+function editClient(){ state.clients.edit=true; renderClientDetail(); }
+function cancelEditClient(){ state.clients.edit=false; renderClientDetail(); }
+function toggleAddRule(){ state.clients.addRule=!state.clients.addRule; renderClientDetail(); if(state.clients.addRule) setTimeout(onScopeChange,0); }
+async function saveClient(id){
+  const f=(k)=>{ const e=el("ce-"+k); return e?e.value.trim():undefined; };
+  const body={ name:f("name"), phone:f("phone"), email:f("email"), user_type:f("user_type"),
+    company_name:f("company_name"), inn:f("inn"), actual_address:f("actual_address"), legal_address:f("legal_address") };
+  try{
+    const j=await api("/tma/api/admin/user/"+id,{ method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(body) });
+    const d=state.clients.detail; Object.assign(d, j.user||body); state.clients.edit=false; renderClientDetail();
+    const row=state.clients.rows.find(r=>r.user_id===id); if(row){ row.name=d.name; row.phone=d.phone; } renderClientsBody(); markClientSel();
+    toast("Данные сохранены","ok");
+  }catch(e){ toast(e.message,"err"); }
+}
+async function setTier(id, tier){
+  const d=state.clients.detail; const prev=d.price_tier||"standard"; if(prev===tier) return;
+  d.price_tier=tier; renderClientDetail();
+  try{ await api("/tma/api/admin/user/"+id,{ method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({price_tier:tier}) });
+    toast(`Прайс: ${TIER_LABEL[tier]}`,"ok");
+  }catch(e){ d.price_tier=prev; renderClientDetail(); toast(e.message,"err"); }
+}
+async function saveRule(id){
+  const scope=el("pr-scope").value;
+  const target=(scope==="all")?"":(el("pr-target")?el("pr-target").value:"");
+  const type=el("pr-type").value, raw=el("pr-value").value;
+  const num=parseFloat(raw);
+  if(!Number.isFinite(num)){ toast("Введите значение","err"); return; }
+  if(scope!=="all" && !target){ toast("Выберите цель","err"); return; }
+  const body={ scope, target_id:target };
+  if(type==="discount") body.discount_pct=num; else body.fixed_price=num;
+  try{
+    await api("/tma/api/admin/user/"+id+"/pricing",{ method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(body) });
+    const pr=await api("/tma/api/admin/user/"+id+"/pricing").catch(()=>({rules:[]}));
+    state.clients.detail._rules=pr.rules||[]; state.clients.addRule=false; renderClientDetail();
+    toast("Правило добавлено","ok");
+  }catch(e){ toast(e.message,"err"); }
+}
+async function delRule(ruleId){
+  const id=state.clients.sel;
+  try{
+    await api("/tma/api/admin/pricing/"+ruleId+"/delete",{ method:"POST" });
+    const pr=await api("/tma/api/admin/user/"+id+"/pricing").catch(()=>({rules:[]}));
+    state.clients.detail._rules=pr.rules||[]; renderClientDetail();
+    toast("Правило удалено","ok");
+  }catch(e){ toast(e.message,"err"); }
 }
 async function gotoOrder(id){ switchTab("orders"); state.orders.filter=""; await loadOrders(); await openOrder(id); }
 

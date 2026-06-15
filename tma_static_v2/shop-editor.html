@@ -544,8 +544,14 @@ function render() {
     bindBase();
     return;
   }
+  // editor phase: сохраняем позицию скролла списка через полный ре-рендер,
+  // иначе при выборе позиции список улетает наверх.
+  const _prevList = root.querySelector(".list");
+  const _prevScroll = _prevList ? _prevList.scrollTop : 0;
   root.innerHTML = editorHTML();
   bindEditor();
+  const _newList = root.querySelector(".list");
+  if (_newList && _prevScroll) _newList.scrollTop = _prevScroll;
 }
 
 function loadingHTML() {
