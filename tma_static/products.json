@@ -1928,7 +1928,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "hidden": false,
+      "hidden": true,
       "country": "Уганда",
       "description": "Свежеобжаренный кофе. Сбалансированный вкус.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
