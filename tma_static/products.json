@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 7,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 18,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 94,
+      "stock": 54,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1731,7 +1731,7 @@
           "stock": 13
         }
       ],
-      "stock": 10,
+      "stock": 4,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -3935,7 +3935,7 @@
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
-      "stock": 68,
+      "stock": 58,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
       "quarantined": false,
@@ -4637,7 +4637,7 @@
           "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg"
         }
       ],
-      "stock": 184,
+      "stock": 164,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -4845,7 +4845,7 @@
           "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
         }
       ],
-      "stock": 103,
+      "stock": 83,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 111,
+      "stock": 110,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 522,
+      "stock": 512,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8207,7 +8207,7 @@
       "name": "Перу Монте Верде гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 21,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -10012,7 +10012,7 @@
           "price": 771.0
         }
       ],
-      "stock": 14,
+      "stock": 13,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10727,7 +10727,7 @@
           "photo": "photos/products/s-сироп_herbarista_эвкалипт_и_мята_0_7л.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_эвкалипт_и_мята_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -11742,7 +11742,7 @@
           "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
         }
       ],
-      "stock": 1080,
+      "stock": 1020,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg",
       "quarantined": false,
@@ -11839,7 +11839,7 @@
           "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg"
         }
       ],
-      "stock": 400,
+      "stock": 350,
       "tags": [],
       "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg",
       "quarantined": false,
@@ -15107,7 +15107,7 @@
       "name": "Кения Маакиоу Пиберри мытая 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 1,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -15167,9 +15167,9 @@
       "name": "Кения PB Маакиоу  мытая 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "F",
       "photo": "assets/placeholders/ph_filter.svg",
       "fasovka": [
@@ -15180,7 +15180,9 @@
         }
       ],
       "created_at": "2026-06-11T13:36:04+00:00",
-      "created_by": "sync_catalog_v2"
+      "created_by": "sync_catalog_v2",
+      "quarantined_at": "2026-06-15T05:34:16+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     }
   ]
 }
