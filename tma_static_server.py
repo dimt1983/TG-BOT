@@ -34,6 +34,7 @@ from urllib.parse import unquote, parse_qsl, urlparse, parse_qs, quote
 import urllib.request
 import urllib.error
 import customer_account
+import concierge as cz
 
 PORT = int(os.environ.get("PORT", 10000))
 TMA_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tma_static")
@@ -1226,6 +1227,91 @@ class Handler(BaseHTTPRequestHandler):
             self._handle_update_stock()
             return
 
+        # ── Concierge (Bearer, для Бишопа): ghost-клиент + claim-ссылка ──────
+        if path == "/admin/concierge/client":
+            if not _check_bearer(self):
+                self._send(401, _j({"error": "unauthorized"}), "application/json; charset=utf-8")
+                return
+            body = self._read_body() or {}
+            phone = str(body.get("phone") or body.get("client_phone") or "").strip()
+            if not phone:
+                self._send(400, _j({"error": "phone required"}), "application/json; charset=utf-8")
+                return
+            try:
+                con = sqlite3.connect(DB_PATH)
+                try:
+                    cz.ensure_schema(con)
+                    res = cz.create_or_get_client(
+                        con, phone=phone,
+                        name=body.get("name") or body.get("client_name"),
+                        user_type=(body.get("user_type") or "individual"),
+                        company_name=body.get("company_name"), inn=body.get("inn"),
+                        legal_address=body.get("legal_address"),
+                        actual_address=body.get("actual_address"),
+                        email=body.get("email"),
+                    )
+                finally:
+                    con.close()
+                _invalidate_sync_cache()
+                self._send(200, _j({"ok": True, **res}), "application/json; charset=utf-8")
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
+            return
+
+        if path == "/admin/concierge/claim_link":
+            if not _check_bearer(self):
+                self._send(401, _j({"error": "unauthorized"}), "application/json; charset=utf-8")
+                return
+            body = self._read_body() or {}
+            try:
+                uid = int(body.get("user_id"))
+            except (TypeError, ValueError):
+                self._send(400, _j({"error": "user_id required"}), "application/json; charset=utf-8")
+                return
+            try:
+                con = sqlite3.connect(DB_PATH)
+                try:
+                    out = cz.issue_claim(con, uid)
+                finally:
+                    con.close()
+                base = os.environ.get("APP_PUBLIC_URL", "").rstrip("/")
+                out["url"] = f"{base}/tma/v2/?claim={out['token']}"
+                self._send(200, _j({"ok": True, **out}), "application/json; charset=utf-8")
+            except ValueError as e:
+                self._send(404, _j({"error": str(e)}), "application/json; charset=utf-8")
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
+            return
+
+        # ── Claim: клиент «забирает» ghost (нужна TG-авторизация клиента) ────
+        if path == "/tma/api/claim":
+            user = _get_request_user(self)
+            if not user or not user.get("id") or int(user["id"]) <= 0:
+                self._send(401, _j({"error": "Требуется вход через Telegram"}),
+                           "application/json; charset=utf-8")
+                return
+            body = self._read_body() or {}
+            token = str(body.get("token") or "").strip()
+            if not token:
+                self._send(400, _j({"error": "token required"}), "application/json; charset=utf-8")
+                return
+            try:
+                con = sqlite3.connect(DB_PATH)
+                try:
+                    real_name = " ".join(filter(None, [user.get("first_name"), user.get("last_name")])) or None
+                    res = cz.redeem_claim(con, token, int(user["id"]), real_name=real_name)
+                finally:
+                    con.close()
+                if not res.get("ok"):
+                    code = {"not_found": 404, "already_used": 409, "expired": 410}.get(res.get("error"), 400)
+                    self._send(code, _j(res), "application/json; charset=utf-8")
+                    return
+                _invalidate_sync_cache()
+                self._send(200, _j(res), "application/json; charset=utf-8")
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
+            return
+
         # ── Telegram Login Widget → JWT (browser-mode авторизация) ───────────
         if path == "/tma/api/auth/telegram":
             if _TMA_CTX is None:
@@ -2059,7 +2145,10 @@ class Handler(BaseHTTPRequestHandler):
                             break
                 if user is None:
                     fallback_name = payload.get("client_name") or "WhatsApp клиент"
-                    new_uid = -(abs(hash(norm_phone)) % (10**9))
+                    # Стабильный id из телефона (sha256) — та же схема, что у гостевого
+                    # входа и concierge, чтобы заказ/гость/claim сматчились. Старый hash()
+                    # солился на процесс → плейсхолдеры не совпадали между рестартами.
+                    new_uid = cz.stable_ghost_id(norm_phone) if norm_phone else -(abs(hash(phone)) % (10**9))
                     con.execute(
                         "INSERT OR IGNORE INTO users "
                         "(user_id, tg_name, user_type, name, phone) "
