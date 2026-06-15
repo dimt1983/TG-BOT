@@ -1086,7 +1086,7 @@
           "photo": "photos/products/retail_be_roastberry_биттер_-_1_кг.jpg"
         }
       ],
-      "stock": 44,
+      "stock": 41,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 545,
+      "stock": 528,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",

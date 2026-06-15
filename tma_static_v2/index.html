@@ -3881,6 +3881,73 @@ async function checkAdmin() {
 /* ════════════════════════════════════════════════════════════════════
    INIT
    ════════════════════════════════════════════════════════════════════ */
+/* ════════════════════════════════════════════════════════════════════
+   CLAIM — клиент «забирает» свой консьерж-аккаунт по ссылке ?claim=<token>
+   ════════════════════════════════════════════════════════════════════ */
+function claimScreen(title, sub, isError, isOk) {
+  const color = isError ? '#c0392b' : (isOk ? '#1f9d55' : 'var(--ink)');
+  const cont = isOk
+    ? `<button onclick="enterApp()" style="margin-top:24px;padding:14px 28px;border:none;border-radius:14px;background:#16140f;color:#FAF7F2;font-weight:700;font-size:15px;cursor:pointer">Перейти в каталог</button>`
+    : '';
+  const tgBtn = isError
+    ? `<a href="https://t.me/RCR_BtB_bot" style="margin-top:24px;display:inline-block;padding:14px 28px;border-radius:14px;background:#16140f;color:#FAF7F2;text-decoration:none;font-weight:700;font-size:15px">Открыть в Telegram</a>`
+    : '';
+  return `<div style="min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 28px">
+    <div style="font-size:22px;font-weight:800;letter-spacing:-.02em;color:${color}">${esc(title)}</div>
+    ${sub ? `<div style="margin-top:12px;color:var(--ink-soft);font-size:15px;line-height:1.5;max-width:320px">${esc(sub)}</div>` : ''}
+    ${cont}${tgBtn}
+  </div>`;
+}
+
+async function runClaim(token) {
+  const root = document.getElementById('root');
+  root.innerHTML = claimScreen('Привязываем ваш аккаунт…', 'Секунду');
+  if (!hasIdentity()) {
+    root.innerHTML = claimScreen('Откройте ссылку в Telegram',
+      'Чтобы ваши заказы и реквизиты привязались к аккаунту, откройте эту ссылку внутри Telegram — через нашего бота.', true);
+    return;
+  }
+  try {
+    const r = await fetch('/tma/api/claim', {
+      method: 'POST',
+      headers: { ...authHeaders(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token }),
+    });
+    const d = await r.json().catch(() => ({}));
+    if (r.ok && d.ok) {
+      try { localStorage.setItem('rb_v2_onboarded', '1'); } catch (e) {}
+      history.replaceState({}, '', location.pathname);  // убрать ?claim из URL
+      haptic('success');
+      const n = d.merged_orders || 0;
+      const sub = n ? `Ваши заказы (${n}) и реквизиты теперь в этом аккаунте.`
+                    : 'Аккаунт привязан к вашему профилю.';
+      root.innerHTML = claimScreen('Готово ✓', sub, false, true);
+      return;
+    }
+    const msg = { already_used: 'Эта ссылка уже использована.',
+                  expired: 'Срок действия ссылки истёк — попросите новую.',
+                  not_found: 'Ссылка недействительна.' }[d.error]
+                || ('Не удалось привязать аккаунт' + (d.error ? ': ' + d.error : ` (${r.status})`));
+    root.innerHTML = claimScreen('Не получилось', msg, true);
+  } catch (e) {
+    root.innerHTML = claimScreen('Ошибка сети', String(e), true);
+  }
+}
+
+function enterApp() {
+  // Онбординг только для новых: не онбордились ранее и нет сохранённого профиля.
+  const _hasProfile = !!(STATE.contact && STATE.contact.name);
+  if (!localStorage.getItem('rb_v2_onboarded') && !_hasProfile) {
+    STATE.screen = 'onboarding';
+  } else if (STATE.screen === 'onboarding') {
+    STATE.screen = 'home';
+  }
+  _writeBrowserNav('replace');
+  render();
+  rb.loadBoughtBefore();
+  syncFavoritesFromServer();
+}
+
 async function init() {
   loadLocal();
   if (tg) {
@@ -3909,15 +3976,10 @@ async function init() {
     return;
   }
   await checkAdmin();
-  // Онбординг только для новых: не онбордились ранее и нет сохранённого профиля.
-  const _hasProfile = !!(STATE.contact && STATE.contact.name);
-  if (!localStorage.getItem('rb_v2_onboarded') && !_hasProfile) {
-    STATE.screen = 'onboarding';
-  }
-  _writeBrowserNav('replace');
-  render();
-  rb.loadBoughtBefore();
-  syncFavoritesFromServer();
+  // Claim-ссылка: клиент забирает свой консьерж-аккаунт. Свой экран, дальше — по кнопке.
+  const _claimToken = new URLSearchParams(location.search).get('claim');
+  if (_claimToken) { await runClaim(_claimToken); return; }
+  enterApp();
   // Service Worker не регистрируем: внутри Telegram он только мешает (агрессивный кэш HTML/JS).
   // Если хочешь PWA-режим в браузере — раскомментируй ниже.
   // if ('serviceWorker' in navigator && !(tg && tg.initData)) {
