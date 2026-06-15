@@ -34,7 +34,10 @@ from urllib.parse import unquote, parse_qsl, urlparse, parse_qs, quote
 import urllib.request
 import urllib.error
 import customer_account
-import concierge as cz
+try:
+    import concierge as cz
+except Exception:  # concierge.py может отсутствовать в деплое — магазин обязан подняться
+    cz = None
 
 PORT = int(os.environ.get("PORT", 10000))
 TMA_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tma_static")
@@ -1229,6 +1232,9 @@ class Handler(BaseHTTPRequestHandler):
 
         # ── Concierge (Bearer, для Бишопа): ghost-клиент + claim-ссылка ──────
         if path == "/admin/concierge/client":
+            if cz is None:
+                self._send(503, _j({"error": "concierge unavailable"}), "application/json; charset=utf-8")
+                return
             if not _check_bearer(self):
                 self._send(401, _j({"error": "unauthorized"}), "application/json; charset=utf-8")
                 return
@@ -1259,6 +1265,9 @@ class Handler(BaseHTTPRequestHandler):
             return
 
         if path == "/admin/concierge/claim_link":
+            if cz is None:
+                self._send(503, _j({"error": "concierge unavailable"}), "application/json; charset=utf-8")
+                return
             if not _check_bearer(self):
                 self._send(401, _j({"error": "unauthorized"}), "application/json; charset=utf-8")
                 return
@@ -1285,6 +1294,9 @@ class Handler(BaseHTTPRequestHandler):
 
         # ── Claim: клиент «забирает» ghost (нужна TG-авторизация клиента) ────
         if path == "/tma/api/claim":
+            if cz is None:
+                self._send(503, _j({"error": "concierge unavailable"}), "application/json; charset=utf-8")
+                return
             user = _get_request_user(self)
             if not user or not user.get("id") or int(user["id"]) <= 0:
                 self._send(401, _j({"error": "Требуется вход через Telegram"}),
@@ -2148,7 +2160,10 @@ class Handler(BaseHTTPRequestHandler):
                     # Стабильный id из телефона (sha256) — та же схема, что у гостевого
                     # входа и concierge, чтобы заказ/гость/claim сматчились. Старый hash()
                     # солился на процесс → плейсхолдеры не совпадали между рестартами.
-                    new_uid = cz.stable_ghost_id(norm_phone) if norm_phone else -(abs(hash(phone)) % (10**9))
+                    if cz is not None and norm_phone:
+                        new_uid = cz.stable_ghost_id(norm_phone)
+                    else:
+                        new_uid = -(abs(hash(norm_phone or phone)) % (10**9))
                     con.execute(
                         "INSERT OR IGNORE INTO users "
                         "(user_id, tg_name, user_type, name, phone) "
