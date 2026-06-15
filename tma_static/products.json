@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1677,7 +1677,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -8097,7 +8097,7 @@
           "photo": null
         }
       ],
-      "stock": 211,
+      "stock": 210,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -11596,7 +11596,7 @@
           "photo": null
         }
       ],
-      "stock": 39,
+      "stock": 33,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12426,7 +12426,7 @@
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 21,
+      "stock": 17,
       "on_request": false,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
@@ -13634,7 +13634,7 @@
           "photo": null
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14101,7 +14101,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 96,
+      "stock": 76,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14356,7 +14356,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 8,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
