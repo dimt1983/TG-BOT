@@ -3,223 +3,306 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Roastberry — Админка</title>
+<title>Roastberry - Админка</title>
 <meta name="theme-color" content="#FAF7F2" />
-<link rel="stylesheet" href="/tma/v2/tokens.css?v=admin-1" />
+<link rel="stylesheet" href="/tma/v2/tokens.css?v=admin-2" />
 <style>
-  :root { --side: 360px; }
+  /* ── reset / base ── */
   * { box-sizing: border-box; }
-  html, body { margin:0; height:100%; background:var(--bg, #FAF7F2); color:var(--ink, #1A1410); }
-  body { font-family: Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size:14px; }
-  button { font-family:inherit; cursor:pointer; }
-  a { color:inherit; }
-  .mono { font-family: var(--f-mono, ui-monospace, monospace); }
+  html, body { margin:0; height:100%; }
+  body { background:#FAF7F2; }
+  .rb { min-height:100vh; height:100vh; display:flex; flex-direction:column; font-size:14px; line-height:1.45; letter-spacing:0; }
+  button { font-family:inherit; cursor:pointer; color:inherit; }
+  input { font-family:inherit; }
+  .num { font-family:var(--f-mono); font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1; white-space:nowrap; }
+  .ico { width:18px; height:18px; flex:0 0 auto; display:inline-block; vertical-align:middle; }
+  .ico svg { width:100%; height:100%; display:block; }
+  :focus-visible { outline:2px solid var(--coffee); outline-offset:2px; border-radius:4px; }
 
-  /* ── Layout ── */
-  .app { display:grid; grid-template-rows:auto 1fr; height:100vh; }
+  /* ── topbar ── */
   .topbar { position:sticky; top:0; z-index:20; display:flex; align-items:center; gap:18px;
-            padding:0 20px; height:58px; background:color-mix(in oklab, var(--bg) 92%, transparent);
-            border-bottom:1px solid var(--line, #E6DFD4); backdrop-filter:blur(16px); }
-  .brand { font-family:var(--f-display, inherit); font-weight:900; font-size:19px; letter-spacing:-.01em; white-space:nowrap; }
-  .brand small { display:block; font:600 9px/1 var(--f-mono, monospace); letter-spacing:.14em; color:var(--ink-soft, #6b6258); text-transform:uppercase; margin-top:3px; }
-  .tabs { display:flex; gap:4px; margin-left:8px; }
-  .tab { height:34px; padding:0 16px; border:0; border-radius:8px; background:transparent;
-         color:var(--ink-soft, #6b6258); font-weight:700; font-size:13px; }
-  .tab.active { background:var(--ink, #1A1410); color:var(--bg, #fff); }
-  .tab .badge { margin-left:7px; font:700 11px var(--f-mono, monospace); opacity:.7; }
-  .spacer { flex:1; }
-  .who { display:flex; align-items:center; gap:9px; font-size:13px; color:var(--ink-soft); }
-  .who img { width:28px; height:28px; border-radius:50%; object-fit:cover; }
-  .btn-ghost { height:32px; padding:0 12px; border:1px solid var(--line-strong, #d9d0c2); border-radius:8px;
-               background:var(--surface, #fff); color:var(--ink); font-weight:600; font-size:12px; }
-  .btn-ghost:hover { background:var(--surface-2, #f4efe7); }
+            padding:0 18px; height:60px; flex:0 0 60px;
+            background:color-mix(in oklab, var(--bg) 90%, transparent);
+            border-bottom:1px solid var(--line); backdrop-filter:blur(16px) saturate(150%); }
+  .brand { display:flex; align-items:center; gap:11px; min-width:0; }
+  .brand-mark { width:30px; height:30px; color:var(--coffee); flex:0 0 auto; }
+  .brand-txt { font-family:var(--f-display); font-weight:900; font-size:18px; letter-spacing:-0.02em; line-height:1; white-space:nowrap; }
+  .brand-txt small { display:block; font:700 8.5px/1 var(--f-mono); letter-spacing:0.16em; color:var(--ink-soft); text-transform:uppercase; margin-top:4px; }
 
-  .main { min-height:0; overflow:hidden; }
+  .tabs { display:flex; gap:3px; margin-left:6px; }
+  .tab { display:inline-flex; align-items:center; gap:8px; height:36px; padding:0 14px; border:0; border-radius:var(--r-pill);
+         background:transparent; color:var(--ink-soft); font-weight:600; font-size:13px; transition:background .15s, color .15s; }
+  .tab:hover { background:var(--surface-2); color:var(--ink); }
+  .tab.active { background:var(--ink); color:var(--bg); }
+  .tab .ico { width:16px; height:16px; }
+  .tab .badge { font:700 11px/1 var(--f-mono); opacity:.7; }
+
+  .spacer { flex:1; }
+  .who { display:flex; align-items:center; gap:9px; font-size:13px; color:var(--ink-soft); min-width:0; }
+  .who img { width:28px; height:28px; border-radius:50%; object-fit:cover; border:1px solid var(--line-strong); }
+  .who .name { max-width:160px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .iconbtn { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:var(--r-pill);
+             background:transparent; border:1px solid transparent; color:var(--ink-soft); }
+  .iconbtn:hover { background:var(--surface-2); color:var(--ink); }
+  .iconbtn .ico { width:18px; height:18px; }
+
+  /* ── main / views ── */
+  .main { flex:1; min-height:0; }
   .view { height:100%; display:none; }
   .view.active { display:block; }
 
-  /* ── Master-detail (orders, clients) ── */
-  .md { display:grid; grid-template-columns:minmax(0,1fr) var(--side); height:100%; min-height:0; }
+  /* ── master-detail ── */
+  .md { display:grid; grid-template-columns:minmax(0,1fr) 380px; height:100%; min-height:0; }
   .md.no-detail { grid-template-columns:1fr; }
   .md-list { min-width:0; min-height:0; overflow:auto; }
-  .md-detail { border-left:1px solid var(--line); background:var(--bg-2, #FBF8F2); overflow:auto; min-height:0; }
-  .md-detail.empty { display:flex; align-items:center; justify-content:center; color:var(--ink-faint, #9a9085); font-size:13px; }
+  .md-detail { border-left:1px solid var(--line); background:var(--bg-2); overflow:auto; min-height:0;
+               animation:slideIn .22s cubic-bezier(.16,1,.3,1); }
+  @keyframes slideIn { from { opacity:0; transform:translateX(10px); } to { opacity:1; transform:none; } }
 
-  .toolbar { position:sticky; top:0; z-index:5; display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+  /* ── toolbar ── */
+  .toolbar { position:sticky; top:0; z-index:6; display:flex; align-items:center; gap:8px; flex-wrap:wrap;
              padding:12px 16px; background:var(--bg); border-bottom:1px solid var(--line); }
-  .chip { height:30px; padding:0 13px; border:1px solid var(--line-strong); border-radius:999px;
-          background:var(--surface); color:var(--ink); font:700 12px var(--f-body, inherit); }
-  .chip.active { background:var(--ink); color:var(--bg); border-color:var(--ink); }
-  .chip .n { margin-left:6px; font-family:var(--f-mono, monospace); opacity:.65; }
-  .search { height:32px; min-width:200px; flex:1; max-width:340px; padding:0 12px; border:1px solid var(--line-strong);
-            border-radius:8px; background:var(--surface); color:var(--ink); outline:0; font-size:13px; }
-  .search:focus { border-color:var(--ink); }
+  .fchip { display:inline-flex; align-items:center; gap:7px; height:30px; padding:0 13px; border:1px solid var(--line-strong);
+           border-radius:var(--r-pill); background:var(--surface); color:var(--ink); font-weight:600; font-size:12.5px; transition:.12s; }
+  .fchip:hover { border-color:var(--ink-faint); }
+  .fchip.active { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  .fchip .n { font-family:var(--f-mono); font-variant-numeric:tabular-nums; opacity:.6; }
+  .fchip.active .n { opacity:.8; }
+  .search { display:flex; align-items:center; gap:8px; height:32px; min-width:200px; flex:1; max-width:320px;
+            padding:0 11px; border:1px solid var(--line-strong); border-radius:var(--r); background:var(--surface); }
+  .search:focus-within { border-color:var(--coffee); }
+  .search .ico { width:15px; height:15px; color:var(--ink-faint); }
+  .search input { flex:1; min-width:0; border:0; outline:0; background:transparent; color:var(--ink); font-size:13px; }
+  .count { font-family:var(--f-mono); font-variant-numeric:tabular-nums; font-size:12px; color:var(--ink-faint); }
 
+  /* ── table ── */
   table.grid { width:100%; border-collapse:collapse; }
-  table.grid th { position:sticky; top:55px; z-index:4; text-align:left; font:700 10px var(--f-mono, monospace);
-                  letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); background:var(--bg);
-                  padding:9px 16px; border-bottom:1px solid var(--line); white-space:nowrap; }
+  table.grid th { position:sticky; top:55px; z-index:4; text-align:left; background:var(--bg);
+                  font:700 10px/1 var(--f-mono); letter-spacing:0.07em; text-transform:uppercase; color:var(--ink-faint);
+                  padding:10px 16px; border-bottom:1px solid var(--line); white-space:nowrap; user-select:none; }
+  table.grid th.sortable { cursor:pointer; }
+  table.grid th.sortable:hover { color:var(--ink); }
+  table.grid th .th { display:inline-flex; align-items:center; gap:5px; }
+  table.grid th .caret { width:11px; height:11px; opacity:0; color:var(--coffee); }
+  table.grid th[aria-sort] .caret { opacity:1; }
+  table.grid th[aria-sort="ascending"] .caret { transform:rotate(180deg); }
   table.grid td { padding:11px 16px; border-bottom:1px solid var(--line); vertical-align:middle; }
-  table.grid tr.row { cursor:pointer; }
-  table.grid tr.row:hover td { background:var(--surface-2); }
-  table.grid tr.row.sel td { background:#FFFDF9; box-shadow:inset 3px 0 0 var(--ink); }
-  .num { font-family:var(--f-mono, monospace); white-space:nowrap; }
+  tr.row { cursor:pointer; transition:background .1s; }
+  tr.row:hover td { background:var(--surface-2); }
+  tr.row.sel td { background:var(--coffee-soft); box-shadow:inset 3px 0 0 var(--coffee); }
+  tr.row:focus-visible { outline:none; }
+  tr.row:focus-visible td { background:var(--surface-2); box-shadow:inset 3px 0 0 var(--coffee); }
   .muted { color:var(--ink-soft); }
   .faint { color:var(--ink-faint); }
   .right { text-align:right; }
-  .ellip { max-width:1px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .strong { font-weight:700; }
+  .ellip { max-width:1px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .sub { font-size:11px; color:var(--ink-faint); margin-top:2px; }
 
-  /* status pill */
-  .st { display:inline-flex; align-items:center; gap:6px; height:24px; padding:0 10px; border-radius:999px;
-        font:700 11px var(--f-body, inherit); white-space:nowrap; border:1px solid transparent; }
-  .st::before { content:""; width:6px; height:6px; border-radius:50%; background:currentColor; }
-  .st-new       { color:#1d6fd4; background:#e8f1fd; }
-  .st-confirmed { color:#0a7d4f; background:#e4f6ec; }
-  .st-shipped   { color:#8a5a00; background:#fbf0d8; }
-  .st-done      { color:#5b6470; background:#eef0f2; }
-  .st-cancelled { color:#b3261e; background:#fbe7e6; }
-  .st-paid      { color:#0a7d4f; background:#e4f6ec; }
+  /* ── status pill ── */
+  .st { display:inline-flex; align-items:center; gap:6px; height:24px; padding:0 10px; border-radius:var(--r-pill);
+        font:600 11.5px/1 var(--f-body); white-space:nowrap; }
+  .st::before { content:""; width:6px; height:6px; border-radius:50%; background:currentColor; flex:0 0 auto; }
+  .st-new       { color:#2B6CB0; background:rgba(43,108,176,.13); }
+  .st-paid, .st-confirmed { color:#3D5232; background:var(--green-soft); }
+  .st-shipped   { color:#8B5224; background:var(--amber-soft); }
+  .st-done      { color:var(--ink-soft); background:var(--surface-2); }
+  .st-cancelled { color:var(--danger); background:rgba(181,75,61,.13); }
+  .rb--dark .st-new { color:#7FB0E6; }
+  .rb--dark .st-paid, .rb--dark .st-confirmed { color:#B4C8A0; }
+  .rb--dark .st-shipped { color:#E4B07D; }
+  .rb--dark .st-cancelled { color:#E08A7D; }
 
-  /* detail panel */
+  /* ── detail panel ── */
   .dp { padding:18px; }
-  .dp h2 { font-family:var(--f-display, inherit); font-size:20px; font-weight:900; margin:0 0 2px; }
-  .dp .sub { color:var(--ink-soft); font-size:12px; margin-bottom:16px; }
-  .dp .close { float:right; }
-  .card { background:var(--surface, #fff); border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:14px; }
-  .kv { display:grid; grid-template-columns:96px 1fr; gap:6px 12px; font-size:13px; }
-  .kv dt { color:var(--ink-faint); font-size:11px; text-transform:uppercase; letter-spacing:.04em; align-self:center; }
+  .dp-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:16px; }
+  .dp h2 { font-family:var(--f-display); font-size:21px; font-weight:900; letter-spacing:-0.02em; margin:0; }
+  .dp .dp-sub { color:var(--ink-soft); font-size:12px; margin-top:5px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .card { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-md); padding:15px; margin-bottom:13px; box-shadow:var(--sh-1); }
+  .sec-title { font:800 10.5px/1 var(--f-display); letter-spacing:0.07em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 11px; }
+  .kv { display:grid; grid-template-columns:90px 1fr; gap:9px 12px; font-size:13px; }
+  .kv dt { color:var(--ink-faint); font-size:10.5px; text-transform:uppercase; letter-spacing:0.04em; align-self:center; }
   .kv dd { margin:0; word-break:break-word; }
-  .sec-title { font:800 11px var(--f-display, inherit); letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 9px; }
   .items { width:100%; border-collapse:collapse; font-size:13px; }
-  .items td { padding:7px 0; border-bottom:1px solid var(--line); }
+  .items td { padding:8px 0; border-bottom:1px solid var(--line); }
   .items tr:last-child td { border-bottom:0; }
-  .items .q { font-family:var(--f-mono, monospace); color:var(--ink-soft); white-space:nowrap; }
-  .total-row { display:flex; justify-content:space-between; align-items:baseline; margin-top:12px; padding-top:12px; border-top:2px solid var(--ink); }
-  .total-row b { font-family:var(--f-display, inherit); font-size:22px; }
-  .actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:4px; }
-  .act { height:38px; padding:0 16px; border:1px solid var(--line-strong); border-radius:9px; background:var(--surface);
-         color:var(--ink); font-weight:700; font-size:13px; }
+  .items .q { color:var(--ink-soft); }
+  .total-row { display:flex; justify-content:space-between; align-items:baseline; margin-top:13px; padding-top:13px; border-top:2px solid var(--ink); }
+  .total-row b { font-family:var(--f-display); font-size:22px; font-variant-numeric:tabular-nums; }
+  .actions { display:flex; gap:8px; flex-wrap:wrap; }
+  .act { display:inline-flex; align-items:center; gap:7px; height:38px; padding:0 15px; border:1px solid var(--line-strong);
+         border-radius:var(--r-pill); background:var(--surface); color:var(--ink); font-weight:600; font-size:13px; transition:.12s; }
   .act:hover { background:var(--surface-2); }
+  .act:active { transform:translateY(1px); }
   .act.primary { background:var(--ink); color:var(--bg); border-color:var(--ink); }
-  .act.danger { color:#b3261e; border-color:#f0c4c1; }
-  .act.danger:hover { background:#fbe7e6; }
-  .act[disabled] { opacity:.45; pointer-events:none; }
+  .act.primary:hover { background:var(--coffee-deep); }
+  .act.danger { color:var(--danger); border-color:rgba(181,75,61,.3); }
+  .act.danger:hover { background:rgba(181,75,61,.1); }
+  .act[disabled] { opacity:.4; pointer-events:none; }
 
-  /* states */
-  .state { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; height:100%;
-           text-align:center; color:var(--ink-soft); padding:40px; }
-  .state h1 { font-family:var(--f-display, inherit); font-size:26px; margin:0; color:var(--ink); }
-  .center { display:flex; align-items:center; justify-content:center; height:100vh; padding:24px; }
-  .login-card { width:min(420px, 100%); background:var(--surface, #fff); border:1px solid var(--line);
-                border-radius:16px; padding:36px 32px; text-align:center; box-shadow:0 18px 60px rgba(26,20,16,.08); }
-  .login-card .logo { font-family:var(--f-display, inherit); font-weight:900; font-size:30px; letter-spacing:-.02em; }
-  .login-card .logo small { display:block; font:600 10px/1 var(--f-mono, monospace); letter-spacing:.18em; color:var(--ink-soft); text-transform:uppercase; margin-top:6px; }
-  .login-card p { color:var(--ink-soft); font-size:14px; margin:18px 0 24px; }
+  .orow { cursor:pointer; }
+  .orow:hover td { color:var(--coffee-deep); }
+
+  /* ── states ── */
+  .state { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:13px; min-height:340px;
+           text-align:center; color:var(--ink-soft); padding:40px 24px; }
+  .state .ico { width:34px; height:34px; color:var(--ink-mute); }
+  .state h3 { font-family:var(--f-display); font-size:17px; color:var(--ink); margin:0; }
+  .state p { margin:0; font-size:13px; max-width:300px; }
+
+  /* skeleton */
+  .sk { background:linear-gradient(90deg, var(--surface-2) 25%, var(--bg-2) 50%, var(--surface-2) 75%);
+        background-size:200% 100%; border-radius:6px; animation:shimmer 1.3s infinite; height:13px; }
+  @keyframes shimmer { from { background-position:200% 0; } to { background-position:-200% 0; } }
+
+  /* full-screen states (login/denied/loading) */
+  .center { display:flex; align-items:center; justify-content:center; min-height:100vh; padding:24px; }
+  .login-card { width:min(400px,100%); background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg);
+                padding:38px 34px; text-align:center; box-shadow:var(--sh-2); }
+  .login-card .mark { width:54px; height:54px; color:var(--coffee); margin:0 auto 18px; }
+  .login-card h1 { font-family:var(--f-display); font-weight:900; font-size:26px; letter-spacing:-0.02em; margin:0; }
+  .login-card .tag { font:700 9px/1 var(--f-mono); letter-spacing:0.2em; color:var(--ink-soft); text-transform:uppercase; margin-top:7px; }
+  .login-card p { color:var(--ink-soft); font-size:13.5px; line-height:1.5; margin:18px 0 22px; }
   #tg-login-btn { display:flex; justify-content:center; min-height:46px; }
 
-  .frame { width:100%; height:100%; border:0; display:block; }
+  .spin { width:30px; height:30px; border:3px solid var(--line-strong); border-top-color:var(--coffee); border-radius:50%; animation:rot .8s linear infinite; }
+  @keyframes rot { to { transform:rotate(360deg); } }
 
-  .spin { width:28px; height:28px; border:3px solid var(--line-strong); border-top-color:var(--ink);
-          border-radius:50%; animation:spin .8s linear infinite; }
-  @keyframes spin { to { transform:rotate(360deg); } }
+  .frame { width:100%; height:100%; border:0; display:block; background:var(--bg); }
 
   #toast { position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(20px);
-           background:var(--ink, #1A1410); color:var(--bg, #fff); padding:11px 18px; border-radius:10px;
-           font-size:13px; font-weight:600; opacity:0; pointer-events:none; transition:.22s; z-index:90; max-width:90vw; }
+           display:flex; align-items:center; gap:9px; background:var(--ink); color:var(--bg);
+           padding:11px 17px; border-radius:var(--r); font-size:13px; font-weight:600;
+           opacity:0; pointer-events:none; transition:.22s cubic-bezier(.16,1,.3,1); z-index:90; max-width:90vw; box-shadow:var(--sh-2); }
   #toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+  #toast .ico { width:16px; height:16px; }
 
-  @media (max-width: 920px) {
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration:.001ms !important; transition-duration:.001ms !important; }
+  }
+  @media (max-width: 980px) {
     .md { grid-template-columns:1fr; }
-    .md-detail { position:fixed; inset:0; top:58px; z-index:30; --side:auto; }
+    .md-detail { position:fixed; inset:60px 0 0; z-index:30; border-left:0; }
     .md:not(.show-detail) .md-detail { display:none; }
     .md.show-detail .md-list { display:none; }
+    .brand-txt small { display:none; }
   }
 </style>
 </head>
 <body>
-<div id="root"><div class="center"><div class="spin"></div></div></div>
+<div class="rb" id="root"><div class="center"><div class="spin"></div></div></div>
 <div id="toast"></div>
 
 <script>
-// ─────────────────────────────────────────────────────────────────────────────
-// КОНФИГ. BOT_USERNAME — username бота БЕЗ @. Домен этой страницы должен быть
-// прописан в @BotFather: /setdomain → выбрать бота → указать хост админки.
-// ─────────────────────────────────────────────────────────────────────────────
+// ── config: username бота БЕЗ @; домен прописать в @BotFather /setdomain ──
 const BOT_USERNAME = "RCR_BtB_bot";
+const JWT_KEY = "rb_jwt", USER_KEY = "rb_user", THEME_KEY = "rb_admin_theme";
 
-const JWT_KEY = "rb_jwt";          // тот же ключ, что у shop-editor.html
-const USER_KEY = "rb_user";
+// ── icons (Lucide-style, stroke 1.5, currentColor) ──
+const SVG = {
+  orders:'<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6M9 16h6"/>',
+  clients:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+  catalog:'<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/>',
+  search:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  x:'<path d="M18 6 6 18M6 6l12 12"/>',
+  logout:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  moon:'<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>',
+  caret:'<path d="m6 9 6 6 6-6"/>',
+  refresh:'<path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 6.7 3L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9 9 0 0 1-6.7-3L3 16"/><path d="M3 21v-5h5"/>',
+  inbox:'<path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>',
+  alert:'<path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/>',
+  check:'<path d="M20 6 9 17l-5-5"/>',
+  mark:'<g stroke="currentColor" stroke-width="8.5" stroke-linecap="round" fill="none"><circle cx="50" cy="50" r="43.8"/><path d="M 22.9 21.1 C 64.9 36.9, 35.1 63.1, 77.1 78.9"/></g>',
+};
+function ico(name, cls){
+  const vb = name==="mark" ? "0 0 100 100" : "0 0 24 24";
+  const attrs = name==="mark" ? 'fill="none"' : 'fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"';
+  return `<span class="ico ${cls||""}"><svg viewBox="${vb}" ${attrs}>${SVG[name]}</svg></span>`;
+}
 
-const ST_LABELS = { new:"Новый", paid:"Оплачен", confirmed:"Подтверждён",
-                    shipped:"Отправлен", done:"Выполнен", cancelled:"Отменён" };
+const ST_LABELS = { new:"Новый", paid:"Оплачен", confirmed:"Подтверждён", shipped:"Отправлен", done:"Выполнен", cancelled:"Отменён" };
 const ST_ORDER = ["new","paid","confirmed","shipped","done","cancelled"];
-// разрешённые переходы (бэкенд: ORDER_STATUSES_VALID)
 const ST_ACTIONS = ["confirmed","shipped","done","cancelled"];
 
 const state = {
-  tab: "orders",
+  tab:"orders",
   jwt: localStorage.getItem(JWT_KEY) || "",
   user: JSON.parse(localStorage.getItem(USER_KEY) || "null"),
-  orders: { rows:[], counts:{}, filter:"", q:"", sel:null, detail:null, loading:false },
-  clients: { rows:[], q:"", sel:null, detail:null, loading:false },
-  catalogLoaded: false,
+  orders:  { rows:[], counts:{}, filter:"", q:"", sel:null, detail:null, loading:false, err:"", sort:{key:"id",dir:"desc"} },
+  clients: { rows:[], q:"", sel:null, detail:null, loading:false, err:"", sort:{key:"last_order_at",dir:"desc"} },
+  catalogLoaded:false,
 };
 
 // ── helpers ──
-const $ = (s, r=document) => r.querySelector(s);
 const el = (id) => document.getElementById(id);
 function esc(s){ return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 function authHeaders(extra){ return Object.assign({ "Authorization":"Bearer "+state.jwt }, extra||{}); }
-function fmt(n){ const v = Number(n); return Number.isFinite(v) ? v.toLocaleString("ru-RU") : "—"; }
-function money(n){ return fmt(Math.round(Number(n)||0)) + " ₽"; }
-function dt(s){
-  if(!s) return "—";
-  const d = new Date(String(s).replace(" ","T") + (String(s).includes("Z")?"":"Z"));
-  if(isNaN(d)) return esc(s);
-  return d.toLocaleString("ru-RU", { day:"2-digit", month:"2-digit", year:"2-digit", hour:"2-digit", minute:"2-digit" });
-}
-function dtShort(s){
-  if(!s) return "—";
-  const d = new Date(String(s).replace(" ","T") + (String(s).includes("Z")?"":"Z"));
-  if(isNaN(d)) return esc(s);
-  return d.toLocaleDateString("ru-RU", { day:"2-digit", month:"2-digit", year:"2-digit" });
-}
-function stPill(s){ const k = ST_LABELS[s]?s:"new"; return `<span class="st st-${esc(k)}">${esc(ST_LABELS[s]||s||"—")}</span>`; }
+function fmt(n){ const v=Number(n); return Number.isFinite(v) ? v.toLocaleString("ru-RU") : "-"; }
+function money(n){ return fmt(Math.round(Number(n)||0))+" ₽"; }
+function dt(s){ const d=parseD(s); return d ? d.toLocaleString("ru-RU",{day:"2-digit",month:"2-digit",year:"2-digit",hour:"2-digit",minute:"2-digit"}) : "-"; }
+function dtShort(s){ const d=parseD(s); return d ? d.toLocaleDateString("ru-RU",{day:"2-digit",month:"2-digit",year:"2-digit"}) : "-"; }
+function parseD(s){ if(!s) return null; const d=new Date(String(s).replace(" ","T")+(String(s).includes("Z")?"":"Z")); return isNaN(d)?null:d; }
+function stPill(s){ const k=ST_LABELS[s]?s:"new"; return `<span class="st st-${esc(k)}">${esc(ST_LABELS[s]||s||"-")}</span>`; }
 let toastT;
-function toast(msg, ms=2200){ const t=el("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove("show"), ms); }
+function toast(msg, kind){ const t=el("toast"); t.innerHTML=(kind==="err"?ico("alert"):kind==="ok"?ico("check"):"")+`<span>${esc(msg)}</span>`; t.classList.add("show"); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove("show"), 3000); }
+function sortRows(rows, sort){
+  const {key,dir}=sort, m=dir==="asc"?1:-1;
+  return [...rows].sort((a,b)=>{
+    let x=a[key], y=b[key];
+    if(key==="created_at"||key==="last_order_at"){ x=parseD(x)?.getTime()||0; y=parseD(y)?.getTime()||0; }
+    else if(typeof x==="string"||typeof y==="string"){ x=String(x||"").toLowerCase(); y=String(y||"").toLowerCase(); }
+    else { x=Number(x)||0; y=Number(y)||0; }
+    return x<y?-m : x>y?m : 0;
+  });
+}
+function thSort(label, key, sort, fn, extra){
+  const on = sort.key===key;
+  return `<th class="sortable ${extra||""}" ${on?`aria-sort="${sort.dir==="asc"?"ascending":"descending"}"`:""} onclick="${fn}('${key}')">
+    <span class="th">${esc(label)}${ico("caret","caret")}</span></th>`;
+}
 
 async function api(path, opts){
   const r = await fetch(path, Object.assign({ cache:"no-store" }, opts, { headers: authHeaders((opts&&opts.headers)||{}) }));
-  if(r.status === 401 || r.status === 403){ logout(true); throw new Error("Нет доступа"); }
+  if(r.status===401||r.status===403){ logout(true); throw new Error("Нет доступа"); }
   const j = await r.json().catch(()=>({}));
   if(!r.ok || j.error) throw new Error(j.error || ("HTTP "+r.status));
   return j;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// AUTH
-// ─────────────────────────────────────────────────────────────────────────────
+// ── theme ──
+function initTheme(){
+  const saved = localStorage.getItem(THEME_KEY);
+  const dark = saved ? saved==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(dark);
+}
+function applyTheme(dark){
+  el("root").classList.toggle("rb--dark", dark);
+  document.querySelector('meta[name=theme-color]')?.setAttribute("content", dark?"#15100C":"#FAF7F2");
+  const b=el("theme-btn"); if(b) b.innerHTML=ico(dark?"sun":"moon");
+}
+function toggleTheme(){
+  const dark = !el("root").classList.contains("rb--dark");
+  localStorage.setItem(THEME_KEY, dark?"dark":"light");
+  applyTheme(dark);
+}
+
+// ── auth ──
 window.onTelegramAuth = async function(user){
   try {
-    const r = await fetch("/tma/api/auth/telegram", {
-      method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(user)
-    });
+    const r = await fetch("/tma/api/auth/telegram", { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(user) });
     const j = await r.json().catch(()=>({}));
     if(!r.ok || !j.token) throw new Error(j.error || "Не удалось войти");
-    state.jwt = j.token; state.user = j.user || user;
-    localStorage.setItem(JWT_KEY, state.jwt);
-    localStorage.setItem(USER_KEY, JSON.stringify(state.user));
+    state.jwt=j.token; state.user=j.user||user;
+    localStorage.setItem(JWT_KEY, state.jwt); localStorage.setItem(USER_KEY, JSON.stringify(state.user));
     boot();
-  } catch(e){ toast(e.message || "Ошибка входа", 3000); }
+  } catch(e){ toast(e.message||"Ошибка входа","err"); }
 };
-
 function logout(silent){
   state.jwt=""; state.user=null;
   localStorage.removeItem(JWT_KEY); localStorage.removeItem(USER_KEY);
-  if(!silent) renderLogin(); else { renderLogin(); toast("Сессия истекла — войдите снова", 2600); }
+  renderLogin(); if(silent) toast("Сессия истекла, войдите снова","err");
 }
-
 async function boot(){
   if(!state.jwt){ renderLogin(); return; }
   el("root").innerHTML = `<div class="center"><div class="spin"></div></div>`;
@@ -228,313 +311,240 @@ async function boot(){
     if(r.status===401){ logout(); return; }
     const j = await r.json().catch(()=>({}));
     if(!j.is_admin){ renderDenied(); return; }
-    renderApp();
-    loadOrders();
+    renderApp(); loadOrders();
   } catch(e){ renderError(e.message||String(e)); }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SHELL
-// ─────────────────────────────────────────────────────────────────────────────
+// ── shells ──
 function renderLogin(){
-  el("root").innerHTML = `
-    <div class="center"><div class="login-card">
-      <div class="logo">Roastberry<small>Admin Console</small></div>
-      <p>Войдите через Telegram. Доступ только для администраторов магазина.</p>
-      <div id="tg-login-btn"><div class="spin" style="margin:0 auto"></div></div>
-    </div></div>`;
-  const s = document.createElement("script");
-  s.src = "https://telegram.org/js/telegram-widget.js?22";
-  s.async = true;
+  el("root").innerHTML = `<div class="center"><div class="login-card">
+    <div class="mark">${ico("mark")}</div>
+    <h1>Roastberry</h1><div class="tag">Admin Console</div>
+    <p>Войдите через Telegram. Доступ только для администраторов магазина.</p>
+    <div id="tg-login-btn"><div class="spin" style="margin:0 auto"></div></div>
+  </div></div>`;
+  const s=document.createElement("script");
+  s.src="https://telegram.org/js/telegram-widget.js?22"; s.async=true;
   s.setAttribute("data-telegram-login", BOT_USERNAME);
-  s.setAttribute("data-size", "large");
-  s.setAttribute("data-radius", "9");
-  s.setAttribute("data-onauth", "onTelegramAuth(user)");
-  s.setAttribute("data-request-access", "write");
-  const host = el("tg-login-btn"); host.innerHTML=""; host.appendChild(s);
+  s.setAttribute("data-size","large"); s.setAttribute("data-radius","10");
+  s.setAttribute("data-onauth","onTelegramAuth(user)"); s.setAttribute("data-request-access","write");
+  const host=el("tg-login-btn"); host.innerHTML=""; host.appendChild(s);
 }
-
 function renderDenied(){
-  el("root").innerHTML = `
-    <div class="state">
-      <h1>Доступ запрещён</h1>
-      <p>Аккаунт ${esc(state.user?.first_name||"")} не в списке администраторов (TMA_ADMIN_IDS).</p>
-      <button class="act" onclick="logout()">Войти другим аккаунтом</button>
-    </div>`;
+  el("root").innerHTML = `<div class="center"><div class="login-card">
+    <div class="mark">${ico("mark")}</div><h1>Доступ запрещён</h1>
+    <p>Аккаунт ${esc(state.user?.first_name||"")} не в списке администраторов (TMA_ADMIN_IDS).</p>
+    <button class="act primary" style="margin:0 auto" onclick="logout()">Войти другим аккаунтом</button>
+  </div></div>`;
 }
 function renderError(msg){
-  el("root").innerHTML = `<div class="state"><h1>Ошибка</h1><p class="mono">${esc(msg)}</p>
-    <button class="act" onclick="boot()">Повторить</button></div>`;
+  el("root").innerHTML = `<div class="center"><div class="login-card">
+    <div class="mark">${ico("alert")}</div><h1>Ошибка</h1>
+    <p class="num" style="font-size:12px">${esc(msg)}</p>
+    <button class="act primary" style="margin:0 auto" onclick="boot()">Повторить</button>
+  </div></div>`;
 }
 
 function renderApp(){
-  const u = state.user || {};
+  const u=state.user||{};
   el("root").innerHTML = `
-    <div class="app">
-      <div class="topbar">
-        <div class="brand">Roastberry<small>Admin Console</small></div>
-        <div class="tabs">
-          <button class="tab" data-tab="orders">Заказы <span class="badge" id="tab-orders-n"></span></button>
-          <button class="tab" data-tab="clients">Клиенты</button>
-          <button class="tab" data-tab="catalog">Каталог</button>
-        </div>
-        <div class="spacer"></div>
-        <div class="who">
-          ${u.photo_url?`<img src="${esc(u.photo_url)}" alt="">`:""}
-          <span>${esc(u.first_name||"")} ${esc(u.last_name||"")}</span>
-        </div>
-        <button class="btn-ghost" onclick="logout()">Выйти</button>
+    <div class="topbar">
+      <div class="brand"><span class="brand-mark">${ico("mark")}</span>
+        <div class="brand-txt">Roastberry<small>Admin Console</small></div></div>
+      <div class="tabs">
+        <button class="tab" data-tab="orders">${ico("orders")}<span>Заказы</span><span class="badge" id="tab-orders-n"></span></button>
+        <button class="tab" data-tab="clients">${ico("clients")}<span>Клиенты</span></button>
+        <button class="tab" data-tab="catalog">${ico("catalog")}<span>Каталог</span></button>
       </div>
-      <div class="main">
-        <div class="view" id="view-orders"></div>
-        <div class="view" id="view-clients"></div>
-        <div class="view" id="view-catalog">
-          <iframe class="frame" id="catalog-frame" title="Каталог"></iframe>
-        </div>
-      </div>
+      <div class="spacer"></div>
+      <button class="iconbtn" id="theme-btn" aria-label="Сменить тему" onclick="toggleTheme()">${ico("moon")}</button>
+      <div class="who">${u.photo_url?`<img src="${esc(u.photo_url)}" alt="">`:""}<span class="name">${esc(u.first_name||"")} ${esc(u.last_name||"")}</span></div>
+      <button class="iconbtn" aria-label="Выйти" title="Выйти" onclick="logout()">${ico("logout")}</button>
+    </div>
+    <div class="main">
+      <div class="view" id="view-orders"></div>
+      <div class="view" id="view-clients"></div>
+      <div class="view" id="view-catalog"><iframe class="frame" id="catalog-frame" title="Каталог"></iframe></div>
     </div>`;
-  document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", ()=>switchTab(b.dataset.tab)));
+  document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>switchTab(b.dataset.tab)));
+  applyTheme(el("root").classList.contains("rb--dark"));
   switchTab(state.tab);
 }
-
 function switchTab(tab){
-  state.tab = tab;
-  document.querySelectorAll(".tab").forEach(b => b.classList.toggle("active", b.dataset.tab===tab));
-  document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+  state.tab=tab;
+  document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active", b.dataset.tab===tab));
+  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
   el("view-"+tab).classList.add("active");
   if(tab==="orders" && !state.orders.rows.length && !state.orders.loading) loadOrders();
   if(tab==="clients" && !state.clients.rows.length && !state.clients.loading) loadClients();
-  if(tab==="catalog" && !state.catalogLoaded){
-    el("catalog-frame").src = "/tma/v2/shop-editor.html";
-    state.catalogLoaded = true;
-  }
+  if(tab==="catalog" && !state.catalogLoaded){ el("catalog-frame").src="/tma/v2/shop-editor.html"; state.catalogLoaded=true; }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// ORDERS
-// ─────────────────────────────────────────────────────────────────────────────
+function skeletonTable(cols, rows){
+  let h=`<table class="grid"><tbody>`;
+  for(let i=0;i<(rows||8);i++){ h+=`<tr>`; for(let c=0;c<cols;c++){ h+=`<td><div class="sk" style="width:${40+Math.round(((i*7+c*13)%5)*12)}%"></div></td>`; } h+=`</tr>`; }
+  return h+`</tbody></table>`;
+}
+function emptyState(icon, title, text){ return `<div class="state">${ico(icon)}<h3>${esc(title)}</h3><p>${esc(text)}</p></div>`; }
+function errorState(msg, retry){ return `<div class="state">${ico("alert")}<h3>Не удалось загрузить</h3><p class="num" style="font-size:12px">${esc(msg)}</p><button class="act" onclick="${retry}">${ico("refresh")}<span>Повторить</span></button></div>`; }
+
+// ─────────────────────────── ORDERS ───────────────────────────
 async function loadOrders(){
-  const o = state.orders; o.loading = true; renderOrders();
+  const o=state.orders; o.loading=true; o.err=""; renderOrders();
   try {
-    const qs = new URLSearchParams({ limit:"200" });
-    if(o.filter) qs.set("status", o.filter);
-    const j = await api("/tma/api/admin/orders?"+qs.toString());
-    o.rows = j.orders || []; o.counts = j.counts || {};
-  } catch(e){ toast(e.message); o.rows=[]; }
-  o.loading = false; renderOrders();
-  const total = Object.values(state.orders.counts).reduce((a,b)=>a+b,0);
-  const b = el("tab-orders-n"); if(b) b.textContent = total ? "· "+total : "";
+    const qs=new URLSearchParams({ limit:"200" }); if(o.filter) qs.set("status", o.filter);
+    const j=await api("/tma/api/admin/orders?"+qs.toString());
+    o.rows=j.orders||[]; o.counts=j.counts||{};
+  } catch(e){ o.err=e.message; o.rows=[]; }
+  o.loading=false; renderOrders();
+  const total=Object.values(state.orders.counts).reduce((a,b)=>a+b,0);
+  const b=el("tab-orders-n"); if(b) b.textContent=total?String(total):"";
 }
-
-function orderRowsFiltered(){
-  const o = state.orders; const q = o.q.trim().toLowerCase();
-  if(!q) return o.rows;
-  return o.rows.filter(r => [r.id, r.name, r.phone, r.tg_name, r.address].some(v => String(v||"").toLowerCase().includes(q)));
+function ordersFiltered(){
+  const o=state.orders, q=o.q.trim().toLowerCase();
+  let rows=o.rows;
+  if(q) rows=rows.filter(r=>[r.id,r.name,r.phone,r.tg_name,r.address].some(v=>String(v||"").toLowerCase().includes(q)));
+  return sortRows(rows, o.sort);
 }
-
-function renderOrders(){
-  const o = state.orders;
-  const counts = o.counts || {};
-  const totalAll = Object.values(counts).reduce((a,b)=>a+b,0);
-  const chips = [`<button class="chip ${o.filter===""?"active":""}" onclick="setOrderFilter('')">Все <span class="n">${totalAll}</span></button>`]
-    .concat(ST_ORDER.filter(s=>counts[s]).map(s =>
-      `<button class="chip ${o.filter===s?"active":""}" onclick="setOrderFilter('${s}')">${esc(ST_LABELS[s])} <span class="n">${counts[s]}</span></button>`));
-
-  const rows = orderRowsFiltered();
-  let listHTML;
-  if(o.loading) listHTML = `<div class="state"><div class="spin"></div></div>`;
-  else if(!rows.length) listHTML = `<div class="state"><p>Заказов нет</p></div>`;
-  else listHTML = `<table class="grid">
-      <thead><tr><th>№</th><th>Дата</th><th>Клиент</th><th>Телефон</th><th class="right">Поз.</th><th class="right">Сумма</th><th>Статус</th></tr></thead>
-      <tbody>${rows.map(r => `
-        <tr class="row ${o.sel===r.id?"sel":""}" onclick="openOrder(${r.id})">
-          <td class="num strong">${r.id}</td>
-          <td class="num muted">${dtShort(r.created_at)}</td>
-          <td class="ellip" style="max-width:200px">${esc(r.name||r.tg_name||"—")}</td>
-          <td class="num muted">${esc(r.phone||"—")}</td>
-          <td class="right num muted">${r.items_count ?? "—"}</td>
-          <td class="right num strong">${money(r.total)}</td>
-          <td>${stPill(r.status)}</td>
-        </tr>`).join("")}</tbody></table>`;
-
-  el("view-orders").innerHTML = `
-    <div class="md ${o.detail?"show-detail":"no-detail"}">
-      <div class="md-list">
-        <div class="toolbar">
-          ${chips.join("")}
-          <div class="spacer"></div>
-          <input class="search" id="ord-search" placeholder="Поиск: №, имя, телефон…" value="${esc(o.q)}">
-        </div>
-        ${listHTML}
-      </div>
-      ${o.detail ? `<div class="md-detail">${orderDetailHTML(o.detail)}</div>` : ``}
-    </div>`;
-  const s = el("ord-search");
-  if(s) s.oninput = (e)=>{ o.q = e.target.value; const t=el("view-orders"); /* re-render list only */ renderOrders(); el("ord-search").focus(); el("ord-search").setSelectionRange(o.q.length,o.q.length); };
-}
-
+function sortOrders(key){ const s=state.orders.sort; s.dir = s.key===key && s.dir==="desc" ? "asc":"desc"; s.key=key; renderOrders(); }
 function setOrderFilter(f){ state.orders.filter=f; state.orders.detail=null; state.orders.sel=null; loadOrders(); }
 
-async function openOrder(id){
-  const o = state.orders; o.sel = id; renderOrders();
-  try {
-    o.detail = await api("/tma/api/admin/order/"+id);
-  } catch(e){ toast(e.message); o.detail=null; o.sel=null; }
-  renderOrders();
+function renderOrders(){
+  const o=state.orders, counts=o.counts||{};
+  const totalAll=Object.values(counts).reduce((a,b)=>a+b,0);
+  const chips=[`<button class="fchip ${o.filter===""?"active":""}" onclick="setOrderFilter('')">Все <span class="n">${totalAll}</span></button>`]
+    .concat(ST_ORDER.filter(s=>counts[s]).map(s=>`<button class="fchip ${o.filter===s?"active":""}" onclick="setOrderFilter('${s}')">${esc(ST_LABELS[s])} <span class="n">${counts[s]}</span></button>`));
+  const rows=ordersFiltered();
+  let body;
+  if(o.loading) body=skeletonTable(7);
+  else if(o.err) body=errorState(o.err,"loadOrders()");
+  else if(!rows.length) body=emptyState("inbox", o.q?"Ничего не найдено":"Заказов нет", o.q?"Измени запрос или сбрось фильтр.":"Заказы появятся здесь, как только поступят.");
+  else body=`<table class="grid"><thead><tr>
+      ${thSort("№","id",o.sort,"sortOrders")}
+      ${thSort("Дата","created_at",o.sort,"sortOrders")}
+      <th>Клиент</th><th>Телефон</th>
+      ${thSort("Поз.","items_count",o.sort,"sortOrders","right")}
+      ${thSort("Сумма","total",o.sort,"sortOrders","right")}
+      <th>Статус</th></tr></thead><tbody>
+      ${rows.map(r=>`<tr class="row ${o.sel===r.id?"sel":""}" tabindex="0" onclick="openOrder(${r.id})" onkeydown="rowKey(event,()=>openOrder(${r.id}))">
+        <td class="num strong">${r.id}</td>
+        <td class="num muted">${dtShort(r.created_at)}</td>
+        <td class="ellip" style="max-width:200px">${esc(r.name||r.tg_name||"-")}</td>
+        <td class="num muted">${esc(r.phone||"-")}</td>
+        <td class="right num muted">${r.items_count ?? "-"}</td>
+        <td class="right num strong">${money(r.total)}</td>
+        <td>${stPill(r.status)}</td></tr>`).join("")}</tbody></table>`;
+  el("view-orders").innerHTML=`<div class="md ${o.detail?"show-detail":"no-detail"}">
+      <div class="md-list">
+        <div class="toolbar">${chips.join("")}<div class="spacer"></div>
+          <div class="search">${ico("search")}<input id="ord-search" placeholder="Поиск: №, имя, телефон" value="${esc(o.q)}" aria-label="Поиск заказов"></div></div>
+        ${body}</div>
+      ${o.detail?`<div class="md-detail">${orderDetailHTML(o.detail)}</div>`:``}</div>`;
+  wireSearch("ord-search", v=>{ o.q=v; renderOrders(); });
 }
+
+async function openOrder(id){ const o=state.orders; o.sel=id; renderOrders(); try{ o.detail=await api("/tma/api/admin/order/"+id);}catch(e){ toast(e.message,"err"); o.detail=null; o.sel=null; } renderOrders(); }
 function closeOrder(){ state.orders.detail=null; state.orders.sel=null; renderOrders(); }
-
 function orderDetailHTML(d){
-  const items = d.items || [];
+  const items=d.items||[];
   return `<div class="dp">
-    <button class="btn-ghost close" onclick="closeOrder()">Закрыть ✕</button>
-    <h2>Заказ №${d.id}</h2>
-    <div class="sub">${dt(d.created_at)} · ${stPill(d.status)}</div>
-
-    <div class="card">
-      <dl class="kv">
-        <dt>Клиент</dt><dd>${esc(d.name||d.tg_name||"—")}</dd>
-        <dt>Телефон</dt><dd class="mono">${esc(d.phone||"—")}</dd>
-        <dt>Адрес</dt><dd>${esc(d.address||"—")}</dd>
-        ${d.city?`<dt>Город</dt><dd>${esc(d.city)}</dd>`:""}
-        <dt>User ID</dt><dd class="mono faint">${esc(d.user_id)}</dd>
-      </dl>
-    </div>
-
-    <div class="card">
-      <div class="sec-title">Состав · ${items.length}</div>
-      <table class="items"><tbody>
-        ${items.map(it => `<tr>
-          <td>${esc(it.product_name||"—")}${it.roast?` <span class="faint">· ${esc(it.roast)}</span>`:""}</td>
-          <td class="q right">${esc(it.quantity)}×${fmt(it.price)}</td>
-          <td class="num right strong">${money((Number(it.quantity)||0)*(Number(it.price)||0))}</td>
-        </tr>`).join("") || `<tr><td class="muted">Позиции не найдены</td></tr>`}
-      </tbody></table>
-      <div class="total-row"><span class="muted">Итого</span><b>${money(d.total)}</b></div>
-    </div>
-
-    <div class="card">
-      <div class="sec-title">Сменить статус</div>
-      <div class="actions">
-        ${ST_ACTIONS.map(s => `<button class="act ${s==="cancelled"?"danger":(s==="confirmed"?"primary":"")}" ${d.status===s?"disabled":""}
-            onclick="setOrderStatus(${d.id},'${s}')">${esc(ST_LABELS[s])}</button>`).join("")}
-      </div>
-    </div>
-  </div>`;
+    <div class="dp-head"><div><h2>Заказ №${d.id}</h2>
+      <div class="dp-sub">${stPill(d.status)}<span class="num">${dt(d.created_at)}</span></div></div>
+      <button class="iconbtn" aria-label="Закрыть" onclick="closeOrder()">${ico("x")}</button></div>
+    <div class="card"><dl class="kv">
+      <dt>Клиент</dt><dd>${esc(d.name||d.tg_name||"-")}</dd>
+      <dt>Телефон</dt><dd class="num">${esc(d.phone||"-")}</dd>
+      <dt>Адрес</dt><dd>${esc(d.address||"-")}</dd>
+      ${d.city?`<dt>Город</dt><dd>${esc(d.city)}</dd>`:""}
+      <dt>User ID</dt><dd class="num faint">${esc(d.user_id)}</dd></dl></div>
+    <div class="card"><div class="sec-title">Состав · ${items.length}</div>
+      <table class="items"><tbody>${items.map(it=>`<tr>
+        <td>${esc(it.product_name||"-")}${it.roast?` <span class="faint">${esc(it.roast)}</span>`:""}</td>
+        <td class="q right num">${esc(it.quantity)}×${fmt(it.price)}</td>
+        <td class="num right strong">${money((Number(it.quantity)||0)*(Number(it.price)||0))}</td></tr>`).join("")||`<tr><td class="muted">Позиции не найдены</td></tr>`}</tbody></table>
+      <div class="total-row"><span class="muted">Итого</span><b class="num">${money(d.total)}</b></div></div>
+    <div class="card"><div class="sec-title">Сменить статус</div><div class="actions">
+      ${ST_ACTIONS.map(s=>`<button class="act ${s==="cancelled"?"danger":(s==="confirmed"?"primary":"")}" ${d.status===s?"disabled":""} onclick="setOrderStatus(${d.id},'${s}')">${esc(ST_LABELS[s])}</button>`).join("")}</div></div></div>`;
 }
-
 async function setOrderStatus(id, status){
   if(!confirm(`Сменить статус заказа №${id} на «${ST_LABELS[status]}»?`)) return;
   try {
-    await api("/tma/api/admin/order/"+id+"/status", {
-      method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify({ status })
-    });
-    toast("Статус обновлён, клиент уведомлён");
-    // обновить в списке + детали без полной перезагрузки
-    const row = state.orders.rows.find(r=>r.id===id); if(row) row.status=status;
+    await api("/tma/api/admin/order/"+id+"/status",{ method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify({ status }) });
+    toast("Статус обновлён, клиент уведомлён","ok");
+    const row=state.orders.rows.find(r=>r.id===id); if(row) row.status=status;
     if(state.orders.detail && state.orders.detail.id===id) state.orders.detail.status=status;
-    await loadOrders();
-    if(state.orders.sel===id) await openOrder(id);
-  } catch(e){ toast(e.message, 3000); }
+    await loadOrders(); if(state.orders.sel===id) await openOrder(id);
+  } catch(e){ toast(e.message,"err"); }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// CLIENTS
-// ─────────────────────────────────────────────────────────────────────────────
+// ─────────────────────────── CLIENTS ───────────────────────────
 async function loadClients(){
-  const c = state.clients; c.loading=true; renderClients();
-  try { const j = await api("/tma/api/admin/users"); c.rows = j.users || []; }
-  catch(e){ toast(e.message); c.rows=[]; }
+  const c=state.clients; c.loading=true; c.err=""; renderClients();
+  try { const j=await api("/tma/api/admin/users"); c.rows=j.users||[]; }
+  catch(e){ c.err=e.message; c.rows=[]; }
   c.loading=false; renderClients();
 }
-
-function clientRowsFiltered(){
-  const c = state.clients; const q = c.q.trim().toLowerCase();
-  if(!q) return c.rows;
-  return c.rows.filter(r => [r.name, r.phone, r.tg_name, r.user_id].some(v => String(v||"").toLowerCase().includes(q)));
+function clientsFiltered(){
+  const c=state.clients, q=c.q.trim().toLowerCase();
+  let rows=c.rows;
+  if(q) rows=rows.filter(r=>[r.name,r.phone,r.tg_name,r.user_id].some(v=>String(v||"").toLowerCase().includes(q)));
+  return sortRows(rows, c.sort);
 }
+function sortClients(key){ const s=state.clients.sort; s.dir = s.key===key && s.dir==="desc" ? "asc":"desc"; s.key=key; renderClients(); }
 
 function renderClients(){
-  const c = state.clients;
-  const rows = clientRowsFiltered();
-  let listHTML;
-  if(c.loading) listHTML = `<div class="state"><div class="spin"></div></div>`;
-  else if(!rows.length) listHTML = `<div class="state"><p>Клиентов нет</p></div>`;
-  else listHTML = `<table class="grid">
-      <thead><tr><th>Клиент</th><th>Телефон</th><th class="right">Заказов</th><th class="right">Сумма</th><th>Последний</th></tr></thead>
-      <tbody>${rows.map(r => `
-        <tr class="row ${c.sel===r.user_id?"sel":""}" onclick="openClient(${r.user_id})">
-          <td><div class="strong ellip" style="max-width:220px">${esc(r.name||r.tg_name||"—")}</div>
-              ${r.tg_name?`<div class="faint mono" style="font-size:11px">@${esc(String(r.tg_name).replace(/^@/,""))}</div>`:""}</td>
-          <td class="num muted">${esc(r.phone||"—")}</td>
-          <td class="right num">${r.order_count ?? 0}</td>
-          <td class="right num strong">${money(r.total_spent)}</td>
-          <td class="num muted">${dtShort(r.last_order_at)}</td>
-        </tr>`).join("")}</tbody></table>`;
-
-  el("view-clients").innerHTML = `
-    <div class="md ${c.detail?"show-detail":"no-detail"}">
-      <div class="md-list">
-        <div class="toolbar">
-          <input class="search" id="cl-search" placeholder="Поиск: имя, телефон, @ник…" value="${esc(c.q)}">
-          <div class="spacer"></div>
-          <span class="muted mono" style="font-size:12px">${rows.length} из ${c.rows.length}</span>
-        </div>
-        ${listHTML}
-      </div>
-      ${c.detail ? `<div class="md-detail">${clientDetailHTML(c.detail)}</div>` : ``}
-    </div>`;
-  const s = el("cl-search");
-  if(s) s.oninput = (e)=>{ c.q=e.target.value; renderClients(); el("cl-search").focus(); el("cl-search").setSelectionRange(c.q.length,c.q.length); };
+  const c=state.clients, rows=clientsFiltered();
+  let body;
+  if(c.loading) body=skeletonTable(5);
+  else if(c.err) body=errorState(c.err,"loadClients()");
+  else if(!rows.length) body=emptyState("clients", c.q?"Ничего не найдено":"Клиентов нет", c.q?"Измени запрос.":"Клиенты появятся после первых заказов.");
+  else body=`<table class="grid"><thead><tr>
+      ${thSort("Клиент","name",c.sort,"sortClients")}<th>Телефон</th>
+      ${thSort("Заказов","order_count",c.sort,"sortClients","right")}
+      ${thSort("Сумма","total_spent",c.sort,"sortClients","right")}
+      ${thSort("Последний","last_order_at",c.sort,"sortClients")}</tr></thead><tbody>
+      ${rows.map(r=>`<tr class="row ${c.sel===r.user_id?"sel":""}" tabindex="0" onclick="openClient(${r.user_id})" onkeydown="rowKey(event,()=>openClient(${r.user_id}))">
+        <td><div class="strong ellip" style="max-width:220px">${esc(r.name||r.tg_name||"-")}</div>
+            ${r.tg_name?`<div class="sub num">@${esc(String(r.tg_name).replace(/^@/,""))}</div>`:""}</td>
+        <td class="num muted">${esc(r.phone||"-")}</td>
+        <td class="right num">${r.order_count ?? 0}</td>
+        <td class="right num strong">${money(r.total_spent)}</td>
+        <td class="num muted">${dtShort(r.last_order_at)}</td></tr>`).join("")}</tbody></table>`;
+  el("view-clients").innerHTML=`<div class="md ${c.detail?"show-detail":"no-detail"}">
+      <div class="md-list"><div class="toolbar">
+          <div class="search">${ico("search")}<input id="cl-search" placeholder="Поиск: имя, телефон, ник" value="${esc(c.q)}" aria-label="Поиск клиентов"></div>
+          <div class="spacer"></div><span class="count">${rows.length} из ${c.rows.length}</span></div>
+        ${body}</div>
+      ${c.detail?`<div class="md-detail">${clientDetailHTML(c.detail)}</div>`:``}</div>`;
+  wireSearch("cl-search", v=>{ c.q=v; renderClients(); });
 }
-
-async function openClient(id){
-  const c = state.clients; c.sel=id; renderClients();
-  try { c.detail = await api("/tma/api/admin/user/"+id); }
-  catch(e){ toast(e.message); c.detail=null; c.sel=null; }
-  renderClients();
-}
+async function openClient(id){ const c=state.clients; c.sel=id; renderClients(); try{ c.detail=await api("/tma/api/admin/user/"+id);}catch(e){ toast(e.message,"err"); c.detail=null; c.sel=null; } renderClients(); }
 function closeClient(){ state.clients.detail=null; state.clients.sel=null; renderClients(); }
-
 function clientDetailHTML(d){
-  const orders = d.orders || [];
-  const rowsKV = [
-    ["Имя", d.name || d.tg_name],
-    ["Телефон", d.phone],
-    ["Тип", d.user_type],
-    ["Компания", d.company_name],
-    ["ИНН", d.inn],
-    ["Email", d.email],
-    ["Город", d.city],
-    ["Адрес", d.address || d.actual_address],
-    ["User ID", d.user_id],
-  ].filter(([,v]) => v!==undefined && v!==null && v!=="");
+  const orders=d.orders||[];
+  const kv=[["Имя",d.name||d.tg_name],["Телефон",d.phone],["Тип",d.user_type],["Компания",d.company_name],["ИНН",d.inn],["Email",d.email],["Город",d.city],["Адрес",d.address||d.actual_address],["User ID",d.user_id]]
+    .filter(([,v])=>v!==undefined&&v!==null&&v!=="");
   return `<div class="dp">
-    <button class="btn-ghost close" onclick="closeClient()">Закрыть ✕</button>
-    <h2>${esc(d.name||d.tg_name||("Клиент "+d.user_id))}</h2>
-    <div class="sub">${d.tg_name?("@"+esc(String(d.tg_name).replace(/^@/,""))+" · "):""}рег. ${dtShort(d.created_at)}</div>
-
-    <div class="card"><dl class="kv">
-      ${rowsKV.map(([k,v]) => `<dt>${esc(k)}</dt><dd${k==="User ID"||k==="ИНН"||k==="Телефон"?' class="mono"':""}>${esc(v)}</dd>`).join("")}
-    </dl></div>
-
-    <div class="card">
-      <div class="sec-title">Заказы · ${orders.length}</div>
-      <table class="items"><tbody>
-        ${orders.map(o => `<tr style="cursor:pointer" onclick="gotoOrder(${o.id})">
-          <td class="num strong">№${o.id}</td>
-          <td class="muted">${dtShort(o.created_at)}</td>
-          <td>${stPill(o.status)}</td>
-          <td class="num right strong">${money(o.total)}</td>
-        </tr>`).join("") || `<tr><td class="muted">Заказов нет</td></tr>`}
-      </tbody></table>
-    </div>
-  </div>`;
+    <div class="dp-head"><div><h2>${esc(d.name||d.tg_name||("Клиент "+d.user_id))}</h2>
+      <div class="dp-sub">${d.tg_name?`<span class="num">@${esc(String(d.tg_name).replace(/^@/,""))}</span>`:""}<span>рег. ${dtShort(d.created_at)}</span></div></div>
+      <button class="iconbtn" aria-label="Закрыть" onclick="closeClient()">${ico("x")}</button></div>
+    <div class="card"><dl class="kv">${kv.map(([k,v])=>`<dt>${esc(k)}</dt><dd${(k==="User ID"||k==="ИНН"||k==="Телефон")?' class="num"':""}>${esc(v)}</dd>`).join("")}</dl></div>
+    <div class="card"><div class="sec-title">Заказы · ${orders.length}</div>
+      <table class="items"><tbody>${orders.map(o=>`<tr class="orow" onclick="gotoOrder(${o.id})">
+        <td class="num strong">№${o.id}</td><td class="muted num">${dtShort(o.created_at)}</td>
+        <td>${stPill(o.status)}</td><td class="num right strong">${money(o.total)}</td></tr>`).join("")||`<tr><td class="muted">Заказов нет</td></tr>`}</tbody></table></div></div>`;
 }
-
 async function gotoOrder(id){ switchTab("orders"); state.orders.filter=""; await loadOrders(); await openOrder(id); }
 
-// ─────────────────────────────────────────────────────────────────────────────
+// ── shared ──
+function wireSearch(id, cb){
+  const s=el(id); if(!s) return;
+  s.oninput=(e)=>{ const pos=e.target.selectionStart; cb(e.target.value); const n=el(id); if(n){ n.focus(); try{ n.setSelectionRange(pos,pos);}catch(_){} } };
+}
+function rowKey(e, fn){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); fn(); } }
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ if(state.tab==="orders"&&state.orders.detail) closeOrder(); else if(state.tab==="clients"&&state.clients.detail) closeClient(); } });
+
+initTheme();
 boot();
 </script>
 </body>
