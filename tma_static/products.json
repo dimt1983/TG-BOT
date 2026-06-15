@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 19,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 3,
+      "stock": 37,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 51,
+      "stock": 48,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 509,
+      "stock": 545,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6526,9 +6526,9 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 14,
+      "hidden": false,
+      "quarantined": false,
       "country": "Кения",
       "process": null,
       "altitude": null,
@@ -6547,8 +6547,8 @@
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-06-15T03:34:46+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "espresso_mono_кения_аб_мытый_1_кг_эспрессо",
@@ -14282,7 +14282,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 10,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
