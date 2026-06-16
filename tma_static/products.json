@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 20,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 108,
+      "stock": 107,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -3279,7 +3279,7 @@
           "price": 670.0
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -4013,7 +4013,7 @@
           "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
-      "stock": 108,
+      "stock": 88,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
       "quarantined": false,
@@ -4559,7 +4559,7 @@
           "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg"
         }
       ],
-      "stock": 43,
+      "stock": 33,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg",
       "quarantined": false,
@@ -4689,7 +4689,7 @@
           "photo": "photos/products/t-restoranica_togo_медовое_яблоко_с_имбирем_30пак.jpg"
         }
       ],
-      "stock": 196,
+      "stock": 186,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_медовое_яблоко_с_имбирем_30пак.jpg",
       "quarantined": false,
@@ -4819,7 +4819,7 @@
           "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg"
         }
       ],
-      "stock": 177,
+      "stock": 167,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg",
       "quarantined": false,
@@ -4845,7 +4845,7 @@
           "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
         }
       ],
-      "stock": 83,
+      "stock": 82,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 88,
+      "stock": 82,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 512,
+      "stock": 507,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6193,7 +6193,7 @@
           "price": 2320.0
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -7350,7 +7350,7 @@
           "price": 896.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -7374,7 +7374,7 @@
           "price": 1290
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10800,7 +10800,7 @@
           "price": 530.0
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10824,7 +10824,7 @@
           "price": 660.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -12673,7 +12673,7 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg"
         }
       ],
-      "stock": 108,
+      "stock": 88,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg",
       "quarantined": false,
