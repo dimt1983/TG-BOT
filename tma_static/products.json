@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 32,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -3935,7 +3935,7 @@
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
-      "stock": 55,
+      "stock": 50,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
       "quarantined": false,
@@ -3987,7 +3987,7 @@
           "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg"
         }
       ],
-      "stock": 140,
+      "stock": 130,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg",
       "quarantined": false,
@@ -4013,7 +4013,7 @@
           "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
-      "stock": 118,
+      "stock": 108,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
       "quarantined": false,
@@ -4039,7 +4039,7 @@
           "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg"
         }
       ],
-      "stock": 126,
+      "stock": 116,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 553,
+      "stock": 552,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
