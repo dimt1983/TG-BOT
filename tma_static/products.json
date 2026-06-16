@@ -432,7 +432,7 @@
           "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg",
       "_source": "alephtrade",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 44,
+      "stock": 32,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 595,
+      "stock": 553,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8097,7 +8097,7 @@
           "photo": null
         }
       ],
-      "stock": 210,
+      "stock": 198,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14201,7 +14201,7 @@
       "name": "Эфиопия Челчеле гр.1 сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
