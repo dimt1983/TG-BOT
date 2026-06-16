@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 89,
+      "stock": 84,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1968,7 +1968,7 @@
           "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_-_1_кг.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 11,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 524,
+      "stock": 514,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5714,7 +5714,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 10,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -8497,7 +8497,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 10,
+      "stock": 14,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -9173,7 +9173,7 @@
           "photo": "photos/products/s-сироп_botanika_груша_сортовая_1л.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_груша_сортовая_1л.jpg",
       "_source": "https://botanikastories.ru/product/grusha-sortovaya/",
@@ -9371,7 +9371,7 @@
           "photo": "photos/products/s-сироп_botanika_карамель_соленая_1л.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 13,
       "tags": [
         "Хит"
       ],
@@ -9771,7 +9771,7 @@
           "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg",
       "_source": "https://botanikastories.ru/product/zelyonaya-myata/",
@@ -11571,7 +11571,7 @@
           "price": 635.0
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14101,7 +14101,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 157,
+      "stock": 152,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14256,7 +14256,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 20,
+      "stock": 29,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14409,7 +14409,7 @@
       "name": "Вьетнам Блю Сонал сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 1,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -14434,9 +14434,9 @@
       "name": "Эфиопия Челчеле гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_micro",
-      "stock": 5,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "E",
       "photo": "assets/placeholders/ph_espresso.svg",
       "fasovka": [
@@ -14450,7 +14450,9 @@
       "created_by": "sync_catalog_v2",
       "description": "Эфиопия Челчеле. Цветочные и ягодные ноты, чайный профиль, высокая кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
+      "quarantined_at": "2026-06-16T10:32:37+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "f-вьетнам_блю_шонла",
@@ -15111,7 +15113,7 @@
       "name": "Кения Маакиоу Пиберри мытая 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
