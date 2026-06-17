@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 37,
+      "stock": 35,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 474,
+      "stock": 544,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8559,7 +8559,7 @@
           "price": 1
         }
       ],
-      "stock": 2200,
+      "stock": 12200,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -11744,7 +11744,7 @@
           "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
         }
       ],
-      "stock": 960,
+      "stock": 900,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg",
       "quarantined": false,
@@ -11867,7 +11867,7 @@
           "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg"
         }
       ],
-      "stock": 765,
+      "stock": 675,
       "tags": [],
       "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg",
       "quarantined": false,
