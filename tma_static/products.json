@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 32,
+      "stock": 31,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 107,
+      "stock": 106,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1920,7 +1920,7 @@
           "photo": "photos/products/retail_e_roastberry_уганада_рувензор_200_г.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 486,
+      "stock": 474,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -12270,7 +12270,7 @@
       "name": "Уганда Рувензори сухой -  эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
@@ -14286,7 +14286,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 6,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
