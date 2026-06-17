@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 505,
+      "stock": 504,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7652,7 +7652,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 17,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8239,7 +8239,7 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 3,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -14203,9 +14203,9 @@
       "name": "Эфиопия Челчеле гр.1 сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
       "country": "Эфиопия",
       "process": null,
       "altitude": null,
@@ -14224,8 +14224,8 @@
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-06-16T07:32:33+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "espresso_mono_китай_симао_гр_1_меллоу_мытый_эспрессо_1_кг",
@@ -14310,7 +14310,7 @@
       "name": "Бразилия \"Фазенда Лагуинья мундо анаэроб.\" 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 1,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -14335,9 +14335,9 @@
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
       "roast": "F",
       "photo": "photos/products/filter_mono_перу_монте_верде_гр_1_сухой_1_кг_filter.jpg",
       "fasovka": [
@@ -14352,8 +14352,8 @@
       "country": "Перу",
       "description": "Перу. Шоколад, сухофрукты, лёгкая кислотность, чистый профиль.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-06-16T08:32:35+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter",
@@ -15155,7 +15155,7 @@
       "name": "Кения КиаваМуруру NH-7 нат.анаэроб.1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 1,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
