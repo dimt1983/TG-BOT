@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 33,
+      "stock": 32,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1861,7 +1861,7 @@
           "stock": 14
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 507,
+      "stock": 505,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14103,7 +14103,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 152,
+      "stock": 149,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14258,7 +14258,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 29,
+      "stock": 27,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
