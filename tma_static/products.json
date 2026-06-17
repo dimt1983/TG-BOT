@@ -1086,7 +1086,7 @@
           "photo": "photos/products/retail_be_roastberry_биттер_-_1_кг.jpg"
         }
       ],
-      "stock": 41,
+      "stock": 11,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 106,
+      "stock": 277,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5949,7 +5949,7 @@
           "photo": "photos/products/c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи.jpg"
         }
       ],
-      "stock": 53,
+      "stock": 52,
       "tags": [],
       "photo": "photos/products/c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи.jpg",
       "tasting_notes": [
@@ -5980,7 +5980,7 @@
           "photo": null
         }
       ],
-      "stock": 61,
+      "stock": 60,
       "tags": [],
       "photo": "",
       "tasting_notes": [
@@ -6042,7 +6042,7 @@
           "photo": "photos/products/c-дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_.jpg"
         }
       ],
-      "stock": 83,
+      "stock": 82,
       "tags": [],
       "photo": "photos/products/c-дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_.jpg",
       "pair_id": "дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_",
@@ -6068,7 +6068,7 @@
           "price": 760
         }
       ],
-      "stock": 49,
+      "stock": 48,
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Эфиопия",
@@ -6106,7 +6106,7 @@
           "price": 710
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Колумбия",
@@ -7484,7 +7484,7 @@
       "name": "Коста-Рика Тарразу Ла Пастора эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 1,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "country": "Коста-Рика",
