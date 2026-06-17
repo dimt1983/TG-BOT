@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 18,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -3935,7 +3935,7 @@
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
-      "stock": 45,
+      "stock": 42,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
       "quarantined": false,
@@ -4013,7 +4013,7 @@
           "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
-      "stock": 88,
+      "stock": 84,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
       "quarantined": false,
@@ -4637,7 +4637,7 @@
           "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg"
         }
       ],
-      "stock": 164,
+      "stock": 160,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -4793,7 +4793,7 @@
           "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg"
         }
       ],
-      "stock": 84,
+      "stock": 80,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 504,
+      "stock": 496,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14103,7 +14103,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 149,
+      "stock": 94,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14258,7 +14258,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 27,
+      "stock": 28,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15023,7 +15023,7 @@
       "name": "Бразилия \"Фазенда Лагуинья мундо анаэроб.\" эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_micro",
-      "stock": 2,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
