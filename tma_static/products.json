@@ -432,7 +432,7 @@
           "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg"
         }
       ],
-      "stock": 3,
+      "stock": 1,
       "tags": [],
       "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg",
       "_source": "alephtrade",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 264,
+      "stock": 257,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2652,7 +2652,7 @@
           "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg"
         }
       ],
-      "stock": 22,
+      "stock": 21,
       "tags": [],
       "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg",
       "_source": "alephtrade",
@@ -3109,7 +3109,7 @@
           "price": 185.0
         }
       ],
-      "stock": 25,
+      "stock": 24,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -6132,7 +6132,7 @@
           "photo": null
         }
       ],
-      "stock": 296,
+      "stock": 286,
       "tags": [],
       "photo": "",
       "tasting_notes": [
@@ -7921,7 +7921,7 @@
           "price": 1760.0
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8559,7 +8559,7 @@
           "price": 1
         }
       ],
-      "stock": 12000,
+      "stock": 11600,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -12416,7 +12416,7 @@
           "photo": null
         }
       ],
-      "stock": 52,
+      "stock": 51,
       "tags": [],
       "photo": "",
       "quarantined": false,
@@ -13855,7 +13855,7 @@
           "photo": null
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13879,7 +13879,7 @@
           "price": 1700.0
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14105,7 +14105,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 173,
+      "stock": 171,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14286,7 +14286,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 8,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
