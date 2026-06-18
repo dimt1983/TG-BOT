@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 20,
+      "stock": 19,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1496,7 +1496,7 @@
       "name": "CUP 6 Порошок для удаления кофейных масел 1 кг",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 25,
+      "stock": 24,
       "on_request": false,
       "price": null,
       "quarantined": false,
@@ -1518,7 +1518,7 @@
       "name": "CUP 7 Жидкость для очистки молочных систем 1 л",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 17,
+      "stock": 16,
       "on_request": false,
       "price": null,
       "quarantined": false,
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 31,
+      "stock": 23,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1784,7 +1784,7 @@
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_-_1_кг.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 82,
+      "stock": 81,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 544,
+      "stock": 543,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5771,7 +5771,7 @@
       "name": "Горячий шоколад Cocaya Classic Brown 1 кг",
       "category": "other",
       "subcategory": "other_chocolate",
-      "stock": 6,
+      "stock": 5,
       "on_request": false,
       "price": null,
       "quarantined": false,
@@ -6042,7 +6042,7 @@
           "photo": "photos/products/c-дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_.jpg"
         }
       ],
-      "stock": 82,
+      "stock": 81,
       "tags": [],
       "photo": "photos/products/c-дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_.jpg",
       "pair_id": "дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_",
@@ -6068,7 +6068,7 @@
           "price": 760
         }
       ],
-      "stock": 48,
+      "stock": 47,
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Эфиопия",
@@ -6106,7 +6106,7 @@
           "price": 710
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Колумбия",
@@ -7171,7 +7171,7 @@
       "name": "Колумбия Кастильо мытая - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 6,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -9891,7 +9891,7 @@
           "photo": "photos/products/s-сироп_botanika_черная_смородина_1л.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_черная_смородина_1л.jpg",
       "_source": "https://botanikastories.ru/product/chernaya-smorodina-2/",
@@ -11399,7 +11399,7 @@
           "photo": "photos/products/s-сироп_sweetshot_соленая_карамель_1л.jpg"
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [
         "Хит"
       ],
@@ -11622,7 +11622,7 @@
           "price": 635.0
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -11719,7 +11719,7 @@
           "price": 635.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -11923,7 +11923,7 @@
       "name": "Танзания АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 7,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": "Танзания",
@@ -12213,7 +12213,7 @@
       "name": "Уганда Вугар мытый  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 7,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
@@ -12270,7 +12270,7 @@
       "name": "Уганда Рувензори сухой -  эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 13,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
@@ -14133,7 +14133,7 @@
       "name": "Эфиопия Челелекту гр.1 мытый FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 3,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -15117,7 +15117,7 @@
       "name": "Кения Маакиоу Пиберри мытая 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 5,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -15157,7 +15157,7 @@
       "name": "Кения КиаваМуруру NH-7 нат.анаэроб.1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
