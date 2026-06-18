@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 240,
+      "stock": 239,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -3935,7 +3935,7 @@
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
-      "stock": 42,
+      "stock": 34,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
       "quarantined": false,
@@ -3961,7 +3961,7 @@
           "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg"
         }
       ],
-      "stock": 86,
+      "stock": 78,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg",
       "quarantined": false,
@@ -3987,7 +3987,7 @@
           "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg"
         }
       ],
-      "stock": 127,
+      "stock": 119,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg",
       "quarantined": false,
@@ -4013,7 +4013,7 @@
           "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
-      "stock": 84,
+      "stock": 76,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
       "quarantined": false,
@@ -4039,7 +4039,7 @@
           "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg"
         }
       ],
-      "stock": 106,
+      "stock": 98,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg",
       "quarantined": false,
@@ -4637,7 +4637,7 @@
           "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg"
         }
       ],
-      "stock": 158,
+      "stock": 150,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -4819,7 +4819,7 @@
           "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg"
         }
       ],
-      "stock": 157,
+      "stock": 149,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 463,
+      "stock": 449,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -10703,7 +10703,7 @@
           "photo": "photos/products/s-сироп_herbarista_шоколадный_трюфель_0_7л.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_шоколадный_трюфель_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -12675,7 +12675,7 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg"
         }
       ],
-      "stock": 77,
+      "stock": 69,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg",
       "quarantined": false,
@@ -14105,7 +14105,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 130,
+      "stock": 124,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14387,9 +14387,9 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 8,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "E",
       "photo": "photos/products/espresso_mono_гватемала_уетенанго_мытый_1_кг_эспрессо.jpg",
       "fasovka": [
@@ -14405,8 +14405,8 @@
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность, хорошая сладость.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined_at": "2026-06-18T09:36:16+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "filter_micro_вьетнам_блю_сонал_сухой_filter_1_кг",
