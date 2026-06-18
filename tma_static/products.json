@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 246,
+      "stock": 247,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1946,7 +1946,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 79,
+      "stock": 70,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5573,7 +5573,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 28,
+      "stock": 25,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14105,7 +14105,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 80,
+      "stock": 130,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -15193,6 +15193,26 @@
       "created_by": "sync_catalog_v2",
       "quarantined_at": "2026-06-15T05:34:16+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+    },
+    {
+      "id": "espresso_mono_вьетнам_блю_сонал_сухой_эспрессо_1_кг",
+      "name": "Вьетнам Блю Сонал сухой  эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 2,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "E",
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-06-18T07:36:31+00:00",
+      "created_by": "sync_catalog_v2"
     }
   ]
 }
