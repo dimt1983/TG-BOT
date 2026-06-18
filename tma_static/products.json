@@ -1086,7 +1086,7 @@
           "photo": "photos/products/retail_be_roastberry_биттер_-_1_кг.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 247,
+      "stock": 240,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1946,7 +1946,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 70,
+      "stock": 38,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 74,
+      "stock": 127,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 539,
+      "stock": 463,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5573,7 +5573,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 25,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8499,7 +8499,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 13,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
