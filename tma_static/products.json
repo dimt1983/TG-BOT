@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 17,
+      "stock": 27,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 46,
+      "stock": 50,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 402,
+      "stock": 403,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14387,9 +14387,9 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 10,
+      "hidden": false,
+      "quarantined": false,
       "roast": "E",
       "photo": "photos/products/espresso_mono_гватемала_уетенанго_мытый_1_кг_эспрессо.jpg",
       "fasovka": [
@@ -14405,8 +14405,8 @@
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность, хорошая сладость.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-06-18T09:36:16+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "filter_micro_вьетнам_блю_сонал_сухой_filter_1_кг",
