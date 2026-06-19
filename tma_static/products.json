@@ -1946,7 +1946,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 78,
+      "stock": 75,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5573,7 +5573,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 30,
+      "stock": 29,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
