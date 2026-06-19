@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 248,
+      "stock": 246,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1861,7 +1861,7 @@
           "stock": 14
         }
       ],
-      "stock": 14,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2169,7 +2169,7 @@
           "photo": "photos/products/retail_f_roastberry_эфиопия_лиму_200_г.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -4455,7 +4455,7 @@
           "photo": "photos/products/t-restoranica_togo_ассам_с_шиповником_36пак.jpg"
         }
       ],
-      "stock": 153,
+      "stock": 143,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_ассам_с_шиповником_36пак.jpg",
       "quarantined": false,
@@ -4637,7 +4637,7 @@
           "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg"
         }
       ],
-      "stock": 150,
+      "stock": 140,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -4819,7 +4819,7 @@
           "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg"
         }
       ],
-      "stock": 149,
+      "stock": 139,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg",
       "quarantined": false,
@@ -4845,7 +4845,7 @@
           "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
         }
       ],
-      "stock": 79,
+      "stock": 69,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 420,
+      "stock": 410,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
