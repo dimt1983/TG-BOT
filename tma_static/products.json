@@ -3501,7 +3501,7 @@
           "photo": null
         }
       ],
-      "stock": 12,
+      "stock": 8,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3574,7 +3574,7 @@
           "photo": "photos/products/t-rb_tea_эрл_грей_250_г_черный_чай.jpg"
         }
       ],
-      "stock": 22,
+      "stock": 18,
       "tags": [],
       "photo": "photos/products/t-rb_tea_эрл_грей_250_г_черный_чай.jpg",
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 111,
+      "stock": 118,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -13855,7 +13855,7 @@
           "photo": null
         }
       ],
-      "stock": 4,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14105,7 +14105,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 171,
+      "stock": 169,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
