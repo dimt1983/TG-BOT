@@ -618,7 +618,7 @@
           "photo": "photos/products/t-althaus_молочный_улун_зел_15х4г.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/t-althaus_молочный_улун_зел_15х4г.jpg",
       "_source": "alephtrade",
@@ -724,7 +724,7 @@
           "photo": "photos/products/t-althaus_ред_фрут_флаш_фрукт_лист_250г.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/t-althaus_ред_фрут_флаш_фрукт_лист_250г.jpg",
       "_source": "alephtrade",
@@ -856,7 +856,7 @@
           "price": 1200.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -1038,7 +1038,7 @@
           "photo": "photos/products/t-althaus_японская_липа_трав_75г.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/t-althaus_японская_липа_трав_75г.jpg",
       "_source": "alephtrade",
@@ -5092,7 +5092,7 @@
           "photo": null
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5238,7 +5238,7 @@
           "price": 1080.0
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 110,
+      "stock": 111,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 398,
+      "stock": 491,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5678,7 +5678,7 @@
           "price": 1130.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5923,7 +5923,7 @@
           "price": 1770.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -6526,7 +6526,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 14,
+      "stock": 20,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -7921,7 +7921,7 @@
           "price": 1760.0
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8403,7 +8403,7 @@
           "price": 2215.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8427,7 +8427,7 @@
           "price": 2215.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8451,7 +8451,7 @@
           "price": 1130.0
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12125,7 +12125,7 @@
           "photo": "photos/products/t-травяной_иван_чай_214_г_аромат_виноград.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "tags": [],
       "photo": "photos/products/t-травяной_иван_чай_214_г_аромат_виноград.jpg",
       "quarantined": false,
@@ -12316,7 +12316,7 @@
           "photo": null
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12391,7 +12391,7 @@
           "photo": "photos/products/t-улун_те_гуанинь_70_200_г_железная_бодхисаттва_гуан.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": "photos/products/t-улун_те_гуанинь_70_200_г_железная_бодхисаттва_гуан.jpg",
       "quarantined": false,
@@ -12474,7 +12474,7 @@
           "price": 1590.0
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12574,7 +12574,7 @@
           "price": 2215.0
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13903,7 +13903,7 @@
           "price": 2215.0
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
