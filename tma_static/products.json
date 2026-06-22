@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 38,
+      "stock": 36,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1861,7 +1861,7 @@
           "stock": 14
         }
       ],
-      "stock": 10,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2169,7 +2169,7 @@
           "photo": "photos/products/retail_f_roastberry_эфиопия_лиму_200_г.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 104,
+      "stock": 100,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 375,
+      "stock": 363,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5949,7 +5949,7 @@
           "photo": "photos/products/c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи.jpg"
         }
       ],
-      "stock": 51,
+      "stock": 50,
       "tags": [],
       "photo": "photos/products/c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи.jpg",
       "tasting_notes": [
@@ -6585,7 +6585,7 @@
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -7484,9 +7484,9 @@
       "name": "Коста-Рика Тарразу Ла Пастора эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 11,
+      "hidden": false,
+      "quarantined": false,
       "country": "Коста-Рика",
       "process": "Помол под фильтр",
       "altitude": null,
@@ -7509,8 +7509,8 @@
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
-      "quarantined_at": "2026-06-22T06:35:41+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "quarantined_at": null,
+      "quarantine_reason": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
@@ -8885,7 +8885,7 @@
           "photo": "photos/products/s-сироп_botanika_айриш_крем_1л.jpg"
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_айриш_крем_1л.jpg",
       "_source": "https://botanikastories.ru/product/ajrish-krem/",
@@ -9029,7 +9029,7 @@
           "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg",
       "_source": "https://botanikastories.ru/product/zhyoltyj-banan/",
@@ -9124,7 +9124,7 @@
           "photo": "photos/products/s-сироп_botanika_грейпфрут_розовый_1л.jpg"
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_грейпфрут_розовый_1л.jpg",
       "_source": "https://botanikastories.ru/product/grejpfrut-rozovyj/",
@@ -9773,7 +9773,7 @@
           "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg",
       "_source": "https://botanikastories.ru/product/zelyonaya-myata/",
@@ -11573,7 +11573,7 @@
           "price": 635.0
         }
       ],
-      "stock": 4,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -11647,7 +11647,7 @@
           "photo": null
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
