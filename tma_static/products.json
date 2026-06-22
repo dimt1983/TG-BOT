@@ -934,7 +934,7 @@
           "photo": "photos/products/t-althaus_сенча_сенпай_зел_лист_250г.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/t-althaus_сенча_сенпай_зел_лист_250г.jpg",
       "_source": "alephtrade",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 216,
+      "stock": 208,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 350,
+      "stock": 442,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6132,7 +6132,7 @@
           "photo": null
         }
       ],
-      "stock": 286,
+      "stock": 281,
       "tags": [],
       "photo": "",
       "tasting_notes": [
@@ -11598,7 +11598,7 @@
           "photo": null
         }
       ],
-      "stock": 32,
+      "stock": 31,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14105,7 +14105,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 160,
+      "stock": 137,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14362,9 +14362,9 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 7,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "F",
       "photo": "photos/products/filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter.jpg",
       "fasovka": [
@@ -14379,8 +14379,8 @@
       "country": "Эфиопия",
       "description": "Эфиопия Yirgacheffe. Классический цветочно-чайный профиль с высокой кислотностью.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined_at": "2026-06-22T13:35:54+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "espresso_mono_гватемала_уетенанго_мытый_1_кг_эспрессо",
