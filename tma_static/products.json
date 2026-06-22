@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 39,
+      "stock": 38,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -3911,7 +3911,7 @@
           "price": 590.0
         }
       ],
-      "stock": 14,
+      "stock": 11,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -4968,7 +4968,7 @@
           "price": 1260.0
         }
       ],
-      "stock": 11,
+      "stock": 8,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12125,7 +12125,7 @@
           "photo": "photos/products/t-травяной_иван_чай_214_г_аромат_виноград.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "tags": [],
       "photo": "photos/products/t-травяной_иван_чай_214_г_аромат_виноград.jpg",
       "quarantined": false,
@@ -12201,7 +12201,7 @@
           "photo": null
         }
       ],
-      "stock": 19,
+      "stock": 17,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12877,7 +12877,7 @@
           "photo": "photos/products/t-черный_дянь_хун_классический_черный_китайскй_200_г.jpg"
         }
       ],
-      "stock": 3,
+      "stock": 1,
       "tags": [],
       "photo": "photos/products/t-черный_дянь_хун_классический_черный_китайскй_200_г.jpg",
       "quarantined": false,
@@ -13419,7 +13419,7 @@
           "price": 800.0
         }
       ],
-      "stock": 10,
+      "stock": 8,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14105,7 +14105,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 166,
+      "stock": 160,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
