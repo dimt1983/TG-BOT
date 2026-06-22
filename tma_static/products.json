@@ -353,7 +353,7 @@
           "photo": "photos/products/t-althaus_ассам_молти_кап_15х4г.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 4,
       "tags": [],
       "photo": "photos/products/t-althaus_ассам_молти_кап_15х4г.jpg",
       "_source": "alephtrade",
@@ -405,7 +405,7 @@
           "photo": "photos/products/t-althaus_горные_травы_чёрн_15х4г.jpg"
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "photo": "photos/products/t-althaus_горные_травы_чёрн_15х4г.jpg",
       "_source": "alephtrade",
@@ -907,7 +907,7 @@
           "photo": "photos/products/t-althaus_сенча_сенпай_зел_15х4г.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/t-althaus_сенча_сенпай_зел_15х4г.jpg",
       "_source": "alephtrade",
@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 21,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 19,
+      "stock": 32,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 213,
+      "stock": 220,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 19,
+      "stock": 39,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2169,7 +2169,7 @@
           "photo": "photos/products/retail_f_roastberry_эфиопия_лиму_200_г.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -3501,7 +3501,7 @@
           "photo": null
         }
       ],
-      "stock": 8,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3911,7 +3911,7 @@
           "price": 590.0
         }
       ],
-      "stock": 17,
+      "stock": 14,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -5116,7 +5116,7 @@
           "price": 1800.0
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 115,
+      "stock": 104,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7652,7 +7652,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7694,7 +7694,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8099,7 +8099,7 @@
           "photo": null
         }
       ],
-      "stock": 198,
+      "stock": 196,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8559,7 +8559,7 @@
           "price": 1
         }
       ],
-      "stock": 11000,
+      "stock": 10800,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -11671,7 +11671,7 @@
           "price": 635.0
         }
       ],
-      "stock": 25,
+      "stock": 23,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14387,7 +14387,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 10,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
