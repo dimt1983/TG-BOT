@@ -326,7 +326,7 @@
           "photo": "photos/products/t-althaus_ассам_меленг_чёрн_пакет_20х1_75г.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 17,
       "tags": [],
       "photo": "photos/products/t-althaus_ассам_меленг_чёрн_пакет_20х1_75г.jpg",
       "_source": "alephtrade",
@@ -353,7 +353,7 @@
           "photo": "photos/products/t-althaus_ассам_молти_кап_15х4г.jpg"
         }
       ],
-      "stock": 1,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/t-althaus_ассам_молти_кап_15х4г.jpg",
       "_source": "alephtrade",
@@ -432,7 +432,7 @@
           "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg"
         }
       ],
-      "stock": 1,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg",
       "_source": "alephtrade",
@@ -592,7 +592,7 @@
           "photo": "photos/products/t-althaus_лемон_минт_трав_150г.jpg"
         }
       ],
-      "stock": 1,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/t-althaus_лемон_минт_трав_150г.jpg",
       "_source": "alephtrade",
@@ -907,7 +907,7 @@
           "photo": "photos/products/t-althaus_сенча_сенпай_зел_15х4г.jpg"
         }
       ],
-      "stock": 1,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/t-althaus_сенча_сенпай_зел_15х4г.jpg",
       "_source": "alephtrade",
@@ -934,7 +934,7 @@
           "photo": "photos/products/t-althaus_сенча_сенпай_зел_лист_250г.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/t-althaus_сенча_сенпай_зел_лист_250г.jpg",
       "_source": "alephtrade",
@@ -960,7 +960,7 @@
           "photo": "photos/products/t-althaus_сенча_сенпай_зел_пакет_20х1_75г.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 17,
       "tags": [],
       "photo": "photos/products/t-althaus_сенча_сенпай_зел_пакет_20х1_75г.jpg",
       "_source": "alephtrade",
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 214,
+      "stock": 213,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1946,7 +1946,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 75,
+      "stock": 41,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2678,7 +2678,7 @@
           "price": 180.0
         }
       ],
-      "stock": 9,
+      "stock": 17,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -4968,7 +4968,7 @@
           "price": 1260.0
         }
       ],
-      "stock": 1,
+      "stock": 11,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5116,7 +5116,7 @@
           "price": 1800.0
         }
       ],
-      "stock": 3,
+      "stock": 12,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5166,7 +5166,7 @@
           "photo": null
         }
       ],
-      "stock": 1,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5358,7 +5358,7 @@
           "price": 2175.0
         }
       ],
-      "stock": 1,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 376,
+      "stock": 375,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5573,7 +5573,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 28,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6267,7 +6267,7 @@
           "price": 2215.0
         }
       ],
-      "stock": 1,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -7352,7 +7352,7 @@
           "price": 896.0
         }
       ],
-      "stock": 3,
+      "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -7376,7 +7376,7 @@
           "price": 1290
         }
       ],
-      "stock": 3,
+      "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -11024,7 +11024,7 @@
           "price": 530.0
         }
       ],
-      "stock": 3,
+      "stock": 9,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -13636,7 +13636,7 @@
           "photo": null
         }
       ],
-      "stock": 1,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13879,7 +13879,7 @@
           "price": 1700.0
         }
       ],
-      "stock": 2,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "quarantined": false,
