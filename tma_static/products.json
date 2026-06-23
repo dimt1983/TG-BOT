@@ -1086,7 +1086,7 @@
           "photo": "photos/products/retail_be_roastberry_биттер_-_1_кг.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 35,
+      "stock": 33,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1946,7 +1946,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 71,
+      "stock": 68,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5505,7 +5505,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5573,7 +5573,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 28,
+      "stock": 26,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
