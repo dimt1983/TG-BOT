@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 19,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 32,
+      "stock": 31,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5505,7 +5505,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 331,
+      "stock": 296,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -9373,7 +9373,7 @@
           "photo": "photos/products/s-сироп_botanika_карамель_соленая_1л.jpg"
         }
       ],
-      "stock": 18,
+      "stock": 17,
       "tags": [
         "Хит"
       ],
@@ -13443,7 +13443,7 @@
           "price": 1710.0
         }
       ],
-      "stock": 3,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13636,7 +13636,7 @@
           "photo": null
         }
       ],
-      "stock": 6,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13879,7 +13879,7 @@
           "price": 1700.0
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
