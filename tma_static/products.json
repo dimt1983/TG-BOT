@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 32,
+      "stock": 31,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 87,
+      "stock": 84,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
