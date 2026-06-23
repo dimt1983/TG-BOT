@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 35,
+      "stock": 28,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 190,
+      "stock": 185,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2652,7 +2652,7 @@
           "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg"
         }
       ],
-      "stock": 18,
+      "stock": 16,
       "tags": [],
       "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg",
       "_source": "alephtrade",
@@ -3501,7 +3501,7 @@
           "photo": null
         }
       ],
-      "stock": 6,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3911,7 +3911,7 @@
           "price": 590.0
         }
       ],
-      "stock": 11,
+      "stock": 8,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -4968,7 +4968,7 @@
           "price": 1260.0
         }
       ],
-      "stock": 8,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 396,
+      "stock": 391,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8099,7 +8099,7 @@
           "photo": null
         }
       ],
-      "stock": 196,
+      "stock": 184,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8559,7 +8559,7 @@
           "price": 1
         }
       ],
-      "stock": 9800,
+      "stock": 9400,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -12416,7 +12416,7 @@
           "photo": null
         }
       ],
-      "stock": 51,
+      "stock": 49,
       "tags": [],
       "photo": "",
       "quarantined": false,
@@ -13347,7 +13347,7 @@
           "price": 790.0
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13419,7 +13419,7 @@
           "price": 800.0
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13491,7 +13491,7 @@
           "price": 1200.0
         }
       ],
-      "stock": 10,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
