@@ -5505,7 +5505,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 1,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6106,7 +6106,7 @@
           "price": 710
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Колумбия",
@@ -7171,7 +7171,7 @@
       "name": "Колумбия Кастильо мытая - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7547,7 +7547,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_колумбия_кастильо_мытая_200_.jpg"
         }
       ],
-      "stock": 2,
+      "stock": 17,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -14105,7 +14105,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 137,
+      "stock": 127,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
