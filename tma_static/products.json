@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 31,
+      "stock": 32,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -3935,7 +3935,7 @@
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
-      "stock": 34,
+      "stock": 84,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
       "quarantined": false,
@@ -4013,7 +4013,7 @@
           "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
-      "stock": 76,
+      "stock": 126,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
       "quarantined": false,
@@ -4039,7 +4039,7 @@
           "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg"
         }
       ],
-      "stock": 98,
+      "stock": 148,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg",
       "quarantined": false,
@@ -4247,7 +4247,7 @@
           "photo": "photos/products/t-restoranica_resta_мята_малина_30пак.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 38,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_мята_малина_30пак.jpg",
       "quarantined": false,
@@ -4377,7 +4377,7 @@
           "photo": "photos/products/t-restoranica_resta_шиповник_чабрец_30пак.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 42,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_шиповник_чабрец_30пак.jpg",
       "quarantined": false,
@@ -4559,7 +4559,7 @@
           "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg"
         }
       ],
-      "stock": 28,
+      "stock": 58,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg",
       "quarantined": false,
@@ -4585,7 +4585,7 @@
           "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg"
         }
       ],
-      "stock": 97,
+      "stock": 127,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg",
       "quarantined": false,
@@ -4637,7 +4637,7 @@
           "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg"
         }
       ],
-      "stock": 140,
+      "stock": 176,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -4845,7 +4845,7 @@
           "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
         }
       ],
-      "stock": 69,
+      "stock": 99,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 391,
+      "stock": 456,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8559,7 +8559,7 @@
           "price": 1
         }
       ],
-      "stock": 9400,
+      "stock": 9000,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -11744,7 +11744,7 @@
           "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
         }
       ],
-      "stock": 900,
+      "stock": 1620,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg",
       "quarantined": false,
@@ -12675,7 +12675,7 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 159,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg",
       "quarantined": false,
@@ -12701,7 +12701,7 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 114,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_улун_с_цветами_жасмина_100.jpg",
       "quarantined": false,
@@ -14260,7 +14260,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 23,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14337,9 +14337,9 @@
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
       "roast": "F",
       "photo": "photos/products/filter_mono_перу_монте_верде_гр_1_сухой_1_кг_filter.jpg",
       "fasovka": [
@@ -14354,8 +14354,8 @@
       "country": "Перу",
       "description": "Перу. Шоколад, сухофрукты, лёгкая кислотность, чистый профиль.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-06-22T06:35:41+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter",
@@ -14413,9 +14413,9 @@
       "name": "Вьетнам Блю Сонал сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
       "roast": "F",
       "photo": "assets/placeholders/ph_filter.svg",
       "fasovka": [
@@ -14428,8 +14428,8 @@
       "created_at": "2026-05-20T11:00:09+00:00",
       "created_by": "sync_catalog_v2",
       "country": "Вьетнам",
-      "quarantined_at": "2026-06-22T06:35:41+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "quarantined_at": null,
+      "quarantine_reason": null,
       "description": "Вьетнам Блю Шонла. Шоколад, орех, низкая кислотность.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
