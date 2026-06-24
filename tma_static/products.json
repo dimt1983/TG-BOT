@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1567,10 +1567,10 @@
           "size": "200 г",
           "price": 435.0,
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_200_г.jpg",
-          "stock": 23
+          "stock": 33
         }
       ],
-      "stock": 23,
+      "stock": 33,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 149,
+      "stock": 155,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1622,10 +1622,10 @@
           "price": 445.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_200_г.jpg",
-          "stock": 17
+          "stock": 47
         }
       ],
-      "stock": 17,
+      "stock": 47,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 612,
+      "stock": 812,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7743,7 +7743,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_пачамама_нат_анаэроб.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 13,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8237,7 +8237,7 @@
       "name": "Перу Монте Верде гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 25,
+      "stock": 22,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -14577,7 +14577,7 @@
       "name": "Гондурас Сан Николас темная обжарка - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 14,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
