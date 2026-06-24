@@ -1113,7 +1113,7 @@
           "stock": 10
         }
       ],
-      "stock": 10,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1166,7 +1166,7 @@
           "stock": 19
         }
       ],
-      "stock": 19,
+      "stock": 22,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1272,7 +1272,7 @@
           "stock": 17
         }
       ],
-      "stock": 17,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1352,7 +1352,7 @@
           "stock": 8
         }
       ],
-      "stock": 8,
+      "stock": 18,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1840,7 +1840,7 @@
           "stock": 15
         }
       ],
-      "stock": 15,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2046,7 +2046,7 @@
           "photo": "photos/products/retail_f_roastberry_кения_аа_200_г.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2074,7 +2074,7 @@
           "stock": 10
         }
       ],
-      "stock": 10,
+      "stock": 25,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -2123,7 +2123,7 @@
           "stock": 18
         }
       ],
-      "stock": 18,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -2149,7 +2149,7 @@
           "photo": "photos/products/retail_f_roastberry_танзания_200_г.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2171,7 +2171,7 @@
           "photo": "photos/products/retail_f_roastberry_эфиопия_иргачиф_г2_200_г.jpg"
         }
       ],
-      "stock": 1,
+      "stock": 5,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
