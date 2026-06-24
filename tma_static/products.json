@@ -4065,7 +4065,7 @@
           "photo": "photos/products/t-restoranica_resta_апельсин_манго_30пак.jpg"
         }
       ],
-      "stock": 53,
+      "stock": 48,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_апельсин_манго_30пак.jpg",
       "quarantined": false,
@@ -4143,7 +4143,7 @@
           "photo": "photos/products/t-restoranica_resta_иммунный_30пак.jpg"
         }
       ],
-      "stock": 37,
+      "stock": 32,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_иммунный_30пак.jpg",
       "quarantined": false,
@@ -4663,7 +4663,7 @@
           "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg"
         }
       ],
-      "stock": 71,
+      "stock": 66,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg",
       "quarantined": false,
@@ -4793,7 +4793,7 @@
           "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg"
         }
       ],
-      "stock": 79,
+      "stock": 74,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg",
       "quarantined": false,
@@ -4845,7 +4845,7 @@
           "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
         }
       ],
-      "stock": 94,
+      "stock": 89,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 617,
+      "stock": 612,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -9373,7 +9373,7 @@
           "photo": "photos/products/s-сироп_botanika_карамель_соленая_1л.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "tags": [
         "Хит"
       ],
@@ -9585,7 +9585,7 @@
           "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg",
       "_source": "https://botanikastories.ru/product/lesnoj-oreh/",
@@ -9773,7 +9773,7 @@
           "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg",
       "_source": "https://botanikastories.ru/product/zelyonaya-myata/",
@@ -11744,7 +11744,7 @@
           "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
         }
       ],
-      "stock": 1320,
+      "stock": 1290,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg",
       "quarantined": false,
@@ -12623,7 +12623,7 @@
           "photo": "photos/products/t-чай_tasteabrew_resta_650_для_чайника_молочный_улун.jpg"
         }
       ],
-      "stock": 74,
+      "stock": 69,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_resta_650_для_чайника_молочный_улун.jpg",
       "quarantined": false,
@@ -12675,7 +12675,7 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg"
         }
       ],
-      "stock": 119,
+      "stock": 109,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg",
       "quarantined": false,
