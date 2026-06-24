@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 31,
+      "stock": 30,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 185,
+      "stock": 184,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 31,
+      "stock": 29,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 84,
+      "stock": 83,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 456,
+      "stock": 455,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6526,7 +6526,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 19,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -7040,7 +7040,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 11,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
