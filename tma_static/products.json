@@ -1326,7 +1326,7 @@
           "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 29,
+      "stock": 23,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 163,
+      "stock": 149,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 27,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1704,7 +1704,7 @@
           "photo": "photos/products/retail_e_roastberry_гватемала_декаф_-_1_кг.jpg"
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1731,7 +1731,7 @@
           "stock": 13
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1861,7 +1861,7 @@
           "stock": 14
         }
       ],
-      "stock": 19,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2169,7 +2169,7 @@
           "photo": "photos/products/retail_f_roastberry_эфиопия_лиму_200_г.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 6,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5370,7 +5370,7 @@
       "name": "Бразилия \"SL28 Хани анаэроб.\" 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 3,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 620,
+      "stock": 617,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6526,7 +6526,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 17,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -7171,7 +7171,7 @@
       "name": "Колумбия Кастильо мытая - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7526,7 +7526,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_бразилия_бразилия_sl28_хани_.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7589,7 +7589,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_эфиопия_челелекту_г1_мытыи_2.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 10,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7631,7 +7631,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_судан_руме_анаэроб_а.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 9,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7652,7 +7652,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7694,7 +7694,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 10,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7715,7 +7715,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_пачамама_нат_анаэроб.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -9773,7 +9773,7 @@
           "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 12,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg",
       "_source": "https://botanikastories.ru/product/zelyonaya-myata/",
@@ -14286,9 +14286,9 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
       "roast": "E",
       "photo": "photos/products/espresso_mono_эфиопия_yirgacheffe_gr_2_мытый_эспрессо_1_кг.jpg",
       "fasovka": [
@@ -14304,8 +14304,8 @@
       "description": "Эфиопия Yirgacheffe. Классический цветочно-чайный профиль с высокой кислотностью.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-06-22T06:35:41+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "filter_micro_бразилия_фазенда_лагуинья_мундо_анаэроб_1_кг_filter",
