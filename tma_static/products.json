@@ -1772,6 +1772,34 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
+      "id": "retail_e_roastberry_гондурас_san_nicolas_200_г",
+      "name": "E \"Roastberry\" Гондурас San Nicolas",
+      "category": "retail",
+      "photo": "assets/placeholders/ph_retail.svg",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": 465,
+          "photo": "assets/placeholders/ph_retail.svg",
+          "stock": 5
+        }
+      ],
+      "stock": 5,
+      "on_request": false,
+      "subcategory": "retail_espresso",
+      "roast": "E",
+      "_source": "E \"Roastberry\" Гондурас San Nicolas упак. 200 гр.",
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false,
+      "country": "Гондурас",
+      "process": "Мытая",
+      "description": "Красное яблоко, орехи, курага, тёмный шоколад. Q 82,5",
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
+    },
+    {
       "id": "retail_e_roastberry_колумбия_андино_-_1_кг",
       "name": "E \"Roastberry\" Колумбия Андино",
       "category": "retail",
