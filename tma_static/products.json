@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 184,
+      "stock": 168,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -3549,7 +3549,7 @@
           "price": 620.0
         }
       ],
-      "stock": 14,
+      "stock": 13,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 83,
+      "stock": 75,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5540,7 +5540,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 448,
+      "stock": 428,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7352,7 +7352,7 @@
           "price": 896.0
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10729,7 +10729,7 @@
           "photo": "photos/products/s-сироп_herbarista_эвкалипт_и_мята_0_7л.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_эвкалипт_и_мята_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -14039,7 +14039,7 @@
       "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 11,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
