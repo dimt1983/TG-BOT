@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1570,7 +1570,7 @@
           "stock": 12
         }
       ],
-      "stock": 30,
+      "stock": 29,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 162,
+      "stock": 163,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1625,7 +1625,7 @@
           "stock": 49
         }
       ],
-      "stock": 28,
+      "stock": 27,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5472,7 +5472,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 75,
+      "stock": 74,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5505,7 +5505,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8559,7 +8559,7 @@
           "price": 1
         }
       ],
-      "stock": 9000,
+      "stock": 8800,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -10244,7 +10244,7 @@
           "photo": "photos/products/s-сироп_herbarista_кокос_с_мякотью_0_7л.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_кокос_с_мякотью_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -14105,7 +14105,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 128,
+      "stock": 130,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
