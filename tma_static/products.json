@@ -1110,10 +1110,10 @@
           "price": 410.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_биттер_200_г.jpg",
-          "stock": 8
+          "stock": 7
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1163,10 +1163,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_венеция_200_г.jpg",
-          "stock": 21
+          "stock": 20
         }
       ],
-      "stock": 21,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1326,7 +1326,7 @@
           "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1651,7 +1651,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_200_г.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1781,10 +1781,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "assets/placeholders/ph_retail.svg",
-          "stock": 4
+          "stock": 2
         }
       ],
-      "stock": 4,
+      "stock": 2,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1974,7 +1974,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 25,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 810,
+      "stock": 785,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14133,7 +14133,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 122,
+      "stock": 173,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
