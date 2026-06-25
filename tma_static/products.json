@@ -1326,7 +1326,7 @@
           "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1974,7 +1974,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 62,
+      "stock": 25,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5500,7 +5500,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 74,
+      "stock": 124,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5601,7 +5601,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 26,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -12344,7 +12344,7 @@
           "photo": null
         }
       ],
-      "stock": 2,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
