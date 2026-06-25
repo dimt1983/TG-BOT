@@ -1086,7 +1086,7 @@
           "photo": "photos/products/retail_be_roastberry_биттер_-_1_кг.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 6,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1163,10 +1163,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_венеция_200_г.jpg",
-          "stock": 16
+          "stock": 14
         }
       ],
-      "stock": 16,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1216,10 +1216,10 @@
           "price": 425.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_классика_20_200_г.jpg",
-          "stock": 24
+          "stock": 21
         }
       ],
-      "stock": 24,
+      "stock": 21,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 19,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1349,10 +1349,10 @@
           "size": "200 г",
           "price": 435,
           "photo": "photos/products/retail_bf_roastberry_лунго_200_г.jpg",
-          "stock": 17
+          "stock": 16
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1567,10 +1567,10 @@
           "size": "200 г",
           "price": 435.0,
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_200_г.jpg",
-          "stock": 31
+          "stock": 27
         }
       ],
-      "stock": 31,
+      "stock": 27,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 137,
+      "stock": 135,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1781,10 +1781,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "assets/placeholders/ph_retail.svg",
-          "stock": 2
+          "stock": 20
         }
       ],
-      "stock": 2,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2046,7 +2046,7 @@
           "photo": "photos/products/retail_f_roastberry_кения_аа_200_г.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5500,7 +5500,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 124,
+      "stock": 121,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5533,7 +5533,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 11,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 785,
+      "stock": 784,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7077,7 +7077,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 9,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7521,7 +7521,7 @@
       "name": "Коста-Рика Тарразу Ла Пастора эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 11,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "country": "Коста-Рика",
@@ -10057,7 +10057,7 @@
           "price": 771.0
         }
       ],
-      "stock": 11,
+      "stock": 17,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -11641,7 +11641,7 @@
           "photo": null
         }
       ],
-      "stock": 31,
+      "stock": 43,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14592,9 +14592,9 @@
       "name": "Гондурас Сан Николас темная обжарка - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 16,
+      "hidden": false,
+      "quarantined": false,
       "roast": "E",
       "photo": "assets/placeholders/ph_espresso.svg",
       "fasovka": [
@@ -14609,8 +14609,8 @@
       "description": "Гондурас. Шоколад, орех, карамель, низкая кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-06-25T03:32:22+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "espresso_mono_колумбия_супремо_эспрессо_1_кг",
