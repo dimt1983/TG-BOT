@@ -7701,14 +7701,15 @@
           "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
-      "stock": 4,
+      "stock": 0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Gonzalo Carmona Катура нату.\" 200 г",
       "country": "Колумбия",
       "description": "Микролот специальной обжарки. Интенсивный, сложный профиль с яркими фруктовыми и шоколадными нотами.",
-      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C."
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
+      "hidden": true
     },
     {
       "id": "borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью",
@@ -7764,14 +7765,15 @@
           "photo": "assets/placeholders/ph_borshch.svg"
         }
       ],
-      "stock": 6,
+      "stock": 0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Хайро Арсила нат.\" 200 г",
       "country": "Колумбия",
       "description": "Колумбия Хайро Арсила натуральная. Сложный профиль с нотами красных фруктов и шоколада.",
-      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C."
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
+      "hidden": true
     },
     {
       "id": "cascara_кофеи_ная_шелуха_коста-рика_каскара_финка_сонора_с",
