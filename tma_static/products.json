@@ -7183,12 +7183,12 @@
         {
           "size": "8 шт",
           "price": 820,
-          "photo": "assets/placeholders/ph_espresso.svg"
+          "photo": "photos/products/c-drip-колумбия_гонзало_кармона__drip_.jpg"
         },
         {
           "size": "1 шт",
           "price": 86,
-          "photo": "assets/placeholders/ph_espresso.svg"
+          "photo": "photos/products/c-drip-колумбия_гонзало_кармона__drip_.jpg"
         }
       ],
       "stock": 0,
@@ -7199,7 +7199,7 @@
       "quarantined": true,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "photo": "assets/placeholders/ph_espresso.svg",
+      "photo": "photos/products/c-drip-колумбия_гонзало_кармона__drip_.jpg",
       "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026"
     },
