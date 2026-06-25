@@ -1326,7 +1326,7 @@
           "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 135,
+      "stock": 134,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5500,7 +5500,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 121,
+      "stock": 107,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8602,7 +8602,7 @@
           "price": 1
         }
       ],
-      "stock": 8800,
+      "stock": 8400,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -14148,7 +14148,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 173,
+      "stock": 166,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
