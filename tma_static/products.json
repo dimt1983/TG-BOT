@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 104,
+      "stock": 107,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1216,10 +1216,10 @@
           "price": 425.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_классика_20_200_г.jpg",
-          "stock": 2
+          "stock": 29
         }
       ],
-      "stock": 2,
+      "stock": 29,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1757,7 +1757,7 @@
           "photo": "photos/products/retail_e_roastberry_гватемала_уетенанго_200_г.jpg"
         }
       ],
-      "stock": 29,
+      "stock": 11,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1866,7 +1866,7 @@
           "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1921,7 +1921,7 @@
           "photo": "assets/placeholders/ph_retail.svg"
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "tags": [],
       "photo": "assets/placeholders/ph_retail.svg",
       "tasting_notes": [
@@ -1930,10 +1930,10 @@
         "цитрус",
         "карамель"
       ],
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
-      "hidden": false,
+      "quarantined": true,
+      "quarantined_at": "2026-06-25T07:19:49",
+      "quarantine_reason": "no_match_in_rb_bot_xlsx",
+      "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026"
     },
     {
@@ -2017,10 +2017,10 @@
           "price": 495.0,
           "on_request": false,
           "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_200_г.jpg",
-          "stock": 2
+          "stock": 20
         }
       ],
-      "stock": 2,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -6039,7 +6039,7 @@
           "photo": null
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "tags": [],
       "photo": "",
       "tasting_notes": [
@@ -6048,9 +6048,10 @@
         "миндаль",
         "шоколад"
       ],
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined": true,
+      "quarantined_at": "2026-06-25T07:19:53",
+      "quarantine_reason": "no_match_in_rb_bot_xlsx",
+      "hidden": true
     },
     {
       "id": "c-дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_",
@@ -6115,13 +6116,17 @@
           "price": 630
         }
       ],
-      "stock": 3,
+      "stock": 0,
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Кения",
       "description": "Кения. Классический кенийский профиль: чёрная смородина, томат, яркая кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-06-25T07:19:53",
+      "quarantine_reason": "no_match_in_rb_bot_xlsx"
     },
     {
       "id": "drip_дп_fruit_rb-fc_колумбия_супремо_молотыи_8_фильтр-п",
@@ -6134,13 +6139,17 @@
           "price": 710
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Колумбия",
       "description": "Молотый кофе в фильтр-пакетах. Удобный формат для альтернативных способов заваривания.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-06-25T07:19:53",
+      "quarantine_reason": "no_match_in_rb_bot_xlsx"
     },
     {
       "id": "c-дрип-пакет_кения_аа_валом_rbr",
@@ -6506,12 +6515,12 @@
           "price": 292
         }
       ],
-      "stock": 11,
+      "stock": 0,
       "on_request": false,
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
-      "hidden": false,
+      "quarantined": true,
+      "quarantined_at": "2026-06-25T07:19:53",
+      "quarantine_reason": "no_match_in_rb_bot_xlsx",
+      "hidden": true,
       "country": "Коста-Рика"
     },
     {
@@ -7596,14 +7605,18 @@
           "photo": "photos/products/black_кофе_roastberry_black_эфиопия_ададо_200_г.jpg"
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
       "_source": "Кофе \"Roastberry BLACK\" Эфиопия Ададо 200 г",
       "country": "Эфиопия",
       "description": "Эфиопия Ададо. Фруктово-цветочный профиль с нотами персика и жасмина.",
-      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C."
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-06-25T07:19:54",
+      "quarantine_reason": "no_match_in_rb_bot_xlsx"
     },
     {
       "id": "black_кофе_roastberry_black_эфиопия_челелекту_г1_мытыи_2",
@@ -14565,7 +14578,7 @@
           "price": 455
         }
       ],
-      "stock": 10,
+      "stock": 21,
       "tags": [
         "моносорт",
         "Азия",
