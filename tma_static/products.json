@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 34,
+      "stock": 29,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2017,10 +2017,10 @@
           "price": 495.0,
           "on_request": false,
           "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_200_г.jpg",
-          "stock": 18
+          "stock": 16
         }
       ],
-      "stock": 18,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -2100,7 +2100,7 @@
           "photo": "photos/products/retail_f_roastberry_китаи_симао_200_г.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2120,10 +2120,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "photos/products/retail_f_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 19
+          "stock": 17
         }
       ],
-      "stock": 19,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -2149,7 +2149,7 @@
           "photo": "photos/products/retail_f_roastberry_танзания_200_г.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 6,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2171,7 +2171,7 @@
           "photo": "photos/products/retail_f_roastberry_эфиопия_иргачиф_г2_200_г.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 3,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2197,7 +2197,7 @@
           "photo": "photos/products/retail_f_roastberry_эфиопия_лиму_200_г.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 4,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -3963,7 +3963,7 @@
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
-      "stock": 72,
+      "stock": 62,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
       "quarantined": false,
@@ -4223,7 +4223,7 @@
           "photo": "photos/products/t-restoranica_resta_киви_клубника_30пак.jpg"
         }
       ],
-      "stock": 33,
+      "stock": 43,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_киви_клубника_30пак.jpg",
       "quarantined": false,
@@ -5533,7 +5533,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14150,7 +14150,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 166,
+      "stock": 150,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
