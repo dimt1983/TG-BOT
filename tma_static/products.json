@@ -1086,7 +1086,7 @@
           "photo": "photos/products/retail_be_roastberry_биттер_-_1_кг.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 19,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1163,10 +1163,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_венеция_200_г.jpg",
-          "stock": 13
+          "stock": 18
         }
       ],
-      "stock": 13,
+      "stock": 18,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 29,
+      "stock": 28,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1781,10 +1781,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "assets/placeholders/ph_retail.svg",
-          "stock": 20
+          "stock": 19
         }
       ],
-      "stock": 20,
+      "stock": 19,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5533,7 +5533,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 745,
+      "stock": 753,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
