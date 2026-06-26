@@ -1086,7 +1086,7 @@
           "photo": "photos/products/retail_be_roastberry_биттер_-_1_кг.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 105,
+      "stock": 104,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 127,
+      "stock": 114,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1677,7 +1677,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1974,7 +1974,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 115,
+      "stock": 100,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5500,7 +5500,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 100,
+      "stock": 99,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5533,7 +5533,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 7,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6563,7 +6563,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 21,
+      "stock": 19,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
