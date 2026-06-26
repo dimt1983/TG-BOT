@@ -1269,10 +1269,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_хани_200_г.jpg",
-          "stock": 9
+          "stock": 7
         }
       ],
-      "stock": 9,
+      "stock": 7,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 28,
+      "stock": 121,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1622,10 +1622,10 @@
           "price": 445.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_200_г.jpg",
-          "stock": 43
+          "stock": 42
         }
       ],
-      "stock": 43,
+      "stock": 42,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1651,7 +1651,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_200_г.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1677,7 +1677,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1781,10 +1781,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "assets/placeholders/ph_retail.svg",
-          "stock": 19
+          "stock": 16
         }
       ],
-      "stock": 19,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2197,7 +2197,7 @@
           "photo": "photos/products/retail_f_roastberry_эфиопия_лиму_200_г.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 9,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -3963,7 +3963,7 @@
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
-      "stock": 62,
+      "stock": 61,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
       "quarantined": false,
@@ -4041,7 +4041,7 @@
           "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
-      "stock": 125,
+      "stock": 124,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
       "quarantined": false,
@@ -4067,7 +4067,7 @@
           "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg"
         }
       ],
-      "stock": 148,
+      "stock": 147,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_спелая_смородина_50пак.jpg",
       "quarantined": false,
@@ -5533,7 +5533,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4,
+      "stock": 15,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 753,
+      "stock": 733,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7208,7 +7208,7 @@
       "name": "Колумбия Кастильо мытая - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 2,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -8542,7 +8542,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 7,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -10057,7 +10057,7 @@
           "price": 771.0
         }
       ],
-      "stock": 17,
+      "stock": 11,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -13390,7 +13390,7 @@
           "price": 790.0
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14082,9 +14082,9 @@
       "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 3,
+      "hidden": false,
+      "quarantined": false,
       "country": "Эфиопия",
       "process": "Мытая",
       "altitude": null,
@@ -14108,8 +14108,8 @@
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-06-26T04:33:35+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "c-nesp-эфиопия_сидамо__nespresso_",
@@ -14150,7 +14150,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 150,
+      "stock": 192,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14305,7 +14305,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 14,
+      "stock": 23,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14432,7 +14432,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 18,
+      "stock": 15,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14594,7 +14594,7 @@
       "name": "Гондурас Сан Николас темная обжарка - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 16,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
