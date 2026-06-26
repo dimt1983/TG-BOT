@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 18,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 99,
+      "stock": 97,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 767,
+      "stock": 761,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6097,7 +6097,7 @@
           "price": 760
         }
       ],
-      "stock": 45,
+      "stock": 39,
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Эфиопия",
@@ -7736,7 +7736,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
