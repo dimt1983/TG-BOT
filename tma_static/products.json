@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 104,
+      "stock": 101,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1326,7 +1326,7 @@
           "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -4483,7 +4483,7 @@
           "photo": "photos/products/t-restoranica_togo_ассам_с_шиповником_36пак.jpg"
         }
       ],
-      "stock": 98,
+      "stock": 134,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_ассам_с_шиповником_36пак.jpg",
       "quarantined": false,
@@ -4613,7 +4613,7 @@
           "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg"
         }
       ],
-      "stock": 86,
+      "stock": 116,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg",
       "quarantined": false,
@@ -4665,7 +4665,7 @@
           "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg"
         }
       ],
-      "stock": 136,
+      "stock": 172,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -4691,7 +4691,7 @@
           "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg"
         }
       ],
-      "stock": 66,
+      "stock": 126,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg",
       "quarantined": false,
@@ -4769,7 +4769,7 @@
           "photo": "photos/products/t-restoranica_togo_ройбуш_с_апельсином_60пак.jpg"
         }
       ],
-      "stock": 76,
+      "stock": 136,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_ройбуш_с_апельсином_60пак.jpg",
       "quarantined": false,
@@ -4847,7 +4847,7 @@
           "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg"
         }
       ],
-      "stock": 99,
+      "stock": 189,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg",
       "quarantined": false,
@@ -4873,7 +4873,7 @@
           "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
         }
       ],
-      "stock": 89,
+      "stock": 179,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -4899,7 +4899,7 @@
           "photo": "photos/products/t-restoranica_togo_яблоко_с_можжевельником_60пак.jpg"
         }
       ],
-      "stock": 97,
+      "stock": 157,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_яблоко_с_можжевельником_60пак.jpg",
       "quarantined": false,
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 762,
+      "stock": 746,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -11616,7 +11616,7 @@
           "price": 635.0
         }
       ],
-      "stock": 1,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -11787,7 +11787,7 @@
           "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
         }
       ],
-      "stock": 1290,
+      "stock": 1650,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg",
       "quarantined": false,
@@ -11884,7 +11884,7 @@
           "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg"
         }
       ],
-      "stock": 50,
+      "stock": 850,
       "tags": [],
       "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg",
       "quarantined": false,
@@ -12718,7 +12718,7 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg"
         }
       ],
-      "stock": 109,
+      "stock": 199,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg",
       "quarantined": false,
@@ -14082,9 +14082,9 @@
       "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Эфиопия",
       "process": "Мытая",
       "altitude": null,
@@ -14107,7 +14107,9 @@
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
+      "quarantined_at": "2026-06-26T04:33:35+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "c-nesp-эфиопия_сидамо__nespresso_",
