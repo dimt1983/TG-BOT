@@ -2171,7 +2171,7 @@
           "photo": "photos/products/retail_f_roastberry_эфиопия_иргачиф_г2_200_г.jpg"
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 738,
+      "stock": 733,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14432,7 +14432,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 15,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
