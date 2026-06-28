@@ -7208,7 +7208,7 @@
       "name": "Колумбия Кастильо мытая - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 6,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7584,7 +7584,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_колумбия_кастильо_мытая_200_.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7630,7 +7630,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_эфиопия_челелекту_г1_мытыи_2.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7693,7 +7693,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 10,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8252,7 +8252,7 @@
       "name": "Перу Монте Верде гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 26,
+      "stock": 17,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -12256,7 +12256,7 @@
       "name": "Уганда Вугар мытый  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
@@ -12471,7 +12471,7 @@
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 57,
+      "stock": 56,
       "on_request": false,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
@@ -15204,7 +15204,7 @@
       "name": "Кения КиаваМуруру NH-7 нат.анаэроб.1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
