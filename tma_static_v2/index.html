@@ -247,6 +247,7 @@ const STATE = {
       recipient_phone: '',
     },
     comment: '',
+    payment_method: 'on_delivery',
     consent: false,              // согласие на обработку ПДн (обязательно)
   },
   submitting: false,             // флаг in-flight POST /tma/api/order
@@ -1713,6 +1714,27 @@ ${appHeader({ back: true, title: 'Оформление' })}
   <textarea style="${FIELD} min-height:80px; resize:vertical;" placeholder="Помол, упаковка, особые пожелания" oninput="rb.updateContact('comment', this.value)">${esc(c.comment || '')}</textarea>
 </div>
 
+<!-- Оплата -->
+<div style="padding:24px 16px 0;">
+  <div style="${SECT_TITLE}">Оплата</div>
+  <div style="display:flex; flex-direction:column; gap:8px;">
+    ${[
+      { id: 'on_delivery', t: 'При получении', sub: 'Наличными, переводом или картой после подтверждения' },
+      { id: 'online', t: 'Картой онлайн', sub: 'Telegram отправит счёт в чат после оформления' },
+      { id: 'invoice', t: 'Счёт на компанию', sub: 'Менеджер пришлёт счёт на email' },
+    ].filter(opt => c.type === 'company' || opt.id !== 'invoice').map(opt => {
+      const active = (c.payment_method || 'on_delivery') === opt.id;
+      return `<button onclick="rb.setPaymentMethod('${opt.id}')" style="display:flex; align-items:center; gap:12px; text-align:left; padding:14px; border:1px solid ${active ? 'var(--ink)' : 'var(--line)'}; background:${active ? 'var(--surface-2)' : 'var(--surface)'}; border-radius:14px; cursor:pointer; transition:all .15s;">
+        <span style="flex:0 0 18px; width:18px; height:18px; border-radius:999px; border:2px solid ${active ? 'var(--ink)' : 'var(--ink-mute)'}; display:flex; align-items:center; justify-content:center;">${active ? '<span style="width:8px; height:8px; border-radius:999px; background:var(--ink);"></span>' : ''}</span>
+        <span style="flex:1;">
+          <span style="display:block; font-family:var(--f-display); font-weight:700; font-size:14px;">${opt.t}</span>
+          <span class="meta" style="display:block; margin-top:2px; font-size:11px;">${opt.sub}</span>
+        </span>
+      </button>`;
+    }).join('')}
+  </div>
+</div>
+
 <!-- Итого -->
 <div style="padding:24px 16px 0;">
   <div class="card" style="padding:16px; background:var(--surface);">
@@ -3151,12 +3173,19 @@ const rb = {
   },
   setClientType(t) {
     STATE.contact.type = t;
+    if (t !== 'company' && STATE.contact.payment_method === 'invoice') {
+      STATE.contact.payment_method = 'on_delivery';
+    }
     if (hasIdentity()) {
       fetch('/tma/api/user/type', {
         method: 'POST', headers: Object.assign({ 'Content-Type': 'application/json' }, authHeaders()),
         body: JSON.stringify({ user_type: t === 'company' ? 'company' : 'individual' })
       }).catch(() => {});
     }
+    haptic('light'); render();
+  },
+  setPaymentMethod(method) {
+    STATE.contact.payment_method = method;
     haptic('light'); render();
   },
   setDelivery(method) {
@@ -3251,6 +3280,7 @@ const rb = {
       discount_pct: tier,
       saved: subtotal - total,
       total,
+      payment_method: c.payment_method || 'on_delivery',
     };
 
     STATE.submitting = true; render();

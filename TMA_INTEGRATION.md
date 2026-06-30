@@ -70,6 +70,10 @@ register_tma_handlers(dp, bot, get_db, notify_new_order)
 | `ADMIN_ID` | твой telegram id | если нужны уведомления |
 | `PAYMENTS_PROVIDER_TOKEN` | токен от @BotFather → Payments | для онлайн-оплаты |
 | `PAYMENTS_CURRENCY` | `RUB` | можно опустить |
+| `PAYMENTS_VAT_CODE` | `1` | ставка НДС для чека ЮKassa; `1` = без НДС |
+| `PAYMENTS_TAX_SYSTEM_CODE` | код СНО | опционально, если требует ЮKassa |
+| `PAYMENTS_PAYMENT_MODE` | `full_payment` | признак способа расчёта для чека |
+| `PAYMENTS_PAYMENT_SUBJECT` | `commodity` | признак предмета расчёта для товаров |
 
 `TMA_URL` берётся из публичного домена твоего сервиса. Если нет — Railway → сервис → **Settings → Networking → Generate Domain**, получаешь URL вроде `tg-bot-production-1234.up.railway.app`.
 
@@ -105,6 +109,11 @@ register_tma_handlers(dp, bot, get_db, notify_new_order)
 - **Счёт на юр. лицо** — заказ принят, менеджер отправляет счёт на email
 
 Способ передаётся в `payload.payment_method`. Бот в `tma_handler.py` решает что делать.
+
+Для ЮKassa в `sendInvoice` передаётся `provider_data.receipt`: позиции заказа, сумма в рублях,
+валюта, НДС, `payment_mode`, `payment_subject`, телефон или email клиента из checkout.
+Без `PAYMENTS_PROVIDER_TOKEN` онлайн-оплата остаётся в режиме заглушки: заказ создаётся, клиенту
+пишется что менеджер пришлёт ссылку вручную.
 
 ### 🎨 Лого
 

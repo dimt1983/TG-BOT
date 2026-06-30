@@ -14,6 +14,7 @@ tma_handler.py — интеграция Telegram Mini App с ботом.
 import json
 import logging
 import os
+import re
 from typing import Callable
 
 from aiogram import Dispatcher, Bot, F
@@ -70,6 +71,10 @@ def _build_roast_map() -> dict:
 # Боевой: получить в @BotFather → /mybots → твой бот → Payments → выбрать провайдера
 PAYMENTS_PROVIDER_TOKEN = os.environ.get("PAYMENTS_PROVIDER_TOKEN", "")
 PAYMENTS_CURRENCY = os.environ.get("PAYMENTS_CURRENCY", "RUB")
+PAYMENTS_VAT_CODE = int(os.environ.get("PAYMENTS_VAT_CODE", "1") or 1)
+PAYMENTS_TAX_SYSTEM_CODE = os.environ.get("PAYMENTS_TAX_SYSTEM_CODE", "").strip()
+PAYMENTS_PAYMENT_MODE = os.environ.get("PAYMENTS_PAYMENT_MODE", "full_payment")
+PAYMENTS_PAYMENT_SUBJECT = os.environ.get("PAYMENTS_PAYMENT_SUBJECT", "commodity")
 
 
 # ============================================================
@@ -640,6 +645,9 @@ async def process_tma_order(
         except Exception as e:
             log.warning(f"TMA-HTTP: ошибка блока «новый клиент»: {e}")
 
+    if payload.get("payment_method") == "online":
+        await send_payment_invoice(bot, user_id, order_id, items, total, payload.get("contact") or {})
+
     return {"order_id": order_id, "total": total, "is_new_client": is_new_client}
 
 
@@ -647,7 +655,83 @@ async def process_tma_order(
 # 3. Telegram Payments: создание Invoice
 # ============================================================
 
-async def send_payment_invoice(bot: Bot, chat_id: int, order_id: int, items: list, total: float):
+def _receipt_phone(phone: str) -> str:
+    digits = re.sub(r"\D", "", phone or "")
+    if len(digits) == 11 and digits.startswith("8"):
+        digits = "7" + digits[1:]
+    return digits
+
+
+def _receipt_item(item: dict) -> dict:
+    qty = float(item.get("qty") or 1)
+    price = float(item.get("price") or 0)
+    name = item.get("name") or "Товар Roastberry"
+    fasovka = item.get("fasovka") or ""
+    description = f"{name} {fasovka}".strip()[:128]
+    return {
+        "description": description,
+        "quantity": f"{qty:.3f}".rstrip("0").rstrip("."),
+        "amount": {
+            "value": f"{price:.2f}",
+            "currency": PAYMENTS_CURRENCY,
+        },
+        "vat_code": PAYMENTS_VAT_CODE,
+        "payment_mode": PAYMENTS_PAYMENT_MODE,
+        "payment_subject": PAYMENTS_PAYMENT_SUBJECT,
+    }
+
+
+def _build_yookassa_provider_data(items: list, total: float, contact: dict | None = None) -> str:
+    receipt_items = []
+    for item in items[:100]:
+        if item.get("price") is None or item.get("on_request"):
+            continue
+        if float(item.get("price") or 0) <= 0:
+            continue
+        receipt_items.append(_receipt_item(item))
+
+    receipt_sum = round(
+        sum(float(i["amount"]["value"]) * float(i["quantity"]) for i in receipt_items),
+        2,
+    )
+    total = round(float(total or 0), 2)
+    if receipt_items and abs(receipt_sum - total) > 0.01:
+        receipt_items = [{
+            "description": f"Заказ Roastberry №{contact.get('order_id') if contact else ''}".strip()[:128],
+            "quantity": "1",
+            "amount": {
+                "value": f"{total:.2f}",
+                "currency": PAYMENTS_CURRENCY,
+            },
+            "vat_code": PAYMENTS_VAT_CODE,
+            "payment_mode": PAYMENTS_PAYMENT_MODE,
+            "payment_subject": PAYMENTS_PAYMENT_SUBJECT,
+        }]
+
+    receipt = {"items": receipt_items}
+    if PAYMENTS_TAX_SYSTEM_CODE:
+        receipt["tax_system_code"] = int(PAYMENTS_TAX_SYSTEM_CODE)
+    contact = contact or {}
+    customer = {}
+    email = (contact.get("email") or "").strip()
+    phone = _receipt_phone(contact.get("phone") or "")
+    if email:
+        customer["email"] = email
+    elif phone:
+        customer["phone"] = phone
+    if customer:
+        receipt["customer"] = customer
+    return json.dumps({"receipt": receipt}, ensure_ascii=False, separators=(",", ":"))
+
+
+async def send_payment_invoice(
+    bot: Bot,
+    chat_id: int,
+    order_id: int,
+    items: list,
+    total: float,
+    contact: dict | None = None,
+):
     """
     Отправляет инвойс через Telegram Payments.
     Если PAYMENTS_PROVIDER_TOKEN не задан — присылает заглушку с инструкцией.
@@ -674,6 +758,8 @@ async def send_payment_invoice(bot: Bot, chat_id: int, order_id: int, items: lis
     #     prices = detailed
 
     try:
+        receipt_contact = dict(contact or {})
+        receipt_contact["order_id"] = order_id
         await bot.send_invoice(
             chat_id=chat_id,
             title=f"Заказ Roastberry №{order_id}",
@@ -682,6 +768,7 @@ async def send_payment_invoice(bot: Bot, chat_id: int, order_id: int, items: lis
             provider_token=PAYMENTS_PROVIDER_TOKEN,
             currency=PAYMENTS_CURRENCY,
             prices=prices,
+            provider_data=_build_yookassa_provider_data(items, total, receipt_contact),
             need_name=False,
             need_phone_number=False,
             need_email=False,
@@ -837,7 +924,14 @@ def register_tma_handlers(
 
         # Если выбрана онлайн-оплата — присылаем Telegram Invoice
         if payload.get("payment_method") == "online":
-            await send_payment_invoice(bot, message.chat.id, order_id, items, total)
+            await send_payment_invoice(
+                bot,
+                message.chat.id,
+                order_id,
+                items,
+                total,
+                payload.get("contact") or {},
+            )
 
     # ── Telegram Payments: pre-checkout (обязательно отвечать в течение 10 сек) ─
     @dp.pre_checkout_query()
