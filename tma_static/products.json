@@ -2149,7 +2149,7 @@
           "photo": "photos/products/retail_f_roastberry_танзания_200_г.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 1,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -7104,9 +7104,9 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 1,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Колумбия",
       "process": "Мытая",
       "altitude": null,
@@ -7129,8 +7129,8 @@
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined_at": "2026-06-30T10:30:36+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
@@ -14305,7 +14305,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 3,
+      "stock": 23,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15261,6 +15261,26 @@
         }
       ],
       "created_at": "2026-06-18T07:36:31+00:00",
+      "created_by": "sync_catalog_v2"
+    },
+    {
+      "id": "espresso_mono_эфиопия_сидамо_гр_2_мытый_эспрессо_1_кг",
+      "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "E",
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-06-30T10:30:36+00:00",
       "created_by": "sync_catalog_v2"
     }
   ]
