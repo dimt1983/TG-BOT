@@ -152,6 +152,19 @@ def _ensure_tma_id_column(con) -> None:
         con.commit()
 
 
+def _ensure_order_payment_columns(con) -> None:
+    cols = {r[1] for r in con.execute("PRAGMA table_info(orders)").fetchall()}
+    add = []
+    if "payment_method" not in cols:
+        add.append("ALTER TABLE orders ADD COLUMN payment_method TEXT")
+    if "paid_at" not in cols:
+        add.append("ALTER TABLE orders ADD COLUMN paid_at TEXT")
+    for sql in add:
+        con.execute(sql)
+    if add:
+        con.commit()
+
+
 def _ensure_user_profile_columns(con) -> None:
     """Миграция users — поля для авто-подстановки в checkout. Идемпотентна."""
     cols = {r[1] for r in con.execute("PRAGMA table_info(users)").fetchall()}
@@ -359,6 +372,7 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
     items = payload.get("items", [])
     contact = payload.get("contact") or {}
     _normalize_personal_data_consent(payload)
+    _ensure_order_payment_columns(con)
     no_price = []
     for it in items:
         if it.get("price") is None or it.get("on_request"):
@@ -383,8 +397,8 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
 
     # Создаём шапку заказа
     cur = con.execute(
-        """INSERT INTO orders (user_id, name, phone, address, total, discount, status)
-           VALUES (?, ?, ?, ?, ?, ?, 'new')""",
+        """INSERT INTO orders (user_id, name, phone, address, total, discount, status, payment_method)
+           VALUES (?, ?, ?, ?, ?, ?, 'new', ?)""",
         (
             user_id,
             contact.get("name") or "Клиент TMA",
@@ -392,6 +406,7 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
             contact.get("address") or "уточнить при подтверждении",
             total,
             discount_amt,
+            payload.get("payment_method") or "on_delivery",
         ),
     )
     order_id = cur.lastrowid
@@ -1018,7 +1033,12 @@ def register_tma_handlers(
         order_id = sp.invoice_payload.replace("order_", "") if sp.invoice_payload else "?"
         try:
             con = get_db()
-            con.execute("UPDATE orders SET status = 'paid' WHERE id = ?", (order_id,))
+            _ensure_order_payment_columns(con)
+            paid_at = datetime.now(timezone.utc).isoformat()
+            con.execute(
+                "UPDATE orders SET status = 'paid', paid_at = ? WHERE id = ?",
+                (paid_at, order_id),
+            )
             con.commit(); con.close()
         except Exception:
             pass

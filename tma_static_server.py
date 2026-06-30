@@ -773,7 +773,9 @@ class Handler(BaseHTTPRequestHandler):
                     ord_cols = {r[1] for r in con.execute("PRAGMA table_info(orders)")}
                     it_cols  = {r[1] for r in con.execute("PRAGMA table_info(order_items)")}
                     order_ids = customer_account.resolve_customer_order_ids(con, uid)[:50]
-                    extra = [c for c in ("total_kg", "discount", "comment") if c in ord_cols]
+                    extra = [c for c in (
+                        "total_kg", "discount", "comment", "payment_method", "paid_at"
+                    ) if c in ord_cols]
                     sel = ",".join(["id", "total", "status", "created_at"] + extra)
                     name_expr    = "oi.product_name" if "product_name" in it_cols else "p.name as product_name"
                     fasovka_expr = "oi.fasovka"       if "fasovka"       in it_cols else "NULL as fasovka"

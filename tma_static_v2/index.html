@@ -214,12 +214,14 @@ const STATE = {
   showAll: false,                // true → пропускаем drill, рендерим плоский список
   fasovkaSplit: null,            // '1 кг' | '200 г' | null — split категории по фасовкам (см. SPLIT_BY_FASOVKA)
   productId: null,
+  orderId: null,
   productFasovka: null,          // selected size in product screen
   productKg: 1,                  // selected weight for discount calculator
   isAdmin: false,
   history: [],                   // navigation stack
   searchQuery: '',
   myOrders: undefined,
+  paymentNotice: null,
   // Фильтры на странице списка товаров:
   filters: {
     fasovka: null,               // '200г' | '1кг' | null
@@ -1834,6 +1836,13 @@ const ORDER_STATUS = {
 function orderStatusView(s) {
   return ORDER_STATUS[String(s || 'new').toLowerCase()] || { label: String(s || ''), cls: 'ink' };
 }
+function paymentStatusView(o) {
+  const paid = String(o?.status || '').toLowerCase() === 'paid' || !!o?.paid_at;
+  if (paid) return { label: 'Оплата прошла', cls: 'green' };
+  if ((o?.payment_method || '') === 'online') return { label: 'Ожидает оплаты', cls: 'amber' };
+  if ((o?.payment_method || '') === 'invoice') return { label: 'Счёт на компанию', cls: 'blue' };
+  return { label: 'Оплата при получении', cls: 'ink' };
+}
 function wasBought(p) {
   if (!p || !STATE.boughtBefore || !STATE.boughtBefore.length) return false;
   const ids = STATE.boughtBefore.map(String);
@@ -1846,6 +1855,20 @@ function screenProfile() {
 
   return `
 ${appHeader({ title: 'Профиль', action: `<button class="btn-ghost" style="width:36px; padding:0; justify-content:center">${icon('more')}</button>` })}
+
+${STATE.paymentNotice ? `
+<div style="padding:12px 16px 0;">
+  <div class="card" style="padding:14px; border-color:var(--green); background:color-mix(in oklab, var(--green) 10%, var(--surface));">
+    <div style="display:flex; gap:12px; align-items:flex-start;">
+      <span style="width:28px; height:28px; border-radius:999px; background:var(--green); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:900;">✓</span>
+      <div style="flex:1; min-width:0;">
+        <div style="font-family:var(--f-display); font-weight:800; font-size:15px;">Оплата успешно прошла</div>
+        <div style="margin-top:3px; color:var(--ink-soft); font-size:12px;">Заказ №${esc(STATE.paymentNotice.order_id || '')} · ${fmt(STATE.paymentNotice.total || 0)} ₽</div>
+      </div>
+      <button onclick="STATE.paymentNotice=null; render();" style="width:28px; height:28px; border:0; background:transparent; color:var(--ink-soft); font-size:20px; cursor:pointer;">×</button>
+    </div>
+  </div>
+</div>` : ''}
 
 <div style="padding:12px 16px 0;">
   <div style="display:flex; gap:14px; align-items:center;">
@@ -1902,19 +1925,22 @@ ${(() => {
     <div style="padding:0 16px; display:flex; flex-direction:column; gap:8px;">
       ${orders.slice(0, 5).map(o => {
         const sv = orderStatusView(o.status);
+        const pv = paymentStatusView(o);
         const itemsCount = Array.isArray(o.items) ? o.items.length : (o.items_count || 0);
         const dt = (o.created_at || '').replace(/T/, ' ').slice(0, 16);
         return `
-          <div class="card" style="padding:14px; display:flex; align-items:center; gap:12px;">
+          <div class="card" onclick="rb.openMyOrder('${esc(o.id || o.order_id || '')}')" style="padding:14px; display:flex; align-items:center; gap:12px; cursor:pointer;">
             <div style="flex:1; min-width:0;">
               <div style="display:flex; align-items:center; gap:8px;">
                 <span style="font-family:var(--f-mono); font-size:12px; font-weight:600;">#${esc(o.id || o.order_id || '')}</span>
                 <span class="chip chip--${sv.cls}" style="height:18px; font-size:10px; padding:0 6px;">${esc(sv.label)}</span>
               </div>
               <div style="margin-top:4px; font-size:13px; color:var(--ink-soft);">${esc(dt)}${itemsCount ? ' · ' + itemsCount + ' поз.' : ''}</div>
+              <div style="margin-top:5px;"><span class="chip chip--${pv.cls}" style="height:18px; font-size:10px; padding:0 6px;">${esc(pv.label)}</span></div>
             </div>
             <div style="text-align:right;">
               <div style="font-family:var(--f-display); font-weight:800; font-size:16px;">${fmt(o.total || 0)} ₽</div>
+              <div style="margin-top:4px; color:var(--ink-faint);">→</div>
             </div>
           </div>`;
       }).join('')}
@@ -1944,6 +1970,73 @@ ${STATE.isAdmin ? `
 
 ${tabBar('profile')}
 `;
+}
+
+function screenMyOrder() {
+  const id = String(STATE.orderId || '');
+  const orders = Array.isArray(STATE.myOrders) ? STATE.myOrders : [];
+  const o = orders.find(x => String(x.id || x.order_id || '') === id);
+  if (!o) {
+    return `
+${appHeader({ back: true, title: 'Заказ' })}
+<div style="padding:48px 24px; text-align:center; color:var(--ink-soft);">
+  <div class="rb-spinner" style="margin-bottom:12px;"></div>
+  <div style="font-size:14px;">Загружаю заказ…</div>
+</div>
+${tabBar('profile')}`;
+  }
+  const sv = orderStatusView(o.status);
+  const pv = paymentStatusView(o);
+  const items = Array.isArray(o.items) ? o.items : [];
+  const dt = (o.created_at || '').replace(/T/, ' ').slice(0, 16);
+  const paidAt = (o.paid_at || '').replace(/T/, ' ').slice(0, 16);
+  const method = {
+    online: 'Картой онлайн',
+    invoice: 'Счёт на компанию',
+    on_delivery: 'При получении',
+  }[o.payment_method || ''] || 'Не указан';
+  return `
+${appHeader({ back: true, title: 'Заказ №' + esc(id) })}
+<div style="padding:12px 16px 0; display:flex; flex-direction:column; gap:12px;">
+  <div class="card" style="padding:16px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
+      <div>
+        <div style="font-family:var(--f-display); font-weight:900; font-size:24px;">${fmt(o.total || 0)} ₽</div>
+        <div style="margin-top:4px; color:var(--ink-soft); font-size:12px;">${esc(dt)}</div>
+      </div>
+      <span class="chip chip--${sv.cls}" style="height:22px; font-size:11px; padding:0 8px;">${esc(sv.label)}</span>
+    </div>
+    <hr class="hr"/>
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <div style="display:flex; justify-content:space-between; gap:12px;">
+        <span style="color:var(--ink-soft); font-size:13px;">Способ оплаты</span>
+        <span style="font-weight:700; font-size:13px; text-align:right;">${esc(method)}</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; gap:12px; align-items:center;">
+        <span style="color:var(--ink-soft); font-size:13px;">Статус оплаты</span>
+        <span class="chip chip--${pv.cls}" style="height:20px; font-size:10px; padding:0 7px;">${esc(pv.label)}</span>
+      </div>
+      ${paidAt ? `<div style="display:flex; justify-content:space-between; gap:12px;"><span style="color:var(--ink-soft); font-size:13px;">Оплачено</span><span style="font-weight:700; font-size:13px; text-align:right;">${esc(paidAt)}</span></div>` : ''}
+    </div>
+  </div>
+
+  <div>
+    <div class="eyebrow" style="margin:4px 0 10px;">Состав</div>
+    <div style="display:flex; flex-direction:column; gap:1px; background:var(--line); border-radius:var(--r-md); overflow:hidden; border:1px solid var(--line);">
+      ${items.length ? items.map(it => `
+        <div style="display:flex; gap:10px; padding:12px; background:var(--surface);">
+          <div style="flex:1; min-width:0;">
+            <div style="font-family:var(--f-display); font-weight:700; font-size:14px; line-height:1.2;">${esc(it.product_name || it.name || 'Товар')}</div>
+            <div style="margin-top:3px; color:var(--ink-soft); font-size:12px;">${esc(it.fasovka || '')} · ${esc(it.quantity || it.qty || 0)} шт.</div>
+          </div>
+          <div style="font-family:var(--f-display); font-weight:800; font-size:14px; white-space:nowrap;">${fmt((Number(it.price) || 0) * (Number(it.quantity || it.qty) || 0))} ₽</div>
+        </div>
+      `).join('') : `<div style="padding:18px; background:var(--surface); color:var(--ink-soft); text-align:center; font-size:13px;">Состав заказа не найден.</div>`}
+    </div>
+  </div>
+</div>
+<div style="height:110px"></div>
+${tabBar('profile')}`;
 }
 
 /* ════════════════════════════════════════════════════════════════════
@@ -2905,13 +2998,14 @@ function _navSnapshot() {
     showAll: STATE.showAll,
     fasovkaSplit: STATE.fasovkaSplit,
     productId: STATE.productId,
+    orderId: STATE.orderId,
     productFasovka: STATE.productFasovka,
   };
 }
 function _isSameNav(a, b) {
   return a && b && a.screen === b.screen && a.cat === b.cat && a.subcat === b.subcat
       && a.showAll === b.showAll && a.fasovkaSplit === b.fasovkaSplit && a.productId === b.productId
-      && a.productFasovka === b.productFasovka;
+      && a.orderId === b.orderId && a.productFasovka === b.productFasovka;
 }
 function _applyNavSnapshot(snap) {
   const s = snap || { screen: 'home' };
@@ -2921,6 +3015,7 @@ function _applyNavSnapshot(snap) {
   STATE.showAll = !!s.showAll;
   STATE.fasovkaSplit = s.fasovkaSplit || null;
   STATE.productId = s.productId || null;
+  STATE.orderId = s.orderId || null;
   STATE.productFasovka = s.productFasovka || null;
   if (STATE.screen !== 'product') STATE.productKg = 1;
 }
@@ -2959,6 +3054,7 @@ function _afterNavRender() {
   window.scrollTo(0, 0);
   render();
   if (STATE.screen === 'profile' && STATE.myOrders === undefined) rb.loadMyOrders();
+  if (STATE.screen === 'my-order' && STATE.myOrders === undefined) rb.loadMyOrders();
 }
 function _backInternal(syncBrowser = true) {
   const prev = STATE.history.pop();
@@ -3350,26 +3446,43 @@ const rb = {
       });
       const j = await r.json().catch(() => ({}));
       if (r.ok && j.ok !== false) {
+        const orderId = j.order_id || j.id || '';
         STATE.cart = []; saveLocal();
         saveProfile();
         haptic('success');
         if (c.payment_method === 'online' && j.invoice_link && IS_TG && tg?.openInvoice) {
           toast('Открываю оплату…');
           try {
-            tg.openInvoice(j.invoice_link, (status) => {
-              if (status === 'paid') toast('Оплата прошла ✓', 2200);
-              else if (status === 'cancelled') toast('Оплату можно завершить позже', 2200);
-              else if (status) toast('Статус оплаты: ' + status, 2200);
+            tg.openInvoice(j.invoice_link, async (status) => {
+              if (status === 'paid') {
+                rb.markOrderPaid(orderId, j.total || total);
+                STATE.paymentNotice = { order_id: orderId, total: j.total || total };
+                STATE.screen = 'profile';
+                STATE.myOrders = undefined;
+                render();
+                setTimeout(() => rb.loadMyOrders(), 900);
+                toast('Оплата прошла ✓', 2200);
+              } else if (status === 'cancelled') {
+                STATE.paymentNotice = null;
+                STATE.screen = 'profile';
+                STATE.myOrders = undefined;
+                render();
+                rb.loadMyOrders();
+                toast('Оплату можно завершить позже', 2200);
+              } else if (status) {
+                toast('Статус оплаты: ' + status, 2200);
+              }
             });
           } catch (e) {
             if (tg?.openTelegramLink) tg.openTelegramLink(j.invoice_link);
             else window.open(j.invoice_link, '_blank', 'noopener');
+            setTimeout(() => rb.go('profile'), 1200);
           }
         } else {
           toast('Заказ оформлен. №' + (j.order_id || ''));
+          setTimeout(() => rb.go('profile'), 1200);
         }
         STATE.contact.consent = true;
-        setTimeout(() => rb.go('profile'), c.payment_method === 'online' && j.invoice_link ? 1800 : 1200);
       } else {
         haptic('error');
         toast(j.error || ('Ошибка: ' + r.status));
@@ -3391,6 +3504,29 @@ const rb = {
       STATE.myOrders = Array.isArray(j) ? j : (j.orders || j.items || []);
     } catch (e) { STATE.myOrders = []; }
     render();
+  },
+  markOrderPaid(orderId, total) {
+    const id = String(orderId || '');
+    if (!id) return;
+    const paidAt = new Date().toISOString();
+    if (!Array.isArray(STATE.myOrders)) STATE.myOrders = [];
+    let o = STATE.myOrders.find(x => String(x.id || x.order_id || '') === id);
+    if (!o) {
+      o = { id, total, items: [] };
+      STATE.myOrders.unshift(o);
+    }
+    o.status = 'paid';
+    o.payment_method = 'online';
+    o.paid_at = paidAt;
+    o.total = total || o.total || 0;
+  },
+  openMyOrder(id) {
+    const snap = _navSnapshot();
+    STATE.orderId = String(id || '');
+    STATE.screen = 'my-order';
+    _rememberNav(snap);
+    _afterNavRender();
+    if (STATE.myOrders === undefined) rb.loadMyOrders();
   },
   async loadBoughtBefore() {
     if (!hasIdentity()) { STATE.boughtBefore = []; return; }
@@ -3948,6 +4084,7 @@ function render() {
     case 'cart':    body = screenCart(); break;
     case 'checkout': body = screenCheckout(); break;
     case 'profile': body = screenProfile(); break;
+    case 'my-order': body = screenMyOrder(); break;
     case 'bought':  body = screenBought(); break;
     case 'search':  body = screenSearch(); break;
     case 'admin':       body = screenAdmin(); break;
