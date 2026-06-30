@@ -1990,6 +1990,8 @@ ${tabBar('profile')}`;
   const items = Array.isArray(o.items) ? o.items : [];
   const dt = (o.created_at || '').replace(/T/, ' ').slice(0, 16);
   const paidAt = (o.paid_at || '').replace(/T/, ' ').slice(0, 16);
+  const isPaid = String(o.status || '').toLowerCase() === 'paid' || !!o.paid_at;
+  const canPay = !isPaid && Number(o.total || 0) > 0 && IS_TG && tg?.openInvoice;
   const method = {
     online: 'Картой онлайн',
     invoice: 'Счёт на компанию',
@@ -2019,6 +2021,13 @@ ${appHeader({ back: true, title: 'Заказ №' + esc(id) })}
       ${paidAt ? `<div style="display:flex; justify-content:space-between; gap:12px;"><span style="color:var(--ink-soft); font-size:13px;">Оплачено</span><span style="font-weight:700; font-size:13px; text-align:right;">${esc(paidAt)}</span></div>` : ''}
     </div>
   </div>
+
+  ${canPay ? `
+    <button class="cta cta--coffee" onclick="rb.payExistingOrder('${esc(id)}')" style="width:100%; padding:15px;">
+      <span>Оплатить картой</span>
+      <span style="font-family:var(--f-display); font-weight:800;">${fmt(o.total || 0)} ₽</span>
+    </button>
+  ` : ''}
 
   <div>
     <div class="eyebrow" style="margin:4px 0 10px;">Состав</div>
@@ -3527,6 +3536,61 @@ const rb = {
     _rememberNav(snap);
     _afterNavRender();
     if (STATE.myOrders === undefined) rb.loadMyOrders();
+  },
+  async payExistingOrder(id) {
+    if (!IS_TG || !tg?.openInvoice) {
+      toast('Оплата доступна внутри Telegram');
+      return;
+    }
+    const orderId = String(id || STATE.orderId || '');
+    if (!orderId) return;
+    toast('Готовлю оплату…');
+    try {
+      const r = await fetch('/tma/api/order/' + encodeURIComponent(orderId) + '/pay', {
+        method: 'POST',
+        headers: Object.assign({ 'Content-Type': 'application/json' }, authHeaders()),
+        body: '{}',
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || j.ok === false) {
+        haptic('error');
+        toast(j.error || ('Ошибка оплаты: ' + r.status), 2400);
+        return;
+      }
+      if (j.already_paid) {
+        rb.markOrderPaid(orderId, j.total || 0);
+        STATE.paymentNotice = { order_id: orderId, total: j.total || 0 };
+        STATE.screen = 'profile';
+        STATE.myOrders = undefined;
+        render();
+        rb.loadMyOrders();
+        toast('Заказ уже оплачен', 2200);
+        return;
+      }
+      if (!j.invoice_link) {
+        haptic('error');
+        toast('Не пришла ссылка оплаты', 2400);
+        return;
+      }
+      tg.openInvoice(j.invoice_link, (status) => {
+        if (status === 'paid') {
+          rb.markOrderPaid(orderId, j.total || 0);
+          STATE.paymentNotice = { order_id: orderId, total: j.total || 0 };
+          STATE.screen = 'profile';
+          STATE.myOrders = undefined;
+          render();
+          setTimeout(() => rb.loadMyOrders(), 900);
+          toast('Оплата прошла ✓', 2200);
+        } else if (status === 'cancelled') {
+          toast('Оплату можно завершить позже', 2200);
+        } else if (status) {
+          toast('Статус оплаты: ' + status, 2200);
+        }
+      });
+    } catch (e) {
+      haptic('error');
+      toast('Сеть недоступна');
+    }
   },
   async loadBoughtBefore() {
     if (!hasIdentity()) { STATE.boughtBefore = []; return; }

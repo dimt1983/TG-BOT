@@ -644,6 +644,19 @@ def _j(data: dict) -> bytes:
     return json.dumps(data, ensure_ascii=False).encode("utf-8")
 
 
+def _ensure_order_payment_columns(con: sqlite3.Connection) -> None:
+    cols = {r[1] for r in con.execute("PRAGMA table_info(orders)").fetchall()}
+    add = []
+    if "payment_method" not in cols:
+        add.append("ALTER TABLE orders ADD COLUMN payment_method TEXT")
+    if "paid_at" not in cols:
+        add.append("ALTER TABLE orders ADD COLUMN paid_at TEXT")
+    for sql in add:
+        con.execute(sql)
+    if add:
+        con.commit()
+
+
 def _proxy_shop_admin(method: str, sub_path: str, body: bytes = b"",
                       content_type: str = "application/json") -> tuple[int, bytes, str]:
     """Форвардит запрос в VPS Shop Admin API с Bearer-токеном.
@@ -1419,6 +1432,11 @@ class Handler(BaseHTTPRequestHandler):
             self._handle_tma_order()
             return
 
+        m_pay = re.match(r"^/tma/api/order/(\d+)/pay$", path)
+        if m_pay:
+            self._handle_tma_order_pay(int(m_pay.group(1)))
+            return
+
         if path == "/tma/api/user/type":
             user = _get_request_user(self)
             if not user or not user.get("id"):
@@ -1983,6 +2001,91 @@ class Handler(BaseHTTPRequestHandler):
             return
 
         self._send(404, b"Not found", "text/plain")
+
+    def _handle_tma_order_pay(self, order_id: int):
+        if _TMA_CTX is None:
+            self._send(503, _j({"ok": False, "error": "API не инициализирован"}),
+                       "application/json; charset=utf-8")
+            return
+        user = _get_request_user(self)
+        if not user or not user.get("id"):
+            self._send(401, _j({"ok": False, "error": "Требуется авторизация"}),
+                       "application/json; charset=utf-8")
+            return
+        uid = int(user["id"])
+        try:
+            con = sqlite3.connect(DB_PATH)
+            con.row_factory = sqlite3.Row
+            try:
+                _ensure_order_payment_columns(con)
+                order_ids = {int(x) for x in customer_account.resolve_customer_order_ids(con, uid)[:200]}
+                if int(order_id) not in order_ids:
+                    self._send(403, _j({"ok": False, "error": "Заказ не найден в вашем профиле"}),
+                               "application/json; charset=utf-8")
+                    return
+                order = con.execute(
+                    "SELECT id, total, status, payment_method, paid_at FROM orders WHERE id=?",
+                    (order_id,),
+                ).fetchone()
+                if not order:
+                    self._send(404, _j({"ok": False, "error": "Заказ не найден"}),
+                               "application/json; charset=utf-8")
+                    return
+                if (order["status"] or "").lower() == "paid" or order["paid_at"]:
+                    self._send(200, _j({
+                        "ok": True, "already_paid": True,
+                        "order_id": order_id, "total": order["total"],
+                    }), "application/json; charset=utf-8")
+                    return
+                it_cols = {r[1] for r in con.execute("PRAGMA table_info(order_items)").fetchall()}
+                name_expr = "oi.product_name" if "product_name" in it_cols else "p.name as product_name"
+                fasovka_expr = "oi.fasovka" if "fasovka" in it_cols else "NULL as fasovka"
+                rows = con.execute(
+                    f"SELECT oi.quantity, oi.price, {name_expr}, {fasovka_expr} "
+                    f"FROM order_items oi LEFT JOIN products p ON oi.product_id=p.id "
+                    f"WHERE oi.order_id=? ORDER BY oi.id",
+                    (order_id,),
+                ).fetchall()
+                items = [{
+                    "name": r["product_name"] or "Товар Roastberry",
+                    "fasovka": r["fasovka"] or "",
+                    "qty": int(r["quantity"] or 0),
+                    "price": float(r["price"] or 0),
+                } for r in rows if int(r["quantity"] or 0) > 0]
+                if not items:
+                    self._send(400, _j({"ok": False, "error": "В заказе нет позиций для оплаты"}),
+                               "application/json; charset=utf-8")
+                    return
+                total = float(order["total"] or sum((i["price"] or 0) * i["qty"] for i in items))
+                con.execute(
+                    "UPDATE orders SET payment_method=? WHERE id=?",
+                    ("online", order_id),
+                )
+                con.commit()
+            finally:
+                con.close()
+
+            from tma_handler import create_payment_invoice_link
+            fut = asyncio.run_coroutine_threadsafe(
+                create_payment_invoice_link(
+                    _TMA_CTX["bot"], order_id, items, total,
+                    {"order_id": order_id, "phone": user.get("phone") or "", "email": user.get("email") or ""},
+                ),
+                _TMA_CTX["loop"],
+            )
+            invoice_link = fut.result(timeout=20)
+            if not invoice_link:
+                self._send(500, _j({"ok": False, "error": "Не удалось создать ссылку оплаты"}),
+                           "application/json; charset=utf-8")
+                return
+            _invalidate_sync_cache()
+            self._send(200, _j({
+                "ok": True, "order_id": order_id, "total": total,
+                "invoice_link": invoice_link,
+            }), "application/json; charset=utf-8")
+        except Exception as e:
+            self._send(500, _j({"ok": False, "error": f"server error: {e}"}),
+                       "application/json; charset=utf-8")
 
     def _handle_tma_order(self):
         if _TMA_CTX is None:
