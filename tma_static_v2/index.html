@@ -259,6 +259,7 @@ function resetFilters() {
 
 const STORAGE_KEY = 'rb-v2-state-1';
 const PROFILE_KEY = 'rb-v2-profile-1';
+const PERSONAL_DATA_CONSENT_VERSION = 'pdn-2026-06-30';
 function saveLocal() {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ cart: STATE.cart, favorites: STATE.favorites })); } catch(e){}
 }
@@ -273,16 +274,58 @@ function loadLocal() {
     if (p && typeof p === 'object') {
       STATE.contact = Object.assign(STATE.contact, p, {
         delivery: Object.assign(STATE.contact.delivery, p.delivery || {}),
-        consent: false,            // согласие подтверждается заново каждый заказ
+        consent: false,
       });
     }
   } catch(e){}
 }
 function saveProfile() {
   try {
-    const { consent, ...keep } = STATE.contact;  // согласие не персистим
+    const { consent, ...keep } = STATE.contact;
     localStorage.setItem(PROFILE_KEY, JSON.stringify(keep));
   } catch(e){}
+}
+function hasPersonalDataConsent() {
+  return !!(STATE.contact.consent_granted && STATE.contact.consent_signed_at);
+}
+function grantPersonalDataConsent() {
+  STATE.contact.consent_granted = true;
+  STATE.contact.consent_version = PERSONAL_DATA_CONSENT_VERSION;
+  STATE.contact.consent_signed_at = STATE.contact.consent_signed_at || new Date().toISOString();
+  STATE.contact.consent = true;
+  saveProfile();
+}
+function currentPersonalDataConsent() {
+  if (!hasPersonalDataConsent() && STATE.contact.consent) grantPersonalDataConsent();
+  if (!hasPersonalDataConsent()) return null;
+  return {
+    accepted: true,
+    version: STATE.contact.consent_version || PERSONAL_DATA_CONSENT_VERSION,
+    signedAt: STATE.contact.consent_signed_at,
+  };
+}
+function applyUserProfile(p) {
+  if (!p || typeof p !== 'object') return;
+  if (p.user_type) STATE.contact.type = p.user_type === 'company' ? 'company' : 'person';
+  ['name', 'phone', 'email', 'company_name', 'inn', 'legal_address'].forEach(k => {
+    if (p[k] && !STATE.contact[k]) STATE.contact[k] = p[k];
+  });
+  if (p.address && !STATE.contact.delivery.address) STATE.contact.delivery.address = p.address;
+  if (p.pd_consent_at) {
+    STATE.contact.consent_granted = true;
+    STATE.contact.consent_signed_at = p.pd_consent_at;
+    STATE.contact.consent_version = p.pd_consent_version || PERSONAL_DATA_CONSENT_VERSION;
+    STATE.contact.consent = true;
+  }
+  saveProfile();
+}
+async function loadUserProfile() {
+  if (!hasIdentity()) return;
+  try {
+    const r = await fetch('/tma/api/user/me', { headers: authHeaders(), cache: 'no-store' });
+    if (!r.ok) return;
+    applyUserProfile(await r.json());
+  } catch (e) {}
 }
 
 /* ════════════════════════════════════════════════════════════════════
@@ -1720,7 +1763,7 @@ ${appHeader({ back: true, title: 'Оформление' })}
   <div style="display:flex; flex-direction:column; gap:8px;">
     ${[
       { id: 'on_delivery', t: 'При получении', sub: 'Наличными, переводом или картой после подтверждения' },
-      { id: 'online', t: 'Картой онлайн', sub: 'Telegram отправит счёт в чат после оформления' },
+      { id: 'online', t: 'Картой онлайн', sub: IS_TG ? 'Оплата откроется прямо в приложении' : 'Telegram откроет безопасную оплату' },
       { id: 'invoice', t: 'Счёт на компанию', sub: 'Менеджер пришлёт счёт на email' },
     ].filter(opt => c.type === 'company' || opt.id !== 'invoice').map(opt => {
       const active = (c.payment_method || 'on_delivery') === opt.id;
@@ -1752,10 +1795,20 @@ ${appHeader({ back: true, title: 'Оформление' })}
 
 <!-- Согласие на ПДн -->
 <div style="padding:18px 16px 140px;">
-  <label style="display:flex; gap:12px; align-items:flex-start; cursor:pointer;" onclick="event.preventDefault(); rb.toggleConsent();">
-    <span style="flex:0 0 22px; width:22px; height:22px; border-radius:6px; border:2px solid ${c.consent ? 'var(--ink)' : 'var(--ink-mute)'}; background:${c.consent ? 'var(--ink)' : 'transparent'}; display:flex; align-items:center; justify-content:center; color:var(--bg); font-size:14px; font-weight:900;">${c.consent ? '✓' : ''}</span>
-    <span style="flex:1; font-size:13px; color:var(--ink-soft); line-height:1.45;">Согласен с обработкой персональных данных и условиями оферты. Менеджер свяжется для подтверждения деталей.</span>
-  </label>
+  ${hasPersonalDataConsent() ? `
+    <div style="display:flex; gap:12px; align-items:flex-start;">
+      <span style="flex:0 0 22px; width:22px; height:22px; border-radius:6px; border:2px solid var(--green); background:var(--green); display:flex; align-items:center; justify-content:center; color:#fff; font-size:14px; font-weight:900;">✓</span>
+      <span style="flex:1; font-size:13px; color:var(--ink-soft); line-height:1.45;">
+        Согласие на обработку персональных данных выдано.
+        <span style="display:block; margin-top:2px; color:var(--ink-faint); font-size:11px;">Версия ${esc(c.consent_version || PERSONAL_DATA_CONSENT_VERSION)} · ${(c.consent_signed_at || '').slice(0, 10)}</span>
+      </span>
+    </div>
+  ` : `
+    <label style="display:flex; gap:12px; align-items:flex-start; cursor:pointer;" onclick="event.preventDefault(); rb.toggleConsent();">
+      <span style="flex:0 0 22px; width:22px; height:22px; border-radius:6px; border:2px solid ${c.consent ? 'var(--ink)' : 'var(--ink-mute)'}; background:${c.consent ? 'var(--ink)' : 'transparent'}; display:flex; align-items:center; justify-content:center; color:var(--bg); font-size:14px; font-weight:900;">${c.consent ? '✓' : ''}</span>
+      <span style="flex:1; font-size:13px; color:var(--ink-soft); line-height:1.45;">Согласен с обработкой персональных данных и условиями оферты. Менеджер свяжется для подтверждения деталей.</span>
+    </label>
+  `}
 </div>
 
 <!-- Sticky CTA -->
@@ -3197,6 +3250,7 @@ const rb = {
     haptic('light'); render();
   },
   toggleConsent() {
+    if (hasPersonalDataConsent()) return;
     STATE.contact.consent = !STATE.contact.consent;
     haptic('light'); render();
   },
@@ -3227,7 +3281,9 @@ const rb = {
       if (!(c.company_name || '').trim()) { toast('Укажите название компании'); haptic('error'); return; }
       if (inn.length !== 10 && inn.length !== 12) { toast('ИНН: 10 или 12 цифр'); haptic('error'); return; }
     }
-    if (!c.consent) { toast('Подтвердите согласие на обработку ПДн'); haptic('error'); return; }
+    if (!hasPersonalDataConsent() && !c.consent) {
+      toast('Подтвердите согласие на обработку ПДн'); haptic('error'); return;
+    }
 
     const items = STATE.cart.map(i => {
       const p = findProduct(i.id); if (!p) return null;
@@ -3281,6 +3337,8 @@ const rb = {
       saved: subtotal - total,
       total,
       payment_method: c.payment_method || 'on_delivery',
+      invoice_delivery: (c.payment_method === 'online' && IS_TG && tg?.openInvoice) ? 'link' : 'chat',
+      consent: currentPersonalDataConsent(),
     };
 
     STATE.submitting = true; render();
@@ -3295,9 +3353,23 @@ const rb = {
         STATE.cart = []; saveLocal();
         saveProfile();
         haptic('success');
-        toast('Заказ оформлен. №' + (j.order_id || ''));
-        STATE.contact.consent = false;
-        setTimeout(() => rb.go('profile'), 1200);
+        if (c.payment_method === 'online' && j.invoice_link && IS_TG && tg?.openInvoice) {
+          toast('Открываю оплату…');
+          try {
+            tg.openInvoice(j.invoice_link, (status) => {
+              if (status === 'paid') toast('Оплата прошла ✓', 2200);
+              else if (status === 'cancelled') toast('Оплату можно завершить позже', 2200);
+              else if (status) toast('Статус оплаты: ' + status, 2200);
+            });
+          } catch (e) {
+            if (tg?.openTelegramLink) tg.openTelegramLink(j.invoice_link);
+            else window.open(j.invoice_link, '_blank', 'noopener');
+          }
+        } else {
+          toast('Заказ оформлен. №' + (j.order_id || ''));
+        }
+        STATE.contact.consent = true;
+        setTimeout(() => rb.go('profile'), c.payment_method === 'online' && j.invoice_link ? 1800 : 1200);
       } else {
         haptic('error');
         toast(j.error || ('Ошибка: ' + r.status));
@@ -4006,6 +4078,7 @@ async function init() {
     return;
   }
   await checkAdmin();
+  await loadUserProfile();
   // Claim-ссылка: клиент забирает свой консьерж-аккаунт. Свой экран, дальше — по кнопке.
   const _claimToken = new URLSearchParams(location.search).get('claim');
   if (_claimToken) { await runClaim(_claimToken); return; }

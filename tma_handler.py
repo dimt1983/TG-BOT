@@ -15,6 +15,7 @@ import json
 import logging
 import os
 import re
+from datetime import datetime, timezone
 from typing import Callable
 
 from aiogram import Dispatcher, Bot, F
@@ -75,6 +76,9 @@ PAYMENTS_VAT_CODE = int(os.environ.get("PAYMENTS_VAT_CODE", "1") or 1)
 PAYMENTS_TAX_SYSTEM_CODE = os.environ.get("PAYMENTS_TAX_SYSTEM_CODE", "").strip()
 PAYMENTS_PAYMENT_MODE = os.environ.get("PAYMENTS_PAYMENT_MODE", "full_payment")
 PAYMENTS_PAYMENT_SUBJECT = os.environ.get("PAYMENTS_PAYMENT_SUBJECT", "commodity")
+PERSONAL_DATA_CONSENT_VERSION = os.environ.get(
+    "PERSONAL_DATA_CONSENT_VERSION", "pdn-2026-06-30"
+)
 
 
 # ============================================================
@@ -157,10 +161,26 @@ def _ensure_user_profile_columns(con) -> None:
     if "legal_address"  not in cols: add.append("ALTER TABLE users ADD COLUMN legal_address TEXT")
     if "email"          not in cols: add.append("ALTER TABLE users ADD COLUMN email TEXT")
     if "user_type"      not in cols: add.append("ALTER TABLE users ADD COLUMN user_type TEXT")
+    if "pd_consent_at"  not in cols: add.append("ALTER TABLE users ADD COLUMN pd_consent_at TEXT")
+    if "pd_consent_version" not in cols: add.append("ALTER TABLE users ADD COLUMN pd_consent_version TEXT")
     for sql in add:
         con.execute(sql)
     if add:
         con.commit()
+
+
+def _normalize_personal_data_consent(payload: dict) -> dict:
+    consent = payload.get("consent") or {}
+    accepted = bool(consent.get("accepted") or consent.get("signedAt"))
+    if not accepted:
+        raise ValueError("Подтвердите согласие на обработку персональных данных")
+    signed_at = (consent.get("signedAt") or "").strip()
+    if not signed_at:
+        signed_at = datetime.now(timezone.utc).isoformat()
+    version = (consent.get("version") or PERSONAL_DATA_CONSENT_VERSION).strip()
+    normalized = {"accepted": True, "version": version, "signedAt": signed_at}
+    payload["consent"] = normalized
+    return normalized
 
 
 def _upsert_user_profile(con, user_id: int, payload: dict) -> None:
@@ -183,6 +203,11 @@ def _upsert_user_profile(con, user_id: int, payload: dict) -> None:
         fields["email"]         = contact.get("email") or ""
     else:
         fields["email"]         = contact.get("email") or ""
+
+    consent = payload.get("consent") or {}
+    if consent.get("accepted"):
+        fields["pd_consent_at"] = consent.get("signedAt") or ""
+        fields["pd_consent_version"] = consent.get("version") or PERSONAL_DATA_CONSENT_VERSION
 
     # Только непустые значения — чтобы не затирать ранее сохранённое
     fields = {k: v for k, v in fields.items() if v}
@@ -333,6 +358,7 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
     """
     items = payload.get("items", [])
     contact = payload.get("contact") or {}
+    _normalize_personal_data_consent(payload)
     no_price = []
     for it in items:
         if it.get("price") is None or it.get("on_request"):
@@ -645,10 +671,21 @@ async def process_tma_order(
         except Exception as e:
             log.warning(f"TMA-HTTP: ошибка блока «новый клиент»: {e}")
 
+    invoice_link = None
     if payload.get("payment_method") == "online":
-        await send_payment_invoice(bot, user_id, order_id, items, total, payload.get("contact") or {})
+        if payload.get("invoice_delivery") == "link":
+            invoice_link = await create_payment_invoice_link(
+                bot, order_id, items, total, payload.get("contact") or {}
+            )
+        if not invoice_link:
+            await send_payment_invoice(bot, user_id, order_id, items, total, payload.get("contact") or {})
 
-    return {"order_id": order_id, "total": total, "is_new_client": is_new_client}
+    return {
+        "order_id": order_id,
+        "total": total,
+        "is_new_client": is_new_client,
+        "invoice_link": invoice_link,
+    }
 
 
 # ============================================================
@@ -779,6 +816,40 @@ async def send_payment_invoice(
     except Exception as e:
         log.exception("TMA: ошибка отправки инвойса")
         await bot.send_message(chat_id, f"⚠️ Не удалось отправить счёт: {e}")
+
+
+async def create_payment_invoice_link(
+    bot: Bot,
+    order_id: int,
+    items: list,
+    total: float,
+    contact: dict | None = None,
+) -> str | None:
+    """Создаёт invoice link для Telegram WebApp.openInvoice()."""
+    if not PAYMENTS_PROVIDER_TOKEN:
+        return None
+
+    prices = [LabeledPrice(label=f"Заказ Roastberry №{order_id}", amount=int(total * 100))]
+    receipt_contact = dict(contact or {})
+    receipt_contact["order_id"] = order_id
+    try:
+        return await bot.create_invoice_link(
+            title=f"Заказ Roastberry №{order_id}",
+            description=f"{len(items)} позиций · доставка по согласованию",
+            payload=f"order_{order_id}",
+            provider_token=PAYMENTS_PROVIDER_TOKEN,
+            currency=PAYMENTS_CURRENCY,
+            prices=prices,
+            provider_data=_build_yookassa_provider_data(items, total, receipt_contact),
+            need_name=False,
+            need_phone_number=False,
+            need_email=False,
+            need_shipping_address=False,
+            is_flexible=False,
+        )
+    except Exception:
+        log.exception("TMA: ошибка создания invoice link")
+        return None
 
 
 # ============================================================

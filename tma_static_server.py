@@ -736,7 +736,8 @@ class Handler(BaseHTTPRequestHandler):
                 try:
                     u_cols = {r[1] for r in con.execute("PRAGMA table_info(users)").fetchall()}
                     cols = [c for c in ("name", "phone", "email", "address", "city",
-                                        "company_name", "inn", "legal_address", "user_type")
+                                        "company_name", "inn", "legal_address", "user_type",
+                                        "pd_consent_at", "pd_consent_version")
                             if c in u_cols]
                     sel = ", ".join(cols) if cols else "user_id"
                     row = con.execute(
