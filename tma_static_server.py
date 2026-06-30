@@ -2024,7 +2024,7 @@ class Handler(BaseHTTPRequestHandler):
                                "application/json; charset=utf-8")
                     return
                 order = con.execute(
-                    "SELECT id, total, status, payment_method, paid_at FROM orders WHERE id=?",
+                    "SELECT id, user_id, total, status, payment_method, paid_at, phone FROM orders WHERE id=?",
                     (order_id,),
                 ).fetchone()
                 if not order:
@@ -2057,6 +2057,25 @@ class Handler(BaseHTTPRequestHandler):
                                "application/json; charset=utf-8")
                     return
                 total = float(order["total"] or sum((i["price"] or 0) * i["qty"] for i in items))
+                receipt_contact = {
+                    "order_id": order_id,
+                    "phone": order["phone"] or "",
+                    "email": "",
+                }
+                u_cols = {r[1] for r in con.execute("PRAGMA table_info(users)").fetchall()}
+                user_key = "user_id" if "user_id" in u_cols else ("id" if "id" in u_cols else "")
+                if user_key:
+                    wanted = [c for c in ("phone", "email") if c in u_cols]
+                    if wanted:
+                        profile = con.execute(
+                            f"SELECT {','.join(wanted)} FROM users WHERE {user_key}=?",
+                            (order["user_id"],),
+                        ).fetchone()
+                        if profile:
+                            if not receipt_contact["phone"] and "phone" in wanted:
+                                receipt_contact["phone"] = profile["phone"] or ""
+                            if "email" in wanted:
+                                receipt_contact["email"] = profile["email"] or ""
                 con.execute(
                     "UPDATE orders SET payment_method=? WHERE id=?",
                     ("online", order_id),
@@ -2068,8 +2087,7 @@ class Handler(BaseHTTPRequestHandler):
             from tma_handler import create_payment_invoice_link
             fut = asyncio.run_coroutine_threadsafe(
                 create_payment_invoice_link(
-                    _TMA_CTX["bot"], order_id, items, total,
-                    {"order_id": order_id, "phone": user.get("phone") or "", "email": user.get("email") or ""},
+                    _TMA_CTX["bot"], order_id, items, total, receipt_contact,
                 ),
                 _TMA_CTX["loop"],
             )
