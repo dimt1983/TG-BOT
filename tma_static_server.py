@@ -869,7 +869,7 @@ class Handler(BaseHTTPRequestHandler):
             return
 
         # ── /tma/api/admin/user/<id>/pricing — список правил клиента ─────────
-        m_pr_get = re.match(r"^/tma/api/admin/user/(\d+)/pricing$", path)
+        m_pr_get = re.match(r"^/tma/api/admin/user/(-?\d+)/pricing$", path)
         if m_pr_get:
             user = _get_request_user(self)
             if not (user and user.get("id") in ADMIN_IDS):
@@ -954,7 +954,7 @@ class Handler(BaseHTTPRequestHandler):
 
         # ── /tma/api/admin/* ─────────────────────────────────────────────────
         m_admin = re.match(
-            r"^/tma/api/admin/(orders|users|order/(\d+)|user/(\d+))$", path
+            r"^/tma/api/admin/(orders|users|order/(\d+)|user/(-?\d+))$", path
         )
         if m_admin:
             user = _get_request_user(self)
@@ -1778,7 +1778,7 @@ class Handler(BaseHTTPRequestHandler):
             return
 
         # ── POST /tma/api/admin/user/<id> — апдейт профиля (реквизиты + tier) ─
-        m_user_upd = re.match(r"^/tma/api/admin/user/(\d+)$", path)
+        m_user_upd = re.match(r"^/tma/api/admin/user/(-?\d+)$", path)
         if m_user_upd:
             user = _get_request_user(self)
             if not (user and user.get("id") in ADMIN_IDS):
@@ -1835,7 +1835,7 @@ class Handler(BaseHTTPRequestHandler):
             return
 
         # ── POST /tma/api/admin/user/<id>/pricing — добавить персональное правило ─
-        m_pr_add = re.match(r"^/tma/api/admin/user/(\d+)/pricing$", path)
+        m_pr_add = re.match(r"^/tma/api/admin/user/(-?\d+)/pricing$", path)
         if m_pr_add:
             user = _get_request_user(self)
             if not (user and user.get("id") in ADMIN_IDS):

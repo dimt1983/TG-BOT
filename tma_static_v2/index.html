@@ -3795,6 +3795,7 @@ const rb = {
   /* ────────── ADMIN: КЛИЕНТ ────────── */
   async openAdminUser(uid) {
     if (!STATE.isAdmin) { toast('Только для админов'); return; }
+    const userPathId = encodeURIComponent(String(uid));
     const snap = _navSnapshot();
     STATE.screen = 'admin-user';
     STATE.adminUserId = uid;
@@ -3806,8 +3807,8 @@ const rb = {
     render();
     try {
       const [r1, r2, r3] = await Promise.all([
-        fetch('/tma/api/admin/user/' + uid, { headers: authHeaders() }),
-        fetch('/tma/api/admin/user/' + uid + '/pricing', { headers: authHeaders() }),
+        fetch('/tma/api/admin/user/' + userPathId, { headers: authHeaders() }),
+        fetch('/tma/api/admin/user/' + userPathId + '/pricing', { headers: authHeaders() }),
         fetch('/tma/api/admin/catalog_meta', { headers: authHeaders() }),
       ]);
       STATE.adminUserData = r1.ok ? await r1.json() : { error: 'HTTP ' + r1.status };
@@ -3822,9 +3823,10 @@ const rb = {
   async adminSaveUserField(field, value) {
     const uid = STATE.adminUserId;
     if (!uid) return;
+    const userPathId = encodeURIComponent(String(uid));
     const body = {}; body[field] = value;
     try {
-      const r = await fetch('/tma/api/admin/user/' + uid, {
+      const r = await fetch('/tma/api/admin/user/' + userPathId, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', ...authHeaders() },
         body: JSON.stringify(body),
@@ -3919,6 +3921,7 @@ const rb = {
   },
 
   async _savePricing(uid) {
+    const userPathId = encodeURIComponent(String(uid));
     const st = STATE._pr || {};
     const scope = st.scope || '';
     let target_id = st.target || '';
@@ -3933,14 +3936,14 @@ const rb = {
     if (hasPct) body.discount_pct = st.pct;
     else body.fixed_price = st.fixed;
     try {
-      const r = await fetch('/tma/api/admin/user/' + uid + '/pricing', {
+      const r = await fetch('/tma/api/admin/user/' + userPathId + '/pricing', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', ...authHeaders() },
         body: JSON.stringify(body),
       });
       if (!r.ok) { const j = await r.json().catch(() => ({})); haptic('error'); toast('Ошибка: ' + (j.error || r.status)); return; }
       haptic('success'); toast('Скидка добавлена', 'success'); _adminCloseModal();
-      const r2 = await fetch('/tma/api/admin/user/' + uid + '/pricing', { headers: authHeaders() });
+      const r2 = await fetch('/tma/api/admin/user/' + userPathId + '/pricing', { headers: authHeaders() });
       if (r2.ok) { STATE.adminUserPricing = (await r2.json()).rules || []; render(); }
     } catch (e) { haptic('error'); toast('Сеть недоступна'); }
   },
