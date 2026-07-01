@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 115,
+      "stock": 205,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2100,7 +2100,7 @@
           "photo": "photos/products/retail_f_roastberry_китаи_симао_200_г.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 571,
+      "stock": 641,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6563,7 +6563,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 15,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -14407,7 +14407,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
