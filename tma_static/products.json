@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 43,
+      "stock": 39,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -8142,7 +8142,7 @@
           "photo": null
         }
       ],
-      "stock": 184,
+      "stock": 183,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14382,7 +14382,7 @@
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
