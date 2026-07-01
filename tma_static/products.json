@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 123,
+      "stock": 115,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2100,7 +2100,7 @@
           "photo": "photos/products/retail_f_roastberry_китаи_симао_200_г.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5500,7 +5500,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 109,
+      "stock": 106,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 523,
+      "stock": 521,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6655,7 +6655,7 @@
       "name": "Китай Симао гр.1 Меллоу мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": "Китай",
@@ -11616,7 +11616,7 @@
           "price": 635.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14150,7 +14150,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 168,
+      "stock": 158,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14279,9 +14279,9 @@
       "name": "Китай Симао гр.1 Меллоу мытый эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
       "roast": "E",
       "photo": "photos/products/espresso_mono_китай_симао_гр_1_меллоу_мытый_эспрессо_1_кг.jpg",
       "fasovka": [
@@ -14297,8 +14297,8 @@
       "description": "Китай Симао. Лёгкий чайный профиль с нотами сухофруктов и ореха.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-06-30T08:30:25+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "espresso_mono_эфиопия_milk_сидамо_гр_4_эспрессо_1_кг",
@@ -14458,7 +14458,7 @@
       "name": "Вьетнам Блю Сонал сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
