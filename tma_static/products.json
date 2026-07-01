@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 48,
+      "stock": 47,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 206,
+      "stock": 205,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2046,7 +2046,7 @@
           "photo": "photos/products/retail_f_roastberry_кения_аа_200_г.jpg"
         }
       ],
-      "stock": 29,
+      "stock": 24,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2680,7 +2680,7 @@
           "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "tags": [],
       "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg",
       "_source": "alephtrade",
@@ -2706,7 +2706,7 @@
           "price": 180.0
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -2857,7 +2857,7 @@
           "price": 180.0
         }
       ],
-      "stock": 24,
+      "stock": 23,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -3137,7 +3137,7 @@
           "price": 185.0
         }
       ],
-      "stock": 22,
+      "stock": 20,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5533,7 +5533,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 7,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 624,
+      "stock": 623,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5977,7 +5977,7 @@
           "photo": "photos/products/c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи.jpg"
         }
       ],
-      "stock": 50,
+      "stock": 49,
       "tags": [],
       "photo": "photos/products/c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи.jpg",
       "tasting_notes": [
@@ -6008,7 +6008,7 @@
           "photo": null
         }
       ],
-      "stock": 56,
+      "stock": 55,
       "tags": [],
       "photo": "",
       "tasting_notes": [
@@ -7563,7 +7563,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_бразилия_бразилия_sl28_хани_.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7584,7 +7584,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_колумбия_кастильо_мытая_200_.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 11,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7630,7 +7630,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_эфиопия_челелекту_г1_мытыи_2.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 4,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7651,7 +7651,7 @@
           "photo": "assets/placeholders/ph_black.svg"
         }
       ],
-      "stock": 9,
+      "stock": 7,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
