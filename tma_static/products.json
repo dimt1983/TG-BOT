@@ -1163,10 +1163,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_венеция_200_г.jpg",
-          "stock": 13
+          "stock": 11
         }
       ],
-      "stock": 13,
+      "stock": 11,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 205,
+      "stock": 204,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -12168,7 +12168,7 @@
           "photo": "photos/products/t-травяной_иван_чай_214_г_аромат_виноград.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 9,
       "tags": [],
       "photo": "photos/products/t-травяной_иван_чай_214_г_аромат_виноград.jpg",
       "quarantined": false,
