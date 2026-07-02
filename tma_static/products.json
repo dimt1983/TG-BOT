@@ -1086,7 +1086,7 @@
           "photo": "photos/products/retail_be_roastberry_биттер_-_1_кг.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 2,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1622,10 +1622,10 @@
           "price": 445.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_200_г.jpg",
-          "stock": 20
+          "stock": 19
         }
       ],
-      "stock": 20,
+      "stock": 19,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1974,7 +1974,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 58,
+      "stock": 88,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 686,
+      "stock": 685,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5601,7 +5601,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 12,
+      "stock": 27,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
