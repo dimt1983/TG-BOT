@@ -2071,10 +2071,10 @@
           "price": 530.0,
           "on_request": false,
           "photo": "photos/products/retail_f_roastberry_кения_аб_200_г.jpg",
-          "stock": 19
+          "stock": 18
         }
       ],
-      "stock": 19,
+      "stock": 18,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -7077,7 +7077,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 11,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
