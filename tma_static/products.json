@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 82,
+      "stock": 80,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 171,
+      "stock": 169,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2680,7 +2680,7 @@
           "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "tags": [],
       "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg",
       "_source": "alephtrade",
@@ -4996,7 +4996,7 @@
           "price": 1260.0
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5500,7 +5500,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 157,
+      "stock": 140,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 684,
+      "stock": 674,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8602,7 +8602,7 @@
           "price": 1
         }
       ],
-      "stock": 6200,
+      "stock": 5600,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -14150,7 +14150,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 157,
+      "stock": 156,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14432,7 +14432,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 18,
+      "stock": 15,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
