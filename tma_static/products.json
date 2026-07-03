@@ -1163,10 +1163,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_венеция_200_г.jpg",
-          "stock": 7
+          "stock": 6
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 73,
+      "stock": 71,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1567,10 +1567,10 @@
           "size": "200 г",
           "price": 435.0,
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_200_г.jpg",
-          "stock": 27
+          "stock": 25
         }
       ],
-      "stock": 27,
+      "stock": 25,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1781,10 +1781,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "assets/placeholders/ph_retail.svg",
-          "stock": 25
+          "stock": 24
         }
       ],
-      "stock": 25,
+      "stock": 24,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1812,7 +1812,7 @@
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_-_1_кг.jpg"
         }
       ],
-      "stock": 1,
+      "stock": 9,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1837,10 +1837,10 @@
           "price": 465.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 12
+          "stock": 22
         }
       ],
-      "stock": 12,
+      "stock": 22,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1866,7 +1866,7 @@
           "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг.jpg"
         }
       ],
-      "stock": 3,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2120,10 +2120,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "photos/products/retail_f_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 5
+          "stock": 4
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 662,
+      "stock": 655,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -10869,7 +10869,7 @@
           "price": 660.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -14432,7 +14432,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 15,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15301,6 +15301,46 @@
         }
       ],
       "created_at": "2026-06-30T11:36:04+00:00",
+      "created_by": "sync_catalog_v2"
+    },
+    {
+      "id": "filter_micro_колумбия_катимор_натур_1_кг_filter",
+      "name": "Колумбия Катимор натур. - 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "F",
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-07-03T07:32:17+00:00",
+      "created_by": "sync_catalog_v2"
+    },
+    {
+      "id": "filter_micro_колумбия_катуррон_натур_1_кг_filter",
+      "name": "Колумбия Катуррон натур. - 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "F",
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-07-03T07:32:17+00:00",
       "created_by": "sync_catalog_v2"
     }
   ]
