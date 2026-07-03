@@ -1651,7 +1651,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_200_г.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 585,
+      "stock": 570,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14432,7 +14432,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 10,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
