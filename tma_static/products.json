@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 79,
+      "stock": 73,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -2120,10 +2120,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "photos/products/retail_f_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 6
+          "stock": 5
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -12970,7 +12970,7 @@
           "photo": null
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
