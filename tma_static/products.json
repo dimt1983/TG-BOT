@@ -1567,10 +1567,10 @@
           "size": "200 г",
           "price": 435.0,
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_200_г.jpg",
-          "stock": 28
+          "stock": 27
         }
       ],
-      "stock": 28,
+      "stock": 27,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -7651,7 +7651,7 @@
           "photo": "assets/placeholders/ph_black.svg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7693,7 +7693,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -15268,7 +15268,7 @@
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4,
+      "stock": 14,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
