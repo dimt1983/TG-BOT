@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 42,
+      "stock": 63,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1216,10 +1216,10 @@
           "price": 425.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_классика_20_200_г.jpg",
-          "stock": 10
+          "stock": 30
         }
       ],
-      "stock": 10,
+      "stock": 30,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1757,7 +1757,7 @@
           "photo": "photos/products/retail_e_roastberry_гватемала_уетенанго_200_г.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2017,10 +2017,10 @@
           "price": 495.0,
           "on_request": false,
           "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_200_г.jpg",
-          "stock": 11
+          "stock": 16
         }
       ],
-      "stock": 11,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5500,7 +5500,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 139,
+      "stock": 137,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 544,
+      "stock": 537,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5742,7 +5742,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 20,
+      "stock": 29,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -6563,7 +6563,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 8,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -8252,7 +8252,7 @@
       "name": "Перу Монте Верде гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 17,
+      "stock": 27,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -11641,7 +11641,7 @@
           "photo": null
         }
       ],
-      "stock": 43,
+      "stock": 42,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14150,7 +14150,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 139,
+      "stock": 131,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14407,9 +14407,9 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "F",
       "photo": "photos/products/filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter.jpg",
       "fasovka": [
@@ -14424,15 +14424,15 @@
       "country": "Эфиопия",
       "description": "Эфиопия Yirgacheffe. Классический цветочно-чайный профиль с высокой кислотностью.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined_at": "2026-07-06T13:34:02+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "espresso_mono_гватемала_уетенанго_мытый_1_кг_эспрессо",
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 9,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
