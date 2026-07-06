@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 67,
+      "stock": 64,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1216,10 +1216,10 @@
           "price": 425.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_классика_20_200_г.jpg",
-          "stock": 11
+          "stock": 10
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1349,10 +1349,10 @@
           "size": "200 г",
           "price": 435,
           "photo": "photos/products/retail_bf_roastberry_лунго_200_г.jpg",
-          "stock": 9
+          "stock": 8
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1567,10 +1567,10 @@
           "size": "200 г",
           "price": 435.0,
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_200_г.jpg",
-          "stock": 8
+          "stock": 6
         }
       ],
-      "stock": 8,
+      "stock": 6,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 135,
+      "stock": 134,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1622,10 +1622,10 @@
           "price": 445.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_200_г.jpg",
-          "stock": 30
+          "stock": 28
         }
       ],
-      "stock": 30,
+      "stock": 28,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1651,7 +1651,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_200_г.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1677,7 +1677,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1781,10 +1781,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "assets/placeholders/ph_retail.svg",
-          "stock": 21
+          "stock": 20
         }
       ],
-      "stock": 21,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 568,
+      "stock": 553,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -11714,7 +11714,7 @@
           "price": 635.0
         }
       ],
-      "stock": 21,
+      "stock": 18,
       "tags": [],
       "photo": null,
       "quarantined": false,
