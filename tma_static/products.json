@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 112,
+      "stock": 102,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -8602,7 +8602,7 @@
           "price": 1
         }
       ],
-      "stock": 5000,
+      "stock": 4600,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
