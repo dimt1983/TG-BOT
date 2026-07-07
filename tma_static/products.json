@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 9,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 93,
+      "stock": 91,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 220,
+      "stock": 212,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5500,7 +5500,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 124,
+      "stock": 111,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 615,
+      "stock": 605,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7389,7 +7389,7 @@
           "price": 896.0
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -7413,7 +7413,7 @@
           "price": 1290
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -8542,7 +8542,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 9,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -11067,7 +11067,7 @@
           "price": 530.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -11762,7 +11762,7 @@
           "price": 635.0
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -13534,7 +13534,7 @@
           "price": 1200.0
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14307,7 +14307,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 22,
+      "stock": 20,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
