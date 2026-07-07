@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 63,
+      "stock": 62,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1216,10 +1216,10 @@
           "price": 425.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_классика_20_200_г.jpg",
-          "stock": 30
+          "stock": 28
         }
       ],
-      "stock": 30,
+      "stock": 28,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1269,10 +1269,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_хани_200_г.jpg",
-          "stock": 27
+          "stock": 26
         }
       ],
-      "stock": 27,
+      "stock": 26,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1326,7 +1326,7 @@
           "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 102,
+      "stock": 99,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1622,10 +1622,10 @@
           "price": 445.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_200_г.jpg",
-          "stock": 27
+          "stock": 26
         }
       ],
-      "stock": 27,
+      "stock": 26,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1757,7 +1757,7 @@
           "photo": "photos/products/retail_e_roastberry_гватемала_уетенанго_200_г.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1781,10 +1781,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "assets/placeholders/ph_retail.svg",
-          "stock": 20
+          "stock": 18
         }
       ],
-      "stock": 20,
+      "stock": 18,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1812,7 +1812,7 @@
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_-_1_кг.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1837,10 +1837,10 @@
           "price": 465.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 19
+          "stock": 16
         }
       ],
-      "stock": 19,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2017,10 +2017,10 @@
           "price": 495.0,
           "on_request": false,
           "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_200_г.jpg",
-          "stock": 16
+          "stock": 11
         }
       ],
-      "stock": 16,
+      "stock": 11,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -2046,7 +2046,7 @@
           "photo": "photos/products/retail_f_roastberry_кения_аа_200_г.jpg"
         }
       ],
-      "stock": 19,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2120,10 +2120,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "photos/products/retail_f_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 10
+          "stock": 8
         }
       ],
-      "stock": 10,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5533,7 +5533,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5601,7 +5601,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 15,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6563,7 +6563,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 18,
+      "stock": 17,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
