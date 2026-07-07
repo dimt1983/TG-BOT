@@ -15154,28 +15154,6 @@
       "quarantine_reason": null
     },
     {
-      "id": "filter_micro_кения_pb_маакиоу_мытая_1_кг_filter",
-      "name": "Кения PB Маакиоу  мытая 1 кг FILTER",
-      "category": "filter",
-      "subcategory": "filter_micro",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
-      "roast": "F",
-      "photo": "assets/placeholders/ph_filter.svg",
-      "fasovka": [
-        {
-          "size": "1 кг",
-          "price": 0,
-          "photo": "assets/placeholders/ph_filter.svg"
-        }
-      ],
-      "created_at": "2026-06-11T13:36:04+00:00",
-      "created_by": "sync_catalog_v2",
-      "quarantined_at": "2026-06-15T05:34:16+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
-    },
-    {
       "id": "espresso_mono_вьетнам_блю_сонал_сухой_эспрессо_1_кг",
       "name": "Вьетнам Блю Сонал сухой  эспрессо - 1 кг",
       "category": "espresso",
