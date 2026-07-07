@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 55,
+      "stock": 93,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 118,
+      "stock": 220,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1622,10 +1622,10 @@
           "price": 445.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_200_г.jpg",
-          "stock": 24
+          "stock": 43
         }
       ],
-      "stock": 24,
+      "stock": 43,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1837,10 +1837,10 @@
           "price": 465.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 14
+          "stock": 13
         }
       ],
-      "stock": 14,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -3381,7 +3381,7 @@
           "price": 780.0
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 638,
+      "stock": 633,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6563,7 +6563,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 17,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -14178,9 +14178,9 @@
       "name": "Эфиопия Челелекту гр.1 мытый FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 1,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Эфиопия",
       "process": "Washed",
       "altitude": null,
@@ -14204,7 +14204,9 @@
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
+      "quarantined_at": "2026-07-07T10:30:34+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "espresso_micro_эфиопия_челчеле_гр_1_мытый_эспрессо_1_кг",
