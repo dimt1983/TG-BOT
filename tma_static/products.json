@@ -1677,7 +1677,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2017,10 +2017,10 @@
           "price": 495.0,
           "on_request": false,
           "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_200_г.jpg",
-          "stock": 11
+          "stock": 21
         }
       ],
-      "stock": 11,
+      "stock": 21,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -2120,10 +2120,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "photos/products/retail_f_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 8
+          "stock": 18
         }
       ],
-      "stock": 8,
+      "stock": 18,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5742,7 +5742,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 29,
+      "stock": 27,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -7077,7 +7077,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
