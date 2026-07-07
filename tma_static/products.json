@@ -15136,30 +15136,6 @@
       "taste": "Красные ягоды, сладкий компот, красный апельсин, фруктовые леденцы, тростниковый сахар"
     },
     {
-      "id": "filter_micro_кения_киавамуруру_нат_анаэроб_1_кг_filter",
-      "name": "Кения КиаваМуруру нат.анаэроб.1 кг FILTER",
-      "category": "filter",
-      "subcategory": "filter_micro",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
-      "roast": "F",
-      "photo": "assets/placeholders/ph_filter.svg",
-      "fasovka": [
-        {
-          "size": "1 кг",
-          "price": 0,
-          "photo": "assets/placeholders/ph_filter.svg"
-        }
-      ],
-      "created_at": "2026-06-03T11:33:47+00:00",
-      "created_by": "sync_catalog_v2",
-      "aroma": "Красное вино, вишня в шоколаде, красное яблоко, тёмный виноград",
-      "taste": "Виноградный сок, клубника, сливки, вишня в шоколаде, красное вино, молочный шоколад",
-      "quarantined_at": "2026-06-09T11:31:46+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
-    },
-    {
       "id": "filter_micro_кения_маакиоу_пиберри_мытая_1_кг_filter",
       "name": "Кения Маакиоу Пиберри мытая 1 кг FILTER",
       "category": "filter",
