@@ -5611,12 +5611,12 @@
       "roast": "F",
       "description": "Свежеобжаренный кофе с чистым и сбалансированным вкусом.",
       "tasting_notes": null,
-      "photo": "assets/placeholders/ph_filter.svg",
+      "photo": "photos/products/filter_mono_бразилия_фазенда_сертао_сухой_молотый_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2015,
-          "photo": "assets/placeholders/ph_filter.svg"
+          "photo": "photos/products/filter_mono_бразилия_фазенда_сертао_сухой_молотый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -14311,12 +14311,12 @@
       "hidden": false,
       "quarantined": false,
       "roast": "E",
-      "photo": "assets/placeholders/ph_espresso.svg",
+      "photo": "photos/products/espresso_mono_эфиопия_milk_сидамо_гр_4_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2120,
-          "photo": "assets/placeholders/ph_espresso.svg"
+          "photo": "photos/products/espresso_mono_эфиопия_milk_сидамо_гр_4_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
@@ -14464,12 +14464,12 @@
       "hidden": false,
       "quarantined": false,
       "roast": "F",
-      "photo": "assets/placeholders/ph_filter.svg",
+      "photo": "photos/products/filter_micro_вьетнам_блю_сонал_сухой_filter_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2135,
-          "photo": "assets/placeholders/ph_filter.svg"
+          "photo": "photos/products/filter_micro_вьетнам_блю_сонал_сухой_filter_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-20T11:00:09+00:00",
@@ -14600,12 +14600,12 @@
       "hidden": false,
       "quarantined": false,
       "roast": "E",
-      "photo": "assets/placeholders/ph_espresso.svg",
+      "photo": "photos/products/espresso_mono_гондурас_сан_николас_темная_обжарка_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 2175,
-          "photo": "assets/placeholders/ph_espresso.svg"
+          "photo": "photos/products/espresso_mono_гондурас_сан_николас_темная_обжарка_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-22T12:00:08+00:00",
@@ -15056,12 +15056,12 @@
       "hidden": false,
       "quarantined": false,
       "roast": "E",
-      "photo": "assets/placeholders/ph_espresso.svg",
+      "photo": "photos/products/espresso_micro_бразилия_sl28_хани_анаэроб_1_кг_эспрессо.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 3500.0,
-          "photo": "assets/placeholders/ph_espresso.svg"
+          "photo": "photos/products/espresso_micro_бразилия_sl28_хани_анаэроб_1_кг_эспрессо.jpg"
         }
       ],
       "created_at": "2026-05-27T03:36:13+00:00",
@@ -15076,12 +15076,12 @@
       "hidden": false,
       "quarantined": false,
       "roast": "E",
-      "photo": "assets/placeholders/ph_espresso.svg",
+      "photo": "photos/products/espresso_micro_бразилия_фазенда_лагуинья_мундо_анаэроб_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 3500.0,
-          "photo": "assets/placeholders/ph_espresso.svg"
+          "photo": "photos/products/espresso_micro_бразилия_фазенда_лагуинья_мундо_анаэроб_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-27T03:36:13+00:00",
@@ -15168,12 +15168,12 @@
       "hidden": false,
       "quarantined": false,
       "roast": "F",
-      "photo": "assets/placeholders/ph_filter.svg",
+      "photo": "photos/products/filter_micro_кения_маакиоу_пиберри_мытая_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 0,
-          "photo": "assets/placeholders/ph_filter.svg"
+          "photo": "photos/products/filter_micro_кения_маакиоу_пиберри_мытая_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-06-03T11:33:47+00:00",
@@ -15188,12 +15188,12 @@
       "hidden": false,
       "quarantined": false,
       "roast": "E",
-      "photo": "assets/placeholders/ph_espresso.svg",
+      "photo": "photos/products/espresso_mono_мексика_чьяпас_мытый_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 0,
-          "photo": "assets/placeholders/ph_espresso.svg"
+          "photo": "photos/products/espresso_mono_мексика_чьяпас_мытый_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-06-08T13:32:50+00:00",
@@ -15210,12 +15210,12 @@
       "hidden": false,
       "quarantined": false,
       "roast": "F",
-      "photo": "assets/placeholders/ph_filter.svg",
+      "photo": "photos/products/filter_micro_кения_киавамуруру_nh_7_нат_анаэроб_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 0,
-          "photo": "assets/placeholders/ph_filter.svg"
+          "photo": "photos/products/filter_micro_кения_киавамуруру_nh_7_нат_анаэроб_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-06-09T11:31:46+00:00",
@@ -15254,12 +15254,12 @@
       "hidden": false,
       "quarantined": false,
       "roast": "E",
-      "photo": "assets/placeholders/ph_espresso.svg",
+      "photo": "photos/products/espresso_mono_вьетнам_блю_сонал_сухой_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 0,
-          "photo": "assets/placeholders/ph_espresso.svg"
+          "photo": "photos/products/espresso_mono_вьетнам_блю_сонал_сухой_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-06-18T07:36:31+00:00",
@@ -15274,12 +15274,12 @@
       "hidden": false,
       "quarantined": false,
       "roast": "E",
-      "photo": "assets/placeholders/ph_espresso.svg",
+      "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_2_мытый_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 0,
-          "photo": "assets/placeholders/ph_espresso.svg"
+          "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_2_мытый_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-06-30T10:30:36+00:00",
@@ -15294,12 +15294,12 @@
       "hidden": false,
       "quarantined": false,
       "roast": "F",
-      "photo": "assets/placeholders/ph_filter.svg",
+      "photo": "photos/products/filter_mono_эфиопия_сидамо_gr_2_мытый_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 0,
-          "photo": "assets/placeholders/ph_filter.svg"
+          "photo": "photos/products/filter_mono_эфиопия_сидамо_gr_2_мытый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-06-30T11:36:04+00:00",
@@ -15314,12 +15314,12 @@
       "hidden": false,
       "quarantined": false,
       "roast": "F",
-      "photo": "assets/placeholders/ph_filter.svg",
+      "photo": "photos/products/filter_micro_колумбия_катимор_натур_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 0,
-          "photo": "assets/placeholders/ph_filter.svg"
+          "photo": "photos/products/filter_micro_колумбия_катимор_натур_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-07-03T07:32:17+00:00",
@@ -15334,12 +15334,12 @@
       "hidden": false,
       "quarantined": false,
       "roast": "F",
-      "photo": "assets/placeholders/ph_filter.svg",
+      "photo": "photos/products/filter_micro_колумбия_катуррон_натур_1_кг_filter.jpg",
       "fasovka": [
         {
           "size": "1 кг",
           "price": 0,
-          "photo": "assets/placeholders/ph_filter.svg"
+          "photo": "photos/products/filter_micro_колумбия_катуррон_натур_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-07-03T07:32:17+00:00",
