@@ -15090,28 +15090,6 @@
       "quarantine_reason": null
     },
     {
-      "id": "filter_micro_кения_киавамуруру_1_кг_filter",
-      "name": "Кения КиаваМуруру 1 кг FILTER",
-      "category": "filter",
-      "subcategory": "filter_micro",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
-      "roast": "F",
-      "photo": "assets/placeholders/ph_filter.svg",
-      "fasovka": [
-        {
-          "size": "1 кг",
-          "price": 0,
-          "photo": "assets/placeholders/ph_filter.svg"
-        }
-      ],
-      "created_at": "2026-06-03T07:31:36+00:00",
-      "created_by": "sync_catalog_v2",
-      "quarantined_at": "2026-06-03T11:33:47+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
-    },
-    {
       "id": "filter_micro_кения_маакиоу_пиберри_1_кг_filter",
       "name": "Кения Маакиоу Пиберри 1 кг FILTER",
       "category": "filter",
