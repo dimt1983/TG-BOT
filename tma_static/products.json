@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 80,
+      "stock": 79,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 200,
+      "stock": 191,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -14149,7 +14149,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 64,
+      "stock": 47,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
