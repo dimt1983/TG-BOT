@@ -1163,10 +1163,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_венеция_200_г.jpg",
-          "stock": 25
+          "stock": 24
         }
       ],
-      "stock": 25,
+      "stock": 24,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1269,10 +1269,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_хани_200_г.jpg",
-          "stock": 25
+          "stock": 24
         }
       ],
-      "stock": 25,
+      "stock": 24,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 212,
+      "stock": 202,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1677,7 +1677,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1757,7 +1757,7 @@
           "photo": "photos/products/retail_e_roastberry_гватемала_уетенанго_200_г.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1837,10 +1837,10 @@
           "price": 465.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 12
+          "stock": 11
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2120,10 +2120,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "photos/products/retail_f_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 14
+          "stock": 12
         }
       ],
-      "stock": 14,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5500,7 +5500,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 110,
+      "stock": 107,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7563,7 +7563,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_бразилия_бразилия_sl28_хани_.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7584,7 +7584,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_колумбия_кастильо_мытая_200_.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -14307,7 +14307,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 20,
+      "stock": 25,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15072,7 +15072,7 @@
       "name": "Бразилия \"Фазенда Лагуинья мундо анаэроб.\" эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_micro",
-      "stock": 4,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
