@@ -160,7 +160,9 @@ def _norm_words(s: str) -> set[str]:
         words.append(repl.get(w, w))
     # Удаляем шумовые слова
     noise = {"СУХОЙ", "МЫТЫЙ", "ХАНИ", "АНАЭРОБ", "ТОП", "ГР", "1", "2", "3", "4",
-             "ЭДИШН", "EDITION", "ОБЖАРКА", "ТЕМНАЯ", "СВЕТЛАЯ", "ДАРК", "DARK"}
+             "ЭДИШН", "EDITION", "ОБЖАРКА", "ТЕМНАЯ", "СВЕТЛАЯ", "ДАРК", "DARK",
+             "ЭСПРЕССО", "ЭСПР", "ФИЛЬТР", "КГ",
+             "НАТУР", "НАТУРАЛ", "НАТУРАЛЬНАЯ", "НАТУРАЛЬНЫЙ"}
     return set(words) - noise
 
 
@@ -173,6 +175,13 @@ def _match_score(tma_name: str, ozon_name: str) -> float:
     return inter / max(len(a), len(b))
 
 
+# Категории кофе, к которым применяется живой прайс из xlsx. Миграция catalog_v2
+# (май 2026) разнесла бывшую единую 'coffee' на espresso/filter/black/borshch —
+# старый фильтр `== "coffee"` после этого пропускал ВСЕ товары, живые цены не
+# применялись (у всех карточек _price_source=None). 'coffee' — для совместимости.
+COFFEE_CATEGORIES = frozenset({"coffee", "espresso", "filter", "black", "borshch"})
+
+
 def merge_into_products(tma_products: list[dict]) -> tuple[list[dict], dict]:
     """Применяет цены к coffee-товарам TMA. Возвращает (обновлённые товары, статистика)."""
     prices = load_prices()
@@ -182,7 +191,7 @@ def merge_into_products(tma_products: list[dict]) -> tuple[list[dict], dict]:
     out = []
 
     for p in tma_products:
-        if p.get("category") != "coffee":
+        if p.get("category") not in COFFEE_CATEGORIES:
             out.append(p)
             continue
 
