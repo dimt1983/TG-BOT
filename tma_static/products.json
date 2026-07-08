@@ -1812,7 +1812,7 @@
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_-_1_кг.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 4,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -7104,7 +7104,7 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 22,
+      "stock": 25,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
