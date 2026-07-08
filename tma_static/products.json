@@ -5963,18 +5963,18 @@
       "id": "c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи",
       "category": "drip",
       "subcategory": "drip_8pack",
-      "name": "ДП \"CHOCOLATE RB\" ГВАТЕМАЛА УЕУЕТЕНАНГО молотый, 8 фильтр-пакетов",
+      "name": "ДП \"CHOCOLATE RB\" ГВАТЕМАЛА ФИНКА МЕДИНА молотый, 8 фильтр-пакетов",
       "country": "Гватемала",
       "roast": "E",
       "process": "Помол под фильтр",
-      "description": "8 дрипов CHOCOLATE. Гватемала — насыщенный шоколад, цитрус и отличная сладость.",
+      "description": "8 дрипов CHOCOLATE. Гватемала Финка Медина, обработка хани — насыщенный шоколад со сладостью. 8 фильтр-пакетов.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "fasovka": [
         {
           "size": "8 пак.",
           "price": 670,
-          "photo": "photos/products/c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи.jpg"
+          "photo": "photos/products/drip_chocolate_guatemala.jpg"
         }
       ],
       "stock": 45,
@@ -6029,14 +6029,14 @@
       "country": "Колумбия",
       "roast": "E",
       "process": "Помол под фильтр",
-      "description": "8 дрипов CHOCOLATE. Колумбия Питалито Декаф — мягкий шоколадный профиль без кофеина.",
+      "description": "8 дрипов CHOCOLATE. Колумбия Питалито, без кофеина, мытая обработка — мягкий шоколадный профиль. 8 фильтр-пакетов.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "fasovka": [
         {
           "size": "8 пак.",
           "price": 670,
-          "photo": null
+          "photo": "photos/products/drip_chocolate_colombia.jpg"
         }
       ],
       "stock": 0,
@@ -6048,10 +6048,10 @@
         "миндаль",
         "шоколад"
       ],
-      "quarantined": true,
-      "quarantined_at": "2026-06-25T07:19:53",
-      "quarantine_reason": "no_match_in_rb_bot_xlsx",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "c-дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_",
@@ -6061,7 +6061,7 @@
       "country": "Колумбия",
       "roast": "F",
       "process": "Мытая",
-      "description": "Молотый кофе в фильтр-пакетах. Удобный формат для альтернативных способов заваривания.",
+      "description": "8 дрипов FRUIT. Колумбия Клаудиа Колминарес, мытая обработка — чистый фруктовый профиль. Удобные фильтр-пакеты, 8 шт.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "fasovka": [
@@ -6101,7 +6101,7 @@
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Эфиопия",
-      "description": "8 дрипов FRUIT — Молочная Бомба. Эфиопия с яркими фруктовыми нотами и сладкой сливочной текстурой.",
+      "description": "8 дрипов FRUIT — Молочная Бомба. Эфиопия Бомбе, натуральная обработка: яркие фруктовые ноты, сладкая сливочная текстура. 8 фильтр-пакетов.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
@@ -6120,13 +6120,13 @@
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Кения",
-      "description": "8 дрипов FUNKI. Кения — взрывная кислотность, чёрная смородина и яркая ягодная свежесть.",
+      "description": "8 дрипов FRUIT. Кения Моунт С, мытая обработка — взрывная ягодная кислотность, чёрная смородина. 8 фильтр-пакетов.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "hidden": true,
-      "quarantined": true,
-      "quarantined_at": "2026-06-25T07:19:53",
-      "quarantine_reason": "no_match_in_rb_bot_xlsx"
+      "hidden": false,
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "drip_дп_fruit_rb-fc_колумбия_супремо_молотыи_8_фильтр-п",
@@ -14049,33 +14049,32 @@
       "country": "Эфиопия",
       "roast": "F",
       "process": "Помол под фильтр",
-      "description": "Эфиопия Yirgacheffe. Классический цветочно-чайный профиль с высокой кислотностью.",
+      "description": "8 дрипов FLOWERS. Эфиопия Иргачеф, мытая обработка — цветочно-чайный профиль, высокая кислотность. 8 фильтр-пакетов.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "fasovka": [
         {
           "size": "8 шт",
           "price": 710,
-          "photo": "assets/placeholders/ph_espresso.svg"
+          "photo": "photos/products/drip_flowers_yirgacheffe.jpg"
         },
         {
           "size": "1 шт",
           "price": 72,
-          "photo": "assets/placeholders/ph_espresso.svg"
+          "photo": "photos/products/drip_flowers_yirgacheffe.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 20,
       "tags": [
         "Удобно",
         "FLOWER"
       ],
-      "photo": "assets/placeholders/ph_espresso.svg",
+      "photo": "photos/products/drip_flowers_yirgacheffe.jpg",
       "ozon_offer_id": "RB-F-ETHIOPIA YIRGACHEFFE Gr.2, 200 г",
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true,
-      "archived_reason": "not in xlsx 19.05.2026"
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "filter_mono_эфиопия_лиму_гр_2_мытый_1_кг_filter",
@@ -15252,6 +15251,75 @@
       ],
       "created_at": "2026-07-03T07:32:17+00:00",
       "created_by": "sync_catalog_v2"
+    },
+    {
+      "id": "drip_дп_fruit_rb_колумбия_ла_кумбре_молотыи_8_фильтр-пакетов",
+      "name": "ДП \"FRUIT RB\" КОЛУМБИЯ ЛА КУМБРЕ молотый, 8 фильтр-пакетов",
+      "category": "drip",
+      "subcategory": "drip_8pack",
+      "country": "Колумбия",
+      "roast": "E",
+      "process": "Помол под фильтр",
+      "description": "8 дрипов FRUIT. Колумбия Ла Кумбре, обработка хани — сладкий фруктовый профиль. 8 фильтр-пакетов.",
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
+      "fasovka": [
+        {
+          "size": "8 пак.",
+          "price": 790,
+          "photo": "photos/products/drip_fruit_la_cumbre.jpg"
+        }
+      ],
+      "stock": 0,
+      "tags": [],
+      "photo": "photos/products/drip_fruit_la_cumbre.jpg",
+      "hidden": true
+    },
+    {
+      "id": "drip_дп_flowers_rb_руанда_вомен_молотыи_8_фильтр-пакетов",
+      "name": "ДП \"FLOWERS RB\" РУАНДА ВОМЕН молотый, 8 фильтр-пакетов",
+      "category": "drip",
+      "subcategory": "drip_8pack",
+      "country": "Руанда",
+      "roast": "E",
+      "process": "Помол под фильтр",
+      "description": "8 дрипов FLOWERS. Руанда Вомен (кофе Экстеншион), мытая обработка — цветочный профиль, ягодная кислотность. 8 фильтр-пакетов.",
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
+      "fasovka": [
+        {
+          "size": "8 пак.",
+          "price": 830,
+          "photo": "photos/products/drip_flowers_rwanda_women.jpg"
+        }
+      ],
+      "stock": 0,
+      "tags": [],
+      "photo": "photos/products/drip_flowers_rwanda_women.jpg",
+      "hidden": true
+    },
+    {
+      "id": "drip_дп_chocolate_rb_бразилия_пиберри_молотыи_8_фильтр-пакетов",
+      "name": "ДП \"CHOCOLATE RB\" БРАЗИЛИЯ ПИБЕРРИ молотый, 8 фильтр-пакетов",
+      "category": "drip",
+      "subcategory": "drip_8pack",
+      "country": "Бразилия",
+      "roast": "E",
+      "process": "Помол под фильтр",
+      "description": "8 дрипов CHOCOLATE. Бразилия Пиберри, натуральная обработка — плотный шоколадно-ореховый профиль. 8 фильтр-пакетов.",
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
+      "fasovka": [
+        {
+          "size": "8 пак.",
+          "price": 690,
+          "photo": "photos/products/drip_chocolate_brazil_peaberry.jpg"
+        }
+      ],
+      "stock": 0,
+      "tags": [],
+      "photo": "photos/products/drip_chocolate_brazil_peaberry.jpg",
+      "hidden": true
     }
   ]
 }
