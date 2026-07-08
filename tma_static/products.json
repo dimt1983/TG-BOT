@@ -1163,10 +1163,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_венеция_200_г.jpg",
-          "stock": 24
+          "stock": 23
         }
       ],
-      "stock": 24,
+      "stock": 23,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1269,10 +1269,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_хани_200_г.jpg",
-          "stock": 24
+          "stock": 23
         }
       ],
-      "stock": 24,
+      "stock": 23,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -2120,10 +2120,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "photos/products/retail_f_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 11
+          "stock": 10
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -3963,7 +3963,7 @@
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
-      "stock": 51,
+      "stock": 41,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
       "quarantined": false,
@@ -3989,7 +3989,7 @@
           "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg"
         }
       ],
-      "stock": 68,
+      "stock": 58,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_малиновый_мохито_50пак.jpg",
       "quarantined": false,
@@ -4041,7 +4041,7 @@
           "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
-      "stock": 114,
+      "stock": 104,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
       "quarantined": false,
@@ -5500,7 +5500,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 107,
+      "stock": 99,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 601,
+      "stock": 600,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8602,7 +8602,7 @@
           "price": 1
         }
       ],
-      "stock": 14600,
+      "stock": 14000,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -11787,7 +11787,7 @@
           "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
         }
       ],
-      "stock": 1470,
+      "stock": 1440,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg",
       "quarantined": false,
@@ -11910,7 +11910,7 @@
           "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg"
         }
       ],
-      "stock": 675,
+      "stock": 630,
       "tags": [],
       "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg",
       "quarantined": false,
@@ -14150,7 +14150,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 104,
+      "stock": 64,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
