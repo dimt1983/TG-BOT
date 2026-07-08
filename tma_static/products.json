@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 2,
+      "stock": 22,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1326,7 +1326,7 @@
           "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1349,10 +1349,10 @@
           "size": "200 г",
           "price": 435,
           "photo": "photos/products/retail_bf_roastberry_лунго_200_г.jpg",
-          "stock": 5
+          "stock": 20
         }
       ],
-      "stock": 5,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1757,7 +1757,7 @@
           "photo": "photos/products/retail_e_roastberry_гватемала_уетенанго_200_г.jpg"
         }
       ],
-      "stock": 12,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -8252,7 +8252,7 @@
       "name": "Перу Монте Верде гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 20,
+      "stock": 24,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -14433,7 +14433,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 2,
+      "stock": 17,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15177,7 +15177,7 @@
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 8,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
