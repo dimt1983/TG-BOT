@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 91,
+      "stock": 81,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 3,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 603,
+      "stock": 601,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6563,7 +6563,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 11,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6622,7 +6622,7 @@
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -7584,7 +7584,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_колумбия_кастильо_мытая_200_.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7630,7 +7630,7 @@
           "photo": "photos/products/black_кофе_roastberry_black_эфиопия_челелекту_г1_мытыи_2.jpg"
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7651,7 +7651,7 @@
           "photo": "assets/placeholders/ph_black.svg"
         }
       ],
-      "stock": 3,
+      "stock": 1,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7736,7 +7736,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 13,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8252,7 +8252,7 @@
       "name": "Перу Монте Верде гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 27,
+      "stock": 20,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -11966,7 +11966,7 @@
       "name": "Танзания АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "country": "Танзания",
@@ -12256,7 +12256,7 @@
       "name": "Уганда Вугар мытый  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
@@ -12471,7 +12471,7 @@
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 100,
+      "stock": 99,
       "on_request": false,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
@@ -14150,7 +14150,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 109,
+      "stock": 104,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14434,7 +14434,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 15,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
