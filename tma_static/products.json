@@ -353,7 +353,7 @@
           "photo": "photos/products/t-althaus_ассам_молти_кап_15х4г.jpg"
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/t-althaus_ассам_молти_кап_15х4г.jpg",
       "_source": "alephtrade",
@@ -724,7 +724,7 @@
           "photo": "photos/products/t-althaus_ред_фрут_флаш_фрукт_лист_250г.jpg"
         }
       ],
-      "stock": 3,
+      "stock": 1,
       "tags": [],
       "photo": "photos/products/t-althaus_ред_фрут_флаш_фрукт_лист_250г.jpg",
       "_source": "alephtrade",
@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 79,
+      "stock": 71,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 187,
+      "stock": 183,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1651,7 +1651,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_200_г.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1757,7 +1757,7 @@
           "photo": "photos/products/retail_e_roastberry_гватемала_уетенанго_200_г.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2017,10 +2017,10 @@
           "price": 495.0,
           "on_request": false,
           "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_200_г.jpg",
-          "stock": 21
+          "stock": 20
         }
       ],
-      "stock": 21,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -2071,10 +2071,10 @@
           "price": 530.0,
           "on_request": false,
           "photo": "photos/products/retail_f_roastberry_кения_аб_200_г.jpg",
-          "stock": 16
+          "stock": 15
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -2100,7 +2100,7 @@
           "photo": "photos/products/retail_f_roastberry_китаи_симао_200_г.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2680,7 +2680,7 @@
           "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 7,
       "tags": [],
       "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg",
       "_source": "alephtrade",
@@ -3137,7 +3137,7 @@
           "price": 185.0
         }
       ],
-      "stock": 20,
+      "stock": 19,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3939,7 +3939,7 @@
           "price": 590.0
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 600,
+      "stock": 586,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5742,7 +5742,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 27,
+      "stock": 23,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -6230,7 +6230,7 @@
           "price": 2320.0
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -6481,7 +6481,7 @@
           "price": 2215.0
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8142,7 +8142,7 @@
           "photo": null
         }
       ],
-      "stock": 183,
+      "stock": 180,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8602,7 +8602,7 @@
           "price": 1
         }
       ],
-      "stock": 13400,
+      "stock": 13200,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -11966,9 +11966,9 @@
       "name": "Танзания АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 1,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Танзания",
       "process": null,
       "altitude": null,
@@ -11986,7 +11986,9 @@
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
+      "quarantined_at": "2026-07-08T14:35:10+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "s-топпинг_barline_банан_1кг",
@@ -12471,7 +12473,7 @@
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 98,
+      "stock": 97,
       "on_request": false,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
@@ -15157,7 +15159,7 @@
       "name": "Вьетнам Блю Сонал сухой  эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 5,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
