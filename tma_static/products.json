@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 64,
+      "stock": 54,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1974,7 +1974,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 79,
+      "stock": 46,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5601,7 +5601,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 31,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -11714,7 +11714,7 @@
           "price": 635.0
         }
       ],
-      "stock": 18,
+      "stock": 15,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14151,7 +14151,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 46,
+      "stock": 134,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14461,9 +14461,9 @@
       "name": "Вьетнам Блю Шонла сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "F",
       "photo": "photos/products/filter_micro_вьетнам_блю_сонал_сухой_filter_1_кг.jpg",
       "fasovka": [
@@ -14476,8 +14476,8 @@
       "created_at": "2026-05-20T11:00:09+00:00",
       "created_by": "sync_catalog_v2",
       "country": "Вьетнам",
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined_at": "2026-07-09T08:36:05+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
       "description": "Вьетнам Блю Шонла. Шоколад, орех, низкая кислотность.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
@@ -15159,9 +15159,9 @@
       "name": "Вьетнам Блю Шонла сухой  эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 3,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "E",
       "photo": "photos/products/espresso_mono_вьетнам_блю_сонал_сухой_эспрессо_1_кг.jpg",
       "fasovka": [
@@ -15172,7 +15172,9 @@
         }
       ],
       "created_at": "2026-06-18T07:36:31+00:00",
-      "created_by": "sync_catalog_v2"
+      "created_by": "sync_catalog_v2",
+      "quarantined_at": "2026-07-09T08:36:05+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "espresso_mono_эфиопия_сидамо_гр_2_мытый_эспрессо_1_кг",
@@ -15322,6 +15324,46 @@
       "tags": [],
       "photo": "photos/products/drip_chocolate_brazil_peaberry.jpg",
       "hidden": true
+    },
+    {
+      "id": "espresso_mono_вьетнам_блю_сонал_сухой_эспрессо_1_кг_2",
+      "name": "Вьетнам Блю Сонал сухой  эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 3,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "E",
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-07-09T08:36:05+00:00",
+      "created_by": "sync_catalog_v2"
+    },
+    {
+      "id": "filter_mono_вьетнам_блю_сонал_сухой_filter_1_кг",
+      "name": "Вьетнам Блю Сонал сухой FILTER - 1 кг",
+      "category": "filter",
+      "subcategory": "filter_mono",
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "F",
+      "photo": "assets/placeholders/ph_filter.svg",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 0,
+          "photo": "assets/placeholders/ph_filter.svg"
+        }
+      ],
+      "created_at": "2026-07-09T08:36:05+00:00",
+      "created_by": "sync_catalog_v2"
     }
   ]
 }
