@@ -1163,10 +1163,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_венеция_200_г.jpg",
-          "stock": 20
+          "stock": 19
         }
       ],
-      "stock": 20,
+      "stock": 19,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 71,
+      "stock": 67,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 22,
+      "stock": 21,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 180,
+      "stock": 168,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1622,10 +1622,10 @@
           "price": 445.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_200_г.jpg",
-          "stock": 36
+          "stock": 35
         }
       ],
-      "stock": 36,
+      "stock": 35,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1651,7 +1651,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_200_г.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5500,7 +5500,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 95,
+      "stock": 92,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 534,
+      "stock": 531,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -15179,7 +15179,7 @@
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 14,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
