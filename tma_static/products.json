@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 73,
+      "stock": 71,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1886,10 +1886,10 @@
           "size": "200 г",
           "price": 460,
           "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_200_г.jpg",
-          "stock": 8
+          "stock": 13
         }
       ],
-      "stock": 8,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2046,7 +2046,7 @@
           "photo": "photos/products/retail_f_roastberry_кения_аа_200_г.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 5,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -3602,7 +3602,7 @@
           "photo": "photos/products/t-rb_tea_эрл_грей_250_г_черный_чай.jpg"
         }
       ],
-      "stock": 18,
+      "stock": 14,
       "tags": [],
       "photo": "photos/products/t-rb_tea_эрл_грей_250_г_черный_чай.jpg",
       "quarantined": false,
@@ -5500,7 +5500,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 91,
+      "stock": 86,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5533,7 +5533,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7521,9 +7521,9 @@
       "name": "Коста-Рика Тарразу Ла Пастора эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 9,
+      "hidden": false,
+      "quarantined": false,
       "country": "Коста-Рика",
       "process": "Помол под фильтр",
       "altitude": null,
@@ -7546,8 +7546,8 @@
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
-      "quarantined_at": "2026-07-09T10:35:08+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "quarantined_at": null,
+      "quarantine_reason": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
@@ -8602,7 +8602,7 @@
           "price": 1
         }
       ],
-      "stock": 13000,
+      "stock": 12800,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -13753,7 +13753,7 @@
           "price": 1090.0
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14151,7 +14151,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 132,
+      "stock": 128,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14435,7 +14435,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 9,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15115,7 +15115,7 @@
       "name": "Мексика Чьяпас мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 1,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
