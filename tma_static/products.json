@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 67,
+      "stock": 64,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 168,
+      "stock": 166,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2017,10 +2017,10 @@
           "price": 495.0,
           "on_request": false,
           "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_200_г.jpg",
-          "stock": 17
+          "stock": 16
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -4665,7 +4665,7 @@
           "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg"
         }
       ],
-      "stock": 137,
+      "stock": 132,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -4691,7 +4691,7 @@
           "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg"
         }
       ],
-      "stock": 96,
+      "stock": 93,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg",
       "quarantined": false,
@@ -4873,7 +4873,7 @@
           "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
         }
       ],
-      "stock": 159,
+      "stock": 154,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -5500,7 +5500,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 92,
+      "stock": 91,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5568,7 +5568,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 531,
+      "stock": 508,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7303,7 +7303,7 @@
       "name": "Колумбия Пачамама нат.анаэроб.- 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 3,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -8542,7 +8542,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 8,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -8602,7 +8602,7 @@
           "price": 1
         }
       ],
-      "stock": 13200,
+      "stock": 13000,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
