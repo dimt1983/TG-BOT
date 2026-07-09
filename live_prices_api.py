@@ -166,13 +166,33 @@ def _norm_words(s: str) -> set[str]:
     return set(words) - noise
 
 
-def _match_score(tma_name: str, ozon_name: str) -> float:
+def _grade(name):
+    """Номер грейда из имени: 'гр.4' / 'Gr 2' / 'гр2' → '4'/'2'. Нужен чтобы
+    не путать сорта разного грейда (Сидамо Гр.4 ≠ Сидамо гр.2)."""
+    m = re.search(r'(?:гр|gr)\.?\s*(\d)', name, re.IGNORECASE)
+    return m.group(1) if m else None
+
+
+def _match_score(tma_name: str, price_name: str) -> float:
+    # a — карточка магазина (длинное имя: сорт + обработка/фасовка/линейка),
+    # b — позиция прайса (короткое каноничное имя).
     a = _norm_words(tma_name)
-    b = _norm_words(ozon_name)
+    b = _norm_words(price_name)
     if not a or not b:
         return 0.0
+    # Разный грейд одного сорта — разный товар, не матчим.
+    ga, gb = _grade(tma_name), _grade(price_name)
+    if ga and gb and ga != gb:
+        return 0.0
     inter = len(a & b)
-    return inter / max(len(a), len(b))
+    sym = inter / max(len(a), len(b))
+    # Directional containment: если ВСЕ значимые слова прайсовой позиции есть в
+    # карточке — это матч, даже когда карточка длиннее (несёт «мытая», «FILTER»,
+    # «нат.анаэроб», «NH-7» — их нет в прайсе, и они рушили симметричный score).
+    # Гейт inter>=2 отсекает ложные срабатывания по одному слову-стране
+    # (иначе любая «Кения …» сматчила бы «Кения АА», где значимое слово одно).
+    contain = inter / len(b) if inter >= 2 else 0.0
+    return max(sym, contain)
 
 
 # Категории кофе, к которым применяется живой прайс из xlsx. Миграция catalog_v2
@@ -231,10 +251,10 @@ def merge_into_products(tma_products: list[dict]) -> tuple[list[dict], dict]:
             for fa in p.get("fasovka", []):
                 if "1 кг" in fa["size"] and match.get("price_1000"):
                     fa = dict(fa)
-                    fa["price"] = int(match["price_1000"])
+                    fa["price"] = int(match["price_1000"] + 0.5)  # округл. вверх: 2847.5→2848, как на витрине
                 elif "200 г" in fa["size"] and match.get("price_200"):
                     fa = dict(fa)
-                    fa["price"] = int(match["price_200"])
+                    fa["price"] = int(match["price_200"] + 0.5)
                 new_fasovka.append(fa)
             p = dict(p)
             p["fasovka"] = new_fasovka
