@@ -2071,10 +2071,10 @@
           "price": 530.0,
           "on_request": false,
           "photo": "photos/products/retail_f_roastberry_кения_аб_200_г.jpg",
-          "stock": 7
+          "stock": 12
         }
       ],
-      "stock": 7,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5572,7 +5572,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 472,
+      "stock": 506,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6626,7 +6626,7 @@
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -8286,7 +8286,7 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 13,
+      "stock": 23,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -14439,9 +14439,9 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 31,
+      "hidden": false,
+      "quarantined": false,
       "roast": "E",
       "photo": "photos/products/espresso_mono_гватемала_уетенанго_мытый_1_кг_эспрессо.jpg",
       "fasovka": [
@@ -14457,8 +14457,8 @@
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность, хорошая сладость.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-07-15T09:35:14+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "filter_micro_вьетнам_блю_сонал_сухой_filter_1_кг",
