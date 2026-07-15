@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 80,
+      "stock": 116,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1216,10 +1216,10 @@
           "price": 425.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_классика_20_200_г.jpg",
-          "stock": 9
+          "stock": 19
         }
       ],
-      "stock": 9,
+      "stock": 19,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -5572,7 +5572,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 429,
+      "stock": 497,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
