@@ -1163,10 +1163,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_венеция_200_г.jpg",
-          "stock": 19
+          "stock": 18
         }
       ],
-      "stock": 19,
+      "stock": 18,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 44,
+      "stock": 80,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1216,10 +1216,10 @@
           "price": 425.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_классика_20_200_г.jpg",
-          "stock": 10
+          "stock": 9
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 140,
+      "stock": 138,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2046,7 +2046,7 @@
           "photo": "photos/products/retail_f_roastberry_кения_аа_200_г.jpg"
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -3602,7 +3602,7 @@
           "photo": "photos/products/t-rb_tea_эрл_грей_250_г_черный_чай.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 13,
       "tags": [],
       "photo": "photos/products/t-rb_tea_эрл_грей_250_г_черный_чай.jpg",
       "quarantined": false,
@@ -14435,9 +14435,9 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 3,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "E",
       "photo": "photos/products/espresso_mono_гватемала_уетенанго_мытый_1_кг_эспрессо.jpg",
       "fasovka": [
@@ -14453,8 +14453,8 @@
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность, хорошая сладость.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined_at": "2026-07-15T09:35:14+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "filter_micro_вьетнам_блю_сонал_сухой_filter_1_кг",
