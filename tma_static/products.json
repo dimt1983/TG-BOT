@@ -15372,6 +15372,28 @@
       "created_by": "sync_catalog_v2",
       "quarantined_at": null,
       "quarantine_reason": null
+    },
+    {
+      "id": "retail_e_roastberry_гватемала_уетенанго_-_1_кг",
+      "name": "E \"Roastberry\" Гватемала Уетенанго",
+      "category": "retail",
+      "photo": "assets/placeholders/pack_roastberry_1kg.png",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": 2310,
+          "photo": "assets/placeholders/pack_roastberry_1kg.png"
+        }
+      ],
+      "stock": 9,
+      "on_request": false,
+      "subcategory": "retail_espresso",
+      "roast": "E",
+      "_source": "E \"Roastberry\" Гватемала Уетенанго - 1 кг",
+      "country": "Гватемала",
+      "description": "Гватемала. Шоколад, цитрус, средняя кислотность.",
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     }
   ]
 }
