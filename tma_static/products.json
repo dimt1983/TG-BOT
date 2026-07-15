@@ -2149,7 +2149,7 @@
           "photo": "photos/products/retail_f_roastberry_танзания_200_г.jpg"
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2157,7 +2157,11 @@
       "country": "Танзания",
       "description": "Танзания. Чёрная смородина, цитрус, винные ноты.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-07-15T09:36:16",
+      "quarantine_reason": "no_match_in_rb_bot_xlsx"
     },
     {
       "id": "retail_f_roastberry_эфиопия_иргачиф_г2_200_г",
