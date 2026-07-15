@@ -5967,11 +5967,11 @@
       "id": "c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи",
       "category": "drip",
       "subcategory": "drip_8pack",
-      "name": "ДП \"CHOCOLATE RB\" ГВАТЕМАЛА ФИНКА МЕДИНА молотый, 8 фильтр-пакетов",
+      "name": "ДП \"CHOCOLATE RB\" ГВАТЕМАЛА УЕУЕТЕНАНГО молотый, 8 фильтр-пакетов",
       "country": "Гватемала",
       "roast": "E",
       "process": "Помол под фильтр",
-      "description": "8 дрипов CHOCOLATE. Гватемала Финка Медина, обработка хани — насыщенный шоколад со сладостью. 8 фильтр-пакетов.",
+      "description": "8 дрипов CHOCOLATE. Гватемала Уеуетенанго — насыщенный шоколад со сладостью. 8 фильтр-пакетов.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "fasovka": [
@@ -5981,7 +5981,7 @@
           "photo": "photos/products/drip_chocolate_guatemala.jpg"
         }
       ],
-      "stock": 45,
+      "stock": 42,
       "tags": [],
       "photo": "photos/products/drip_chocolate_guatemala.jpg",
       "tasting_notes": [
