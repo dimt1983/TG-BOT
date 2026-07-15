@@ -15394,6 +15394,261 @@
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
+    },
+    {
+      "id": "e_roastberry_гондурас_san_nicolas_dark_1_кг",
+      "name": "E \"Roastberry\" Гондурас San Nicolas Dark",
+      "category": "retail",
+      "photo": "assets/placeholders/pack_roastberry_1kg.png",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "photo": "assets/placeholders/pack_roastberry_1kg.png"
+        }
+      ],
+      "stock": 11,
+      "_source": "E \"Roastberry\" Гондурас San Nicolas Dark - 1 кг",
+      "country": "Гондурас",
+      "subcategory": "retail_espresso",
+      "roast": "E",
+      "on_request": true
+    },
+    {
+      "id": "e_roastberry_эфиопия_сидамо_гр_2_1_кг",
+      "name": "E \"Roastberry\" Эфиопия Сидамо Гр.2",
+      "category": "retail",
+      "photo": "assets/placeholders/pack_roastberry_1kg.png",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "photo": "assets/placeholders/pack_roastberry_1kg.png",
+          "price": 2385.0
+        }
+      ],
+      "stock": 9,
+      "_source": "E \"Roastberry\" Эфиопия Сидамо Гр.2  - 1 кг",
+      "country": "Эфиопия",
+      "subcategory": "retail_espresso",
+      "roast": "E",
+      "on_request": false
+    },
+    {
+      "id": "f_roastberry_колумбия_андино_1_кг",
+      "name": "F \"Roastberry\" Колумбия Андино",
+      "category": "retail",
+      "photo": "assets/placeholders/pack_roastberry_1kg.png",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "photo": "assets/placeholders/pack_roastberry_1kg.png",
+          "price": 2175.0
+        }
+      ],
+      "stock": 7,
+      "_source": "F \"Roastberry\" Колумбия Андино - 1 кг",
+      "country": "Колумбия",
+      "subcategory": "retail_filter",
+      "roast": "F",
+      "on_request": false
+    },
+    {
+      "id": "f_roastberry_эфиопия_иргачиф_гр_2_1_кг",
+      "name": "F \"Roastberry\" Эфиопия Иргачиф Гр.2",
+      "category": "retail",
+      "photo": "assets/placeholders/pack_roastberry_1kg.png",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "photo": "assets/placeholders/pack_roastberry_1kg.png"
+        }
+      ],
+      "stock": 3,
+      "_source": "F \"Roastberry\" Эфиопия Иргачиф Гр.2 - 1 кг",
+      "country": "Эфиопия",
+      "subcategory": "retail_filter",
+      "roast": "F",
+      "on_request": true
+    },
+    {
+      "id": "e_roastberry_мексика_чьяпас_200_г",
+      "name": "E \"Roastberry\" Мексика Чьяпас",
+      "category": "retail",
+      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "photo": "assets/placeholders/pack_roastberry_200g.png"
+        }
+      ],
+      "stock": 13,
+      "_source": "E \"Roastberry\" Мексика Чьяпас упак. 200 гр.",
+      "country": "Мексика",
+      "subcategory": "retail_espresso",
+      "roast": "E",
+      "on_request": true
+    },
+    {
+      "id": "e_roastberry_эфиопия_сидамо_gr_4_200_г",
+      "name": "E \"Roastberry\" Эфиопия Сидамо Gr. 4",
+      "category": "retail",
+      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "photo": "assets/placeholders/pack_roastberry_200g.png",
+          "price": 505.0
+        }
+      ],
+      "stock": 8,
+      "_source": "E \"Roastberry\" Эфиопия Сидамо Gr. 4  упак. 200 г",
+      "country": "Эфиопия",
+      "subcategory": "retail_espresso",
+      "roast": "E",
+      "on_request": false
+    },
+    {
+      "id": "e_roastberry_эфиопия_сидамо_гр_2_200_г",
+      "name": "E \"Roastberry\" Эфиопия Сидамо Гр.2",
+      "category": "retail",
+      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "photo": "assets/placeholders/pack_roastberry_200g.png",
+          "price": 505.0
+        }
+      ],
+      "stock": 8,
+      "_source": "E \"Roastberry\" Эфиопия Сидамо Гр.2  упак. 200 г",
+      "country": "Эфиопия",
+      "subcategory": "retail_espresso",
+      "roast": "E",
+      "on_request": false
+    },
+    {
+      "id": "f_roastberry_вьетнам_блю_сонал_сухой_200_г",
+      "name": "F \"Roastberry\" Вьетнам Блю Сонал сухой",
+      "category": "retail",
+      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "photo": "assets/placeholders/pack_roastberry_200g.png",
+          "price": 455.0
+        }
+      ],
+      "stock": 11,
+      "_source": "F \"Roastberry\" Вьетнам Блю Сонал сухой упак. 200 г",
+      "country": "Вьетнам",
+      "subcategory": "retail_filter",
+      "roast": "F",
+      "on_request": false
+    },
+    {
+      "id": "f_roastberry_руанда_мутетели_200_г",
+      "name": "F \"Roastberry\" Руанда Мутетели",
+      "category": "retail",
+      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "photo": "assets/placeholders/pack_roastberry_200g.png",
+          "price": 475.0
+        }
+      ],
+      "stock": 10,
+      "_source": "F \"Roastberry\" Руанда Мутетели упак. 200 г",
+      "country": "Руанда",
+      "subcategory": "retail_filter",
+      "roast": "F",
+      "on_request": false
+    },
+    {
+      "id": "f_roastberry_эфиопия_сидамо_гр_2_200_г",
+      "name": "F \"Roastberry\" Эфиопия Сидамо Гр.2.",
+      "category": "retail",
+      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "photo": "assets/placeholders/pack_roastberry_200g.png",
+          "price": 505.0
+        }
+      ],
+      "stock": 4,
+      "_source": "F \"Roastberry\" Эфиопия Сидамо Гр.2. упак. 200 г",
+      "country": "Эфиопия",
+      "subcategory": "retail_filter",
+      "roast": "F",
+      "on_request": false
+    },
+    {
+      "id": "кофе_roastberry_black_кения_маакиоу_пиберри_мытая_200_г",
+      "name": "Кофе \"Roastberry BLACK\" Кения Маакиоу Пиберри мытая",
+      "category": "black",
+      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "photo": "assets/placeholders/pack_roastberry_200g.png",
+          "price": 670.0
+        }
+      ],
+      "stock": 17,
+      "_source": "Кофе \"Roastberry BLACK\" Кения Маакиоу Пиберри мытая - 200 г",
+      "country": "Кения",
+      "on_request": false
+    },
+    {
+      "id": "кофе_roastberry_borщ_кения_киавамуруру_hn_7_нат_анаэроб_200_г",
+      "name": "Кофе \"Roastberry BORЩ \"Кения КиаваМуруру HN-7\" нат.анаэроб.",
+      "category": "borshch",
+      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "photo": "assets/placeholders/pack_roastberry_200g.png",
+          "price": 875.0
+        }
+      ],
+      "stock": 12,
+      "_source": "Кофе \"Roastberry BORЩ \"Кения КиаваМуруру HN-7\" нат.анаэроб.200 г",
+      "country": "Кения",
+      "on_request": false
+    },
+    {
+      "id": "кофе_roastberry_borщ_колумбия_катимор_нат_200_г",
+      "name": "Кофе \"Roastberry BORЩ \"Колумбия Катимор нат.\"",
+      "category": "borshch",
+      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "photo": "assets/placeholders/pack_roastberry_200g.png",
+          "price": 1000.0
+        }
+      ],
+      "stock": 14,
+      "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катимор нат.\" 200 г",
+      "country": "Колумбия",
+      "on_request": false
+    },
+    {
+      "id": "кофе_roastberry_borщ_колумбия_катуррон_нат_200_г",
+      "name": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\"",
+      "category": "borshch",
+      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "fasovka": [
+        {
+          "size": "200 г",
+          "photo": "assets/placeholders/pack_roastberry_200g.png",
+          "price": 1000.0
+        }
+      ],
+      "stock": 12,
+      "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\" 200 г",
+      "country": "Колумбия",
+      "on_request": false
     }
   ]
 }
