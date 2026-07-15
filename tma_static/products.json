@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 115,
+      "stock": 114,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 16,
+      "stock": 9,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1326,7 +1326,7 @@
           "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg"
         }
       ],
-      "stock": 14,
+      "stock": 9,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 128,
+      "stock": 116,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -3311,7 +3311,7 @@
           "price": 670.0
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3385,7 +3385,7 @@
           "price": 780.0
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -4617,7 +4617,7 @@
           "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg"
         }
       ],
-      "stock": 85,
+      "stock": 75,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg",
       "quarantined": false,
@@ -4669,7 +4669,7 @@
           "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg"
         }
       ],
-      "stock": 58,
+      "stock": 43,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -4877,7 +4877,7 @@
           "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
         }
       ],
-      "stock": 131,
+      "stock": 116,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -5504,7 +5504,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 93,
+      "stock": 85,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5572,7 +5572,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 512,
+      "stock": 472,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -10849,7 +10849,7 @@
           "price": 530.0
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10873,7 +10873,7 @@
           "price": 660.0
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -11446,7 +11446,7 @@
           "photo": "photos/products/s-сироп_sweetshot_соленая_карамель_1л.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [
         "Хит"
       ],
@@ -11620,7 +11620,7 @@
           "price": 635.0
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -11766,7 +11766,7 @@
           "price": 635.0
         }
       ],
-      "stock": 5,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -11791,7 +11791,7 @@
           "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
         }
       ],
-      "stock": 1230,
+      "stock": 1170,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg",
       "quarantined": false,
@@ -11914,7 +11914,7 @@
           "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg"
         }
       ],
-      "stock": 540,
+      "stock": 450,
       "tags": [],
       "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg",
       "quarantined": false,
@@ -12724,7 +12724,7 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg"
         }
       ],
-      "stock": 103,
+      "stock": 83,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg",
       "quarantined": false,
@@ -15661,7 +15661,7 @@
           "photo": ""
         }
       ],
-      "stock": 291,
+      "stock": 285,
       "on_request": true,
       "_source": "Напиток на соевой основе, кокосовый \"Green Milk\"на соевой основе 1л.",
       "subcategory": "milk_main"
@@ -15677,7 +15677,7 @@
           "photo": ""
         }
       ],
-      "stock": 245,
+      "stock": 242,
       "on_request": true,
       "_source": "Напиток на соевой основе, миндальный \"Green Milk\" 1л.",
       "subcategory": "milk_main"
@@ -15789,7 +15789,7 @@
           "photo": ""
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "on_request": true,
       "_source": "Сироп Огурец BARLINE 1,0 л.",
       "subcategory": "syr_barline"
@@ -15933,7 +15933,7 @@
           "photo": ""
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "on_request": true,
       "_source": "Сироп Ананас 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika"
@@ -16093,7 +16093,7 @@
           "photo": ""
         }
       ],
-      "stock": 8,
+      "stock": 4,
       "on_request": true,
       "_source": "Сироп Гренадин 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika"
@@ -16573,7 +16573,7 @@
           "photo": ""
         }
       ],
-      "stock": 13,
+      "stock": 11,
       "on_request": true,
       "_source": "Сироп Черная Смородина 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika"
@@ -17341,7 +17341,7 @@
           "photo": ""
         }
       ],
-      "stock": 5,
+      "stock": 1,
       "on_request": true,
       "_source": "Сироп SweetShot Клубника 1 л.",
       "subcategory": "syr_sweetshot"
@@ -17421,7 +17421,7 @@
           "photo": ""
         }
       ],
-      "stock": 4,
+      "stock": 2,
       "on_request": true,
       "_source": "Сироп SweetShot Маракуйя 1 л.",
       "subcategory": "syr_sweetshot"
@@ -17853,7 +17853,7 @@
           "photo": ""
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "on_request": true,
       "_source": "NR24 Молочный Улун 20*4г для чайника чай зеленый аромат",
       "subcategory": "tea_китайский_чай_loose"
@@ -17869,7 +17869,7 @@
           "photo": ""
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "on_request": true,
       "_source": "NR27 Горный Чабрец, чай черный с чабрецом пакет для чайника 20х4г",
       "subcategory": "tea_китайский_чай_loose"
@@ -18349,7 +18349,7 @@
           "photo": ""
         }
       ],
-      "stock": 56,
+      "stock": 46,
       "on_request": true,
       "_source": "Чай Tasteabrew HONEY-350 \"Молочный улун с мандарином\" (60)",
       "subcategory": "tea_tasteabrew_loose"
