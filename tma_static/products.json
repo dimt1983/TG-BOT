@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 114,
+      "stock": 112,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 116,
+      "stock": 112,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1974,7 +1974,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 32,
+      "stock": 47,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -6173,7 +6173,7 @@
           "photo": null
         }
       ],
-      "stock": 220,
+      "stock": 215,
       "tags": [],
       "photo": "",
       "tasting_notes": [
@@ -6204,7 +6204,7 @@
           "photo": "photos/products/c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr.jpg"
         }
       ],
-      "stock": 84,
+      "stock": 79,
       "tags": [],
       "photo": "photos/products/c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr.jpg",
       "tasting_notes": [
@@ -17757,7 +17757,7 @@
           "photo": ""
         }
       ],
-      "stock": 11,
+      "stock": 9,
       "on_request": true,
       "_source": "ЧА2050 Горные Травы 250г, чай Альтхаус черный аромат. лист.",
       "subcategory": "tea_althaus_loose"
@@ -17805,7 +17805,7 @@
           "photo": ""
         }
       ],
-      "stock": 4,
+      "stock": 2,
       "on_request": true,
       "_source": "ЧА3600 Сенча Сенпай 250 г, чай Альтаус зеленый листовой",
       "subcategory": "tea_китайский_чай_loose"
