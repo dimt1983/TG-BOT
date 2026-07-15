@@ -15663,7 +15663,8 @@
       ],
       "stock": 291,
       "on_request": true,
-      "_source": "Напиток на соевой основе, кокосовый \"Green Milk\"на соевой основе 1л."
+      "_source": "Напиток на соевой основе, кокосовый \"Green Milk\"на соевой основе 1л.",
+      "subcategory": "milk_main"
     },
     {
       "id": "напиток_на_соевой_основе_миндальный_green_milk_1л",
@@ -15678,7 +15679,8 @@
       ],
       "stock": 245,
       "on_request": true,
-      "_source": "Напиток на соевой основе, миндальный \"Green Milk\" 1л."
+      "_source": "Напиток на соевой основе, миндальный \"Green Milk\" 1л.",
+      "subcategory": "milk_main"
     },
     {
       "id": "напиток_соевый_со_вкусом_банана_green_milk_1л",
@@ -15693,7 +15695,8 @@
       ],
       "stock": 284,
       "on_request": true,
-      "_source": "Напиток соевый со вкусом банана \"Green Milk\" 1л."
+      "_source": "Напиток соевый со вкусом банана \"Green Milk\" 1л.",
+      "subcategory": "milk_main"
     },
     {
       "id": "напиток_соевый_со_вкусом_клубники_green_milk_1л",
@@ -15708,7 +15711,8 @@
       ],
       "stock": 120,
       "on_request": true,
-      "_source": "Напиток соевый со вкусом клубники \"Green Milk\" 1л."
+      "_source": "Напиток соевый со вкусом клубники \"Green Milk\" 1л.",
+      "subcategory": "milk_main"
     },
     {
       "id": "напиток_соевый_обогащенный_кальцием_и_витаминами_green_milk_1л",
@@ -15723,7 +15727,8 @@
       ],
       "stock": 72,
       "on_request": true,
-      "_source": "Напиток Соевый, обогащенный кальцием и витаминами \"Green Milk\" 1л."
+      "_source": "Напиток Соевый, обогащенный кальцием и витаминами \"Green Milk\" 1л.",
+      "subcategory": "milk_main"
     },
     {
       "id": "сироп_земляника_barline_1_0_л",
@@ -15738,7 +15743,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "Сироп Земляника BARLINE 1,0 л."
+      "_source": "Сироп Земляника BARLINE 1,0 л.",
+      "subcategory": "syr_barline"
     },
     {
       "id": "сироп_макадамия_barline_1_0_л",
@@ -15753,7 +15759,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "Сироп Макадамия BARLINE 1,0 л."
+      "_source": "Сироп Макадамия BARLINE 1,0 л.",
+      "subcategory": "syr_barline"
     },
     {
       "id": "сироп_можжевельник_barline_1_0_л",
@@ -15768,7 +15775,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Можжевельник BARLINE 1,0 л."
+      "_source": "Сироп Можжевельник BARLINE 1,0 л.",
+      "subcategory": "syr_barline"
     },
     {
       "id": "сироп_огурец_barline_1_0_л",
@@ -15783,7 +15791,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "Сироп Огурец BARLINE 1,0 л."
+      "_source": "Сироп Огурец BARLINE 1,0 л.",
+      "subcategory": "syr_barline"
     },
     {
       "id": "сироп_тирамису_barline_1_0_л",
@@ -15798,7 +15807,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "Сироп Тирамису BARLINE 1,0 л."
+      "_source": "Сироп Тирамису BARLINE 1,0 л.",
+      "subcategory": "syr_barline"
     },
     {
       "id": "топпинг_банан_barline_1_кг",
@@ -15813,7 +15823,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "Топпинг Банан BARLINE 1 кг"
+      "_source": "Топпинг Банан BARLINE 1 кг",
+      "subcategory": "syr_barline"
     },
     {
       "id": "топпинг_ваниль_barline_1_кг",
@@ -15828,7 +15839,8 @@
       ],
       "stock": 8,
       "on_request": true,
-      "_source": "Топпинг Ваниль BARLINE 1 кг"
+      "_source": "Топпинг Ваниль BARLINE 1 кг",
+      "subcategory": "syr_barline"
     },
     {
       "id": "топпинг_карамель_barline_1_кг",
@@ -15843,7 +15855,8 @@
       ],
       "stock": 3,
       "on_request": true,
-      "_source": "Топпинг Карамель BARLINE 1 кг"
+      "_source": "Топпинг Карамель BARLINE 1 кг",
+      "subcategory": "syr_barline"
     },
     {
       "id": "топпинг_шоколад_barline_1_кг",
@@ -15858,7 +15871,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "Топпинг Шоколад  BARLINE 1 кг"
+      "_source": "Топпинг Шоколад  BARLINE 1 кг",
+      "subcategory": "syr_barline"
     },
     {
       "id": "топпинг_шоколад_белый_barline_1_кг",
@@ -15873,7 +15887,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Топпинг Шоколад Белый BARLINE 1 кг"
+      "_source": "Топпинг Шоколад Белый BARLINE 1 кг",
+      "subcategory": "syr_barline"
     },
     {
       "id": "сироп_айриш_крем_1_0_л_botanika",
@@ -15888,7 +15903,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Айриш Крем 1,0 л. BOTANIKA"
+      "_source": "Сироп Айриш Крем 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_амаретто_1_0_л_botanika",
@@ -15903,7 +15919,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Амаретто 1,0 л. BOTANIKA"
+      "_source": "Сироп Амаретто 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_ананас_1_0_л_botanika",
@@ -15918,7 +15935,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Ананас 1,0 л. BOTANIKA"
+      "_source": "Сироп Ананас 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_апельсин_1_0_л_botanika",
@@ -15933,7 +15951,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "Сироп Апельсин 1,0 л. BOTANIKA"
+      "_source": "Сироп Апельсин 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_арбуз_1_0_л_botanika",
@@ -15948,7 +15967,8 @@
       ],
       "stock": 10,
       "on_request": true,
-      "_source": "Сироп Арбуз 1,0 л. BOTANIKA"
+      "_source": "Сироп Арбуз 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_бабл_гам_1_0_л_botanika",
@@ -15963,7 +15983,8 @@
       ],
       "stock": 7,
       "on_request": true,
-      "_source": "Сироп Бабл Гам 1,0 л. BOTANIKA"
+      "_source": "Сироп Бабл Гам 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_банан_желтый_1_0_л_botanika",
@@ -15978,7 +15999,8 @@
       ],
       "stock": 13,
       "on_request": true,
-      "_source": "Сироп Банан Желтый 1,0 л. BOTANIKA"
+      "_source": "Сироп Банан Желтый 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_блю_кюрасао_1_0_л_botanika",
@@ -15993,7 +16015,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Блю Кюрасао 1,0 л. BOTANIKA"
+      "_source": "Сироп Блю Кюрасао 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_ваниль_1_0_л_botanika",
@@ -16008,7 +16031,8 @@
       ],
       "stock": 12,
       "on_request": true,
-      "_source": "Сироп Ваниль 1,0 л. BOTANIKA"
+      "_source": "Сироп Ваниль 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_вишня_1_0_л_botanika",
@@ -16023,7 +16047,8 @@
       ],
       "stock": 7,
       "on_request": true,
-      "_source": "Сироп Вишня 1,0 л. BOTANIKA"
+      "_source": "Сироп Вишня 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_гранат_1_0_л_botanika",
@@ -16038,7 +16063,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "Сироп Гранат 1,0 л. BOTANIKA"
+      "_source": "Сироп Гранат 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_грейпфрут_розовый_1_0_л_botanika",
@@ -16053,7 +16079,8 @@
       ],
       "stock": 3,
       "on_request": true,
-      "_source": "Сироп Грейпфрут Розовый 1,0 л. BOTANIKA"
+      "_source": "Сироп Грейпфрут Розовый 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_гренадин_1_0_л_botanika",
@@ -16068,7 +16095,8 @@
       ],
       "stock": 8,
       "on_request": true,
-      "_source": "Сироп Гренадин 1,0 л. BOTANIKA"
+      "_source": "Сироп Гренадин 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_груша_сортовая_1_0_л_botanika",
@@ -16083,7 +16111,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Сироп Груша Сортовая 1,0 л. BOTANIKA"
+      "_source": "Сироп Груша Сортовая 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_дыня_1_0_л_botanika",
@@ -16098,7 +16127,8 @@
       ],
       "stock": 12,
       "on_request": true,
-      "_source": "Сироп Дыня 1,0 л. BOTANIKA"
+      "_source": "Сироп Дыня 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_дыня_зеленая_1_0_л_botanika",
@@ -16113,7 +16143,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Сироп Дыня ЗЕЛЕНАЯ 1,0 л. BOTANIKA"
+      "_source": "Сироп Дыня ЗЕЛЕНАЯ 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_ежевика_1_0_л_botanika",
@@ -16128,7 +16159,8 @@
       ],
       "stock": 16,
       "on_request": true,
-      "_source": "Сироп Ежевика 1,0 л. BOTANIKA"
+      "_source": "Сироп Ежевика 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_зеленое_яблоко_1_0_л_botanika",
@@ -16143,7 +16175,8 @@
       ],
       "stock": 7,
       "on_request": true,
-      "_source": "Сироп Зеленое Яблоко 1,0 л. BOTANIKA"
+      "_source": "Сироп Зеленое Яблоко 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_имбирный_пряник_1_0_л_botanika",
@@ -16158,7 +16191,8 @@
       ],
       "stock": 1,
       "on_request": true,
-      "_source": "Сироп Имбирный Пряник 1,0 л. BOTANIKA"
+      "_source": "Сироп Имбирный Пряник 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_имбирь_1_0_л_botanika",
@@ -16173,7 +16207,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "Сироп Имбирь 1,0 л. BOTANIKA"
+      "_source": "Сироп Имбирь 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_карамель_1_0_л_botanika",
@@ -16188,7 +16223,8 @@
       ],
       "stock": 11,
       "on_request": true,
-      "_source": "Сироп Карамель 1,0 л. BOTANIKA"
+      "_source": "Сироп Карамель 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_карамель_соленая_1_0_л_botanika",
@@ -16203,7 +16239,8 @@
       ],
       "stock": 10,
       "on_request": true,
-      "_source": "Сироп Карамель Соленая 1,0 л. BOTANIKA"
+      "_source": "Сироп Карамель Соленая 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_киви_1_0_л_botanika",
@@ -16218,7 +16255,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Сироп Киви 1,0 л. BOTANIKA"
+      "_source": "Сироп Киви 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_кленовый_1_0_л_botanika",
@@ -16233,7 +16271,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "Сироп Кленовый 1,0 л. BOTANIKA"
+      "_source": "Сироп Кленовый 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_клубника_1_0_л_botanika",
@@ -16248,7 +16287,8 @@
       ],
       "stock": 1,
       "on_request": true,
-      "_source": "Сироп Клубника 1,0 л. BOTANIKA"
+      "_source": "Сироп Клубника 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_клюква_1_0_л_botanika",
@@ -16263,7 +16303,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Клюква 1,0 л. BOTANIKA"
+      "_source": "Сироп Клюква 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_кокос_1_0_л_botanika",
@@ -16278,7 +16319,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Сироп Кокос 1,0 л. BOTANIKA"
+      "_source": "Сироп Кокос 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_корица_1_0_л_botanika",
@@ -16293,7 +16335,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "Сироп Корица 1,0 л. BOTANIKA"
+      "_source": "Сироп Корица 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_лаванда_1_0_л_botanika",
@@ -16308,7 +16351,8 @@
       ],
       "stock": 3,
       "on_request": true,
-      "_source": "Сироп Лаванда 1,0 л. BOTANIKA"
+      "_source": "Сироп Лаванда 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_лесной_орех_1_0_л_botanika",
@@ -16323,7 +16367,8 @@
       ],
       "stock": 11,
       "on_request": true,
-      "_source": "Сироп Лесной Орех 1,0 л. BOTANIKA"
+      "_source": "Сироп Лесной Орех 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_лесные_ягоды_1_0_л_botanika",
@@ -16338,7 +16383,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Лесные Ягоды 1,0 л. BOTANIKA"
+      "_source": "Сироп Лесные Ягоды 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_лимон_1_0_л_botanika",
@@ -16353,7 +16399,8 @@
       ],
       "stock": 3,
       "on_request": true,
-      "_source": "Сироп Лимон 1,0 л. BOTANIKA"
+      "_source": "Сироп Лимон 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_малина_1_0_л_botanika",
@@ -16368,7 +16415,8 @@
       ],
       "stock": 21,
       "on_request": true,
-      "_source": "Сироп Малина 1,0 л. BOTANIKA"
+      "_source": "Сироп Малина 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_манго_1_0_л_botanika",
@@ -16383,7 +16431,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "Сироп Манго 1,0 л. BOTANIKA"
+      "_source": "Сироп Манго 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_мандарин_1_0_л_botanika",
@@ -16398,7 +16447,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "Сироп Мандарин 1,0 л. BOTANIKA"
+      "_source": "Сироп Мандарин 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_мед_1_0_л_botanika",
@@ -16413,7 +16463,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Мед 1,0 л. BOTANIKA"
+      "_source": "Сироп Мед 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_миндаль_1_0_л_botanika",
@@ -16428,7 +16479,8 @@
       ],
       "stock": 9,
       "on_request": true,
-      "_source": "Сироп Миндаль 1,0 л. BOTANIKA"
+      "_source": "Сироп Миндаль 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_мохито_1_0_л_botanika",
@@ -16443,7 +16495,8 @@
       ],
       "stock": 18,
       "on_request": true,
-      "_source": "Сироп Мохито 1,0 л. BOTANIKA"
+      "_source": "Сироп Мохито 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_мята_зеленая_1_0_л_botanika",
@@ -16458,7 +16511,8 @@
       ],
       "stock": 10,
       "on_request": true,
-      "_source": "Сироп Мята Зеленая 1,0 л. BOTANIKA"
+      "_source": "Сироп Мята Зеленая 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_персик_1_0_л_botanika",
@@ -16473,7 +16527,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Сироп Персик 1,0 л. BOTANIKA"
+      "_source": "Сироп Персик 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_попкорн_1_0_л_botanika",
@@ -16488,7 +16543,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "Сироп Попкорн 1,0 л. BOTANIKA"
+      "_source": "Сироп Попкорн 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_тархун_1_0_л_botanika",
@@ -16503,7 +16559,8 @@
       ],
       "stock": 10,
       "on_request": true,
-      "_source": "Сироп Тархун 1,0 л. BOTANIKA"
+      "_source": "Сироп Тархун 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_черная_смородина_1_0_л_botanika",
@@ -16518,7 +16575,8 @@
       ],
       "stock": 13,
       "on_request": true,
-      "_source": "Сироп Черная Смородина 1,0 л. BOTANIKA"
+      "_source": "Сироп Черная Смородина 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_шоколад_1_0_л_botanika",
@@ -16533,7 +16591,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "Сироп Шоколад 1,0 л. BOTANIKA"
+      "_source": "Сироп Шоколад 1,0 л. BOTANIKA",
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_бабл_гам_0_7_л_гербариста",
@@ -16548,7 +16607,8 @@
       ],
       "stock": 10,
       "on_request": true,
-      "_source": "Сироп Бабл Гам 0,7 л. Гербариста"
+      "_source": "Сироп Бабл Гам 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_банан_0_7_л_гербариста",
@@ -16563,7 +16623,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Банан 0,7 л. Гербариста"
+      "_source": "Сироп Банан 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_вишня_с_виноградной_косточкой_0_7_л_гербариста",
@@ -16578,7 +16639,8 @@
       ],
       "stock": 9,
       "on_request": true,
-      "_source": "Сироп Вишня с Виноградной косточкой 0,7 л. Гербариста"
+      "_source": "Сироп Вишня с Виноградной косточкой 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_восточные_пряности_0_7_л_гербариста",
@@ -16593,7 +16655,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Восточные пряности 0,7 л. Гербариста"
+      "_source": "Сироп Восточные пряности 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_груша_со_специями_0_7_л_гербариста",
@@ -16608,7 +16671,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "Сироп Груша со специями 0,7 л. Гербариста"
+      "_source": "Сироп Груша со специями 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_дыня_0_7_л_гербариста",
@@ -16623,7 +16687,8 @@
       ],
       "stock": 3,
       "on_request": true,
-      "_source": "Сироп Дыня 0,7 л. Гербариста"
+      "_source": "Сироп Дыня 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_ежевика_с_листьями_0_7_л_гербариста",
@@ -16638,7 +16703,8 @@
       ],
       "stock": 8,
       "on_request": true,
-      "_source": "Сироп Ежевика с листьями 0,7 л. Гербариста"
+      "_source": "Сироп Ежевика с листьями 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_еловый_0_7_л_гербариста",
@@ -16653,7 +16719,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "Сироп Еловый 0,7 л. Гербариста"
+      "_source": "Сироп Еловый 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_ирландский_крем_0_7_л_гербариста",
@@ -16668,7 +16735,8 @@
       ],
       "stock": 9,
       "on_request": true,
-      "_source": "Сироп Ирландский Крем 0,7 л. Гербариста"
+      "_source": "Сироп Ирландский Крем 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_карамель_двойного_обжига_0_7_л_гербариста",
@@ -16683,7 +16751,8 @@
       ],
       "stock": 11,
       "on_request": true,
-      "_source": "Сироп Карамель Двойного Обжига 0,7 л. Гербариста"
+      "_source": "Сироп Карамель Двойного Обжига 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_кашемировый_персик_0_7_л_гербариста",
@@ -16698,7 +16767,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Кашемировый персик 0,7 л. Гербариста"
+      "_source": "Сироп Кашемировый персик 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_кленовый_с_каштаном_0_7_л_гербариста",
@@ -16713,7 +16783,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "Сироп Кленовый с Каштаном 0,7 л. Гербариста"
+      "_source": "Сироп Кленовый с Каштаном 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_клубника_и_земляника_0_7_л_гербариста",
@@ -16728,7 +16799,8 @@
       ],
       "stock": 10,
       "on_request": true,
-      "_source": "Сироп Клубника и земляника 0,7 л. Гербариста"
+      "_source": "Сироп Клубника и земляника 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_кокос_с_мякотью_0_7_л_гербариста",
@@ -16743,7 +16815,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "Сироп Кокос с мякотью 0,7 л. Гербариста"
+      "_source": "Сироп Кокос с мякотью 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_конопляная_халва_0_7_л_гербариста",
@@ -16758,7 +16831,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Конопляная Халва 0,7 л. Гербариста"
+      "_source": "Сироп Конопляная Халва 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_корица_0_7_л_гербариста",
@@ -16773,7 +16847,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Корица 0,7 л. Гербариста"
+      "_source": "Сироп Корица 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_лаванда_0_7_л_гербариста",
@@ -16788,7 +16863,8 @@
       ],
       "stock": 3,
       "on_request": true,
-      "_source": "Сироп Лаванда 0,7 л. Гербариста"
+      "_source": "Сироп Лаванда 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_лайм_0_7_л_гербариста",
@@ -16803,7 +16879,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Лайм 0,7 л. Гербариста"
+      "_source": "Сироп Лайм 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_лесной_орех_0_7_л_гербариста",
@@ -16818,7 +16895,8 @@
       ],
       "stock": 18,
       "on_request": true,
-      "_source": "Сироп Лесной орех 0,7 л. Гербариста"
+      "_source": "Сироп Лесной орех 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_макадамия_0_7_л_гербариста",
@@ -16833,7 +16911,8 @@
       ],
       "stock": 1,
       "on_request": true,
-      "_source": "Сироп Макадамия 0,7 л. Гербариста"
+      "_source": "Сироп Макадамия 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_малина_с_листьями_0_7_л_гербариста",
@@ -16848,7 +16927,8 @@
       ],
       "stock": 12,
       "on_request": true,
-      "_source": "Сироп Малина с листьями 0,7 л. Гербариста"
+      "_source": "Сироп Малина с листьями 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_манго_0_7_л_гербариста",
@@ -16863,7 +16943,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Сироп Манго 0,7 л. Гербариста"
+      "_source": "Сироп Манго 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_маракуйя_0_7_л_гербариста",
@@ -16878,7 +16959,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Сироп Маракуйя 0,7 л. Гербариста"
+      "_source": "Сироп Маракуйя 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_миндаль_0_7_л_гербариста",
@@ -16893,7 +16975,8 @@
       ],
       "stock": 10,
       "on_request": true,
-      "_source": "Сироп Миндаль 0,7 л. Гербариста"
+      "_source": "Сироп Миндаль 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_мята_0_7_л_гербариста",
@@ -16908,7 +16991,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "Сироп Мята 0,7 л. Гербариста"
+      "_source": "Сироп Мята 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_плоды_и_цветы_бузины_0_7_л_гербариста",
@@ -16923,7 +17007,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "Сироп Плоды и цветы бузины 0,7 л. Гербариста"
+      "_source": "Сироп Плоды и цветы бузины 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_попкорн_0_7_л_гербариста",
@@ -16938,7 +17023,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Попкорн 0,7 л. Гербариста"
+      "_source": "Сироп Попкорн 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_сгущенное_молоко_0_7_л_гербариста",
@@ -16953,7 +17039,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Сгущенное молоко 0,7 л. Гербариста"
+      "_source": "Сироп Сгущенное молоко 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_слива_0_7_л_гербариста",
@@ -16968,7 +17055,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Сироп Слива 0,7 л. Гербариста"
+      "_source": "Сироп Слива 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_сливочная_ириска_0_7_л_гербариста",
@@ -16983,7 +17071,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Сироп Сливочная Ириска 0,7 л. Гербариста"
+      "_source": "Сироп Сливочная Ириска 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_соленая_карамель_двойного_обжига_0_7_л_гербариста",
@@ -16998,7 +17087,8 @@
       ],
       "stock": 13,
       "on_request": true,
-      "_source": "Сироп Соленая Карамель двойного обжига 0,7 л. Гербариста"
+      "_source": "Сироп Соленая Карамель двойного обжига 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_табак_ваниль_0_7_л_гербариста",
@@ -17013,7 +17103,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Сироп Табак-ваниль 0,7 л. Гербариста"
+      "_source": "Сироп Табак-ваниль 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_тропический_микс_0_7_л_гербариста",
@@ -17028,7 +17119,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Тропический Микс 0,7 л. Гербариста"
+      "_source": "Сироп Тропический Микс 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_тыква_0_7_л_гербариста",
@@ -17043,7 +17135,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Сироп Тыква 0,7 л. Гербариста"
+      "_source": "Сироп Тыква 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_фисташка_0_7_л_гербариста",
@@ -17058,7 +17151,8 @@
       ],
       "stock": 7,
       "on_request": true,
-      "_source": "Сироп Фисташка 0,7 л. Гербариста"
+      "_source": "Сироп Фисташка 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_черная_смородина_с_листьями_0_7_л_гербариста",
@@ -17073,7 +17167,8 @@
       ],
       "stock": 9,
       "on_request": true,
-      "_source": "Сироп Черная смородина с листьями 0,7 л. Гербариста"
+      "_source": "Сироп Черная смородина с листьями 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_шоколадный_трюфель_0_7_л_гербариста",
@@ -17088,7 +17183,8 @@
       ],
       "stock": 8,
       "on_request": true,
-      "_source": "Сироп Шоколадный трюфель 0,7 л. Гербариста"
+      "_source": "Сироп Шоколадный трюфель 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_эвкалипт_и_мята_0_7_л_гербариста",
@@ -17103,7 +17199,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Эвкалипт и Мята 0,7 л. Гербариста"
+      "_source": "Сироп Эвкалипт и Мята 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_яблоко_с_листьями_0_7_л_гербариста",
@@ -17118,7 +17215,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Яблоко с листьями 0,7 л. Гербариста"
+      "_source": "Сироп Яблоко с листьями 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_ягоды_севера_0_7_л_гербариста",
@@ -17133,7 +17231,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп Ягоды севера 0,7 л. Гербариста"
+      "_source": "Сироп Ягоды севера 0,7 л. Гербариста",
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_sweetshot_амаретто_1_л",
@@ -17148,7 +17247,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "Сироп SweetShot Амаретто 1 л."
+      "_source": "Сироп SweetShot Амаретто 1 л.",
+      "subcategory": "syr_sweetshot"
     },
     {
       "id": "сироп_sweetshot_ваниль_1_л",
@@ -17163,7 +17263,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Сироп SweetShot Ваниль 1 л."
+      "_source": "Сироп SweetShot Ваниль 1 л.",
+      "subcategory": "syr_sweetshot"
     },
     {
       "id": "сироп_sweetshot_вишня_1л_стекл_бут",
@@ -17178,7 +17279,8 @@
       ],
       "stock": 3,
       "on_request": true,
-      "_source": "Сироп SweetShot Вишня 1л стекл бут"
+      "_source": "Сироп SweetShot Вишня 1л стекл бут",
+      "subcategory": "syr_sweetshot"
     },
     {
       "id": "сироп_sweetshot_груша_1_л",
@@ -17193,7 +17295,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Сироп SweetShot Груша 1 л."
+      "_source": "Сироп SweetShot Груша 1 л.",
+      "subcategory": "syr_sweetshot"
     },
     {
       "id": "сироп_sweetshot_дыня_1_л",
@@ -17208,7 +17311,8 @@
       ],
       "stock": 3,
       "on_request": true,
-      "_source": "Сироп SweetShot Дыня 1 л."
+      "_source": "Сироп SweetShot Дыня 1 л.",
+      "subcategory": "syr_sweetshot"
     },
     {
       "id": "сироп_sweetshot_карамель_1_л",
@@ -17223,7 +17327,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "Сироп SweetShot Карамель 1 л."
+      "_source": "Сироп SweetShot Карамель 1 л.",
+      "subcategory": "syr_sweetshot"
     },
     {
       "id": "сироп_sweetshot_клубника_1_л",
@@ -17238,7 +17343,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп SweetShot Клубника 1 л."
+      "_source": "Сироп SweetShot Клубника 1 л.",
+      "subcategory": "syr_sweetshot"
     },
     {
       "id": "сироп_sweetshot_кокос_1_л",
@@ -17253,7 +17359,8 @@
       ],
       "stock": 1,
       "on_request": true,
-      "_source": "Сироп SweetShot Кокос 1 л."
+      "_source": "Сироп SweetShot Кокос 1 л.",
+      "subcategory": "syr_sweetshot"
     },
     {
       "id": "сироп_sweetshot_лаванда_1_л",
@@ -17268,7 +17375,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Сироп SweetShot Лаванда 1 л."
+      "_source": "Сироп SweetShot Лаванда 1 л.",
+      "subcategory": "syr_sweetshot"
     },
     {
       "id": "сироп_sweetshot_малина_1_л",
@@ -17283,7 +17391,8 @@
       ],
       "stock": 3,
       "on_request": true,
-      "_source": "Сироп SweetShot Малина 1 л."
+      "_source": "Сироп SweetShot Малина 1 л.",
+      "subcategory": "syr_sweetshot"
     },
     {
       "id": "сироп_sweetshot_манго_1_л",
@@ -17298,7 +17407,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Сироп SweetShot Манго 1 л."
+      "_source": "Сироп SweetShot Манго 1 л.",
+      "subcategory": "syr_sweetshot"
     },
     {
       "id": "сироп_sweetshot_маракуйя_1_л",
@@ -17313,7 +17423,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "Сироп SweetShot Маракуйя 1 л."
+      "_source": "Сироп SweetShot Маракуйя 1 л.",
+      "subcategory": "syr_sweetshot"
     },
     {
       "id": "сироп_sweetshot_мохито_1_л",
@@ -17328,7 +17439,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "Сироп SweetShot Мохито 1 л."
+      "_source": "Сироп SweetShot Мохито 1 л.",
+      "subcategory": "syr_sweetshot"
     },
     {
       "id": "сироп_sweetshot_фисташка_1_л",
@@ -17343,7 +17455,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "Сироп SweetShot Фисташка 1 л."
+      "_source": "Сироп SweetShot Фисташка 1 л.",
+      "subcategory": "syr_sweetshot"
     },
     {
       "id": "сироп_sweetshot_шоколад_1_л",
@@ -17358,7 +17471,8 @@
       ],
       "stock": 3,
       "on_request": true,
-      "_source": "Сироп SweetShot Шоколад 1 л."
+      "_source": "Сироп SweetShot Шоколад 1 л.",
+      "subcategory": "syr_sweetshot"
     },
     {
       "id": "миллер_миллер_1л",
@@ -17373,7 +17487,8 @@
       ],
       "stock": 1,
       "on_request": true,
-      "_source": "Миллер&Миллер 1л"
+      "_source": "Миллер&Миллер 1л",
+      "subcategory": "syr_other"
     },
     {
       "id": "сироп_топпинг_груша_1200мл",
@@ -17388,7 +17503,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Сироп \"Топпинг \"Груша\" 1200мл"
+      "_source": "Сироп \"Топпинг \"Груша\" 1200мл",
+      "subcategory": "syr_other"
     },
     {
       "id": "сироп_розовый_грейпфрут_1_л_монин",
@@ -17403,7 +17519,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "Сироп Розовый Грейпфрут 1 л. МОНИН"
+      "_source": "Сироп Розовый Грейпфрут 1 л. МОНИН",
+      "subcategory": "syr_other"
     },
     {
       "id": "чай_для_чайников_15х4",
@@ -17418,7 +17535,8 @@
       ],
       "stock": 48,
       "on_request": true,
-      "_source": "Чай для чайников 15х4"
+      "_source": "Чай для чайников 15х4",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "ча023_жасминовый_тиг_юань_чай_зел_с_жасм_пакет_grand_pack15х4г",
@@ -17433,7 +17551,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "ЧА023 Жасминовый Тиг Юань, чай зел с жасм пакет Grand Pack15х4г"
+      "_source": "ЧА023 Жасминовый Тиг Юань, чай зел с жасм пакет Grand Pack15х4г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "ча024_new_грюн_матинэ_чай_зелен_аромат_д_чаника_15х4г",
@@ -17448,7 +17567,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "ЧА024 NEW Грюн Матинэ, чай зелен аромат д/чаника 15х4г"
+      "_source": "ЧА024 NEW Грюн Матинэ, чай зелен аромат д/чаника 15х4г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "ча030_благородная_ромашка_напиток_трав_д_чайника_15х3_5г",
@@ -17463,7 +17583,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "ЧА030 Благородная Ромашка,напиток трав д/чайника 15х3,5г"
+      "_source": "ЧА030 Благородная Ромашка,напиток трав д/чайника 15х3,5г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "ча032_new_горные_травы_чай_черный_с_чабрецом_д_чайника_15х4г",
@@ -17478,7 +17599,8 @@
       ],
       "stock": 7,
       "on_request": true,
-      "_source": "ЧА032 NEW Горные травы, чай черный с чабрецом д/чайника 15х4г"
+      "_source": "ЧА032 NEW Горные травы, чай черный с чабрецом д/чайника 15х4г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "ча036_ройбуш_ванильная_карамель_напиток_чайн_аром_для_чайников_15х4г",
@@ -17493,7 +17615,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "ЧА036 Ройбуш Ванильная Карамель, напиток чайн аром для чайников 15х4г"
+      "_source": "ЧА036 Ройбуш Ванильная Карамель, напиток чайн аром для чайников 15х4г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "ча007_жасмин_тинг_юань_чай_зелен_аромат_пакетир_20х1_75",
@@ -17508,7 +17631,8 @@
       ],
       "stock": 10,
       "on_request": true,
-      "_source": "ЧА007 Жасмин Тинг Юань, чай зелен. аромат. пакетир 20х1,75"
+      "_source": "ЧА007 Жасмин Тинг Юань, чай зелен. аромат. пакетир 20х1,75",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "ча008_грюн_матинэ_чай_зелен_аомат_пакетир_20х1_75",
@@ -17523,7 +17647,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "ЧА008 Грюн Матинэ, чай зелен аомат. пакетир 20х1,75"
+      "_source": "ЧА008 Грюн Матинэ, чай зелен аомат. пакетир 20х1,75",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "ча009_ромашковый_луг_напиток_травяной_пкетир_20х1_75",
@@ -17538,7 +17663,8 @@
       ],
       "stock": 12,
       "on_request": true,
-      "_source": "ЧА009 Ромашковый луг., напиток травяной пкетир 20х1,75"
+      "_source": "ЧА009 Ромашковый луг., напиток травяной пкетир 20х1,75",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "чаd012_ройбуш_ваниль_напиток_пакетир_20х1_75",
@@ -17553,7 +17679,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "ЧАD012 Ройбуш Ваниль, напиток пакетир 20х1,75"
+      "_source": "ЧАD012 Ройбуш Ваниль, напиток пакетир 20х1,75",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "l2005_империал_эрл_грей_листовой_225_г_напиток_альтхаус_аромат",
@@ -17568,7 +17695,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "L2005 Империал Эрл Грей листовой 225 г, напиток Альтхаус аромат"
+      "_source": "L2005 Империал Эрл Грей листовой 225 г, напиток Альтхаус аромат",
+      "subcategory": "tea_althaus_loose"
     },
     {
       "id": "l4035_грюн_матинэ_200г_чай_альтхаус_зеленый_аромат_лист",
@@ -17583,7 +17711,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "L4035 Грюн Матинэ 200г, чай Альтхаус зеленый аромат. лист"
+      "_source": "L4035 Грюн Матинэ 200г, чай Альтхаус зеленый аромат. лист",
+      "subcategory": "tea_althaus_loose"
     },
     {
       "id": "ча1105_голден_ассам_санкар_250г_чай_альтхаус_черный_лист",
@@ -17598,7 +17727,8 @@
       ],
       "stock": 1,
       "on_request": true,
-      "_source": "ЧА1105 Голден Ассам Санкар 250г, чай Альтхаус черный лист"
+      "_source": "ЧА1105 Голден Ассам Санкар 250г, чай Альтхаус черный лист",
+      "subcategory": "tea_althaus_loose"
     },
     {
       "id": "ча1400_пу_эр_ан_бао_250_г_чай_альтхаус_черный_листовой",
@@ -17613,7 +17743,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "ЧА1400 Пу Эр Ан Бао 250 г, чай Альтхаус черный листовой"
+      "_source": "ЧА1400 Пу Эр Ан Бао 250 г, чай Альтхаус черный листовой",
+      "subcategory": "tea_althaus_loose"
     },
     {
       "id": "ча2050_горные_травы_250г_чай_альтхаус_черный_аромат_лист",
@@ -17628,7 +17759,8 @@
       ],
       "stock": 11,
       "on_request": true,
-      "_source": "ЧА2050 Горные Травы 250г, чай Альтхаус черный аромат. лист."
+      "_source": "ЧА2050 Горные Травы 250г, чай Альтхаус черный аромат. лист.",
+      "subcategory": "tea_althaus_loose"
     },
     {
       "id": "ча3415_ганпаудер_жу_ча_чай_зеленый_байховый_250г",
@@ -17643,7 +17775,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "ЧА3415 Ганпаудер Жу Ча, чай зеленый байховый 250г"
+      "_source": "ЧА3415 Ганпаудер Жу Ча, чай зеленый байховый 250г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "ча3435_молочный_улун_250г_чай_альтхаус_зеленый_листовой",
@@ -17658,7 +17791,8 @@
       ],
       "stock": 1,
       "on_request": true,
-      "_source": "ЧА3435 Молочный Улун 250г, чай Альтхаус зеленый листовой"
+      "_source": "ЧА3435 Молочный Улун 250г, чай Альтхаус зеленый листовой",
+      "subcategory": "tea_althaus_loose"
     },
     {
       "id": "ча3600_сенча_сенпай_250_г_чай_альтаус_зеленый_листовой",
@@ -17673,7 +17807,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "ЧА3600 Сенча Сенпай 250 г, чай Альтаус зеленый листовой"
+      "_source": "ЧА3600 Сенча Сенпай 250 г, чай Альтаус зеленый листовой",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "ча6030_японская_липа_75_г_напиток_альтхаус_травяной",
@@ -17688,7 +17823,8 @@
       ],
       "stock": 1,
       "on_request": true,
-      "_source": "ЧА6030 Японская Липа 75 г, напиток Альтхаус травяной"
+      "_source": "ЧА6030 Японская Липа 75 г, напиток Альтхаус травяной",
+      "subcategory": "tea_althaus_loose"
     },
     {
       "id": "ча6045_лемон_минт_150_г_напиток_альтхаус_травяной",
@@ -17703,7 +17839,8 @@
       ],
       "stock": 3,
       "on_request": true,
-      "_source": "ЧА6045 Лемон Минт 150 г, напиток Альтхаус травяной"
+      "_source": "ЧА6045 Лемон Минт 150 г, напиток Альтхаус травяной",
+      "subcategory": "tea_althaus_loose"
     },
     {
       "id": "nr24_молочный_улун_20_4г_для_чайника_чай_зеленый_аромат",
@@ -17718,7 +17855,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "NR24 Молочный Улун 20*4г для чайника чай зеленый аромат"
+      "_source": "NR24 Молочный Улун 20*4г для чайника чай зеленый аромат",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "nr27_горный_чабрец_чай_черный_с_чабрецом_пакет_для_чайника_20х4г",
@@ -17733,7 +17871,8 @@
       ],
       "stock": 7,
       "on_request": true,
-      "_source": "NR27 Горный Чабрец, чай черный с чабрецом пакет для чайника 20х4г"
+      "_source": "NR27 Горный Чабрец, чай черный с чабрецом пакет для чайника 20х4г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "nr01_кения_сапфир_чай_черный_пакет_25_2г",
@@ -17748,7 +17887,8 @@
       ],
       "stock": 15,
       "on_request": true,
-      "_source": "NR01 Кения Сапфир, чай черный пакет. 25*2г"
+      "_source": "NR01 Кения Сапфир, чай черный пакет. 25*2г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "nr04_молочный_улун_чай_зеленый_аромат_пакет_25_2г",
@@ -17763,7 +17903,8 @@
       ],
       "stock": 17,
       "on_request": true,
-      "_source": "NR04 Молочный Улун, чай зеленый аромат. пакет 25*2г"
+      "_source": "NR04 Молочный Улун, чай зеленый аромат. пакет 25*2г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "nr05_красная_поляна_чай_пакет_25_1_75г",
@@ -17778,7 +17919,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "NR05 Красная поляна, чай пакет. 25*1,75г"
+      "_source": "NR05 Красная поляна, чай пакет. 25*1,75г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "nr06_фрут_маджента_нап_чайный_аромат_пакет_25_2г",
@@ -17793,7 +17935,8 @@
       ],
       "stock": 14,
       "on_request": true,
-      "_source": "NR06 Фрут Маджента, нап. чайный аромат. пакет. 25*2г"
+      "_source": "NR06 Фрут Маджента, нап. чайный аромат. пакет. 25*2г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "nr07_ройбуш_оранж_напиток_чайный_аромат_пакет_25_2г",
@@ -17808,7 +17951,8 @@
       ],
       "stock": 13,
       "on_request": true,
-      "_source": "NR07 Ройбуш Оранж, напиток чайный аромат. пакет. 25*2г"
+      "_source": "NR07 Ройбуш Оранж, напиток чайный аромат. пакет. 25*2г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "nr08_ассорти_брайт_коллекция_чая_чайн_напитк_пакет_25_48_75_г",
@@ -17823,7 +17967,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "NR08 Ассорти Брайт, коллекция чая/чайн напитк пакет 25*48,75 г"
+      "_source": "NR08 Ассорти Брайт, коллекция чая/чайн напитк пакет 25*48,75 г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "nr09_жасмин_эмеральд_чай_зелен_с_жасмином_пакет_25_2_гр",
@@ -17838,7 +17983,8 @@
       ],
       "stock": 7,
       "on_request": true,
-      "_source": "NR09 Жасмин Эмеральд, чай зелен. с жасмином пакет. 25*2 гр"
+      "_source": "NR09 Жасмин Эмеральд, чай зелен. с жасмином пакет. 25*2 гр",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "nr04_зеленый_ветер_чай_зел_пакет_pyra_pack_15_2_7г",
@@ -17853,7 +17999,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "NR04 Зеленый Ветер, чай зел.пакет. Pyra Pack 15*2,7г"
+      "_source": "NR04 Зеленый Ветер, чай зел.пакет. Pyra Pack 15*2,7г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "ts22_гречишный_чай_чайн_нап_250_г",
@@ -17868,7 +18015,8 @@
       ],
       "stock": 7,
       "on_request": true,
-      "_source": "TS22 Гречишный Чай, чайн.нап. 250 г"
+      "_source": "TS22 Гречишный Чай, чайн.нап. 250 г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "чн300_сенча_классик_чай_зеленый_байховый_250г",
@@ -17883,7 +18031,8 @@
       ],
       "stock": 3,
       "on_request": true,
-      "_source": "ЧН300 Сенча Классик, чай зеленый байховый 250г"
+      "_source": "ЧН300 Сенча Классик, чай зеленый байховый 250г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "чн315_молочный_улун_чай_зеленый_байховый_250г",
@@ -17898,7 +18047,8 @@
       ],
       "stock": 6,
       "on_request": true,
-      "_source": "ЧН315 Молочный Улун, чай зеленый байховый  250г"
+      "_source": "ЧН315 Молочный Улун, чай зеленый байховый  250г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "чн004_жасмин_ориентал_чай_зеленый_пакет_25_1_75г",
@@ -17913,7 +18063,8 @@
       ],
       "stock": 2,
       "on_request": true,
-      "_source": "ЧН004 Жасмин Ориентал чай зеленый пакет.25*1,75г"
+      "_source": "ЧН004 Жасмин Ориентал чай зеленый пакет.25*1,75г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "чн006_клубничый_десерт_напиток_чайный_аром_пак_25_2г",
@@ -17928,7 +18079,8 @@
       ],
       "stock": 8,
       "on_request": true,
-      "_source": "ЧН006 Клубничый Десерт, напиток чайный аром пак.25*2г"
+      "_source": "ЧН006 Клубничый Десерт, напиток чайный аром пак.25*2г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "niktia_пакетированный_500_пак",
@@ -17943,7 +18095,8 @@
       ],
       "stock": 20.043,
       "on_request": true,
-      "_source": "NIKTIA пакетированный 500 пак."
+      "_source": "NIKTIA пакетированный 500 пак.",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "nr02_500_эрл_грей_ультрамарин_чай_черный_с_ароматом_бергамота_пакетиро",
@@ -17958,7 +18111,8 @@
       ],
       "stock": 0.76,
       "on_request": true,
-      "_source": "NR02-500 Эрл Грей Ультрамарин, чай черный с ароматом бергамота пакетирован. 500*2 г"
+      "_source": "NR02-500 Эрл Грей Ультрамарин, чай черный с ароматом бергамота пакетирован. 500*2 г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "nr06_500_фрут_маджента_напиток_чайный_аромат_пакет_500_2г",
@@ -17973,7 +18127,8 @@
       ],
       "stock": 2.928,
       "on_request": true,
-      "_source": "NR06-500 Фрут Маджента, напиток чайный аромат. пакет. 500*2г"
+      "_source": "NR06-500 Фрут Маджента, напиток чайный аромат. пакет. 500*2г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "чн002_500_граф_грей_чай_черный_аромат_бергамота_пакетирован_500_1_75_г",
@@ -17988,7 +18143,8 @@
       ],
       "stock": 0.67,
       "on_request": true,
-      "_source": "ЧН002-500 Граф Грей, чай черный аромат бергамота пакетирован. 500*1,75 г"
+      "_source": "ЧН002-500 Граф Грей, чай черный аромат бергамота пакетирован. 500*1,75 г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "чн003_500_грин_фьюжн_чай_зеленый_пекетированный_500_1_75г",
@@ -18003,7 +18159,8 @@
       ],
       "stock": 3.553,
       "on_request": true,
-      "_source": "ЧН003-500 Грин Фьюжн, чай зеленый пекетированный 500*1,75г"
+      "_source": "ЧН003-500 Грин Фьюжн, чай зеленый пекетированный 500*1,75г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "чн005_500_new_краснополянский_сбор_чай_пакетирован_500_1_5г",
@@ -18018,7 +18175,8 @@
       ],
       "stock": 0.99,
       "on_request": true,
-      "_source": "ЧН005-500 NEW Краснополянский сбор, чай пакетирован. 500*1,5г"
+      "_source": "ЧН005-500 NEW Краснополянский сбор, чай пакетирован. 500*1,5г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "чн005_500_краснополянский_сбор_чай_пакетирован_500_1_75г",
@@ -18033,7 +18191,8 @@
       ],
       "stock": 0.39,
       "on_request": true,
-      "_source": "ЧН005-500 Краснополянский сбор, чай пакетирован. 500*1,75г"
+      "_source": "ЧН005-500 Краснополянский сбор, чай пакетирован. 500*1,75г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "чн008_500_молочный_улун_чай_зеленый_аромат_пакетирован_500_1_75г",
@@ -18048,7 +18207,8 @@
       ],
       "stock": 1.954,
       "on_request": true,
-      "_source": "ЧН008-500 Молочный Улун, чай зеленый аромат.пакетирован. 500*1,75г"
+      "_source": "ЧН008-500 Молочный Улун, чай зеленый аромат.пакетирован. 500*1,75г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "чн009_500_английский_завтрак_чай_черный_пакетирован_500_1_75г",
@@ -18063,7 +18223,8 @@
       ],
       "stock": 8.79,
       "on_request": true,
-      "_source": "ЧН009-500 Английский Завтрак, чай черный пакетирован. 500*1,75г"
+      "_source": "ЧН009-500 Английский Завтрак, чай черный пакетирован. 500*1,75г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "rb_tea_ассам_250_г",
@@ -18078,7 +18239,8 @@
       ],
       "stock": 55,
       "on_request": true,
-      "_source": "RB TEA Ассам 250 г"
+      "_source": "RB TEA Ассам 250 г",
+      "subcategory": "tea_rbr_tea_loose"
     },
     {
       "id": "rb_tea_ганпаудер_сад_250_г",
@@ -18093,7 +18255,8 @@
       ],
       "stock": 4,
       "on_request": true,
-      "_source": "RB TEA Ганпаудер сад 250 г"
+      "_source": "RB TEA Ганпаудер сад 250 г",
+      "subcategory": "tea_rbr_tea_loose"
     },
     {
       "id": "rb_tea_дворцовый_пуэр_250_г",
@@ -18108,7 +18271,8 @@
       ],
       "stock": 8,
       "on_request": true,
-      "_source": "RB TEA Дворцовый пуэр 250 г"
+      "_source": "RB TEA Дворцовый пуэр 250 г",
+      "subcategory": "tea_rbr_tea_loose"
     },
     {
       "id": "rb_tea_дикий_пуэр_250_г_пуэр_из_крупных_листьев_дикорастущих_старых_ча",
@@ -18123,7 +18287,8 @@
       ],
       "stock": 8,
       "on_request": true,
-      "_source": "RB TEA Дикий пуэр 250 г (пуэр из крупных листьев дикорастущих старых чайных деревьев)"
+      "_source": "RB TEA Дикий пуэр 250 г (пуэр из крупных листьев дикорастущих старых чайных деревьев)",
+      "subcategory": "tea_rbr_tea_loose"
     },
     {
       "id": "rb_tea_дянь_хун_маофен_250_г",
@@ -18138,7 +18303,8 @@
       ],
       "stock": 16,
       "on_request": true,
-      "_source": "RB TEA Дянь Хун Маофен 250 г"
+      "_source": "RB TEA Дянь Хун Маофен 250 г",
+      "subcategory": "tea_rbr_tea_loose"
     },
     {
       "id": "rb_tea_чай_зеленый_с_мятой_250_г",
@@ -18153,7 +18319,8 @@
       ],
       "stock": 16,
       "on_request": true,
-      "_source": "RB TEA Чай зеленый с мятой 250 г"
+      "_source": "RB TEA Чай зеленый с мятой 250 г",
+      "subcategory": "tea_rbr_tea_loose"
     },
     {
       "id": "чай_tasteabrew_icedtea_400_арбуз_и_клюква_50",
@@ -18168,7 +18335,8 @@
       ],
       "stock": 60,
       "on_request": true,
-      "_source": "Чай Tasteabrew ICEDTEA-400 \"Арбуз и клюква\" (50)"
+      "_source": "Чай Tasteabrew ICEDTEA-400 \"Арбуз и клюква\" (50)",
+      "subcategory": "tea_tasteabrew_iced"
     },
     {
       "id": "чай_tasteabrew_honey_350_молочный_улун_с_мандарином_60",
@@ -18183,7 +18351,8 @@
       ],
       "stock": 56,
       "on_request": true,
-      "_source": "Чай Tasteabrew HONEY-350 \"Молочный улун с мандарином\" (60)"
+      "_source": "Чай Tasteabrew HONEY-350 \"Молочный улун с мандарином\" (60)",
+      "subcategory": "tea_tasteabrew_loose"
     },
     {
       "id": "чай_tasteabrew_sito_350_вишня_в_шоколаде_60",
@@ -18198,7 +18367,8 @@
       ],
       "stock": 33,
       "on_request": true,
-      "_source": "Чай Tasteabrew SITO-350 \"Вишня в шоколаде\" (60)"
+      "_source": "Чай Tasteabrew SITO-350 \"Вишня в шоколаде\" (60)",
+      "subcategory": "tea_tasteabrew_loose"
     },
     {
       "id": "чай_tasteabrew_sito_350_клубника_с_дыней_60",
@@ -18213,7 +18383,8 @@
       ],
       "stock": 30,
       "on_request": true,
-      "_source": "Чай Tasteabrew SITO-350 \"Клубника с дыней\" (60)"
+      "_source": "Чай Tasteabrew SITO-350 \"Клубника с дыней\" (60)",
+      "subcategory": "tea_tasteabrew_loose"
     },
     {
       "id": "чайный_нап_на_основе_иван_чая_теплый_вечер_200_г",
@@ -18228,7 +18399,8 @@
       ],
       "stock": 5,
       "on_request": true,
-      "_source": "Чайный нап.на основе иван-чая \"Теплый Вечер\" 200 г"
+      "_source": "Чайный нап.на основе иван-чая \"Теплый Вечер\" 200 г",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "чай_красный_юннань_nb_черный_байх_лист_1кг",
@@ -18243,7 +18415,8 @@
       ],
       "stock": 1.5,
       "on_request": true,
-      "_source": "Чай Красный Юннань NB черный байх.лист.1кг"
+      "_source": "Чай Красный Юннань NB черный байх.лист.1кг",
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "чай_мессмер_для_чайника_ассам_20_4_г",
@@ -18258,7 +18431,8 @@
       ],
       "stock": 1,
       "on_request": true,
-      "_source": "Чай Мессмер для чайника Ассам 20*4 г"
+      "_source": "Чай Мессмер для чайника Ассам 20*4 г",
+      "subcategory": "tea_китайский_чай_loose"
     }
   ]
 }
