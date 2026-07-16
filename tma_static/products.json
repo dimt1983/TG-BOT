@@ -5572,7 +5572,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 570,
+      "stock": 550,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8591,7 +8591,7 @@
           "price": 2400
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -11795,7 +11795,7 @@
           "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
         }
       ],
-      "stock": 1170,
+      "stock": 1080,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg",
       "quarantined": false,
@@ -11918,7 +11918,7 @@
           "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg"
         }
       ],
-      "stock": 450,
+      "stock": 270,
       "tags": [],
       "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg",
       "quarantined": false,
@@ -14316,7 +14316,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 14,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -17969,7 +17969,7 @@
           "photo": ""
         }
       ],
-      "stock": 5,
+      "stock": 2,
       "on_request": true,
       "_source": "NR08 Ассорти Брайт, коллекция чая/чайн напитк пакет 25*48,75 г",
       "subcategory": "tea_китайский_чай_loose"
