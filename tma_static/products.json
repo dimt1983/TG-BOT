@@ -1163,10 +1163,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_венеция_200_г.jpg",
-          "stock": 18
+          "stock": 17
         }
       ],
-      "stock": 18,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 112,
+      "stock": 108,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1216,10 +1216,10 @@
           "price": 425.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_классика_20_200_г.jpg",
-          "stock": 17
+          "stock": 15
         }
       ],
-      "stock": 17,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1567,10 +1567,10 @@
           "size": "200 г",
           "price": 435.0,
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_200_г.jpg",
-          "stock": 30
+          "stock": 29
         }
       ],
-      "stock": 30,
+      "stock": 29,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 103,
+      "stock": 111,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1622,10 +1622,10 @@
           "price": 445.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_200_г.jpg",
-          "stock": 20
+          "stock": 19
         }
       ],
-      "stock": 20,
+      "stock": 19,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2046,7 +2046,7 @@
           "photo": "photos/products/retail_f_roastberry_кения_аа_200_г.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 1,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5504,7 +5504,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 81,
+      "stock": 76,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5572,7 +5572,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 575,
+      "stock": 570,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7081,9 +7081,9 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
       "country": "Колумбия",
       "process": null,
       "altitude": null,
@@ -7102,8 +7102,8 @@
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-07-16T03:35:15+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "espresso_mono_колумбия_андино_мытый_эспрессо_1_кг",
@@ -14091,7 +14091,7 @@
       "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -15448,7 +15448,7 @@
           "price": 2175.0
         }
       ],
-      "stock": 7,
+      "stock": 2,
       "_source": "F \"Roastberry\" Колумбия Андино - 1 кг",
       "country": "Колумбия",
       "subcategory": "retail_filter",
@@ -15681,7 +15681,7 @@
           "photo": ""
         }
       ],
-      "stock": 242,
+      "stock": 236,
       "on_request": true,
       "_source": "Напиток на соевой основе, миндальный \"Green Milk\" 1л.",
       "subcategory": "milk_main"
