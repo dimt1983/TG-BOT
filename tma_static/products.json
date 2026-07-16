@@ -8610,7 +8610,7 @@
           "price": 1
         }
       ],
-      "stock": 10800,
+      "stock": 10400,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -13689,7 +13689,7 @@
           "photo": null
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14159,7 +14159,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 158,
+      "stock": 157,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -17701,7 +17701,7 @@
           "photo": ""
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "on_request": true,
       "_source": "L2005 Империал Эрл Грей листовой 225 г, напиток Альтхаус аромат",
       "subcategory": "tea_althaus_loose"
@@ -17893,7 +17893,7 @@
           "photo": ""
         }
       ],
-      "stock": 15,
+      "stock": 12,
       "on_request": true,
       "_source": "NR01 Кения Сапфир, чай черный пакет. 25*2г",
       "subcategory": "tea_китайский_чай_loose"
