@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 18,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1269,10 +1269,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_хани_200_г.jpg",
-          "stock": 12
+          "stock": 17
         }
       ],
-      "stock": 12,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 165,
+      "stock": 161,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1781,10 +1781,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "assets/placeholders/ph_retail.svg",
-          "stock": 14
+          "stock": 19
         }
       ],
-      "stock": 14,
+      "stock": 19,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5504,7 +5504,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 76,
+      "stock": 74,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14605,7 +14605,7 @@
       "name": "Гондурас Сан Николас темная обжарка - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 6,
+      "stock": 16,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15410,7 +15410,7 @@
           "photo": "assets/placeholders/pack_roastberry_1kg.png"
         }
       ],
-      "stock": 3,
+      "stock": 11,
       "_source": "E \"Roastberry\" Гондурас San Nicolas Dark - 1 кг",
       "country": "Гондурас",
       "subcategory": "retail_espresso",
@@ -16113,7 +16113,7 @@
           "photo": ""
         }
       ],
-      "stock": 6,
+      "stock": 4,
       "on_request": true,
       "_source": "Сироп Груша Сортовая 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika"
