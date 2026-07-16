@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 105,
+      "stock": 103,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1974,7 +1974,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 47,
+      "stock": 23,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2120,10 +2120,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "photos/products/retail_f_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 7
+          "stock": 6
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5605,7 +5605,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 27,
+      "stock": 24,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
