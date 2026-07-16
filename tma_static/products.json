@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 112,
+      "stock": 111,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1757,15 +1757,15 @@
           "photo": "photos/products/retail_e_roastberry_гватемала_уетенанго_200_г.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 0,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гватемала Уетенанго упак. 200 гр.",
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
-      "hidden": false,
+      "quarantined": true,
+      "quarantined_at": "2026-07-16T05:36:30",
+      "quarantine_reason": "no_match_in_rb_bot_xlsx",
+      "hidden": true,
       "country": "Гватемала",
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
@@ -1837,10 +1837,10 @@
           "price": 465.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 17
+          "stock": 16
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2017,17 +2017,17 @@
           "price": 495.0,
           "on_request": false,
           "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_200_г.jpg",
-          "stock": 11
+          "stock": 0
         }
       ],
-      "stock": 11,
+      "stock": 0,
       "on_request": false,
       "subcategory": "retail_filter",
-      "quarantined": false,
-      "quarantined_at": "2026-05-18T20:00:07+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "quarantined": true,
+      "quarantined_at": "2026-07-16T05:36:30",
+      "quarantine_reason": "no_match_in_rb_bot_xlsx",
       "roast": "F",
-      "hidden": false,
+      "hidden": true,
       "_source": "F \"Roastberry\" Гватемала Уетенанго упак. 200 гр.",
       "country": "Гватемала",
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность.",
@@ -15187,7 +15187,7 @@
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 9,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
