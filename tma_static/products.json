@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 108,
+      "stock": 128,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 18,
+      "stock": 19,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1269,10 +1269,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_хани_200_г.jpg",
-          "stock": 17
+          "stock": 16
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1567,10 +1567,10 @@
           "size": "200 г",
           "price": 435.0,
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_200_г.jpg",
-          "stock": 20
+          "stock": 26
         }
       ],
-      "stock": 20,
+      "stock": 26,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 158,
+      "stock": 140,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1837,10 +1837,10 @@
           "price": 465.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 15
+          "stock": 16
         }
       ],
-      "stock": 15,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5148,7 +5148,7 @@
           "price": 1800.0
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5270,7 +5270,7 @@
           "price": 1080.0
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5572,7 +5572,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 545,
+      "stock": 500,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5710,7 +5710,7 @@
           "price": 1130.0
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5746,7 +5746,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 11,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -7529,7 +7529,7 @@
       "name": "Коста-Рика Тарразу Ла Пастора эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 12,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "country": "Коста-Рика",
@@ -7972,7 +7972,7 @@
           "price": 1760.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8478,7 +8478,7 @@
           "price": 2215.0
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8502,7 +8502,7 @@
           "price": 1130.0
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8550,7 +8550,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 12,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -12178,7 +12178,7 @@
           "photo": "photos/products/t-травяной_иван_чай_214_г_аромат_виноград.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [],
       "photo": "photos/products/t-травяной_иван_чай_214_г_аромат_виноград.jpg",
       "quarantined": false,
@@ -12481,7 +12481,7 @@
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 50,
+      "stock": 46,
       "on_request": false,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
@@ -14159,7 +14159,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 156,
+      "stock": 151,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14443,7 +14443,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 30,
+      "stock": 31,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15189,7 +15189,7 @@
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 6,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15360,7 +15360,7 @@
       "name": "Вьетнам Блю Сонал сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -15410,7 +15410,7 @@
           "photo": "assets/placeholders/pack_roastberry_1kg.png"
         }
       ],
-      "stock": 11,
+      "stock": 20,
       "_source": "E \"Roastberry\" Гондурас San Nicolas Dark - 1 кг",
       "country": "Гондурас",
       "subcategory": "retail_espresso",
@@ -15429,7 +15429,7 @@
           "price": 2385.0
         }
       ],
-      "stock": 8,
+      "stock": 9,
       "_source": "E \"Roastberry\" Эфиопия Сидамо Гр.2  - 1 кг",
       "country": "Эфиопия",
       "subcategory": "retail_espresso",
@@ -15653,7 +15653,7 @@
           "price": 1000.0
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false
@@ -16757,7 +16757,7 @@
           "photo": ""
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "on_request": true,
       "_source": "Сироп Карамель Двойного Обжига 0,7 л. Гербариста",
       "subcategory": "syr_herbarista"
@@ -17813,7 +17813,7 @@
           "photo": ""
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "on_request": true,
       "_source": "ЧА3600 Сенча Сенпай 250 г, чай Альтаус зеленый листовой",
       "subcategory": "tea_китайский_чай_loose"
@@ -18101,7 +18101,7 @@
           "photo": ""
         }
       ],
-      "stock": 20.043,
+      "stock": 19.043,
       "on_request": true,
       "_source": "NIKTIA пакетированный 500 пак.",
       "subcategory": "tea_китайский_чай_loose"
@@ -18229,7 +18229,7 @@
           "photo": ""
         }
       ],
-      "stock": 8.79,
+      "stock": 7.79,
       "on_request": true,
       "_source": "ЧН009-500 Английский Завтрак, чай черный пакетирован. 500*1,75г",
       "subcategory": "tea_китайский_чай_loose"
