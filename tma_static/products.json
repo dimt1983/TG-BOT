@@ -1163,10 +1163,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_венеция_200_г.jpg",
-          "stock": 17
+          "stock": 16
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -5572,7 +5572,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 500,
+      "stock": 498,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -15602,7 +15602,7 @@
           "price": 670.0
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "_source": "Кофе \"Roastberry BLACK\" Кения Маакиоу Пиберри мытая - 200 г",
       "country": "Кения",
       "on_request": false
@@ -15619,7 +15619,7 @@
           "price": 875.0
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "_source": "Кофе \"Roastberry BORЩ \"Кения КиаваМуруру HN-7\" нат.анаэроб.200 г",
       "country": "Кения",
       "on_request": false
@@ -15636,7 +15636,7 @@
           "price": 1000.0
         }
       ],
-      "stock": 19,
+      "stock": 18,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катимор нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false
@@ -15653,7 +15653,7 @@
           "price": 1000.0
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false
