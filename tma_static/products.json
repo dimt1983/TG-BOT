@@ -1216,10 +1216,10 @@
           "price": 425.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_классика_20_200_г.jpg",
-          "stock": 15
+          "stock": 14
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 19,
+      "stock": 18,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1622,10 +1622,10 @@
           "price": 445.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_200_г.jpg",
-          "stock": 29
+          "stock": 30
         }
       ],
-      "stock": 29,
+      "stock": 30,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1651,7 +1651,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_200_г.jpg"
         }
       ],
-      "stock": 31,
+      "stock": 29,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -6012,7 +6012,7 @@
           "photo": null
         }
       ],
-      "stock": 52,
+      "stock": 50,
       "tags": [],
       "photo": "photos/products/drip_chocolate_costa_rica.jpg",
       "tasting_notes": [
@@ -6075,7 +6075,7 @@
           "photo": "photos/products/c-дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_.jpg"
         }
       ],
-      "stock": 76,
+      "stock": 75,
       "tags": [],
       "photo": "photos/products/c-дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_.jpg",
       "pair_id": "дп_fruit_rb_колумбия_клаудиа_колминарес_молотый_8_",
@@ -6101,7 +6101,7 @@
           "price": 760
         }
       ],
-      "stock": 32,
+      "stock": 31,
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Эфиопия",
