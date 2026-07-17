@@ -1245,7 +1245,7 @@
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg"
         }
       ],
-      "stock": 18,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 6,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1567,10 +1567,10 @@
           "size": "200 г",
           "price": 435.0,
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_200_г.jpg",
-          "stock": 26
+          "stock": 36
         }
       ],
-      "stock": 26,
+      "stock": 36,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 140,
+      "stock": 134,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5504,7 +5504,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 73,
+      "stock": 107,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5572,7 +5572,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 475,
+      "stock": 467,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8290,7 +8290,7 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 13,
+      "stock": 33,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -8550,7 +8550,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 13,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -14393,7 +14393,7 @@
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -15211,7 +15211,7 @@
       "name": "Эфиопия Сидамо Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
