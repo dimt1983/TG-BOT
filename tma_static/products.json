@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1567,10 +1567,10 @@
           "size": "200 г",
           "price": 435.0,
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_200_г.jpg",
-          "stock": 23
+          "stock": 20
         }
       ],
-      "stock": 23,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 159,
+      "stock": 158,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1837,10 +1837,10 @@
           "price": 465.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 16
+          "stock": 15
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1974,7 +1974,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 23,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2046,7 +2046,7 @@
           "photo": "photos/products/retail_f_roastberry_кения_аа_200_г.jpg"
         }
       ],
-      "stock": 23,
+      "stock": 21,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5504,7 +5504,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 74,
+      "stock": 73,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5572,7 +5572,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 550,
+      "stock": 549,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5605,7 +5605,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 24,
+      "stock": 22,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8290,7 +8290,7 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 23,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -15564,7 +15564,7 @@
           "price": 475.0
         }
       ],
-      "stock": 1,
+      "stock": 11,
       "_source": "F \"Roastberry\" Руанда Мутетели упак. 200 г",
       "country": "Руанда",
       "subcategory": "retail_filter",
