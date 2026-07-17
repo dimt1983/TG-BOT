@@ -2382,7 +2382,7 @@
           "photo": null
         }
       ],
-      "stock": 3,
+      "stock": 1,
       "tags": [],
       "photo": "",
       "quarantined": false,
@@ -3141,7 +3141,7 @@
           "price": 185.0
         }
       ],
-      "stock": 19,
+      "stock": 18,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5572,7 +5572,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 549,
+      "stock": 545,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6308,7 +6308,7 @@
           "price": 2215.0
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -7972,7 +7972,7 @@
           "price": 1760.0
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -12481,7 +12481,7 @@
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 90,
+      "stock": 50,
       "on_request": false,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
@@ -14159,7 +14159,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 157,
+      "stock": 156,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -15429,7 +15429,7 @@
           "price": 2385.0
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "_source": "E \"Roastberry\" Эфиопия Сидамо Гр.2  - 1 кг",
       "country": "Эфиопия",
       "subcategory": "retail_espresso",
@@ -17893,7 +17893,7 @@
           "photo": ""
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "on_request": true,
       "_source": "NR01 Кения Сапфир, чай черный пакет. 25*2г",
       "subcategory": "tea_китайский_чай_loose"
