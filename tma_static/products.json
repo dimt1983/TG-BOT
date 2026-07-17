@@ -1974,7 +1974,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 107,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5504,7 +5504,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 107,
+      "stock": 140,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -15189,7 +15189,7 @@
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 5,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15522,16 +15522,16 @@
           "price": 505.0
         }
       ],
-      "stock": 0,
+      "stock": 20,
       "_source": "E \"Roastberry\" Эфиопия Сидамо Гр.2  упак. 200 г",
       "country": "Эфиопия",
       "subcategory": "retail_espresso",
       "roast": "E",
       "on_request": false,
-      "hidden": true,
-      "quarantined": true,
-      "quarantined_at": "2026-07-16T13:35:41",
-      "quarantine_reason": "no_match_in_rb_bot_xlsx"
+      "hidden": false,
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "f_roastberry_вьетнам_блю_сонал_сухой_200_г",
