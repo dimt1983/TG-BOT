@@ -1110,10 +1110,10 @@
           "price": 410.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_биттер_200_г.jpg",
-          "stock": 17
+          "stock": 15
         }
       ],
-      "stock": 17,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1139,7 +1139,7 @@
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg"
         }
       ],
-      "stock": 11,
+      "stock": 8,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 128,
+      "stock": 125,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1216,10 +1216,10 @@
           "price": 425.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_классика_20_200_г.jpg",
-          "stock": 14
+          "stock": 12
         }
       ],
-      "stock": 14,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1349,10 +1349,10 @@
           "size": "200 г",
           "price": 435,
           "photo": "photos/products/retail_bf_roastberry_лунго_200_г.jpg",
-          "stock": 4
+          "stock": 3
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 15,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1567,10 +1567,10 @@
           "size": "200 г",
           "price": 435.0,
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_200_г.jpg",
-          "stock": 36
+          "stock": 30
         }
       ],
-      "stock": 36,
+      "stock": 30,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 134,
+      "stock": 124,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1622,10 +1622,10 @@
           "price": 445.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_200_г.jpg",
-          "stock": 29
+          "stock": 28
         }
       ],
-      "stock": 29,
+      "stock": 28,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1651,7 +1651,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_200_г.jpg"
         }
       ],
-      "stock": 29,
+      "stock": 28,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1677,7 +1677,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 5,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1704,7 +1704,7 @@
           "photo": "photos/products/retail_e_roastberry_гватемала_декаф_-_1_кг.jpg"
         }
       ],
-      "stock": 3,
+      "stock": 1,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1781,10 +1781,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "assets/placeholders/ph_retail.svg",
-          "stock": 18
+          "stock": 16
         }
       ],
-      "stock": 18,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1866,7 +1866,7 @@
           "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг.jpg"
         }
       ],
-      "stock": 8,
+      "stock": 6,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2046,7 +2046,7 @@
           "photo": "photos/products/retail_f_roastberry_кения_аа_200_г.jpg"
         }
       ],
-      "stock": 20,
+      "stock": 18,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2071,10 +2071,10 @@
           "price": 530.0,
           "on_request": false,
           "photo": "photos/products/retail_f_roastberry_кения_аб_200_г.jpg",
-          "stock": 21
+          "stock": 19
         }
       ],
-      "stock": 21,
+      "stock": 19,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5504,7 +5504,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 140,
+      "stock": 137,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5537,7 +5537,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 11,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5572,7 +5572,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 466,
+      "stock": 461,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5746,7 +5746,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 9,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -6567,7 +6567,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 13,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6596,7 +6596,7 @@
       "name": "Кения АБ мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 7,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6626,7 +6626,7 @@
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -7081,7 +7081,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -8150,7 +8150,7 @@
           "photo": null
         }
       ],
-      "stock": 180,
+      "stock": 168,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -8290,7 +8290,7 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 28,
+      "stock": 24,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -8610,7 +8610,7 @@
           "price": 1
         }
       ],
-      "stock": 10400,
+      "stock": 10000,
       "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -12481,7 +12481,7 @@
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 45,
+      "stock": 43,
       "on_request": false,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
@@ -14393,7 +14393,7 @@
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 7,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -15189,7 +15189,7 @@
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 11,
+      "stock": 17,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15522,7 +15522,7 @@
           "price": 505.0
         }
       ],
-      "stock": 20,
+      "stock": 40,
       "_source": "E \"Roastberry\" Эфиопия Сидамо Гр.2  упак. 200 г",
       "country": "Эфиопия",
       "subcategory": "retail_espresso",
@@ -15545,7 +15545,7 @@
           "price": 455.0
         }
       ],
-      "stock": 10,
+      "stock": 7,
       "_source": "F \"Roastberry\" Вьетнам Блю Сонал сухой упак. 200 г",
       "country": "Вьетнам",
       "subcategory": "retail_filter",
@@ -15619,7 +15619,7 @@
           "price": 875.0
         }
       ],
-      "stock": 11,
+      "stock": 8,
       "_source": "Кофе \"Roastberry BORЩ \"Кения КиаваМуруру HN-7\" нат.анаэроб.200 г",
       "country": "Кения",
       "on_request": false
@@ -15636,7 +15636,7 @@
           "price": 1000.0
         }
       ],
-      "stock": 18,
+      "stock": 15,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катимор нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false
@@ -15653,7 +15653,7 @@
           "price": 1000.0
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false
@@ -15669,7 +15669,7 @@
           "photo": ""
         }
       ],
-      "stock": 285,
+      "stock": 273,
       "on_request": true,
       "_source": "Напиток на соевой основе, кокосовый \"Green Milk\"на соевой основе 1л.",
       "subcategory": "milk_main"
