@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 112,
+      "stock": 106,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1216,10 +1216,10 @@
           "price": 425.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_классика_20_200_г.jpg",
-          "stock": 11
+          "stock": 12
         }
       ],
-      "stock": 11,
+      "stock": 12,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1269,10 +1269,10 @@
           "price": 435.0,
           "on_request": false,
           "photo": "photos/products/retail_be_roastberry_хани_200_г.jpg",
-          "stock": 13
+          "stock": 14
         }
       ],
-      "stock": 13,
+      "stock": 14,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1326,7 +1326,7 @@
           "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 10,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1349,10 +1349,10 @@
           "size": "200 г",
           "price": 435,
           "photo": "photos/products/retail_bf_roastberry_лунго_200_г.jpg",
-          "stock": 3
+          "stock": 33
         }
       ],
-      "stock": 3,
+      "stock": 33,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1547,7 +1547,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg"
         }
       ],
-      "stock": 7,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 113,
+      "stock": 108,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1622,10 +1622,10 @@
           "price": 445.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_200_г.jpg",
-          "stock": 62
+          "stock": 63
         }
       ],
-      "stock": 62,
+      "stock": 63,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1677,7 +1677,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1886,10 +1886,10 @@
           "size": "200 г",
           "price": 460,
           "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_200_г.jpg",
-          "stock": 6
+          "stock": 16
         }
       ],
-      "stock": 6,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -3967,7 +3967,7 @@
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
-      "stock": 71,
+      "stock": 66,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
       "quarantined": false,
@@ -4019,7 +4019,7 @@
           "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg"
         }
       ],
-      "stock": 110,
+      "stock": 100,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_манго_и_апельсин_50пак.jpg",
       "quarantined": false,
@@ -4045,7 +4045,7 @@
           "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg"
         }
       ],
-      "stock": 84,
+      "stock": 74,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
       "quarantined": false,
@@ -4539,7 +4539,7 @@
           "photo": "photos/products/t-restoranica_togo_иван-чай_с_малиной_36пак.jpg"
         }
       ],
-      "stock": 124,
+      "stock": 114,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_иван-чай_с_малиной_36пак.jpg",
       "quarantined": false,
@@ -4591,7 +4591,7 @@
           "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg"
         }
       ],
-      "stock": 25,
+      "stock": 15,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_кедровый_с_чагой_30пак.jpg",
       "quarantined": false,
@@ -4773,7 +4773,7 @@
           "photo": "photos/products/t-restoranica_togo_ройбуш_с_апельсином_60пак.jpg"
         }
       ],
-      "stock": 105,
+      "stock": 100,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_ройбуш_с_апельсином_60пак.jpg",
       "quarantined": false,
@@ -4877,7 +4877,7 @@
           "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
         }
       ],
-      "stock": 111,
+      "stock": 101,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -4903,7 +4903,7 @@
           "photo": "photos/products/t-restoranica_togo_яблоко_с_можжевельником_60пак.jpg"
         }
       ],
-      "stock": 119,
+      "stock": 109,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_яблоко_с_можжевельником_60пак.jpg",
       "quarantined": false,
@@ -5572,7 +5572,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 318,
+      "stock": 309,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7529,7 +7529,7 @@
       "name": "Коста-Рика Тарразу Ла Пастора эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 1,
+      "stock": 20,
       "hidden": false,
       "quarantined": false,
       "country": "Коста-Рика",
@@ -12728,7 +12728,7 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg"
         }
       ],
-      "stock": 168,
+      "stock": 158,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg",
       "quarantined": false,
@@ -14605,7 +14605,7 @@
       "name": "Гондурас Сан Николас темная обжарка - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 15,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -16373,7 +16373,7 @@
           "photo": ""
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "on_request": true,
       "_source": "Сироп Лесной Орех 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika"
@@ -18101,7 +18101,7 @@
           "photo": ""
         }
       ],
-      "stock": 24.043,
+      "stock": 22.043,
       "on_request": true,
       "_source": "NIKTIA пакетированный 500 пак.",
       "subcategory": "tea_китайский_чай_loose"
@@ -18165,7 +18165,7 @@
           "photo": ""
         }
       ],
-      "stock": 3.553,
+      "stock": 2.553,
       "on_request": true,
       "_source": "ЧН003-500 Грин Фьюжн, чай зеленый пекетированный 500*1,75г",
       "subcategory": "tea_китайский_чай_loose"
@@ -18229,7 +18229,7 @@
           "photo": ""
         }
       ],
-      "stock": 11.79,
+      "stock": 10.79,
       "on_request": true,
       "_source": "ЧН009-500 Английский Завтрак, чай черный пакетирован. 500*1,75г",
       "subcategory": "tea_китайский_чай_loose"
@@ -18341,7 +18341,7 @@
           "photo": ""
         }
       ],
-      "stock": 55,
+      "stock": 45,
       "on_request": true,
       "_source": "Чай Tasteabrew ICEDTEA-400 \"Арбуз и клюква\" (50)",
       "subcategory": "tea_tasteabrew_iced"
@@ -18389,7 +18389,7 @@
           "photo": ""
         }
       ],
-      "stock": 30,
+      "stock": 20,
       "on_request": true,
       "_source": "Чай Tasteabrew SITO-350 \"Клубника с дыней\" (60)",
       "subcategory": "tea_tasteabrew_loose"
