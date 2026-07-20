@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 125,
+      "stock": 118,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 115,
+      "stock": 128,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1622,10 +1622,10 @@
           "price": 445.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_200_г.jpg",
-          "stock": 23
+          "stock": 63
         }
       ],
-      "stock": 23,
+      "stock": 63,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1974,7 +1974,7 @@
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg"
         }
       ],
-      "stock": 107,
+      "stock": 106,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2046,7 +2046,7 @@
           "photo": "photos/products/retail_f_roastberry_кения_аа_200_г.jpg"
         }
       ],
-      "stock": 18,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5537,7 +5537,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5572,7 +5572,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 442,
+      "stock": 432,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7701,7 +7701,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg"
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8150,7 +8150,7 @@
           "photo": null
         }
       ],
-      "stock": 168,
+      "stock": 167,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -15189,7 +15189,7 @@
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 12,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15410,7 +15410,7 @@
           "photo": "assets/placeholders/pack_roastberry_1kg.png"
         }
       ],
-      "stock": 20,
+      "stock": 19,
       "_source": "E \"Roastberry\" Гондурас San Nicolas Dark - 1 кг",
       "country": "Гондурас",
       "subcategory": "retail_espresso",
@@ -15522,7 +15522,7 @@
           "price": 505.0
         }
       ],
-      "stock": 40,
+      "stock": 20,
       "_source": "E \"Roastberry\" Эфиопия Сидамо Гр.2  упак. 200 г",
       "country": "Эфиопия",
       "subcategory": "retail_espresso",
@@ -15619,7 +15619,7 @@
           "price": 875.0
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "_source": "Кофе \"Roastberry BORЩ \"Кения КиаваМуруру HN-7\" нат.анаэроб.200 г",
       "country": "Кения",
       "on_request": false
@@ -15653,7 +15653,7 @@
           "price": 1000.0
         }
       ],
-      "stock": 14,
+      "stock": 13,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false
@@ -17893,7 +17893,7 @@
           "photo": ""
         }
       ],
-      "stock": 11,
+      "stock": -6,
       "on_request": true,
       "_source": "NR01 Кения Сапфир, чай черный пакет. 25*2г",
       "subcategory": "tea_китайский_чай_loose"
