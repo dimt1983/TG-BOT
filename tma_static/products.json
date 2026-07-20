@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 117,
+      "stock": 112,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1597,7 +1597,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 122,
+      "stock": 113,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -1837,10 +1837,10 @@
           "price": 465.0,
           "on_request": false,
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 13
+          "stock": 11
         }
       ],
-      "stock": 13,
+      "stock": 11,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -2046,7 +2046,7 @@
           "photo": "photos/products/retail_f_roastberry_кения_аа_200_г.jpg"
         }
       ],
-      "stock": 17,
+      "stock": 16,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2120,10 +2120,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "photos/products/retail_f_roastberry_колумбия_андино_200_г.jpg",
-          "stock": 5
+          "stock": 3
         }
       ],
-      "stock": 5,
+      "stock": 3,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -3967,7 +3967,7 @@
           "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg"
         }
       ],
-      "stock": 76,
+      "stock": 71,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
       "quarantined": false,
@@ -4669,7 +4669,7 @@
           "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg"
         }
       ],
-      "stock": 43,
+      "stock": 146,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -4695,7 +4695,7 @@
           "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg"
         }
       ],
-      "stock": 65,
+      "stock": 60,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg",
       "quarantined": false,
@@ -4825,7 +4825,7 @@
           "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg"
         }
       ],
-      "stock": 46,
+      "stock": 106,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_цейлон_с_клубникой_60пак.jpg",
       "quarantined": false,
@@ -4877,7 +4877,7 @@
           "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg"
         }
       ],
-      "stock": 116,
+      "stock": 111,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -5504,7 +5504,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 126,
+      "stock": 123,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5572,7 +5572,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 323,
+      "stock": 318,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7081,7 +7081,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7701,7 +7701,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_бразилия_фазенда_лагуинья_мун.jpg"
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7744,7 +7744,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_маракуи_я_хани_инфью.jpg"
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7765,7 +7765,7 @@
           "photo": "photos/products/borshch_кофе_roastberry_borщ_колумбия_пачамама_нат_анаэроб.jpg"
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -11722,7 +11722,7 @@
           "price": 635.0
         }
       ],
-      "stock": 15,
+      "stock": 9,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -11795,7 +11795,7 @@
           "photo": "photos/products/t-сито_для_чая_30_шт_.jpg"
         }
       ],
-      "stock": 1080,
+      "stock": 1800,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg",
       "quarantined": false,
@@ -12728,7 +12728,7 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg"
         }
       ],
-      "stock": 78,
+      "stock": 168,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg",
       "quarantined": false,
@@ -15564,7 +15564,7 @@
           "price": 475.0
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "_source": "F \"Roastberry\" Руанда Мутетели упак. 200 г",
       "country": "Руанда",
       "subcategory": "retail_filter",
@@ -15583,7 +15583,7 @@
           "price": 505.0
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "_source": "F \"Roastberry\" Эфиопия Сидамо Гр.2. упак. 200 г",
       "country": "Эфиопия",
       "subcategory": "retail_filter",
@@ -15619,7 +15619,7 @@
           "price": 875.0
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "_source": "Кофе \"Roastberry BORЩ \"Кения КиаваМуруру HN-7\" нат.анаэроб.200 г",
       "country": "Кения",
       "on_request": false
@@ -15636,7 +15636,7 @@
           "price": 1000.0
         }
       ],
-      "stock": 15,
+      "stock": 14,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катимор нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false
@@ -15653,7 +15653,7 @@
           "price": 1000.0
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false
@@ -16293,7 +16293,7 @@
           "photo": ""
         }
       ],
-      "stock": 1,
+      "stock": 7,
       "on_request": true,
       "_source": "Сироп Клубника 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika"
@@ -18101,7 +18101,7 @@
           "photo": ""
         }
       ],
-      "stock": 26.043,
+      "stock": 24.043,
       "on_request": true,
       "_source": "NIKTIA пакетированный 500 пак.",
       "subcategory": "tea_китайский_чай_loose"
@@ -18181,7 +18181,7 @@
           "photo": ""
         }
       ],
-      "stock": 2.99,
+      "stock": 1.99,
       "on_request": true,
       "_source": "ЧН005-500 NEW Краснополянский сбор, чай пакетирован. 500*1,5г",
       "subcategory": "tea_китайский_чай_loose"
@@ -18229,7 +18229,7 @@
           "photo": ""
         }
       ],
-      "stock": 12.79,
+      "stock": 11.79,
       "on_request": true,
       "_source": "ЧН009-500 Английский Завтрак, чай черный пакетирован. 500*1,75г",
       "subcategory": "tea_китайский_чай_loose"
@@ -18341,7 +18341,7 @@
           "photo": ""
         }
       ],
-      "stock": 60,
+      "stock": 55,
       "on_request": true,
       "_source": "Чай Tasteabrew ICEDTEA-400 \"Арбуз и клюква\" (50)",
       "subcategory": "tea_tasteabrew_iced"
