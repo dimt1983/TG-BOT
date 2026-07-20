@@ -1192,7 +1192,7 @@
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg"
         }
       ],
-      "stock": 118,
+      "stock": 117,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -2684,7 +2684,7 @@
           "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg"
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": "photos/products/t-niktea_ориентал_блум_зел_пакет_25х2г.jpg",
       "_source": "alephtrade",
@@ -2710,7 +2710,7 @@
           "price": 180.0
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -3141,7 +3141,7 @@
           "price": 185.0
         }
       ],
-      "stock": 18,
+      "stock": 14,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3896,7 +3896,7 @@
           "photo": "photos/products/t-rbr_tea_сенча_250г.jpg"
         }
       ],
-      "stock": 21,
+      "stock": 18,
       "tags": [],
       "photo": "photos/products/t-rbr_tea_сенча_250г.jpg",
       "quarantined": false,
@@ -4539,7 +4539,7 @@
           "photo": "photos/products/t-restoranica_togo_иван-чай_с_малиной_36пак.jpg"
         }
       ],
-      "stock": 129,
+      "stock": 124,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_иван-чай_с_малиной_36пак.jpg",
       "quarantined": false,
@@ -5572,7 +5572,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 432,
+      "stock": 331,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8223,13 +8223,13 @@
           "price": 190.0
         }
       ],
-      "stock": 4,
+      "stock": -4,
       "tags": [],
       "photo": null,
-      "quarantined": true,
-      "quarantined_at": "2026-05-14T09:19:40+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
+      "quarantined": false,
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "s-парфюм_clavis_апельсиновая_цедра",
@@ -12728,7 +12728,7 @@
           "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg"
         }
       ],
-      "stock": 83,
+      "stock": 78,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg",
       "quarantined": false,
@@ -14443,7 +14443,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 31,
+      "stock": 28,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15685,7 +15685,7 @@
           "photo": ""
         }
       ],
-      "stock": 236,
+      "stock": 224,
       "on_request": true,
       "_source": "Напиток на соевой основе, миндальный \"Green Milk\" 1л.",
       "subcategory": "milk_main"
@@ -17909,7 +17909,7 @@
           "photo": ""
         }
       ],
-      "stock": 17,
+      "stock": 14,
       "on_request": true,
       "_source": "NR04 Молочный Улун, чай зеленый аромат. пакет 25*2г",
       "subcategory": "tea_китайский_чай_loose"
