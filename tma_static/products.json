@@ -5075,13 +5075,12 @@
           "photo": null
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "tags": [],
       "photo": null,
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "missing_price",
-      "hidden": true
+      "quarantine_reason": null
     },
     {
       "id": "t-ts19_лаванда",
@@ -5506,9 +5505,9 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 123,
+      "hidden": false,
+      "quarantined": false,
       "country": "Бразилия",
       "process": "Натуральная",
       "altitude": "—",
@@ -5532,8 +5531,7 @@
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantine_reason": "missing_price"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_mono_бразилия_серрадо_желтый_бурбон_сухой_1_кг_filter",
@@ -5574,9 +5572,9 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 377,
+      "hidden": false,
+      "quarantined": false,
       "country": "Бразилия",
       "process": "Натуральная",
       "altitude": "—",
@@ -5600,17 +5598,16 @@
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantine_reason": "missing_price"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_mono_бразилия_фазенда_сертао_сухой_молотый_1_кг_filter",
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 5,
+      "hidden": false,
+      "quarantined": false,
       "country": "Бразилия",
       "process": "Помол под фильтр",
       "altitude": null,
@@ -5628,8 +5625,7 @@
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantine_reason": "missing_price"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter-aeropress-350",
@@ -5750,9 +5746,9 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
       "country": "Гватемала",
       "process": "Мытая",
       "altitude": null,
@@ -5776,8 +5772,7 @@
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantine_reason": "missing_price"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "t-генмайча_райсу_100г",
@@ -6178,7 +6173,7 @@
           "photo": null
         }
       ],
-      "stock": 0,
+      "stock": 215,
       "tags": [],
       "photo": "",
       "tasting_notes": [
@@ -6187,10 +6182,9 @@
         "карамель",
         "специи"
       ],
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "price_jump",
-      "hidden": true
+      "quarantine_reason": null
     },
     {
       "id": "c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr",
@@ -6210,7 +6204,7 @@
           "photo": "photos/products/c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr.jpg"
         }
       ],
-      "stock": 0,
+      "stock": 79,
       "tags": [],
       "photo": "photos/products/c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr.jpg",
       "tasting_notes": [
@@ -6219,10 +6213,9 @@
         "цветочные",
         "бергамот"
       ],
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "price_jump",
-      "hidden": true
+      "quarantine_reason": null
     },
     {
       "id": "t-жасмин_тинг_юань_250г",
@@ -6574,9 +6567,9 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 9,
+      "hidden": false,
+      "quarantined": false,
       "country": "Кения",
       "process": null,
       "altitude": null,
@@ -6596,16 +6589,16 @@
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "quarantined_at": null,
-      "quarantine_reason": "missing_price"
+      "quarantine_reason": null
     },
     {
       "id": "espresso_mono_кения_аб_мытый_1_кг_эспрессо",
       "name": "Кения АБ мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 5,
+      "hidden": false,
+      "quarantined": false,
       "country": "Кения",
       "process": null,
       "altitude": null,
@@ -6624,7 +6617,7 @@
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "quarantined_at": null,
-      "quarantine_reason": "missing_price",
+      "quarantine_reason": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
@@ -6633,9 +6626,9 @@
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 2,
+      "hidden": false,
+      "quarantined": false,
       "country": "Кения",
       "process": "Мытая",
       "altitude": null,
@@ -6659,8 +6652,7 @@
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantine_reason": "missing_price"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_mono_китай_симао_гр_1_меллоу_мытый_1_кг_filter",
@@ -8303,9 +8295,9 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 24,
+      "hidden": false,
+      "quarantined": false,
       "country": "Перу",
       "process": null,
       "altitude": null,
@@ -8324,8 +8316,7 @@
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantine_reason": "missing_price"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "s-помпа_белая_28_мм_5_мл",
@@ -8528,9 +8519,9 @@
       "name": "Руанда Мутетели 15+ мытый  - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 6,
+      "hidden": false,
+      "quarantined": false,
       "country": "Руанда",
       "process": "Мытая",
       "altitude": null,
@@ -8555,7 +8546,7 @@
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "quarantined_at": null,
-      "quarantine_reason": "missing_price",
+      "quarantine_reason": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
@@ -8564,9 +8555,9 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 11,
+      "hidden": false,
+      "quarantined": false,
       "country": "Руанда",
       "process": "Мытая",
       "altitude": null,
@@ -8591,7 +8582,7 @@
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "quarantined_at": null,
-      "quarantine_reason": "missing_price",
+      "quarantine_reason": null,
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
@@ -8605,13 +8596,13 @@
           "price": 2400
         }
       ],
-      "stock": 0,
+      "stock": 1,
       "on_request": false,
       "subcategory": "other_sugar",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "missing_price",
-      "hidden": true
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "other_сахар-стик_5г",
@@ -8624,13 +8615,13 @@
           "price": 1
         }
       ],
-      "stock": 0,
+      "stock": 10000,
       "on_request": false,
       "subcategory": "other_sugar",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "missing_price",
-      "hidden": true
+      "quarantine_reason": null,
+      "hidden": false
     },
     {
       "id": "sets_семпл-бокс_особенныи_кофе_85_6_овок_по_100_г_-_1_ш",
@@ -8715,13 +8706,12 @@
           "price": 635.0
         }
       ],
-      "stock": 0,
+      "stock": 1,
       "tags": [],
       "photo": null,
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "missing_price",
-      "hidden": true
+      "quarantine_reason": null
     },
     {
       "id": "s-сироп_barline_базилик_1л",
@@ -11664,13 +11654,12 @@
           "photo": null
         }
       ],
-      "stock": 0,
+      "stock": 41,
       "tags": [],
       "photo": null,
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "missing_price",
-      "hidden": true
+      "quarantine_reason": null
     },
     {
       "id": "s-сироп_маракуйя_гавайская_1",
@@ -11714,13 +11703,12 @@
           "photo": null
         }
       ],
-      "stock": 0,
+      "stock": 7,
       "tags": [],
       "photo": null,
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "missing_price",
-      "hidden": true
+      "quarantine_reason": null
     },
     {
       "id": "s-сироп_цветы_бузины_1",
@@ -12310,9 +12298,9 @@
       "name": "Уганда Вугар мытый -  эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 6,
+      "hidden": false,
+      "quarantined": false,
       "country": "Уганда",
       "process": null,
       "altitude": null,
@@ -12331,7 +12319,7 @@
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "quarantined_at": null,
-      "quarantine_reason": "missing_price",
+      "quarantine_reason": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
@@ -12340,9 +12328,9 @@
       "name": "Уганда Рувензори сухой -  эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 3,
+      "hidden": false,
+      "quarantined": false,
       "country": "Уганда",
       "process": "Натуральная",
       "altitude": "—",
@@ -12366,8 +12354,7 @@
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantine_reason": "missing_price"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "t-улун_-_да_хун_пао_100_нун_сян_200_г_вкус_хлебная_к",
@@ -12487,20 +12474,19 @@
           "photo": null
         }
       ],
-      "stock": 0,
+      "stock": 35,
       "tags": [],
       "photo": "",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "missing_price",
-      "hidden": true
+      "quarantine_reason": null
     },
     {
       "id": "o-фильтры_bonomat_50шт",
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 0,
+      "stock": 43,
       "on_request": false,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
@@ -12511,17 +12497,14 @@
           "price": 400,
           "photo": "photos/products/o-фильтры_bonomat_50шт.webp"
         }
-      ],
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      ]
     },
     {
       "id": "o-фильтры_лехехе_большие_50шт",
       "name": "Фильтры бумажные Лехехе (большие) 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 0,
+      "stock": 10,
       "on_request": false,
       "price": null,
       "photo": "",
@@ -12530,10 +12513,7 @@
           "size": "1 шт",
           "price": 440
         }
-      ],
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      ]
     },
     {
       "id": "t-французская_роза_125г",
@@ -14113,9 +14093,9 @@
       "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 3,
+      "hidden": false,
+      "quarantined": false,
       "country": "Эфиопия",
       "process": "Мытая",
       "altitude": null,
@@ -14140,7 +14120,7 @@
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "quarantined_at": null,
-      "quarantine_reason": "missing_price"
+      "quarantine_reason": null
     },
     {
       "id": "c-nesp-эфиопия_сидамо__nespresso_",
@@ -14181,9 +14161,9 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 83,
+      "hidden": false,
+      "quarantined": false,
       "country": "Эфиопия",
       "process": "Капсула",
       "altitude": null,
@@ -14202,8 +14182,7 @@
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantine_reason": "missing_price"
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
     {
       "id": "filter_micro_эфиопия_челелекту_гр_1_мытый_filter_1_кг",
@@ -14414,9 +14393,9 @@
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 6,
+      "hidden": false,
+      "quarantined": false,
       "roast": "F",
       "photo": "photos/products/filter_mono_перу_монте_верде_гр_1_сухой_1_кг_filter.jpg",
       "fasovka": [
@@ -14432,7 +14411,7 @@
       "description": "Перу. Шоколад, сухофрукты, лёгкая кислотность, чистый профиль.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "quarantined_at": null,
-      "quarantine_reason": "missing_price"
+      "quarantine_reason": null
     },
     {
       "id": "filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter",
@@ -14626,9 +14605,9 @@
       "name": "Гондурас Сан Николас темная обжарка - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 10,
+      "hidden": false,
+      "quarantined": false,
       "roast": "E",
       "photo": "photos/products/espresso_mono_гондурас_сан_николас_темная_обжарка_1_кг.jpg",
       "fasovka": [
@@ -14644,7 +14623,7 @@
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "quarantined_at": null,
-      "quarantine_reason": "missing_price"
+      "quarantine_reason": null
     },
     {
       "id": "espresso_mono_колумбия_супремо_эспрессо_1_кг",
@@ -15208,9 +15187,9 @@
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 6,
+      "hidden": false,
+      "quarantined": false,
       "roast": "E",
       "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_2_мытый_эспрессо_1_кг.jpg",
       "fasovka": [
@@ -15223,16 +15202,16 @@
       "created_at": "2026-06-30T10:30:36+00:00",
       "created_by": "sync_catalog_v2",
       "quarantined_at": null,
-      "quarantine_reason": "missing_price"
+      "quarantine_reason": null
     },
     {
       "id": "filter_mono_эфиопия_сидамо_gr_2_мытый_1_кг_filter",
       "name": "Эфиопия Сидамо Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
       "roast": "F",
       "photo": "photos/products/filter_mono_эфиопия_сидамо_gr_2_мытый_1_кг_filter.jpg",
       "fasovka": [
@@ -15243,8 +15222,7 @@
         }
       ],
       "created_at": "2026-06-30T11:36:04+00:00",
-      "created_by": "sync_catalog_v2",
-      "quarantine_reason": "missing_price"
+      "created_by": "sync_catalog_v2"
     },
     {
       "id": "filter_micro_колумбия_катимор_натур_1_кг_filter",
@@ -15380,9 +15358,9 @@
       "name": "Вьетнам Блю Сонал сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
       "roast": "F",
       "photo": "assets/placeholders/ph_filter.svg",
       "fasovka": [
@@ -15395,7 +15373,7 @@
       "created_at": "2026-07-09T08:36:05+00:00",
       "created_by": "sync_catalog_v2",
       "quarantined_at": null,
-      "quarantine_reason": "missing_price"
+      "quarantine_reason": null
     },
     {
       "id": "retail_e_roastberry_гватемала_уетенанго_-_1_кг",
@@ -15689,13 +15667,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 265,
       "on_request": true,
       "_source": "Напиток на соевой основе, кокосовый \"Green Milk\"на соевой основе 1л.",
-      "subcategory": "milk_main",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "milk_main"
     },
     {
       "id": "напиток_на_соевой_основе_миндальный_green_milk_1л",
@@ -15708,13 +15683,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 224,
       "on_request": true,
       "_source": "Напиток на соевой основе, миндальный \"Green Milk\" 1л.",
-      "subcategory": "milk_main",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "milk_main"
     },
     {
       "id": "напиток_соевый_со_вкусом_банана_green_milk_1л",
@@ -15727,13 +15699,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 272,
       "on_request": true,
       "_source": "Напиток соевый со вкусом банана \"Green Milk\" 1л.",
-      "subcategory": "milk_main",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "milk_main"
     },
     {
       "id": "напиток_соевый_со_вкусом_клубники_green_milk_1л",
@@ -15746,13 +15715,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 120,
       "on_request": true,
       "_source": "Напиток соевый со вкусом клубники \"Green Milk\" 1л.",
-      "subcategory": "milk_main",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "milk_main"
     },
     {
       "id": "напиток_соевый_обогащенный_кальцием_и_витаминами_green_milk_1л",
@@ -15765,13 +15731,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 72,
       "on_request": true,
       "_source": "Напиток Соевый, обогащенный кальцием и витаминами \"Green Milk\" 1л.",
-      "subcategory": "milk_main",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "milk_main"
     },
     {
       "id": "сироп_земляника_barline_1_0_л",
@@ -16285,13 +16248,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 7,
       "on_request": true,
       "_source": "Сироп Зеленое Яблоко 1,0 л. BOTANIKA",
-      "subcategory": "syr_botanika",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_botanika"
     },
     {
       "id": "сироп_имбирный_пряник_1_0_л_botanika",
@@ -16798,13 +16758,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 10,
       "on_request": true,
       "_source": "Сироп Бабл Гам 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_банан_0_7_л_гербариста",
@@ -16817,13 +16774,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "on_request": true,
       "_source": "Сироп Банан 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_вишня_с_виноградной_косточкой_0_7_л_гербариста",
@@ -16836,13 +16790,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 9,
       "on_request": true,
       "_source": "Сироп Вишня с Виноградной косточкой 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_восточные_пряности_0_7_л_гербариста",
@@ -16855,13 +16806,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "on_request": true,
       "_source": "Сироп Восточные пряности 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_груша_со_специями_0_7_л_гербариста",
@@ -16874,13 +16822,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 4,
       "on_request": true,
       "_source": "Сироп Груша со специями 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_дыня_0_7_л_гербариста",
@@ -16893,13 +16838,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 3,
       "on_request": true,
       "_source": "Сироп Дыня 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_ежевика_с_листьями_0_7_л_гербариста",
@@ -16912,13 +16854,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 8,
       "on_request": true,
       "_source": "Сироп Ежевика с листьями 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_еловый_0_7_л_гербариста",
@@ -16931,13 +16870,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 4,
       "on_request": true,
       "_source": "Сироп Еловый 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_ирландский_крем_0_7_л_гербариста",
@@ -16950,13 +16886,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 9,
       "on_request": true,
       "_source": "Сироп Ирландский Крем 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_карамель_двойного_обжига_0_7_л_гербариста",
@@ -16969,13 +16902,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 10,
       "on_request": true,
       "_source": "Сироп Карамель Двойного Обжига 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_кашемировый_персик_0_7_л_гербариста",
@@ -16988,13 +16918,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "on_request": true,
       "_source": "Сироп Кашемировый персик 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_кленовый_с_каштаном_0_7_л_гербариста",
@@ -17007,13 +16934,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 4,
       "on_request": true,
       "_source": "Сироп Кленовый с Каштаном 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_клубника_и_земляника_0_7_л_гербариста",
@@ -17026,13 +16950,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 10,
       "on_request": true,
       "_source": "Сироп Клубника и земляника 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_кокос_с_мякотью_0_7_л_гербариста",
@@ -17061,13 +16982,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "on_request": true,
       "_source": "Сироп Конопляная Халва 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_корица_0_7_л_гербариста",
@@ -17080,13 +16998,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "on_request": true,
       "_source": "Сироп Корица 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_лаванда_0_7_л_гербариста",
@@ -17099,13 +17014,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 3,
       "on_request": true,
       "_source": "Сироп Лаванда 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_лайм_0_7_л_гербариста",
@@ -17118,13 +17030,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "on_request": true,
       "_source": "Сироп Лайм 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_лесной_орех_0_7_л_гербариста",
@@ -17137,13 +17046,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 18,
       "on_request": true,
       "_source": "Сироп Лесной орех 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_макадамия_0_7_л_гербариста",
@@ -17156,13 +17062,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 1,
       "on_request": true,
       "_source": "Сироп Макадамия 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_малина_с_листьями_0_7_л_гербариста",
@@ -17175,13 +17078,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 12,
       "on_request": true,
       "_source": "Сироп Малина с листьями 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_манго_0_7_л_гербариста",
@@ -17194,13 +17094,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 6,
       "on_request": true,
       "_source": "Сироп Манго 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_маракуйя_0_7_л_гербариста",
@@ -17213,13 +17110,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 6,
       "on_request": true,
       "_source": "Сироп Маракуйя 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_миндаль_0_7_л_гербариста",
@@ -17232,13 +17126,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 10,
       "on_request": true,
       "_source": "Сироп Миндаль 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_мята_0_7_л_гербариста",
@@ -17251,13 +17142,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 2,
       "on_request": true,
       "_source": "Сироп Мята 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_плоды_и_цветы_бузины_0_7_л_гербариста",
@@ -17270,13 +17158,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 4,
       "on_request": true,
       "_source": "Сироп Плоды и цветы бузины 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_попкорн_0_7_л_гербариста",
@@ -17289,13 +17174,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "on_request": true,
       "_source": "Сироп Попкорн 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_сгущенное_молоко_0_7_л_гербариста",
@@ -17308,13 +17190,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "on_request": true,
       "_source": "Сироп Сгущенное молоко 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_слива_0_7_л_гербариста",
@@ -17327,13 +17206,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 6,
       "on_request": true,
       "_source": "Сироп Слива 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_сливочная_ириска_0_7_л_гербариста",
@@ -17346,13 +17222,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 6,
       "on_request": true,
       "_source": "Сироп Сливочная Ириска 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_соленая_карамель_двойного_обжига_0_7_л_гербариста",
@@ -17365,13 +17238,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 13,
       "on_request": true,
       "_source": "Сироп Соленая Карамель двойного обжига 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_табак_ваниль_0_7_л_гербариста",
@@ -17384,13 +17254,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 6,
       "on_request": true,
       "_source": "Сироп Табак-ваниль 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_тропический_микс_0_7_л_гербариста",
@@ -17403,13 +17270,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "on_request": true,
       "_source": "Сироп Тропический Микс 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_тыква_0_7_л_гербариста",
@@ -17422,13 +17286,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 6,
       "on_request": true,
       "_source": "Сироп Тыква 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_фисташка_0_7_л_гербариста",
@@ -17441,13 +17302,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 7,
       "on_request": true,
       "_source": "Сироп Фисташка 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_черная_смородина_с_листьями_0_7_л_гербариста",
@@ -17460,13 +17318,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 9,
       "on_request": true,
       "_source": "Сироп Черная смородина с листьями 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_шоколадный_трюфель_0_7_л_гербариста",
@@ -17479,13 +17334,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 8,
       "on_request": true,
       "_source": "Сироп Шоколадный трюфель 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_эвкалипт_и_мята_0_7_л_гербариста",
@@ -17498,13 +17350,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "on_request": true,
       "_source": "Сироп Эвкалипт и Мята 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_яблоко_с_листьями_0_7_л_гербариста",
@@ -17517,13 +17366,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "on_request": true,
       "_source": "Сироп Яблоко с листьями 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_ягоды_севера_0_7_л_гербариста",
@@ -17536,13 +17382,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "on_request": true,
       "_source": "Сироп Ягоды севера 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "syr_herbarista"
     },
     {
       "id": "сироп_sweetshot_амаретто_1_л",
@@ -18129,13 +17972,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 2,
       "on_request": true,
       "_source": "ЧА1400 Пу Эр Ан Бао 250 г, чай Альтхаус черный листовой",
-      "subcategory": "tea_althaus_loose",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "tea_althaus_loose"
     },
     {
       "id": "ча2050_горные_травы_250г_чай_альтхаус_черный_аромат_лист",
@@ -18471,13 +18311,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 8,
       "on_request": true,
       "_source": "ЧН300 Сенча Классик, чай зеленый байховый 250г",
-      "subcategory": "tea_китайский_чай_loose",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "tea_китайский_чай_loose"
     },
     {
       "id": "чн315_молочный_улун_чай_зеленый_байховый_250г",
@@ -18715,13 +18552,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 54,
       "on_request": true,
       "_source": "RB TEA Ассам 250 г",
-      "subcategory": "tea_rbr_tea_loose",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "tea_rbr_tea_loose"
     },
     {
       "id": "rb_tea_ганпаудер_сад_250_г",
@@ -18829,13 +18663,10 @@
           "photo": ""
         }
       ],
-      "stock": 0,
+      "stock": 45,
       "on_request": true,
       "_source": "Чай Tasteabrew ICEDTEA-400 \"Арбуз и клюква\" (50)",
-      "subcategory": "tea_tasteabrew_iced",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "subcategory": "tea_tasteabrew_iced"
     },
     {
       "id": "чай_tasteabrew_honey_350_молочный_улун_с_мандарином_60",
@@ -18944,96 +18775,6 @@
       "on_request": true,
       "_source": "Чай Мессмер для чайника Ассам 20*4 г",
       "subcategory": "tea_китайский_чай_loose"
-    },
-    {
-      "id": "1c-030",
-      "name": "RB TEA Габа Алишань 250 г (ферментированный, китайский чай улун)",
-      "stock": 8,
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "new_product",
-      "article_1c": "ЧАЙ-030",
-      "fasovka": [
-        {
-          "size": "",
-          "price": 1150
-        }
-      ]
-    },
-    {
-      "id": "1c-044",
-      "name": "RB TEA Ройбуш апельсин 250 г (ройбуш, цедра апельсина, ароматизатор Апельсин)",
-      "stock": 5,
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "new_product",
-      "article_1c": "ЧАЙ-044",
-      "fasovka": [
-        {
-          "size": "",
-          "price": 700
-        }
-      ]
-    },
-    {
-      "id": "1c-116",
-      "name": "ЧА5005 Манила Манго 250 г, напиток фруктовый аромат",
-      "stock": 3,
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "new_product",
-      "article_1c": "ЧАЙ-116",
-      "fasovka": [
-        {
-          "size": "",
-          "price": 1760
-        }
-      ]
-    },
-    {
-      "id": "1c-119",
-      "name": "ЧА5030 Блауэр Энжел 200 г, напиток фруктовый аромат",
-      "stock": 1,
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "new_product",
-      "article_1c": "ЧАЙ-119",
-      "fasovka": [
-        {
-          "size": "",
-          "price": 900
-        }
-      ]
-    },
-    {
-      "id": "1c-121",
-      "name": "ЧА5065 Альмонд Пай 200 г, напиток фруктовый аромат.",
-      "stock": 6,
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "new_product",
-      "article_1c": "ЧАЙ-121",
-      "fasovka": [
-        {
-          "size": "",
-          "price": 1760
-        }
-      ]
-    },
-    {
-      "id": "1c-208",
-      "name": "ЧН230 Вишневый Пуэр, чай черн (шу пуэр) байх крупнолист с аром вишни, 250г",
-      "stock": 3,
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "new_product",
-      "article_1c": "ЧАЙ-208",
-      "fasovka": [
-        {
-          "size": "",
-          "price": 1260
-        }
-      ]
     }
   ]
 }
