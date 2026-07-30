@@ -28,6 +28,7 @@ import sqlite3
 import asyncio
 import hmac
 import hashlib
+import logging
 import time
 from http.server import HTTPServer, ThreadingHTTPServer, BaseHTTPRequestHandler
 from urllib.parse import unquote, parse_qsl, urlparse, parse_qs, quote
@@ -43,9 +44,15 @@ PORT = int(os.environ.get("PORT", 10000))
 TMA_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tma_static")
 TMA_ROOT_V2 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tma_static_v2")
 ADMIN_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "admin_static")
+PRODUCT_REDIRECTS_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "catalog_sync",
+    "product_redirects.json",
+)
 PRICE_SYNC_ENABLED = os.environ.get("BISHOP_PRICE_SYNC", "1") != "0"
 
 DB_PATH = os.environ.get("DB_PATH", "/app/data/shop.db")
+log = logging.getLogger(__name__)
 
 
 def _api_orders_token() -> str:
@@ -125,6 +132,12 @@ def set_tma_api_handler(bot, get_db, notify_new_order, main_loop, bot_token,
 # у товаров с одинаковым именем). Имена в shop.db ≠ имена в products.json,
 # поэтому fuzzy остаётся как fallback для старых заказов и заказов из David.
 _PRODUCTS_INDEX = {"mtime": 0, "data": {"by_id": {}, "by_name": {}, "all": []}}
+_PRODUCT_REDIRECTS_CACHE = {
+    "path": None,
+    "signature": None,
+    "redirects": {},
+}
+_PRODUCT_REDIRECTS_LOCK = threading.Lock()
 
 _NAME_NOISE = {
     "кофе", "упак", "г", "гр", "кг", "шт", "мл", "л",
@@ -133,6 +146,167 @@ _NAME_NOISE = {
     "1", "200", "250", "500", "8",
     "дп", "фильтр", "пакетов", "под",
 }
+
+def _invalidate_product_redirects_cache() -> None:
+    with _PRODUCT_REDIRECTS_LOCK:
+        _PRODUCT_REDIRECTS_CACHE.update({
+            "path": None,
+            "signature": None,
+            "redirects": {},
+        })
+
+
+def _load_product_redirects(path=None) -> dict[str, str]:
+    redirect_path = os.path.abspath(os.fspath(path or PRODUCT_REDIRECTS_PATH))
+    with _PRODUCT_REDIRECTS_LOCK:
+        try:
+            stat = os.stat(redirect_path)
+            signature = (stat.st_ino, stat.st_mtime_ns, stat.st_size)
+        except OSError as exc:
+            log.error(
+                "Failed to stat product redirects from %s: %s",
+                redirect_path,
+                exc,
+            )
+            if _PRODUCT_REDIRECTS_CACHE["path"] == redirect_path:
+                return _PRODUCT_REDIRECTS_CACHE["redirects"]
+            return {}
+        if (
+            _PRODUCT_REDIRECTS_CACHE["path"] == redirect_path
+            and _PRODUCT_REDIRECTS_CACHE["signature"] == signature
+        ):
+            return _PRODUCT_REDIRECTS_CACHE["redirects"]
+        try:
+            with open(redirect_path, encoding="utf-8") as stream:
+                redirects = json.load(stream)
+            if not isinstance(redirects, dict):
+                raise ValueError("expected object")
+            for source, target in redirects.items():
+                if (
+                    not isinstance(source, str)
+                    or not source
+                    or source != source.strip()
+                    or not isinstance(target, str)
+                    or not target
+                    or target != target.strip()
+                ):
+                    raise ValueError(
+                        "ids must be non-empty strings without surrounding whitespace"
+                    )
+        except Exception as exc:
+            log.error(
+                "Failed to load product redirects from %s: %s",
+                redirect_path,
+                exc,
+            )
+            previous = (
+                _PRODUCT_REDIRECTS_CACHE["redirects"]
+                if _PRODUCT_REDIRECTS_CACHE["path"] == redirect_path
+                else {}
+            )
+            _PRODUCT_REDIRECTS_CACHE.update({
+                "path": redirect_path,
+                "signature": signature,
+                "redirects": previous,
+            })
+            return previous
+        _PRODUCT_REDIRECTS_CACHE.update({
+            "path": redirect_path,
+            "signature": signature,
+            "redirects": redirects,
+        })
+        return redirects
+
+
+def resolve_product_id(
+    product_id: str,
+    redirects: dict[str, str],
+    *,
+    max_hops: int = 16,
+) -> str:
+    original = product_id
+    if not isinstance(product_id, str) or not product_id or not isinstance(redirects, dict):
+        return original
+    if max_hops <= 0:
+        return original
+    current = product_id
+    seen = {current}
+    for _ in range(max_hops):
+        target = redirects.get(current)
+        if target is None:
+            return current
+        if not isinstance(target, str) or not target or target in seen:
+            log.error("Invalid or cyclic product redirect for %s", original)
+            return original
+        seen.add(target)
+        current = target
+    if current in redirects:
+        log.error("Product redirect hop limit exceeded for %s", original)
+        return original
+    return current
+
+
+def _canonicalize_product_ids(
+    product_ids,
+    redirects: dict[str, str] | None = None,
+) -> list[str]:
+    redirect_map = _load_product_redirects() if redirects is None else redirects
+    canonical_ids = []
+    seen = set()
+    for product_id in product_ids or []:
+        canonical_id = resolve_product_id(str(product_id), redirect_map)
+        if canonical_id not in seen:
+            seen.add(canonical_id)
+            canonical_ids.append(canonical_id)
+    return canonical_ids
+
+
+def _canonicalize_order_payload(
+    payload: dict,
+    redirects: dict[str, str] | None = None,
+) -> tuple[dict, dict[str, str]]:
+    redirect_map = _load_product_redirects() if redirects is None else redirects
+    updated = dict(payload or {})
+    items = updated.get("items")
+    if not isinstance(items, list):
+        return updated, {}
+    updated_items = []
+    migrated = {}
+    for item in items:
+        if not isinstance(item, dict):
+            updated_items.append(item)
+            continue
+        updated_item = dict(item)
+        product_id = updated_item.get("id")
+        if isinstance(product_id, str) and product_id:
+            canonical_id = resolve_product_id(product_id, redirect_map)
+            updated_item["id"] = canonical_id
+            if canonical_id != product_id:
+                updated_item["canonical_product_id"] = canonical_id
+                migrated[product_id] = canonical_id
+        updated_items.append(updated_item)
+    updated["items"] = updated_items
+    return updated, migrated
+
+
+def _add_canonical_product_id_to_response(
+    body: bytes,
+    content_type: str,
+    *,
+    requested_id: str,
+    canonical_id: str,
+) -> bytes:
+    if requested_id == canonical_id or "json" not in (content_type or "").lower():
+        return body
+    try:
+        payload = json.loads(body.decode("utf-8"))
+    except Exception:
+        return body
+    if not isinstance(payload, dict):
+        return body
+    payload["canonical_product_id"] = canonical_id
+    return _j(payload)
+
 
 def _name_tokens(name: str) -> set:
     s = (name or "").lower()
@@ -188,20 +362,23 @@ def _products_index() -> dict:
 
 def _lookup_product_meta(product_name: str, tma_id: str = "") -> dict:
     idx = _products_index()
+    canonical_meta = {}
     if tma_id:
-        hit = idx["by_id"].get(tma_id)
+        canonical_id = resolve_product_id(tma_id, _load_product_redirects())
+        canonical_meta = {"canonical_product_id": canonical_id}
+        hit = idx["by_id"].get(canonical_id)
         if hit:
-            return hit
+            return {**hit, **canonical_meta}
     if not product_name:
-        return {}
+        return canonical_meta
     nl = product_name.strip().lower()
     hit = idx["by_name"].get(nl)
     if hit:
-        return hit
+        return {**hit, **canonical_meta}
     # Fuzzy: token jaccard
     src = _name_tokens(product_name)
     if not src:
-        return {}
+        return canonical_meta
     best_score = 0.0
     best_meta  = None
     for tokens, meta in idx["all"]:
@@ -215,8 +392,8 @@ def _lookup_product_meta(product_name: str, tma_id: str = "") -> dict:
             best_score = score
             best_meta  = meta
     if best_score >= 0.5 and best_meta:
-        return best_meta
-    return {}
+        return {**best_meta, **canonical_meta}
+    return canonical_meta
 
 
 # ─── DB helpers ──────────────────────────────────────────────────────────────
@@ -320,7 +497,16 @@ def _user_pricing_rules(con: sqlite3.Connection, user_id: int) -> list[dict]:
             "FROM user_pricing WHERE user_id=? ORDER BY id DESC",
             (user_id,),
         ).fetchall()
-        return [dict(r) for r in rows]
+        redirects = _load_product_redirects()
+        rules = []
+        for row in rows:
+            rule = dict(row)
+            if rule.get("scope") == "product" and rule.get("target_id"):
+                canonical_id = resolve_product_id(rule["target_id"], redirects)
+                rule["target_id"] = canonical_id
+                rule["canonical_product_id"] = canonical_id
+            rules.append(rule)
+        return rules
     except Exception:
         return []
 
@@ -331,13 +517,19 @@ def _matching_pricing_rules(rules: list[dict], *, tma_id: str, category: str,
     Скидки на 'all' + 'category' + 'subcategory' + 'product' складываются.
     Если есть fixed_price — он перебивает (берём минимальный)."""
     out = []
+    redirects = _load_product_redirects()
+    canonical_tma_id = resolve_product_id((tma_id or "").strip(), redirects)
     for r in rules:
         scope = r.get("scope")
         if scope not in {"all", "category", "subcategory", "product"}:
             continue
-        tgt = (r.get("target_id") or "").strip().lower()
-        if scope == "product" and tgt != (tma_id or "").lower():
-            continue
+        tgt = (r.get("target_id") or "").strip()
+        if scope == "product":
+            tgt = resolve_product_id(tgt, redirects).casefold()
+            if tgt != (canonical_tma_id or "").casefold():
+                continue
+        else:
+            tgt = tgt.lower()
         if scope == "subcategory" and tgt != (subcategory or "").lower():
             continue
         if scope == "category" and tgt != (category or "").lower():
@@ -792,18 +984,29 @@ class Handler(BaseHTTPRequestHandler):
                     sel = ",".join(["id", "total", "status", "created_at"] + extra)
                     name_expr    = "oi.product_name" if "product_name" in it_cols else "p.name as product_name"
                     fasovka_expr = "oi.fasovka"       if "fasovka"       in it_cols else "NULL as fasovka"
+                    tma_id_expr  = "oi.tma_id"        if "tma_id"        in it_cols else "'' as tma_id"
+                    redirects = _load_product_redirects()
                     out = []
                     for oid in order_ids:
                         o = con.execute(f"SELECT {sel} FROM orders WHERE id=?", (oid,)).fetchone()
                         if not o:
                             continue
                         items = con.execute(
-                            f"SELECT oi.quantity, oi.price, {name_expr}, {fasovka_expr} "
+                            f"SELECT oi.quantity, oi.price, {name_expr}, {fasovka_expr}, {tma_id_expr} "
                             f"FROM order_items oi LEFT JOIN products p ON oi.product_id=p.id "
                             f"WHERE oi.order_id=? ORDER BY oi.id",
                             (oid,),
                         ).fetchall()
-                        out.append({**dict(o), "items": [dict(i) for i in items]})
+                        items_out = []
+                        for item in items:
+                            item_out = dict(item)
+                            original_id = item_out.get("tma_id") or ""
+                            if original_id:
+                                canonical_id = resolve_product_id(original_id, redirects)
+                                item_out["tma_id"] = canonical_id
+                                item_out["canonical_product_id"] = canonical_id
+                            items_out.append(item_out)
+                        out.append({**dict(o), "items": items_out})
                 finally:
                     con.close()
                 self._send(200, _j({"orders": out}), "application/json; charset=utf-8",
@@ -824,6 +1027,7 @@ class Handler(BaseHTTPRequestHandler):
                     tma_ids = customer_account.get_purchased_tma_ids(con, int(user["id"]))
                 finally:
                     con.close()
+                tma_ids = _canonicalize_product_ids(tma_ids)
                 self._send(200, _j({"tma_ids": tma_ids}), "application/json; charset=utf-8",
                            {"Cache-Control": "no-store"})
             except Exception as e:
@@ -843,6 +1047,7 @@ class Handler(BaseHTTPRequestHandler):
                     ids = customer_account.get_favorites(con, int(user["id"]))
                 finally:
                     con.close()
+                ids = _canonicalize_product_ids(ids)
                 self._send(200, _j({"tma_ids": ids}), "application/json; charset=utf-8",
                            {"Cache-Control": "no-store"})
             except Exception as e:
@@ -1037,6 +1242,10 @@ class Handler(BaseHTTPRequestHandler):
                                 )
                                 d["category"] = meta.get("category", "")
                                 d["roast"]    = meta.get("roast", "")
+                                if d.get("tma_id"):
+                                    canonical_id = meta.get("canonical_product_id") or d["tma_id"]
+                                    d["tma_id"] = canonical_id
+                                    d["canonical_product_id"] = canonical_id
                                 items_out.append(d)
                             self._send(200,
                                 _j({**dict(o), "items": items_out}),
@@ -1467,15 +1676,44 @@ class Handler(BaseHTTPRequestHandler):
             if not tma_id:
                 self._send(400, _j({"error": "tma_id required"}), "application/json; charset=utf-8")
                 return
+            redirects = _load_product_redirects()
+            canonical_id = resolve_product_id(tma_id, redirects)
             try:
                 con = sqlite3.connect(DB_PATH)
                 con.row_factory = sqlite3.Row
                 try:
                     customer_account.ensure_favorites_table(con)
-                    ids = customer_account.toggle_favorite(con, int(user["id"]), tma_id)
+                    user_id = int(user["id"])
+                    existing_ids = customer_account.get_favorites(con, user_id)
+                    aliases = [
+                        existing_id
+                        for existing_id in existing_ids
+                        if resolve_product_id(existing_id, redirects) == canonical_id
+                    ]
+                    if aliases:
+                        con.executemany(
+                            "DELETE FROM favorites WHERE user_id=? AND tma_id=?",
+                            [(user_id, alias) for alias in aliases],
+                        )
+                        con.commit()
+                        ids = customer_account.get_favorites(con, user_id)
+                    else:
+                        ids = customer_account.toggle_favorite(
+                            con,
+                            user_id,
+                            canonical_id,
+                        )
                 finally:
                     con.close()
-                self._send(200, _j({"tma_ids": ids}), "application/json; charset=utf-8")
+                ids = _canonicalize_product_ids(ids)
+                self._send(
+                    200,
+                    _j({
+                        "tma_ids": ids,
+                        "canonical_product_id": canonical_id,
+                    }),
+                    "application/json; charset=utf-8",
+                )
             except Exception as e:
                 self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
             return
@@ -1490,14 +1728,20 @@ class Handler(BaseHTTPRequestHandler):
             if not isinstance(tma_ids, list):
                 self._send(400, _j({"error": "tma_ids must be a list"}), "application/json; charset=utf-8")
                 return
+            canonical_ids = _canonicalize_product_ids(tma_ids)
             try:
                 con = sqlite3.connect(DB_PATH)
                 con.row_factory = sqlite3.Row
                 try:
                     customer_account.ensure_favorites_table(con)
-                    ids = customer_account.merge_favorites(con, int(user["id"]), tma_ids)
+                    ids = customer_account.merge_favorites(
+                        con,
+                        int(user["id"]),
+                        canonical_ids,
+                    )
                 finally:
                     con.close()
+                ids = _canonicalize_product_ids(ids)
                 self._send(200, _j({"tma_ids": ids}), "application/json; charset=utf-8")
             except Exception as e:
                 self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
@@ -1553,10 +1797,17 @@ class Handler(BaseHTTPRequestHandler):
                            "application/json; charset=utf-8")
                 return
             raw = self.rfile.read(clen)
-            tma_id = unquote(m_photo.group(1))
+            requested_id = unquote(m_photo.group(1))
+            tma_id = resolve_product_id(requested_id, _load_product_redirects())
             status, rbody, rctype = _proxy_shop_admin(
                 "POST", f"/admin/product/{quote(tma_id, safe='')}/photo",
                 body=raw, content_type=ctype_in,
+            )
+            rbody = _add_canonical_product_id_to_response(
+                rbody,
+                rctype,
+                requested_id=requested_id,
+                canonical_id=tma_id,
             )
             self._send(status, rbody, rctype)
             return
@@ -1569,10 +1820,17 @@ class Handler(BaseHTTPRequestHandler):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
-            tma_id = unquote(m_del.group(1))
+            requested_id = unquote(m_del.group(1))
+            tma_id = resolve_product_id(requested_id, _load_product_redirects())
             status, rbody, rctype = _proxy_shop_admin(
                 "POST", f"/admin/product/{quote(tma_id, safe='')}/delete",
                 body=b"", content_type="application/json",
+            )
+            rbody = _add_canonical_product_id_to_response(
+                rbody,
+                rctype,
+                requested_id=requested_id,
+                canonical_id=tma_id,
             )
             self._send(status, rbody, rctype)
             return
@@ -1628,10 +1886,17 @@ class Handler(BaseHTTPRequestHandler):
             except ValueError:
                 clen = 0
             raw = self.rfile.read(clen) if clen > 0 else b""
-            tma_id = unquote(m_prod.group(1))
+            requested_id = unquote(m_prod.group(1))
+            tma_id = resolve_product_id(requested_id, _load_product_redirects())
             status, rbody, rctype = _proxy_shop_admin(
                 "PATCH", f"/admin/product/{quote(tma_id, safe='')}",
                 body=raw, content_type="application/json",
+            )
+            rbody = _add_canonical_product_id_to_response(
+                rbody,
+                rctype,
+                requested_id=requested_id,
+                canonical_id=tma_id,
             )
             self._send(status, rbody, rctype)
             return
@@ -1857,6 +2122,11 @@ class Handler(BaseHTTPRequestHandler):
                 self._send(400, _j({"error": "target_id required"}),
                            "application/json; charset=utf-8")
                 return
+            elif scope == "product":
+                target_id = resolve_product_id(
+                    target_id,
+                    _load_product_redirects(),
+                )
             discount_pct = payload.get("discount_pct")
             fixed_price = payload.get("fixed_price")
             if (discount_pct is None) == (fixed_price is None):
@@ -1909,7 +2179,10 @@ class Handler(BaseHTTPRequestHandler):
                     rule_id = con.execute("SELECT last_insert_rowid()").fetchone()[0]
                 finally:
                     con.close()
-                self._send(200, _j({"ok": True, "id": rule_id}),
+                response = {"ok": True, "id": rule_id}
+                if scope == "product":
+                    response["canonical_product_id"] = target_id
+                self._send(200, _j(response),
                            "application/json; charset=utf-8")
             except Exception as e:
                 self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
@@ -2116,7 +2389,9 @@ class Handler(BaseHTTPRequestHandler):
                                 "error": "Требуется авторизация (Telegram или гостевой вход)"}),
                        "application/json; charset=utf-8")
             return
-        payload = self._read_body()
+        payload, migrated_product_ids = _canonicalize_order_payload(
+            self._read_body()
+        )
         full_name = (
             " ".join(filter(None, [user.get("first_name"), user.get("last_name")]))
             or user.get("username") or "TMA-клиент"
@@ -2140,7 +2415,10 @@ class Handler(BaseHTTPRequestHandler):
                        "application/json; charset=utf-8")
             return
         _invalidate_sync_cache()
-        self._send(200, _j({"ok": True, **result}), "application/json; charset=utf-8")
+        response = {"ok": True, **result}
+        if migrated_product_ids:
+            response["canonical_product_ids"] = migrated_product_ids
+        self._send(200, _j(response), "application/json; charset=utf-8")
 
     def _read_body(self) -> dict:
         try:

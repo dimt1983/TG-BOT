@@ -262,15 +262,114 @@ function resetFilters() {
 const STORAGE_KEY = 'rb-v2-state-1';
 const PROFILE_KEY = 'rb-v2-profile-1';
 const PERSONAL_DATA_CONSENT_VERSION = 'pdn-2026-06-30';
+// PRODUCT_REDIRECTS_BEGIN
+let PRODUCT_REDIRECTS = {};
+function safeStorageGet(storage, key, fallback = null) {
+  try { const value = storage && storage.getItem(key); return value === null ? fallback : value; }
+  catch (e) { return fallback; }
+}
+function safeStorageJson(storage, key, fallback) {
+  try { return JSON.parse(safeStorageGet(storage, key, 'null')) ?? fallback; }
+  catch (e) { return fallback; }
+}
+function safeStorageSet(storage, key, value) {
+  try { storage && storage.setItem(key, value); return true; } catch (e) { return false; }
+}
+function canonicalProductId(id, redirects = PRODUCT_REDIRECTS) {
+  if (id === null || id === undefined) return null;
+  const original = String(id);
+  let current = original;
+  const seen = new Set();
+  while (redirects && redirects[current] !== undefined && redirects[current] !== null) {
+    if (seen.has(current)) return original;
+    seen.add(current);
+    const next = String(redirects[current]);
+    if (!next || seen.has(next)) return original;
+    current = next;
+  }
+  return current;
+}
+function parseProductDeepLink(search, telegramStartParam, validProductIds, redirects = PRODUCT_REDIRECTS) {
+  const valid = validProductIds instanceof Set ? validProductIds : new Set();
+  let params;
+  try { params = new URLSearchParams(search || ''); } catch (e) { params = new URLSearchParams(); }
+  const candidates = [
+    params.get('product_id'), params.get('product'), params.get('tma_id'),
+    params.get('tgWebAppStartParam'), telegramStartParam,
+  ];
+  for (const candidate of candidates) {
+    if (candidate === null || candidate === undefined || candidate === '') continue;
+    const value = String(candidate);
+    const match = value.match(/^product[_-](.+)$/);
+    const raw = match ? match[1] : value;
+    if (!match && !valid.has(raw) && !Object.prototype.hasOwnProperty.call(redirects || {}, raw)) continue;
+    const canonical = canonicalProductId(raw, redirects);
+    if (canonical && valid.has(canonical)) return canonical;
+  }
+  return null;
+}
+function migrateProductRedirectState(cartValue, favoriteValue, currentId, redirects, validProductIds, products) {
+  const valid = validProductIds instanceof Set ? validProductIds : null;
+  const before = JSON.stringify([cartValue, favoriteValue, currentId]);
+  const merged = new Map();
+  (Array.isArray(cartValue) ? cartValue : []).forEach(line => {
+    if (!line || typeof line !== 'object') return;
+    const id = canonicalProductId(line.canonical_id || line.canonicalId || line.id, redirects);
+    const qty = Number(line.qty);
+    if (!id || (valid && !valid.has(id)) || !Number.isFinite(qty) || qty <= 0) return;
+    const fasovka = String(line.fasovka || line.size || '');
+    const product = Array.isArray(products) ? products.find(p => String(p.id) === id) : null;
+    const pack = product && (product.fasovka || []).find(f => String(f.size) === fasovka);
+    if (Array.isArray(products) && (!product || !pack)) return;
+    const choices = ['roast_choice', 'grind', 'variant'];
+    const key = [id, fasovka, ...choices.map(k => String(line[k] || ''))].join('\u0000');
+    const safeQty = Math.min(Number.MAX_SAFE_INTEGER, Math.floor(qty));
+    if (safeQty <= 0) return;
+    if (merged.has(key)) {
+      merged.get(key).qty = Math.min(Number.MAX_SAFE_INTEGER, merged.get(key).qty + safeQty);
+    } else {
+      const rebuilt = product ? {
+        id, name: product.name, fasovka, price: pack.price, qty: safeQty,
+        photo: pack.photo || product.photo || null, category: product.category,
+      } : Object.assign({}, line, { id, fasovka, qty: safeQty });
+      choices.forEach(k => { if (line[k] !== undefined) rebuilt[k] = line[k]; });
+      merged.set(key, rebuilt);
+    }
+  });
+  const favorites = [];
+  (Array.isArray(favoriteValue) ? favoriteValue : []).forEach(value => {
+    const raw = value && typeof value === 'object'
+      ? (value.canonical_id || value.canonicalId || value.id) : value;
+    const id = canonicalProductId(raw, redirects);
+    if (id && (!valid || valid.has(id)) && !favorites.includes(id)) favorites.push(id);
+  });
+  const canonicalCurrent = canonicalProductId(currentId, redirects);
+  const migrated = {
+    cart: Array.from(merged.values()),
+    favorites,
+    currentId: canonicalCurrent && (!valid || valid.has(canonicalCurrent)) ? canonicalCurrent : null,
+  };
+  migrated.changed = before !== JSON.stringify([migrated.cart, migrated.favorites, migrated.currentId]);
+  return migrated;
+}
+// PRODUCT_REDIRECTS_END
+async function loadProductRedirects() {
+  try {
+    const response = await fetch('/tma/product_redirects.json?v=' + Date.now(), { cache: 'no-store' });
+    if (!response.ok) throw new Error('redirects unavailable');
+    const value = await response.json();
+    PRODUCT_REDIRECTS = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+  } catch (e) {
+    PRODUCT_REDIRECTS = {};
+  }
+}
 function saveLocal() {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ cart: STATE.cart, favorites: STATE.favorites })); } catch(e){}
+  safeStorageSet(localStorage, STORAGE_KEY, JSON.stringify({ cart: STATE.cart, favorites: STATE.favorites }));
 }
 function loadLocal() {
-  try {
-    const j = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-    STATE.cart = j.cart || [];
-    STATE.favorites = j.favorites || [];
-  } catch(e){}
+  const j = safeStorageJson(localStorage, STORAGE_KEY, {});
+  STATE.cart = Array.isArray(j.cart) ? j.cart : [];
+  STATE.favorites = Array.isArray(j.favorites) ? j.favorites : [];
   try {
     const p = JSON.parse(localStorage.getItem(PROFILE_KEY) || 'null');
     if (p && typeof p === 'object') {
@@ -3023,7 +3122,7 @@ function _applyNavSnapshot(snap) {
   STATE.subcat = s.subcat || null;
   STATE.showAll = !!s.showAll;
   STATE.fasovkaSplit = s.fasovkaSplit || null;
-  STATE.productId = s.productId || null;
+  STATE.productId = canonicalProductId(s.productId) || null;
   STATE.orderId = s.orderId || null;
   STATE.productFasovka = s.productFasovka || null;
   if (STATE.screen !== 'product') STATE.productKg = 1;
@@ -3049,7 +3148,12 @@ function _writeBrowserNav(mode = 'push') {
   if (RB_APPLYING_BROWSER_HISTORY || !window.history || !window.history.pushState) return;
   try {
     const method = (!RB_BROWSER_HISTORY_READY || mode === 'replace') ? 'replaceState' : 'pushState';
-    window.history[method](_browserNavState(), '', window.location.href);
+    const url = new URL(window.location.href);
+    ['product_id', 'product', 'tma_id', 'tgWebAppStartParam'].forEach(key => url.searchParams.delete(key));
+    if (STATE.screen === 'product' && STATE.productId) {
+      url.searchParams.set('product_id', canonicalProductId(STATE.productId));
+    }
+    window.history[method](_browserNavState(), '', url);
     RB_BROWSER_HISTORY_READY = true;
   } catch (e) {}
 }
@@ -3109,6 +3213,11 @@ const rb = {
     _backInternal();
   },
   openProduct(id) {
+    id = canonicalProductId(id);
+    if (!findProduct(id)) {
+      toast('Товар больше не доступен');
+      return;
+    }
     const snap = _navSnapshot();
     STATE.screen = 'product';
     STATE.productId = id;
@@ -3612,7 +3721,7 @@ const rb = {
     const arr = (STATE.favorites || []).map(String);
     const i = arr.indexOf(id);
     if (i === -1) arr.push(id); else arr.splice(i, 1);   // оптимистично
-    STATE.favorites = arr;
+    STATE.favorites = [...new Set(arr.map(id => canonicalProductId(id)).filter(Boolean))];
     saveLocal(); render(); haptic('light');
     if (!hasIdentity()) return;
     try {
@@ -3621,7 +3730,10 @@ const rb = {
         body: JSON.stringify({ tma_id: id })
       });
       const j = await r.json();
-      if (r.ok && Array.isArray(j.tma_ids)) { STATE.favorites = j.tma_ids.map(String); saveLocal(); render(); }
+      if (r.ok && Array.isArray(j.tma_ids)) {
+        STATE.favorites = [...new Set(j.tma_ids.map(id => canonicalProductId(id)).filter(Boolean))];
+        saveLocal(); render();
+      }
     } catch (e) {}
   },
   async openAdmin() {
@@ -4129,12 +4241,16 @@ async function syncFavoritesFromServer() {
         body: JSON.stringify({ tma_ids: STATE.favorites.map(String) })
       });
       const jm = await rm.json();
-      if (rm.ok && Array.isArray(jm.tma_ids)) STATE.favorites = jm.tma_ids.map(String);
+      if (rm.ok && Array.isArray(jm.tma_ids)) {
+        STATE.favorites = [...new Set(jm.tma_ids.map(id => canonicalProductId(id)).filter(Boolean))];
+      }
       localStorage.setItem('rb_v2_fav_migrated', '1');
     } else {
       const r = await fetch('/tma/api/favorites', { headers: authHeaders() });
       const j = await r.json();
-      if (r.ok && Array.isArray(j.tma_ids)) STATE.favorites = j.tma_ids.map(String);
+      if (r.ok && Array.isArray(j.tma_ids)) {
+        STATE.favorites = [...new Set(j.tma_ids.map(id => canonicalProductId(id)).filter(Boolean))];
+      }
     }
     saveLocal(); render();
   } catch (e) {}
@@ -4243,7 +4359,7 @@ async function runClaim(token) {
 function enterApp() {
   // Онбординг только для новых: не онбордились ранее и нет сохранённого профиля.
   const _hasProfile = !!(STATE.contact && STATE.contact.name);
-  if (!localStorage.getItem('rb_v2_onboarded') && !_hasProfile) {
+  if (STATE.screen !== 'product' && !safeStorageGet(localStorage, 'rb_v2_onboarded', '') && !_hasProfile) {
     STATE.screen = 'onboarding';
   } else if (STATE.screen === 'onboarding') {
     STATE.screen = 'home';
@@ -4281,7 +4397,27 @@ async function init() {
     document.getElementById('root').innerHTML = `<div style="padding:80px 24px; text-align:center;"><h2>Каталог недоступен</h2><p style="color:var(--ink-soft); margin-top:8px;">${esc(String(e))}</p></div>`;
     return;
   }
+  await loadProductRedirects();
+  (STATE.data.products || []).forEach(p => {
+    const canonical = p && (p.canonical_id || p.canonicalId);
+    if (canonical && p.id && String(canonical) !== String(p.id)) PRODUCT_REDIRECTS[String(p.id)] = String(canonical);
+  });
   await checkAdmin();
+  const roleVisibleProducts = visibleProducts();
+  const validProductIds = new Set(roleVisibleProducts.map(p => String(p.id)));
+  const deepLinkProductId = parseProductDeepLink(location.search,
+    tg && tg.initDataUnsafe && tg.initDataUnsafe.start_param, validProductIds, PRODUCT_REDIRECTS);
+  if (deepLinkProductId) {
+    STATE.screen = 'product';
+    STATE.productId = deepLinkProductId;
+  }
+  const migration = migrateProductRedirectState(STATE.cart, STATE.favorites, STATE.productId,
+    PRODUCT_REDIRECTS, validProductIds, roleVisibleProducts);
+  STATE.cart = migration.cart;
+  STATE.favorites = migration.favorites;
+  STATE.productId = migration.currentId;
+  if (STATE.screen === 'product' && !STATE.productId) STATE.screen = 'home';
+  if (migration.changed) saveLocal();
   await loadUserProfile();
   // Claim-ссылка: клиент забирает свой консьерж-аккаунт. Свой экран, дальше — по кнопке.
   const _claimToken = new URLSearchParams(location.search).get('claim');

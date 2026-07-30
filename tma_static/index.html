@@ -1088,9 +1088,9 @@ if ('serviceWorker' in navigator && !(tg && tg.initData)) {
 // Browser-mode auth: если запустились в обычном браузере (нет tg.initData),
 // используем JWT из localStorage (получен после Telegram Login Widget).
 const IS_TG = !!(tg && tg.initData && tg.initData.length > 0);
-let _browserJwt = (!IS_TG && localStorage.getItem('rb_jwt')) || '';
+let _browserJwt = (!IS_TG && safeStorageGet(localStorage, 'rb_jwt', '')) || '';
 let _browserUser = null;
-try { _browserUser = JSON.parse(localStorage.getItem('rb_user') || 'null'); } catch(e) {}
+_browserUser = safeStorageJson(localStorage, 'rb_user', null);
 
 function _authHeaders() {
   if (IS_TG) return { 'X-Tma-InitData': tg.initData };
@@ -1121,7 +1121,7 @@ window.onTelegramAuth = async function(user) {
       localStorage.setItem('rb_user', JSON.stringify(_browserUser));
       document.getElementById('login-screen')?.remove();
       // Запускаем основной сценарий загрузки
-      if (typeof load === 'function') load();
+      if (typeof load === 'function') await load();
     } else {
       alert('Ошибка авторизации: ' + (j.error || 'unknown'));
     }
@@ -1194,7 +1194,7 @@ async function _submitGuestLogin() {
       localStorage.setItem('rb_jwt', _browserJwt);
       localStorage.setItem('rb_user', JSON.stringify(_browserUser));
       document.getElementById('login-screen')?.remove();
-      if (typeof load === 'function') load();
+      if (typeof load === 'function') await load();
     } else {
       errEl.textContent = j.error || 'Ошибка авторизации';
     }
@@ -1245,6 +1245,107 @@ function showLoginScreen() {
 }
 
 let DATA = null;
+// PRODUCT_REDIRECTS_BEGIN
+let PRODUCT_REDIRECTS = {};
+function safeStorageGet(storage, key, fallback = null) {
+  try { const value = storage && storage.getItem(key); return value === null ? fallback : value; }
+  catch (e) { return fallback; }
+}
+function safeStorageJson(storage, key, fallback) {
+  try { return JSON.parse(safeStorageGet(storage, key, 'null')) ?? fallback; }
+  catch (e) { return fallback; }
+}
+function safeStorageSet(storage, key, value) {
+  try { storage && storage.setItem(key, value); return true; } catch (e) { return false; }
+}
+function canonicalProductId(id, redirects = PRODUCT_REDIRECTS) {
+  if (id === null || id === undefined) return null;
+  const original = String(id);
+  let current = original;
+  const seen = new Set();
+  while (redirects && redirects[current] !== undefined && redirects[current] !== null) {
+    if (seen.has(current)) return original;
+    seen.add(current);
+    const next = String(redirects[current]);
+    if (!next || seen.has(next)) return original;
+    current = next;
+  }
+  return current;
+}
+function parseProductDeepLink(search, telegramStartParam, validProductIds, redirects = PRODUCT_REDIRECTS) {
+  const valid = validProductIds instanceof Set ? validProductIds : new Set();
+  let params;
+  try { params = new URLSearchParams(search || ''); } catch (e) { params = new URLSearchParams(); }
+  const candidates = [
+    params.get('product_id'), params.get('product'), params.get('tma_id'),
+    params.get('tgWebAppStartParam'), telegramStartParam,
+  ];
+  for (const candidate of candidates) {
+    if (candidate === null || candidate === undefined || candidate === '') continue;
+    const value = String(candidate);
+    const match = value.match(/^product[_-](.+)$/);
+    const raw = match ? match[1] : value;
+    if (!match && !valid.has(raw) && !Object.prototype.hasOwnProperty.call(redirects || {}, raw)) continue;
+    const canonical = canonicalProductId(raw, redirects);
+    if (canonical && valid.has(canonical)) return canonical;
+  }
+  return null;
+}
+function migrateProductRedirectState(cartValue, favoriteValue, currentId, redirects, validProductIds, products) {
+  const valid = validProductIds instanceof Set ? validProductIds : null;
+  const before = JSON.stringify([cartValue, favoriteValue, currentId]);
+  const merged = new Map();
+  (Array.isArray(cartValue) ? cartValue : []).forEach(line => {
+    if (!line || typeof line !== 'object') return;
+    const id = canonicalProductId(line.canonical_id || line.canonicalId || line.id, redirects);
+    const qty = Number(line.qty);
+    if (!id || (valid && !valid.has(id)) || !Number.isFinite(qty) || qty <= 0) return;
+    const fasovka = String(line.fasovka || line.size || '');
+    const product = Array.isArray(products) ? products.find(p => String(p.id) === id) : null;
+    const pack = product && (product.fasovka || []).find(f => String(f.size) === fasovka);
+    if (Array.isArray(products) && (!product || !pack)) return;
+    const choices = ['roast_choice', 'grind', 'variant'];
+    const key = [id, fasovka, ...choices.map(k => String(line[k] || ''))].join('\u0000');
+    const safeQty = Math.min(Number.MAX_SAFE_INTEGER, Math.floor(qty));
+    if (safeQty <= 0) return;
+    if (merged.has(key)) {
+      merged.get(key).qty = Math.min(Number.MAX_SAFE_INTEGER, merged.get(key).qty + safeQty);
+    } else {
+      const rebuilt = product ? {
+        id, name: product.name, fasovka, price: pack.price, qty: safeQty,
+        photo: pack.photo || product.photo || null, category: product.category,
+      } : Object.assign({}, line, { id, fasovka, qty: safeQty });
+      choices.forEach(k => { if (line[k] !== undefined) rebuilt[k] = line[k]; });
+      merged.set(key, rebuilt);
+    }
+  });
+  const favorites = [];
+  (Array.isArray(favoriteValue) ? favoriteValue : []).forEach(value => {
+    const raw = value && typeof value === 'object'
+      ? (value.canonical_id || value.canonicalId || value.id) : value;
+    const id = canonicalProductId(raw, redirects);
+    if (id && (!valid || valid.has(id)) && !favorites.includes(id)) favorites.push(id);
+  });
+  const canonicalCurrent = canonicalProductId(currentId, redirects);
+  const migrated = {
+    cart: Array.from(merged.values()),
+    favorites,
+    currentId: canonicalCurrent && (!valid || valid.has(canonicalCurrent)) ? canonicalCurrent : null,
+  };
+  migrated.changed = before !== JSON.stringify([migrated.cart, migrated.favorites, migrated.currentId]);
+  return migrated;
+}
+// PRODUCT_REDIRECTS_END
+async function loadProductRedirects() {
+  try {
+    const response = await fetch('product_redirects.json?v=' + Date.now(), { cache: 'no-store' });
+    if (!response.ok) throw new Error('redirects unavailable');
+    const value = await response.json();
+    return value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+  } catch (e) {
+    return {};
+  }
+}
 // Версия для cache-bust фото — меняется раз в час, чтобы мобильный
 // Telegram WebView подтягивал свежий каталог пачек.
 const IMG_VER = Math.floor(Date.now() / 3600000);
@@ -1264,11 +1365,11 @@ function categoryPlaceholder(p) {
   }
   return null;
 }
-let cart = JSON.parse(localStorage.getItem('rb_cart') || '[]');
-let favorites = JSON.parse(localStorage.getItem('rb_favorites') || '[]'); // массив pid
+let cart = safeStorageJson(localStorage, 'rb_cart', []);
+let favorites = safeStorageJson(localStorage, 'rb_favorites', []); // массив pid
 let myOrders = null; // загружается лениво
 const CONSENT_VERSION = '1.0';
-let consentState = JSON.parse(localStorage.getItem('rb_consent') || 'null');
+let consentState = safeStorageJson(localStorage, 'rb_consent', null);
 let consentReturnTo = 'profile';
 let currentCat = null;       // 'coffee' | 'tea' | ...
 let currentSubcat = 'all';   // ID L2-подкатегории (или 'all')
@@ -1363,18 +1464,53 @@ function _isVisibleInCatalog(p, all) {
   return true;
 }
 
+let LOAD_GENERATION = 0;
 async function load() {
+  const generation = ++LOAD_GENERATION;
   const r = await fetch('products.json?v=' + Date.now());
-  DATA = await r.json();
-  await checkAdminAccess();
-  const all = DATA.products || [];
-  DATA.products = all.filter(p => _isVisibleInCatalog(p, all));
+  const nextData = await r.json();
+  const nextRedirects = await loadProductRedirects();
+  (nextData.products || []).forEach(p => {
+    const canonical = p && (p.canonical_id || p.canonicalId);
+    if (canonical && p.id && String(canonical) !== String(p.id)) nextRedirects[String(p.id)] = String(canonical);
+  });
+  await checkAdminAccess(generation);
+  if (generation !== LOAD_GENERATION) return false;
+  const all = nextData.products || [];
+  nextData.products = all.filter(p => _isVisibleInCatalog(p, all));
+  const validProductIds = new Set(nextData.products.map(p => String(p.id)));
+  const deepLinkProductId = parseProductDeepLink(location.search,
+    tg && tg.initDataUnsafe && tg.initDataUnsafe.start_param, validProductIds, nextRedirects);
+  const migration = migrateProductRedirectState(cart, favorites,
+    deepLinkProductId || (currentProduct && currentProduct.id),
+    nextRedirects, validProductIds, nextData.products);
+  if (generation !== LOAD_GENERATION) return false;
+  DATA = nextData;
+  PRODUCT_REDIRECTS = nextRedirects;
+  cart = migration.cart;
+  favorites = migration.favorites;
+  currentProduct = migration.currentId
+    ? (DATA.products || []).find(p => String(p.id) === migration.currentId) || null : null;
+  if (migration.changed) {
+    safeStorageSet(localStorage, 'rb_cart', JSON.stringify(cart));
+    safeStorageSet(localStorage, 'rb_favorites', JSON.stringify(favorites));
+  }
   document.getElementById('hero-card').style.backgroundImage = `url('assets/hero_facade.jpg')`;
   renderTopCats();
   renderHits();
   renderCartBadge();
   renderProfile();
   heroStartAuto();
+  if (deepLinkProductId) {
+    openProduct(deepLinkProductId);
+    try {
+      const url = new URL(location.href);
+      ['product', 'tma_id', 'tgWebAppStartParam'].forEach(key => url.searchParams.delete(key));
+      url.searchParams.set('product_id', deepLinkProductId);
+      history.replaceState(history.state, '', url);
+    } catch (e) {}
+  }
+  return true;
 }
 
 // === Hero carousel ===
@@ -1887,6 +2023,7 @@ function onSearch() {
 
 // === Карточка товара (sheet с табами) ===
 function openProduct(pid) {
+  pid = canonicalProductId(pid);
   currentProduct = DATA.products.find(p => p.id === pid);
   if (!currentProduct) return;
   const fasList = detailFasovka(currentProduct);
@@ -2526,7 +2663,7 @@ function onCheckoutConsentClick() {
 
 // === Мои данные (профиль клиента) ===
 let profileType = 'individual';
-let profileData = JSON.parse(localStorage.getItem('rb_profile') || 'null');
+let profileData = safeStorageJson(localStorage, 'rb_profile', null);
 
 function setProfileType(t) {
   profileType = t;
@@ -2827,14 +2964,19 @@ function _escape(s) {
     ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
-async function checkAdminAccess() {
+async function checkAdminAccess(generation = LOAD_GENERATION) {
   try {
     const r = await fetch('/tma/api/admin/check', { headers: _initDataHeader() });
     const j = await r.json();
+    if (generation !== LOAD_GENERATION) return false;
     _isAdmin = !!j.is_admin;
     const tab = document.getElementById('admin-tab');
     if (tab) tab.style.display = _isAdmin ? '' : 'none';
-  } catch (e) { _isAdmin = false; }
+    return true;
+  } catch (e) {
+    if (generation === LOAD_GENERATION) _isAdmin = false;
+    return false;
+  }
 }
 
 let _adminOrdersCache = [];
