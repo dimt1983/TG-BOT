@@ -14651,36 +14651,6 @@
       "hidden": true
     },
     {
-      "id": "e-вьетнам_блю_шонла",
-      "category": "espresso",
-      "subcategory": "espresso_mono",
-      "name": "Вьетнам Блю Шонла",
-      "country": "Вьетнам",
-      "roast": "E",
-      "process": "Мытый",
-      "description": "Вьетнам Блю Шонла. Шоколад, орех, низкая кислотность.",
-      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
-      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "fasovka": [
-        {
-          "size": "1 кг",
-          "price": 2135
-        }
-      ],
-      "stock": 0,
-      "tags": [
-        "моносорт",
-        "Азия",
-        "Вьетнам",
-        "мытый"
-      ],
-      "photo": null,
-      "quarantined": true,
-      "quarantined_at": "2026-05-21T08:00:07+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
-      "hidden": true
-    },
-    {
       "id": "r-вьетнам_блю_шонла",
       "category": "retail",
       "subcategory": "retail_espresso",
@@ -15271,22 +15241,34 @@
       "name": "Вьетнам Блю Шонла сухой  эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 7,
+      "hidden": false,
+      "quarantined": false,
       "roast": "E",
       "photo": "photos/products/espresso_mono_вьетнам_блю_сонал_сухой_эспрессо_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 0,
+          "price": 2135,
           "photo": "photos/products/espresso_mono_вьетнам_блю_сонал_сухой_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-06-18T07:36:31+00:00",
       "created_by": "sync_catalog_v2",
       "quarantined_at": "2026-07-09T08:36:05+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "country": "Вьетнам",
+      "process": "Мытый",
+      "description": "Вьетнам Блю Шонла. Шоколад, орех, низкая кислотность.",
+      "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
+      "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
+      "tags": [
+        "моносорт",
+        "Азия",
+        "Вьетнам",
+        "мытый"
+      ],
+      "article_1c": "КОФ-055",
+      "on_request": false
     },
     {
       "id": "espresso_mono_эфиопия_сидамо_гр_2_мытый_эспрессо_1_кг",
@@ -15438,26 +15420,6 @@
       "tags": [],
       "photo": "photos/products/drip_chocolate_brazil_peaberry.jpg",
       "hidden": true
-    },
-    {
-      "id": "espresso_mono_вьетнам_блю_сонал_сухой_эспрессо_1_кг_2",
-      "name": "Вьетнам Блю Сонал сухой  эспрессо - 1 кг",
-      "category": "espresso",
-      "subcategory": "espresso_mono",
-      "stock": 7,
-      "hidden": false,
-      "quarantined": false,
-      "roast": "E",
-      "photo": "assets/placeholders/ph_espresso.svg",
-      "fasovka": [
-        {
-          "size": "1 кг",
-          "price": 2135,
-          "photo": "assets/placeholders/ph_espresso.svg"
-        }
-      ],
-      "created_at": "2026-07-09T08:36:05+00:00",
-      "created_by": "sync_catalog_v2"
     },
     {
       "id": "filter_mono_вьетнам_блю_сонал_сухой_filter_1_кг",
