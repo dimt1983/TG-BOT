@@ -1975,7 +1975,7 @@
           "on_request": false
         }
       ],
-      "stock": 59,
+      "stock": 44,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5571,7 +5571,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 196,
+      "stock": 184,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5606,7 +5606,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 29,
+      "stock": 17,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -18955,7 +18955,7 @@
     {
       "id": "1c-016-fd884f207c",
       "name": "E \"Roastberry\" Бразилия Серадо  упак. 200 г",
-      "stock": 24,
+      "stock": 21,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-016",
@@ -19088,7 +19088,7 @@
     {
       "id": "1c-024-0fd8686e4e",
       "name": "E \"Roastberry\" Гондурас San Nicolas упак. 200 гр.",
-      "stock": 14,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-024",
@@ -19283,7 +19283,7 @@
     {
       "id": "1c-038-4ddfe6fdf5",
       "name": "F \"Roastberry\" Гватемала Уеуетенанго упак. 200 гр.",
-      "stock": 24,
+      "stock": 23,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-038",
@@ -20192,7 +20192,7 @@
     {
       "id": "1c-058-12671e29bd",
       "name": "TS23 Япония-Матча Традиционная чай зеленый байховый (порошковый), 150 г",
-      "stock": 7,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-058",
