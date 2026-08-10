@@ -5583,7 +5583,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 133,
+      "stock": 92,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -18801,7 +18801,7 @@
     {
       "id": "1c-004-17c30030d4",
       "name": "BE \"Roastberry\" ВЕНЕЦИЯ - 1 кг",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-004",
@@ -18849,7 +18849,7 @@
     {
       "id": "1c-007-450fdb6fa2",
       "name": "BE \"Roastberry\" Классика упак. 200 г",
-      "stock": 38,
+      "stock": 34,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-007",
@@ -18977,7 +18977,7 @@
     {
       "id": "1c-015-3f135db063",
       "name": "E \"Roastberry\" Бразилия Сан Рафаель упак. 200 г",
-      "stock": 22,
+      "stock": 15,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-015",
@@ -19126,7 +19126,7 @@
     {
       "id": "1c-024-0fd8686e4e",
       "name": "E \"Roastberry\" Гондурас San Nicolas упак. 200 гр.",
-      "stock": 12,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-024",
@@ -19321,7 +19321,7 @@
     {
       "id": "1c-038-4ddfe6fdf5",
       "name": "F \"Roastberry\" Гватемала Уеуетенанго упак. 200 гр.",
-      "stock": 22,
+      "stock": 21,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-038",
@@ -19421,7 +19421,7 @@
     {
       "id": "1c-044-f92aaf585d",
       "name": "F \"Roastberry\" Руанда Мутетели упак. 200 г",
-      "stock": 17,
+      "stock": 16,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-044",
@@ -20281,7 +20281,7 @@
     {
       "id": "1c-070-12c6c7a364",
       "name": "Травяной - ИВАН-ЧАЙ 214 г Аромат: Виноград, Арбуз, травы, Вкус:Виноград, арбуз, Травы",
-      "stock": 6,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-070",
@@ -20768,9 +20768,9 @@
     {
       "id": "1c-126-c46a32e323",
       "name": "ЧА6010 Ромашковый Луг 75 г, напиток Альтхаус травяной",
-      "stock": 1,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "ЧАЙ-126",
       "fasovka": [
         {
@@ -20780,7 +20780,8 @@
         }
       ],
       "category": "tea",
-      "on_request": false
+      "on_request": false,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "1c-127-7026556be2",
