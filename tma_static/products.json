@@ -1975,7 +1975,7 @@
           "on_request": false
         }
       ],
-      "stock": 44,
+      "stock": 11,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -3023,7 +3023,8 @@
         {
           "size": "1 шт",
           "price": 300.0,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
       "stock": 2,
@@ -3031,7 +3032,8 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "on_request": true,
+      "hidden": false
     },
     {
       "id": "t-np05_молочный_улун_чай_пакет_с_ароматом_молока_pyr",
@@ -3048,7 +3050,8 @@
         {
           "size": "1 шт",
           "price": 280.0,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
       "stock": 11,
@@ -3056,7 +3059,8 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "on_request": true,
+      "hidden": false
     },
     {
       "id": "t-np06_имбирный_тропик_чай_пакет_с_ароматом_манго_ма",
@@ -3073,7 +3077,8 @@
         {
           "size": "1 шт",
           "price": 300.0,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
       "stock": 10,
@@ -3081,7 +3086,8 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "on_request": true,
+      "hidden": false
     },
     {
       "id": "t-nr01_русский_завтрак_чай_черный_пакет_pyra_pack_15",
@@ -3098,7 +3104,8 @@
         {
           "size": "1 шт",
           "price": 330.0,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
       "stock": 8,
@@ -3106,7 +3113,8 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "on_request": true,
+      "hidden": false
     },
     {
       "id": "t-nr02_500_эрл_грей_ультрамарин",
@@ -3187,7 +3195,8 @@
         {
           "size": "1 шт",
           "price": 300.0,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
       "stock": 12,
@@ -3195,7 +3204,8 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "on_request": true,
+      "hidden": false
     },
     {
       "id": "t-nr08_ассорти_брайт",
@@ -3244,7 +3254,8 @@
         {
           "size": "1 шт",
           "price": 360.0,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
       "stock": 14,
@@ -3252,7 +3263,8 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "on_request": true,
+      "hidden": false
     },
     {
       "id": "t-nr09_жасмин_эмеральд",
@@ -5500,7 +5512,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 82,
+      "stock": 51,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5535,7 +5547,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 22,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5571,7 +5583,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 184,
+      "stock": 143,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5606,7 +5618,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 17,
+      "stock": 14,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6585,7 +6597,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 11,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -8653,16 +8665,16 @@
       "fasovka": [
         {
           "size": "шт",
-          "price": 1
+          "price": 1,
+          "on_request": true
         }
       ],
-      "stock": 0,
-      "on_request": false,
+      "stock": 6400,
+      "on_request": true,
       "subcategory": "other_sugar",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "missing_price",
-      "hidden": true
+      "hidden": false
     },
     {
       "id": "sets_семпл-бокс_особенныи_кофе_85_6_овок_по_100_г_-_1_ш",
@@ -10879,10 +10891,11 @@
         {
           "size": "0.7 л",
           "price": 885,
-          "photo": "photos/products/s-сироп_herbarista_эвкалипт_и_мята_0_7л.jpg"
+          "photo": "photos/products/s-сироп_herbarista_эвкалипт_и_мята_0_7л.jpg",
+          "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_эвкалипт_и_мята_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -11781,15 +11794,17 @@
         {
           "size": "1 шт",
           "price": 721,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
-      "stock": 39,
+      "stock": 38,
       "tags": [],
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "s-сироп_маракуйя_гавайская_1",
@@ -11830,7 +11845,8 @@
         {
           "size": "1 шт",
           "price": 777,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
       "stock": 5,
@@ -11838,7 +11854,8 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "s-сироп_цветы_бузины_1",
@@ -12026,7 +12043,8 @@
         {
           "size": "350 мл",
           "price": 12,
-          "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg"
+          "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg",
+          "on_request": true
         }
       ],
       "stock": 575,
@@ -12034,7 +12052,8 @@
       "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg",
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_",
@@ -12051,15 +12070,17 @@
         {
           "size": "500 мл",
           "price": 11,
-          "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg"
+          "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg",
+          "on_request": true
         }
       ],
-      "stock": 675,
+      "stock": 630,
       "tags": [],
       "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg",
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "t-супериор_жу_бао_белый_70г",
@@ -12607,24 +12628,25 @@
         {
           "size": "1 шт",
           "price": 390,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
-      "stock": 0,
+      "stock": 60,
       "tags": [],
       "photo": "",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": "missing_price",
-      "hidden": true
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "o-фильтры_bonomat_50шт",
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 0,
-      "on_request": false,
+      "stock": 98,
+      "on_request": true,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
       "photo": "photos/products/o-фильтры_bonomat_50шт.webp",
@@ -12632,31 +12654,31 @@
         {
           "size": "1 шт",
           "price": 400,
-          "photo": "photos/products/o-фильтры_bonomat_50шт.webp"
+          "photo": "photos/products/o-фильтры_bonomat_50шт.webp",
+          "on_request": true
         }
       ],
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "hidden": false,
+      "quarantined": false
     },
     {
       "id": "o-фильтры_лехехе_большие_50шт",
       "name": "Фильтры бумажные Лехехе (большие) 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 0,
-      "on_request": false,
+      "stock": 10,
+      "on_request": true,
       "price": null,
       "photo": "",
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 440
+          "price": 440,
+          "on_request": true
         }
       ],
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "missing_price"
+      "hidden": false,
+      "quarantined": false
     },
     {
       "id": "t-французская_роза_125г",
@@ -14050,7 +14072,8 @@
         {
           "size": "1 шт",
           "price": 1100,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
       "stock": 3,
@@ -14058,7 +14081,8 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "t-чн650_дикая_вишня_cherry_basic_600_г_",
@@ -14360,7 +14384,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 100,
+      "stock": 92,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14779,7 +14803,7 @@
       "name": "Гондурас Сан Николас темная обжарка - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 14,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -16984,11 +17008,12 @@
         {
           "size": "0,7 л",
           "photo": "",
-          "price": 777
+          "price": 777,
+          "on_request": false
         }
       ],
-      "stock": 4,
-      "on_request": true,
+      "stock": 3,
+      "on_request": false,
       "_source": "Сироп Еловый 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
       "hidden": false,
@@ -17136,11 +17161,12 @@
         {
           "size": "0,7 л",
           "photo": "",
-          "price": 650
+          "price": 650,
+          "on_request": false
         }
       ],
-      "stock": 5,
-      "on_request": true,
+      "stock": 4,
+      "on_request": false,
       "_source": "Сироп Слива 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
       "hidden": false,
@@ -17159,7 +17185,7 @@
           "on_request": false
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "on_request": false,
       "_source": "Сироп Соленая Карамель двойного обжига 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
@@ -17359,7 +17385,8 @@
         {
           "size": "4г",
           "photo": "",
-          "price": 998
+          "price": 998,
+          "on_request": true
         }
       ],
       "stock": 5,
@@ -17378,10 +17405,11 @@
         {
           "size": "3,5г",
           "photo": "",
-          "price": 1220
+          "price": 1220,
+          "on_request": true
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "on_request": true,
       "_source": "ЧА030 Благородная Ромашка,напиток трав д/чайника 15х3,5г",
       "subcategory": "tea_китайский_чай_loose",
@@ -17397,7 +17425,8 @@
         {
           "size": "4г",
           "photo": "",
-          "price": 998
+          "price": 998,
+          "on_request": true
         }
       ],
       "stock": 5,
@@ -17416,7 +17445,8 @@
         {
           "size": "4г",
           "photo": "",
-          "price": 1200
+          "price": 1200,
+          "on_request": true
         }
       ],
       "stock": 5,
@@ -17694,7 +17724,8 @@
         {
           "size": "4г",
           "photo": "",
-          "price": 890
+          "price": 890,
+          "on_request": true
         }
       ],
       "stock": 7,
@@ -17713,10 +17744,11 @@
         {
           "size": "4г",
           "photo": "",
-          "price": 670
+          "price": 670,
+          "on_request": true
         }
       ],
-      "stock": 4,
+      "stock": 2,
       "on_request": true,
       "_source": "NR27 Горный Чабрец, чай черный с чабрецом пакет для чайника 20х4г",
       "subcategory": "tea_китайский_чай_loose",
@@ -17732,10 +17764,11 @@
         {
           "size": "2г",
           "photo": "",
-          "price": 190
+          "price": 190,
+          "on_request": true
         }
       ],
-      "stock": 47,
+      "stock": 45,
       "on_request": true,
       "_source": "NR01 Кения Сапфир, чай черный пакет. 25*2г",
       "subcategory": "tea_китайский_чай_loose",
@@ -17751,10 +17784,11 @@
         {
           "size": "2г",
           "photo": "",
-          "price": 190
+          "price": 190,
+          "on_request": true
         }
       ],
-      "stock": 36,
+      "stock": 34,
       "on_request": true,
       "_source": "NR04 Молочный Улун, чай зеленый аромат. пакет 25*2г",
       "subcategory": "tea_китайский_чай_loose",
@@ -17770,10 +17804,11 @@
         {
           "size": "1,75г",
           "photo": "",
-          "price": 185
+          "price": 185,
+          "on_request": true
         }
       ],
-      "stock": 12,
+      "stock": 10,
       "on_request": true,
       "_source": "NR05 Красная поляна, чай пакет. 25*1,75г",
       "subcategory": "tea_китайский_чай_loose",
@@ -17789,10 +17824,11 @@
         {
           "size": "2г",
           "photo": "",
-          "price": 240
+          "price": 240,
+          "on_request": true
         }
       ],
-      "stock": 19,
+      "stock": 18,
       "on_request": true,
       "_source": "NR06 Фрут Маджента, нап. чайный аромат. пакет. 25*2г",
       "subcategory": "tea_китайский_чай_loose",
@@ -17808,10 +17844,11 @@
         {
           "size": "2г",
           "photo": "",
-          "price": 215
+          "price": 215,
+          "on_request": true
         }
       ],
-      "stock": 19,
+      "stock": 17,
       "on_request": true,
       "_source": "NR07 Ройбуш Оранж, напиток чайный аромат. пакет. 25*2г",
       "subcategory": "tea_китайский_чай_loose",
@@ -17900,10 +17937,11 @@
         {
           "size": "2г",
           "photo": "",
-          "price": 3600
+          "price": 3600,
+          "on_request": true
         }
       ],
-      "stock": 2.828,
+      "stock": 1.828,
       "on_request": true,
       "_source": "NR06-500 Фрут Маджента, напиток чайный аромат. пакет. 500*2г",
       "subcategory": "tea_китайский_чай_loose",
@@ -18486,7 +18524,7 @@
     {
       "id": "1c-f-f67ab10ad4",
       "name": "F \"Roastberry\" Эфиопия Иргачиф Гр.2 упак. 200 г",
-      "stock": 7,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "article_1c": "F",
@@ -18731,7 +18769,7 @@
     {
       "id": "1c-002-0d96bb4447",
       "name": "BE \"Roastberry\" БИТТЕР - 1 кг",
-      "stock": 52,
+      "stock": 51,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-002",
@@ -18763,7 +18801,7 @@
     {
       "id": "1c-004-17c30030d4",
       "name": "BE \"Roastberry\" ВЕНЕЦИЯ - 1 кг",
-      "stock": 7,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-004",
@@ -18795,7 +18833,7 @@
     {
       "id": "1c-006-0ce1f2a605",
       "name": "BE \"Roastberry\" КЛАССИКА   - 1 кг",
-      "stock": 96,
+      "stock": 88,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-006",
@@ -18843,7 +18881,7 @@
     {
       "id": "1c-009-759fdc0202",
       "name": "BE \"Roastberry\" Хани упак. 200 г",
-      "stock": 9,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-009",
@@ -18875,7 +18913,7 @@
     {
       "id": "1c-011-c7e1d4c6f3",
       "name": "BF \"Roastberry\" Лунго упак. 200 г",
-      "stock": 27,
+      "stock": 26,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-011",
@@ -18907,7 +18945,7 @@
     {
       "id": "1c-013-66492bbd23",
       "name": "E \"Roastberry\" Бразилия Паже упак. 200 г",
-      "stock": 24,
+      "stock": 22,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-013",
@@ -18923,7 +18961,7 @@
     {
       "id": "1c-014-02c60c7f6e",
       "name": "E \"Roastberry\" Бразилия Сан Рафаель - 1 кг",
-      "stock": 63,
+      "stock": 56,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-014",
@@ -18939,7 +18977,7 @@
     {
       "id": "1c-015-3f135db063",
       "name": "E \"Roastberry\" Бразилия Сан Рафаель упак. 200 г",
-      "stock": 24,
+      "stock": 22,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-015",
@@ -18955,7 +18993,7 @@
     {
       "id": "1c-016-fd884f207c",
       "name": "E \"Roastberry\" Бразилия Серадо  упак. 200 г",
-      "stock": 21,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-016",
@@ -19088,7 +19126,7 @@
     {
       "id": "1c-024-0fd8686e4e",
       "name": "E \"Roastberry\" Гондурас San Nicolas упак. 200 гр.",
-      "stock": 13,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-024",
@@ -19120,7 +19158,7 @@
     {
       "id": "1c-026-5980a15289",
       "name": "E \"Roastberry\" Колумбия Андино упак. 200 г",
-      "stock": 10,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-026",
@@ -19283,7 +19321,7 @@
     {
       "id": "1c-038-4ddfe6fdf5",
       "name": "F \"Roastberry\" Гватемала Уеуетенанго упак. 200 гр.",
-      "stock": 23,
+      "stock": 22,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-038",
@@ -19366,7 +19404,7 @@
     {
       "id": "1c-043-abdce1e35c",
       "name": "F \"Roastberry\" Колумбия Андино упак. 200 г",
-      "stock": 10,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-043",
@@ -19804,7 +19842,7 @@
     {
       "id": "1c-048-2e8809f5b3",
       "name": "Сироп Бурбонская Ваниль 0,7 л. Гербариста",
-      "stock": 8,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "article_1c": "СИР-048",
@@ -20373,7 +20411,7 @@
     {
       "id": "1c-087-8a2c352e67",
       "name": "ЧА016 NEW Ассам Молти Кап, чай черный для чайников 15х4г",
-      "stock": 9,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-087",
@@ -21501,7 +21539,7 @@
     {
       "id": "1c-203-bd096fbce6",
       "name": "ЧН105 Ассам Суприм Блэк, чай черный байховый 250г Niktea",
-      "stock": 7,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-203",

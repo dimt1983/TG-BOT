@@ -877,6 +877,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         path = unquote(self.path.split("?", 1)[0])
+        query = parse_qs(urlparse(self.path).query, keep_blank_values=True)
 
         # ── Healthcheck ──────────────────────────────────────────────────────
         if path in ("/", ""):
@@ -1310,6 +1311,28 @@ class Handler(BaseHTTPRequestHandler):
                            "application/json; charset=utf-8", {"Cache-Control": "no-cache"})
             except Exception as e:
                 self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
+            return
+
+        # Immutable publication-verification view.  This deliberately returns
+        # the exact file bytes; the normal route below remains dynamically
+        # enriched for shop clients.
+        canonical_values = query.get("canonical")
+        if path == "/tma/products.json" and canonical_values is not None \
+                and (not canonical_values or any(value != "1" for value in canonical_values)):
+            self._send(400, b'Invalid canonical query', "text/plain",
+                       {"Cache-Control": "no-store"})
+            return
+        if path == "/tma/products.json" and canonical_values \
+                and all(value == "1" for value in canonical_values):
+            try:
+                with open(os.path.join(TMA_ROOT, "products.json"), "rb") as f:
+                    body = f.read()
+                self._send(
+                    200, body, "application/json; charset=utf-8",
+                    {"Cache-Control": "no-store"},
+                )
+            except Exception as e:
+                self._send(500, str(e).encode(), "text/plain")
             return
 
         # ── /tma/products.json (с живыми ценами от Bishop) ───────────────────
