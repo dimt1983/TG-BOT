@@ -5512,7 +5512,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 51,
+      "stock": 50,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -18524,7 +18524,7 @@
     {
       "id": "1c-f-f67ab10ad4",
       "name": "F \"Roastberry\" Эфиопия Иргачиф Гр.2 упак. 200 г",
-      "stock": 5,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "article_1c": "F",
@@ -18849,7 +18849,7 @@
     {
       "id": "1c-007-450fdb6fa2",
       "name": "BE \"Roastberry\" Классика упак. 200 г",
-      "stock": 34,
+      "stock": 33,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-007",
@@ -18865,7 +18865,7 @@
     {
       "id": "1c-008-53db02f4c8",
       "name": "BE \"Roastberry\" ХАНИ - 1 кг",
-      "stock": 27,
+      "stock": 26,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-008",
@@ -18945,7 +18945,7 @@
     {
       "id": "1c-013-66492bbd23",
       "name": "E \"Roastberry\" Бразилия Паже упак. 200 г",
-      "stock": 22,
+      "stock": 21,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-013",
@@ -18961,7 +18961,7 @@
     {
       "id": "1c-014-02c60c7f6e",
       "name": "E \"Roastberry\" Бразилия Сан Рафаель - 1 кг",
-      "stock": 56,
+      "stock": 58,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-014",
@@ -18977,7 +18977,7 @@
     {
       "id": "1c-015-3f135db063",
       "name": "E \"Roastberry\" Бразилия Сан Рафаель упак. 200 г",
-      "stock": 15,
+      "stock": 14,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-015",
@@ -19338,7 +19338,7 @@
     {
       "id": "1c-039-345c7a0325",
       "name": "F \"Roastberry\" Кения АА упак. 200 г",
-      "stock": 26,
+      "stock": 24,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-039",
@@ -19404,7 +19404,7 @@
     {
       "id": "1c-043-abdce1e35c",
       "name": "F \"Roastberry\" Колумбия Андино упак. 200 г",
-      "stock": 9,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-043",
