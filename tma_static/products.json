@@ -6032,7 +6032,7 @@
           "on_request": false
         }
       ],
-      "stock": 42,
+      "stock": 41,
       "tags": [],
       "photo": "photos/products/drip_chocolate_costa_rica.jpg",
       "tasting_notes": [
@@ -6125,7 +6125,7 @@
           "on_request": false
         }
       ],
-      "stock": 18,
+      "stock": 17,
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Эфиопия",
@@ -6200,7 +6200,7 @@
           "on_request": true
         }
       ],
-      "stock": 190,
+      "stock": 188,
       "tags": [],
       "photo": "",
       "tasting_notes": [
@@ -6233,7 +6233,7 @@
           "on_request": true
         }
       ],
-      "stock": 19,
+      "stock": 17,
       "tags": [],
       "photo": "photos/products/c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr.jpg",
       "tasting_notes": [
@@ -6597,7 +6597,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 10,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -15875,7 +15875,7 @@
           "on_request": true
         }
       ],
-      "stock": 148,
+      "stock": 592,
       "on_request": true,
       "_source": "Напиток на соевой основе, кокосовый \"Green Milk\"на соевой основе 1л.",
       "subcategory": "milk_main",
@@ -15894,7 +15894,7 @@
           "on_request": true
         }
       ],
-      "stock": 167,
+      "stock": 359,
       "on_request": true,
       "_source": "Напиток на соевой основе, миндальный \"Green Milk\" 1л.",
       "subcategory": "milk_main",
@@ -15913,7 +15913,7 @@
           "on_request": true
         }
       ],
-      "stock": 104,
+      "stock": 140,
       "on_request": true,
       "_source": "Напиток соевый со вкусом банана \"Green Milk\" 1л.",
       "subcategory": "milk_main",
@@ -18826,7 +18826,7 @@
     {
       "id": "1c-005-42cacd4058",
       "name": "BE \"Roastberry\" Венеция упак. 200 г",
-      "stock": 13,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-005",
@@ -18842,7 +18842,7 @@
     {
       "id": "1c-006-0ce1f2a605",
       "name": "BE \"Roastberry\" КЛАССИКА   - 1 кг",
-      "stock": 56,
+      "stock": 57,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-006",
@@ -18938,7 +18938,7 @@
     {
       "id": "1c-012-5428d144a8",
       "name": "E \"Roastberry\" Бразилия Паже - 1 кг",
-      "stock": 14,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-012",
@@ -18954,7 +18954,7 @@
     {
       "id": "1c-013-66492bbd23",
       "name": "E \"Roastberry\" Бразилия Паже упак. 200 г",
-      "stock": 21,
+      "stock": 20,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-013",
@@ -18986,7 +18986,7 @@
     {
       "id": "1c-015-3f135db063",
       "name": "E \"Roastberry\" Бразилия Сан Рафаель упак. 200 г",
-      "stock": 23,
+      "stock": 22,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-015",
@@ -19002,7 +19002,7 @@
     {
       "id": "1c-016-fd884f207c",
       "name": "E \"Roastberry\" Бразилия Серадо  упак. 200 г",
-      "stock": 17,
+      "stock": 14,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-016",
@@ -19019,7 +19019,7 @@
     {
       "id": "1c-017-58263ea4f0",
       "name": "E \"Roastberry\" Бразилия Серадо Дарк  упак. 200 г",
-      "stock": 13,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-017",
@@ -19036,7 +19036,7 @@
     {
       "id": "1c-018-6b44779230",
       "name": "E \"Roastberry\" Вьетнам Блю Сонал сухой упак. 200 г",
-      "stock": 13,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-018",
@@ -19135,7 +19135,7 @@
     {
       "id": "1c-024-0fd8686e4e",
       "name": "E \"Roastberry\" Гондурас San Nicolas упак. 200 гр.",
-      "stock": 8,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-024",
@@ -19167,7 +19167,7 @@
     {
       "id": "1c-026-5980a15289",
       "name": "E \"Roastberry\" Колумбия Андино упак. 200 г",
-      "stock": 6,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-026",
@@ -19232,7 +19232,7 @@
     {
       "id": "1c-030-ddd3c88e24",
       "name": "E \"Roastberry\" Уганада Рувензор упак. 200 г",
-      "stock": 9,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-030",
@@ -19330,7 +19330,7 @@
     {
       "id": "1c-038-4ddfe6fdf5",
       "name": "F \"Roastberry\" Гватемала Уеуетенанго упак. 200 гр.",
-      "stock": 20,
+      "stock": 22,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-038",
@@ -19347,7 +19347,7 @@
     {
       "id": "1c-039-345c7a0325",
       "name": "F \"Roastberry\" Кения АА упак. 200 г",
-      "stock": 23,
+      "stock": 22,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-039",
