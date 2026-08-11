@@ -5583,7 +5583,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 75,
+      "stock": 244,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7316,7 +7316,7 @@
       "name": "Колумбия Маракуйя Хани инфьюз.- 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7794,7 +7794,7 @@
           "on_request": false
         }
       ],
-      "stock": 11,
+      "stock": 21,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -15453,7 +15453,7 @@
       "name": "Колумбия Катимор натур. - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 6,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -15462,11 +15462,13 @@
         {
           "size": "1 кг",
           "price": 4602.5,
-          "photo": "photos/products/filter_micro_колумбия_катимор_натур_1_кг_filter.jpg"
+          "photo": "photos/products/filter_micro_колумбия_катимор_натур_1_кг_filter.jpg",
+          "on_request": false
         }
       ],
       "created_at": "2026-07-03T07:32:17+00:00",
-      "created_by": "sync_catalog_v2"
+      "created_by": "sync_catalog_v2",
+      "on_request": false
     },
     {
       "id": "filter_micro_колумбия_катуррон_натур_1_кг_filter",
@@ -15564,7 +15566,7 @@
       "name": "Вьетнам Блю Сонал сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 1,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -18874,7 +18876,7 @@
     {
       "id": "1c-008-53db02f4c8",
       "name": "BE \"Roastberry\" ХАНИ - 1 кг",
-      "stock": 10,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-008",
@@ -18890,7 +18892,7 @@
     {
       "id": "1c-009-759fdc0202",
       "name": "BE \"Roastberry\" Хани упак. 200 г",
-      "stock": 8,
+      "stock": 19,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-009",
@@ -18970,7 +18972,7 @@
     {
       "id": "1c-014-02c60c7f6e",
       "name": "E \"Roastberry\" Бразилия Сан Рафаель - 1 кг",
-      "stock": 110,
+      "stock": 161,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-014",
@@ -19002,7 +19004,7 @@
     {
       "id": "1c-016-fd884f207c",
       "name": "E \"Roastberry\" Бразилия Серадо  упак. 200 г",
-      "stock": 14,
+      "stock": 19,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-016",
@@ -19264,7 +19266,7 @@
     {
       "id": "1c-033-f3a1f750be",
       "name": "E \"Roastberry\" Эфиопия Сидамо Гр.2  - 1 кг",
-      "stock": 7,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-033",
@@ -19530,7 +19532,7 @@
     {
       "id": "1c-079-e271577a5a",
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Катимор нат.\" 200 г",
-      "stock": 7,
+      "stock": 17,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-079",
