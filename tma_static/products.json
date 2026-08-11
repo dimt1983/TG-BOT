@@ -5512,7 +5512,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 96,
+      "stock": 94,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5583,7 +5583,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 137,
+      "stock": 78,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6032,7 +6032,7 @@
           "on_request": false
         }
       ],
-      "stock": 43,
+      "stock": 42,
       "tags": [],
       "photo": "photos/products/drip_chocolate_costa_rica.jpg",
       "tasting_notes": [
@@ -6125,7 +6125,7 @@
           "on_request": false
         }
       ],
-      "stock": 19,
+      "stock": 18,
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Эфиопия",
@@ -6197,10 +6197,10 @@
           "size": "200 г",
           "price": 550,
           "photo": null,
-          "on_request": false
+          "on_request": true
         }
       ],
-      "stock": 192,
+      "stock": 190,
       "tags": [],
       "photo": "",
       "tasting_notes": [
@@ -6212,7 +6212,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr",
@@ -6230,10 +6230,10 @@
           "size": "200 г",
           "price": 465,
           "photo": "photos/products/c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
-      "stock": 21,
+      "stock": 19,
       "tags": [],
       "photo": "photos/products/c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr.jpg",
       "tasting_notes": [
@@ -6245,7 +6245,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "t-жасмин_тинг_юань_250г",
@@ -7615,7 +7615,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7794,7 +7794,7 @@
           "on_request": false
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -13956,15 +13956,17 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 680.0
+          "price": 680,
+          "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "on_request": false,
+      "hidden": false
     },
     {
       "id": "t-чн525_сила_природы_rooibush_mix_250_г_яблоко",
@@ -14808,7 +14810,7 @@
       "name": "Гондурас Сан Николас темная обжарка - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 19,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -16274,7 +16276,7 @@
           "on_request": false
         }
       ],
-      "stock": 8,
+      "stock": 5,
       "on_request": false,
       "_source": "Сироп Банан Желтый 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -16709,7 +16711,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 1,
       "on_request": false,
       "_source": "Сироп Лесной Орех 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -16882,12 +16884,13 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Мята Зеленая 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "сироп_персик_1_0_л_botanika",
@@ -16921,7 +16924,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "on_request": false,
       "_source": "Сироп Попкорн 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -17907,11 +17910,12 @@
         {
           "size": "250г",
           "photo": "",
-          "price": 1400
+          "price": 1400,
+          "on_request": false
         }
       ],
-      "stock": 5,
-      "on_request": true,
+      "stock": 4,
+      "on_request": false,
       "_source": "ЧН315 Молочный Улун, чай зеленый байховый  250г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -18822,7 +18826,7 @@
     {
       "id": "1c-005-42cacd4058",
       "name": "BE \"Roastberry\" Венеция упак. 200 г",
-      "stock": 14,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-005",
@@ -18838,7 +18842,7 @@
     {
       "id": "1c-006-0ce1f2a605",
       "name": "BE \"Roastberry\" КЛАССИКА   - 1 кг",
-      "stock": 62,
+      "stock": 56,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-006",
@@ -18870,7 +18874,7 @@
     {
       "id": "1c-008-53db02f4c8",
       "name": "BE \"Roastberry\" ХАНИ - 1 кг",
-      "stock": 20,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-008",
@@ -18982,7 +18986,7 @@
     {
       "id": "1c-015-3f135db063",
       "name": "E \"Roastberry\" Бразилия Сан Рафаель упак. 200 г",
-      "stock": 24,
+      "stock": 23,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-015",
@@ -18998,7 +19002,7 @@
     {
       "id": "1c-016-fd884f207c",
       "name": "E \"Roastberry\" Бразилия Серадо  упак. 200 г",
-      "stock": 18,
+      "stock": 17,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-016",
@@ -19015,7 +19019,7 @@
     {
       "id": "1c-017-58263ea4f0",
       "name": "E \"Roastberry\" Бразилия Серадо Дарк  упак. 200 г",
-      "stock": 14,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-017",
@@ -19032,7 +19036,7 @@
     {
       "id": "1c-018-6b44779230",
       "name": "E \"Roastberry\" Вьетнам Блю Сонал сухой упак. 200 г",
-      "stock": 14,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-018",
@@ -19163,7 +19167,7 @@
     {
       "id": "1c-026-5980a15289",
       "name": "E \"Roastberry\" Колумбия Андино упак. 200 г",
-      "stock": 7,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-026",
@@ -19228,7 +19232,7 @@
     {
       "id": "1c-030-ddd3c88e24",
       "name": "E \"Roastberry\" Уганада Рувензор упак. 200 г",
-      "stock": 10,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-030",
@@ -19326,7 +19330,7 @@
     {
       "id": "1c-038-4ddfe6fdf5",
       "name": "F \"Roastberry\" Гватемала Уеуетенанго упак. 200 гр.",
-      "stock": 21,
+      "stock": 20,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-038",
@@ -19343,7 +19347,7 @@
     {
       "id": "1c-039-345c7a0325",
       "name": "F \"Roastberry\" Кения АА упак. 200 г",
-      "stock": 24,
+      "stock": 23,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-039",
@@ -19409,7 +19413,7 @@
     {
       "id": "1c-043-abdce1e35c",
       "name": "F \"Roastberry\" Колумбия Андино упак. 200 г",
-      "stock": 7,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-043",
@@ -19426,7 +19430,7 @@
     {
       "id": "1c-044-f92aaf585d",
       "name": "F \"Roastberry\" Руанда Мутетели упак. 200 г",
-      "stock": 16,
+      "stock": 15,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-044",
@@ -19476,7 +19480,7 @@
     {
       "id": "1c-047-ffd9f785e8",
       "name": "F \"Roastberry\" Эфиопия Сидамо Гр.2. упак. 200 г",
-      "stock": 13,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-047",
@@ -19492,7 +19496,7 @@
     {
       "id": "1c-075-9ce7ed886d",
       "name": "Кофе \"Roastberry BLACK\" Кения Маакиоу Пиберри мытая - 200 г",
-      "stock": 16,
+      "stock": 15,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-075",
@@ -19509,7 +19513,7 @@
     {
       "id": "1c-078-e5e5b50bdb",
       "name": "Кофе \"Roastberry BORЩ \"Кения КиаваМуруру HN-7\" нат.анаэроб.200 г",
-      "stock": 17,
+      "stock": 16,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-078",
@@ -19543,7 +19547,7 @@
     {
       "id": "1c-080-85c8436a54",
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\" 200 г",
-      "stock": 6,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-080",
@@ -21575,7 +21579,7 @@
     {
       "id": "1c-204-57e0dcbdae",
       "name": "ЧН110 Юньнань Пуэр, чай черный байховый 250г",
-      "stock": 3,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-204",
@@ -21592,7 +21596,7 @@
     {
       "id": "1c-205-cd790c0c22",
       "name": "ЧН200 Эрл Грей Особый, чай черный байховый ароматизиров 250г",
-      "stock": 2,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-205",
