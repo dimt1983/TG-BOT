@@ -5583,7 +5583,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 182,
+      "stock": 173,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8208,7 +8208,7 @@
           "on_request": false
         }
       ],
-      "stock": 151,
+      "stock": 150,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -18817,7 +18817,7 @@
     {
       "id": "1c-004-17c30030d4",
       "name": "BE \"Roastberry\" ВЕНЕЦИЯ - 1 кг",
-      "stock": 8,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-004",
@@ -18977,7 +18977,7 @@
     {
       "id": "1c-014-02c60c7f6e",
       "name": "E \"Roastberry\" Бразилия Сан Рафаель - 1 кг",
-      "stock": 97,
+      "stock": 93,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-014",
@@ -19127,7 +19127,7 @@
     {
       "id": "1c-023-9de2ddae8a",
       "name": "E \"Roastberry\" Гондурас San Nicolas Dark - 1 кг",
-      "stock": 15,
+      "stock": 14,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-023",
