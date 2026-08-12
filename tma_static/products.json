@@ -5512,7 +5512,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 94,
+      "stock": 80,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5547,7 +5547,7 @@
       "name": "Бразилия Серрадо Желтый Бурбон сухой - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 19,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5583,7 +5583,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 244,
+      "stock": 182,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5999,7 +5999,7 @@
           "on_request": false
         }
       ],
-      "stock": 35,
+      "stock": 33,
       "tags": [],
       "photo": "photos/products/drip_chocolate_guatemala.jpg",
       "tasting_notes": [
@@ -6627,7 +6627,7 @@
       "name": "Кения АБ мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 8,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6693,7 +6693,7 @@
       "name": "Китай Симао гр.1 Меллоу мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "country": "Китай",
@@ -7351,9 +7351,9 @@
       "name": "Колумбия Пачамама нат.анаэроб.- 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 1,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Колумбия",
       "process": "натуральная анаэробная",
       "altitude": null,
@@ -7379,7 +7379,8 @@
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": false
+      "on_request": false,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "c-drip-колумбия_супремо__drip_",
@@ -7794,7 +7795,7 @@
           "on_request": false
         }
       ],
-      "stock": 21,
+      "stock": 20,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8387,15 +8388,17 @@
       "fasovka": [
         {
           "size": "5 мл",
-          "price": 400.0
+          "price": 400,
+          "on_request": false
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [],
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "on_request": false,
+      "hidden": false
     },
     {
       "id": "t-пу_эр_ан_бао_250_г",
@@ -8673,7 +8676,7 @@
           "on_request": true
         }
       ],
-      "stock": 16400,
+      "stock": 14800,
       "on_request": true,
       "subcategory": "other_sugar",
       "quarantined": false,
@@ -12649,7 +12652,7 @@
       "name": "Фильтры бумажные Bravilor Bonomat 50 шт",
       "category": "other",
       "subcategory": "other_filters",
-      "stock": 98,
+      "stock": 97,
       "on_request": true,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
@@ -14391,7 +14394,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 98,
+      "stock": 96,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -15475,7 +15478,7 @@
       "name": "Колумбия Катуррон натур. - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 3,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -15915,7 +15918,7 @@
           "on_request": true
         }
       ],
-      "stock": 140,
+      "stock": 128,
       "on_request": true,
       "_source": "Напиток соевый со вкусом банана \"Green Milk\" 1л.",
       "subcategory": "milk_main",
@@ -16317,7 +16320,7 @@
           "on_request": false
         }
       ],
-      "stock": 7,
+      "stock": 3,
       "on_request": false,
       "_source": "Сироп Ваниль 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -16540,7 +16543,7 @@
           "on_request": false
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "on_request": false,
       "_source": "Сироп Карамель 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -16713,12 +16716,13 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Лесной Орех 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "сироп_лесные_ягоды_1_0_л_botanika",
@@ -17718,12 +17722,13 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "on_request": false,
       "_source": "ЧА6045 Лемон Минт 150 г, напиток Альтхаус травяной",
       "subcategory": "tea_althaus_loose",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "nr24_молочный_улун_20_4г_для_чайника_чай_зеленый_аромат",
@@ -17778,7 +17783,7 @@
           "on_request": true
         }
       ],
-      "stock": 45,
+      "stock": 44,
       "on_request": true,
       "_source": "NR01 Кения Сапфир, чай черный пакет. 25*2г",
       "subcategory": "tea_китайский_чай_loose",
@@ -17971,7 +17976,7 @@
           "on_request": true
         }
       ],
-      "stock": 40,
+      "stock": 39,
       "on_request": true,
       "_source": "RB TEA Ассам 250 г",
       "subcategory": "tea_rbr_tea_loose",
@@ -18086,7 +18091,7 @@
           "on_request": true
         }
       ],
-      "stock": 43,
+      "stock": 38,
       "on_request": true,
       "_source": "Чай Tasteabrew ICEDTEA-400 \"Арбуз и клюква\" (50)",
       "subcategory": "tea_tasteabrew_iced",
@@ -18145,7 +18150,7 @@
           "on_request": false
         }
       ],
-      "stock": 67,
+      "stock": 62,
       "on_request": false,
       "_source": "Чай Tasteabrew SITO-350 \"Клубника с дыней\" (60)",
       "subcategory": "tea_tasteabrew_loose",
@@ -18617,7 +18622,7 @@
     {
       "id": "1c-taltha-dp0055-c26a61f95a",
       "name": "NR10 Горный Чабрец, чай черный пак. 25*2г Niktea",
-      "stock": 18,
+      "stock": 17,
       "hidden": false,
       "quarantined": false,
       "article_1c": "TALTHA-DP0055",
@@ -18812,7 +18817,7 @@
     {
       "id": "1c-004-17c30030d4",
       "name": "BE \"Roastberry\" ВЕНЕЦИЯ - 1 кг",
-      "stock": 10,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-004",
@@ -18828,7 +18833,7 @@
     {
       "id": "1c-005-42cacd4058",
       "name": "BE \"Roastberry\" Венеция упак. 200 г",
-      "stock": 12,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-005",
@@ -18844,7 +18849,7 @@
     {
       "id": "1c-006-0ce1f2a605",
       "name": "BE \"Roastberry\" КЛАССИКА   - 1 кг",
-      "stock": 57,
+      "stock": 104,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-006",
@@ -18860,7 +18865,7 @@
     {
       "id": "1c-007-450fdb6fa2",
       "name": "BE \"Roastberry\" Классика упак. 200 г",
-      "stock": 36,
+      "stock": 34,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-007",
@@ -18876,7 +18881,7 @@
     {
       "id": "1c-008-53db02f4c8",
       "name": "BE \"Roastberry\" ХАНИ - 1 кг",
-      "stock": 18,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-008",
@@ -18908,7 +18913,7 @@
     {
       "id": "1c-010-006716873f",
       "name": "BF \"Roastberry\" ЛУНГО - 1 кг",
-      "stock": 10,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-010",
@@ -18924,7 +18929,7 @@
     {
       "id": "1c-011-c7e1d4c6f3",
       "name": "BF \"Roastberry\" Лунго упак. 200 г",
-      "stock": 26,
+      "stock": 25,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-011",
@@ -18940,7 +18945,7 @@
     {
       "id": "1c-012-5428d144a8",
       "name": "E \"Roastberry\" Бразилия Паже - 1 кг",
-      "stock": 13,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-012",
@@ -18956,7 +18961,7 @@
     {
       "id": "1c-013-66492bbd23",
       "name": "E \"Roastberry\" Бразилия Паже упак. 200 г",
-      "stock": 20,
+      "stock": 16,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-013",
@@ -18972,7 +18977,7 @@
     {
       "id": "1c-014-02c60c7f6e",
       "name": "E \"Roastberry\" Бразилия Сан Рафаель - 1 кг",
-      "stock": 161,
+      "stock": 97,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-014",
@@ -18988,7 +18993,7 @@
     {
       "id": "1c-015-3f135db063",
       "name": "E \"Roastberry\" Бразилия Сан Рафаель упак. 200 г",
-      "stock": 22,
+      "stock": 21,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-015",
@@ -19055,9 +19060,9 @@
     {
       "id": "1c-019-523201f7bd",
       "name": "E \"Roastberry\" Гватемала Декаф - 1 кг",
-      "stock": 1,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "КОФ-019",
       "fasovka": [
         {
@@ -19066,7 +19071,8 @@
         }
       ],
       "category": "other",
-      "on_request": true
+      "on_request": true,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "1c-020-283921d881",
@@ -19088,7 +19094,7 @@
     {
       "id": "1c-021-d9286b8d12",
       "name": "E \"Roastberry\" Гватемала Уеуетенанго - 1 кг",
-      "stock": 4,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-021",
@@ -19137,7 +19143,7 @@
     {
       "id": "1c-024-0fd8686e4e",
       "name": "E \"Roastberry\" Гондурас San Nicolas упак. 200 гр.",
-      "stock": 7,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-024",
@@ -19153,7 +19159,7 @@
     {
       "id": "1c-025-360b6bc409",
       "name": "E \"Roastberry\" Колумбия Андино - 1 кг",
-      "stock": 12,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-025",
@@ -19185,7 +19191,7 @@
     {
       "id": "1c-027-7c7592956c",
       "name": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг",
-      "stock": 6,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-027",
@@ -19266,7 +19272,7 @@
     {
       "id": "1c-033-f3a1f750be",
       "name": "E \"Roastberry\" Эфиопия Сидамо Гр.2  - 1 кг",
-      "stock": 11,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-033",
@@ -19315,7 +19321,7 @@
     {
       "id": "1c-037-2ac04093c2",
       "name": "F \"Roastberry\" Гватемала Уеуетенанго - 1 кг",
-      "stock": 6,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-037",
@@ -19332,7 +19338,7 @@
     {
       "id": "1c-038-4ddfe6fdf5",
       "name": "F \"Roastberry\" Гватемала Уеуетенанго упак. 200 гр.",
-      "stock": 22,
+      "stock": 21,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-038",
@@ -19349,7 +19355,7 @@
     {
       "id": "1c-039-345c7a0325",
       "name": "F \"Roastberry\" Кения АА упак. 200 г",
-      "stock": 22,
+      "stock": 20,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-039",
@@ -19399,7 +19405,7 @@
     {
       "id": "1c-042-ad2758332a",
       "name": "F \"Roastberry\" Колумбия Андино - 1 кг",
-      "stock": 2,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-042",
@@ -19549,7 +19555,7 @@
     {
       "id": "1c-080-85c8436a54",
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\" 200 г",
-      "stock": 5,
+      "stock": 18,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-080",
@@ -19566,7 +19572,7 @@
     {
       "id": "1c-001-ec295f7f51",
       "name": "Кордиал BARBAСKS Голубика, Васильки, Черёмуха ст.0,75 л.",
-      "stock": 5,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "article_1c": "СИР-001",
@@ -19583,7 +19589,7 @@
     {
       "id": "1c-002-25d328432a",
       "name": "Кордиал BARBAСKS Роза, Ревень, Грейпфрут ст.0,75 л.",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "article_1c": "СИР-002",
@@ -20592,7 +20598,7 @@
     {
       "id": "1c-111-2b425d8abf",
       "name": "ЧА4005 Жасмин Тинг Юань 250г, чай Альтхаус зеленый аромат. лист",
-      "stock": 5,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-111",
@@ -20745,7 +20751,7 @@
     {
       "id": "1c-123-ab31afee0f",
       "name": "ЧА5090 Эсенс оф Фрут 250 г(Л), напиток Альтхаус травяной",
-      "stock": 2,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-123",
@@ -20926,14 +20932,15 @@
     {
       "id": "1c-140-524bf30b90",
       "name": "Чай Tasteabrew ICEDTEA-400 \"Малиновый мохито\" (50)",
-      "stock": 87,
+      "stock": 77,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-140",
       "fasovka": [
         {
           "size": "",
-          "price": 78
+          "price": 78,
+          "on_request": false
         }
       ],
       "category": "tea",
@@ -21430,14 +21437,15 @@
     {
       "id": "1c-177-5af17e37d1",
       "name": "Чай Tasteabrew TOGO-350 \"Черный чай со смородиной\" (30)",
-      "stock": 125,
+      "stock": 115,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-177",
       "fasovka": [
         {
           "size": "",
-          "price": 69
+          "price": 69,
+          "on_request": false
         }
       ],
       "category": "tea",
