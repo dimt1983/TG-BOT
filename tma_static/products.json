@@ -15743,7 +15743,9 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "photo": "assets/placeholders/pack_roastberry_1kg.png"
+          "photo": "assets/placeholders/pack_roastberry_1kg.png",
+          "price": 2175.0,
+          "on_request": false
         }
       ],
       "stock": 12.0,
@@ -15751,7 +15753,7 @@
       "country": "Гондурас",
       "subcategory": "retail_espresso",
       "roast": "E",
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-023"
     },
     {
