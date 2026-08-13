@@ -5583,7 +5583,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 173,
+      "stock": 243,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5618,7 +5618,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 13,
+      "stock": 24,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7117,7 +7117,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 1,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -14656,9 +14656,9 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
       "roast": "F",
       "photo": "photos/products/filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter.jpg",
       "fasovka": [
@@ -14673,15 +14673,15 @@
       "country": "Эфиопия",
       "description": "Эфиопия Yirgacheffe. Классический цветочно-чайный профиль с высокой кислотностью.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-07-06T13:34:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "espresso_mono_гватемала_уетенанго_мытый_1_кг_эспрессо",
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 28,
+      "stock": 24,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14707,9 +14707,9 @@
       "name": "Вьетнам Блю Шонла сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 5,
+      "hidden": false,
+      "quarantined": false,
       "roast": "F",
       "photo": "photos/products/filter_micro_вьетнам_блю_сонал_сухой_filter_1_кг.jpg",
       "fasovka": [
@@ -14722,8 +14722,8 @@
       "created_at": "2026-05-20T11:00:09+00:00",
       "created_by": "sync_catalog_v2",
       "country": "Вьетнам",
-      "quarantined_at": "2026-07-09T08:36:05+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_rb-bot",
+      "quarantined_at": null,
+      "quarantine_reason": null,
       "description": "Вьетнам Блю Шонла. Шоколад, орех, низкая кислотность.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30."
     },
@@ -15290,9 +15290,9 @@
       "name": "Бразилия \"Фазенда Лагуинья мундо анаэроб.\" эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_micro",
-      "stock": 1,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "E",
       "photo": "photos/products/espresso_micro_бразилия_фазенда_лагуинья_мундо_анаэроб_эспрессо_1_кг.jpg",
       "fasovka": [
@@ -15304,8 +15304,8 @@
       ],
       "created_at": "2026-05-27T03:36:13+00:00",
       "created_by": "sync_catalog_v2",
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined_at": "2026-08-13T06:15:52+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "filter_micro_кения_маакиоу_пиберри_мытая_1_кг_filter",
@@ -15569,9 +15569,9 @@
       "name": "Вьетнам Блю Сонал сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "F",
       "photo": "assets/placeholders/ph_filter.svg",
       "fasovka": [
@@ -15584,8 +15584,9 @@
       ],
       "created_at": "2026-07-09T08:36:05+00:00",
       "created_by": "sync_catalog_v2",
-      "quarantined_at": null,
-      "on_request": true
+      "quarantined_at": "2026-08-13T06:15:52+00:00",
+      "on_request": true,
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "retail_e_roastberry_гватемала_уетенанго_-_1_кг",
@@ -18220,7 +18221,7 @@
       "subcategory": "espresso_mono",
       "stock": 0,
       "hidden": true,
-      "quarantined": false,
+      "quarantined": true,
       "country": "Перу",
       "process": "Мытая",
       "altitude": null,
@@ -18239,7 +18240,9 @@
       "created_at": "2026-07-30T00:00:00+00:00",
       "created_by": "kimi-fix-perushg",
       "recipe_e": null,
-      "recipe_f": null
+      "recipe_f": null,
+      "quarantined_at": "2026-08-13T06:15:52+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "espresso_mono_blend_1_10%_темная_обжарка_1_кг",
@@ -18248,7 +18251,7 @@
       "subcategory": "espresso_mono",
       "stock": 0,
       "hidden": true,
-      "quarantined": false,
+      "quarantined": true,
       "country": null,
       "process": null,
       "altitude": null,
@@ -18267,7 +18270,9 @@
       "created_at": "2026-07-30T00:00:00+00:00",
       "created_by": "kimi-bridge-batch",
       "recipe_e": null,
-      "recipe_f": null
+      "recipe_f": null,
+      "quarantined_at": "2026-08-13T06:15:52+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "retail_espresso_эфиопия_иргачиф_гр_2_упак_200_г",
@@ -18332,7 +18337,7 @@
       "subcategory": "filter_mono",
       "stock": 0,
       "hidden": true,
-      "quarantined": false,
+      "quarantined": true,
       "country": null,
       "process": null,
       "altitude": null,
@@ -18351,7 +18356,9 @@
       "created_at": "2026-07-30T00:00:00+00:00",
       "created_by": "kimi-bridge-batch",
       "recipe_e": null,
-      "recipe_f": null
+      "recipe_f": null,
+      "quarantined_at": "2026-08-13T06:15:52+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "filter_mono_эфиопия_белоя_сухой_1_кг_filter",
@@ -18360,7 +18367,7 @@
       "subcategory": "filter_mono",
       "stock": 0,
       "hidden": true,
-      "quarantined": false,
+      "quarantined": true,
       "country": null,
       "process": null,
       "altitude": null,
@@ -18379,7 +18386,9 @@
       "created_at": "2026-07-30T00:00:00+00:00",
       "created_by": "kimi-bridge-batch",
       "recipe_e": null,
-      "recipe_f": null
+      "recipe_f": null,
+      "quarantined_at": "2026-08-13T06:15:52+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "retail_filter_эфиопия_белоя_200_г",
@@ -18472,7 +18481,7 @@
       "subcategory": "filter_mono",
       "stock": 0,
       "hidden": true,
-      "quarantined": false,
+      "quarantined": true,
       "country": null,
       "process": null,
       "altitude": null,
@@ -18491,7 +18500,9 @@
       "created_at": "2026-07-30T00:00:00+00:00",
       "created_by": "kimi-bridge-batch",
       "recipe_e": null,
-      "recipe_f": null
+      "recipe_f": null,
+      "quarantined_at": "2026-08-13T06:15:52+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "filter_mono_руанда_намяшике_хиллс_сухой_filter_1_кг",
@@ -18500,7 +18511,7 @@
       "subcategory": "filter_mono",
       "stock": 0,
       "hidden": true,
-      "quarantined": false,
+      "quarantined": true,
       "country": null,
       "process": null,
       "altitude": null,
@@ -18519,7 +18530,9 @@
       "created_at": "2026-07-30T00:00:00+00:00",
       "created_by": "kimi-bridge-batch",
       "recipe_e": null,
-      "recipe_f": null
+      "recipe_f": null,
+      "quarantined_at": "2026-08-13T06:15:52+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_rb-bot"
     },
     {
       "id": "1c-00-00000125-6f0370fb89",
@@ -21805,6 +21818,28 @@
       ],
       "category": "tea",
       "on_request": false
+    },
+    {
+      "id": "espresso_mono_перу_гр_1_мытый_эспрессо_1_кг",
+      "name": "Перу Гр.1 мытый эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 36,
+      "hidden": false,
+      "quarantined": false,
+      "roast": "E",
+      "photo": "assets/placeholders/ph_espresso.svg",
+      "on_request": true,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": null,
+          "on_request": true,
+          "photo": "assets/placeholders/ph_espresso.svg"
+        }
+      ],
+      "created_at": "2026-08-13T06:15:52+00:00",
+      "created_by": "sync_catalog_v2"
     }
   ]
 }
