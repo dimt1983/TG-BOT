@@ -1676,6 +1676,10 @@ function productCard(p, subContext) {
   if (!displayFas) displayFas = fasList.reduce((a,b) => (a.price <= b.price ? a : b), fasList[0]);
   const minPrice = displayFas.price;
   const displaySize = displayFas.size;
+  // Без цены карточка всё равно в продаже — 1С отдаёт остаток, прайс подъедет
+  // позже. Раньше сюда печаталось «null ₽».
+  const hasPrice = (typeof minPrice === 'number') && minPrice > 0 && !displayFas.on_request;
+  const priceLabel = hasPrice ? `${minPrice} ₽` : 'по запросу';
   const tags = (p.tags || []).slice(0, 2).map(t => {
     let cls = '';
     if (t === 'Хит') cls = 'hit';
@@ -1714,7 +1718,10 @@ function productCard(p, subContext) {
   // Кнопка: если ничего нет в корзине — «+», иначе мини-степпер
   const addBtn = outOfStock
     ? `<button class="product-add disabled" disabled title="Нет в наличии">×</button>`
-    : (cartQty > 0
+    : (!hasPrice
+      // Цены нет — в корзину класть нечего, отправляем в карточку, там «Спросить в боте»
+      ? `<button class="product-add" title="Цена по запросу" onclick="event.stopPropagation(); openProduct('${p.id}')">?</button>`
+      : cartQty > 0
       ? `<div class="qty-mini" onclick="event.stopPropagation()">
            <button onclick="quickQty('${p.id}','${displaySize}',-1)">−</button>
            <span>${cartQty}</span>
@@ -1736,7 +1743,7 @@ function productCard(p, subContext) {
         </div>
       </div>
       <div class="product-bottom">
-        <div class="product-price">${minPrice} ₽<span class="from" style="margin-left:6px">/ ${displaySize}</span></div>
+        <div class="product-price">${priceLabel}<span class="from" style="margin-left:6px">/ ${displaySize}</span></div>
         <div class="action-stack">
           <div class="fav-star ${isFav ? 'on' : ''}" onclick="event.stopPropagation(); toggleFavorite('${p.id}')"></div>
           ${addBtn}

@@ -3059,7 +3059,7 @@
           "size": "1 шт",
           "price": 300.0,
           "photo": null,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 2,
@@ -3067,7 +3067,7 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "on_request": true,
+      "on_request": false,
       "hidden": false
     },
     {
@@ -3086,7 +3086,7 @@
           "size": "1 шт",
           "price": 280.0,
           "photo": null,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 11,
@@ -3094,7 +3094,7 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "on_request": true,
+      "on_request": false,
       "hidden": false
     },
     {
@@ -3113,7 +3113,7 @@
           "size": "1 шт",
           "price": 300.0,
           "photo": null,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 10,
@@ -3121,7 +3121,7 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "on_request": true,
+      "on_request": false,
       "hidden": false
     },
     {
@@ -3140,7 +3140,7 @@
           "size": "1 шт",
           "price": 330.0,
           "photo": null,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 8,
@@ -3148,7 +3148,7 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "on_request": true,
+      "on_request": false,
       "hidden": false
     },
     {
@@ -3231,7 +3231,7 @@
           "size": "1 шт",
           "price": 300.0,
           "photo": null,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 12,
@@ -3239,7 +3239,7 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "on_request": true,
+      "on_request": false,
       "hidden": false
     },
     {
@@ -3290,7 +3290,7 @@
           "size": "1 шт",
           "price": 360.0,
           "photo": null,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 14,
@@ -3298,7 +3298,7 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "on_request": true,
+      "on_request": false,
       "hidden": false
     },
     {
@@ -5146,7 +5146,7 @@
           "size": "250 г",
           "price": 1750,
           "photo": null,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 5,
@@ -5155,7 +5155,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "t-ts19_лаванда",
@@ -5569,14 +5569,14 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_бразилия_серрадо_дарк_темная_обжарка_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-051"
     },
     {
@@ -5642,14 +5642,14 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_бразилия_серрадо_средняя_обжарка_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-053"
     },
     {
@@ -5673,13 +5673,13 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/filter_mono_бразилия_фазенда_сертао_сухой_молотый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-054"
     },
     {
@@ -5823,13 +5823,13 @@
           "size": "1 кг",
           "price": 2355,
           "photo": "photos/products/filter_mono_гватемала_уеуетенанго_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-057"
     },
     {
@@ -6244,7 +6244,7 @@
           "size": "200 г",
           "price": 550,
           "photo": null,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 188.0,
@@ -6259,7 +6259,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
-      "on_request": true,
+      "on_request": false,
       "article_1c": "ДРП-005"
     },
     {
@@ -6278,7 +6278,7 @@
           "size": "200 г",
           "price": 465,
           "photo": "photos/products/c-дрип-пакет_эфиопия_иргачиф_арича_гр_2_валом_rbr.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 17.0,
@@ -6293,7 +6293,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
-      "on_request": true,
+      "on_request": false,
       "article_1c": "ДРП-006"
     },
     {
@@ -6663,14 +6663,14 @@
           "size": "1 кг",
           "price": 2595,
           "photo": "photos/products/filter_mono_кения_аа_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "quarantined_at": null,
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-059"
     },
     {
@@ -6694,7 +6694,7 @@
           "size": "1 кг",
           "price": 2595,
           "photo": "photos/products/espresso_mono_кения_аб_мытый_1_кг_эспрессо.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -6702,7 +6702,7 @@
       "quarantined_at": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-060"
     },
     {
@@ -6732,13 +6732,13 @@
           "size": "1 кг",
           "price": 2490,
           "photo": "photos/products/filter_mono_кения_центральная_провинция_аб_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-063",
       "quarantined_at": "2026-08-13T09:00:04+00:00",
       "quarantine_reason": "no_in_1c_vedomost_rb-bot"
@@ -7224,7 +7224,7 @@
           "size": "1 кг",
           "price": 2175,
           "photo": "photos/products/espresso_mono_колумбия_андино_мытый_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -7232,7 +7232,7 @@
       "quarantined_at": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-067"
     },
     {
@@ -8452,14 +8452,14 @@
           "size": "1 кг",
           "price": 2870,
           "photo": "photos/products/espresso_mono_перу_монте_верде_гр_1_сухой_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-085"
     },
     {
@@ -8687,7 +8687,7 @@
           "size": "1 кг",
           "price": 2230,
           "photo": "photos/products/espresso_mono_руанда_мутетели_15_мытый_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -8695,7 +8695,7 @@
       "quarantined_at": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-086"
     },
     {
@@ -8725,14 +8725,14 @@
           "size": "1 кг",
           "price": 2230,
           "photo": "photos/products/filter_mono_руанда_мутетели_15_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "quarantined_at": null,
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-087"
     },
     {
@@ -8763,11 +8763,11 @@
         {
           "size": "шт",
           "price": 1,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 14400.0,
-      "on_request": true,
+      "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
       "quarantined_at": null,
@@ -8855,7 +8855,7 @@
         {
           "size": "1200 мл",
           "price": 635,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 1,
@@ -8864,7 +8864,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "s-сироп_barline_базилик_1л",
@@ -11893,7 +11893,7 @@
           "size": "1 шт",
           "price": 721,
           "photo": null,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 38,
@@ -11902,7 +11902,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "s-сироп_маракуйя_гавайская_1",
@@ -11944,7 +11944,7 @@
           "size": "1 шт",
           "price": 777,
           "photo": null,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 5,
@@ -11953,7 +11953,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "s-сироп_цветы_бузины_1",
@@ -12142,7 +12142,7 @@
           "size": "350 мл",
           "price": 12,
           "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 575,
@@ -12151,7 +12151,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_",
@@ -12169,7 +12169,7 @@
           "size": "500 мл",
           "price": 11,
           "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 495,
@@ -12178,7 +12178,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "t-супериор_жу_бао_белый_70г",
@@ -12567,7 +12567,7 @@
           "size": "1 кг",
           "price": 2070,
           "photo": "photos/products/espresso_mono_уганда_вугар_мытый_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -12575,7 +12575,7 @@
       "quarantined_at": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-089"
     },
     {
@@ -12604,14 +12604,14 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_уганда_рувензори_сухой_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-090"
     },
     {
@@ -12730,7 +12730,7 @@
           "size": "1 шт",
           "price": 390,
           "photo": null,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 60,
@@ -12739,7 +12739,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "o-фильтры_bonomat_50шт",
@@ -12747,7 +12747,7 @@
       "category": "other",
       "subcategory": "other_filters",
       "stock": 97,
-      "on_request": true,
+      "on_request": false,
       "price": null,
       "description": "Бумажные фильтры от голландского бренда Bravilor Bonamat, который производит профессиональное кофейное оборудование.\n\n\n\nЭти фильтры разработаны для моделей капельных кофеварок Mondo, Маtic, Novo, TH, THa, RLX, но благодаря своему универсальному размеру подойдут для любых капельных кофемашин с корзиной на 1–2,5 литров.\n\n\n\nФорма фильтров создаёт воздушные каналы между фильтром и корзиной кофемашины, поэтому в заваривании активно участвует кислород и насыщает напиток.\n\n\n\nРекомендуем вставить фильтр в корзину и пролить горячей водой перед завариванием, а уже затем засыпать в него молотый кофе. Также рекомендуем ознакомиться с руководством по приготовлению кофе в капельной кофеварке.\n\n\n\nПроизводитель: Bravilor Bonamat, Нидерланды\nДиаметр: нижний — 85 мм, верхний — 245 мм\nКоличество: 50 шт",
       "photo": "photos/products/o-фильтры_bonomat_50шт.webp",
@@ -12756,7 +12756,7 @@
           "size": "1 шт",
           "price": 400,
           "photo": "photos/products/o-фильтры_bonomat_50шт.webp",
-          "on_request": true
+          "on_request": false
         }
       ],
       "hidden": false,
@@ -12768,14 +12768,14 @@
       "category": "other",
       "subcategory": "other_filters",
       "stock": 10,
-      "on_request": true,
+      "on_request": false,
       "price": null,
       "photo": "",
       "fasovka": [
         {
           "size": "1 шт",
           "price": 440,
-          "on_request": true
+          "on_request": false
         }
       ],
       "hidden": false,
@@ -14177,7 +14177,7 @@
           "size": "1 шт",
           "price": 1100,
           "photo": null,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 3,
@@ -14186,7 +14186,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "t-чн650_дикая_вишня_cherry_basic_600_г_",
@@ -14440,14 +14440,14 @@
           "size": "1 кг",
           "price": 2120,
           "photo": "photos/products/filter_mono_эфиопия_лиму_гр_2_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "quarantined_at": null,
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-092"
     },
     {
@@ -14505,14 +14505,14 @@
           "size": "1 кг",
           "price": 2120,
           "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_4_сухой_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-095"
     },
     {
@@ -14738,7 +14738,7 @@
           "size": "1 кг",
           "price": 2620,
           "photo": "photos/products/filter_mono_перу_монте_верде_гр_1_сухой_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
@@ -14747,7 +14747,7 @@
       "description": "Перу. Шоколад, сухофрукты, лёгкая кислотность, чистый профиль.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "quarantined_at": null,
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-084"
     },
     {
@@ -14926,7 +14926,7 @@
           "size": "1 кг",
           "price": 2175,
           "photo": "photos/products/espresso_mono_гондурас_сан_николас_темная_обжарка_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-22T12:00:08+00:00",
@@ -14935,7 +14935,7 @@
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "quarantined_at": null,
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-058"
     },
     {
@@ -15530,15 +15530,15 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
+          "price": 2385.0,
           "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_2_мытый_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-06-30T10:30:36+00:00",
       "created_by": "sync_catalog_v2",
       "quarantined_at": null,
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-094"
     },
     {
@@ -15554,14 +15554,14 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
+          "price": 2385.0,
           "photo": "photos/products/filter_mono_эфиопия_сидамо_gr_2_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-06-30T11:36:04+00:00",
       "created_by": "sync_catalog_v2",
-      "on_request": true,
+      "on_request": false,
       "article_1c": "КОФ-093"
     },
     {
@@ -16116,7 +16116,7 @@
         }
       ],
       "stock": 2,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Земляника BARLINE 1,0 л.",
       "subcategory": "syr_barline",
       "hidden": false,
@@ -16135,7 +16135,7 @@
         }
       ],
       "stock": 2,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Макадамия BARLINE 1,0 л.",
       "subcategory": "syr_barline",
       "hidden": false,
@@ -16154,7 +16154,7 @@
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Можжевельник BARLINE 1,0 л.",
       "subcategory": "syr_barline",
       "hidden": false,
@@ -16189,7 +16189,7 @@
         }
       ],
       "stock": 2,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Тирамису BARLINE 1,0 л.",
       "subcategory": "syr_barline",
       "hidden": false,
@@ -16208,7 +16208,7 @@
         }
       ],
       "stock": 0,
-      "on_request": true,
+      "on_request": false,
       "_source": "Топпинг Банан BARLINE 1 кг",
       "subcategory": "syr_barline",
       "hidden": true,
@@ -16228,7 +16228,7 @@
         }
       ],
       "stock": 0,
-      "on_request": true,
+      "on_request": false,
       "_source": "Топпинг Ваниль BARLINE 1 кг",
       "subcategory": "syr_barline",
       "hidden": true,
@@ -16248,7 +16248,7 @@
         }
       ],
       "stock": 3,
-      "on_request": true,
+      "on_request": false,
       "_source": "Топпинг Карамель BARLINE 1 кг",
       "subcategory": "syr_barline",
       "hidden": false,
@@ -16267,7 +16267,7 @@
         }
       ],
       "stock": 6,
-      "on_request": true,
+      "on_request": false,
       "_source": "Топпинг Шоколад  BARLINE 1 кг",
       "subcategory": "syr_barline",
       "hidden": false,
@@ -16286,7 +16286,7 @@
         }
       ],
       "stock": 6,
-      "on_request": true,
+      "on_request": false,
       "_source": "Топпинг Шоколад Белый BARLINE 1 кг",
       "subcategory": "syr_barline",
       "hidden": false,
@@ -16325,7 +16325,7 @@
         }
       ],
       "stock": 3,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Амаретто 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16344,7 +16344,7 @@
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Ананас 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16363,7 +16363,7 @@
         }
       ],
       "stock": 1,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Апельсин 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16402,7 +16402,7 @@
         }
       ],
       "stock": 4,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Бабл Гам 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16441,7 +16441,7 @@
         }
       ],
       "stock": 2,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Блю Кюрасао 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16516,7 +16516,7 @@
         }
       ],
       "stock": 3,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Грейпфрут Розовый 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16567,7 +16567,7 @@
         }
       ],
       "stock": 12,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Дыня 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16586,7 +16586,7 @@
         }
       ],
       "stock": 6,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Дыня ЗЕЛЕНАЯ 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16644,7 +16644,7 @@
         }
       ],
       "stock": 0,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Имбирный Пряник 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": true,
@@ -16664,7 +16664,7 @@
         }
       ],
       "stock": 4,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Имбирь 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16703,7 +16703,7 @@
         }
       ],
       "stock": 0,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Карамель Соленая 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": true,
@@ -16723,7 +16723,7 @@
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Киви 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16742,7 +16742,7 @@
         }
       ],
       "stock": 4,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Кленовый 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16761,7 +16761,7 @@
         }
       ],
       "stock": 3,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Клубника 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16780,7 +16780,7 @@
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Клюква 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16799,7 +16799,7 @@
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Кокос 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16818,7 +16818,7 @@
         }
       ],
       "stock": 4,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Корица 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16837,7 +16837,7 @@
         }
       ],
       "stock": 3,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Лаванда 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16877,7 +16877,7 @@
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Лесные Ягоды 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16896,7 +16896,7 @@
         }
       ],
       "stock": 3,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Лимон 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16915,7 +16915,7 @@
         }
       ],
       "stock": 18,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Малина 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16934,7 +16934,7 @@
         }
       ],
       "stock": 2,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Манго 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16953,7 +16953,7 @@
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Мандарин 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -16972,7 +16972,7 @@
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Мед 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -17011,7 +17011,7 @@
         }
       ],
       "stock": 16,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Мохито 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -17051,7 +17051,7 @@
         }
       ],
       "stock": 6,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Персик 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -17090,7 +17090,7 @@
         }
       ],
       "stock": 10,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Тархун 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -17109,7 +17109,7 @@
         }
       ],
       "stock": 8,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Черная Смородина 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -17128,7 +17128,7 @@
         }
       ],
       "stock": 2,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Шоколад 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
       "hidden": false,
@@ -17147,7 +17147,7 @@
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Восточные пряности 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
       "hidden": false,
@@ -17186,7 +17186,7 @@
         }
       ],
       "stock": 0,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Кашемировый персик 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
       "hidden": true,
@@ -17242,7 +17242,7 @@
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Манго 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
       "hidden": false,
@@ -17261,7 +17261,7 @@
         }
       ],
       "stock": 6,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Маракуйя 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
       "hidden": false,
@@ -17280,7 +17280,7 @@
         }
       ],
       "stock": 0,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Мята 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
       "hidden": true,
@@ -17300,7 +17300,7 @@
         }
       ],
       "stock": 8,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Плоды и цветы бузины 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
       "hidden": false,
@@ -17359,7 +17359,7 @@
         }
       ],
       "stock": 6,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Табак-ваниль 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
       "hidden": false,
@@ -17378,7 +17378,7 @@
         }
       ],
       "stock": 3,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Яблоко с листьями 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
       "hidden": false,
@@ -17397,7 +17397,7 @@
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Ягоды севера 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
       "hidden": false,
@@ -17416,7 +17416,7 @@
         }
       ],
       "stock": 2,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп SweetShot Вишня 1л стекл бут",
       "subcategory": "syr_sweetshot",
       "hidden": false,
@@ -17435,7 +17435,7 @@
         }
       ],
       "stock": 12,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп SweetShot Клубника 1 л.",
       "subcategory": "syr_sweetshot",
       "hidden": false,
@@ -17470,7 +17470,7 @@
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп \"Топпинг \"Груша\" 1200мл",
       "subcategory": "syr_other",
       "hidden": false,
@@ -17489,7 +17489,7 @@
         }
       ],
       "stock": 1,
-      "on_request": true,
+      "on_request": false,
       "_source": "Сироп Розовый Грейпфрут 1 л. МОНИН",
       "subcategory": "syr_other",
       "hidden": false,
@@ -17524,7 +17524,7 @@
         }
       ],
       "stock": 2,
-      "on_request": true,
+      "on_request": false,
       "_source": "ЧА023 Жасминовый Тиг Юань, чай зел с жасм пакет Grand Pack15х4г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -17540,11 +17540,11 @@
           "size": "4г",
           "photo": "",
           "price": 998,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "ЧА024 NEW Грюн Матинэ, чай зелен аромат д/чаника 15х4г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -17560,11 +17560,11 @@
           "size": "3,5г",
           "photo": "",
           "price": 1220,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "ЧА030 Благородная Ромашка,напиток трав д/чайника 15х3,5г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -17580,11 +17580,11 @@
           "size": "4г",
           "photo": "",
           "price": 998,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "ЧА032 NEW Горные травы, чай черный с чабрецом д/чайника 15х4г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -17600,11 +17600,11 @@
           "size": "4г",
           "photo": "",
           "price": 1200,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "ЧА036 Ройбуш Ванильная Карамель, напиток чайн аром для чайников 15х4г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -17639,7 +17639,7 @@
         }
       ],
       "stock": 6,
-      "on_request": true,
+      "on_request": false,
       "_source": "ЧА008 Грюн Матинэ, чай зелен аомат. пакетир 20х1,75",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -17658,7 +17658,7 @@
         }
       ],
       "stock": 12,
-      "on_request": true,
+      "on_request": false,
       "_source": "ЧА009 Ромашковый луг., напиток травяной пкетир 20х1,75",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -17677,7 +17677,7 @@
         }
       ],
       "stock": 5,
-      "on_request": true,
+      "on_request": false,
       "_source": "ЧАD012 Ройбуш Ваниль, напиток пакетир 20х1,75",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -17712,7 +17712,7 @@
         }
       ],
       "stock": 1,
-      "on_request": true,
+      "on_request": false,
       "_source": "L4035 Грюн Матинэ 200г, чай Альтхаус зеленый аромат. лист",
       "subcategory": "tea_althaus_loose",
       "hidden": false,
@@ -17766,7 +17766,7 @@
         }
       ],
       "stock": 4,
-      "on_request": true,
+      "on_request": false,
       "_source": "ЧА2050 Горные Травы 250г, чай Альтхаус черный аромат. лист.",
       "subcategory": "tea_althaus_loose",
       "hidden": false,
@@ -17785,7 +17785,7 @@
         }
       ],
       "stock": 4,
-      "on_request": true,
+      "on_request": false,
       "_source": "ЧА3415 Ганпаудер Жу Ча, чай зеленый байховый 250г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -17824,7 +17824,7 @@
         }
       ],
       "stock": 6,
-      "on_request": true,
+      "on_request": false,
       "_source": "ЧА3600 Сенча Сенпай 250 г, чай Альтаус зеленый листовой",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -17843,7 +17843,7 @@
         }
       ],
       "stock": 3,
-      "on_request": true,
+      "on_request": false,
       "_source": "ЧА6030 Японская Липа 75 г, напиток Альтхаус травяной",
       "subcategory": "tea_althaus_loose",
       "hidden": false,
@@ -17880,11 +17880,11 @@
           "size": "4г",
           "photo": "",
           "price": 890,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 7,
-      "on_request": true,
+      "on_request": false,
       "_source": "NR24 Молочный Улун 20*4г для чайника чай зеленый аромат",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -17900,11 +17900,11 @@
           "size": "4г",
           "photo": "",
           "price": 670,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 2,
-      "on_request": true,
+      "on_request": false,
       "_source": "NR27 Горный Чабрец, чай черный с чабрецом пакет для чайника 20х4г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -17920,11 +17920,11 @@
           "size": "2г",
           "photo": "",
           "price": 190,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 44,
-      "on_request": true,
+      "on_request": false,
       "_source": "NR01 Кения Сапфир, чай черный пакет. 25*2г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -17940,11 +17940,11 @@
           "size": "2г",
           "photo": "",
           "price": 190,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 34,
-      "on_request": true,
+      "on_request": false,
       "_source": "NR04 Молочный Улун, чай зеленый аромат. пакет 25*2г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -17960,11 +17960,11 @@
           "size": "1,75г",
           "photo": "",
           "price": 185,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 9,
-      "on_request": true,
+      "on_request": false,
       "_source": "NR05 Красная поляна, чай пакет. 25*1,75г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -17980,11 +17980,11 @@
           "size": "2г",
           "photo": "",
           "price": 240,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 18,
-      "on_request": true,
+      "on_request": false,
       "_source": "NR06 Фрут Маджента, нап. чайный аромат. пакет. 25*2г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -18000,11 +18000,11 @@
           "size": "2г",
           "photo": "",
           "price": 215,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 17,
-      "on_request": true,
+      "on_request": false,
       "_source": "NR07 Ройбуш Оранж, напиток чайный аромат. пакет. 25*2г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -18023,7 +18023,7 @@
         }
       ],
       "stock": 8,
-      "on_request": true,
+      "on_request": false,
       "_source": "TS22 Гречишный Чай, чайн.нап. 250 г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -18094,11 +18094,11 @@
           "size": "2г",
           "photo": "",
           "price": 3600,
-          "on_request": true
+          "on_request": false
         }
       ],
       "stock": 1.828,
-      "on_request": true,
+      "on_request": false,
       "_source": "NR06-500 Фрут Маджента, напиток чайный аромат. пакет. 500*2г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -18136,7 +18136,7 @@
         }
       ],
       "stock": 0,
-      "on_request": true,
+      "on_request": false,
       "_source": "RB TEA Ганпаудер сад 250 г",
       "subcategory": "tea_rbr_tea_loose",
       "hidden": true,
@@ -18156,7 +18156,7 @@
         }
       ],
       "stock": 8,
-      "on_request": true,
+      "on_request": false,
       "_source": "RB TEA Дворцовый пуэр 250 г",
       "subcategory": "tea_rbr_tea_loose",
       "hidden": false,
@@ -18175,7 +18175,7 @@
         }
       ],
       "stock": 8,
-      "on_request": true,
+      "on_request": false,
       "_source": "RB TEA Дикий пуэр 250 г (пуэр из крупных листьев дикорастущих старых чайных деревьев)",
       "subcategory": "tea_rbr_tea_loose",
       "hidden": false,
@@ -18194,7 +18194,7 @@
         }
       ],
       "stock": 14,
-      "on_request": true,
+      "on_request": false,
       "_source": "RB TEA Дянь Хун Маофен 250 г",
       "subcategory": "tea_rbr_tea_loose",
       "hidden": false,
@@ -18213,7 +18213,7 @@
         }
       ],
       "stock": 16,
-      "on_request": true,
+      "on_request": false,
       "_source": "RB TEA Чай зеленый с мятой 250 г",
       "subcategory": "tea_rbr_tea_loose",
       "hidden": false,
@@ -18251,7 +18251,7 @@
         }
       ],
       "stock": 41,
-      "on_request": true,
+      "on_request": false,
       "_source": "Чай Tasteabrew HONEY-350 \"Молочный улун с мандарином\" (60)",
       "subcategory": "tea_tasteabrew_loose",
       "hidden": false,
@@ -18310,7 +18310,7 @@
         }
       ],
       "stock": 3,
-      "on_request": true,
+      "on_request": false,
       "_source": "Чайный нап.на основе иван-чая \"Теплый Вечер\" 200 г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -22077,12 +22077,12 @@
       "quarantined": false,
       "roast": "E",
       "photo": "assets/placeholders/ph_espresso.svg",
-      "on_request": true,
+      "on_request": false,
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true,
+          "price": 2230.0,
+          "on_request": false,
           "photo": "assets/placeholders/ph_espresso.svg"
         }
       ],
