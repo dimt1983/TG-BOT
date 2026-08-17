@@ -16202,12 +16202,15 @@
           "price": 530
         }
       ],
-      "stock": 2,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Земляника BARLINE 1,0 л.",
       "subcategory": "syr_barline",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_barline_земляника_1л"
     },
     {
       "id": "сироп_макадамия_barline_1_0_л",
@@ -16221,12 +16224,15 @@
           "price": 604
         }
       ],
-      "stock": 2,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Макадамия BARLINE 1,0 л.",
       "subcategory": "syr_barline",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_barline_макадамия_1л"
     },
     {
       "id": "сироп_можжевельник_barline_1_0_л",
@@ -16240,12 +16246,15 @@
           "price": 565
         }
       ],
-      "stock": 5,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Можжевельник BARLINE 1,0 л.",
       "subcategory": "syr_barline",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_barline_можжевельник_1л"
     },
     {
       "id": "сироп_огурец_barline_1_0_л",
@@ -16275,12 +16284,15 @@
           "price": 573
         }
       ],
-      "stock": 2,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Тирамису BARLINE 1,0 л.",
       "subcategory": "syr_barline",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_barline_тирамису_1л"
     },
     {
       "id": "топпинг_банан_barline_1_кг",
@@ -16334,12 +16346,15 @@
           "price": 546
         }
       ],
-      "stock": 3,
+      "stock": 0,
       "on_request": false,
       "_source": "Топпинг Карамель BARLINE 1 кг",
       "subcategory": "syr_barline",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-топпинг_barline_карамель_1кг"
     },
     {
       "id": "топпинг_шоколад_barline_1_кг",
@@ -16353,12 +16368,15 @@
           "price": 575
         }
       ],
-      "stock": 6,
+      "stock": 0,
       "on_request": false,
       "_source": "Топпинг Шоколад  BARLINE 1 кг",
       "subcategory": "syr_barline",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-топпинг_barline_шоколад_1кг"
     },
     {
       "id": "топпинг_шоколад_белый_barline_1_кг",
@@ -16392,12 +16410,15 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Айриш Крем 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_айриш_крем_1л"
     },
     {
       "id": "сироп_амаретто_1_0_л_botanika",
@@ -16411,12 +16432,15 @@
           "price": 635
         }
       ],
-      "stock": 3,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Амаретто 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_амаретто_1л"
     },
     {
       "id": "сироп_ананас_1_0_л_botanika",
@@ -16449,12 +16473,15 @@
           "price": 635
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Апельсин 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_апельсин_1л"
     },
     {
       "id": "сироп_арбуз_1_0_л_botanika",
@@ -16469,12 +16496,15 @@
           "on_request": false
         }
       ],
-      "stock": 10,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Арбуз 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_арбуз_1л"
     },
     {
       "id": "сироп_бабл_гам_1_0_л_botanika",
@@ -16488,12 +16518,15 @@
           "price": 635
         }
       ],
-      "stock": 4,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Бабл Гам 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_бабл_гам_1л"
     },
     {
       "id": "сироп_банан_желтый_1_0_л_botanika",
@@ -16508,12 +16541,15 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Банан Желтый 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_банан_желтый_1л"
     },
     {
       "id": "сироп_блю_кюрасао_1_0_л_botanika",
@@ -16547,12 +16583,15 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Ваниль 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_ваниль_1л"
     },
     {
       "id": "сироп_вишня_1_0_л_botanika",
@@ -16567,12 +16606,15 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Вишня 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_вишня_1л"
     },
     {
       "id": "сироп_гранат_1_0_л_botanika",
@@ -16587,10 +16629,15 @@
           "on_request": false
         }
       ],
-      "stock": 2,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Гранат 1,0 л. BOTANIKA",
-      "subcategory": "syr_botanika"
+      "subcategory": "syr_botanika",
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_гранат_1л"
     },
     {
       "id": "сироп_грейпфрут_розовый_1_0_л_botanika",
@@ -16604,12 +16651,15 @@
           "price": 635
         }
       ],
-      "stock": 3,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Грейпфрут Розовый 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_грейпфрут_розовый_1л"
     },
     {
       "id": "сироп_гренадин_1_0_л_botanika",
@@ -16624,10 +16674,15 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Гренадин 1,0 л. BOTANIKA",
-      "subcategory": "syr_botanika"
+      "subcategory": "syr_botanika",
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_гренадин_1л"
     },
     {
       "id": "сироп_груша_сортовая_1_0_л_botanika",
@@ -16642,10 +16697,15 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Груша Сортовая 1,0 л. BOTANIKA",
-      "subcategory": "syr_botanika"
+      "subcategory": "syr_botanika",
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_груша_сортовая_1л"
     },
     {
       "id": "сироп_дыня_1_0_л_botanika",
@@ -16659,12 +16719,15 @@
           "price": 635
         }
       ],
-      "stock": 12,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Дыня 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_дыня_1л"
     },
     {
       "id": "сироп_дыня_зеленая_1_0_л_botanika",
@@ -16678,12 +16741,15 @@
           "price": 635
         }
       ],
-      "stock": 6,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Дыня ЗЕЛЕНАЯ 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_дыня_зеленая_1л"
     },
     {
       "id": "сироп_ежевика_1_0_л_botanika",
@@ -16698,12 +16764,15 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Ежевика 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_ежевика_1л"
     },
     {
       "id": "сироп_зеленое_яблоко_1_0_л_botanika",
@@ -16718,12 +16787,15 @@
           "price": 635.0
         }
       ],
-      "stock": 7,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Зеленое Яблоко 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_зеленое_яблоко_1л"
     },
     {
       "id": "сироп_имбирный_пряник_1_0_л_botanika",
@@ -16757,12 +16829,15 @@
           "price": 635
         }
       ],
-      "stock": 4,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Имбирь 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_имбирь_1л"
     },
     {
       "id": "сироп_карамель_1_0_л_botanika",
@@ -16777,12 +16852,15 @@
           "on_request": false
         }
       ],
-      "stock": 8,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Карамель 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_карамель_1л"
     },
     {
       "id": "сироп_карамель_соленая_1_0_л_botanika",
@@ -16816,12 +16894,15 @@
           "price": 660
         }
       ],
-      "stock": 5,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Киви 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_киви_1л"
     },
     {
       "id": "сироп_кленовый_1_0_л_botanika",
@@ -16835,12 +16916,15 @@
           "price": 635
         }
       ],
-      "stock": 4,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Кленовый 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_кленовый_1л"
     },
     {
       "id": "сироп_клубника_1_0_л_botanika",
@@ -16854,12 +16938,15 @@
           "price": 635
         }
       ],
-      "stock": 3,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Клубника 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_клубника_1л"
     },
     {
       "id": "сироп_клюква_1_0_л_botanika",
@@ -16873,12 +16960,15 @@
           "price": 635
         }
       ],
-      "stock": 5,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Клюква 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_клюква_1л"
     },
     {
       "id": "сироп_кокос_1_0_л_botanika",
@@ -16892,12 +16982,15 @@
           "price": 635
         }
       ],
-      "stock": 5,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Кокос 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_кокос_1л"
     },
     {
       "id": "сироп_корица_1_0_л_botanika",
@@ -16911,12 +17004,15 @@
           "price": 635
         }
       ],
-      "stock": 4,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Корица 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_корица_1л"
     },
     {
       "id": "сироп_лаванда_1_0_л_botanika",
@@ -16930,12 +17026,15 @@
           "price": 635
         }
       ],
-      "stock": 3,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Лаванда 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_лаванда_1л"
     },
     {
       "id": "сироп_лесной_орех_1_0_л_botanika",
@@ -16989,12 +17088,15 @@
           "price": 635
         }
       ],
-      "stock": 3,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Лимон 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_лимон_1л"
     },
     {
       "id": "сироп_малина_1_0_л_botanika",
@@ -17008,12 +17110,15 @@
           "price": 635
         }
       ],
-      "stock": 18,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Малина 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_малина_1л"
     },
     {
       "id": "сироп_манго_1_0_л_botanika",
@@ -17027,12 +17132,15 @@
           "price": 635
         }
       ],
-      "stock": 2,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Манго 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_манго_1л"
     },
     {
       "id": "сироп_мандарин_1_0_л_botanika",
@@ -17065,12 +17173,15 @@
           "price": 635
         }
       ],
-      "stock": 5,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Мед 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_мед_1л"
     },
     {
       "id": "сироп_миндаль_1_0_л_botanika",
@@ -17085,12 +17196,15 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Миндаль 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_миндаль_1л"
     },
     {
       "id": "сироп_мохито_1_0_л_botanika",
@@ -17144,12 +17258,15 @@
           "price": 635
         }
       ],
-      "stock": 6,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Персик 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_персик_1л"
     },
     {
       "id": "сироп_попкорн_1_0_л_botanika",
@@ -17164,12 +17281,15 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Попкорн 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_попкорн_1л"
     },
     {
       "id": "сироп_тархун_1_0_л_botanika",
@@ -17183,12 +17303,15 @@
           "price": 635
         }
       ],
-      "stock": 10,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Тархун 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_тархун_1л"
     },
     {
       "id": "сироп_черная_смородина_1_0_л_botanika",
@@ -17202,12 +17325,15 @@
           "price": 635
         }
       ],
-      "stock": 8,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Черная Смородина 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_черная_смородина_1л"
     },
     {
       "id": "сироп_шоколад_1_0_л_botanika",
@@ -17221,12 +17347,15 @@
           "price": 635
         }
       ],
-      "stock": 2,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Шоколад 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_botanika_шоколад_1л"
     },
     {
       "id": "сироп_восточные_пряности_0_7_л_гербариста",
@@ -17320,10 +17449,15 @@
           "on_request": false
         }
       ],
-      "stock": 2,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Кокос с мякотью 0,7 л. Гербариста",
-      "subcategory": "syr_herbarista"
+      "subcategory": "syr_herbarista",
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-17T11:32:16+00:00",
+      "quarantine_reason": "merged_duplicate",
+      "canonical_id": "s-сироп_herbarista_кокос_с_мякотью_0_7л"
     },
     {
       "id": "сироп_манго_0_7_л_гербариста",
