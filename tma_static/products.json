@@ -1336,7 +1336,7 @@
           "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg"
         }
       ],
-      "stock": 5.0,
+      "stock": 2.0,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1614,7 +1614,7 @@
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg"
         }
       ],
-      "stock": 38.0,
+      "stock": 33.0,
       "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
@@ -5643,7 +5643,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 346.0,
+      "stock": 324.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14604,7 +14604,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 51.0,
+      "stock": 50.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14794,9 +14794,9 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 6.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "E",
       "photo": "photos/products/espresso_mono_эфиопия_yirgacheffe_gr_2_мытый_эспрессо_1_кг.jpg",
       "fasovka": [
@@ -14813,8 +14813,8 @@
       "description": "Эфиопия Yirgacheffe. Классический цветочно-чайный профиль с высокой кислотностью.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee",
       "on_request": false
     },
     {
@@ -19242,7 +19242,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19260,7 +19260,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19278,7 +19278,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19296,7 +19296,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19314,7 +19314,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19332,7 +19332,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19350,7 +19350,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19368,7 +19368,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19386,7 +19386,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19404,7 +19404,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19422,7 +19422,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19440,7 +19440,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19458,7 +19458,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19476,7 +19476,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19494,7 +19494,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19513,7 +19513,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19532,7 +19532,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19551,7 +19551,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19587,7 +19587,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19605,7 +19605,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19624,7 +19624,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19642,7 +19642,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19660,7 +19660,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19678,7 +19678,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19696,7 +19696,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19714,7 +19714,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19732,7 +19732,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19751,7 +19751,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19769,7 +19769,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19787,7 +19787,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19805,7 +19805,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19823,7 +19823,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19842,7 +19842,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19861,7 +19861,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19880,7 +19880,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19898,7 +19898,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19917,7 +19917,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19936,7 +19936,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19954,7 +19954,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19973,7 +19973,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19992,7 +19992,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20010,7 +20010,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20047,7 +20047,7 @@
       ],
       "category": "other",
       "on_request": true,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20066,7 +20066,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20085,7 +20085,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20104,7 +20104,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20123,7 +20123,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-17T11:15:02+00:00",
+      "quarantined_at": "2026-08-17T12:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
