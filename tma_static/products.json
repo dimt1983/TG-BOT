@@ -8906,14 +8906,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 550.0
+          "price": 550.0,
+          "photo": "photos/products/s-сироп_barline_базилик_1л.png"
         }
       ],
       "stock": 4,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_barline_базилик_1л.png"
     },
     {
       "id": "s-сироп_barline_земляника_1л",
@@ -8929,14 +8931,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 530.0
+          "price": 530.0,
+          "photo": "photos/products/s-сироп_barline_земляника_1л.png"
         }
       ],
       "stock": 4,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_barline_земляника_1л.png"
     },
     {
       "id": "s-сироп_barline_макадамия_1л",
@@ -8952,7 +8956,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 604.0
+          "price": 604.0,
+          "photo": "photos/products/s-сироп_barline_макадамия_1л.png"
         }
       ],
       "stock": 2,
@@ -8960,7 +8965,8 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "hidden": false
+      "hidden": false,
+      "photo": "photos/products/s-сироп_barline_макадамия_1л.png"
     },
     {
       "id": "s-сироп_barline_мандарин_1л",
@@ -8976,7 +8982,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 607.5
+          "price": 607.5,
+          "photo": "photos/products/s-сироп_barline_мандарин_1л.png"
         }
       ],
       "stock": 3,
@@ -8984,7 +8991,8 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "hidden": false
+      "hidden": false,
+      "photo": "photos/products/s-сироп_barline_мандарин_1л.png"
     },
     {
       "id": "s-сироп_barline_можжевельник_1л",
@@ -9000,14 +9008,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 565.0
+          "price": 565.0,
+          "photo": "photos/products/s-сироп_barline_можжевельник_1л.png"
         }
       ],
       "stock": 5,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_barline_можжевельник_1л.png"
     },
     {
       "id": "s-сироп_barline_огурец_1л",
@@ -9047,14 +9057,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 560.0
+          "price": 560.0,
+          "photo": "photos/products/s-сироп_barline_сангрия_1л.png"
         }
       ],
       "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_barline_сангрия_1л.png"
     },
     {
       "id": "s-сироп_barline_тирамису_1л",
@@ -9070,14 +9082,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 573.0
+          "price": 573.0,
+          "photo": "photos/products/s-сироп_barline_тирамису_1л.png"
         }
       ],
       "stock": 2,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_barline_тирамису_1л.png"
     },
     {
       "id": "s-сироп_barline_фундук_1л",
@@ -9093,14 +9107,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 540.0
+          "price": 540.0,
+          "photo": "photos/products/s-сироп_barline_фундук_1л.png"
         }
       ],
       "stock": 1,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_barline_фундук_1л.png"
     },
     {
       "id": "s-сироп_botanika_айриш_крем_1л",
@@ -12293,14 +12309,16 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 1300.0
+          "price": 1300.0,
+          "photo": "photos/products/s-топпинг_barline_банан_1кг.png"
         }
       ],
       "stock": 1,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-топпинг_barline_банан_1кг.png"
     },
     {
       "id": "s-топпинг_barline_ваниль_1кг",
@@ -12316,14 +12334,16 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 525.0
+          "price": 525.0,
+          "photo": "photos/products/s-топпинг_barline_ваниль_1кг.png"
         }
       ],
       "stock": 2,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-топпинг_barline_ваниль_1кг.png"
     },
     {
       "id": "s-топпинг_barline_карамель_1кг",
@@ -12339,14 +12359,16 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 530.0
+          "price": 530.0,
+          "photo": "photos/products/s-топпинг_barline_карамель_1кг.png"
         }
       ],
       "stock": 2,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-топпинг_barline_карамель_1кг.png"
     },
     {
       "id": "s-топпинг_barline_лесные_ягоды_1кг",
@@ -12362,14 +12384,16 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 526.0
+          "price": 526.0,
+          "photo": "photos/products/s-топпинг_barline_лесные_ягоды_1кг.png"
         }
       ],
       "stock": 4,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-топпинг_barline_лесные_ягоды_1кг.png"
     },
     {
       "id": "s-топпинг_barline_шоколад_1кг",
@@ -12385,14 +12409,16 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 493.5
+          "price": 493.5,
+          "photo": "photos/products/s-топпинг_barline_шоколад_1кг.png"
         }
       ],
       "stock": 8,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-топпинг_barline_шоколад_1кг.png"
     },
     {
       "id": "s-топпинг_icedream_груша_1200мл",
@@ -16167,11 +16193,11 @@
       "id": "сироп_земляника_barline_1_0_л",
       "name": "Сироп Земляника BARLINE 1,0 л.",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/сироп_земляника_barline_1_0_л.png",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "",
+          "photo": "photos/products/сироп_земляника_barline_1_0_л.png",
           "price": 530
         }
       ],
@@ -16186,11 +16212,11 @@
       "id": "сироп_макадамия_barline_1_0_л",
       "name": "Сироп Макадамия BARLINE 1,0 л.",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/сироп_макадамия_barline_1_0_л.png",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "",
+          "photo": "photos/products/сироп_макадамия_barline_1_0_л.png",
           "price": 604
         }
       ],
@@ -16205,11 +16231,11 @@
       "id": "сироп_можжевельник_barline_1_0_л",
       "name": "Сироп Можжевельник BARLINE 1,0 л.",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/сироп_можжевельник_barline_1_0_л.png",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "",
+          "photo": "photos/products/сироп_можжевельник_barline_1_0_л.png",
           "price": 565
         }
       ],
@@ -16224,11 +16250,11 @@
       "id": "сироп_огурец_barline_1_0_л",
       "name": "Сироп Огурец BARLINE 1,0 л.",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/сироп_огурец_barline_1_0_л.png",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": ""
+          "photo": "photos/products/сироп_огурец_barline_1_0_л.png"
         }
       ],
       "stock": 1,
@@ -16240,11 +16266,11 @@
       "id": "сироп_тирамису_barline_1_0_л",
       "name": "Сироп Тирамису BARLINE 1,0 л.",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/сироп_тирамису_barline_1_0_л.png",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "",
+          "photo": "photos/products/сироп_тирамису_barline_1_0_л.png",
           "price": 573
         }
       ],
@@ -16299,11 +16325,11 @@
       "id": "топпинг_карамель_barline_1_кг",
       "name": "Топпинг Карамель BARLINE 1 кг",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/топпинг_карамель_barline_1_кг.png",
       "fasovka": [
         {
           "size": "1 кг",
-          "photo": "",
+          "photo": "photos/products/топпинг_карамель_barline_1_кг.png",
           "price": 546
         }
       ],
@@ -16318,11 +16344,11 @@
       "id": "топпинг_шоколад_barline_1_кг",
       "name": "Топпинг Шоколад  BARLINE 1 кг",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/топпинг_шоколад_barline_1_кг.png",
       "fasovka": [
         {
           "size": "1 кг",
-          "photo": "",
+          "photo": "photos/products/топпинг_шоколад_barline_1_кг.png",
           "price": 575
         }
       ],
@@ -16337,11 +16363,11 @@
       "id": "топпинг_шоколад_белый_barline_1_кг",
       "name": "Топпинг Шоколад Белый BARLINE 1 кг",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/топпинг_шоколад_белый_barline_1_кг.png",
       "fasovka": [
         {
           "size": "1 кг",
-          "photo": "",
+          "photo": "photos/products/топпинг_шоколад_белый_barline_1_кг.png",
           "price": 502
         }
       ],
