@@ -9159,14 +9159,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_амаретто_1л.webp"
         }
       ],
       "stock": 5,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_амаретто_1л.webp"
     },
     {
       "id": "s-сироп_botanika_апельсин_1л",
@@ -9182,14 +9184,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_апельсин_1л.webp"
         }
       ],
       "stock": 4,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_апельсин_1л.webp"
     },
     {
       "id": "s-сироп_botanika_арахисовое_масло_1л",
@@ -9228,14 +9232,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_арбуз_1л.webp"
         }
       ],
       "stock": 8,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_арбуз_1л.webp"
     },
     {
       "id": "s-сироп_botanika_бабл_гам_1л",
@@ -9303,14 +9309,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 546.0
+          "price": 546.0,
+          "photo": "photos/products/s-сироп_botanika_ваниль_1л.webp"
         }
       ],
       "stock": 2,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_ваниль_1л.webp"
     },
     {
       "id": "s-сироп_botanika_вишня_1л",
@@ -9326,14 +9334,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_вишня_1л.webp"
         }
       ],
       "stock": 1,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_вишня_1л.webp"
     },
     {
       "id": "s-сироп_botanika_гранат_1л",
@@ -9349,14 +9359,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_гранат_1л.webp"
         }
       ],
       "stock": 3,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_гранат_1л.webp"
     },
     {
       "id": "s-сироп_botanika_грейпфрут_розовый_1л",
@@ -9398,7 +9410,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_гренадин_1л.webp"
         }
       ],
       "stock": 1,
@@ -9407,7 +9420,8 @@
       ],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_гренадин_1л.webp"
     },
     {
       "id": "s-сироп_botanika_груша_сортовая_1л",
@@ -9449,14 +9463,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_дыня_1л.webp"
         }
       ],
       "stock": 13,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_дыня_1л.webp"
     },
     {
       "id": "s-сироп_botanika_дыня_зеленая_1л",
@@ -9498,14 +9514,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_ежевика_1л.webp"
         }
       ],
       "stock": 8,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_ежевика_1л.webp"
     },
     {
       "id": "s-сироп_botanika_зеленое_яблоко_1л",
@@ -9573,14 +9591,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_имбирь_1л.png"
         }
       ],
       "stock": 4,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_имбирь_1л.png"
     },
     {
       "id": "s-сироп_botanika_карамель_1л",
@@ -9596,7 +9616,8 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 546.0
+          "price": 546.0,
+          "photo": "photos/products/s-сироп_botanika_карамель_1л.webp"
         }
       ],
       "stock": 3,
@@ -9605,7 +9626,8 @@
       ],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_карамель_1л.webp"
     },
     {
       "id": "s-сироп_botanika_карамель_соленая_1л",
@@ -9649,14 +9671,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 660.0
+          "price": 660.0,
+          "photo": "photos/products/s-сироп_botanika_киви_1л.webp"
         }
       ],
       "stock": 5,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_киви_1л.webp"
     },
     {
       "id": "s-сироп_botanika_кленовый_1л",
@@ -9672,14 +9696,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_кленовый_1л.webp"
         }
       ],
       "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_кленовый_1л.webp"
     },
     {
       "id": "s-сироп_botanika_клубника_1л",
@@ -9695,14 +9721,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_клубника_1л.webp"
         }
       ],
       "stock": 7,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_клубника_1л.webp"
     },
     {
       "id": "s-сироп_botanika_клюква_1л",
@@ -9718,14 +9746,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_клюква_1л.webp"
         }
       ],
       "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_клюква_1л.webp"
     },
     {
       "id": "s-сироп_botanika_кокос_1л",
@@ -9741,14 +9771,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_кокос_1л.webp"
         }
       ],
       "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_кокос_1л.webp"
     },
     {
       "id": "s-сироп_botanika_корица_1л",
@@ -9764,14 +9796,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_корица_1л.webp"
         }
       ],
       "stock": 1,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_корица_1л.webp"
     },
     {
       "id": "s-сироп_botanika_лаванда_1л",
@@ -9787,14 +9821,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_лаванда_1л.webp"
         }
       ],
       "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_лаванда_1л.webp"
     },
     {
       "id": "s-сироп_botanika_лайм_1л",
@@ -9810,14 +9846,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 1060.0
+          "price": 1060.0,
+          "photo": "photos/products/s-сироп_botanika_лайм_1л.webp"
         }
       ],
       "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_лайм_1л.webp"
     },
     {
       "id": "s-сироп_botanika_лесной_орех_1л",
@@ -9859,14 +9897,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_лимон_1л.webp"
         }
       ],
       "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_лимон_1л.webp"
     },
     {
       "id": "s-сироп_botanika_малина_1л",
@@ -9882,14 +9922,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_малина_1л.webp"
         }
       ],
       "stock": 10,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_малина_1л.webp"
     },
     {
       "id": "s-сироп_botanika_манго_1л",
@@ -9905,14 +9947,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_манго_1л.webp"
         }
       ],
       "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_манго_1л.webp"
     },
     {
       "id": "s-сироп_botanika_мандарин_1л",
@@ -9951,14 +9995,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_мед_1л.webp"
         }
       ],
       "stock": 7,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_мед_1л.webp"
     },
     {
       "id": "s-сироп_botanika_миндаль_1л",
@@ -9974,14 +10020,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_миндаль_1л.webp"
         }
       ],
       "stock": 10,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_миндаль_1л.webp"
     },
     {
       "id": "s-сироп_botanika_мохито_1л",
@@ -10047,14 +10095,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_облепиха_1л.webp"
         }
       ],
       "stock": 4,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_облепиха_1л.webp"
     },
     {
       "id": "s-сироп_botanika_персик_1л",
@@ -10070,14 +10120,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_персик_1л.webp"
         }
       ],
       "stock": 8,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_персик_1л.webp"
     },
     {
       "id": "s-сироп_botanika_попкорн_1л",
@@ -10093,14 +10145,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_попкорн_1л.png"
         }
       ],
       "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_попкорн_1л.png"
     },
     {
       "id": "s-сироп_botanika_тархун_1л",
@@ -10116,14 +10170,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_botanika_тархун_1л.webp"
         }
       ],
       "stock": 10,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_тархун_1л.webp"
     },
     {
       "id": "s-сироп_botanika_черная_смородина_1л",
@@ -10165,14 +10221,16 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 575.0
+          "price": 575.0,
+          "photo": "photos/products/s-сироп_botanika_шоколад_1л.webp"
         }
       ],
       "stock": 8,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/s-сироп_botanika_шоколад_1л.webp"
     },
     {
       "id": "s-сироп_herbarista_арахисовое_масло_0_7л",
@@ -11861,12 +11919,13 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_ананас_1.webp"
         }
       ],
       "stock": 2,
       "tags": [],
-      "photo": null,
+      "photo": "photos/products/s-сироп_ананас_1.webp",
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null
@@ -11961,12 +12020,13 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_маракуйя_гавайская_1.webp"
         }
       ],
       "stock": 6,
       "tags": [],
-      "photo": null,
+      "photo": "photos/products/s-сироп_маракуйя_гавайская_1.webp",
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null
@@ -12012,12 +12072,13 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_цветы_бузины_1.webp"
         }
       ],
       "stock": 9,
       "tags": [],
-      "photo": null,
+      "photo": "photos/products/s-сироп_цветы_бузины_1.webp",
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null
@@ -12036,12 +12097,13 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 635.0
+          "price": 635.0,
+          "photo": "photos/products/s-сироп_шоколадное_печенье_1.webp"
         }
       ],
       "stock": 5,
       "tags": [],
-      "photo": null,
+      "photo": "photos/products/s-сироп_шоколадное_печенье_1.webp",
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null
@@ -16446,11 +16508,11 @@
       "id": "сироп_ананас_1_0_л_botanika",
       "name": "Сироп Ананас 1,0 л. BOTANIKA",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/сироп_ананас_1_0_л_botanika.webp",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "",
+          "photo": "photos/products/сироп_ананас_1_0_л_botanika.webp",
           "price": 635
         }
       ],
@@ -16555,11 +16617,11 @@
       "id": "сироп_блю_кюрасао_1_0_л_botanika",
       "name": "Сироп Блю Кюрасао 1,0 л. BOTANIKA",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/сироп_блю_кюрасао_1_0_л_botanika.webp",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "",
+          "photo": "photos/products/сироп_блю_кюрасао_1_0_л_botanika.webp",
           "price": 660
         }
       ],
@@ -17061,11 +17123,11 @@
       "id": "сироп_лесные_ягоды_1_0_л_botanika",
       "name": "Сироп Лесные Ягоды 1,0 л. BOTANIKA",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/сироп_лесные_ягоды_1_0_л_botanika.webp",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "",
+          "photo": "photos/products/сироп_лесные_ягоды_1_0_л_botanika.webp",
           "price": 635
         }
       ],
@@ -17146,11 +17208,11 @@
       "id": "сироп_мандарин_1_0_л_botanika",
       "name": "Сироп Мандарин 1,0 л. BOTANIKA",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/сироп_мандарин_1_0_л_botanika.webp",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "",
+          "photo": "photos/products/сироп_мандарин_1_0_л_botanika.webp",
           "price": 635
         }
       ],
@@ -17210,11 +17272,11 @@
       "id": "сироп_мохито_1_0_л_botanika",
       "name": "Сироп Мохито 1,0 л. BOTANIKA",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/сироп_мохито_1_0_л_botanika.webp",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "",
+          "photo": "photos/products/сироп_мохито_1_0_л_botanika.webp",
           "price": 660
         }
       ],
