@@ -415,6 +415,7 @@ function applyUserProfile(p) {
   // Личный тариф клиента: приходит процентом (0 / 10 / 20).
   if (typeof p.discount_pct === 'number') STATE.personalPct = p.discount_pct;
   if (typeof p.pricing_rules === 'number') STATE.pricingRules = p.pricing_rules;
+  if (Array.isArray(p.personal_rules)) STATE.personalRules = p.personal_rules;
   if (p.pd_consent_at) {
     STATE.contact.consent_granted = true;
     STATE.contact.consent_signed_at = p.pd_consent_at;
@@ -584,6 +585,108 @@ function tierFor(kg) {
   return 0;
 }
 
+const RULE_SCOPES = ['all', 'category', 'subcategory', 'product'];
+// Правила клиента, подходящие к конкретной фасовке. Порядок проверок тот же,
+// что в _matching_pricing_rules на сервере: разойдутся — клиент увидит одну
+// цену, а в заказе окажется другая.
+function matchingRules(p, size) {
+  const rules = STATE.personalRules;
+  if (!Array.isArray(rules) || !rules.length) return [];
+  const cat = String(p.category || '').toLowerCase();
+  const sub = String(p.subcategory || '').toLowerCase();
+  const pid = String(p.id || '').toLowerCase();
+  const fas = String(size || '').toLowerCase();
+  return rules.filter(r => {
+    if (!RULE_SCOPES.includes(r.scope)) return false;
+    const tgt = String(r.target_id || '').trim().toLowerCase();
+    if (r.scope === 'category'    && tgt !== cat) return false;
+    if (r.scope === 'subcategory' && tgt !== sub) return false;
+    if (r.scope === 'product'     && tgt !== pid) return false;
+    const rf = String(r.fasovka || '').trim().toLowerCase();
+    if (rf && rf !== fas) return false;
+    return true;
+  });
+}
+
+// Из подходящих правил берём одно — самое выгодное клиенту. Не складываем.
+function personalPrice(base, rules) {
+  let best = base;
+  for (const r of rules) {
+    if (r.fixed_price != null) {
+      const fx = Number(r.fixed_price);
+      if (isFinite(fx) && fx < best) best = fx;
+    }
+    if (r.discount_pct != null) {
+      const pct = Number(r.discount_pct);
+      if (isFinite(pct) && pct >= 0 && pct <= 100) {
+        const v = Math.round(base * (1 - pct / 100) * 100) / 100;
+        if (v < best) best = v;
+      }
+    }
+  }
+  return best;
+}
+
+// Проставляем личные цены прямо в каталог. price_base хранит прайсовую цену:
+// именно её отправляем на сервер — он применит правила сам, иначе скидка
+// посчитается дважды. Пересчёт всегда от price_base, поэтому повторный вызов
+// безопасен.
+function applyPersonalPrices() {
+  const prods = STATE.data && STATE.data.products;
+  if (!Array.isArray(prods)) return;
+  const has = Array.isArray(STATE.personalRules) && STATE.personalRules.length > 0;
+  for (const p of prods) {
+    for (const f of (p.fasovka || [])) {
+      if (typeof f.price_base !== 'number' && typeof f.price === 'number') f.price_base = f.price;
+      if (typeof f.price_base !== 'number') continue;
+      f.price = f.price_base;
+      f.personal_pct = 0;
+      if (!has || f.on_request) continue;
+      const np = personalPrice(f.price_base, matchingRules(p, f.size));
+      if (np < f.price_base - 0.01) {
+        f.price = np;
+        f.personal_pct = Math.round((1 - np / f.price_base) * 100);
+      }
+    }
+  }
+}
+
+// Корзина двумя корзинами: позиции с личной ценой скидку уже получили —
+// весовая к ним не применяется, и их вес не идёт в счёт порога. Ровно так
+// считает _compute_order_discount на сервере.
+function cartSplit() {
+  let personal = 0, personalBase = 0, general = 0, kgGeneral = 0;
+  for (const it of STATE.cart) {
+    const p = findProduct(it.id);
+    if (!p) continue;
+    const f = (p.fasovka || []).find(x => x.size === it.fasovka);
+    if (!f || f.on_request || typeof f.price !== 'number') continue;
+    const qty = it.qty || 1;
+    if (f.personal_pct > 0) {
+      personal += f.price * qty;
+      personalBase += (typeof f.price_base === 'number' ? f.price_base : f.price) * qty;
+      continue;
+    }
+    general += f.price * qty;
+    kgGeneral += sizeToKg(it.fasovka) * qty;
+  }
+  return { personal, personalBase, general, kgGeneral };
+}
+
+function cartTotals() {
+  const s = cartSplit();
+  const tier = tierFor(s.kgGeneral);
+  const weightSave = s.general * tier;
+  const personalSave = s.personalBase - s.personal;
+  return {
+    subtotal: s.personalBase + s.general,
+    total: s.personal + s.general - weightSave,
+    tier, weightSave, personalSave,
+    save: personalSave + weightSave,
+    kgGeneral: s.kgGeneral,
+  };
+}
+
 /* ════════════════════════════════════════════════════════════════════
    HELPERS
    ════════════════════════════════════════════════════════════════════ */
@@ -601,25 +704,14 @@ function cartCount() {
   return STATE.cart.reduce((s, i) => s + (i.qty || 1), 0);
 }
 function cartWeightKg() {
+  // Вес всего заказа, не только кофе: порог скидки сервер считает так же.
   let kg = 0;
   for (const it of STATE.cart) {
     const p = STATE.data?.products.find(x => x.id === it.id);
     if (!p) continue;
-    if (!COFFEE_CATS.includes(p.category)) continue;
     kg += sizeToKg(it.fasovka) * (it.qty || 1);
   }
   return kg;
-}
-function cartSubtotal() {
-  let s = 0;
-  for (const it of STATE.cart) {
-    const p = STATE.data?.products.find(x => x.id === it.id);
-    if (!p) continue;
-    const f = (p.fasovka || []).find(x => x.size === it.fasovka);
-    if (!f || f.on_request || typeof f.price !== 'number') continue;
-    s += f.price * (it.qty || 1);
-  }
-  return s;
 }
 
 function findProduct(id) { return STATE.data?.products.find(x => x.id === id); }
@@ -1111,6 +1203,34 @@ function activeFilterCount() {
 
 /* Кофейные категории v2 — те что считаются «кофе» (для фильтров на главной, hero, и т.д.) */
 const COFFEE_CATS = ['espresso','filter','retail','black','borshch','drip','cascara','sets'];
+const CAT_TITLE = {
+  espresso:'Эспрессо', filter:'Фильтр', retail:'ROASTBERRY Retail', black:'BLACK Edition',
+  borshch:'BORЩ Edition', drip:'Дрипы', cascara:'Каскара', sets:'Наборы', tea:'Чай',
+  syrup:'Сиропы', milk:'Молоко', lemonade:'Лимонады', consulting:'Консалтинг', other:'Прочее',
+};
+
+// Что показать в плитке «Скидка»: точечные правила важнее тарифа, тариф важнее
+// весовой лестницы (она зависит от корзины, а не от клиента).
+function profileDiscount() {
+  const rules = Array.isArray(STATE.personalRules) ? STATE.personalRules : [];
+  const pcts = rules.map(r => Number(r.discount_pct)).filter(v => isFinite(v) && v > 0);
+  if (pcts.length) return { pct: Math.max(...pcts), label: 'ваша цена' };
+  if (rules.length) return { pct: 0, label: 'ваша цена' };
+  const tier = Number(STATE.personalPct) || 0;
+  if (tier > 0) return { pct: tier, label: 'ваш тариф' };
+  return { pct: 0, label: 'по весу от 10 кг' };
+}
+
+function ruleTitle(r) {
+  const tgt = String(r.target_id || '').trim();
+  if (r.scope === 'all') return 'На весь заказ';
+  if (r.scope === 'category') return CAT_TITLE[tgt.toLowerCase()] || tgt;
+  if (r.scope === 'product') {
+    const p = findProduct(tgt);
+    return p ? p.name : tgt;
+  }
+  return tgt;
+}
 /* Подкатегории, где навигация — выбор фасовки (1 кг / 200 г) до списка товаров.
    Только Roastberry Retail и его 3 подгруппы: Эспрессо / Фильтр / Купажи. */
 const SPLIT_BY_FASOVKA_SUB = ['retail_espresso','retail_filter','retail_blend'];
@@ -1452,7 +1572,9 @@ function screenProduct() {
   const kg = isCoffeeKg ? Math.max(1, STATE.productKg || 1) : 1;
   const basePrice = curFas.on_request ? 0 : (curFas.price || 0);
   const subtotal = basePrice * kg;
-  const tier = isCoffeeKg ? tierFor(kg) : 0;
+  // На позицию с личной ценой весовая скидка не ложится — как и на сервере.
+  const isPersonal = curFas.personal_pct > 0;
+  const tier = (isCoffeeKg && !isPersonal) ? tierFor(kg) : 0;
   const total = subtotal * (1 - tier);
   const save = subtotal - total;
   const tasteNotes = tastingForProduct(p);
@@ -1565,7 +1687,20 @@ ${recipeRows.length ? `
 </div>` : ''}
 
 <!-- Weight discount calculator -->
-${isCoffeeKg && !curFas.on_request ? `
+${isPersonal ? `
+<div style="padding:24px 16px 0;">
+  <div class="card" style="padding:16px; border-color:var(--green);">
+    <div style="display:flex; justify-content:space-between; align-items:baseline;">
+      <div>
+        <div class="eyebrow" style="color:var(--green);">Ваша цена</div>
+        <div style="margin-top:6px; font-size:13px; color:var(--ink-soft);">Прайс <s>${fmt(curFas.price_base)} ₽</s> · для вас −${curFas.personal_pct}%</div>
+      </div>
+      <div style="font-family:var(--f-display); font-weight:900; font-size:26px; color:var(--green);">${fmt(curFas.price)} ₽</div>
+    </div>
+  </div>
+</div>` : ''}
+
+${isCoffeeKg && !curFas.on_request && !isPersonal ? `
 <div style="padding:24px 16px 0;">
   <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px;">
     <div class="eyebrow">Скидка по весу</div>
@@ -1630,12 +1765,12 @@ function screenCart() {
   }).filter(Boolean);
 
   const totalKg = cartWeightKg();
-  const subtotal = cartSubtotal();
-  const tier = tierFor(totalKg);
-  const save = subtotal * tier;
-  const total = subtotal - save;
-  const toNext = totalKg < 10 ? 10 - totalKg : totalKg < 25 ? 25 - totalKg : 0;
-  const nextLabel = totalKg < 10 ? '−10%' : totalKg < 25 ? '−20%' : 'максимум';
+  const T = cartTotals();
+  const subtotal = T.subtotal, tier = T.tier, save = T.weightSave, total = T.total;
+  // Лестница считается по позициям без личной цены — у них своя скидка.
+  const ladderKg = T.kgGeneral;
+  const toNext = ladderKg < 10 ? 10 - ladderKg : ladderKg < 25 ? 25 - ladderKg : 0;
+  const nextLabel = ladderKg < 10 ? '−10%' : ladderKg < 25 ? '−20%' : 'максимум';
 
   if (!items.length) {
     return `
@@ -1676,7 +1811,7 @@ ${appHeader({ back: true, title: 'Корзина', action: `<button class="btn-g
 </div>
 
 <!-- Discount ladder -->
-${totalKg > 0 ? `
+${ladderKg > 0 ? `
 <div style="padding:22px 16px 0;">
   <div class="card" style="padding:18px; background:${tier === 0.2 ? 'var(--green-soft)' : 'var(--surface)'};">
     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px;">
@@ -1688,16 +1823,16 @@ ${totalKg > 0 ? `
     </div>
     <div style="position:relative; height:32px; margin-top:16px;">
       <div style="position:absolute; top:14px; left:0; right:0; height:4px; background:var(--ink-mute); border-radius:999px;"></div>
-      <div style="position:absolute; top:14px; left:0; height:4px; width:${Math.min(100, (totalKg/30)*100)}%; background:var(--green); border-radius:999px;"></div>
+      <div style="position:absolute; top:14px; left:0; height:4px; width:${Math.min(100, (ladderKg/30)*100)}%; background:var(--green); border-radius:999px;"></div>
       ${[
         { kg: 10, t: '−10%' },
         { kg: 25, t: '−20%' },
       ].map(m => {
-        const reached = totalKg >= m.kg;
+        const reached = ladderKg >= m.kg;
         return `<div style="position:absolute; top:0; left:${(m.kg/30)*100}%; transform:translateX(-50%);"><div class="meta" style="font-size:9px; text-align:center;">${m.t}</div><div style="margin-top:2px; width:14px; height:14px; border-radius:999px; background:${reached ? 'var(--green)' : 'var(--bg)'}; border:2px solid ${reached ? 'var(--green)' : 'var(--ink-mute)'}; margin:2px auto 0;"></div></div>`;
       }).join('')}
-      <div style="position:absolute; top:0; left:${Math.min(100, (totalKg/30)*100)}%; transform:translateX(-50%);">
-        <div class="meta" style="font-size:9px; color:var(--green); font-weight:700; text-align:center;">${totalKg.toFixed(1)} кг</div>
+      <div style="position:absolute; top:0; left:${Math.min(100, (ladderKg/30)*100)}%; transform:translateX(-50%);">
+        <div class="meta" style="font-size:9px; color:var(--green); font-weight:700; text-align:center;">${ladderKg.toFixed(1)} кг</div>
         <div style="margin-top:2px; width:14px; height:14px; border-radius:999px; background:var(--green); border:2px solid var(--bg); box-shadow:0 0 0 2px var(--green); margin:2px auto 0;"></div>
       </div>
     </div>
@@ -1709,6 +1844,7 @@ ${totalKg > 0 ? `
 <div style="padding:22px 16px 140px;">
   <div style="display:flex; flex-direction:column; gap:10px;">
     <div style="display:flex; justify-content:space-between;"><span style="color:var(--ink-soft); font-size:14px;">Подсумма</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:500;">${fmt(subtotal)} ₽</span></div>
+    ${T.personalSave > 0 ? `<div style="display:flex; justify-content:space-between;"><span style="color:var(--green); font-size:14px; font-weight:600;">Ваша цена</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:600; color:var(--green);">−${fmt(T.personalSave)} ₽</span></div>` : ''}
     ${tier > 0 ? `<div style="display:flex; justify-content:space-between;"><span style="color:var(--green); font-size:14px; font-weight:600;">Скидка по весу −${Math.round(tier*100)}%</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:600; color:var(--green);">−${fmt(save)} ₽</span></div>` : ''}
     <div style="display:flex; justify-content:space-between;"><span style="color:var(--ink-soft); font-size:14px;">Доставка</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:500;">СДЭК · от 290 ₽</span></div>
     <hr class="hr"/>
@@ -1729,9 +1865,8 @@ ${totalKg > 0 ? `
 function screenCheckout() {
   const c = STATE.contact;
   const totalKg = cartWeightKg();
-  const subtotal = cartSubtotal();
-  const tier = tierFor(totalKg);
-  const total = subtotal * (1 - tier);
+  const T = cartTotals();
+  const subtotal = T.subtotal, tier = T.tier, total = T.total;
   const itemsCount = STATE.cart.reduce((s, i) => s + (i.qty || 1), 0);
 
   // Базовый input
@@ -1892,7 +2027,8 @@ ${appHeader({ back: true, title: 'Оформление' })}
   <div class="card" style="padding:16px; background:var(--surface);">
     <div style="display:flex; flex-direction:column; gap:8px;">
       <div style="display:flex; justify-content:space-between;"><span style="color:var(--ink-soft); font-size:14px;">Подсумма</span><span style="font-family:var(--f-mono); font-size:14px;">${fmt(subtotal)} ₽</span></div>
-      ${tier > 0 ? `<div style="display:flex; justify-content:space-between;"><span style="color:var(--green); font-size:14px; font-weight:600;">Скидка по весу −${Math.round(tier*100)}%</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:600; color:var(--green);">−${fmt(subtotal - total)} ₽</span></div>` : ''}
+      ${T.personalSave > 0 ? `<div style="display:flex; justify-content:space-between;"><span style="color:var(--green); font-size:14px; font-weight:600;">Ваша цена</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:600; color:var(--green);">−${fmt(T.personalSave)} ₽</span></div>` : ''}
+      ${tier > 0 ? `<div style="display:flex; justify-content:space-between;"><span style="color:var(--green); font-size:14px; font-weight:600;">Скидка по весу −${Math.round(tier*100)}%</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:600; color:var(--green);">−${fmt(T.weightSave)} ₽</span></div>` : ''}
       <hr class="hr"/>
       <div style="display:flex; justify-content:space-between; align-items:baseline;">
         <span style="font-family:var(--f-display); font-weight:700; font-size:16px;">К оплате</span>
@@ -1959,6 +2095,8 @@ function screenProfile() {
   const tgUser = tg?.initDataUnsafe?.user;
   const name = tgUser ? (tgUser.first_name || '') + (tgUser.last_name ? ' ' + tgUser.last_name : '') : 'Гость';
   const initials = name.split(/\s+/).map(w => w[0]).slice(0,2).join('').toUpperCase() || 'РО';
+  const _disc = profileDiscount();
+  const _rules = Array.isArray(STATE.personalRules) ? STATE.personalRules : [];
 
   return `
 ${appHeader({ title: 'Профиль', action: `<button class="btn-ghost" style="width:36px; padding:0; justify-content:center">${icon('more')}</button>` })}
@@ -1992,9 +2130,22 @@ ${STATE.paymentNotice ? `
 
 <div style="padding:20px 16px 0; display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;">
   <div class="card" style="padding:12px;"><div class="meta" style="font-size:9px; margin-bottom:8px;">Заказов / мес.</div><div style="font-family:var(--f-display); font-weight:800; font-size:24px; line-height:1;">—</div><div style="margin-top:4px; font-size:10px; color:var(--ink-soft);">скоро</div></div>
-  <div class="card" style="padding:12px;"><div class="meta" style="font-size:9px; margin-bottom:8px;">Скидка</div><div style="font-family:var(--f-display); font-weight:800; font-size:24px; line-height:1; color:var(--green);">−0%</div><div style="margin-top:4px; font-size:10px; color:var(--ink-soft);">по весу</div></div>
+  <div class="card" style="padding:12px;"><div class="meta" style="font-size:9px; margin-bottom:8px;">Скидка</div><div style="font-family:var(--f-display); font-weight:800; font-size:24px; line-height:1; color:${_disc.pct > 0 ? 'var(--green)' : 'var(--ink-faint)'};">−${_disc.pct}%</div><div style="margin-top:4px; font-size:10px; color:var(--ink-soft);">${esc(_disc.label)}</div></div>
   <div class="card" style="padding:12px;"><div class="meta" style="font-size:9px; margin-bottom:8px;">Дебиторка</div><div style="font-family:var(--f-display); font-weight:800; font-size:24px; line-height:1;">0<span style="font-size:12px; margin-left:2px; color:var(--ink-soft);">₽</span></div><div style="margin-top:4px; font-size:10px; color:var(--ink-soft);">оплачено</div></div>
 </div>
+
+${_rules.length ? `
+<div style="padding:20px 16px 0;">
+  <div class="eyebrow" style="margin-bottom:10px;">Ваши цены</div>
+  <div class="card" style="padding:4px 14px;">
+    ${_rules.map(r => `
+      <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--line);">
+        <span style="font-size:14px;">${esc(ruleTitle(r))}${r.fasovka ? ` <span style="color:var(--ink-soft); font-size:12px;">· ${esc(r.fasovka)}</span>` : ''}</span>
+        <span style="font-family:var(--f-mono); font-size:14px; font-weight:600; color:var(--green);">${r.discount_pct != null ? '−' + Math.round(Number(r.discount_pct)) + '%' : fmt(r.fixed_price) + ' ₽'}</span>
+      </div>`).join('')}
+  </div>
+  <div style="margin-top:8px; font-size:12px; color:var(--ink-soft);">Цены в каталоге уже с вашей скидкой.</div>
+</div>` : ''}
 
 <div style="padding:20px 16px 0;">
   <div class="eyebrow" style="margin-bottom:10px;">Быстро</div>
@@ -3510,15 +3661,17 @@ const rb = {
     const items = STATE.cart.map(i => {
       const p = findProduct(i.id); if (!p) return null;
       const f = (p.fasovka || []).find(x => x.size === i.fasovka) || (p.fasovka || [])[0] || {};
+      // Шлём прайсовую цену: личные правила применит сервер. Отправишь
+      // уже сниженную — скидка ляжет вторым слоем.
+      const sendPrice = (typeof f.price_base === 'number') ? f.price_base
+                      : (typeof f.price === 'number' ? f.price : null);
       return { id: i.id, name: p.name, fasovka: i.fasovka, qty: i.qty,
-               price: typeof f.price === 'number' ? f.price : null,
-               on_request: !!f.on_request };
+               price: sendPrice, on_request: !!f.on_request };
     }).filter(Boolean);
     if (!items.length) { toast('Корзина пустая'); return; }
     const totalKg = cartWeightKg();
-    const subtotal = cartSubtotal();
-    const tier = tierFor(totalKg);
-    const total = subtotal * (1 - tier);
+    const T = cartTotals();
+    const subtotal = T.subtotal, tier = T.tier, total = T.total;
 
     const contactPayload = {
       type: c.type,
@@ -4427,6 +4580,7 @@ async function init() {
   if (STATE.screen === 'product' && !STATE.productId) STATE.screen = 'home';
   if (migration.changed) saveLocal();
   await loadUserProfile();
+  applyPersonalPrices();
   // Claim-ссылка: клиент забирает свой консьерж-аккаунт. Свой экран, дальше — по кнопке.
   const _claimToken = new URLSearchParams(location.search).get('claim');
   if (_claimToken) { await runClaim(_claimToken); return; }

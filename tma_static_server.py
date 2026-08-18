@@ -956,13 +956,20 @@ class Handler(BaseHTTPRequestHandler):
                     # только весовую скидку и клиент считал, что скидки нет.
                     tier = (out.get("price_tier") or "standard")
                     out["discount_pct"] = TIER_AUTO_PCT.get(tier, 0)
+                    # Точечные правила отдаём целиком, а не счётчиком: скидка
+                    # чаще задана правилами на категории, и витрина должна
+                    # посчитать цену теми же правилами, что и сервер при
+                    # оформлении — иначе клиент видит прайс без своей скидки.
                     try:
-                        _ensure_pricing_schema(con)
-                        out["pricing_rules"] = con.execute(
-                            "SELECT COUNT(*) FROM user_pricing WHERE user_id=?",
-                            (user["id"],)).fetchone()[0]
-                    except sqlite3.Error:
-                        out["pricing_rules"] = 0
+                        rules = _user_pricing_rules(con, int(user["id"]))
+                    except Exception:
+                        rules = []
+                    out["personal_rules"] = [
+                        {k: r.get(k) for k in ("scope", "target_id",
+                                               "discount_pct", "fixed_price", "fasovka")}
+                        for r in rules
+                    ]
+                    out["pricing_rules"] = len(rules)
                 finally:
                     con.close()
                 # Подмешаем то что в JWT/initData (имя, email-from-guest)

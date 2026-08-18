@@ -479,10 +479,12 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
 
 def parse_kg(fasovka_str: str) -> float | None:
     import re
-    m = re.search(r"(\d+(?:\.\d+)?)\s*(кг|г)", fasovka_str.lower())
+    # Запятая в «1,75 г» и «0,5 кг» — иначе число читается с середины
+    # и граммы превращаются в килограммы.
+    m = re.search(r"(\d+(?:[.,]\d+)?)\s*(кг|г)", fasovka_str.lower())
     if not m:
         return None
-    v = float(m.group(1))
+    v = float(m.group(1).replace(",", "."))
     if m.group(2) == "г":
         v /= 1000
     return v
