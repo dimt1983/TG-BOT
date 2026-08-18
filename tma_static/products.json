@@ -8908,7 +8908,7 @@
         {
           "size": "1.0 л",
           "price": 550.0,
-          "photo": "photos/products/s-сироп_barline_базилик_1л.png"
+          "photo": "photos/products/s-сироп_barline_базилик_1л.jpg"
         }
       ],
       "stock": 4,
@@ -8916,7 +8916,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_barline_базилик_1л.png"
+      "photo": "photos/products/s-сироп_barline_базилик_1л.jpg"
     },
     {
       "id": "s-сироп_barline_земляника_1л",
@@ -8933,7 +8933,7 @@
         {
           "size": "1.0 л",
           "price": 530.0,
-          "photo": "photos/products/s-сироп_barline_земляника_1л.png"
+          "photo": "photos/products/s-сироп_barline_земляника_1л.jpg"
         }
       ],
       "stock": 4,
@@ -8941,7 +8941,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_barline_земляника_1л.png"
+      "photo": "photos/products/s-сироп_barline_земляника_1л.jpg"
     },
     {
       "id": "s-сироп_barline_макадамия_1л",
@@ -8958,7 +8958,7 @@
         {
           "size": "1.0 л",
           "price": 604.0,
-          "photo": "photos/products/s-сироп_barline_макадамия_1л.png"
+          "photo": "photos/products/s-сироп_barline_макадамия_1л.jpg"
         }
       ],
       "stock": 2,
@@ -8967,7 +8967,7 @@
       "quarantined_at": null,
       "quarantine_reason": null,
       "hidden": false,
-      "photo": "photos/products/s-сироп_barline_макадамия_1л.png"
+      "photo": "photos/products/s-сироп_barline_макадамия_1л.jpg"
     },
     {
       "id": "s-сироп_barline_мандарин_1л",
@@ -8984,7 +8984,7 @@
         {
           "size": "1.0 л",
           "price": 607.5,
-          "photo": "photos/products/s-сироп_barline_мандарин_1л.png"
+          "photo": "photos/products/s-сироп_barline_мандарин_1л.jpg"
         }
       ],
       "stock": 3,
@@ -8993,7 +8993,7 @@
       "quarantined_at": null,
       "quarantine_reason": null,
       "hidden": false,
-      "photo": "photos/products/s-сироп_barline_мандарин_1л.png"
+      "photo": "photos/products/s-сироп_barline_мандарин_1л.jpg"
     },
     {
       "id": "s-сироп_barline_можжевельник_1л",
@@ -9010,7 +9010,7 @@
         {
           "size": "1.0 л",
           "price": 565.0,
-          "photo": "photos/products/s-сироп_barline_можжевельник_1л.png"
+          "photo": "photos/products/s-сироп_barline_можжевельник_1л.jpg"
         }
       ],
       "stock": 5,
@@ -9018,7 +9018,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_barline_можжевельник_1л.png"
+      "photo": "photos/products/s-сироп_barline_можжевельник_1л.jpg"
     },
     {
       "id": "s-сироп_barline_огурец_1л",
@@ -9059,7 +9059,7 @@
         {
           "size": "1.0 л",
           "price": 560.0,
-          "photo": "photos/products/s-сироп_barline_сангрия_1л.png"
+          "photo": "photos/products/s-сироп_barline_сангрия_1л.jpg"
         }
       ],
       "stock": 6,
@@ -9067,7 +9067,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_barline_сангрия_1л.png"
+      "photo": "photos/products/s-сироп_barline_сангрия_1л.jpg"
     },
     {
       "id": "s-сироп_barline_тирамису_1л",
@@ -9084,7 +9084,7 @@
         {
           "size": "1.0 л",
           "price": 573.0,
-          "photo": "photos/products/s-сироп_barline_тирамису_1л.png"
+          "photo": "photos/products/s-сироп_barline_тирамису_1л.jpg"
         }
       ],
       "stock": 2,
@@ -9092,7 +9092,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_barline_тирамису_1л.png"
+      "photo": "photos/products/s-сироп_barline_тирамису_1л.jpg"
     },
     {
       "id": "s-сироп_barline_фундук_1л",
@@ -9109,7 +9109,7 @@
         {
           "size": "1.0 л",
           "price": 540.0,
-          "photo": "photos/products/s-сироп_barline_фундук_1л.png"
+          "photo": "photos/products/s-сироп_barline_фундук_1л.jpg"
         }
       ],
       "stock": 1,
@@ -9117,7 +9117,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_barline_фундук_1л.png"
+      "photo": "photos/products/s-сироп_barline_фундук_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_айриш_крем_1л",
@@ -9160,7 +9160,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_амаретто_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_амаретто_1л.jpg"
         }
       ],
       "stock": 5,
@@ -9168,7 +9168,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_амаретто_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_амаретто_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_апельсин_1л",
@@ -9185,7 +9185,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_апельсин_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_апельсин_1л.jpg"
         }
       ],
       "stock": 4,
@@ -9193,7 +9193,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_апельсин_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_апельсин_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_арахисовое_масло_1л",
@@ -9233,7 +9233,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_арбуз_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_арбуз_1л.jpg"
         }
       ],
       "stock": 8,
@@ -9241,7 +9241,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_арбуз_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_арбуз_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_бабл_гам_1л",
@@ -9310,7 +9310,7 @@
         {
           "size": "1.0 л",
           "price": 546.0,
-          "photo": "photos/products/s-сироп_botanika_ваниль_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_ваниль_1л.jpg"
         }
       ],
       "stock": 2,
@@ -9318,7 +9318,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_ваниль_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_ваниль_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_вишня_1л",
@@ -9335,7 +9335,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_вишня_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_вишня_1л.jpg"
         }
       ],
       "stock": 1,
@@ -9343,7 +9343,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_вишня_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_вишня_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_гранат_1л",
@@ -9360,7 +9360,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_гранат_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_гранат_1л.jpg"
         }
       ],
       "stock": 3,
@@ -9368,7 +9368,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_гранат_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_гранат_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_грейпфрут_розовый_1л",
@@ -9411,7 +9411,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_гренадин_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_гренадин_1л.jpg"
         }
       ],
       "stock": 1,
@@ -9421,7 +9421,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_гренадин_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_гренадин_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_груша_сортовая_1л",
@@ -9464,7 +9464,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_дыня_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_дыня_1л.jpg"
         }
       ],
       "stock": 13,
@@ -9472,7 +9472,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_дыня_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_дыня_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_дыня_зеленая_1л",
@@ -9515,7 +9515,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_ежевика_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_ежевика_1л.jpg"
         }
       ],
       "stock": 8,
@@ -9523,7 +9523,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_ежевика_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_ежевика_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_зеленое_яблоко_1л",
@@ -9592,7 +9592,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_имбирь_1л.png"
+          "photo": "photos/products/s-сироп_botanika_имбирь_1л.jpg"
         }
       ],
       "stock": 4,
@@ -9600,7 +9600,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_имбирь_1л.png"
+      "photo": "photos/products/s-сироп_botanika_имбирь_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_карамель_1л",
@@ -9617,7 +9617,7 @@
         {
           "size": "1.0 л",
           "price": 546.0,
-          "photo": "photos/products/s-сироп_botanika_карамель_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_карамель_1л.jpg"
         }
       ],
       "stock": 3,
@@ -9627,7 +9627,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_карамель_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_карамель_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_карамель_соленая_1л",
@@ -9672,7 +9672,7 @@
         {
           "size": "1.0 л",
           "price": 660.0,
-          "photo": "photos/products/s-сироп_botanika_киви_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_киви_1л.jpg"
         }
       ],
       "stock": 5,
@@ -9680,7 +9680,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_киви_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_киви_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_кленовый_1л",
@@ -9722,7 +9722,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_клубника_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_клубника_1л.jpg"
         }
       ],
       "stock": 7,
@@ -9730,7 +9730,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_клубника_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_клубника_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_клюква_1л",
@@ -9747,7 +9747,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_клюква_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_клюква_1л.jpg"
         }
       ],
       "stock": 6,
@@ -9755,7 +9755,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_клюква_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_клюква_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_кокос_1л",
@@ -9772,7 +9772,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_кокос_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_кокос_1л.jpg"
         }
       ],
       "stock": 6,
@@ -9780,7 +9780,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_кокос_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_кокос_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_корица_1л",
@@ -9797,7 +9797,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_корица_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_корица_1л.jpg"
         }
       ],
       "stock": 1,
@@ -9805,7 +9805,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_корица_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_корица_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_лаванда_1л",
@@ -9822,7 +9822,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_лаванда_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_лаванда_1л.jpg"
         }
       ],
       "stock": 6,
@@ -9830,7 +9830,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_лаванда_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_лаванда_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_лайм_1л",
@@ -9898,7 +9898,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_лимон_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_лимон_1л.jpg"
         }
       ],
       "stock": 6,
@@ -9906,7 +9906,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_лимон_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_лимон_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_малина_1л",
@@ -9923,7 +9923,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_малина_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_малина_1л.jpg"
         }
       ],
       "stock": 10,
@@ -9931,7 +9931,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_малина_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_малина_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_манго_1л",
@@ -9948,7 +9948,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_манго_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_манго_1л.jpg"
         }
       ],
       "stock": 6,
@@ -9956,7 +9956,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_манго_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_манго_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_мандарин_1л",
@@ -9996,7 +9996,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_мед_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_мед_1л.jpg"
         }
       ],
       "stock": 7,
@@ -10004,7 +10004,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_мед_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_мед_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_миндаль_1л",
@@ -10021,7 +10021,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_миндаль_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_миндаль_1л.jpg"
         }
       ],
       "stock": 10,
@@ -10029,7 +10029,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_миндаль_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_миндаль_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_мохито_1л",
@@ -10096,7 +10096,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_облепиха_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_облепиха_1л.jpg"
         }
       ],
       "stock": 4,
@@ -10104,7 +10104,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_облепиха_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_облепиха_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_персик_1л",
@@ -10121,7 +10121,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_персик_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_персик_1л.jpg"
         }
       ],
       "stock": 8,
@@ -10129,7 +10129,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_персик_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_персик_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_попкорн_1л",
@@ -10146,7 +10146,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_попкорн_1л.png"
+          "photo": "photos/products/s-сироп_botanika_попкорн_1л.jpg"
         }
       ],
       "stock": 6,
@@ -10154,7 +10154,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_попкорн_1л.png"
+      "photo": "photos/products/s-сироп_botanika_попкорн_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_тархун_1л",
@@ -10171,7 +10171,7 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_botanika_тархун_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_тархун_1л.jpg"
         }
       ],
       "stock": 10,
@@ -10179,7 +10179,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_тархун_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_тархун_1л.jpg"
     },
     {
       "id": "s-сироп_botanika_черная_смородина_1л",
@@ -10222,7 +10222,7 @@
         {
           "size": "1.0 л",
           "price": 575.0,
-          "photo": "photos/products/s-сироп_botanika_шоколад_1л.webp"
+          "photo": "photos/products/s-сироп_botanika_шоколад_1л.jpg"
         }
       ],
       "stock": 8,
@@ -10230,7 +10230,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-сироп_botanika_шоколад_1л.webp"
+      "photo": "photos/products/s-сироп_botanika_шоколад_1л.jpg"
     },
     {
       "id": "s-сироп_herbarista_арахисовое_масло_0_7л",
@@ -10271,12 +10271,12 @@
         {
           "size": "0.7 л",
           "price": 721,
-          "photo": "photos/products/s-сироп_herbarista_бабл_гам_0_7л.png"
+          "photo": "photos/products/s-сироп_herbarista_бабл_гам_0_7л.jpg"
         }
       ],
       "stock": 10,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_бабл_гам_0_7л.png",
+      "photo": "photos/products/s-сироп_herbarista_бабл_гам_0_7л.jpg",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10349,12 +10349,12 @@
         {
           "size": "0.7 л",
           "price": 659,
-          "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.png"
+          "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.jpg"
         }
       ],
       "stock": 6,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.png",
+      "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.jpg",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10377,12 +10377,12 @@
         {
           "size": "0.7 л",
           "price": 659,
-          "photo": "photos/products/s-сироп_herbarista_груша_со_специями_0_7л.png"
+          "photo": "photos/products/s-сироп_herbarista_груша_со_специями_0_7л.jpg"
         }
       ],
       "stock": 4,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_груша_со_специями_0_7л.png",
+      "photo": "photos/products/s-сироп_herbarista_груша_со_специями_0_7л.jpg",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10431,13 +10431,13 @@
         {
           "size": "0.7 л",
           "price": 659,
-          "photo": "photos/products/s-сироп_herbarista_ежевика_с_листьями_0_7л.png",
+          "photo": "photos/products/s-сироп_herbarista_ежевика_с_листьями_0_7л.jpg",
           "on_request": false
         }
       ],
       "stock": 6,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_ежевика_с_листьями_0_7л.png",
+      "photo": "photos/products/s-сироп_herbarista_ежевика_с_листьями_0_7л.jpg",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10484,12 +10484,12 @@
         {
           "size": "0.7 л",
           "price": 771,
-          "photo": "photos/products/s-сироп_herbarista_ирландский_крем_0_7л.png"
+          "photo": "photos/products/s-сироп_herbarista_ирландский_крем_0_7л.jpg"
         }
       ],
       "stock": 8,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_ирландский_крем_0_7л.png",
+      "photo": "photos/products/s-сироп_herbarista_ирландский_крем_0_7л.jpg",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10512,7 +10512,7 @@
         {
           "size": "0.7 л",
           "price": 771,
-          "photo": "photos/products/s-сироп_herbarista_карамель_двойного_обжига_0_7л.png",
+          "photo": "photos/products/s-сироп_herbarista_карамель_двойного_обжига_0_7л.jpg",
           "on_request": false
         }
       ],
@@ -10520,7 +10520,7 @@
       "tags": [
         "Хит"
       ],
-      "photo": "photos/products/s-сироп_herbarista_карамель_двойного_обжига_0_7л.png",
+      "photo": "photos/products/s-сироп_herbarista_карамель_двойного_обжига_0_7л.jpg",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10543,13 +10543,13 @@
         {
           "size": "0.7 л",
           "price": 721,
-          "photo": "photos/products/s-сироп_herbarista_кленовый_с_каштаном_0_7л.png",
+          "photo": "photos/products/s-сироп_herbarista_кленовый_с_каштаном_0_7л.jpg",
           "on_request": false
         }
       ],
       "stock": 3,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_кленовый_с_каштаном_0_7л.png",
+      "photo": "photos/products/s-сироп_herbarista_кленовый_с_каштаном_0_7л.jpg",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10572,12 +10572,12 @@
         {
           "size": "0.7 л",
           "price": 771.0,
-          "photo": "photos/products/s-сироп_herbarista_кокос_с_мякотью_0_7л.png"
+          "photo": "photos/products/s-сироп_herbarista_кокос_с_мякотью_0_7л.jpg"
         }
       ],
       "stock": 6,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_кокос_с_мякотью_0_7л.png",
+      "photo": "photos/products/s-сироп_herbarista_кокос_с_мякотью_0_7л.jpg",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10676,7 +10676,7 @@
         {
           "size": "0.7 л",
           "price": 659,
-          "photo": "photos/products/s-сироп_herbarista_лаванда_0_7л.png"
+          "photo": "photos/products/s-сироп_herbarista_лаванда_0_7л.jpg"
         }
       ],
       "stock": 3,
@@ -10687,7 +10687,7 @@
       "_source": "Сироп Лаванда 0,7 л. Гербариста",
       "article_1c": "СИР-085",
       "on_request": false,
-      "photo": "photos/products/s-сироп_herbarista_лаванда_0_7л.png"
+      "photo": "photos/products/s-сироп_herbarista_лаванда_0_7л.jpg"
     },
     {
       "id": "s-сироп_herbarista_лайм_0_7л",
@@ -10704,12 +10704,12 @@
         {
           "size": "0.7 л",
           "price": 771,
-          "photo": "photos/products/s-сироп_herbarista_лайм_0_7л.png"
+          "photo": "photos/products/s-сироп_herbarista_лайм_0_7л.jpg"
         }
       ],
       "stock": 5,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_лайм_0_7л.png",
+      "photo": "photos/products/s-сироп_herbarista_лайм_0_7л.jpg",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
@@ -10732,12 +10732,12 @@
         {
           "size": "0.7 л",
           "price": 777,
-          "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.png"
+          "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.jpg"
         }
       ],
       "stock": 16,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.png",
+      "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.jpg",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10786,13 +10786,13 @@
         {
           "size": "0.7 л",
           "price": 771,
-          "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.png",
+          "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.jpg",
           "on_request": false
         }
       ],
       "stock": 8,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.png",
+      "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.jpg",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10868,12 +10868,12 @@
         {
           "size": "0.7 л",
           "price": 721,
-          "photo": "photos/products/s-сироп_herbarista_попкорн_0_7л.png"
+          "photo": "photos/products/s-сироп_herbarista_попкорн_0_7л.jpg"
         }
       ],
       "stock": 5,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_попкорн_0_7л.png",
+      "photo": "photos/products/s-сироп_herbarista_попкорн_0_7л.jpg",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
@@ -10896,13 +10896,13 @@
         {
           "size": "0.7 л",
           "price": 771,
-          "photo": "photos/products/s-сироп_herbarista_сгущенное_молоко_0_7л.png",
+          "photo": "photos/products/s-сироп_herbarista_сгущенное_молоко_0_7л.jpg",
           "on_request": false
         }
       ],
       "stock": 2,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_сгущенное_молоко_0_7л.png",
+      "photo": "photos/products/s-сироп_herbarista_сгущенное_молоко_0_7л.jpg",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10981,12 +10981,12 @@
         {
           "size": "0.7 л",
           "price": 771,
-          "photo": "photos/products/s-сироп_herbarista_тыква_0_7л.png"
+          "photo": "photos/products/s-сироп_herbarista_тыква_0_7л.jpg"
         }
       ],
       "stock": 6,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_тыква_0_7л.png",
+      "photo": "photos/products/s-сироп_herbarista_тыква_0_7л.jpg",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -11036,12 +11036,12 @@
         {
           "size": "0.7 л",
           "price": 659,
-          "photo": "photos/products/s-сироп_herbarista_черная_смородина_с_листьями_0_7л.png"
+          "photo": "photos/products/s-сироп_herbarista_черная_смородина_с_листьями_0_7л.jpg"
         }
       ],
       "stock": 9,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_черная_смородина_с_листьями_0_7л.png",
+      "photo": "photos/products/s-сироп_herbarista_черная_смородина_с_листьями_0_7л.jpg",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -11064,12 +11064,12 @@
         {
           "size": "0.7 л",
           "price": 777,
-          "photo": "photos/products/s-сироп_herbarista_шоколадный_трюфель_0_7л.png"
+          "photo": "photos/products/s-сироп_herbarista_шоколадный_трюфель_0_7л.jpg"
         }
       ],
       "stock": 8,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_шоколадный_трюфель_0_7л.png",
+      "photo": "photos/products/s-сироп_herbarista_шоколадный_трюфель_0_7л.jpg",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -11922,12 +11922,12 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_ананас_1.webp"
+          "photo": "photos/products/s-сироп_ананас_1.jpg"
         }
       ],
       "stock": 2,
       "tags": [],
-      "photo": "photos/products/s-сироп_ананас_1.webp",
+      "photo": "photos/products/s-сироп_ананас_1.jpg",
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null
@@ -11996,13 +11996,13 @@
         {
           "size": "1 шт",
           "price": 721,
-          "photo": "photos/products/s-сироп_легендарная_кола_0_7_л_гербариста.png",
+          "photo": "photos/products/s-сироп_легендарная_кола_0_7_л_гербариста.jpg",
           "on_request": false
         }
       ],
       "stock": 38,
       "tags": [],
-      "photo": "photos/products/s-сироп_легендарная_кола_0_7_л_гербариста.png",
+      "photo": "photos/products/s-сироп_легендарная_кола_0_7_л_гербариста.jpg",
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
@@ -12048,13 +12048,13 @@
         {
           "size": "1 шт",
           "price": 777,
-          "photo": "photos/products/s-сироп_фейхоа_0_7_л_гербариста.png",
+          "photo": "photos/products/s-сироп_фейхоа_0_7_л_гербариста.jpg",
           "on_request": false
         }
       ],
       "stock": 5,
       "tags": [],
-      "photo": "photos/products/s-сироп_фейхоа_0_7_л_гербариста.png",
+      "photo": "photos/products/s-сироп_фейхоа_0_7_л_гербариста.jpg",
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
@@ -12075,12 +12075,12 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_цветы_бузины_1.webp"
+          "photo": "photos/products/s-сироп_цветы_бузины_1.jpg"
         }
       ],
       "stock": 9,
       "tags": [],
-      "photo": "photos/products/s-сироп_цветы_бузины_1.webp",
+      "photo": "photos/products/s-сироп_цветы_бузины_1.jpg",
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null
@@ -12100,12 +12100,12 @@
         {
           "size": "1.0 л",
           "price": 635.0,
-          "photo": "photos/products/s-сироп_шоколадное_печенье_1.webp"
+          "photo": "photos/products/s-сироп_шоколадное_печенье_1.jpg"
         }
       ],
       "stock": 5,
       "tags": [],
-      "photo": "photos/products/s-сироп_шоколадное_печенье_1.webp",
+      "photo": "photos/products/s-сироп_шоколадное_печенье_1.jpg",
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null
@@ -12375,7 +12375,7 @@
         {
           "size": "1 л",
           "price": 1300.0,
-          "photo": "photos/products/s-топпинг_barline_банан_1кг.png"
+          "photo": "photos/products/s-топпинг_barline_банан_1кг.jpg"
         }
       ],
       "stock": 1,
@@ -12383,7 +12383,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-топпинг_barline_банан_1кг.png"
+      "photo": "photos/products/s-топпинг_barline_банан_1кг.jpg"
     },
     {
       "id": "s-топпинг_barline_ваниль_1кг",
@@ -12400,7 +12400,7 @@
         {
           "size": "1 л",
           "price": 525.0,
-          "photo": "photos/products/s-топпинг_barline_ваниль_1кг.png"
+          "photo": "photos/products/s-топпинг_barline_ваниль_1кг.jpg"
         }
       ],
       "stock": 2,
@@ -12408,7 +12408,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-топпинг_barline_ваниль_1кг.png"
+      "photo": "photos/products/s-топпинг_barline_ваниль_1кг.jpg"
     },
     {
       "id": "s-топпинг_barline_карамель_1кг",
@@ -12425,7 +12425,7 @@
         {
           "size": "1 л",
           "price": 530.0,
-          "photo": "photos/products/s-топпинг_barline_карамель_1кг.png"
+          "photo": "photos/products/s-топпинг_barline_карамель_1кг.jpg"
         }
       ],
       "stock": 2,
@@ -12433,7 +12433,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-топпинг_barline_карамель_1кг.png"
+      "photo": "photos/products/s-топпинг_barline_карамель_1кг.jpg"
     },
     {
       "id": "s-топпинг_barline_лесные_ягоды_1кг",
@@ -12450,7 +12450,7 @@
         {
           "size": "1 л",
           "price": 526.0,
-          "photo": "photos/products/s-топпинг_barline_лесные_ягоды_1кг.png"
+          "photo": "photos/products/s-топпинг_barline_лесные_ягоды_1кг.jpg"
         }
       ],
       "stock": 4,
@@ -12458,7 +12458,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-топпинг_barline_лесные_ягоды_1кг.png"
+      "photo": "photos/products/s-топпинг_barline_лесные_ягоды_1кг.jpg"
     },
     {
       "id": "s-топпинг_barline_шоколад_1кг",
@@ -12475,7 +12475,7 @@
         {
           "size": "1 л",
           "price": 493.5,
-          "photo": "photos/products/s-топпинг_barline_шоколад_1кг.png"
+          "photo": "photos/products/s-топпинг_barline_шоколад_1кг.jpg"
         }
       ],
       "stock": 8,
@@ -12483,7 +12483,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "photo": "photos/products/s-топпинг_barline_шоколад_1кг.png"
+      "photo": "photos/products/s-топпинг_barline_шоколад_1кг.jpg"
     },
     {
       "id": "s-топпинг_icedream_груша_1200мл",
@@ -16258,11 +16258,11 @@
       "id": "сироп_земляника_barline_1_0_л",
       "name": "Сироп Земляника BARLINE 1,0 л.",
       "category": "syrup",
-      "photo": "photos/products/сироп_земляника_barline_1_0_л.png",
+      "photo": "photos/products/сироп_земляника_barline_1_0_л.jpg",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "photos/products/сироп_земляника_barline_1_0_л.png",
+          "photo": "photos/products/сироп_земляника_barline_1_0_л.jpg",
           "price": 530
         }
       ],
@@ -16280,11 +16280,11 @@
       "id": "сироп_макадамия_barline_1_0_л",
       "name": "Сироп Макадамия BARLINE 1,0 л.",
       "category": "syrup",
-      "photo": "photos/products/сироп_макадамия_barline_1_0_л.png",
+      "photo": "photos/products/сироп_макадамия_barline_1_0_л.jpg",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "photos/products/сироп_макадамия_barline_1_0_л.png",
+          "photo": "photos/products/сироп_макадамия_barline_1_0_л.jpg",
           "price": 604
         }
       ],
@@ -16302,11 +16302,11 @@
       "id": "сироп_можжевельник_barline_1_0_л",
       "name": "Сироп Можжевельник BARLINE 1,0 л.",
       "category": "syrup",
-      "photo": "photos/products/сироп_можжевельник_barline_1_0_л.png",
+      "photo": "photos/products/сироп_можжевельник_barline_1_0_л.jpg",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "photos/products/сироп_можжевельник_barline_1_0_л.png",
+          "photo": "photos/products/сироп_можжевельник_barline_1_0_л.jpg",
           "price": 565
         }
       ],
@@ -16324,11 +16324,11 @@
       "id": "сироп_огурец_barline_1_0_л",
       "name": "Сироп Огурец BARLINE 1,0 л.",
       "category": "syrup",
-      "photo": "photos/products/сироп_огурец_barline_1_0_л.png",
+      "photo": "photos/products/сироп_огурец_barline_1_0_л.jpg",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "photos/products/сироп_огурец_barline_1_0_л.png"
+          "photo": "photos/products/сироп_огурец_barline_1_0_л.jpg"
         }
       ],
       "stock": 1,
@@ -16340,11 +16340,11 @@
       "id": "сироп_тирамису_barline_1_0_л",
       "name": "Сироп Тирамису BARLINE 1,0 л.",
       "category": "syrup",
-      "photo": "photos/products/сироп_тирамису_barline_1_0_л.png",
+      "photo": "photos/products/сироп_тирамису_barline_1_0_л.jpg",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "photos/products/сироп_тирамису_barline_1_0_л.png",
+          "photo": "photos/products/сироп_тирамису_barline_1_0_л.jpg",
           "price": 573
         }
       ],
@@ -16402,11 +16402,11 @@
       "id": "топпинг_карамель_barline_1_кг",
       "name": "Топпинг Карамель BARLINE 1 кг",
       "category": "syrup",
-      "photo": "photos/products/топпинг_карамель_barline_1_кг.png",
+      "photo": "photos/products/топпинг_карамель_barline_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
-          "photo": "photos/products/топпинг_карамель_barline_1_кг.png",
+          "photo": "photos/products/топпинг_карамель_barline_1_кг.jpg",
           "price": 546
         }
       ],
@@ -16424,11 +16424,11 @@
       "id": "топпинг_шоколад_barline_1_кг",
       "name": "Топпинг Шоколад  BARLINE 1 кг",
       "category": "syrup",
-      "photo": "photos/products/топпинг_шоколад_barline_1_кг.png",
+      "photo": "photos/products/топпинг_шоколад_barline_1_кг.jpg",
       "fasovka": [
         {
           "size": "1 кг",
-          "photo": "photos/products/топпинг_шоколад_barline_1_кг.png",
+          "photo": "photos/products/топпинг_шоколад_barline_1_кг.jpg",
           "price": 575
         }
       ],
@@ -16510,11 +16510,11 @@
       "id": "сироп_ананас_1_0_л_botanika",
       "name": "Сироп Ананас 1,0 л. BOTANIKA",
       "category": "syrup",
-      "photo": "photos/products/сироп_ананас_1_0_л_botanika.webp",
+      "photo": "photos/products/сироп_ананас_1_0_л_botanika.jpg",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "photos/products/сироп_ананас_1_0_л_botanika.webp",
+          "photo": "photos/products/сироп_ананас_1_0_л_botanika.jpg",
           "price": 635
         }
       ],
@@ -16619,11 +16619,11 @@
       "id": "сироп_блю_кюрасао_1_0_л_botanika",
       "name": "Сироп Блю Кюрасао 1,0 л. BOTANIKA",
       "category": "syrup",
-      "photo": "photos/products/сироп_блю_кюрасао_1_0_л_botanika.webp",
+      "photo": "photos/products/сироп_блю_кюрасао_1_0_л_botanika.jpg",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "photos/products/сироп_блю_кюрасао_1_0_л_botanika.webp",
+          "photo": "photos/products/сироп_блю_кюрасао_1_0_л_botanika.jpg",
           "price": 660
         }
       ],
@@ -17125,11 +17125,11 @@
       "id": "сироп_лесные_ягоды_1_0_л_botanika",
       "name": "Сироп Лесные Ягоды 1,0 л. BOTANIKA",
       "category": "syrup",
-      "photo": "photos/products/сироп_лесные_ягоды_1_0_л_botanika.webp",
+      "photo": "photos/products/сироп_лесные_ягоды_1_0_л_botanika.jpg",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "photos/products/сироп_лесные_ягоды_1_0_л_botanika.webp",
+          "photo": "photos/products/сироп_лесные_ягоды_1_0_л_botanika.jpg",
           "price": 635
         }
       ],
@@ -17210,11 +17210,11 @@
       "id": "сироп_мандарин_1_0_л_botanika",
       "name": "Сироп Мандарин 1,0 л. BOTANIKA",
       "category": "syrup",
-      "photo": "photos/products/сироп_мандарин_1_0_л_botanika.webp",
+      "photo": "photos/products/сироп_мандарин_1_0_л_botanika.jpg",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "photos/products/сироп_мандарин_1_0_л_botanika.webp",
+          "photo": "photos/products/сироп_мандарин_1_0_л_botanika.jpg",
           "price": 635
         }
       ],
@@ -17274,11 +17274,11 @@
       "id": "сироп_мохито_1_0_л_botanika",
       "name": "Сироп Мохито 1,0 л. BOTANIKA",
       "category": "syrup",
-      "photo": "photos/products/сироп_мохито_1_0_л_botanika.webp",
+      "photo": "photos/products/сироп_мохито_1_0_л_botanika.jpg",
       "fasovka": [
         {
           "size": "1,0 л",
-          "photo": "photos/products/сироп_мохито_1_0_л_botanika.webp",
+          "photo": "photos/products/сироп_мохито_1_0_л_botanika.jpg",
           "price": 660
         }
       ],
@@ -17425,11 +17425,11 @@
       "id": "сироп_восточные_пряности_0_7_л_гербариста",
       "name": "Сироп Восточные пряности 0,7 л. Гербариста",
       "category": "syrup",
-      "photo": "photos/products/сироп_восточные_пряности_0_7_л_гербариста.png",
+      "photo": "photos/products/сироп_восточные_пряности_0_7_л_гербариста.jpg",
       "fasovka": [
         {
           "size": "0,7 л",
-          "photo": "photos/products/сироп_восточные_пряности_0_7_л_гербариста.png",
+          "photo": "photos/products/сироп_восточные_пряности_0_7_л_гербариста.jpg",
           "price": 721
         }
       ],
@@ -17445,11 +17445,11 @@
       "id": "сироп_еловый_0_7_л_гербариста",
       "name": "Сироп Еловый 0,7 л. Гербариста",
       "category": "syrup",
-      "photo": "photos/products/сироп_еловый_0_7_л_гербариста.png",
+      "photo": "photos/products/сироп_еловый_0_7_л_гербариста.jpg",
       "fasovka": [
         {
           "size": "0,7 л",
-          "photo": "photos/products/сироп_еловый_0_7_л_гербариста.png",
+          "photo": "photos/products/сироп_еловый_0_7_л_гербариста.jpg",
           "price": 777,
           "on_request": false
         }
@@ -17626,11 +17626,11 @@
       "id": "сироп_соленая_карамель_двойного_обжига_0_7_л_гербариста",
       "name": "Сироп Соленая Карамель двойного обжига 0,7 л. Гербариста",
       "category": "syrup",
-      "photo": "photos/products/сироп_соленая_карамель_двойного_обжига_0_7_л_гербариста.png",
+      "photo": "photos/products/сироп_соленая_карамель_двойного_обжига_0_7_л_гербариста.jpg",
       "fasovka": [
         {
           "size": "0,7 л",
-          "photo": "photos/products/сироп_соленая_карамель_двойного_обжига_0_7_л_гербариста.png",
+          "photo": "photos/products/сироп_соленая_карамель_двойного_обжига_0_7_л_гербариста.jpg",
           "price": 777,
           "on_request": false
         }
@@ -17647,11 +17647,11 @@
       "id": "сироп_табак_ваниль_0_7_л_гербариста",
       "name": "Сироп Табак-ваниль 0,7 л. Гербариста",
       "category": "syrup",
-      "photo": "photos/products/сироп_табак_ваниль_0_7_л_гербариста.png",
+      "photo": "photos/products/сироп_табак_ваниль_0_7_л_гербариста.jpg",
       "fasovka": [
         {
           "size": "0,7 л",
-          "photo": "photos/products/сироп_табак_ваниль_0_7_л_гербариста.png",
+          "photo": "photos/products/сироп_табак_ваниль_0_7_л_гербариста.jpg",
           "price": 777
         }
       ],
@@ -17666,11 +17666,11 @@
       "id": "сироп_яблоко_с_листьями_0_7_л_гербариста",
       "name": "Сироп Яблоко с листьями 0,7 л. Гербариста",
       "category": "syrup",
-      "photo": "photos/products/сироп_яблоко_с_листьями_0_7_л_гербариста.png",
+      "photo": "photos/products/сироп_яблоко_с_листьями_0_7_л_гербариста.jpg",
       "fasovka": [
         {
           "size": "0,7 л",
-          "photo": "photos/products/сироп_яблоко_с_листьями_0_7_л_гербариста.png",
+          "photo": "photos/products/сироп_яблоко_с_листьями_0_7_л_гербариста.jpg",
           "price": 650
         }
       ],
