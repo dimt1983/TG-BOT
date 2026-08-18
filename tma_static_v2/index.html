@@ -1032,6 +1032,15 @@ ${appHeader({ logo: true })}
   .rb-hero-slide--lemonades .rb-hero-slide__eyebrow { color:#8F1419; }
   .rb-hero-slide--lemonades .rb-hero-slide__title { color:#1A1A1A; text-shadow:none; letter-spacing:0; }
   .rb-hero-slide--lemonades .rb-hero-slide__desc { color:#463D2B; }
+
+  /* Поля выставлены инлайновыми стилями с outline:none — без !important
+     фокус не виден, и человек не понимает, что уже можно печатать. */
+  .rb input:focus, .rb textarea:focus, .rb select:focus {
+    border-color: var(--ink) !important;
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--ink) 14%, transparent) !important;
+    caret-color: var(--coffee);
+  }
+  .rb label[for] { cursor: pointer; }
 </style>
 
 <div style="padding:6px 16px 0;">
@@ -3587,7 +3596,7 @@ const rb = {
     if (!hasIdentity()) {
       // Гость без телефона сервер не опознает — оставляем адрес локально,
       // он всё равно подставится в оформление.
-      saveProfile(); toast('Адрес сохранён'); rb.back(); return;
+      saveProfile(); toast('Адрес сохранён'); _addrSavedMark(); return;
     }
     try {
       const r = await fetch('/tma/api/user/address', {
@@ -3602,7 +3611,7 @@ const rb = {
       });
       const j = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(j.error || 'Не удалось сохранить');
-      saveProfile(); haptic('success'); toast('Адрес сохранён'); rb.back();
+      saveProfile(); haptic('success'); toast('Адрес сохранён'); _addrSavedMark();
     } catch (e) {
       haptic('error'); toast(e.message || 'Не удалось сохранить');
     }
@@ -4364,12 +4373,16 @@ function installEdgeBackSwipe() {
   let sx = 0;
   let sy = 0;
   let edge = false;
+  const isField = (el) => !!(el && el.closest && el.closest('input, textarea, select, [contenteditable]'));
   document.addEventListener('touchstart', (event) => {
     const t = event.touches && event.touches[0];
     if (!t) return;
     sx = t.clientX;
     sy = t.clientY;
-    edge = sx < 34 && STATE.history.length > 0;
+    // Поля начинаются с 16px от края — попадают в зону свайпа целиком.
+    // Не вооружаемся ни на самом поле, ни когда человек уже что-то печатает.
+    edge = sx < 34 && STATE.history.length > 0
+           && !isField(event.target) && !isField(document.activeElement);
   }, { passive: true });
   document.addEventListener('touchend', (event) => {
     if (!edge) return;
@@ -4378,7 +4391,7 @@ function installEdgeBackSwipe() {
     if (!t) return;
     const dx = t.clientX - sx;
     const dy = Math.abs(t.clientY - sy);
-    if (dx > 56 && dy < 70 && dx > dy * 1.35) {
+    if (dx > 56 && dy < 70 && dx > dy * 1.35 && !isField(document.activeElement)) {
       const popAt = RB_LAST_POPSTATE_AT;
       setTimeout(() => {
         if (RB_LAST_POPSTATE_AT === popAt && STATE.history.length > 0) rb.back();
@@ -4437,7 +4450,7 @@ function savedAddressLine() {
 
 function screenAddress() {
   const d = (STATE.contact && STATE.contact.delivery) || {};
-  const FIELD = `display:block; width:100%; box-sizing:border-box; padding:13px 14px; border:1px solid var(--line); border-radius:12px; background:var(--surface); font-size:15px; font-family:inherit; color:var(--ink); outline:none;`;
+  const FIELD = `display:block; width:100%; box-sizing:border-box; padding:14px; border:1px solid var(--line); border-radius:12px; background:var(--surface); font-size:16px; font-family:inherit; color:var(--ink); outline:none;`;
   const LABEL = `display:block; margin:0 0 6px 2px; font-size:11px; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-soft); font-weight:600;`;
   return `
 ${appHeader({ back: true, title: 'Адрес доставки' })}
@@ -4447,33 +4460,42 @@ ${appHeader({ back: true, title: 'Адрес доставки' })}
   <p style="margin-top:10px; color:var(--ink-soft); font-size:13px;">Адрес подставится в оформление — не придётся вводить его каждый раз.</p>
 </div>
 
-<div style="padding:22px 16px 140px; display:flex; flex-direction:column; gap:14px;">
+<div style="padding:22px 16px 40px; display:flex; flex-direction:column; gap:16px;">
   <div>
-    <label style="${LABEL}">Город</label>
-    <input id="addr-city" style="${FIELD}" type="text" placeholder="Пермь" value="${esc(d.city || '')}"
+    <label for="addr-city" style="${LABEL}">Город</label>
+    <input id="addr-city" style="${FIELD}" type="text" autocomplete="address-level2" placeholder="Пермь" value="${esc(d.city || '')}"
            oninput="rb.updateContact('delivery.city', this.value)"/>
   </div>
   <div>
-    <label style="${LABEL}">Адрес</label>
-    <input id="addr-street" style="${FIELD}" type="text" placeholder="ул. Ленина 50, кв. 5" value="${esc(d.address || '')}"
+    <label for="addr-street" style="${LABEL}">Адрес</label>
+    <input id="addr-street" style="${FIELD}" type="text" autocomplete="street-address" placeholder="ул. Ленина 50, кв. 5" value="${esc(d.address || '')}"
            oninput="rb.updateContact('delivery.address', this.value)"/>
   </div>
   <div>
-    <label style="${LABEL}">Получатель</label>
-    <input id="addr-name" style="${FIELD}" type="text" placeholder="Имя, если принимает не вы" value="${esc(d.recipient_name || '')}"
+    <label for="addr-name" style="${LABEL}">Получатель</label>
+    <input id="addr-name" style="${FIELD}" type="text" autocomplete="name" placeholder="Имя, если принимает не вы" value="${esc(d.recipient_name || '')}"
            oninput="rb.updateContact('delivery.recipient_name', this.value)"/>
   </div>
   <div>
-    <label style="${LABEL}">Телефон получателя</label>
-    <input id="addr-phone" style="${FIELD}" type="tel" inputmode="tel" placeholder="+7 999 123-45-67" value="${esc(d.recipient_phone || '')}"
+    <label for="addr-phone" style="${LABEL}">Телефон получателя</label>
+    <input id="addr-phone" style="${FIELD}" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 999 123-45-67" value="${esc(d.recipient_phone || '')}"
            oninput="rb.updateContact('delivery.recipient_phone', this.value)"/>
   </div>
-</div>
 
-<div style="position:fixed; bottom:0; left:0; right:0; padding:12px 16px calc(env(safe-area-inset-bottom,18px) + 14px); background:color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter:blur(20px); border-top:1px solid var(--line); z-index:11;">
-  <button class="cta" onclick="rb.saveAddress()"><span>Сохранить</span><span>→</span></button>
+  <!-- Кнопка в потоке, а не прилипшая к низу: при открытой клавиатуре
+       фиксированная панель встаёт ровно туда, куда метишь в следующее поле. -->
+  <button class="cta" style="margin-top:6px;" onclick="rb.saveAddress()"><span>Сохранить</span><span>✓</span></button>
+  <div id="addr-saved" style="min-height:18px; text-align:center; font-size:13px; color:var(--green); font-weight:600;"></div>
 </div>
 `;
+}
+
+function _addrSavedMark() {
+  const el = document.getElementById('addr-saved');
+  if (!el) return;
+  el.textContent = 'Сохранено';
+  clearTimeout(_addrSavedMark._t);
+  _addrSavedMark._t = setTimeout(() => { el.textContent = ''; }, 2500);
 }
 
 function screenBought() {
