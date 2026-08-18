@@ -10271,12 +10271,12 @@
         {
           "size": "0.7 л",
           "price": 721,
-          "photo": "photos/products/s-сироп_herbarista_бабл_гам_0_7л.jpg"
+          "photo": "photos/products/s-сироп_herbarista_бабл_гам_0_7л.png"
         }
       ],
       "stock": 10,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_бабл_гам_0_7л.jpg",
+      "photo": "photos/products/s-сироп_herbarista_бабл_гам_0_7л.png",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10349,12 +10349,12 @@
         {
           "size": "0.7 л",
           "price": 659,
-          "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.jpg"
+          "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.png"
         }
       ],
       "stock": 6,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.jpg",
+      "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.png",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10370,19 +10370,19 @@
       "country": "Herbarista",
       "roast": "",
       "process": "",
-      "description": "",
+      "description": "Сироп-эликсир с мякотью груши ароматного сорта Дюшес и небольшим количеством мускатного ореха и чили. Снимает напряжение и улучшает настроение!",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
         {
           "size": "0.7 л",
           "price": 659,
-          "photo": "photos/products/s-сироп_herbarista_груша_со_специями_0_7л.jpg"
+          "photo": "photos/products/s-сироп_herbarista_груша_со_специями_0_7л.png"
         }
       ],
       "stock": 4,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_груша_со_специями_0_7л.jpg",
+      "photo": "photos/products/s-сироп_herbarista_груша_со_специями_0_7л.png",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10431,13 +10431,13 @@
         {
           "size": "0.7 л",
           "price": 659,
-          "photo": "photos/products/s-сироп_herbarista_ежевика_с_листьями_0_7л.jpg",
+          "photo": "photos/products/s-сироп_herbarista_ежевика_с_листьями_0_7л.png",
           "on_request": false
         }
       ],
       "stock": 6,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_ежевика_с_листьями_0_7л.jpg",
+      "photo": "photos/products/s-сироп_herbarista_ежевика_с_листьями_0_7л.png",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10484,12 +10484,12 @@
         {
           "size": "0.7 л",
           "price": 771,
-          "photo": "photos/products/s-сироп_herbarista_ирландский_крем_0_7л.jpg"
+          "photo": "photos/products/s-сироп_herbarista_ирландский_крем_0_7л.png"
         }
       ],
       "stock": 8,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_ирландский_крем_0_7л.jpg",
+      "photo": "photos/products/s-сироп_herbarista_ирландский_крем_0_7л.png",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10505,14 +10505,14 @@
       "country": "Herbarista",
       "roast": "",
       "process": "",
-      "description": "",
+      "description": "Двойная концентрация вкуса и аромата: тягучая текстура, бархатистая сладость и характерный вкус сахара, обожженного до темно-золотистой корочки.",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
         {
           "size": "0.7 л",
           "price": 771,
-          "photo": "photos/products/s-сироп_herbarista_карамель_двойного_обжига_0_7л.jpg",
+          "photo": "photos/products/s-сироп_herbarista_карамель_двойного_обжига_0_7л.png",
           "on_request": false
         }
       ],
@@ -10520,7 +10520,7 @@
       "tags": [
         "Хит"
       ],
-      "photo": "photos/products/s-сироп_herbarista_карамель_двойного_обжига_0_7л.jpg",
+      "photo": "photos/products/s-сироп_herbarista_карамель_двойного_обжига_0_7л.png",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10536,20 +10536,20 @@
       "country": "Herbarista",
       "roast": "",
       "process": "",
-      "description": "",
+      "description": "Яркий и насыщенный сироп с нежным ароматом кленового сока и сладкими аккордами десертного каштана.В аромате можно уловить гурманские ноты карамели и темного меда, любимые с детства.",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
         {
           "size": "0.7 л",
           "price": 721,
-          "photo": "photos/products/s-сироп_herbarista_кленовый_с_каштаном_0_7л.jpg",
+          "photo": "photos/products/s-сироп_herbarista_кленовый_с_каштаном_0_7л.png",
           "on_request": false
         }
       ],
       "stock": 3,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_кленовый_с_каштаном_0_7л.jpg",
+      "photo": "photos/products/s-сироп_herbarista_кленовый_с_каштаном_0_7л.png",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10572,12 +10572,12 @@
         {
           "size": "0.7 л",
           "price": 771.0,
-          "photo": "photos/products/s-сироп_herbarista_кокос_с_мякотью_0_7л.jpg"
+          "photo": "photos/products/s-сироп_herbarista_кокос_с_мякотью_0_7л.png"
         }
       ],
       "stock": 6,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_кокос_с_мякотью_0_7л.jpg",
+      "photo": "photos/products/s-сироп_herbarista_кокос_с_мякотью_0_7л.png",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10675,7 +10675,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 659
+          "price": 659,
+          "photo": "photos/products/s-сироп_herbarista_лаванда_0_7л.png"
         }
       ],
       "stock": 3,
@@ -10685,7 +10686,8 @@
       "hidden": false,
       "_source": "Сироп Лаванда 0,7 л. Гербариста",
       "article_1c": "СИР-085",
-      "on_request": false
+      "on_request": false,
+      "photo": "photos/products/s-сироп_herbarista_лаванда_0_7л.png"
     },
     {
       "id": "s-сироп_herbarista_лайм_0_7л",
@@ -10702,12 +10704,12 @@
         {
           "size": "0.7 л",
           "price": 771,
-          "photo": "photos/products/s-сироп_herbarista_лайм_0_7л.jpg"
+          "photo": "photos/products/s-сироп_herbarista_лайм_0_7л.png"
         }
       ],
       "stock": 5,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_лайм_0_7л.jpg",
+      "photo": "photos/products/s-сироп_herbarista_лайм_0_7л.png",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
@@ -10730,12 +10732,12 @@
         {
           "size": "0.7 л",
           "price": 777,
-          "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.jpg"
+          "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.png"
         }
       ],
       "stock": 16,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.jpg",
+      "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.png",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10784,13 +10786,13 @@
         {
           "size": "0.7 л",
           "price": 771,
-          "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.jpg",
+          "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.png",
           "on_request": false
         }
       ],
       "stock": 8,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.jpg",
+      "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.png",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10866,12 +10868,12 @@
         {
           "size": "0.7 л",
           "price": 721,
-          "photo": "photos/products/s-сироп_herbarista_попкорн_0_7л.jpg"
+          "photo": "photos/products/s-сироп_herbarista_попкорн_0_7л.png"
         }
       ],
       "stock": 5,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_попкорн_0_7л.jpg",
+      "photo": "photos/products/s-сироп_herbarista_попкорн_0_7л.png",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
@@ -10887,20 +10889,20 @@
       "country": "Herbarista",
       "roast": "",
       "process": "",
-      "description": "",
+      "description": "Вкус, знакомый с детства — сгущенное молоко! Формула молекулы счастья, созданная сочетанием классического сгущенного молока и обжаренной карамели, которая дарит тот самый, узнаваемый вкус вареной сгущенки.",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
         {
           "size": "0.7 л",
           "price": 771,
-          "photo": "photos/products/s-сироп_herbarista_сгущенное_молоко_0_7л.jpg",
+          "photo": "photos/products/s-сироп_herbarista_сгущенное_молоко_0_7л.png",
           "on_request": false
         }
       ],
       "stock": 2,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_сгущенное_молоко_0_7л.jpg",
+      "photo": "photos/products/s-сироп_herbarista_сгущенное_молоко_0_7л.png",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -10979,12 +10981,12 @@
         {
           "size": "0.7 л",
           "price": 771,
-          "photo": "photos/products/s-сироп_herbarista_тыква_0_7л.jpg"
+          "photo": "photos/products/s-сироп_herbarista_тыква_0_7л.png"
         }
       ],
       "stock": 6,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_тыква_0_7л.jpg",
+      "photo": "photos/products/s-сироп_herbarista_тыква_0_7л.png",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -11034,12 +11036,12 @@
         {
           "size": "0.7 л",
           "price": 659,
-          "photo": "photos/products/s-сироп_herbarista_черная_смородина_с_листьями_0_7л.jpg"
+          "photo": "photos/products/s-сироп_herbarista_черная_смородина_с_листьями_0_7л.png"
         }
       ],
       "stock": 9,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_черная_смородина_с_листьями_0_7л.jpg",
+      "photo": "photos/products/s-сироп_herbarista_черная_смородина_с_листьями_0_7л.png",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -11055,19 +11057,19 @@
       "country": "Herbarista",
       "roast": "",
       "process": "",
-      "description": "",
+      "description": "Многогранный вкус и бархатистая текстура шоколадного трюфеля, где каждая нота какао раскрывается постепенно, создавая неповторимую палитру ощущений. Взрыв шоколадных эмоций!",
       "recipe_e": "Дозировка: 15–20 мл на эспрессо-напиток. Помпа 5 мл = 3-4 нажатия.",
       "recipe_f": "",
       "fasovka": [
         {
           "size": "0.7 л",
           "price": 777,
-          "photo": "photos/products/s-сироп_herbarista_шоколадный_трюфель_0_7л.jpg"
+          "photo": "photos/products/s-сироп_herbarista_шоколадный_трюфель_0_7л.png"
         }
       ],
       "stock": 8,
       "tags": [],
-      "photo": "photos/products/s-сироп_herbarista_шоколадный_трюфель_0_7л.jpg",
+      "photo": "photos/products/s-сироп_herbarista_шоколадный_трюфель_0_7л.png",
       "_source": "herbarista_pdf",
       "quarantined": false,
       "quarantined_at": null,
@@ -11987,20 +11989,20 @@
       "country": "",
       "roast": "",
       "process": "",
-      "description": "",
+      "description": "Воссозданная формула секретных ингредиентов, аналог рецепта Джона Пембертона — автора самого знаменитого сиропа в мире! Своего рода турбо-тоник из растительных экстрактов, специй, кофеина и цитрусовых масел. Заряжает энергией тело и дух!",
       "recipe_e": "",
       "recipe_f": "",
       "fasovka": [
         {
           "size": "1 шт",
           "price": 721,
-          "photo": null,
+          "photo": "photos/products/s-сироп_легендарная_кола_0_7_л_гербариста.png",
           "on_request": false
         }
       ],
       "stock": 38,
       "tags": [],
-      "photo": null,
+      "photo": "photos/products/s-сироп_легендарная_кола_0_7_л_гербариста.png",
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
@@ -12046,13 +12048,13 @@
         {
           "size": "1 шт",
           "price": 777,
-          "photo": null,
+          "photo": "photos/products/s-сироп_фейхоа_0_7_л_гербариста.png",
           "on_request": false
         }
       ],
       "stock": 5,
       "tags": [],
-      "photo": null,
+      "photo": "photos/products/s-сироп_фейхоа_0_7_л_гербариста.png",
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
@@ -17423,11 +17425,11 @@
       "id": "сироп_восточные_пряности_0_7_л_гербариста",
       "name": "Сироп Восточные пряности 0,7 л. Гербариста",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/сироп_восточные_пряности_0_7_л_гербариста.png",
       "fasovka": [
         {
           "size": "0,7 л",
-          "photo": "",
+          "photo": "photos/products/сироп_восточные_пряности_0_7_л_гербариста.png",
           "price": 721
         }
       ],
@@ -17436,17 +17438,18 @@
       "_source": "Сироп Восточные пряности 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "description": "Сироп с изящным составом восточных пряностей. Природные усилители вкуса и аромата с необычайно широким спектром полезных качеств."
     },
     {
       "id": "сироп_еловый_0_7_л_гербариста",
       "name": "Сироп Еловый 0,7 л. Гербариста",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/сироп_еловый_0_7_л_гербариста.png",
       "fasovka": [
         {
           "size": "0,7 л",
-          "photo": "",
+          "photo": "photos/products/сироп_еловый_0_7_л_гербариста.png",
           "price": 777,
           "on_request": false
         }
@@ -17456,7 +17459,8 @@
       "_source": "Сироп Еловый 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "description": "Уникальный эликсир из смол и экстрактов ели, пихты и можжевельника пробуждает образ бескрайних таёжных просторов. Хвойный аромат создает настроение праздника, освежает и дарит умиротворение."
     },
     {
       "id": "сироп_кашемировый_персик_0_7_л_гербариста",
@@ -17622,11 +17626,11 @@
       "id": "сироп_соленая_карамель_двойного_обжига_0_7_л_гербариста",
       "name": "Сироп Соленая Карамель двойного обжига 0,7 л. Гербариста",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/сироп_соленая_карамель_двойного_обжига_0_7_л_гербариста.png",
       "fasovka": [
         {
           "size": "0,7 л",
-          "photo": "",
+          "photo": "photos/products/сироп_соленая_карамель_двойного_обжига_0_7_л_гербариста.png",
           "price": 777,
           "on_request": false
         }
@@ -17636,17 +17640,18 @@
       "_source": "Сироп Соленая Карамель двойного обжига 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "description": "Сироп с густой текстурой и бархатистой сладостью сахара, обожженного до темного цвета, в который мы добавили крупную озерную соль. Выразительный вкус, которым восхищается весь мир."
     },
     {
       "id": "сироп_табак_ваниль_0_7_л_гербариста",
       "name": "Сироп Табак-ваниль 0,7 л. Гербариста",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/сироп_табак_ваниль_0_7_л_гербариста.png",
       "fasovka": [
         {
           "size": "0,7 л",
-          "photo": "",
+          "photo": "photos/products/сироп_табак_ваниль_0_7_л_гербариста.png",
           "price": 777
         }
       ],
@@ -17661,11 +17666,11 @@
       "id": "сироп_яблоко_с_листьями_0_7_л_гербариста",
       "name": "Сироп Яблоко с листьями 0,7 л. Гербариста",
       "category": "syrup",
-      "photo": "",
+      "photo": "photos/products/сироп_яблоко_с_листьями_0_7_л_гербариста.png",
       "fasovka": [
         {
           "size": "0,7 л",
-          "photo": "",
+          "photo": "photos/products/сироп_яблоко_с_листьями_0_7_л_гербариста.png",
           "price": 650
         }
       ],
