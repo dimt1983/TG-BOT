@@ -254,7 +254,11 @@ def _apply_personal_pricing(con, user_id: int, items: list) -> None:
     больше НЕ применяется (item['_personal_priced'] = True).
 
     Не трогает tier-скидку: она применяется отдельно в _compute_order_discount()."""
-    if user_id <= 0 or not items:
+    # Знак user_id роли не играет: у гостя и WhatsApp-клиента он
+    # отрицательный, но правила в user_pricing заведены именно на этот id.
+    # Раньше здесь стояло user_id <= 0, и назначенная таким карточкам
+    # скидка молча не применялась.
+    if not user_id or not items:
         return
     try:
         from tma_static_server import (
@@ -355,6 +359,29 @@ def _compute_order_discount(con, user_id: int, items: list) -> tuple[float, floa
     }
 
 
+def _absorb_phone_stub(con, user_id: int, phone: str | None) -> None:
+    """Забрать заглушку с тем же номером в настоящую учётку.
+
+    Человек, открывший магазин по обычной ссылке, попадает гостем и получает
+    отрицательный id. Зайдя потом через Telegram, он заводил вторую карточку —
+    так «Ирина» и «Ирина Громова» стали двумя клиентами с одним телефоном.
+    Заказы, избранное, тариф и персональные правила переносим на настоящую.
+    """
+    try:
+        if not phone or int(user_id) <= 0:
+            return
+        import concierge as cz
+        stub = cz.find_stub_by_phone(con, phone, exclude_id=int(user_id))
+        if stub is None:
+            return
+        res = cz.merge_stub_into_real(con, stub, int(user_id))
+        if res.get("ok"):
+            log.info("tma: склеил заглушку %s → %s (заказов %s, правил %s)",
+                     stub, user_id, res.get("merged_orders"), res.get("moved_rules"))
+    except Exception as e:                      # склейка не должна ронять заказ
+        log.warning("tma: склейка заглушки не удалась: %s", e)
+
+
 def create_order_from_tma(con, user_id: int, payload: dict) -> int:
     """
     Создаёт заказ из payload, который пришёл из TMA.
@@ -373,6 +400,7 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
     contact = payload.get("contact") or {}
     _normalize_personal_data_consent(payload)
     _ensure_order_payment_columns(con)
+    _absorb_phone_stub(con, user_id, contact.get("phone"))
     no_price = []
     for it in items:
         if it.get("price") is None or it.get("on_request"):

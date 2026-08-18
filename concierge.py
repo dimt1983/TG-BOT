@@ -31,13 +31,24 @@ def _digits(phone: str) -> str:
     return "".join(ch for ch in str(phone or "") if ch.isdigit())
 
 
+def phone_key(phone: str) -> str:
+    """Канонический вид номера — последние 10 цифр.
+
+    По ним же матчат POST /orders и «мои заказы». Раньше id гостя считался по
+    ВСЕМ цифрам, поэтому «8912…» и «+7912…» разъезжались в две учётки одному
+    человеку. Ключ должен быть один на весь проект.
+    """
+    digits = _digits(phone)
+    return digits[-10:] if len(digits) >= 10 else digits
+
+
 def stable_ghost_id(phone: str) -> int:
     """Стабильный отрицательный id из телефона — та же схема, что у гостевого входа
     (/tma/api/auth/guest). Одна и та же для заказа, гостя и claim → они сматчатся."""
-    digits = _digits(phone)
-    if not digits:
+    key = phone_key(phone)
+    if not key:
         raise ValueError("phone required for stable ghost id")
-    n = int(hashlib.sha256(digits.encode()).hexdigest()[:12], 16)
+    n = int(hashlib.sha256(key.encode()).hexdigest()[:12], 16)
     return -(n % (10 ** 9))
 
 
@@ -133,6 +144,94 @@ def issue_claim(con: sqlite3.Connection, ghost_id: int, *, ttl_days: int = CLAIM
     )
     con.commit()
     return {"token": token, "ghost_id": ghost_id, "expires_at": expires}
+
+
+def merge_stub_into_real(con: sqlite3.Connection, ghost_id: int,
+                         real_user_id: int, *, real_name: str | None = None) -> dict:
+    """Перенести заглушку (отрицательный id) в настоящую Telegram-учётку.
+
+    Возвращает {ok, merged_orders, moved_rules, real_user_id, ghost_id}.
+    Коммит НЕ делает — вызывающий решает, когда фиксировать.
+    """
+    ensure_schema(con)
+    con.row_factory = sqlite3.Row
+    ghost_id, real_user_id = int(ghost_id), int(real_user_id)
+    if real_user_id <= 0:
+        return {"ok": False, "error": "invalid_real_user"}
+    if ghost_id == real_user_id:
+        return {"ok": False, "error": "same_user"}
+
+    ucols = _cols(con, "users")
+    ghost = con.execute("SELECT * FROM users WHERE user_id=?", (ghost_id,)).fetchone()
+    real = con.execute("SELECT * FROM users WHERE user_id=?", (real_user_id,)).fetchone()
+    if not real:
+        cols, vals = ["user_id"], [real_user_id]
+        if "tg_name" in ucols:
+            cols.append("tg_name"); vals.append("tg")
+        if real_name and "name" in ucols:
+            cols.append("name"); vals.append(real_name)
+        con.execute(f"INSERT INTO users ({','.join(cols)}) VALUES ({','.join('?'*len(cols))})", vals)
+        real = con.execute("SELECT * FROM users WHERE user_id=?", (real_user_id,)).fetchone()
+
+    if ghost:
+        upd = {}
+        for f in PROFILE_FIELDS:
+            if f not in ucols:
+                continue
+            gval = ghost[f] if f in ghost.keys() else None
+            rval = real[f] if f in real.keys() else None
+            # 'standard' — это DEFAULT, а не осознанный выбор: тариф заглушки
+            # должен его перебивать, иначе назначенная скидка теряется.
+            if f == "price_tier" and rval in (None, "", "standard"):
+                rval = None
+            if gval and not rval:
+                upd[f] = gval
+        if upd:
+            con.execute("UPDATE users SET " + ",".join(f"{k}=?" for k in upd)
+                        + " WHERE user_id=?", (*upd.values(), real_user_id))
+
+    merged_orders = 0
+    if _table_exists(con, "orders"):
+        merged_orders = con.execute("UPDATE orders SET user_id=? WHERE user_id=?",
+                                    (real_user_id, ghost_id)).rowcount
+
+    moved_rules = 0
+    if _table_exists(con, "user_pricing"):
+        try:
+            moved_rules = con.execute(
+                "UPDATE OR IGNORE user_pricing SET user_id=? WHERE user_id=?",
+                (real_user_id, ghost_id)).rowcount
+            con.execute("DELETE FROM user_pricing WHERE user_id=?", (ghost_id,))
+        except sqlite3.Error:
+            pass
+
+    if _table_exists(con, "favorites") and "user_id" in _cols(con, "favorites"):
+        try:
+            con.execute("UPDATE OR IGNORE favorites SET user_id=? WHERE user_id=?",
+                        (real_user_id, ghost_id))
+            con.execute("DELETE FROM favorites WHERE user_id=?", (ghost_id,))
+        except sqlite3.Error:
+            pass
+
+    con.execute("DELETE FROM users WHERE user_id=?", (ghost_id,))
+    return {"ok": True, "merged_orders": merged_orders, "moved_rules": moved_rules,
+            "real_user_id": real_user_id, "ghost_id": ghost_id}
+
+
+def find_stub_by_phone(con: sqlite3.Connection, phone: str,
+                       exclude_id: int | None = None) -> int | None:
+    """Заглушка с тем же номером. Сверяем по последним 10 цифрам — так же,
+    как это делают POST /orders и «мои заказы»."""
+    key = phone_key(phone)
+    if len(key) < 10 or not _table_exists(con, "users"):
+        return None
+    con.row_factory = sqlite3.Row
+    for r in con.execute("SELECT user_id, phone FROM users WHERE user_id < 0"):
+        if int(r["user_id"]) == (exclude_id or 0):
+            continue
+        if phone_key(r["phone"] or "") == key:
+            return int(r["user_id"])
+    return None
 
 
 def redeem_claim(con: sqlite3.Connection, token: str, real_user_id: int,

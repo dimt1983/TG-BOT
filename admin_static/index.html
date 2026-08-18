@@ -518,7 +518,36 @@ function orderDetailHTML(d){
         <td>${esc(it.product_name||"-")}${it.roast?` <span class="faint">${esc(it.roast)}</span>`:""}</td>
         <td class="q right num">${esc(it.quantity)}×${fmt(it.price)}</td>
         <td class="num right strong">${money((Number(it.quantity)||0)*(Number(it.price)||0))}</td></tr>`).join("")||`<tr><td class="muted">Позиции не найдены</td></tr>`}</tbody></table>
-      <div class="total-row"><span class="muted">Итого</span><b class="num">${money(d.total)}</b></div></div></div>`;
+      <div class="total-row"><span class="muted">Итого</span><b class="num">${money(d.total)}</b></div>
+      ${Number(d.discount)>0?`<div class="total-row"><span class="muted">Скидка</span><span class="num">−${money(d.discount)}</span></div>`:""}
+      <div class="total-row" style="gap:8px; align-items:center;">
+        <span class="muted">Скидка на заказ</span>
+        <input id="ord-disc" type="number" min="0" max="100" step="1" value="${orderDiscountPct(d)}"
+               style="width:72px; text-align:right; padding:6px 8px; border:1px solid var(--line,#ddd); border-radius:8px;">
+        <span class="muted">%</span>
+        <button class="act primary" onclick="applyOrderDiscount(${d.id})">Применить</button>
+      </div></div></div>`;
+}
+
+// Текущий процент восстанавливаем из суммы: в orders.discount лежат рубли.
+function orderDiscountPct(d){
+  const disc=Number(d.discount)||0, total=Number(d.total)||0, base=disc+total;
+  return base>0 ? Math.round(disc/base*100) : 0;
+}
+
+async function applyOrderDiscount(id){
+  const el=document.getElementById("ord-disc");
+  const pct=Number(el && el.value);
+  if(!(pct>=0 && pct<=100)){ toast("Скидка от 0 до 100%","err"); return; }
+  try{
+    const j=await api("/tma/api/admin/order/"+id+"/discount",{ method:"POST",
+      headers:{ "Content-Type":"application/json" }, body: JSON.stringify({ discount_pct: pct }) });
+    const o=state.orders;
+    if(o.detail&&o.detail.id===id){ o.detail.total=j.total; o.detail.discount=j.discount; }
+    const row=o.rows.find(r=>r.id===id); if(row){ row.total=j.total; row.discount=j.discount; }
+    renderOrdersBody(); renderOrderDetail();
+    toast(`Скидка ${pct}% — итог ${j.total} ₽`,"ok");
+  }catch(e){ toast(e.message||"Не удалось применить скидку","err"); }
 }
 function patchOrderRow(id, status){
   const o=state.orders;
