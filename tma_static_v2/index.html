@@ -416,6 +416,7 @@ function applyUserProfile(p) {
   if (typeof p.discount_pct === 'number') STATE.personalPct = p.discount_pct;
   if (typeof p.pricing_rules === 'number') STATE.pricingRules = p.pricing_rules;
   if (Array.isArray(p.personal_rules)) STATE.personalRules = p.personal_rules;
+  if (p.price_tier) STATE.priceTier = p.price_tier;
   if (p.pd_consent_at) {
     STATE.contact.consent_granted = true;
     STATE.contact.consent_signed_at = p.pd_consent_at;
@@ -574,16 +575,26 @@ const TIERS = [
   { min: 10, d: 0.10 },
   { min: 0,  d: 0.00 },
 ];
-// Личная скидка клиента и весовая НЕ складываются — берём выгодную,
-// ровно как считает сервер при оформлении заказа.
+// Прайс клиента: standard | discount_10 | discount_20 | stm.
+function priceTierName() { return String((STATE && STATE.priceTier) || 'standard'); }
 function personalTier() {
   const pct = Number(STATE && STATE.personalPct) || 0;
   return pct > 0 ? pct / 100 : 0;
 }
-function tierFor(kg) {
-  for (const t of TIERS) if (kg >= t.min) return Math.max(t.d, personalTier());
-  return 0;
+// Проценты для позиций без личной цены. Нестандартный прайс объём уже
+// учитывает — объёмную скидку поверх него не даём. При стандартном прайсе
+// объём считается по весу кофе и снижает только кофе: чай и сиропы ни веса
+// не добавляют, ни скидки не получают. То же самое в _compute_order_discount.
+function tierPcts(kgCoffee) {
+  if (priceTierName() !== 'standard') {
+    const t = personalTier();
+    return { coffee: t, other: t, volume: 0 };
+  }
+  let vol = 0;
+  for (const t of TIERS) { if (kgCoffee >= t.min) { vol = t.d; break; } }
+  return { coffee: vol, other: 0, volume: vol };
 }
+function tierFor(kg) { return tierPcts(kg).coffee; }
 
 const RULE_SCOPES = ['all', 'category', 'subcategory', 'product'];
 // Правила клиента, подходящие к конкретной фасовке. Порядок проверок тот же,
@@ -655,7 +666,7 @@ function applyPersonalPrices() {
 // весовая к ним не применяется, и их вес не идёт в счёт порога. Ровно так
 // считает _compute_order_discount на сервере.
 function cartSplit() {
-  let personal = 0, personalBase = 0, general = 0, kgGeneral = 0;
+  let personal = 0, personalBase = 0, coffee = 0, other = 0, kgCoffee = 0;
   for (const it of STATE.cart) {
     const p = findProduct(it.id);
     if (!p) continue;
@@ -667,23 +678,31 @@ function cartSplit() {
       personalBase += (typeof f.price_base === 'number' ? f.price_base : f.price) * qty;
       continue;
     }
-    general += f.price * qty;
-    kgGeneral += sizeToKg(it.fasovka) * qty;
+    if (COFFEE_CATS.includes(p.category)) {
+      coffee += f.price * qty;
+      kgCoffee += sizeToKg(it.fasovka) * qty;
+    } else {
+      other += f.price * qty;
+    }
   }
-  return { personal, personalBase, general, kgGeneral };
+  return { personal, personalBase, coffee, other, kgCoffee };
 }
 
 function cartTotals() {
   const s = cartSplit();
-  const tier = tierFor(s.kgGeneral);
-  const weightSave = s.general * tier;
+  const pct = tierPcts(s.kgCoffee);
+  const coffeeSave = s.coffee * pct.coffee;
+  const otherSave = s.other * pct.other;
   const personalSave = s.personalBase - s.personal;
   return {
-    subtotal: s.personalBase + s.general,
-    total: s.personal + s.general - weightSave,
-    tier, weightSave, personalSave,
-    save: personalSave + weightSave,
-    kgGeneral: s.kgGeneral,
+    subtotal: s.personalBase + s.coffee + s.other,
+    total: s.personal + (s.coffee - coffeeSave) + (s.other - otherSave),
+    tier: pct.coffee,
+    isVolume: pct.volume > 0,
+    weightSave: coffeeSave + otherSave,
+    personalSave,
+    save: personalSave + coffeeSave + otherSave,
+    kgGeneral: s.kgCoffee,
   };
 }
 
@@ -704,11 +723,12 @@ function cartCount() {
   return STATE.cart.reduce((s, i) => s + (i.qty || 1), 0);
 }
 function cartWeightKg() {
-  // Вес всего заказа, не только кофе: порог скидки сервер считает так же.
+  // Только кофе: порог объёмной скидки считается по нему.
   let kg = 0;
   for (const it of STATE.cart) {
     const p = STATE.data?.products.find(x => x.id === it.id);
     if (!p) continue;
+    if (!COFFEE_CATS.includes(p.category)) continue;
     kg += sizeToKg(it.fasovka) * (it.qty || 1);
   }
   return kg;
@@ -1700,7 +1720,7 @@ ${isPersonal ? `
   </div>
 </div>` : ''}
 
-${isCoffeeKg && !curFas.on_request && !isPersonal ? `
+${isCoffeeKg && !curFas.on_request && !isPersonal && priceTierName() === 'standard' ? `
 <div style="padding:24px 16px 0;">
   <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px;">
     <div class="eyebrow">Скидка по весу</div>
@@ -1769,6 +1789,8 @@ function screenCart() {
   const subtotal = T.subtotal, tier = T.tier, save = T.weightSave, total = T.total;
   // Лестница считается по позициям без личной цены — у них своя скидка.
   const ladderKg = T.kgGeneral;
+  const discLabel = T.isVolume ? `Скидка по весу −${Math.round(tier*100)}%`
+                               : `Ваш тариф −${Math.round(tier*100)}%`;
   const toNext = ladderKg < 10 ? 10 - ladderKg : ladderKg < 25 ? 25 - ladderKg : 0;
   const nextLabel = ladderKg < 10 ? '−10%' : ladderKg < 25 ? '−20%' : 'максимум';
 
@@ -1811,7 +1833,7 @@ ${appHeader({ back: true, title: 'Корзина', action: `<button class="btn-g
 </div>
 
 <!-- Discount ladder -->
-${ladderKg > 0 ? `
+${ladderKg > 0 && priceTierName() === 'standard' ? `
 <div style="padding:22px 16px 0;">
   <div class="card" style="padding:18px; background:${tier === 0.2 ? 'var(--green-soft)' : 'var(--surface)'};">
     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px;">
@@ -1845,7 +1867,7 @@ ${ladderKg > 0 ? `
   <div style="display:flex; flex-direction:column; gap:10px;">
     <div style="display:flex; justify-content:space-between;"><span style="color:var(--ink-soft); font-size:14px;">Подсумма</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:500;">${fmt(subtotal)} ₽</span></div>
     ${T.personalSave > 0 ? `<div style="display:flex; justify-content:space-between;"><span style="color:var(--green); font-size:14px; font-weight:600;">Ваша цена</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:600; color:var(--green);">−${fmt(T.personalSave)} ₽</span></div>` : ''}
-    ${tier > 0 ? `<div style="display:flex; justify-content:space-between;"><span style="color:var(--green); font-size:14px; font-weight:600;">Скидка по весу −${Math.round(tier*100)}%</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:600; color:var(--green);">−${fmt(save)} ₽</span></div>` : ''}
+    ${tier > 0 ? `<div style="display:flex; justify-content:space-between;"><span style="color:var(--green); font-size:14px; font-weight:600;">${discLabel}</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:600; color:var(--green);">−${fmt(save)} ₽</span></div>` : ''}
     <div style="display:flex; justify-content:space-between;"><span style="color:var(--ink-soft); font-size:14px;">Доставка</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:500;">СДЭК · от 290 ₽</span></div>
     <hr class="hr"/>
     <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font-family:var(--f-display); font-weight:700; font-size:18px;">Итого</span><span style="font-family:var(--f-display); font-weight:900; font-size:30px;">${fmt(total)}<span style="font-size:14px; color:var(--ink-soft); margin-left:2px;">₽</span></span></div>
@@ -1867,6 +1889,8 @@ function screenCheckout() {
   const totalKg = cartWeightKg();
   const T = cartTotals();
   const subtotal = T.subtotal, tier = T.tier, total = T.total;
+  const discLabel = T.isVolume ? `Скидка по весу −${Math.round(tier*100)}%`
+                               : `Ваш тариф −${Math.round(tier*100)}%`;
   const itemsCount = STATE.cart.reduce((s, i) => s + (i.qty || 1), 0);
 
   // Базовый input
@@ -2028,7 +2052,7 @@ ${appHeader({ back: true, title: 'Оформление' })}
     <div style="display:flex; flex-direction:column; gap:8px;">
       <div style="display:flex; justify-content:space-between;"><span style="color:var(--ink-soft); font-size:14px;">Подсумма</span><span style="font-family:var(--f-mono); font-size:14px;">${fmt(subtotal)} ₽</span></div>
       ${T.personalSave > 0 ? `<div style="display:flex; justify-content:space-between;"><span style="color:var(--green); font-size:14px; font-weight:600;">Ваша цена</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:600; color:var(--green);">−${fmt(T.personalSave)} ₽</span></div>` : ''}
-      ${tier > 0 ? `<div style="display:flex; justify-content:space-between;"><span style="color:var(--green); font-size:14px; font-weight:600;">Скидка по весу −${Math.round(tier*100)}%</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:600; color:var(--green);">−${fmt(T.weightSave)} ₽</span></div>` : ''}
+      ${tier > 0 ? `<div style="display:flex; justify-content:space-between;"><span style="color:var(--green); font-size:14px; font-weight:600;">${discLabel}</span><span style="font-family:var(--f-mono); font-size:14px; font-weight:600; color:var(--green);">−${fmt(T.weightSave)} ₽</span></div>` : ''}
       <hr class="hr"/>
       <div style="display:flex; justify-content:space-between; align-items:baseline;">
         <span style="font-family:var(--f-display); font-weight:700; font-size:16px;">К оплате</span>

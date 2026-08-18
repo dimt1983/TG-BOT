@@ -310,17 +310,26 @@ def _apply_personal_pricing(con, user_id: int, items: list) -> None:
         log.warning(f"_apply_personal_pricing failed: {e}")
 
 
+# Разделы, которые считаются кофе для объёмной скидки. Тот же список лежит
+# в витрине (COFFEE_CATS в tma_static_v2/index.html) — расходиться им нельзя,
+# иначе клиент увидит одну сумму, а в заказе окажется другая.
+VOLUME_CATEGORIES = frozenset({
+    "espresso", "filter", "retail", "black", "borshch", "drip", "cascara", "sets",
+})
+
+
 def _compute_order_discount(con, user_id: int, items: list) -> tuple[float, float, dict]:
-    """Считает скидку на ОБЩИЕ позиции (без user_pricing). Скидки НЕ суммируются —
-    берётся max(tier_pct, volume_pct).
+    """Считает скидку на ОБЩИЕ позиции (без user_pricing).
 
     Возвращает (subtotal_personal, subtotal_general_after_discount, breakdown).
-      - subtotal_personal: сумма позиций с user_pricing (цена уже снижена)
-      - subtotal_general_after_discount: сумма позиций без user_pricing после max-скидки
 
-    Логика: позиции с персональной скидкой уже получили выгодную цену — общая
-    оптовая (tier/volume) к ним НЕ применяется. К остальным — max(tier, volume).
-    Так клиент не получает «двойную» скидку."""
+    Правила (заданы владельцем 18.08.2026):
+      • у позиции есть личная цена — никакие общие скидки к ней больше не идут,
+        и её вес не считается в объёме;
+      • прайс клиента нестандартный (опт/СТМ) — объёмной скидки нет вообще,
+        работает только процент тарифа, и он идёт на весь остальной заказ;
+      • прайс стандартный — объём считается по весу КОФЕ и снижает только кофе.
+        Чай, сиропы и прочее ни веса не добавляют, ни скидки не получают."""
     tier_pct = 0.0
     tier_name = "standard"
     try:
@@ -330,30 +339,51 @@ def _compute_order_discount(con, user_id: int, items: list) -> tuple[float, floa
     except Exception:
         pass
 
+    cats = _build_roast_map()
     subtotal_personal = 0.0
-    subtotal_general = 0.0
-    total_kg_general = 0.0
+    subtotal_coffee = 0.0
+    subtotal_other = 0.0
+    kg_coffee = 0.0
     for it in items:
         line = float(it.get("price") or 0) * float(it.get("qty") or 0)
-        kg = (parse_kg(it.get("fasovka", "")) or 0) * float(it.get("qty") or 0)
         if it.get("_personal_priced"):
             subtotal_personal += line
+            continue
+        cat = (cats.get(it.get("id") or "", {}).get("category")
+               or it.get("category") or "").lower()
+        if cat in VOLUME_CATEGORIES:
+            subtotal_coffee += line
+            kg_coffee += (parse_kg(it.get("fasovka", "")) or 0) * float(it.get("qty") or 0)
         else:
-            subtotal_general += line
-            total_kg_general += kg
+            subtotal_other += line
 
-    volume_pct = 20.0 if total_kg_general >= 25 else (10.0 if total_kg_general >= 10 else 0.0)
-    # НЕ суммируем — берём максимум (бизнес-правило: одна скидка на позицию).
-    general_pct = max(tier_pct, volume_pct)
-    subtotal_general_after = round(subtotal_general * (1 - general_pct / 100), 2)
+    if tier_name != "standard":
+        # Оптовый или СТМ-прайс уже учитывает объём — второй раз не даём.
+        volume_pct = 0.0
+        coffee_pct = other_pct = tier_pct
+    else:
+        volume_pct = 20.0 if kg_coffee >= 25 else (10.0 if kg_coffee >= 10 else 0.0)
+        coffee_pct = volume_pct
+        other_pct = 0.0
+
+    subtotal_general = subtotal_coffee + subtotal_other
+    subtotal_general_after = round(subtotal_coffee * (1 - coffee_pct / 100)
+                                   + subtotal_other * (1 - other_pct / 100), 2)
+    saved = subtotal_general - subtotal_general_after
+    final_pct = round(saved / subtotal_general * 100, 2) if subtotal_general else 0.0
 
     return subtotal_personal, subtotal_general_after, {
         "tier_pct": tier_pct,
         "tier_name": tier_name,
         "volume_pct": volume_pct,
-        "general_pct": general_pct,
-        "total_kg": total_kg_general,
+        "coffee_pct": coffee_pct,
+        "other_pct": other_pct,
+        "general_pct": coffee_pct,
+        "final_pct": final_pct,
+        "total_kg": kg_coffee,
         "subtotal_personal": subtotal_personal,
+        "subtotal_coffee": subtotal_coffee,
+        "subtotal_other": subtotal_other,
         "subtotal_general": subtotal_general,
         "subtotal_general_after": subtotal_general_after,
     }
@@ -581,10 +611,13 @@ async def process_tma_order(
     lines.append(f"\n💰 Сумма: {subtotal:.0f} ₽")
     if sub_personal:
         lines.append(f"⭐ С вашими персональными ценами: {sub_personal:.0f} ₽")
-    lines.append(f"⚖️ Вес: {kg:.2f} кг")
+    lines.append(f"⚖️ Вес кофе: {kg:.2f} кг")
     if general_pct:
-        why = f"тариф «{TIER_LABEL.get(tier_name, tier_name)}»" if tier_pct >= vol_pct else f"за объём ({kg:.1f} кг)"
-        lines.append(f"📦 Скидка на остальное −{general_pct:.0f}% ({why})")
+        if tier_name != "standard":
+            lines.append(f"📦 Скидка −{general_pct:.0f}% "
+                         f"(тариф «{TIER_LABEL.get(tier_name, tier_name)}»)")
+        else:
+            lines.append(f"📦 Скидка на кофе −{general_pct:.0f}% за объём ({kg:.1f} кг)")
     if saved:
         lines.append(f"🎁 <b>Экономия: −{saved} ₽</b>")
     lines.append(f"\n💳 <b>К оплате: {total:.0f} ₽</b>")
