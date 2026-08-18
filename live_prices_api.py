@@ -28,7 +28,15 @@ _CANDIDATES = [
 ]
 PRICE_XLSX = next((p for p in _CANDIDATES if p and p.exists()), _CANDIDATES[1])
 
+_STM_CANDIDATES = [
+    Path(os.environ.get("BISHOP_STM_XLSX", "")) if os.environ.get("BISHOP_STM_XLSX") else None,
+    _HERE / "tma_static" / "data" / "Roastberry_СТМ_2026.xlsx",
+    Path("/root/projects/ai-agents-rb/Прайсы/чистовики/Roastberry_СТМ_2026.xlsx"),
+]
+STM_XLSX = next((p for p in _STM_CANDIDATES if p and p.exists()), _STM_CANDIDATES[1])
+
 _CACHE = {"data": None, "ts": 0, "mtime": 0}
+_STM_CACHE = {"data": None, "ts": 0, "mtime": 0}
 _CACHE_TTL = 60  # сек
 
 
@@ -202,6 +210,110 @@ def _match_score(tma_name: str, price_name: str) -> float:
 COFFEE_CATEGORIES = frozenset({"coffee", "espresso", "filter", "black", "borshch"})
 
 
+def _find_price_row(tma_name: str, by_name: dict):
+    """Позиция прайса под карточку магазина: точное имя → первое слово → fuzzy.
+
+    Вынесено отдельно, чтобы основной прайс и СТМ подбирались одинаково:
+    разойдись они — клиент получил бы цену от чужой позиции."""
+    name = (tma_name or "").upper().strip()
+    if not name:
+        return None
+    match = by_name.get(name)
+    if match:
+        return match
+    match = by_name.get(name.split()[0])
+    if match:
+        return match
+    best_key, best_score = None, 0.0
+    for k in by_name.keys():
+        sc = _match_score(name, k)
+        if sc > best_score:
+            best_score, best_key = sc, k
+    return by_name[best_key] if best_score >= 0.75 else None
+
+
+def load_stm_prices() -> dict:
+    """Прайс СТМ: {by_name: {ИМЯ: {price_1000, price_200}}, meta}.
+
+    Лист: Тип | Название | Обжарка | Базовый (1 кг) | СТМ (1 кг) |
+          Базовый (200 г) | СТМ (200 г)
+    Берём именно СТМ-колонки — базовые нужны только глазами сверить."""
+    if not STM_XLSX.exists():
+        return {"by_name": {}, "meta": {"error": "stm price file not found"}}
+
+    mtime = STM_XLSX.stat().st_mtime
+    now = time.time()
+    if _STM_CACHE["data"] and now - _STM_CACHE["ts"] < _CACHE_TTL and _STM_CACHE["mtime"] == mtime:
+        return _STM_CACHE["data"]
+
+    try:
+        import openpyxl
+    except ImportError:
+        return {"by_name": {}, "meta": {"error": "openpyxl not installed"}}
+
+    wb = openpyxl.load_workbook(STM_XLSX, read_only=True, data_only=True)
+    ws = wb[wb.sheetnames[0]]
+    by_name, rows = {}, 0
+    for row in ws.iter_rows(min_row=1, values_only=True):
+        if not row:
+            continue
+        cells = [str(c).strip() if c is not None else "" for c in row]
+        if len(cells) < 5 or not cells[0] or not cells[1]:
+            continue
+        if cells[0].lower() == "тип":
+            continue
+        try:
+            stm_1kg = float(cells[4]) if len(cells) > 4 and cells[4] else None
+            stm_200 = float(cells[6]) if len(cells) > 6 and cells[6] else None
+        except (ValueError, TypeError):
+            continue
+        if stm_1kg is None and stm_200 is None:
+            continue
+        by_name[cells[1].upper()] = {
+            "name": cells[1],
+            "price_1000": stm_1kg,
+            "price_200": stm_200,
+        }
+        rows += 1
+
+    data = {"by_name": by_name,
+            "meta": {"loaded_at": now, "rows": rows, "source": str(STM_XLSX)}}
+    _STM_CACHE.update(data=data, ts=now, mtime=mtime)
+    return data
+
+
+def stm_prices_for_products(tma_products: list[dict]) -> tuple[dict, dict]:
+    """{id карточки: {размер фасовки: цена СТМ}} + статистика.
+
+    Размеры берём как они записаны в карточке, чтобы витрине и серверу не
+    пришлось нормализовать их по-разному."""
+    prices = load_stm_prices()
+    by_name = prices["by_name"]
+    out, matched, unmatched = {}, 0, []
+    if not by_name:
+        return out, {"matched": 0, "unmatched_count": 0, "meta": prices["meta"]}
+
+    for p in tma_products:
+        if p.get("category") not in COFFEE_CATEGORIES:
+            continue
+        match = _find_price_row(p.get("name") or "", by_name)
+        if not match:
+            unmatched.append(p.get("name"))
+            continue
+        sizes = {}
+        for fa in (p.get("fasovka") or []):
+            size = fa.get("size") or ""
+            if "1 кг" in size and match.get("price_1000"):
+                sizes[size] = int(match["price_1000"] + 0.5)
+            elif "200 г" in size and match.get("price_200"):
+                sizes[size] = int(match["price_200"] + 0.5)
+        if sizes:
+            out[p["id"]] = sizes
+            matched += 1
+    return out, {"matched": matched, "unmatched_count": len(unmatched),
+                 "unmatched": unmatched[:20], "meta": prices["meta"]}
+
+
 def merge_into_products(tma_products: list[dict]) -> tuple[list[dict], dict]:
     """Применяет цены к coffee-товарам TMA. Возвращает (обновлённые товары, статистика)."""
     prices = load_prices()
@@ -223,27 +335,10 @@ def merge_into_products(tma_products: list[dict]) -> tuple[list[dict], dict]:
             out.append(p)
             continue
 
-        # exact match
-        name = p["name"].upper().strip()
-        match = by_name.get(name)
-        if not match:
-            short = name.split()[0] if name else ""
-            match = by_name.get(short)
-        if not match:
-            # fuzzy match — порог высокий, иначе позиции которых нет в xlsx-прайсе
-            # сваливаются на чужие имена и получают чужие цены (например все
-            # Эфиопии сматчатся в первую попавшуюся «Эфиопия X»). Порог 0.75 —
-            # достаточно мягкий чтобы поймать «Колумбия Андино» vs «Колумбия
-            # Андино мытый» (score 1.0), но отсечь «Эфиопия Иргачиф гр.4» vs
-            # «Эфиопия Иргач Адада гр.1» (score 0.67).
-            best_key, best_score = None, 0.0
-            for k in by_name.keys():
-                s = _match_score(name, k)
-                if s > best_score:
-                    best_score = s
-                    best_key = k
-            if best_score >= 0.75:
-                match = by_name[best_key]
+        # Порог fuzzy высокий (0.75) — иначе позиции, которых нет в xlsx,
+        # сваливаются на чужие имена: «Колумбия Андино» vs «Колумбия Андино
+        # мытый» это 1.0, а «Эфиопия Иргачиф гр.4» vs «Иргач Адада гр.1» — 0.67.
+        match = _find_price_row(p["name"], by_name)
 
         if match:
             # Перепишем цены в fasovka

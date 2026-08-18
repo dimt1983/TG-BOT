@@ -480,14 +480,35 @@ def _ensure_pricing_schema():
 # Применяются при создании заказа: tier → колонка прайса (через live_prices_api),
 # user_pricing → точечные правила (категория / подкатегория / товар).
 
-# Маппинг tier → имя колонки в xlsx-прайсе (Bishop / live_prices_api).
-# Если live_prices_api не вернул нужную колонку — fallback на standard.
-TIER_PRICE_COLUMNS = {
-    "standard":    "price",
-    "discount_10": "price_10kg",
-    "discount_20": "price_25kg",
-    "stm":         "price_stm",
+# Тарифы, у которых свой прайс-файл, а не процент от базового.
+# СТМ-скидка нелинейна: в прайсе это −555 ₽ за кг и −110 ₽ за 200 г, то есть
+# от 21% до 28% в зависимости от позиции — ставкой её не выразить.
+TIERS_WITH_OWN_PRICE_LIST = frozenset({"stm"})
+
+# Подписка «Свежая обжарка». Состав держим на сервере, чтобы в заявке владельцу
+# приходило ровно то, что выбрал человек, а не строка из браузера.
+SUBSCRIPTION_PRICE = 4000
+SUBSCRIPTION_PLANS = {
+    "espresso_1kg": "2 пачки эспрессо по 1 кг",
+    "filter_1kg":   "2 пачки фильтра по 1 кг",
+    "mix_200":      "6 пачек по 200 г — эспрессо или фильтр",
+    "black_borshch": "BLACK + BORЩ — 5 пачек по 200 г",
 }
+
+
+def tier_price_map(tier_name: str) -> dict:
+    """{id карточки: {размер: цена}} для тарифов со своим прайсом. Иначе пусто."""
+    if tier_name not in TIERS_WITH_OWN_PRICE_LIST:
+        return {}
+    try:
+        from live_prices_api import stm_prices_for_products
+        with open(os.path.join(TMA_ROOT, "products.json"), encoding="utf-8") as f:
+            data = json.load(f)
+        prods = data if isinstance(data, list) else (data.get("products") or [])
+        prices, _stats = stm_prices_for_products(prods)
+        return prices
+    except Exception:
+        return {}
 
 
 def _user_tier(con: sqlite3.Connection, user_id: int) -> str:
@@ -939,6 +960,28 @@ class Handler(BaseHTTPRequestHandler):
                 self._send(200, body, "application/json; charset=utf-8")
             except Exception as e:
                 self._send(500, str(e).encode(), "text/plain")
+            return
+
+        # ── Цены прайса клиента (СТМ) ────────────────────────────────────────
+        if path == "/tma/api/user/prices":
+            user = _get_request_user(self)
+            if not user or not user.get("id"):
+                self._send(401, _j({"error": "auth required"}),
+                           "application/json; charset=utf-8")
+                return
+            try:
+                con = sqlite3.connect(DB_PATH)
+                try:
+                    tier = _user_tier(con, int(user["id"]))
+                finally:
+                    con.close()
+                prices = tier_price_map(tier)
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
+                return
+            self._send(200, _j({"tier": tier, "prices": prices}),
+                       "application/json; charset=utf-8",
+                       {"Cache-Control": "no-store"})
             return
 
         # ── /tma/api/user/me — профиль текущего пользователя (для автозаполнения) ─
@@ -1746,6 +1789,51 @@ class Handler(BaseHTTPRequestHandler):
         m_pay = re.match(r"^/tma/api/order/(\d+)/pay$", path)
         if m_pay:
             self._handle_tma_order_pay(int(m_pay.group(1)))
+            return
+
+        # ── Заявка на подписку «Свежая обжарка» ──────────────────────────────
+        if path == "/tma/api/subscription/request":
+            user = _get_request_user(self)
+            if not user or not user.get("id"):
+                self._send(401, _j({"error": "auth required"}),
+                           "application/json; charset=utf-8")
+                return
+            body = self._read_body() or {}
+            plan = str(body.get("plan") or "").strip()[:80]
+            if plan not in SUBSCRIPTION_PLANS:
+                self._send(400, _j({"error": "Выберите вариант подписки"}),
+                           "application/json; charset=utf-8")
+                return
+            uid = int(user["id"])
+            name = phone = ""
+            try:
+                con = sqlite3.connect(DB_PATH)
+                try:
+                    row = con.execute("SELECT name, phone FROM users WHERE user_id=?",
+                                      (uid,)).fetchone()
+                    if row:
+                        name, phone = row[0] or "", row[1] or ""
+                finally:
+                    con.close()
+            except sqlite3.Error:
+                pass
+            name = name or user.get("first_name") or "Клиент"
+            phone = phone or user.get("phone") or "—"
+            text = (f"☕️ <b>Заявка на подписку «Свежая обжарка»</b>\n\n"
+                    f"{name} · {phone}\n"
+                    f"id {uid}\n\n"
+                    f"Вариант: <b>{SUBSCRIPTION_PLANS[plan]}</b>\n"
+                    f"{SUBSCRIPTION_PRICE} ₽ в месяц")
+            if _TMA_CTX and ADMIN_IDS:
+                async def _notify_sub():
+                    for admin_id in ADMIN_IDS:
+                        try:
+                            await _TMA_CTX["bot"].send_message(admin_id, text, parse_mode="HTML")
+                        except Exception:
+                            pass
+                asyncio.run_coroutine_threadsafe(_notify_sub(), _TMA_CTX["loop"])
+            self._send(200, _j({"ok": True, "plan": plan}),
+                       "application/json; charset=utf-8")
             return
 
         # ── Адрес доставки из профиля ────────────────────────────────────────

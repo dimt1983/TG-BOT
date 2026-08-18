@@ -254,6 +254,35 @@ def _upsert_user_profile(con, user_id: int, payload: dict) -> None:
     con.commit()
 
 
+def _apply_tier_prices(con, user_id: int, items: list) -> None:
+    """Подставляет цены прайса клиента (пока это только СТМ).
+
+    Позиции помечаем как персональные: их цена уже льготная, поэтому общие
+    скидки к ним не применяются и вес в объём не идёт — так же считает витрина."""
+    if not user_id or not items:
+        return
+    try:
+        from tma_static_server import _user_tier, tier_price_map
+        tier = _user_tier(con, user_id)
+        prices = tier_price_map(tier)
+        if not prices:
+            return
+        for it in items:
+            sizes = prices.get(it.get("id") or "")
+            if not sizes:
+                continue
+            new_price = sizes.get(it.get("fasovka") or "")
+            if new_price is None:
+                continue
+            base = float(it.get("price") or 0)
+            if new_price < base - 0.01:
+                it["price"] = float(new_price)
+                it["_personal_priced"] = True
+                it["_tier_priced"] = tier
+    except Exception as e:
+        log.warning(f"_apply_tier_prices failed: {e}")
+
+
 def _apply_personal_pricing(con, user_id: int, items: list) -> None:
     """Пересчитывает price у каждой позиции с учётом user_pricing-правил клиента.
     Меняет items in-place. Правила НЕ суммируются — берётся самое выгодное
@@ -451,6 +480,7 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
             + (f" и ещё {len(no_price)-5}" if len(no_price) > 5 else "")
             + ". Уберите их из корзины или напишите менеджеру — оформим вручную."
         )
+    _apply_tier_prices(con, user_id, items)
     _apply_personal_pricing(con, user_id, items)
     subtotal = sum((it.get("price") or 0) * it["qty"] for it in items)
     sub_personal, sub_general_after, breakdown = _compute_order_discount(con, user_id, items)

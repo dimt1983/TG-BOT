@@ -196,12 +196,21 @@ async function rbShareWebLink() {
 /* ════════════════════════════════════════════════════════════════════
    STATE
    ════════════════════════════════════════════════════════════════════ */
-const COFFEE_CATALOG_URL = '/tma/data/Roastberry_%D0%9F%D1%80%D0%B0%D0%B9%D1%81_2026.xlsx';
-function rbOpenCoffeeCatalog() {
-  const url = window.location.origin + COFFEE_CATALOG_URL;
+// У СТМ-клиента свой прайс — и в таблице, и в PDF он должен видеть его.
+const PRICE_FILES = {
+  standard: { xlsx: '/tma/data/Roastberry_%D0%9F%D1%80%D0%B0%D0%B9%D1%81_2026.xlsx',
+              pdf:  '/tma/data/Roastberry_%D0%9F%D1%80%D0%B0%D0%B9%D1%81_2026.pdf' },
+  stm:      { xlsx: '/tma/data/Roastberry_%D0%A1%D0%A2%D0%9C_2026.xlsx',
+              pdf:  '/tma/data/Roastberry_%D0%A1%D0%A2%D0%9C_2026.pdf' },
+};
+function priceFiles() { return PRICE_FILES[priceTierName()] || PRICE_FILES.standard; }
+const COFFEE_CATALOG_URL = PRICE_FILES.standard.xlsx;
+function rbOpenPrice(kind) {
+  const url = window.location.origin + (priceFiles()[kind] || PRICE_FILES.standard.xlsx);
   if (tg?.openLink) tg.openLink(url); else window.open(url, '_blank', 'noopener');
   haptic('light');
 }
+function rbOpenCoffeeCatalog() { rbOpenPrice('xlsx'); }
 
 const STATE = {
   data: null,                    // products.json
@@ -428,6 +437,18 @@ function applyUserProfile(p) {
   }
   saveProfile();
 }
+// Цены прайса клиента (СТМ). Приходят после профиля — тариф известен только
+// на сервере, и подставлять их надо до первой отрисовки каталога.
+async function loadTierPrices() {
+  if (!hasIdentity()) return;
+  try {
+    const r = await fetch('/tma/api/user/prices', { headers: authHeaders(), cache: 'no-store' });
+    if (!r.ok) return;
+    const j = await r.json();
+    if (j && j.prices && typeof j.prices === 'object') STATE.tierPrices = j.prices;
+  } catch (e) {}
+}
+
 async function loadUserProfile() {
   if (!hasIdentity()) return;
   try {
@@ -649,18 +670,21 @@ function applyPersonalPrices() {
   const prods = STATE.data && STATE.data.products;
   if (!Array.isArray(prods)) return;
   const has = Array.isArray(STATE.personalRules) && STATE.personalRules.length > 0;
+  const tierPrices = (STATE.tierPrices && typeof STATE.tierPrices === 'object') ? STATE.tierPrices : {};
   for (const p of prods) {
     for (const f of (p.fasovka || [])) {
       if (typeof f.price_base !== 'number' && typeof f.price === 'number') f.price_base = f.price;
       if (typeof f.price_base !== 'number') continue;
-      f.price = f.price_base;
-      f.personal_pct = 0;
-      if (!has || f.on_request) continue;
-      const np = personalPrice(f.price_base, matchingRules(p, f.size));
-      if (np < f.price_base - 0.01) {
-        f.price = np;
-        f.personal_pct = Math.round((1 - np / f.price_base) * 100);
+      // Прайс клиента заменяет базу, личные правила ложатся уже поверх неё.
+      const tp = tierPrices[p.id] && tierPrices[p.id][f.size];
+      let price = (typeof tp === 'number' && tp < f.price_base) ? tp : f.price_base;
+      if (has && !f.on_request) {
+        const np = personalPrice(price, matchingRules(p, f.size));
+        if (np < price - 0.01) price = np;
       }
+      f.price = price;
+      f.personal_pct = price < f.price_base - 0.01
+        ? Math.round((1 - price / f.price_base) * 100) : 0;
     }
   }
 }
@@ -1124,7 +1148,7 @@ ${appHeader({ logo: true })}
     <div style="margin-top:10px; font-size:13px; color:rgba(245,239,230,0.65); line-height:1.5; max-width:250px;">Прайс в PDF/XLSX, повтор заказа, дебиторка, склад в реальном времени.</div>
     <div style="margin-top:18px; display:flex; gap:8px;">
       <button onclick="rb.go('profile')" style="flex:1; height:44px; background:var(--copper); color:#1A1410; border:0; border-radius:999px; font-family:var(--f-display); font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:space-between; padding:0 18px;">Открыть прайс<span>→</span></button>
-      <button style="height:44px; padding:0 16px; background:transparent; color:var(--bg); border:1px solid rgba(245,239,230,0.2); border-radius:999px; font-weight:500; font-size:13px;">PDF</button>
+      <button onclick="rbOpenPrice('pdf')" style="height:44px; padding:0 16px; background:transparent; color:var(--bg); border:1px solid rgba(245,239,230,0.2); border-radius:999px; font-weight:500; font-size:13px;">PDF</button>
     </div>
   </div>
 </div>
@@ -2188,9 +2212,9 @@ ${_rules.length ? `
   <div class="card" style="overflow:hidden;">
     ${[
       ['flame', 'Заказывали раньше', STATE.boughtBefore.length ? STATE.boughtBefore.length + ' тов.' : 'пока пусто', STATE.boughtBefore.length ? "rb.go('bought')" : null],
-      ['doc',   'Каталог кофейный',          'XLSX · актуальный прайс', 'rbOpenCoffeeCatalog()'],
+      ['doc',   'Каталог кофейный', priceTierName() === 'stm' ? 'XLSX · ваш прайс СТМ' : 'XLSX · актуальный прайс', 'rbOpenCoffeeCatalog()'],
       ['truck', 'Адрес доставки', savedAddressLine() || 'добавить', "rb.go('address')"],
-      ['cup',   'Подписка «Свежая обжарка»', 'скоро', null],
+      ['cup',   'Подписка «Свежая обжарка»', '4 000 ₽ в месяц', "rb.go('subscription')"],
       ['link',  IS_TG ? 'Ссылка для клиента без Telegram' : 'Скопировать ссылку на магазин', 'открывается в браузере', 'rbShareWebLink()'],
     ].map((r, i, arr) => `
       <div onclick="${r[3] || ''}" style="display:flex; align-items:center; gap:12px; padding:14px; ${i < arr.length - 1 ? 'border-bottom:1px solid var(--line);' : ''} ${r[3] ? 'cursor:pointer;' : ''}">
@@ -3589,6 +3613,25 @@ const rb = {
     }
     rb.go('checkout');
   },
+  pickSubPlan(id) { STATE.subPlan = id; haptic('light'); render(); },
+  async requestSubscription() {
+    const plan = STATE.subPlan || SUB_PLANS[0].id;
+    if (!hasIdentity()) { toast('Откройте магазин через Telegram — так мы поймём, кто вы'); haptic('error'); return; }
+    try {
+      const r = await fetch('/tma/api/subscription/request', {
+        method: 'POST',
+        headers: Object.assign({ 'Content-Type': 'application/json' }, authHeaders()),
+        body: JSON.stringify({ plan }),
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(j.error || 'Не удалось отправить заявку');
+      haptic('success'); toast('Заявка отправлена');
+      const el = document.getElementById('sub-done');
+      if (el) el.textContent = 'Заявка отправлена — менеджер свяжется';
+    } catch (e) {
+      haptic('error'); toast(e.message || 'Не удалось отправить заявку');
+    }
+  },
   async saveAddress() {
     const d = (STATE.contact && STATE.contact.delivery) || {};
     const address = (d.address || '').trim();
@@ -4490,6 +4533,72 @@ ${appHeader({ back: true, title: 'Адрес доставки' })}
 `;
 }
 
+// Ключи вариантов совпадают с SUBSCRIPTION_PLANS на сервере — заявку
+// расшифровывает он, витрина шлёт только ключ.
+const SUB_PLANS = [
+  { id: 'espresso_1kg',  title: '2 пачки эспрессо',   note: 'по 1 кг',
+    hint: 'Классика для кофемашины — два килограмма на месяц.' },
+  { id: 'filter_1kg',    title: '2 пачки фильтра',    note: 'по 1 кг',
+    hint: 'Для воронки, аэропресса и чемекса.' },
+  { id: 'mix_200',       title: '6 пачек по 200 г',   note: 'эспрессо или фильтр',
+    hint: 'Каждая пачка — свой сорт. Месяц без повторов.' },
+  { id: 'black_borshch', title: 'BLACK + BORЩ',       note: '5 пачек по 200 г',
+    hint: 'Лимитированные линейки — то, что не стоит на полке постоянно.' },
+];
+
+function screenSubscription() {
+  const chosen = STATE.subPlan || SUB_PLANS[0].id;
+  return `
+${appHeader({ back: true, title: 'Свежая обжарка' })}
+
+<div style="padding:8px 16px 0;">
+  <div class="eyebrow">Подписка</div>
+  <h1 style="margin-top:6px; font-size:32px; line-height:1.02;">Кофе приезжает<br/>сам</h1>
+  <p style="margin-top:12px; color:var(--ink-soft); font-size:14px; line-height:1.55;">
+    Раз в месяц собираем свежую обжарку и отправляем вам. Не нужно помнить о заказе,
+    считать остатки и ловить конец пачки — просто выберите, что везём.
+  </p>
+</div>
+
+<div style="padding:20px 16px 0;">
+  <div class="card" style="padding:18px; display:flex; align-items:baseline; justify-content:space-between;">
+    <div>
+      <div class="meta" style="font-size:9px;">Одна цена</div>
+      <div style="margin-top:4px; font-size:13px; color:var(--ink-soft);">в месяц, состав на выбор</div>
+    </div>
+    <div style="font-family:var(--f-display); font-weight:900; font-size:34px; line-height:1;">4 000<span style="font-size:16px; color:var(--ink-soft); margin-left:3px;">₽</span></div>
+  </div>
+</div>
+
+<div style="padding:18px 16px 0; display:grid; grid-template-columns:repeat(3,1fr); gap:8px;">
+  ${[['Обжарка', 'под отправку'], ['Состав', 'меняете каждый месяц'], ['Оплата', 'раз в месяц']]
+    .map(([a, b]) => `<div class="card" style="padding:12px;"><div class="meta" style="font-size:9px; margin-bottom:6px;">${esc(a)}</div><div style="font-size:11.5px; line-height:1.35; color:var(--ink-soft);">${esc(b)}</div></div>`).join('')}
+</div>
+
+<div style="padding:24px 16px 0;">
+  <div class="eyebrow" style="margin-bottom:10px;">Что везём</div>
+  <div style="display:flex; flex-direction:column; gap:8px;">
+    ${SUB_PLANS.map(pl => `
+      <button onclick="rb.pickSubPlan('${pl.id}')" style="text-align:left; padding:14px; border:1px solid ${chosen === pl.id ? 'var(--ink)' : 'var(--line)'}; background:${chosen === pl.id ? 'var(--surface-2)' : 'var(--surface)'}; border-radius:14px; cursor:pointer; display:flex; gap:12px; align-items:flex-start;">
+        <span style="flex:0 0 18px; width:18px; height:18px; margin-top:2px; border-radius:999px; border:2px solid ${chosen === pl.id ? 'var(--ink)' : 'var(--ink-mute)'}; background:${chosen === pl.id ? 'var(--ink)' : 'transparent'};"></span>
+        <span style="flex:1;">
+          <span style="display:block; font-family:var(--f-display); font-weight:700; font-size:15px;">${esc(pl.title)} <span style="color:var(--ink-soft); font-weight:500;">· ${esc(pl.note)}</span></span>
+          <span style="display:block; margin-top:4px; font-size:12.5px; color:var(--ink-soft); line-height:1.4;">${esc(pl.hint)}</span>
+        </span>
+      </button>`).join('')}
+  </div>
+</div>
+
+<div style="padding:22px 16px 40px;">
+  <button class="cta" onclick="rb.requestSubscription()"><span>Оформить подписку</span><span>→</span></button>
+  <div id="sub-done" style="min-height:18px; margin-top:10px; text-align:center; font-size:13px; color:var(--green); font-weight:600;"></div>
+  <p style="margin-top:8px; font-size:12px; color:var(--ink-soft); text-align:center; line-height:1.5;">
+    Менеджер свяжется, согласует день доставки и способ оплаты.
+  </p>
+</div>
+`;
+}
+
 function _addrSavedMark() {
   const el = document.getElementById('addr-saved');
   if (!el) return;
@@ -4555,6 +4664,7 @@ function render() {
     case 'my-order': body = screenMyOrder(); break;
     case 'bought':  body = screenBought(); break;
     case 'address': body = screenAddress(); break;
+    case 'subscription': body = screenSubscription(); break;
     case 'search':  body = screenSearch(); break;
     case 'admin':       body = screenAdmin(); break;
     case 'admin-order': body = screenAdminOrder(); break;
@@ -4705,6 +4815,7 @@ async function init() {
   if (STATE.screen === 'product' && !STATE.productId) STATE.screen = 'home';
   if (migration.changed) saveLocal();
   await loadUserProfile();
+  await loadTierPrices();
   applyPersonalPrices();
   // Claim-ссылка: клиент забирает свой консьерж-аккаунт. Свой экран, дальше — по кнопке.
   const _claimToken = new URLSearchParams(location.search).get('claim');
