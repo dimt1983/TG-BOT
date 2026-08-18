@@ -425,6 +425,18 @@ def _ensure_chat_table():
 # реальный повторный заказ через несколько минут.
 _IDEM_WINDOW_SEC = 120
 
+def _ensure_address_columns(con: sqlite3.Connection) -> None:
+    """Колонки под адрес доставки. Идемпотентна."""
+    cols = {r[1] for r in con.execute("PRAGMA table_info(users)").fetchall()}
+    added = False
+    for col in ("city", "recipient_name", "recipient_phone"):
+        if col not in cols:
+            con.execute(f"ALTER TABLE users ADD COLUMN {col} TEXT")
+            added = True
+    if added:
+        con.commit()
+
+
 def _ensure_pricing_schema():
     """Миграция под спецусловия клиентов: users.price_tier + таблица user_pricing.
 
@@ -942,6 +954,7 @@ class Handler(BaseHTTPRequestHandler):
                 try:
                     u_cols = {r[1] for r in con.execute("PRAGMA table_info(users)").fetchall()}
                     cols = [c for c in ("name", "phone", "email", "address", "city",
+                                        "recipient_name", "recipient_phone",
                                         "company_name", "inn", "legal_address", "user_type",
                                         "pd_consent_at", "pd_consent_version",
                                         "price_tier")
@@ -1733,6 +1746,52 @@ class Handler(BaseHTTPRequestHandler):
         m_pay = re.match(r"^/tma/api/order/(\d+)/pay$", path)
         if m_pay:
             self._handle_tma_order_pay(int(m_pay.group(1)))
+            return
+
+        # ── Адрес доставки из профиля ────────────────────────────────────────
+        if path == "/tma/api/user/address":
+            user = _get_request_user(self)
+            if not user or not user.get("id"):
+                self._send(401, _j({"error": "auth required"}),
+                           "application/json; charset=utf-8")
+                return
+            body = self._read_body() or {}
+            fields = {
+                "city":            str(body.get("city") or "").strip()[:120],
+                "address":         str(body.get("address") or "").strip()[:300],
+                "recipient_name":  str(body.get("recipient_name") or "").strip()[:120],
+                "recipient_phone": str(body.get("recipient_phone") or "").strip()[:40],
+            }
+            if not fields["address"]:
+                self._send(400, _j({"error": "Укажите адрес"}),
+                           "application/json; charset=utf-8")
+                return
+            uid = int(user["id"])
+            try:
+                con = sqlite3.connect(DB_PATH)
+                try:
+                    _ensure_address_columns(con)
+                    # Пустые поля затираем сознательно: человек мог стереть
+                    # получателя, и это должно сохраниться.
+                    if con.execute("SELECT 1 FROM users WHERE user_id=?", (uid,)).fetchone():
+                        con.execute(
+                            "UPDATE users SET city=?, address=?, "
+                            "recipient_name=?, recipient_phone=? WHERE user_id=?",
+                            (*fields.values(), uid))
+                    else:
+                        con.execute(
+                            "INSERT INTO users (user_id, name, phone, city, address, "
+                            "recipient_name, recipient_phone) VALUES (?,?,?,?,?,?,?)",
+                            (uid, user.get("first_name") or "Клиент",
+                             user.get("phone") or "", *fields.values()))
+                    con.commit()
+                finally:
+                    con.close()
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
+                return
+            self._send(200, _j({"ok": True, **fields}),
+                       "application/json; charset=utf-8", {"Cache-Control": "no-store"})
             return
 
         if path == "/tma/api/user/type":

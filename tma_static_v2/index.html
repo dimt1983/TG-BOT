@@ -412,6 +412,9 @@ function applyUserProfile(p) {
     if (p[k] && !STATE.contact[k]) STATE.contact[k] = p[k];
   });
   if (p.address && !STATE.contact.delivery.address) STATE.contact.delivery.address = p.address;
+  if (p.city && !STATE.contact.delivery.city) STATE.contact.delivery.city = p.city;
+  if (p.recipient_name && !STATE.contact.delivery.recipient_name) STATE.contact.delivery.recipient_name = p.recipient_name;
+  if (p.recipient_phone && !STATE.contact.delivery.recipient_phone) STATE.contact.delivery.recipient_phone = p.recipient_phone;
   // Личный тариф клиента: приходит процентом (0 / 10 / 20).
   if (typeof p.discount_pct === 'number') STATE.personalPct = p.discount_pct;
   if (typeof p.pricing_rules === 'number') STATE.pricingRules = p.pricing_rules;
@@ -2177,7 +2180,7 @@ ${_rules.length ? `
     ${[
       ['flame', 'Заказывали раньше', STATE.boughtBefore.length ? STATE.boughtBefore.length + ' тов.' : 'пока пусто', STATE.boughtBefore.length ? "rb.go('bought')" : null],
       ['doc',   'Каталог кофейный',          'XLSX · актуальный прайс', 'rbOpenCoffeeCatalog()'],
-      ['truck', 'Адреса доставки',           'добавить', null],
+      ['truck', 'Адрес доставки', savedAddressLine() || 'добавить', "rb.go('address')"],
       ['cup',   'Подписка «Свежая обжарка»', 'скоро', null],
       ['link',  IS_TG ? 'Ссылка для клиента без Telegram' : 'Скопировать ссылку на магазин', 'открывается в браузере', 'rbShareWebLink()'],
     ].map((r, i, arr) => `
@@ -3577,6 +3580,33 @@ const rb = {
     }
     rb.go('checkout');
   },
+  async saveAddress() {
+    const d = (STATE.contact && STATE.contact.delivery) || {};
+    const address = (d.address || '').trim();
+    if (!address) { toast('Укажите адрес'); haptic('error'); return; }
+    if (!hasIdentity()) {
+      // Гость без телефона сервер не опознает — оставляем адрес локально,
+      // он всё равно подставится в оформление.
+      saveProfile(); toast('Адрес сохранён'); rb.back(); return;
+    }
+    try {
+      const r = await fetch('/tma/api/user/address', {
+        method: 'POST',
+        headers: Object.assign({ 'Content-Type': 'application/json' }, authHeaders()),
+        body: JSON.stringify({
+          city: (d.city || '').trim(),
+          address,
+          recipient_name: (d.recipient_name || '').trim(),
+          recipient_phone: (d.recipient_phone || '').trim(),
+        }),
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(j.error || 'Не удалось сохранить');
+      saveProfile(); haptic('success'); toast('Адрес сохранён'); rb.back();
+    } catch (e) {
+      haptic('error'); toast(e.message || 'Не удалось сохранить');
+    }
+  },
   updateContact(key, value) {
     // key поддерживает dot-нотацию: 'delivery.method', 'delivery.city' и т.д.
     if (key.includes('.')) {
@@ -4398,6 +4428,54 @@ function screenOnboarding() {
 </div>`;
 }
 
+// Короткая строчка «город, адрес» для подписи в профиле.
+function savedAddressLine() {
+  const d = (STATE.contact && STATE.contact.delivery) || {};
+  const line = [d.city, d.address].filter(Boolean).join(', ');
+  return line.length > 46 ? line.slice(0, 45) + '…' : line;
+}
+
+function screenAddress() {
+  const d = (STATE.contact && STATE.contact.delivery) || {};
+  const FIELD = `display:block; width:100%; box-sizing:border-box; padding:13px 14px; border:1px solid var(--line); border-radius:12px; background:var(--surface); font-size:15px; font-family:inherit; color:var(--ink); outline:none;`;
+  const LABEL = `display:block; margin:0 0 6px 2px; font-size:11px; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-soft); font-weight:600;`;
+  return `
+${appHeader({ back: true, title: 'Адрес доставки' })}
+
+<div style="padding:8px 16px 0;">
+  <h1 style="font-size:28px; line-height:1.05;">Куда везём<br/><span style="color:var(--ink-soft); font-size:20px; font-weight:500;">по умолчанию</span></h1>
+  <p style="margin-top:10px; color:var(--ink-soft); font-size:13px;">Адрес подставится в оформление — не придётся вводить его каждый раз.</p>
+</div>
+
+<div style="padding:22px 16px 140px; display:flex; flex-direction:column; gap:14px;">
+  <div>
+    <label style="${LABEL}">Город</label>
+    <input id="addr-city" style="${FIELD}" type="text" placeholder="Пермь" value="${esc(d.city || '')}"
+           oninput="rb.updateContact('delivery.city', this.value)"/>
+  </div>
+  <div>
+    <label style="${LABEL}">Адрес</label>
+    <input id="addr-street" style="${FIELD}" type="text" placeholder="ул. Ленина 50, кв. 5" value="${esc(d.address || '')}"
+           oninput="rb.updateContact('delivery.address', this.value)"/>
+  </div>
+  <div>
+    <label style="${LABEL}">Получатель</label>
+    <input id="addr-name" style="${FIELD}" type="text" placeholder="Имя, если принимает не вы" value="${esc(d.recipient_name || '')}"
+           oninput="rb.updateContact('delivery.recipient_name', this.value)"/>
+  </div>
+  <div>
+    <label style="${LABEL}">Телефон получателя</label>
+    <input id="addr-phone" style="${FIELD}" type="tel" inputmode="tel" placeholder="+7 999 123-45-67" value="${esc(d.recipient_phone || '')}"
+           oninput="rb.updateContact('delivery.recipient_phone', this.value)"/>
+  </div>
+</div>
+
+<div style="position:fixed; bottom:0; left:0; right:0; padding:12px 16px calc(env(safe-area-inset-bottom,18px) + 14px); background:color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter:blur(20px); border-top:1px solid var(--line); z-index:11;">
+  <button class="cta" onclick="rb.saveAddress()"><span>Сохранить</span><span>→</span></button>
+</div>
+`;
+}
+
 function screenBought() {
   const ids = new Set((STATE.boughtBefore || []).map(String));
   const list = (STATE.data?.products || []).filter(p => ids.has(String(p.id)) || (p.tma_id != null && ids.has(String(p.tma_id))));
@@ -4454,6 +4532,7 @@ function render() {
     case 'profile': body = screenProfile(); break;
     case 'my-order': body = screenMyOrder(); break;
     case 'bought':  body = screenBought(); break;
+    case 'address': body = screenAddress(); break;
     case 'search':  body = screenSearch(); break;
     case 'admin':       body = screenAdmin(); break;
     case 'admin-order': body = screenAdminOrder(); break;

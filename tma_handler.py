@@ -176,6 +176,9 @@ def _ensure_user_profile_columns(con) -> None:
     if "user_type"      not in cols: add.append("ALTER TABLE users ADD COLUMN user_type TEXT")
     if "pd_consent_at"  not in cols: add.append("ALTER TABLE users ADD COLUMN pd_consent_at TEXT")
     if "pd_consent_version" not in cols: add.append("ALTER TABLE users ADD COLUMN pd_consent_version TEXT")
+    if "city"            not in cols: add.append("ALTER TABLE users ADD COLUMN city TEXT")
+    if "recipient_name"  not in cols: add.append("ALTER TABLE users ADD COLUMN recipient_name TEXT")
+    if "recipient_phone" not in cols: add.append("ALTER TABLE users ADD COLUMN recipient_phone TEXT")
     for sql in add:
         con.execute(sql)
     if add:
@@ -203,11 +206,15 @@ def _upsert_user_profile(con, user_id: int, payload: dict) -> None:
     _ensure_user_profile_columns(con)
     contact = payload.get("contact") or {}
     user_type = contact.get("type") or "individual"
+    delivery = contact.get("delivery") or {}
     fields = {
-        "name":          contact.get("name") or contact.get("recipient_name") or "",
-        "phone":         contact.get("phone") or "",
-        "address":       contact.get("address") or contact.get("delivery_address") or "",
-        "user_type":     user_type,
+        "name":            contact.get("name") or contact.get("recipient_name") or "",
+        "phone":           contact.get("phone") or "",
+        "address":         contact.get("address") or contact.get("delivery_address") or "",
+        "city":            delivery.get("city") or "",
+        "recipient_name":  delivery.get("recipient_name") or "",
+        "recipient_phone": delivery.get("recipient_phone") or "",
+        "user_type":       user_type,
     }
     if user_type == "company":
         fields["company_name"]  = contact.get("company") or ""
