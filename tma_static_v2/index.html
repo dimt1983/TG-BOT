@@ -1058,12 +1058,23 @@ ${appHeader({ logo: true })}
   .rb-hero-slide--lemonades .rb-hero-slide__desc { color:#463D2B; }
 
   /* Поля выставлены инлайновыми стилями с outline:none — без !important
-     фокус не виден, и человек не понимает, что уже можно печатать. */
+     фокус не виден, и человек не понимает, что уже можно печатать.
+     Каретка тонкая, одной сменой цвета рамки её не компенсировать: активное
+     поле подсвечиваем целиком, а саму каретку красим в цвет текста —
+     --coffee оказался слишком светлым, чтобы её найти глазами. */
+  .rb input, .rb textarea { caret-color: var(--ink); }
   .rb input:focus, .rb textarea:focus, .rb select:focus {
-    border-color: var(--ink) !important;
-    box-shadow: 0 0 0 3px color-mix(in oklab, var(--ink) 14%, transparent) !important;
-    caret-color: var(--coffee);
+    /* Именно outline, а не рамка: он рисуется вне блока и не сдвигает текст
+       в поле — у полей разные инлайновые padding'и, любая правка рамки
+       заставила бы содержимое прыгать в момент фокуса. */
+    outline: 2px solid var(--ink) !important;
+    outline-offset: 0 !important;
+    background: var(--surface-2) !important;
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--ink) 12%, transparent) !important;
+    caret-color: var(--ink);
   }
+  /* Подпись активного поля тоже темнеет — видно, где стоишь, не глядя в поле. */
+  .rb .field-row:focus-within > label { color: var(--ink) !important; }
   .rb label[for] { cursor: pointer; }
 </style>
 
@@ -4504,22 +4515,22 @@ ${appHeader({ back: true, title: 'Адрес доставки' })}
 </div>
 
 <div style="padding:22px 16px 40px; display:flex; flex-direction:column; gap:16px;">
-  <div>
+  <div class="field-row">
     <label for="addr-city" style="${LABEL}">Город</label>
     <input id="addr-city" style="${FIELD}" type="text" autocomplete="address-level2" placeholder="Пермь" value="${esc(d.city || '')}"
            oninput="rb.updateContact('delivery.city', this.value)"/>
   </div>
-  <div>
+  <div class="field-row">
     <label for="addr-street" style="${LABEL}">Адрес</label>
     <input id="addr-street" style="${FIELD}" type="text" autocomplete="street-address" placeholder="ул. Ленина 50, кв. 5" value="${esc(d.address || '')}"
            oninput="rb.updateContact('delivery.address', this.value)"/>
   </div>
-  <div>
+  <div class="field-row">
     <label for="addr-name" style="${LABEL}">Получатель</label>
     <input id="addr-name" style="${FIELD}" type="text" autocomplete="name" placeholder="Имя, если принимает не вы" value="${esc(d.recipient_name || '')}"
            oninput="rb.updateContact('delivery.recipient_name', this.value)"/>
   </div>
-  <div>
+  <div class="field-row">
     <label for="addr-phone" style="${LABEL}">Телефон получателя</label>
     <input id="addr-phone" style="${FIELD}" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 999 123-45-67" value="${esc(d.recipient_phone || '')}"
            oninput="rb.updateContact('delivery.recipient_phone', this.value)"/>
