@@ -22475,6 +22475,98 @@
       ],
       "created_at": "2026-08-13T08:21:47+00:00",
       "created_by": "bridge_1c_qc"
+    },
+    {
+      "id": "e-эфиопия_банко_готити_гр_1",
+      "category": "espresso",
+      "subcategory": "espresso_micro",
+      "name": "Эфиопия Банко Готити гр. 1",
+      "country": "Эфиопия",
+      "roast": "E",
+      "process": "Натуральный",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "price": 2780,
+          "size": "1 кг"
+        }
+      ],
+      "stock": 10,
+      "tags": [
+        "микролот",
+        "BLACK"
+      ],
+      "photo": null,
+      "pair_id": "эфиопия_банко_готити_гр_1"
+    },
+    {
+      "id": "f-эфиопия_банко_готити_гр_1",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "name": "Эфиопия Банко Готити гр. 1",
+      "country": "Эфиопия",
+      "roast": "F",
+      "process": "Натуральный",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "price": 2780,
+          "size": "1 кг"
+        }
+      ],
+      "stock": 10,
+      "tags": [
+        "микролот",
+        "BLACK"
+      ],
+      "photo": null,
+      "pair_id": "эфиопия_банко_готити_гр_1"
+    },
+    {
+      "id": "e-колумбия_риссальда_декаф",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "name": "Колумбия Риссальда Декаф",
+      "country": "Колумбия",
+      "roast": "E",
+      "process": "Декаф",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "price": 2490,
+          "size": "1 кг"
+        }
+      ],
+      "stock": 10,
+      "tags": [],
+      "photo": null
+    },
+    {
+      "id": "f-колумбия_риссальда_декаф",
+      "category": "filter",
+      "subcategory": "filter_mono",
+      "name": "Колумбия Риссальда Декаф",
+      "country": "Колумбия",
+      "roast": "F",
+      "process": "Декаф",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "price": 2490,
+          "size": "1 кг"
+        }
+      ],
+      "stock": 10,
+      "tags": [],
+      "photo": null
     }
   ]
 }
