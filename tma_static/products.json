@@ -22567,6 +22567,50 @@
       "stock": 10,
       "tags": [],
       "photo": null
+    },
+    {
+      "id": "e-эфиопия_челчеле_гр_1_анаэробный_эспрессо_-_1_кг",
+      "category": "espresso",
+      "subcategory": "espresso_micro",
+      "name": "Эфиопия Челчеле гр.1 анаэробный эспрессо - 1 кг",
+      "country": "Эфиопия",
+      "roast": "E",
+      "process": "Анаэробный",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "price": 2863,
+          "size": "1 кг"
+        }
+      ],
+      "stock": 10,
+      "tags": [],
+      "photo": null,
+      "pair_id": "эфиопия_челчеле_гр_1_анаэробный_эспрессо_-_1_кг"
+    },
+    {
+      "id": "f-эфиопия_челчеле_гр_1_анаэробный_filter_-_1_кг",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "name": "Эфиопия Челчеле гр.1 анаэробный FILTER - 1 кг",
+      "country": "Эфиопия",
+      "roast": "F",
+      "process": "Анаэробный",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "price": 2863,
+          "size": "1 кг"
+        }
+      ],
+      "stock": 10,
+      "tags": [],
+      "photo": null,
+      "pair_id": "эфиопия_челчеле_гр_1_анаэробный_filter_-_1_кг"
     }
   ]
 }
