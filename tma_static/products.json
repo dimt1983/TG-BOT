@@ -22653,6 +22653,28 @@
       "quarantined": true,
       "quarantined_at": "2026-08-20T13:15:02+00:00",
       "quarantine_reason": "no_in_1c_vedomost_coffee"
+    },
+    {
+      "id": "f-эфиопия_конга_гр_1_сухой_filter_-_1_кг",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "name": "Эфиопия Конга гр.1 сухой FILTER - 1 кг",
+      "country": "Эфиопия",
+      "roast": "F",
+      "process": "Натуральный",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "price": 2780,
+          "size": "1 кг"
+        }
+      ],
+      "stock": 10,
+      "tags": [],
+      "photo": null,
+      "pair_id": "эфиопия_конга_гр_1_сухой_filter_-_1_кг"
     }
   ]
 }
