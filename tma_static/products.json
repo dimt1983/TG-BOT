@@ -1580,14 +1580,12 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 435.0,
+          "price": 445.0,
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_200_г.jpg",
-          "stock": 25,
-          "on_request": false
+          "stock": 25
         }
       ],
       "stock": 17.0,
-      "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
@@ -1599,7 +1597,8 @@
       "description": "Бразилия, натуральная обработка. Шоколад, орех, карамель.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "article_1c": "КОФ-013"
+      "article_1c": "КОФ-013",
+      "price_source_1c": "КОФ-013"
     },
     {
       "id": "retail_e_roastberry_бразилия_сан_рафаель_-_1_кг",
@@ -1694,13 +1693,11 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 430,
-          "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg",
-          "on_request": false
+          "price": 435.0,
+          "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg"
         }
       ],
       "stock": 3.0,
-      "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Серадо Дарк  упак. 200 г",
@@ -1712,7 +1709,8 @@
       "description": "Бразилия, натуральная обработка. Шоколад, орех, карамель.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "article_1c": "КОФ-017"
+      "article_1c": "КОФ-017",
+      "price_source_1c": "КОФ-017"
     },
     {
       "id": "retail_e_roastberry_гватемала_декаф_-_1_кг",
@@ -1778,13 +1776,11 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 495,
-          "photo": "photos/products/retail_e_roastberry_гватемала_уетенанго_200_г.jpg",
-          "on_request": false
+          "price": 455.0,
+          "photo": "photos/products/retail_e_roastberry_гватемала_уетенанго_200_г.jpg"
         }
       ],
       "stock": 12.0,
-      "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гватемала Уетенанго упак. 200 гр.",
@@ -1796,7 +1792,8 @@
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "article_1c": "КОФ-022"
+      "article_1c": "КОФ-022",
+      "price_source_1c": "КОФ-022"
     },
     {
       "id": "retail_e_roastberry_гондурас_san_nicolas_200_г",
@@ -1836,13 +1833,11 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2150.0,
-          "on_request": false,
+          "price": 2175.0,
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_-_1_кг.jpg"
         }
       ],
       "stock": 7.0,
-      "on_request": false,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1854,7 +1849,8 @@
       "description": "Колумбия. Сбалансированный вкус, карамель, орех.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "article_1c": "КОФ-025"
+      "article_1c": "КОФ-025",
+      "price_source_1c": "КОФ-025"
     },
     {
       "id": "retail_e_roastberry_колумбия_андино_200_г",
@@ -1893,13 +1889,11 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2175,
-          "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг.jpg",
-          "on_request": false
+          "price": 2250.0,
+          "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг.jpg"
         }
       ],
       "stock": 5.0,
-      "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг",
@@ -1907,7 +1901,8 @@
       "description": "Коста-Рика. Чистый вкус, цитрус, карамель.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "article_1c": "КОФ-027"
+      "article_1c": "КОФ-027",
+      "price_source_1c": "КОФ-027"
     },
     {
       "id": "retail_e_roastberry_коста-рика_тарразу_ла_пастора_200_г",
@@ -1917,14 +1912,12 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 460,
+          "price": 480.0,
           "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_200_г.jpg",
-          "stock": 16,
-          "on_request": false
+          "stock": 16
         }
       ],
       "stock": 8.0,
-      "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг",
@@ -1936,7 +1929,8 @@
       "description": "Коста-Рика. Чистый вкус, цитрус, карамель.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "article_1c": "КОФ-028"
+      "article_1c": "КОФ-028",
+      "price_source_1c": "КОФ-028"
     },
     {
       "id": "c-e_roastberry_перу_схг_упак_200_г",
@@ -2036,13 +2030,11 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2310,
-          "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_-_1_кг.jpg",
-          "on_request": false
+          "price": 2120.0,
+          "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_-_1_кг.jpg"
         }
       ],
       "stock": 4.0,
-      "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Гватемала Уетенанго - 1 кг",
@@ -2050,7 +2042,8 @@
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "article_1c": "КОФ-037"
+      "article_1c": "КОФ-037",
+      "price_source_1c": "КОФ-037"
     },
     {
       "id": "retail_f_roastberry_гватемала_уетенанго_200_г",
@@ -2060,14 +2053,12 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 495.0,
-          "on_request": false,
+          "price": 455.0,
           "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_200_г.jpg",
           "stock": 0
         }
       ],
       "stock": 1.0,
-      "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
       "quarantined_at": null,
@@ -2079,7 +2070,8 @@
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "article_1c": "КОФ-038"
+      "article_1c": "КОФ-038",
+      "price_source_1c": "КОФ-038"
     },
     {
       "id": "retail_f_roastberry_кения_аа_200_г",
@@ -2146,13 +2138,11 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 445,
-          "photo": "photos/products/retail_f_roastberry_китаи_симао_200_г.jpg",
-          "on_request": false
+          "price": 435.0,
+          "photo": "photos/products/retail_f_roastberry_китаи_симао_200_г.jpg"
         }
       ],
       "stock": 13.0,
-      "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Китай Симао упак. 200 г",
@@ -2160,7 +2150,8 @@
       "description": "Китай Симао. Лёгкий, чайный профиль.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "article_1c": "КОФ-041"
+      "article_1c": "КОФ-041",
+      "price_source_1c": "КОФ-041"
     },
     {
       "id": "retail_f_roastberry_колумбия_андино_200_г",
@@ -5694,16 +5685,15 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2015,
-          "photo": "photos/products/filter_mono_бразилия_фазенда_сертао_сухой_молотый_1_кг_filter.jpg",
-          "on_request": false
+          "price": 2095.0,
+          "photo": "photos/products/filter_mono_бразилия_фазенда_сертао_сухой_молотый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": false,
-      "article_1c": "КОФ-054"
+      "article_1c": "КОФ-054",
+      "price_source_1c": "КОФ-054"
     },
     {
       "id": "filter-aeropress-350",
@@ -5844,16 +5834,15 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2355,
-          "photo": "photos/products/filter_mono_гватемала_уеуетенанго_мытый_1_кг_filter.jpg",
-          "on_request": false
+          "price": 2120.0,
+          "photo": "photos/products/filter_mono_гватемала_уеуетенанго_мытый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": false,
-      "article_1c": "КОФ-057"
+      "article_1c": "КОФ-057",
+      "price_source_1c": "КОФ-057"
     },
     {
       "id": "t-генмайча_райсу_100г",
@@ -6715,9 +6704,8 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2595,
-          "photo": "photos/products/espresso_mono_кения_аб_мытый_1_кг_эспрессо.jpg",
-          "on_request": false
+          "price": 2490.0,
+          "photo": "photos/products/espresso_mono_кения_аб_мытый_1_кг_эспрессо.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -6725,9 +6713,9 @@
       "quarantined_at": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": false,
       "article_1c": "КОФ-060",
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "price_source_1c": "КОФ-060"
     },
     {
       "id": "filter_mono_кения_центральная_провинция_аб_мытый_1_кг_filter",
@@ -6786,16 +6774,15 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2070,
-          "photo": "photos/products/filter_mono_китай_симао_гр_1_меллоу_мытый_1_кг_filter.jpg",
-          "on_request": false
+          "price": 2015.0,
+          "photo": "photos/products/filter_mono_китай_симао_гр_1_меллоу_мытый_1_кг_filter.jpg"
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": false,
-      "article_1c": "КОФ-064"
+      "article_1c": "КОФ-064",
+      "price_source_1c": "КОФ-064"
     },
     {
       "id": "t-китайский_чай_ассам_200г",
@@ -8142,7 +8129,7 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1760
+          "price": 2380.0
         }
       ],
       "stock": 7,
@@ -8152,7 +8139,7 @@
       "quarantined_at": null,
       "article_1c": "ЧАЙ-116",
       "hidden": false,
-      "on_request": false
+      "price_source_1c": "ЧАЙ-116"
     },
     {
       "id": "m-молоко_домик_в_деревне_3_2_950г",
@@ -8483,17 +8470,16 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2870,
-          "photo": "photos/products/espresso_mono_перу_монте_верде_гр_1_сухой_эспрессо_1_кг.jpg",
-          "on_request": false
+          "price": 2620.0,
+          "photo": "photos/products/espresso_mono_перу_монте_верде_гр_1_сухой_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": false,
-      "article_1c": "КОФ-085"
+      "article_1c": "КОФ-085",
+      "price_source_1c": "КОФ-085"
     },
     {
       "id": "s-помпа_белая_28_мм_5_мл",
@@ -8718,9 +8704,8 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2230,
-          "photo": "photos/products/espresso_mono_руанда_мутетели_15_мытый_1_кг.jpg",
-          "on_request": false
+          "price": 2355.0,
+          "photo": "photos/products/espresso_mono_руанда_мутетели_15_мытый_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -8728,8 +8713,8 @@
       "quarantined_at": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": false,
-      "article_1c": "КОФ-086"
+      "article_1c": "КОФ-086",
+      "price_source_1c": "КОФ-086"
     },
     {
       "id": "filter_mono_руанда_мутетели_15_мытый_1_кг_filter",
@@ -8795,17 +8780,16 @@
       "fasovka": [
         {
           "size": "шт",
-          "price": 1,
-          "on_request": false
+          "price": 1.3
         }
       ],
       "stock": 14400.0,
-      "on_request": false,
       "subcategory": "other_sugar",
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
-      "article_1c": "САХАР - 001"
+      "article_1c": "САХАР - 001",
+      "price_source_1c": "САХАР - 001"
     },
     {
       "id": "sets_семпл-бокс_особенныи_кофе_85_6_овок_по_100_г_-_1_ш",
@@ -10410,7 +10394,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 659
+          "price": 680.0
         }
       ],
       "stock": 7,
@@ -10420,7 +10404,7 @@
       "hidden": false,
       "_source": "Сироп Дыня 0,7 л. Гербариста",
       "article_1c": "СИР-058",
-      "on_request": false
+      "price_source_1c": "СИР-058"
     },
     {
       "id": "s-сироп_herbarista_ежевика_с_листьями_0_7л",
@@ -10517,9 +10501,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771,
-          "photo": "photos/products/s-сироп_herbarista_карамель_двойного_обжига_0_7л.jpg",
-          "on_request": false
+          "price": 795.0,
+          "photo": "photos/products/s-сироп_herbarista_карамель_двойного_обжига_0_7л.jpg"
         }
       ],
       "stock": 15,
@@ -10532,7 +10515,7 @@
       "quarantined_at": null,
       "article_1c": "СИР-071",
       "hidden": false,
-      "on_request": false
+      "price_source_1c": "СИР-071"
     },
     {
       "id": "s-сироп_herbarista_кленовый_с_каштаном_0_7л",
@@ -10765,7 +10748,7 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771
+          "price": 795.0
         }
       ],
       "stock": 7,
@@ -10775,7 +10758,7 @@
       "_source": "Сироп Макадамия 0,7 л. Гербариста",
       "article_1c": "СИР-094",
       "hidden": false,
-      "on_request": false
+      "price_source_1c": "СИР-094"
     },
     {
       "id": "s-сироп_herbarista_малина_с_листьями_0_7л",
@@ -14626,17 +14609,16 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2120,
-          "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_4_сухой_эспрессо_1_кг.jpg",
-          "on_request": false
+          "price": 2015.0,
+          "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_4_сухой_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "on_request": false,
-      "article_1c": "КОФ-095"
+      "article_1c": "КОФ-095",
+      "price_source_1c": "КОФ-095"
     },
     {
       "id": "filter_micro_эфиопия_челелекту_гр_1_мытый_filter_1_кг",
@@ -14754,9 +14736,8 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2065,
-          "photo": "photos/products/espresso_mono_китай_симао_гр_1_меллоу_мытый_эспрессо_1_кг.jpg",
-          "on_request": false
+          "price": 2015.0,
+          "photo": "photos/products/espresso_mono_китай_симао_гр_1_меллоу_мытый_эспрессо_1_кг.jpg"
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
@@ -14767,7 +14748,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "quarantined_at": null,
       "article_1c": "КОФ-065",
-      "on_request": false
+      "price_source_1c": "КОФ-065"
     },
     {
       "id": "espresso_mono_эфиопия_milk_сидамо_гр_4_эспрессо_1_кг",
@@ -14918,9 +14899,8 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2440,
-          "photo": "photos/products/espresso_mono_гватемала_уетенанго_мытый_1_кг_эспрессо.jpg",
-          "on_request": false
+          "price": 2120.0,
+          "photo": "photos/products/espresso_mono_гватемала_уетенанго_мытый_1_кг_эспрессо.jpg"
         }
       ],
       "created_at": "2026-05-20T10:00:08+00:00",
@@ -14932,7 +14912,7 @@
       "quarantined_at": null,
       "quarantine_reason": null,
       "article_1c": "КОФ-097",
-      "on_request": false
+      "price_source_1c": "КОФ-097"
     },
     {
       "id": "filter_micro_вьетнам_блю_сонал_сухой_filter_1_кг",
@@ -15955,8 +15935,7 @@
         {
           "size": "1 кг",
           "photo": "assets/placeholders/pack_roastberry_1kg.png",
-          "price": null,
-          "on_request": true
+          "price": 2120.0
         }
       ],
       "stock": 8.0,
@@ -15964,12 +15943,12 @@
       "country": "Эфиопия",
       "subcategory": "retail_filter",
       "roast": "F",
-      "on_request": true,
       "article_1c": "КОФ-045",
       "hidden": false,
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "price_source_1c": "КОФ-045"
     },
     {
       "id": "e_roastberry_мексика_чьяпас_200_г",
@@ -16005,8 +15984,7 @@
         {
           "size": "200 г",
           "photo": "assets/placeholders/pack_roastberry_200g.png",
-          "price": 505.0,
-          "on_request": false
+          "price": 435.0
         }
       ],
       "stock": 1.0,
@@ -16014,8 +15992,8 @@
       "country": "Эфиопия",
       "subcategory": "retail_espresso",
       "roast": "E",
-      "on_request": false,
-      "article_1c": "КОФ-032"
+      "article_1c": "КОФ-032",
+      "price_source_1c": "КОФ-032"
     },
     {
       "id": "e_roastberry_эфиопия_сидамо_гр_2_200_г",
@@ -18754,9 +18732,8 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": null,
-          "photo": null,
-          "on_request": true
+          "price": 455.0,
+          "photo": null
         }
       ],
       "created_at": "2026-07-30T00:00:00+00:00",
@@ -18766,7 +18743,7 @@
       "article_1c": "КОФ-031",
       "quarantined_at": null,
       "quarantine_reason": null,
-      "on_request": true
+      "price_source_1c": "КОФ-031"
     },
     {
       "id": "retail_espresso_эфиопия_иргачиф_гр_4_упак_200_г",
@@ -19050,11 +19027,11 @@
       "fasovka": [
         {
           "size": "1 л",
-          "on_request": true
+          "price": 560.0
         }
       ],
       "category": "other",
-      "on_request": true
+      "price_source_1c": "SSWCHO-000017"
     },
     {
       "id": "1c-sswsh0-000027-b9b3db1e24",
@@ -19066,11 +19043,11 @@
       "fasovka": [
         {
           "size": "",
-          "price": 565.5
+          "price": 570.0
         }
       ],
       "category": "other",
-      "on_request": false
+      "price_source_1c": "SSWSH0-000027"
     },
     {
       "id": "1c-sswsh0-000030-ae1b0bb3c9",
@@ -19082,12 +19059,11 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 550,
-          "on_request": false
+          "price": 560.0
         }
       ],
       "category": "other",
-      "on_request": false
+      "price_source_1c": "SSWSH0-000030"
     },
     {
       "id": "1c-sswsh0-000039-505d100418",
@@ -19264,13 +19240,13 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "on_request": true
+          "price": 2160.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-001"
     },
     {
       "id": "1c-002-0d96bb4447",
@@ -19282,13 +19258,13 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "on_request": true
+          "price": 1910.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-002"
     },
     {
       "id": "1c-003-655935f600",
@@ -19300,13 +19276,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "on_request": true
+          "price": 410.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-003"
     },
     {
       "id": "1c-004-17c30030d4",
@@ -19318,13 +19294,13 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "on_request": true
+          "price": 2015.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-004"
     },
     {
       "id": "1c-005-42cacd4058",
@@ -19336,13 +19312,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "on_request": true
+          "price": 435.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-005"
     },
     {
       "id": "1c-006-0ce1f2a605",
@@ -19354,13 +19330,13 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "on_request": true
+          "price": 1975.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-006"
     },
     {
       "id": "1c-007-450fdb6fa2",
@@ -19372,13 +19348,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "on_request": true
+          "price": 425.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-007"
     },
     {
       "id": "1c-008-53db02f4c8",
@@ -19390,13 +19366,13 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "on_request": true
+          "price": 2015.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-008"
     },
     {
       "id": "1c-009-759fdc0202",
@@ -19408,13 +19384,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "on_request": true
+          "price": 435.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-009"
     },
     {
       "id": "1c-010-006716873f",
@@ -19426,13 +19402,13 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "on_request": true
+          "price": 2015.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-010"
     },
     {
       "id": "1c-011-c7e1d4c6f3",
@@ -19444,13 +19420,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "on_request": true
+          "price": 435.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-011"
     },
     {
       "id": "1c-012-5428d144a8",
@@ -19462,13 +19438,13 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "on_request": true
+          "price": 2045.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-012"
     },
     {
       "id": "1c-013-66492bbd23",
@@ -19480,13 +19456,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "on_request": true
+          "price": 445.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-013"
     },
     {
       "id": "1c-014-02c60c7f6e",
@@ -19498,13 +19474,13 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "on_request": true
+          "price": 2070.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-014"
     },
     {
       "id": "1c-015-3f135db063",
@@ -19516,13 +19492,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "on_request": true
+          "price": 445.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-015"
     },
     {
       "id": "1c-016-fd884f207c",
@@ -19645,14 +19621,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 495,
-          "on_request": false
+          "price": 455.0
         }
       ],
       "category": "other",
-      "on_request": false,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-022"
     },
     {
       "id": "1c-023-9de2ddae8a",
@@ -19664,13 +19639,13 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "on_request": true
+          "price": 2175.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-023"
     },
     {
       "id": "1c-024-0fd8686e4e",
@@ -19682,13 +19657,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "on_request": true
+          "price": 465.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-024"
     },
     {
       "id": "1c-025-360b6bc409",
@@ -19700,13 +19675,13 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "on_request": true
+          "price": 2175.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-025"
     },
     {
       "id": "1c-026-5980a15289",
@@ -19718,13 +19693,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "on_request": true
+          "price": 465.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-026"
     },
     {
       "id": "1c-027-7c7592956c",
@@ -19736,13 +19711,13 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "on_request": true
+          "price": 2250.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-027"
     },
     {
       "id": "1c-028-465b4c2f5a",
@@ -19754,13 +19729,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "on_request": true
+          "price": 480.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-028"
     },
     {
       "id": "1c-029-cb8a4ca890",
@@ -19791,13 +19766,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "on_request": true
+          "price": 435.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-030"
     },
     {
       "id": "1c-032-37df1be500",
@@ -19809,13 +19784,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "on_request": true
+          "price": 435.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-032"
     },
     {
       "id": "1c-033-f3a1f750be",
@@ -19827,13 +19802,13 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "on_request": true
+          "price": 2385.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-033"
     },
     {
       "id": "1c-034-27fffaf318",
@@ -19845,13 +19820,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "on_request": true
+          "price": 505.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-034"
     },
     {
       "id": "1c-036-463b9a048d",
@@ -19882,14 +19857,13 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2310,
-          "on_request": false
+          "price": 2120.0
         }
       ],
       "category": "other",
-      "on_request": false,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-037"
     },
     {
       "id": "1c-038-4ddfe6fdf5",
@@ -19901,14 +19875,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 495,
-          "on_request": false
+          "price": 455.0
         }
       ],
       "category": "other",
-      "on_request": false,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-038"
     },
     {
       "id": "1c-039-345c7a0325",
@@ -19920,13 +19893,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "on_request": true
+          "price": 550.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-039"
     },
     {
       "id": "1c-040-af6ade255c",
@@ -19957,14 +19930,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 445,
-          "on_request": false
+          "price": 435.0
         }
       ],
       "category": "other",
-      "on_request": false,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-041"
     },
     {
       "id": "1c-042-ad2758332a",
@@ -19976,13 +19948,13 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "on_request": true
+          "price": 2175.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-042"
     },
     {
       "id": "1c-043-abdce1e35c",
@@ -20032,13 +20004,13 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "on_request": true
+          "price": 2120.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-045"
     },
     {
       "id": "1c-046-ec1a4381ae",
@@ -20069,13 +20041,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "on_request": true
+          "price": 505.0
         }
       ],
       "category": "other",
-      "on_request": true,
       "quarantined_at": "2026-08-27T09:15:02+00:00",
-      "quarantine_reason": "merged_via_bridge_1c_qc"
+      "quarantine_reason": "merged_via_bridge_1c_qc",
+      "price_source_1c": "КОФ-047"
     },
     {
       "id": "1c-075-9ce7ed886d",
@@ -20299,12 +20271,11 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 530,
-          "on_request": false
+          "price": 560.0
         }
       ],
       "category": "other",
-      "on_request": false
+      "price_source_1c": "СИР-014"
     },
     {
       "id": "1c-015-25b4a2d3b2",
@@ -20316,11 +20287,11 @@
       "fasovka": [
         {
           "size": "1 л",
-          "on_request": true
+          "price": 560.0
         }
       ],
       "category": "other",
-      "on_request": true
+      "price_source_1c": "СИР-015"
     },
     {
       "id": "1c-020-3b1413cb6e",
@@ -20349,12 +20320,11 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 530,
-          "on_request": false
+          "price": 560.0
         }
       ],
       "category": "other",
-      "on_request": false
+      "price_source_1c": "СИР-021"
     },
     {
       "id": "1c-022-e458d94a04",
@@ -20417,12 +20387,11 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 493.5,
-          "on_request": false
+          "price": 560.0
         }
       ],
       "category": "other",
-      "on_request": false
+      "price_source_1c": "СИР-034"
     },
     {
       "id": "1c-041-ff017e4339",
@@ -20451,12 +20420,11 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "on_request": false,
-          "price": 771.0
+          "price": 795.0
         }
       ],
       "category": "other",
-      "on_request": false
+      "price_source_1c": "СИР-048"
     },
     {
       "id": "1c-066-8a6083d8f5",
@@ -21431,12 +21399,11 @@
       "fasovka": [
         {
           "size": "250 г",
-          "on_request": false,
-          "price": 2215.0
+          "price": 2380.0
         }
       ],
       "category": "tea",
-      "on_request": false
+      "price_source_1c": "ЧАЙ-130"
     },
     {
       "id": "1c-132-17ec067a88",
@@ -21499,12 +21466,11 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2215,
-          "on_request": false
+          "price": 2420.0
         }
       ],
       "category": "tea",
-      "on_request": false
+      "price_source_1c": "ЧАЙ-135"
     },
     {
       "id": "1c-139-40f72ef4f3",
@@ -22150,12 +22116,11 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 790,
-          "on_request": false
+          "price": 850.0
         }
       ],
       "category": "tea",
-      "on_request": false
+      "price_source_1c": "ЧАЙ-202"
     },
     {
       "id": "1c-203-bd096fbce6",
@@ -22201,12 +22166,11 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 800,
-          "on_request": false
+          "price": 850.0
         }
       ],
       "category": "tea",
-      "on_request": false
+      "price_source_1c": "ЧАЙ-205"
     },
     {
       "id": "1c-206-654b9cf9ca",
@@ -22303,12 +22267,11 @@
       "fasovka": [
         {
           "size": "250 г",
-          "on_request": false,
-          "price": 1310.0
+          "price": 1350.0
         }
       ],
       "category": "tea",
-      "on_request": false
+      "price_source_1c": "ЧАЙ-214"
     },
     {
       "id": "1c-215-08e0dd824e",
@@ -22427,16 +22390,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-098",
-      "on_request": true,
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true
+          "price": 2120.0
         }
       ],
       "created_at": "2026-08-13T08:21:47+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-098"
     },
     {
       "id": "o-концентрат_фильтр_кофе_бразилия_лагуинья",
@@ -22447,16 +22409,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КНЦ-003",
-      "on_request": true,
       "fasovka": [
         {
           "size": "мл",
-          "price": null,
-          "on_request": true
+          "price": 1.0
         }
       ],
       "created_at": "2026-08-13T08:21:47+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КНЦ-003"
     },
     {
       "id": "o-концентрат_фильтр_кофе_колумбия_пачамама",
@@ -22467,16 +22428,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КНЦ-002",
-      "on_request": true,
       "fasovka": [
         {
           "size": "мл",
-          "price": null,
-          "on_request": true
+          "price": 1.0
         }
       ],
       "created_at": "2026-08-13T08:21:47+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КНЦ-002"
     },
     {
       "id": "o-концентрат_фильтр_кофе_руанда_мутетели",
@@ -22487,16 +22447,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КНЦ-001",
-      "on_request": true,
       "fasovka": [
         {
           "size": "мл",
-          "price": null,
-          "on_request": true
+          "price": 0.65
         }
       ],
       "created_at": "2026-08-13T08:21:47+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КНЦ-001"
     },
     {
       "id": "e-эфиопия_банко_готити_гр_1",
@@ -22697,9 +22656,8 @@
       "recipe_f": "",
       "fasovka": [
         {
-          "price": 2780,
-          "size": "1 кг",
-          "on_request": false
+          "price": 2945.0,
+          "size": "1 кг"
         }
       ],
       "stock": 4.0,
@@ -22711,7 +22669,7 @@
       "quarantined_at": null,
       "quarantine_reason": null,
       "article_1c": "КОФ-110",
-      "on_request": false
+      "price_source_1c": "КОФ-110"
     },
     {
       "id": "filter_micro_эфиопия_гедеб_гр_1_инфьюз_ананс_фильтр_1_кг",
@@ -22722,16 +22680,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-103",
-      "on_request": true,
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true
+          "price": 2862.5
         }
       ],
       "created_at": "2026-08-24T08:05:52+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-103"
     },
     {
       "id": "filter_micro_эфиопия_ворка_челчелле_гр_1_анаэроб_filter_1_кг",
@@ -22742,16 +22699,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-104",
-      "on_request": true,
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true
+          "price": 2862.5
         }
       ],
       "created_at": "2026-08-24T08:05:52+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-104"
     },
     {
       "id": "filter_micro_эфиопия_банко_готити_гр_1_сухой_нат_filter_1_кг",
@@ -22762,16 +22718,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-111",
-      "on_request": true,
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true
+          "price": 3020.0
         }
       ],
       "created_at": "2026-08-24T08:05:52+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-111"
     },
     {
       "id": "retail_espresso_e_roastberry_колумбия_рисаральда_декаф_1_кг",
@@ -22782,16 +22737,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-105",
-      "on_request": true,
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true
+          "price": 2595.0
         }
       ],
       "created_at": "2026-08-24T08:05:52+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-105"
     },
     {
       "id": "retail_espresso_e_roastberry_колумбия_рисаральда_декаф_200_г",
@@ -22802,16 +22756,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-108",
-      "on_request": true,
       "fasovka": [
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true
+          "price": 550.0
         }
       ],
       "created_at": "2026-08-24T08:05:52+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-108"
     },
     {
       "id": "black_кофе_roastberry_black_эфиопия_конга_гр_1_сухой_200_г",
@@ -22822,16 +22775,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-112",
-      "on_request": true,
       "fasovka": [
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true
+          "price": 670.0
         }
       ],
       "created_at": "2026-08-24T08:05:52+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-112"
     },
     {
       "id": "black_кофе_roastberry_black_эфиопия_банко_готити_гр_1_сухой_200_г",
@@ -22842,16 +22794,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-113",
-      "on_request": true,
       "fasovka": [
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true
+          "price": 685.0
         }
       ],
       "created_at": "2026-08-24T08:05:52+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-113"
     },
     {
       "id": "borshch_кофе_roastberry_borщ_эфиопия_гедеб_инфюз_с_ананасом_200_г",
@@ -22862,16 +22813,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-101",
-      "on_request": true,
       "fasovka": [
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true
+          "price": 685.0
         }
       ],
       "created_at": "2026-08-24T08:05:52+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-101"
     },
     {
       "id": "borshch_кофе_roastberry_borщ_эфиопия_ворка_челчеле_гр1_анароб_200_г",
@@ -22882,16 +22832,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-114",
-      "on_request": true,
       "fasovka": [
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true
+          "price": 685.0
         }
       ],
       "created_at": "2026-08-24T08:05:52+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-114"
     },
     {
       "id": "f-эфиопия_банко_готити_гр_1_сухой",
@@ -22931,16 +22880,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-109",
-      "on_request": true,
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true
+          "price": 2862.5
         }
       ],
       "created_at": "2026-08-24T16:15:02+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-109"
     },
     {
       "id": "retail_filter_f_roastberry_колумбия_рисаральда_декаф_1_кг",
@@ -22951,16 +22899,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-106",
-      "on_request": true,
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true
+          "price": 2595.0
         }
       ],
       "created_at": "2026-08-24T16:15:02+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-106"
     },
     {
       "id": "retail_filter_f_roastberry_колумбия_рисаральда_декаф_200_г",
@@ -22971,16 +22918,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-107",
-      "on_request": true,
       "fasovka": [
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true
+          "price": 550.0
         }
       ],
       "created_at": "2026-08-24T16:15:02+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-107"
     }
   ]
 }
