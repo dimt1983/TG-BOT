@@ -16056,8 +16056,7 @@
         {
           "size": "200 г",
           "photo": "assets/placeholders/pack_roastberry_200g.png",
-          "price": null,
-          "on_request": true
+          "price": 465.0
         }
       ],
       "stock": 15.0,
@@ -16065,12 +16064,12 @@
       "country": "Мексика",
       "subcategory": "retail_espresso",
       "roast": "E",
-      "on_request": true,
       "article_1c": "КОФ-029",
       "hidden": false,
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "price_source_1c": "КОФ-029"
     },
     {
       "id": "e_roastberry_эфиопия_сидамо_gr_4_200_г",
