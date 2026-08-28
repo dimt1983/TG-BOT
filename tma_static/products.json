@@ -1281,7 +1281,7 @@
           "stock": 14
         }
       ],
-      "stock": 12.0,
+      "stock": 11.0,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -1336,7 +1336,7 @@
           "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg"
         }
       ],
-      "stock": 4.0,
+      "stock": 3.0,
       "on_request": false,
       "subcategory": "retail_blend",
       "quarantined": false,
@@ -2021,7 +2021,7 @@
           "on_request": false
         }
       ],
-      "stock": 18.0,
+      "stock": 79.0,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5624,7 +5624,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 10.0,
+      "stock": 11.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5698,7 +5698,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 25.0,
+      "stock": 34.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5843,7 +5843,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4.0,
+      "stock": 3.0,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -8761,7 +8761,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6.0,
+      "stock": 7.0,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -14680,7 +14680,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 122.0,
+      "stock": 113.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14844,7 +14844,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 13.0,
+      "stock": 15.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15123,7 +15123,7 @@
       "name": "Гондурас Сан Николас темная обжарка - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4.0,
+      "stock": 5.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15675,7 +15675,7 @@
       "name": "Кения КиаваМуруру NH-7 нат.анаэроб.1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 8.0,
+      "stock": 7.0,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -16085,14 +16085,18 @@
           "on_request": false
         }
       ],
-      "stock": 1.0,
+      "stock": 0,
       "_source": "E \"Roastberry\" Эфиопия Сидамо Gr. 4  упак. 200 г",
       "country": "Эфиопия",
       "subcategory": "retail_espresso",
       "roast": "E",
       "article_1c": "КОФ-032",
       "price_source_1c": "КОФ-032",
-      "on_request": false
+      "on_request": false,
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "e_roastberry_эфиопия_сидамо_гр_2_200_г",
@@ -19355,7 +19359,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-001"
     },
@@ -19373,7 +19377,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-002"
     },
@@ -19391,7 +19395,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-003"
     },
@@ -19409,7 +19413,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-004"
     },
@@ -19427,7 +19431,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-005"
     },
@@ -19445,7 +19449,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-006"
     },
@@ -19463,7 +19467,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-007"
     },
@@ -19481,7 +19485,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-008"
     },
@@ -19499,7 +19503,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-009"
     },
@@ -19517,7 +19521,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-010"
     },
@@ -19535,7 +19539,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-011"
     },
@@ -19553,7 +19557,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-012"
     },
@@ -19571,7 +19575,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-013"
     },
@@ -19589,7 +19593,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-014"
     },
@@ -19607,7 +19611,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-015"
     },
@@ -19627,7 +19631,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19646,7 +19650,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19665,7 +19669,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19736,7 +19740,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-022"
     },
@@ -19754,7 +19758,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-023"
     },
@@ -19772,7 +19776,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-024"
     },
@@ -19790,7 +19794,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-025"
     },
@@ -19808,7 +19812,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-026"
     },
@@ -19826,7 +19830,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-027"
     },
@@ -19844,7 +19848,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-028"
     },
@@ -19881,7 +19885,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-030"
     },
@@ -19917,7 +19921,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-033"
     },
@@ -19935,7 +19939,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-034"
     },
@@ -19955,7 +19959,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19972,7 +19976,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-037"
     },
@@ -19990,7 +19994,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-038"
     },
@@ -20008,7 +20012,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-039"
     },
@@ -20028,7 +20032,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20045,7 +20049,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-041"
     },
@@ -20063,7 +20067,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-042"
     },
@@ -20083,7 +20087,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20102,7 +20106,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20119,7 +20123,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-045"
     },
@@ -20139,7 +20143,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20156,7 +20160,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-047"
     },
@@ -20176,7 +20180,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20195,7 +20199,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20214,7 +20218,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20233,7 +20237,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -23154,7 +23158,7 @@
       ],
       "category": "other",
       "price_source_1c": "КОФ-099",
-      "quarantined_at": "2026-08-28T10:15:02+00:00",
+      "quarantined_at": "2026-08-28T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
