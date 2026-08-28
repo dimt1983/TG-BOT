@@ -3637,7 +3637,7 @@
           "on_request": false
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5661,7 +5661,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 184,
+      "stock": 173,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -21241,7 +21241,7 @@
     {
       "id": "1c-102-43cf0a8f80",
       "name": "ЧА2017 Эрл Грей Золотая Карамель 200 г, чай Альтхаус черный аромат. лист.",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-102",
@@ -23245,7 +23245,7 @@
     {
       "id": "1c-124-3e00efaae6",
       "name": "ЧА6000 Велнес Кап 75 г, напиток Альтхаус травяной",
-      "stock": 3,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-124",
