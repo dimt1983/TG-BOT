@@ -5587,7 +5587,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 56,
+      "stock": 55,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5624,7 +5624,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 18.0,
+      "stock": 17,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -10554,7 +10554,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [
         "Хит"
       ],
@@ -11000,10 +11000,11 @@
         {
           "size": "0.7 л",
           "price": 721,
-          "photo": "photos/products/s-сироп_herbarista_тропический_микс_0_7л.jpg"
+          "photo": "photos/products/s-сироп_herbarista_тропический_микс_0_7л.jpg",
+          "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_тропический_микс_0_7л.jpg",
       "_source": "herbarista_pdf",
@@ -11116,7 +11117,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_шоколадный_трюфель_0_7л.jpg",
       "_source": "herbarista_pdf",
