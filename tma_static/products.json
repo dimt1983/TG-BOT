@@ -10932,9 +10932,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 771,
-          "photo": "photos/products/s-сироп_herbarista_сгущенное_молоко_0_7л.jpg",
-          "on_request": false
+          "price": 795.0,
+          "photo": "photos/products/s-сироп_herbarista_сгущенное_молоко_0_7л.jpg"
         }
       ],
       "stock": 0,
@@ -10945,8 +10944,8 @@
       "quarantined_at": null,
       "article_1c": "СИР-116",
       "hidden": true,
-      "on_request": false,
-      "quarantine_reason": "not_in_stock_file"
+      "quarantine_reason": "not_in_stock_file",
+      "price_source_1c": "СИР-116"
     },
     {
       "id": "s-сироп_herbarista_сливочная_ириска_0_7л",
