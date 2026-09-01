@@ -5589,7 +5589,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 122,
+      "stock": 118,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5626,7 +5626,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6759,7 +6759,7 @@
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -16287,7 +16287,7 @@
           "on_request": true
         }
       ],
-      "stock": 513,
+      "stock": 512,
       "on_request": true,
       "_source": "Напиток на соевой основе, кокосовый \"Green Milk\"на соевой основе 1л.",
       "subcategory": "milk_main",
@@ -16306,7 +16306,7 @@
           "on_request": true
         }
       ],
-      "stock": 343,
+      "stock": 342,
       "on_request": true,
       "_source": "Напиток на соевой основе, миндальный \"Green Milk\" 1л.",
       "subcategory": "milk_main",
@@ -18535,7 +18535,7 @@
           "price": 755
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "on_request": true,
       "_source": "RB TEA Ассам 250 г",
       "subcategory": "tea_rbr_tea_loose",
@@ -20760,7 +20760,7 @@
     {
       "id": "1c-036-0eb3a9a4d6",
       "name": "RB TEA Зеленый чай с жасмином 250 г",
-      "stock": 6,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-036",
@@ -20811,7 +20811,7 @@
     {
       "id": "1c-045-74f304c786",
       "name": "RB TEA Сенча 250 г",
-      "stock": 5,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-045",
@@ -20862,7 +20862,7 @@
     {
       "id": "1c-049-67b097f2d2",
       "name": "RB TEA Черный чай с чабрецом 250 г (ассам, чабрец)",
-      "stock": 28,
+      "stock": 27,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-049",
@@ -23454,6 +23454,22 @@
       "quarantined": false,
       "article_1c": "ФАНКИ",
       "fasovka": [],
+      "category": "filter",
+      "on_request": true
+    },
+    {
+      "id": "1c-119-c73f79cd1b",
+      "name": "Колумбия Арбуз инфьюз Декаф . - 1 кг FILTER",
+      "stock": 3,
+      "hidden": false,
+      "quarantined": false,
+      "article_1c": "КОФ-119",
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "on_request": true
+        }
+      ],
       "category": "filter",
       "on_request": true
     }
