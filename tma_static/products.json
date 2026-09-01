@@ -5590,7 +5590,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 116,
+      "stock": 116.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5611,7 +5611,7 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_бразилия_серрадо_дарк_темная_обжарка_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -5620,7 +5620,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-051",
       "price_source_1c": "КОФ-051",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_mono_бразилия_серрадо_желтый_бурбон_сухой_1_кг_filter",
@@ -5664,7 +5664,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 275,
+      "stock": 275.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5685,7 +5685,7 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_бразилия_серрадо_средняя_обжарка_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -5694,14 +5694,14 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-053",
       "price_source_1c": "КОФ-053",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_mono_бразилия_фазенда_сертао_сухой_молотый_1_кг_filter",
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 7,
+      "stock": 7.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5717,7 +5717,7 @@
           "size": "1 кг",
           "price": 2095,
           "photo": "photos/products/filter_mono_бразилия_фазенда_сертао_сухой_молотый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -5725,7 +5725,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-054",
       "price_source_1c": "КОФ-054",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter-aeropress-350",
@@ -5846,7 +5846,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 3.0,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -5868,7 +5868,7 @@
           "size": "1 кг",
           "price": 2120,
           "photo": "photos/products/filter_mono_гватемала_уеуетенанго_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -5876,7 +5876,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-057",
       "price_source_1c": "КОФ-057",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "t-генмайча_райсу_100г",
@@ -6695,7 +6695,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 9,
+      "stock": 9.0,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6711,7 +6711,7 @@
           "size": "1 кг",
           "price": 2595,
           "photo": "photos/products/filter_mono_кения_аа_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -6720,14 +6720,14 @@
       "quarantined_at": null,
       "article_1c": "КОФ-059",
       "price_source_1c": "КОФ-059",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "espresso_mono_кения_аб_мытый_1_кг_эспрессо",
       "name": "Кения АБ мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6743,7 +6743,7 @@
           "size": "1 кг",
           "price": 2490,
           "photo": "photos/products/espresso_mono_кения_аб_мытый_1_кг_эспрессо.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -6753,14 +6753,14 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-060",
       "price_source_1c": "КОФ-060",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_mono_кения_центральная_провинция_аб_мытый_1_кг_filter",
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
+      "stock": 2.0,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6782,7 +6782,7 @@
           "size": "1 кг",
           "price": 2490,
           "photo": "photos/products/filter_mono_кения_центральная_провинция_аб_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -6791,14 +6791,14 @@
       "article_1c": "КОФ-063",
       "quarantined_at": null,
       "price_source_1c": "КОФ-063",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_mono_китай_симао_гр_1_меллоу_мытый_1_кг_filter",
       "name": "Китай Симао гр.1 Меллоу мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "country": "Китай",
@@ -7256,7 +7256,7 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 7,
+      "stock": 7.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7277,7 +7277,7 @@
           "size": "1 кг",
           "price": 2175,
           "photo": "photos/products/espresso_mono_колумбия_андино_мытый_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -7287,7 +7287,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-067",
       "price_source_1c": "КОФ-067",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_micro_колумбия_гонзало_кармана_катура_сухой_1_кг_filter",
@@ -8499,7 +8499,7 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 5,
+      "stock": 5.0,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -8515,7 +8515,7 @@
           "size": "1 кг",
           "price": 2620,
           "photo": "photos/products/espresso_mono_перу_монте_верде_гр_1_сухой_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -8524,7 +8524,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-085",
       "price_source_1c": "КОФ-085",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "s-помпа_белая_28_мм_5_мл",
@@ -8729,7 +8729,7 @@
       "name": "Руанда Мутетели 15+ мытый  - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 5,
+      "stock": 5.0,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -8751,7 +8751,7 @@
           "size": "1 кг",
           "price": 2355,
           "photo": "photos/products/espresso_mono_руанда_мутетели_15_мытый_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -8761,14 +8761,14 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-086",
       "price_source_1c": "КОФ-086",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_mono_руанда_мутетели_15_мытый_1_кг_filter",
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 16,
+      "stock": 16.0,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -8790,7 +8790,7 @@
           "size": "1 кг",
           "price": 2230,
           "photo": "photos/products/filter_mono_руанда_мутетели_15_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -8799,7 +8799,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-087",
       "price_source_1c": "КОФ-087",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "other_сахар_althaus_в_стиках_по_5_г_2000_шт_кор",
@@ -12754,7 +12754,7 @@
       "name": "Уганда Вугар мытый -  эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
@@ -12770,7 +12770,7 @@
           "size": "1 кг",
           "price": 2070,
           "photo": "photos/products/espresso_mono_уганда_вугар_мытый_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -12780,14 +12780,14 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-089",
       "price_source_1c": "КОФ-089",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "espresso_mono_уганда_рувензори_сухой_эспрессо_1_кг",
       "name": "Уганда Рувензори сухой -  эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 6,
+      "stock": 6.0,
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
@@ -12808,7 +12808,7 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_уганда_рувензори_сухой_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -12817,7 +12817,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-090",
       "price_source_1c": "КОФ-090",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "t-улун_-_да_хун_пао_100_нун_сян_200_г_вкус_хлебная_к",
@@ -14649,7 +14649,7 @@
       "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 1,
+      "stock": 1.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14670,7 +14670,7 @@
           "size": "1 кг",
           "price": 2120,
           "photo": "photos/products/filter_mono_эфиопия_лиму_гр_2_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -14679,7 +14679,7 @@
       "quarantined_at": null,
       "article_1c": "КОФ-092",
       "price_source_1c": "КОФ-092",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "c-nesp-эфиопия_сидамо__nespresso_",
@@ -14720,7 +14720,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 60,
+      "stock": 60.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14736,7 +14736,7 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_4_сухой_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -14745,7 +14745,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-095",
       "price_source_1c": "КОФ-095",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_micro_эфиопия_челелекту_гр_1_мытый_filter_1_кг",
@@ -14855,7 +14855,7 @@
       "name": "Китай Симао гр.1 Меллоу мытый эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14966,7 +14966,7 @@
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 3.0,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -14976,7 +14976,7 @@
           "size": "1 кг",
           "price": 2620,
           "photo": "photos/products/filter_mono_перу_монте_верде_гр_1_сухой_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
@@ -14987,7 +14987,7 @@
       "quarantined_at": null,
       "article_1c": "КОФ-084",
       "price_source_1c": "КОФ-084",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter",
@@ -15022,7 +15022,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 6.0,
+      "stock": 16.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15774,7 +15774,7 @@
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 17,
+      "stock": 17.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15784,7 +15784,7 @@
           "size": "1 кг",
           "price": 2230,
           "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_2_мытый_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-06-30T10:30:36+00:00",
@@ -15792,14 +15792,14 @@
       "quarantined_at": null,
       "article_1c": "КОФ-094",
       "price_source_1c": "КОФ-094",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_mono_эфиопия_сидамо_gr_2_мытый_1_кг_filter",
       "name": "Эфиопия Сидамо Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
+      "stock": 2.0,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -15809,14 +15809,14 @@
           "size": "1 кг",
           "price": 2230,
           "photo": "photos/products/filter_mono_эфиопия_сидамо_gr_2_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-06-30T11:36:04+00:00",
       "created_by": "sync_catalog_v2",
       "article_1c": "КОФ-093",
       "price_source_1c": "КОФ-093",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_micro_колумбия_катимор_натур_1_кг_filter",
@@ -19410,7 +19410,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-001"
     },
@@ -19428,7 +19428,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-002"
     },
@@ -19446,7 +19446,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-003"
     },
@@ -19464,7 +19464,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-004"
     },
@@ -19482,7 +19482,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-005"
     },
@@ -19500,7 +19500,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-006"
     },
@@ -19518,7 +19518,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-007"
     },
@@ -19536,7 +19536,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-008"
     },
@@ -19554,7 +19554,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-009"
     },
@@ -19572,7 +19572,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-010"
     },
@@ -19590,7 +19590,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-011"
     },
@@ -19608,7 +19608,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-012"
     },
@@ -19626,7 +19626,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-013"
     },
@@ -19644,7 +19644,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-014"
     },
@@ -19662,7 +19662,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-015"
     },
@@ -19682,7 +19682,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19701,7 +19701,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19720,7 +19720,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19773,7 +19773,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-021"
     },
@@ -19791,7 +19791,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-022"
     },
@@ -19809,7 +19809,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-023"
     },
@@ -19827,7 +19827,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-024"
     },
@@ -19845,7 +19845,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-025"
     },
@@ -19863,7 +19863,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-026"
     },
@@ -19881,7 +19881,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-027"
     },
@@ -19899,7 +19899,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-028"
     },
@@ -19919,7 +19919,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -19972,7 +19972,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-033"
     },
@@ -19990,7 +19990,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-034"
     },
@@ -20010,7 +20010,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20027,7 +20027,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-037"
     },
@@ -20063,7 +20063,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-039"
     },
@@ -20083,7 +20083,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20100,7 +20100,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-041"
     },
@@ -20118,7 +20118,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-042"
     },
@@ -20138,7 +20138,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20157,7 +20157,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20174,7 +20174,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-045"
     },
@@ -20194,7 +20194,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20211,7 +20211,7 @@
         }
       ],
       "category": "other",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-047"
     },
@@ -20231,7 +20231,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20250,7 +20250,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20269,7 +20269,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -20288,7 +20288,7 @@
       ],
       "category": "other",
       "on_request": false,
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -23253,7 +23253,7 @@
       ],
       "category": "other",
       "price_source_1c": "КОФ-099",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -23506,7 +23506,7 @@
         }
       ],
       "category": "filter",
-      "quarantined_at": "2026-09-01T11:15:02+00:00",
+      "quarantined_at": "2026-09-01T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-119"
     },
