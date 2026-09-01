@@ -5626,7 +5626,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5.0,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5663,7 +5663,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 146,
+      "stock": 128,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -12110,7 +12110,7 @@
           "on_request": true
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/s-сироп_фейхоа_0_7_л_гербариста.jpg",
       "quarantined": false,
@@ -14621,7 +14621,7 @@
       "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -16287,7 +16287,7 @@
           "on_request": true
         }
       ],
-      "stock": 525,
+      "stock": 513,
       "on_request": true,
       "_source": "Напиток на соевой основе, кокосовый \"Green Milk\"на соевой основе 1л.",
       "subcategory": "milk_main",
@@ -17726,7 +17726,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "on_request": false,
       "_source": "Сироп Слива 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
@@ -17763,10 +17763,11 @@
         {
           "size": "0,7 л",
           "photo": "photos/products/сироп_табак_ваниль_0_7_л_гербариста.jpg",
-          "price": 777
+          "price": 777,
+          "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "on_request": false,
       "_source": "Сироп Табак-ваниль 0,7 л. Гербариста",
       "subcategory": "syr_herbarista",
@@ -23357,7 +23358,7 @@
     {
       "id": "1c-144-6ac6628609",
       "name": "Сироп Бобы тонка 0,7 л. Гербариста",
-      "stock": 6,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "article_1c": "СИР-144",
@@ -23393,7 +23394,7 @@
     {
       "id": "1c-146-c632c60f64",
       "name": "Сироп Пачули 0,7 л. Гербариста",
-      "stock": 6,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "article_1c": "СИР-146",
@@ -23411,7 +23412,7 @@
     {
       "id": "1c-147-a94433d3cf",
       "name": "Сироп Ревень 0,7 л. Гербариста",
-      "stock": 6,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "article_1c": "СИР-147",
@@ -23429,7 +23430,7 @@
     {
       "id": "1c-148-e77040dcb7",
       "name": "Сироп Пало Санто 0,7 л. Гербариста",
-      "stock": 6,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "article_1c": "СИР-148",
