@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 55.0,
+      "stock": 104.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1675,7 +1675,7 @@
           "on_request": false
         }
       ],
-      "stock": 7.0,
+      "stock": 17.0,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2022,7 +2022,7 @@
           "on_request": false
         }
       ],
-      "stock": 38.0,
+      "stock": 78.0,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5667,7 +5667,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 107.0,
+      "stock": 91.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5704,7 +5704,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 15.0,
+      "stock": 27.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14678,7 +14678,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 39.0,
+      "stock": 33.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
