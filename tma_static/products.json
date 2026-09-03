@@ -16213,7 +16213,8 @@
       "_source": "Кофе \"Roastberry BLACK\" Кения Маакиоу Пиберри мытая - 200 г",
       "country": "Кения",
       "on_request": false,
-      "article_1c": "КОФ-075"
+      "article_1c": "КОФ-075",
+      "roast": "F"
     },
     {
       "id": "кофе_roastberry_borщ_кения_киавамуруру_hn_7_нат_анаэроб_200_г",
@@ -16232,7 +16233,8 @@
       "_source": "Кофе \"Roastberry BORЩ \"Кения КиаваМуруру HN-7\" нат.анаэроб.200 г",
       "country": "Кения",
       "on_request": false,
-      "article_1c": "КОФ-078"
+      "article_1c": "КОФ-078",
+      "roast": "F"
     },
     {
       "id": "кофе_roastberry_borщ_колумбия_катимор_нат_200_г",
@@ -16251,7 +16253,8 @@
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катимор нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false,
-      "article_1c": "КОФ-079"
+      "article_1c": "КОФ-079",
+      "roast": "F"
     },
     {
       "id": "кофе_roastberry_borщ_колумбия_катуррон_нат_200_г",
@@ -16270,7 +16273,8 @@
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false,
-      "article_1c": "КОФ-080"
+      "article_1c": "КОФ-080",
+      "roast": "F"
     },
     {
       "id": "напиток_на_соевой_основе_кокосовый_green_milk_на_соевой_основе_1л",
@@ -21962,7 +21966,8 @@
       "price_source_1c": "КОФ-103",
       "on_request": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "roast": "F"
     },
     {
       "id": "filter_micro_эфиопия_ворка_челчелле_гр_1_анаэроб_filter_1_кг",
@@ -21985,7 +21990,8 @@
       "price_source_1c": "КОФ-104",
       "on_request": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "roast": "F"
     },
     {
       "id": "filter_micro_эфиопия_банко_готити_гр_1_сухой_нат_filter_1_кг",
@@ -22008,7 +22014,8 @@
       "price_source_1c": "КОФ-111",
       "on_request": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "roast": "F"
     },
     {
       "id": "retail_espresso_e_roastberry_колумбия_рисаральда_декаф_1_кг",
@@ -22075,7 +22082,8 @@
       "created_at": "2026-08-24T08:05:52+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-112",
-      "on_request": false
+      "on_request": false,
+      "roast": "F"
     },
     {
       "id": "black_кофе_roastberry_black_эфиопия_банко_готити_гр_1_сухой_200_г",
@@ -22096,7 +22104,8 @@
       "created_at": "2026-08-24T08:05:52+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-113",
-      "on_request": false
+      "on_request": false,
+      "roast": "F"
     },
     {
       "id": "borshch_кофе_roastberry_borщ_эфиопия_гедеб_инфюз_с_ананасом_200_г",
@@ -22119,7 +22128,8 @@
       "price_source_1c": "КОФ-101",
       "on_request": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "roast": "F"
     },
     {
       "id": "borshch_кофе_roastberry_borщ_эфиопия_ворка_челчеле_гр1_анароб_200_г",
@@ -22140,7 +22150,8 @@
       "created_at": "2026-08-24T08:05:52+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-114",
-      "on_request": false
+      "on_request": false,
+      "roast": "F"
     },
     {
       "id": "f-эфиопия_банко_готити_гр_1_сухой",
@@ -22148,7 +22159,7 @@
       "subcategory": "filter_micro",
       "name": "Эфиопия Банко Готити гр.1 сухой",
       "country": "Эфиопия",
-      "roast": "",
+      "roast": "F",
       "process": "Натуральный",
       "description": "",
       "recipe_e": "",
@@ -22192,7 +22203,8 @@
       "price_source_1c": "КОФ-109",
       "on_request": false,
       "quarantined_at": "2026-08-31T10:15:01+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee"
+      "quarantine_reason": "no_in_1c_vedomost_coffee",
+      "roast": "E"
     },
     {
       "id": "retail_filter_f_roastberry_колумбия_рисаральда_декаф_1_кг",
@@ -22310,7 +22322,8 @@
       "fasovka": [],
       "category": "filter",
       "on_request": true,
-      "quarantine_reason": "not_in_stock_file"
+      "quarantine_reason": "not_in_stock_file",
+      "roast": "F"
     },
     {
       "id": "1c-099-f84f394693",
@@ -22363,7 +22376,8 @@
         }
       ],
       "created_at": "2026-08-31T10:15:01+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "roast": "E"
     },
     {
       "id": "1c-taltha-dp0099-3dde8cc7c5",
@@ -22502,7 +22516,8 @@
       "article_1c": "ФАНКИ",
       "fasovka": [],
       "category": "filter",
-      "on_request": true
+      "on_request": true,
+      "roast": "F"
     },
     {
       "id": "filter_micro_колумбия_арбуз_инфьюз_декаф_1_кг_filter",
@@ -22523,7 +22538,8 @@
       "created_at": "2026-09-01T08:15:01+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-119",
-      "on_request": false
+      "on_request": false,
+      "roast": "F"
     },
     {
       "id": "1c-article-d8dbbd8bc2",
@@ -22534,7 +22550,8 @@
       "article_1c": "ШОКОЛАД",
       "fasovka": [],
       "category": "filter",
-      "on_request": true
+      "on_request": true,
+      "roast": "F"
     },
     {
       "id": "borshch_кофе_roastberry_borщ_колумбия_арбуз_инфьюз_декаф_200_г",
@@ -22555,7 +22572,8 @@
       "created_at": "2026-09-02T08:15:02+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-118",
-      "on_request": false
+      "on_request": false,
+      "roast": "F"
     }
   ]
 }
