@@ -8816,13 +8816,12 @@
           "on_request": true
         }
       ],
-      "stock": 0,
+      "stock": 2,
       "on_request": true,
       "subcategory": "other_sugar",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "hidden": true,
-      "quarantine_reason": "not_in_stock_file"
+      "hidden": false
     },
     {
       "id": "other_сахар-стик_5г",
@@ -22692,9 +22691,9 @@
     {
       "id": "1c-09-03-007-c221416340",
       "name": "CUP 7 Жидкость для очистки молочных систем 1л",
-      "stock": 2,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "09.03.007",
       "fasovka": [
         {
@@ -22704,14 +22703,15 @@
         }
       ],
       "category": "tea",
-      "on_request": false
+      "on_request": false,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "1c-09-04-003-c96086f0fb",
       "name": "CUP 2 Средство для очистки жерновов кофемолок 1000 гр.",
-      "stock": 2,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "09.04.003",
       "fasovka": [
         {
@@ -22720,14 +22720,15 @@
         }
       ],
       "category": "tea",
-      "on_request": true
+      "on_request": true,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "1c-001-4fd1a90b86",
       "name": "Вендинг - Молочный топпинг TOPPING (порошок), 0,75 кг",
-      "stock": 10,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "ВЕН-001",
       "fasovka": [
         {
@@ -22736,25 +22737,27 @@
         }
       ],
       "category": "other",
-      "on_request": true
+      "on_request": true,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "1c-002-9c4e9a6d90",
       "name": "Вендинг - Какао-напиток растворимый HOT CHOCO RICH INSTANT COCOA DRINK",
-      "stock": 8,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "ВЕН-002",
       "fasovka": [],
       "category": "other",
-      "on_request": true
+      "on_request": true,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "1c-003-b62f7db165",
       "name": "Вендинг - напиток растворимый VENDLINE MOKA VANILLA, 1 кг",
-      "stock": 2,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "ВЕН-003",
       "fasovka": [
         {
@@ -22763,7 +22766,8 @@
         }
       ],
       "category": "other",
-      "on_request": true
+      "on_request": true,
+      "quarantine_reason": "not_in_stock_file"
     }
   ]
 }
