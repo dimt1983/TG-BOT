@@ -2021,7 +2021,7 @@
           "on_request": false
         }
       ],
-      "stock": 77.0,
+      "stock": 38,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5701,7 +5701,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 27,
+      "stock": 15,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
