@@ -5664,7 +5664,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 218,
+      "stock": 201,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6217,7 +6217,7 @@
           "on_request": false
         }
       ],
-      "stock": 9,
+      "stock": 3,
       "on_request": false,
       "subcategory": "drip_8pack",
       "country": "Эфиопия",
@@ -10736,7 +10736,7 @@
           "on_request": false
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "quarantined": false,
       "quarantined_at": "2026-05-14T09:19:40+00:00",
@@ -13211,7 +13211,7 @@
           "on_request": false
         }
       ],
-      "stock": 28,
+      "stock": 22,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_имунный_с_облепихой_30_.jpg",
       "quarantined": false,
@@ -14724,7 +14724,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 45,
+      "stock": 44,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -21682,7 +21682,7 @@
     {
       "id": "1c-140-524bf30b90",
       "name": "Чай Tasteabrew ICEDTEA-400 \"Малиновый мохито\" (50)",
-      "stock": 77,
+      "stock": 71,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-140",
@@ -21732,7 +21732,7 @@
     {
       "id": "1c-143-38428d9f1a",
       "name": "Чай Tasteabrew ICEDTEA-400 \"Спелая смородина\" (50)",
-      "stock": 91,
+      "stock": 81,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-143",
@@ -22015,7 +22015,7 @@
     {
       "id": "1c-163-406f1522b6",
       "name": "Чай Tasteabrew TOGO-350 \"Голубая Масала\" (36)",
-      "stock": 61,
+      "stock": 57,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-163",
@@ -22032,7 +22032,7 @@
     {
       "id": "1c-165-2e2d6ae389",
       "name": "Чай Tasteabrew TOGO-350 \"Иван-Чай с малиной и травами\" (36)",
-      "stock": 79,
+      "stock": 67,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-165",
@@ -22533,7 +22533,7 @@
     {
       "id": "1c-219-27559427fd",
       "name": "ЧН600 Ассам Бейсик, 600 г.",
-      "stock": 9,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-219",
