@@ -1062,10 +1062,10 @@
           "size": "1 кг",
           "price": 2160,
           "photo": "photos/products/c-be_roastberry_fresh_-_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 6.0,
       "tags": [],
       "photo": "photos/products/c-be_roastberry_fresh_-_1_кг.jpg",
       "quarantined": false,
@@ -1074,7 +1074,7 @@
       "article_1c": "КОФ-001",
       "hidden": false,
       "price_source_1c": "КОФ-001",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_be_roastberry_биттер_-_1_кг",
@@ -1086,10 +1086,10 @@
           "size": "1 кг",
           "price": 1910,
           "photo": "photos/products/retail_be_roastberry_биттер_-_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 22,
+      "stock": 22.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1101,7 +1101,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-002",
       "price_source_1c": "КОФ-002",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_be_roastberry_биттер_200_г",
@@ -1114,10 +1114,10 @@
           "price": 410,
           "photo": "photos/products/retail_be_roastberry_биттер_200_г.jpg",
           "stock": 15,
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 14,
+      "stock": 14.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1129,7 +1129,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-003",
       "price_source_1c": "КОФ-003",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_be_roastberry_венеция_-_1_кг",
@@ -1141,10 +1141,10 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/retail_be_roastberry_венеция_-_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 25,
+      "stock": 25.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1156,7 +1156,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-004",
       "price_source_1c": "КОФ-004",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_be_roastberry_венеция_200_г",
@@ -1169,10 +1169,10 @@
           "price": 435,
           "photo": "photos/products/retail_be_roastberry_венеция_200_г.jpg",
           "stock": 14,
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 21,
+      "stock": 21.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1184,7 +1184,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-005",
       "price_source_1c": "КОФ-005",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_be_roastberry_классика_20_-_1_кг",
@@ -1196,10 +1196,10 @@
           "size": "1 кг",
           "price": 1975,
           "photo": "photos/products/retail_be_roastberry_классика_20_-_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 83,
+      "stock": 83.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1211,7 +1211,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-006",
       "price_source_1c": "КОФ-006",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_be_roastberry_классика_20_200_г",
@@ -1224,10 +1224,10 @@
           "price": 425,
           "photo": "photos/products/retail_be_roastberry_классика_20_200_г.jpg",
           "stock": 10,
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 17,
+      "stock": 17.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1239,7 +1239,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-007",
       "price_source_1c": "КОФ-007",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_be_roastberry_хани_-_1_кг",
@@ -1251,10 +1251,10 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/retail_be_roastberry_хани_-_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 20,
+      "stock": 20.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1266,7 +1266,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-008",
       "price_source_1c": "КОФ-008",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_be_roastberry_хани_200_г",
@@ -1279,10 +1279,10 @@
           "price": 435,
           "photo": "photos/products/retail_be_roastberry_хани_200_г.jpg",
           "stock": 14,
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 23,
+      "stock": 23.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1294,7 +1294,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-009",
       "price_source_1c": "КОФ-009",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "c-be_roastberry_эспрессо_смесь_-_1_кг",
@@ -1334,10 +1334,10 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/retail_bf_roastberry_лунго_-_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 7,
+      "stock": 7.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1349,7 +1349,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-010",
       "price_source_1c": "КОФ-010",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_bf_roastberry_лунго_200_г",
@@ -1362,10 +1362,10 @@
           "price": 435,
           "photo": "photos/products/retail_bf_roastberry_лунго_200_г.jpg",
           "stock": 33,
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 10,
+      "stock": 10.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1377,7 +1377,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-011",
       "price_source_1c": "КОФ-011",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "o-cafetto_brew_clean_tablets_для_фильтровых_кофемашин",
@@ -1559,10 +1559,10 @@
           "size": "1 кг",
           "price": 2045,
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 20,
+      "stock": 20.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
@@ -1574,7 +1574,7 @@
       "hidden": false,
       "quarantined": false,
       "price_source_1c": "КОФ-012",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_e_roastberry_бразилия_паже_200_г",
@@ -1587,10 +1587,10 @@
           "price": 445,
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_200_г.jpg",
           "stock": 25,
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 35,
+      "stock": 35.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
@@ -1603,7 +1603,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-013",
       "price_source_1c": "КОФ-013",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_e_roastberry_бразилия_сан_рафаель_-_1_кг",
@@ -1615,10 +1615,10 @@
           "size": "1 кг",
           "price": 2070,
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_-_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 55,
+      "stock": 55.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1631,7 +1631,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-014",
       "price_source_1c": "КОФ-014",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_e_roastberry_бразилия_сан_рафаель_200_г",
@@ -1644,10 +1644,10 @@
           "price": 445,
           "photo": "photos/products/retail_e_roastberry_бразилия_сан_рафаель_200_г.jpg",
           "stock": 63,
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 34,
+      "stock": 34.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1660,7 +1660,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-015",
       "price_source_1c": "КОФ-015",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_e_roastberry_бразилия_серадо_200_г",
@@ -1787,7 +1787,7 @@
           "on_request": false
         }
       ],
-      "stock": 28,
+      "stock": 28.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гватемала Уетенанго упак. 200 гр.",
@@ -1813,10 +1813,10 @@
           "price": 465,
           "photo": "assets/placeholders/ph_retail.svg",
           "stock": 11,
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 26,
+      "stock": 26.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гондурас San Nicolas упак. 200 гр.",
@@ -1830,7 +1830,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-024",
       "price_source_1c": "КОФ-024",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_e_roastberry_колумбия_андино_-_1_кг",
@@ -1842,10 +1842,10 @@
           "size": "1 кг",
           "price": 2175,
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_-_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 8,
+      "stock": 8.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1858,7 +1858,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-025",
       "price_source_1c": "КОФ-025",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_e_roastberry_колумбия_андино_200_г",
@@ -1871,10 +1871,10 @@
           "price": 465,
           "photo": "photos/products/retail_e_roastberry_колумбия_андино_200_г.jpg",
           "stock": 9,
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 15,
+      "stock": 15.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1887,7 +1887,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-026",
       "price_source_1c": "КОФ-026",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг",
@@ -1899,10 +1899,10 @@
           "size": "1 кг",
           "price": 2250,
           "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_-_1кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 3.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг",
@@ -1914,7 +1914,7 @@
       "price_source_1c": "КОФ-027",
       "hidden": false,
       "quarantined": false,
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_e_roastberry_коста-рика_тарразу_ла_пастора_200_г",
@@ -1927,10 +1927,10 @@
           "price": 480,
           "photo": "photos/products/retail_e_roastberry_коста-рика_тарразу_ла_пастора_200_г.jpg",
           "stock": 16,
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 8,
+      "stock": 8.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг",
@@ -1943,7 +1943,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-028",
       "price_source_1c": "КОФ-028",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "c-e_roastberry_перу_схг_упак_200_г",
@@ -1961,10 +1961,10 @@
           "size": "200 г",
           "price": 475,
           "photo": "assets/placeholders/ph_retail.svg",
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 7,
+      "stock": 7.0,
       "tags": [],
       "photo": "assets/placeholders/ph_retail.svg",
       "tasting_notes": [
@@ -1979,7 +1979,7 @@
       "archived_reason": "not in xlsx 19.05.2026",
       "article_1c": "КОФ-099",
       "price_source_1c": "КОФ-099",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_e_roastberry_уганада_рувензор_200_г",
@@ -2048,7 +2048,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 3.0,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Гватемала Уетенанго - 1 кг",
@@ -2076,7 +2076,7 @@
           "on_request": false
         }
       ],
-      "stock": 16,
+      "stock": 16.0,
       "subcategory": "retail_filter",
       "quarantined": false,
       "quarantined_at": null,
@@ -2101,10 +2101,10 @@
           "size": "200 г",
           "price": 550,
           "photo": "photos/products/retail_f_roastberry_кения_аа_200_г.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 7,
+      "stock": 7.0,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Кения АА упак. 200 г",
@@ -2117,7 +2117,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-039",
       "price_source_1c": "КОФ-039",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "retail_f_roastberry_кения_аб_200_г",
@@ -2161,7 +2161,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 3.0,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Китай Симао упак. 200 г",
@@ -2189,7 +2189,7 @@
           "on_request": false
         }
       ],
-      "stock": 21,
+      "stock": 21.0,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5593,7 +5593,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 41,
+      "stock": 41.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5614,7 +5614,7 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_бразилия_серрадо_дарк_темная_обжарка_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -5623,7 +5623,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-051",
       "price_source_1c": "КОФ-051",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_mono_бразилия_серрадо_желтый_бурбон_сухой_1_кг_filter",
@@ -5667,7 +5667,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 117,
+      "stock": 117.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5688,7 +5688,7 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_бразилия_серрадо_средняя_обжарка_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -5697,14 +5697,14 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-053",
       "price_source_1c": "КОФ-053",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_mono_бразилия_фазенда_сертао_сухой_молотый_1_кг_filter",
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 15,
+      "stock": 15.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5720,7 +5720,7 @@
           "size": "1 кг",
           "price": 2095,
           "photo": "photos/products/filter_mono_бразилия_фазенда_сертао_сухой_молотый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -5728,7 +5728,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-054",
       "price_source_1c": "КОФ-054",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter-aeropress-350",
@@ -5849,7 +5849,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 3.0,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -5871,7 +5871,7 @@
           "size": "1 кг",
           "price": 2120,
           "photo": "photos/products/filter_mono_гватемала_уеуетенанго_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -5879,7 +5879,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-057",
       "price_source_1c": "КОФ-057",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "t-генмайча_райсу_100г",
@@ -6698,7 +6698,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 9,
+      "stock": 9.0,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6714,7 +6714,7 @@
           "size": "1 кг",
           "price": 2595,
           "photo": "photos/products/filter_mono_кения_аа_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -6723,14 +6723,14 @@
       "quarantined_at": null,
       "article_1c": "КОФ-059",
       "price_source_1c": "КОФ-059",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "espresso_mono_кения_аб_мытый_1_кг_эспрессо",
       "name": "Кения АБ мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6746,7 +6746,7 @@
           "size": "1 кг",
           "price": 2490,
           "photo": "photos/products/espresso_mono_кения_аб_мытый_1_кг_эспрессо.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -6756,14 +6756,14 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-060",
       "price_source_1c": "КОФ-060",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_mono_кения_центральная_провинция_аб_мытый_1_кг_filter",
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2,
+      "stock": 2.0,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6785,7 +6785,7 @@
           "size": "1 кг",
           "price": 2490,
           "photo": "photos/products/filter_mono_кения_центральная_провинция_аб_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -6794,14 +6794,14 @@
       "article_1c": "КОФ-063",
       "quarantined_at": null,
       "price_source_1c": "КОФ-063",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_mono_китай_симао_гр_1_меллоу_мытый_1_кг_filter",
       "name": "Китай Симао гр.1 Меллоу мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "country": "Китай",
@@ -7227,7 +7227,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6.0,
+      "stock": 14.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7259,7 +7259,7 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 6,
+      "stock": 6.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7280,7 +7280,7 @@
           "size": "1 кг",
           "price": 2175,
           "photo": "photos/products/espresso_mono_колумбия_андино_мытый_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -7290,7 +7290,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-067",
       "price_source_1c": "КОФ-067",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_micro_колумбия_гонзало_кармана_катура_сухой_1_кг_filter",
@@ -7690,7 +7690,7 @@
       "name": "Коста-Рика Тарразу Ла Пастора эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 8,
+      "stock": 8.0,
       "hidden": false,
       "quarantined": false,
       "country": "Коста-Рика",
@@ -8502,7 +8502,7 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 5,
+      "stock": 5.0,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -8518,7 +8518,7 @@
           "size": "1 кг",
           "price": 2620,
           "photo": "photos/products/espresso_mono_перу_монте_верде_гр_1_сухой_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -8527,7 +8527,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-085",
       "price_source_1c": "КОФ-085",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "s-помпа_белая_28_мм_5_мл",
@@ -8732,7 +8732,7 @@
       "name": "Руанда Мутетели 15+ мытый  - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -8754,7 +8754,7 @@
           "size": "1 кг",
           "price": 2355,
           "photo": "photos/products/espresso_mono_руанда_мутетели_15_мытый_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -8764,14 +8764,14 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-086",
       "price_source_1c": "КОФ-086",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_mono_руанда_мутетели_15_мытый_1_кг_filter",
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 13,
+      "stock": 13.0,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -8793,7 +8793,7 @@
           "size": "1 кг",
           "price": 2230,
           "photo": "photos/products/filter_mono_руанда_мутетели_15_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -8802,7 +8802,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-087",
       "price_source_1c": "КОФ-087",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "other_сахар_althaus_в_стиках_по_5_г_2000_шт_кор",
@@ -12759,7 +12759,7 @@
       "name": "Уганда Вугар мытый -  эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
@@ -12775,7 +12775,7 @@
           "size": "1 кг",
           "price": 2070,
           "photo": "photos/products/espresso_mono_уганда_вугар_мытый_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -12785,14 +12785,14 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-089",
       "price_source_1c": "КОФ-089",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "espresso_mono_уганда_рувензори_сухой_эспрессо_1_кг",
       "name": "Уганда Рувензори сухой -  эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 1,
+      "stock": 1.0,
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
@@ -12813,7 +12813,7 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_уганда_рувензори_сухой_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -12822,7 +12822,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-090",
       "price_source_1c": "КОФ-090",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "t-улун_-_да_хун_пао_100_нун_сян_200_г_вкус_хлебная_к",
@@ -14657,7 +14657,7 @@
       "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 1,
+      "stock": 1.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14678,7 +14678,7 @@
           "size": "1 кг",
           "price": 2120,
           "photo": "photos/products/filter_mono_эфиопия_лиму_гр_2_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -14687,7 +14687,7 @@
       "quarantined_at": null,
       "article_1c": "КОФ-092",
       "price_source_1c": "КОФ-092",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "c-nesp-эфиопия_сидамо__nespresso_",
@@ -14728,7 +14728,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 39,
+      "stock": 39.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14744,7 +14744,7 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_4_сухой_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -14753,7 +14753,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-095",
       "price_source_1c": "КОФ-095",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_micro_эфиопия_челелекту_гр_1_мытый_filter_1_кг",
@@ -14863,7 +14863,7 @@
       "name": "Китай Симао гр.1 Меллоу мытый эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14892,7 +14892,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 13,
+      "stock": 13.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14902,7 +14902,7 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_эфиопия_milk_сидамо_гр_4_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
@@ -14914,7 +14914,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-091",
       "price_source_1c": "КОФ-091",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "espresso_mono_эфиопия_yirgacheffe_gr_2_мытый_эспрессо_1_кг",
@@ -14974,7 +14974,7 @@
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3,
+      "stock": 3.0,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -14984,7 +14984,7 @@
           "size": "1 кг",
           "price": 2620,
           "photo": "photos/products/filter_mono_перу_монте_верде_гр_1_сухой_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
@@ -14995,7 +14995,7 @@
       "quarantined_at": null,
       "article_1c": "КОФ-084",
       "price_source_1c": "КОФ-084",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter",
@@ -15173,7 +15173,7 @@
       "name": "Гондурас Сан Николас темная обжарка - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 7,
+      "stock": 7.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15183,7 +15183,7 @@
           "size": "1 кг",
           "price": 2175,
           "photo": "photos/products/espresso_mono_гондурас_сан_николас_темная_обжарка_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-22T12:00:08+00:00",
@@ -15194,7 +15194,7 @@
       "quarantined_at": null,
       "article_1c": "КОФ-058",
       "price_source_1c": "КОФ-058",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "espresso_mono_колумбия_супремо_эспрессо_1_кг",
@@ -15748,7 +15748,7 @@
       "name": "Вьетнам Блю Шонла сухой  эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 1,
+      "stock": 1.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15758,7 +15758,7 @@
           "size": "1 кг",
           "price": 2135,
           "photo": "photos/products/espresso_mono_вьетнам_блю_сонал_сухой_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-06-18T07:36:31+00:00",
@@ -15777,14 +15777,14 @@
       ],
       "article_1c": "КОФ-055",
       "price_source_1c": "КОФ-055",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "espresso_mono_эфиопия_сидамо_гр_2_мытый_эспрессо_1_кг",
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 16,
+      "stock": 16.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15794,7 +15794,7 @@
           "size": "1 кг",
           "price": 2230,
           "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_2_мытый_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-06-30T10:30:36+00:00",
@@ -15802,14 +15802,14 @@
       "quarantined_at": null,
       "article_1c": "КОФ-094",
       "price_source_1c": "КОФ-094",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_mono_эфиопия_сидамо_gr_2_мытый_1_кг_filter",
       "name": "Эфиопия Сидамо Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -15819,14 +15819,14 @@
           "size": "1 кг",
           "price": 2230,
           "photo": "photos/products/filter_mono_эфиопия_сидамо_gr_2_мытый_1_кг_filter.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-06-30T11:36:04+00:00",
       "created_by": "sync_catalog_v2",
       "article_1c": "КОФ-093",
       "price_source_1c": "КОФ-093",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_micro_колумбия_катимор_натур_1_кг_filter",
@@ -15986,10 +15986,10 @@
           "size": "1 кг",
           "price": 2120,
           "photo": "assets/placeholders/pack_roastberry_1kg.png",
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 6.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гватемала Уетенанго - 1 кг",
@@ -16002,7 +16002,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "price_source_1c": "КОФ-021",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "e_roastberry_гондурас_san_nicolas_dark_1_кг",
@@ -16014,10 +16014,10 @@
           "size": "1 кг",
           "photo": "assets/placeholders/pack_roastberry_1kg.png",
           "price": 2175,
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 11,
+      "stock": 11.0,
       "_source": "E \"Roastberry\" Гондурас San Nicolas Dark - 1 кг",
       "country": "Гондурас",
       "subcategory": "retail_espresso",
@@ -16027,7 +16027,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "price_source_1c": "КОФ-023",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "e_roastberry_эфиопия_сидамо_гр_2_1_кг",
@@ -16039,10 +16039,10 @@
           "size": "1 кг",
           "photo": "assets/placeholders/pack_roastberry_1kg.png",
           "price": 2385,
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 11,
+      "stock": 11.0,
       "_source": "E \"Roastberry\" Эфиопия Сидамо Гр.2  - 1 кг",
       "country": "Эфиопия",
       "subcategory": "retail_espresso",
@@ -16051,7 +16051,7 @@
       "hidden": false,
       "quarantined": false,
       "price_source_1c": "КОФ-033",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "f_roastberry_колумбия_андино_1_кг",
@@ -16063,10 +16063,10 @@
           "size": "1 кг",
           "photo": "assets/placeholders/pack_roastberry_1kg.png",
           "price": 2175,
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 3.0,
       "_source": "F \"Roastberry\" Колумбия Андино - 1 кг",
       "country": "Колумбия",
       "subcategory": "retail_filter",
@@ -16075,7 +16075,7 @@
       "hidden": false,
       "quarantined": false,
       "price_source_1c": "КОФ-042",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "f_roastberry_эфиопия_иргачиф_гр_2_1_кг",
@@ -16087,10 +16087,10 @@
           "size": "1 кг",
           "photo": "assets/placeholders/pack_roastberry_1kg.png",
           "price": 2335,
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 1.0,
       "_source": "F \"Roastberry\" Эфиопия Иргачиф Гр.2 - 1 кг",
       "country": "Эфиопия",
       "subcategory": "retail_filter",
@@ -16100,7 +16100,7 @@
       "quarantined": false,
       "quarantined_at": null,
       "price_source_1c": "КОФ-045",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "e_roastberry_мексика_чьяпас_200_г",
@@ -16164,10 +16164,10 @@
           "size": "200 г",
           "photo": "assets/placeholders/pack_roastberry_200g.png",
           "price": 475,
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 11,
+      "stock": 11.0,
       "_source": "E \"Roastberry\" Эфиопия Сидамо Гр.2  упак. 200 г",
       "country": "Эфиопия",
       "subcategory": "retail_espresso",
@@ -16177,7 +16177,7 @@
       "quarantined_at": null,
       "article_1c": "КОФ-034",
       "price_source_1c": "КОФ-034",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "f_roastberry_вьетнам_блю_сонал_сухой_200_г",
@@ -16233,10 +16233,10 @@
           "size": "200 г",
           "photo": "assets/placeholders/pack_roastberry_200g.png",
           "price": 475,
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 2,
+      "stock": 2.0,
       "_source": "F \"Roastberry\" Эфиопия Сидамо Гр.2. упак. 200 г",
       "country": "Эфиопия",
       "subcategory": "retail_filter",
@@ -16245,7 +16245,7 @@
       "price_source_1c": "КОФ-047",
       "hidden": false,
       "quarantined": false,
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "кофе_roastberry_black_кения_маакиоу_пиберри_мытая_200_г",
@@ -22637,7 +22637,7 @@
       "name": "Колумбия Арбуз инфьюз Декаф . - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 2,
+      "stock": 2.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-119",
@@ -22645,13 +22645,13 @@
         {
           "size": "1 кг",
           "price": 4130,
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-09-01T08:15:01+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-119",
-      "on_request": true,
+      "on_request": false,
       "roast": "F"
     },
     {
@@ -22671,7 +22671,7 @@
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Арбуз инфьюз декаф\" 200 г",
       "category": "borshch",
       "subcategory": null,
-      "stock": 19,
+      "stock": 19.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-118",
@@ -22679,13 +22679,13 @@
         {
           "size": "200 г",
           "price": 905,
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-09-02T08:15:02+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-118",
-      "on_request": true,
+      "on_request": false,
       "roast": "F"
     },
     {
