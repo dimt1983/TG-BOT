@@ -5664,7 +5664,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 201,
+      "stock": 189,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7935,7 +7935,7 @@
           "on_request": false
         }
       ],
-      "stock": 1.0,
+      "stock": 21,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -14724,7 +14724,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 44,
+      "stock": 39,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -15805,9 +15805,9 @@
       "name": "Эфиопия Сидамо Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
       "roast": "F",
       "photo": "photos/products/filter_mono_эфиопия_сидамо_gr_2_мытый_1_кг_filter.jpg",
       "fasovka": [
@@ -15822,8 +15822,7 @@
       "created_by": "sync_catalog_v2",
       "article_1c": "КОФ-093",
       "price_source_1c": "КОФ-093",
-      "on_request": true,
-      "quarantine_reason": "not_in_stock_file"
+      "on_request": true
     },
     {
       "id": "filter_micro_колумбия_катимор_натур_1_кг_filter",
@@ -18574,7 +18573,7 @@
           "price": 755
         }
       ],
-      "stock": 10,
+      "stock": 8,
       "on_request": true,
       "_source": "RB TEA Ассам 250 г",
       "subcategory": "tea_rbr_tea_loose",
@@ -20904,7 +20903,7 @@
     {
       "id": "1c-049-67b097f2d2",
       "name": "RB TEA Черный чай с чабрецом 250 г (ассам, чабрец)",
-      "stock": 28,
+      "stock": 26,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-049",
