@@ -3640,7 +3640,7 @@
           "on_request": false
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5590,7 +5590,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 62.0,
+      "stock": 50,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5611,7 +5611,7 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_бразилия_серрадо_дарк_темная_обжарка_эспрессо_1_кг.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -5620,7 +5620,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-051",
       "price_source_1c": "КОФ-051",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "filter_mono_бразилия_серрадо_желтый_бурбон_сухой_1_кг_filter",
@@ -5664,7 +5664,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 179.0,
+      "stock": 137,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5685,7 +5685,7 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_бразилия_серрадо_средняя_обжарка_эспрессо_1_кг.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -5694,14 +5694,14 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-053",
       "price_source_1c": "КОФ-053",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "filter_mono_бразилия_фазенда_сертао_сухой_молотый_1_кг_filter",
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 15.0,
+      "stock": 15,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5717,7 +5717,7 @@
           "size": "1 кг",
           "price": 2095,
           "photo": "photos/products/filter_mono_бразилия_фазенда_сертао_сухой_молотый_1_кг_filter.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -5725,7 +5725,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-054",
       "price_source_1c": "КОФ-054",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "filter-aeropress-350",
@@ -5846,7 +5846,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3.0,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -5868,7 +5868,7 @@
           "size": "1 кг",
           "price": 2120,
           "photo": "photos/products/filter_mono_гватемала_уеуетенанго_мытый_1_кг_filter.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -5876,7 +5876,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-057",
       "price_source_1c": "КОФ-057",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "t-генмайча_райсу_100г",
@@ -6695,7 +6695,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 9.0,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6711,7 +6711,7 @@
           "size": "1 кг",
           "price": 2595,
           "photo": "photos/products/filter_mono_кения_аа_мытый_1_кг_filter.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -6720,14 +6720,14 @@
       "quarantined_at": null,
       "article_1c": "КОФ-059",
       "price_source_1c": "КОФ-059",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "espresso_mono_кения_аб_мытый_1_кг_эспрессо",
       "name": "Кения АБ мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4.0,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6743,7 +6743,7 @@
           "size": "1 кг",
           "price": 2490,
           "photo": "photos/products/espresso_mono_кения_аб_мытый_1_кг_эспрессо.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -6753,14 +6753,14 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-060",
       "price_source_1c": "КОФ-060",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "filter_mono_кения_центральная_провинция_аб_мытый_1_кг_filter",
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2.0,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6782,7 +6782,7 @@
           "size": "1 кг",
           "price": 2490,
           "photo": "photos/products/filter_mono_кения_центральная_провинция_аб_мытый_1_кг_filter.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -6791,14 +6791,14 @@
       "article_1c": "КОФ-063",
       "quarantined_at": null,
       "price_source_1c": "КОФ-063",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "filter_mono_китай_симао_гр_1_меллоу_мытый_1_кг_filter",
       "name": "Китай Симао гр.1 Меллоу мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4.0,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Китай",
@@ -6812,15 +6812,17 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2015.0,
-          "photo": "photos/products/filter_mono_китай_симао_гр_1_меллоу_мытый_1_кг_filter.jpg"
+          "price": 2070,
+          "photo": "photos/products/filter_mono_китай_симао_гр_1_меллоу_мытый_1_кг_filter.jpg",
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-064",
-      "price_source_1c": "КОФ-064"
+      "price_source_1c": "КОФ-064",
+      "on_request": false
     },
     {
       "id": "t-китайский_чай_ассам_200г",
@@ -7254,7 +7256,7 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 6.0,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7275,7 +7277,7 @@
           "size": "1 кг",
           "price": 2175,
           "photo": "photos/products/espresso_mono_колумбия_андино_мытый_эспрессо_1_кг.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -7285,7 +7287,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-067",
       "price_source_1c": "КОФ-067",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "filter_micro_колумбия_гонзало_кармана_катура_сухой_1_кг_filter",
@@ -8168,7 +8170,8 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2380.0
+          "price": 1760,
+          "on_request": false
         }
       ],
       "stock": 4,
@@ -8178,7 +8181,8 @@
       "quarantined_at": null,
       "article_1c": "ЧАЙ-116",
       "hidden": false,
-      "price_source_1c": "ЧАЙ-116"
+      "price_source_1c": "ЧАЙ-116",
+      "on_request": false
     },
     {
       "id": "m-молоко_домик_в_деревне_3_2_950г",
@@ -8495,7 +8499,7 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 5.0,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -8511,7 +8515,7 @@
           "size": "1 кг",
           "price": 2620,
           "photo": "photos/products/espresso_mono_перу_монте_верде_гр_1_сухой_эспрессо_1_кг.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -8520,7 +8524,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-085",
       "price_source_1c": "КОФ-085",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "s-помпа_белая_28_мм_5_мл",
@@ -8725,7 +8729,7 @@
       "name": "Руанда Мутетели 15+ мытый  - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4.0,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -8747,7 +8751,7 @@
           "size": "1 кг",
           "price": 2355,
           "photo": "photos/products/espresso_mono_руанда_мутетели_15_мытый_1_кг.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -8757,14 +8761,14 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-086",
       "price_source_1c": "КОФ-086",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "filter_mono_руанда_мутетели_15_мытый_1_кг_filter",
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 13.0,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -8786,7 +8790,7 @@
           "size": "1 кг",
           "price": 2230,
           "photo": "photos/products/filter_mono_руанда_мутетели_15_мытый_1_кг_filter.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -8795,7 +8799,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-087",
       "price_source_1c": "КОФ-087",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "other_сахар_althaus_в_стиках_по_5_г_2000_шт_кор",
@@ -10304,8 +10308,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 757.0,
-          "photo": "photos/products/s-сироп_herbarista_бабл_гам_0_7л.jpg"
+          "price": 721,
+          "photo": "photos/products/s-сироп_herbarista_бабл_гам_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 10,
@@ -10316,7 +10321,8 @@
       "quarantined_at": null,
       "hidden": false,
       "article_1c": "СИР-043",
-      "price_source_1c": "СИР-043"
+      "price_source_1c": "СИР-043",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_банан_0_7л",
@@ -10332,7 +10338,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 692.0
+          "price": 659,
+          "on_request": false
         }
       ],
       "stock": 11,
@@ -10342,7 +10349,8 @@
       "hidden": false,
       "_source": "Сироп Банан 0,7 л. Гербариста",
       "article_1c": "СИР-045",
-      "price_source_1c": "СИР-045"
+      "price_source_1c": "СИР-045",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_бурбонская_ваниль_0_7л",
@@ -10381,8 +10389,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 692.0,
-          "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.jpg"
+          "price": 659,
+          "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.jpg",
+          "on_request": false
         }
       ],
       "stock": 3,
@@ -10393,7 +10402,8 @@
       "quarantined_at": null,
       "article_1c": "СИР-051",
       "hidden": false,
-      "price_source_1c": "СИР-051"
+      "price_source_1c": "СИР-051",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_груша_со_специями_0_7л",
@@ -10409,8 +10419,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 692.0,
-          "photo": "photos/products/s-сироп_herbarista_груша_со_специями_0_7л.jpg"
+          "price": 659,
+          "photo": "photos/products/s-сироп_herbarista_груша_со_специями_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 2,
@@ -10421,7 +10432,8 @@
       "quarantined_at": null,
       "article_1c": "СИР-056",
       "hidden": false,
-      "price_source_1c": "СИР-056"
+      "price_source_1c": "СИР-056",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_дыня_0_7л",
@@ -10437,7 +10449,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 692.0
+          "price": 659,
+          "on_request": false
         }
       ],
       "stock": 5,
@@ -10447,7 +10460,8 @@
       "hidden": false,
       "_source": "Сироп Дыня 0,7 л. Гербариста",
       "article_1c": "СИР-058",
-      "price_source_1c": "СИР-058"
+      "price_source_1c": "СИР-058",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_ежевика_с_листьями_0_7л",
@@ -10463,8 +10477,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 692.0,
-          "photo": "photos/products/s-сироп_herbarista_ежевика_с_листьями_0_7л.jpg"
+          "price": 659,
+          "photo": "photos/products/s-сироп_herbarista_ежевика_с_листьями_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 6,
@@ -10475,7 +10490,8 @@
       "quarantined_at": null,
       "article_1c": "СИР-062",
       "hidden": false,
-      "price_source_1c": "СИР-062"
+      "price_source_1c": "СИР-062",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_имбирный_пряник_0_7л",
@@ -10515,8 +10531,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 810.0,
-          "photo": "photos/products/s-сироп_herbarista_ирландский_крем_0_7л.jpg"
+          "price": 771,
+          "photo": "photos/products/s-сироп_herbarista_ирландский_крем_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 7,
@@ -10527,7 +10544,8 @@
       "quarantined_at": null,
       "article_1c": "СИР-069",
       "hidden": false,
-      "price_source_1c": "СИР-069"
+      "price_source_1c": "СИР-069",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_карамель_двойного_обжига_0_7л",
@@ -10543,8 +10561,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 810.0,
-          "photo": "photos/products/s-сироп_herbarista_карамель_двойного_обжига_0_7л.jpg"
+          "price": 771,
+          "photo": "photos/products/s-сироп_herbarista_карамель_двойного_обжига_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 14,
@@ -10557,7 +10576,8 @@
       "quarantined_at": null,
       "article_1c": "СИР-071",
       "hidden": false,
-      "price_source_1c": "СИР-071"
+      "price_source_1c": "СИР-071",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_кленовый_с_каштаном_0_7л",
@@ -10573,8 +10593,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 757.0,
-          "photo": "photos/products/s-сироп_herbarista_кленовый_с_каштаном_0_7л.jpg"
+          "price": 721,
+          "photo": "photos/products/s-сироп_herbarista_кленовый_с_каштаном_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 2,
@@ -10585,7 +10606,8 @@
       "quarantined_at": null,
       "article_1c": "СИР-076",
       "hidden": false,
-      "price_source_1c": "СИР-076"
+      "price_source_1c": "СИР-076",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_кокос_с_мякотью_0_7л",
@@ -10627,8 +10649,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 810.0,
-          "photo": "photos/products/s-сироп_herbarista_конопляная_халва_0_7л.jpg"
+          "price": 771,
+          "photo": "photos/products/s-сироп_herbarista_конопляная_халва_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 5,
@@ -10639,7 +10662,8 @@
       "quarantined_at": null,
       "article_1c": "СИР-082",
       "hidden": false,
-      "price_source_1c": "СИР-082"
+      "price_source_1c": "СИР-082",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_корица_0_7л",
@@ -10655,7 +10679,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 692.0
+          "price": 659,
+          "on_request": false
         }
       ],
       "stock": 5,
@@ -10665,7 +10690,8 @@
       "hidden": false,
       "_source": "Сироп Корица 0,7 л. Гербариста",
       "article_1c": "СИР-083",
-      "price_source_1c": "СИР-083"
+      "price_source_1c": "СИР-083",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_красный_апельсин_0_7л",
@@ -10705,8 +10731,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 692.0,
-          "photo": "photos/products/s-сироп_herbarista_лаванда_0_7л.jpg"
+          "price": 659,
+          "photo": "photos/products/s-сироп_herbarista_лаванда_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 1,
@@ -10717,7 +10744,8 @@
       "_source": "Сироп Лаванда 0,7 л. Гербариста",
       "article_1c": "СИР-085",
       "photo": "photos/products/s-сироп_herbarista_лаванда_0_7л.jpg",
-      "price_source_1c": "СИР-085"
+      "price_source_1c": "СИР-085",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_лайм_0_7л",
@@ -10733,8 +10761,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 810.0,
-          "photo": "photos/products/s-сироп_herbarista_лайм_0_7л.jpg"
+          "price": 771,
+          "photo": "photos/products/s-сироп_herbarista_лайм_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 5,
@@ -10745,7 +10774,8 @@
       "quarantined_at": "2026-05-14T09:19:40+00:00",
       "hidden": false,
       "article_1c": "СИР-088",
-      "price_source_1c": "СИР-088"
+      "price_source_1c": "СИР-088",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_лесной_орех_0_7л",
@@ -10761,8 +10791,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 810.0,
-          "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.jpg"
+          "price": 777,
+          "photo": "photos/products/s-сироп_herbarista_лесной_орех_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 15,
@@ -10773,7 +10804,8 @@
       "quarantined_at": null,
       "hidden": false,
       "article_1c": "СИР-090",
-      "price_source_1c": "СИР-090"
+      "price_source_1c": "СИР-090",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_макадамия_0_7л",
@@ -10789,7 +10821,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 810.0
+          "price": 771,
+          "on_request": false
         }
       ],
       "stock": 6,
@@ -10799,7 +10832,8 @@
       "_source": "Сироп Макадамия 0,7 л. Гербариста",
       "article_1c": "СИР-094",
       "hidden": false,
-      "price_source_1c": "СИР-094"
+      "price_source_1c": "СИР-094",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_малина_с_листьями_0_7л",
@@ -10815,8 +10849,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 810.0,
-          "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.jpg"
+          "price": 771,
+          "photo": "photos/products/s-сироп_herbarista_малина_с_листьями_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 7,
@@ -10827,7 +10862,8 @@
       "quarantined_at": null,
       "article_1c": "СИР-097",
       "hidden": false,
-      "price_source_1c": "СИР-097"
+      "price_source_1c": "СИР-097",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_миндаль_0_7л",
@@ -10843,7 +10879,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 757.0
+          "price": 721,
+          "on_request": false
         }
       ],
       "stock": 8,
@@ -10853,7 +10890,8 @@
       "hidden": false,
       "_source": "Сироп Миндаль 0,7 л. Гербариста",
       "article_1c": "СИР-104",
-      "price_source_1c": "СИР-104"
+      "price_source_1c": "СИР-104",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_мята_0_7л",
@@ -10925,8 +10963,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 810.0,
-          "photo": "photos/products/s-сироп_herbarista_сгущенное_молоко_0_7л.jpg"
+          "price": 771,
+          "photo": "photos/products/s-сироп_herbarista_сгущенное_молоко_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 6,
@@ -10937,7 +10976,8 @@
       "quarantined_at": null,
       "article_1c": "СИР-116",
       "hidden": false,
-      "price_source_1c": "СИР-116"
+      "price_source_1c": "СИР-116",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_сливочная_ириска_0_7л",
@@ -10953,8 +10993,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 810.0,
-          "photo": "photos/products/s-сироп_herbarista_сливочная_ириска_0_7л.jpg"
+          "price": 771,
+          "photo": "photos/products/s-сироп_herbarista_сливочная_ириска_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 2,
@@ -10965,7 +11006,8 @@
       "quarantined_at": null,
       "article_1c": "СИР-118",
       "hidden": false,
-      "price_source_1c": "СИР-118"
+      "price_source_1c": "СИР-118",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_тропический_микс_0_7л",
@@ -10981,8 +11023,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 757.0,
-          "photo": "photos/products/s-сироп_herbarista_тропический_микс_0_7л.jpg"
+          "price": 721,
+          "photo": "photos/products/s-сироп_herbarista_тропический_микс_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 4,
@@ -10993,7 +11036,8 @@
       "quarantined_at": null,
       "hidden": false,
       "article_1c": "СИР-123",
-      "price_source_1c": "СИР-123"
+      "price_source_1c": "СИР-123",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_тыква_0_7л",
@@ -11009,8 +11053,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 810.0,
-          "photo": "photos/products/s-сироп_herbarista_тыква_0_7л.jpg"
+          "price": 771,
+          "photo": "photos/products/s-сироп_herbarista_тыква_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 5,
@@ -11021,7 +11066,8 @@
       "quarantined_at": null,
       "article_1c": "СИР-124",
       "hidden": false,
-      "price_source_1c": "СИР-124"
+      "price_source_1c": "СИР-124",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_фисташка_0_7л",
@@ -11037,7 +11083,8 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 757.0
+          "price": 721,
+          "on_request": false
         }
       ],
       "stock": 3,
@@ -11047,7 +11094,8 @@
       "_source": "Сироп Фисташка 0,7 л. Гербариста",
       "article_1c": "СИР-126",
       "hidden": false,
-      "price_source_1c": "СИР-126"
+      "price_source_1c": "СИР-126",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_черная_смородина_с_листьями_0_7л",
@@ -11063,8 +11111,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 692.0,
-          "photo": "photos/products/s-сироп_herbarista_черная_смородина_с_листьями_0_7л.jpg"
+          "price": 659,
+          "photo": "photos/products/s-сироп_herbarista_черная_смородина_с_листьями_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 8,
@@ -11075,7 +11124,8 @@
       "quarantined_at": null,
       "article_1c": "СИР-129",
       "hidden": false,
-      "price_source_1c": "СИР-129"
+      "price_source_1c": "СИР-129",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_шоколадный_трюфель_0_7л",
@@ -11120,8 +11170,9 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 692.0,
-          "photo": "photos/products/s-сироп_herbarista_эвкалипт_и_мята_0_7л.jpg"
+          "price": 885,
+          "photo": "photos/products/s-сироп_herbarista_эвкалипт_и_мята_0_7л.jpg",
+          "on_request": false
         }
       ],
       "stock": 8,
@@ -11132,7 +11183,8 @@
       "quarantined_at": null,
       "article_1c": "СИР-134",
       "hidden": false,
-      "price_source_1c": "СИР-134"
+      "price_source_1c": "СИР-134",
+      "on_request": false
     },
     {
       "id": "s-сироп_monin_розовый_грейпфрут_1л",
@@ -11903,10 +11955,11 @@
         {
           "size": "1.0 л",
           "price": 493.5,
-          "photo": "photos/products/s-сироп_sweetshot_шоколад_1л.jpg"
+          "photo": "photos/products/s-сироп_sweetshot_шоколад_1л.jpg",
+          "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": "photos/products/s-сироп_sweetshot_шоколад_1л.jpg",
       "quarantined": false,
@@ -12703,7 +12756,7 @@
       "name": "Уганда Вугар мытый -  эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4.0,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
@@ -12719,7 +12772,7 @@
           "size": "1 кг",
           "price": 2070,
           "photo": "photos/products/espresso_mono_уганда_вугар_мытый_эспрессо_1_кг.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -12729,14 +12782,14 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-089",
       "price_source_1c": "КОФ-089",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "espresso_mono_уганда_рувензори_сухой_эспрессо_1_кг",
       "name": "Уганда Рувензори сухой -  эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 1.0,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
@@ -12757,7 +12810,7 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_уганда_рувензори_сухой_эспрессо_1_кг.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -12766,7 +12819,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-090",
       "price_source_1c": "КОФ-090",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "t-улун_-_да_хун_пао_100_нун_сян_200_г_вкус_хлебная_к",
@@ -14601,7 +14654,7 @@
       "name": "Эфиопия Лиму гр.2 мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 1.0,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14622,7 +14675,7 @@
           "size": "1 кг",
           "price": 2120,
           "photo": "photos/products/filter_mono_эфиопия_лиму_гр_2_мытый_1_кг_filter.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T13:21:58+00:00",
@@ -14631,7 +14684,7 @@
       "quarantined_at": null,
       "article_1c": "КОФ-092",
       "price_source_1c": "КОФ-092",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "c-nesp-эфиопия_сидамо__nespresso_",
@@ -14672,7 +14725,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 39.0,
+      "stock": 39,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14688,7 +14741,7 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_4_сухой_эспрессо_1_кг.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -14697,7 +14750,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-095",
       "price_source_1c": "КОФ-095",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "filter_micro_эфиопия_челелекту_гр_1_мытый_filter_1_кг",
@@ -14807,7 +14860,7 @@
       "name": "Китай Симао гр.1 Меллоу мытый эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4.0,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14815,8 +14868,9 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2015.0,
-          "photo": "photos/products/espresso_mono_китай_симао_гр_1_меллоу_мытый_эспрессо_1_кг.jpg"
+          "price": 2065,
+          "photo": "photos/products/espresso_mono_китай_симао_гр_1_меллоу_мытый_эспрессо_1_кг.jpg",
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
@@ -14827,14 +14881,15 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "quarantined_at": null,
       "article_1c": "КОФ-065",
-      "price_source_1c": "КОФ-065"
+      "price_source_1c": "КОФ-065",
+      "on_request": false
     },
     {
       "id": "espresso_mono_эфиопия_milk_сидамо_гр_4_эспрессо_1_кг",
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 13.0,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -14844,7 +14899,7 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_эфиопия_milk_сидамо_гр_4_эспрессо_1_кг.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
@@ -14856,7 +14911,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-091",
       "price_source_1c": "КОФ-091",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "espresso_mono_эфиопия_yirgacheffe_gr_2_мытый_эспрессо_1_кг",
@@ -14916,7 +14971,7 @@
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3.0,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -14926,7 +14981,7 @@
           "size": "1 кг",
           "price": 2620,
           "photo": "photos/products/filter_mono_перу_монте_верде_гр_1_сухой_1_кг_filter.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
@@ -14937,7 +14992,7 @@
       "quarantined_at": null,
       "article_1c": "КОФ-084",
       "price_source_1c": "КОФ-084",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter",
@@ -15115,7 +15170,7 @@
       "name": "Гондурас Сан Николас темная обжарка - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 7.0,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15125,7 +15180,7 @@
           "size": "1 кг",
           "price": 2175,
           "photo": "photos/products/espresso_mono_гондурас_сан_николас_темная_обжарка_1_кг.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-05-22T12:00:08+00:00",
@@ -15136,7 +15191,7 @@
       "quarantined_at": null,
       "article_1c": "КОФ-058",
       "price_source_1c": "КОФ-058",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "espresso_mono_колумбия_супремо_эспрессо_1_кг",
@@ -15690,7 +15745,7 @@
       "name": "Вьетнам Блю Шонла сухой  эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 1.0,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15700,7 +15755,7 @@
           "size": "1 кг",
           "price": 2135,
           "photo": "photos/products/espresso_mono_вьетнам_блю_сонал_сухой_эспрессо_1_кг.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-06-18T07:36:31+00:00",
@@ -15719,14 +15774,14 @@
       ],
       "article_1c": "КОФ-055",
       "price_source_1c": "КОФ-055",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "espresso_mono_эфиопия_сидамо_гр_2_мытый_эспрессо_1_кг",
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 16.0,
+      "stock": 16,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15736,7 +15791,7 @@
           "size": "1 кг",
           "price": 2230,
           "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_2_мытый_эспрессо_1_кг.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-06-30T10:30:36+00:00",
@@ -15744,14 +15799,14 @@
       "quarantined_at": null,
       "article_1c": "КОФ-094",
       "price_source_1c": "КОФ-094",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "filter_mono_эфиопия_сидамо_gr_2_мытый_1_кг_filter",
       "name": "Эфиопия Сидамо Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4.0,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -15761,14 +15816,14 @@
           "size": "1 кг",
           "price": 2230,
           "photo": "photos/products/filter_mono_эфиопия_сидамо_gr_2_мытый_1_кг_filter.jpg",
-          "on_request": false
+          "on_request": true
         }
       ],
       "created_at": "2026-06-30T11:36:04+00:00",
       "created_by": "sync_catalog_v2",
       "article_1c": "КОФ-093",
       "price_source_1c": "КОФ-093",
-      "on_request": false
+      "on_request": true
     },
     {
       "id": "filter_micro_колумбия_катимор_натур_1_кг_filter",
@@ -16270,7 +16325,7 @@
           "on_request": true
         }
       ],
-      "stock": 496,
+      "stock": 486,
       "on_request": true,
       "_source": "Напиток на соевой основе, кокосовый \"Green Milk\"на соевой основе 1л.",
       "subcategory": "milk_main",
@@ -16969,7 +17024,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "on_request": false,
       "_source": "Сироп Имбирный Пряник 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -17033,7 +17088,7 @@
           "on_request": false
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "on_request": false,
       "_source": "Сироп Карамель Соленая 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -19137,11 +19192,13 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 560.0
+          "price": 560,
+          "on_request": true
         }
       ],
       "category": "other",
-      "price_source_1c": "SSWCHO-000017"
+      "price_source_1c": "SSWCHO-000017",
+      "on_request": true
     },
     {
       "id": "1c-sswsh0-000027-b9b3db1e24",
@@ -19153,11 +19210,13 @@
       "fasovka": [
         {
           "size": "",
-          "price": 570.0
+          "price": 565.5,
+          "on_request": false
         }
       ],
       "category": "other",
-      "price_source_1c": "SSWSH0-000027"
+      "price_source_1c": "SSWSH0-000027",
+      "on_request": false
     },
     {
       "id": "1c-sswsh0-000030-ae1b0bb3c9",
@@ -19169,11 +19228,13 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 560.0
+          "price": 550,
+          "on_request": false
         }
       ],
       "category": "other",
-      "price_source_1c": "SSWSH0-000030"
+      "price_source_1c": "SSWSH0-000030",
+      "on_request": false
     },
     {
       "id": "1c-sswsh0-000039-505d100418",
@@ -19281,11 +19342,13 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 810.0
+          "price": 810,
+          "on_request": true
         }
       ],
       "category": "other",
-      "price_source_1c": "СИР-143"
+      "price_source_1c": "СИР-143",
+      "on_request": true
     },
     {
       "id": "1c-temp-name-925a26d97d5105c216177161e43abe-48cd034649",
@@ -20382,11 +20445,13 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 560.0
+          "price": 530,
+          "on_request": false
         }
       ],
       "category": "other",
-      "price_source_1c": "СИР-014"
+      "price_source_1c": "СИР-014",
+      "on_request": false
     },
     {
       "id": "1c-015-25b4a2d3b2",
@@ -20432,11 +20497,13 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 560.0
+          "price": 530,
+          "on_request": false
         }
       ],
       "category": "other",
-      "price_source_1c": "СИР-021"
+      "price_source_1c": "СИР-021",
+      "on_request": false
     },
     {
       "id": "1c-022-e458d94a04",
@@ -20499,11 +20566,13 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 560.0
+          "price": 493.5,
+          "on_request": false
         }
       ],
       "category": "other",
-      "price_source_1c": "СИР-034"
+      "price_source_1c": "СИР-034",
+      "on_request": false
     },
     {
       "id": "1c-041-ff017e4339",
@@ -20515,11 +20584,13 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 810.0
+          "price": 810,
+          "on_request": true
         }
       ],
       "category": "other",
-      "price_source_1c": "СИР-041"
+      "price_source_1c": "СИР-041",
+      "on_request": true
     },
     {
       "id": "1c-048-2e8809f5b3",
@@ -20531,11 +20602,13 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 810.0
+          "price": 810,
+          "on_request": true
         }
       ],
       "category": "other",
-      "price_source_1c": "СИР-048"
+      "price_source_1c": "СИР-048",
+      "on_request": true
     },
     {
       "id": "1c-066-8a6083d8f5",
@@ -20547,11 +20620,13 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 757.0
+          "price": 757,
+          "on_request": true
         }
       ],
       "category": "other",
-      "price_source_1c": "СИР-066"
+      "price_source_1c": "СИР-066",
+      "on_request": true
     },
     {
       "id": "1c-087-93fcb7af61",
@@ -20597,11 +20672,13 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 640.0
+          "price": 635,
+          "on_request": false
         }
       ],
       "category": "other",
-      "price_source_1c": "СИР-127"
+      "price_source_1c": "СИР-127",
+      "on_request": false
     },
     {
       "id": "1c-131-d3313372b1",
@@ -20630,11 +20707,13 @@
       "fasovka": [
         {
           "size": "1.0 л",
-          "price": 640.0
+          "price": 635,
+          "on_request": false
         }
       ],
       "category": "other",
-      "price_source_1c": "СИР-133"
+      "price_source_1c": "СИР-133",
+      "on_request": false
     },
     {
       "id": "1c-140-8e291e7002",
@@ -20884,11 +20963,13 @@
       "fasovka": [
         {
           "size": "150 г",
-          "price": 1300.0
+          "price": 1260,
+          "on_request": false
         }
       ],
       "category": "tea",
-      "price_source_1c": "ЧАЙ-054"
+      "price_source_1c": "ЧАЙ-054",
+      "on_request": false
     },
     {
       "id": "1c-055-09c1940beb",
@@ -21458,11 +21539,13 @@
       "fasovka": [
         {
           "size": "75 г",
-          "price": 1495.0
+          "price": 1130,
+          "on_request": false
         }
       ],
       "category": "tea",
-      "price_source_1c": "ЧАЙ-126"
+      "price_source_1c": "ЧАЙ-126",
+      "on_request": false
     },
     {
       "id": "1c-127-7026556be2",
@@ -21508,11 +21591,13 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2380.0
+          "price": 2380,
+          "on_request": true
         }
       ],
       "category": "tea",
-      "price_source_1c": "ЧАЙ-130"
+      "price_source_1c": "ЧАЙ-130",
+      "on_request": true
     },
     {
       "id": "1c-132-17ec067a88",
@@ -21575,11 +21660,13 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2420.0
+          "price": 2215,
+          "on_request": false
         }
       ],
       "category": "tea",
-      "price_source_1c": "ЧАЙ-135"
+      "price_source_1c": "ЧАЙ-135",
+      "on_request": false
     },
     {
       "id": "1c-139-40f72ef4f3",
@@ -21969,11 +22056,13 @@
       "fasovka": [
         {
           "size": "",
-          "price": 70.0
+          "price": 70,
+          "on_request": true
         }
       ],
       "category": "tea",
-      "price_source_1c": "ЧАЙ-167"
+      "price_source_1c": "ЧАЙ-167",
+      "on_request": true
     },
     {
       "id": "1c-168-f79b843ab9",
@@ -22243,11 +22332,13 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 850.0
+          "price": 790,
+          "on_request": false
         }
       ],
       "category": "tea",
-      "price_source_1c": "ЧАЙ-202"
+      "price_source_1c": "ЧАЙ-202",
+      "on_request": false
     },
     {
       "id": "1c-203-bd096fbce6",
@@ -22293,11 +22384,13 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 850.0
+          "price": 800,
+          "on_request": false
         }
       ],
       "category": "tea",
-      "price_source_1c": "ЧАЙ-205"
+      "price_source_1c": "ЧАЙ-205",
+      "on_request": false
     },
     {
       "id": "1c-206-654b9cf9ca",
@@ -22395,11 +22488,13 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1350.0
+          "price": 1350,
+          "on_request": true
         }
       ],
       "category": "tea",
-      "price_source_1c": "ЧАЙ-214"
+      "price_source_1c": "ЧАЙ-214",
+      "on_request": true
     },
     {
       "id": "1c-215-08e0dd824e",
@@ -23110,11 +23205,13 @@
       "fasovka": [
         {
           "size": "1 л",
-          "price": 493.5
+          "price": 493.5,
+          "on_request": true
         }
       ],
       "category": "other",
-      "price_source_1c": "SSWCHO-000016"
+      "price_source_1c": "SSWCHO-000016",
+      "on_request": true
     },
     {
       "id": "1c-vcf-01-100w-dcde2df1b6",
@@ -23126,11 +23223,13 @@
       "fasovka": [
         {
           "size": "100 шт",
-          "price": 710.0
+          "price": 710,
+          "on_request": true
         }
       ],
       "category": "other",
-      "price_source_1c": "VCF-01-100W."
+      "price_source_1c": "VCF-01-100W.",
+      "on_request": true
     },
     {
       "id": "1c-vcf-02-100m-a19874f89c",
@@ -23142,11 +23241,13 @@
       "fasovka": [
         {
           "size": "100 шт",
-          "price": 870.0
+          "price": 870,
+          "on_request": true
         }
       ],
       "category": "other",
-      "price_source_1c": "VCF-02-100M"
+      "price_source_1c": "VCF-02-100M",
+      "on_request": true
     },
     {
       "id": "1c-099-d572ae8efd",
@@ -23204,11 +23305,13 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2215.0
+          "price": 2215,
+          "on_request": true
         }
       ],
       "category": "tea",
-      "price_source_1c": "ЧАЙ-099"
+      "price_source_1c": "ЧАЙ-099",
+      "on_request": true
     },
     {
       "id": "1c-124-3e00efaae6",
@@ -23257,11 +23360,13 @@
       "fasovka": [
         {
           "size": "500х1.75 г",
-          "price": 2200.0
+          "price": 2200,
+          "on_request": true
         }
       ],
       "category": "tea",
-      "price_source_1c": "TALTHA-DP0099"
+      "price_source_1c": "TALTHA-DP0099",
+      "on_request": true
     },
     {
       "id": "1c-talthl-l00089-2460e5cfe7",
@@ -23273,11 +23378,13 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2320.0
+          "price": 2320,
+          "on_request": true
         }
       ],
       "category": "tea",
-      "price_source_1c": "TALTHL-L00089"
+      "price_source_1c": "TALTHL-L00089",
+      "on_request": true
     },
     {
       "id": "1c-temp-name-7a3ad66e67909de8432bcb1553d414-22386c393f",
@@ -23305,11 +23412,13 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 866.0
+          "price": 866,
+          "on_request": true
         }
       ],
       "category": "other",
-      "price_source_1c": "СИР-144"
+      "price_source_1c": "СИР-144",
+      "on_request": true
     },
     {
       "id": "1c-145-6dd27a1e97",
@@ -23321,11 +23430,13 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 866.0
+          "price": 866,
+          "on_request": true
         }
       ],
       "category": "other",
-      "price_source_1c": "СИР-145"
+      "price_source_1c": "СИР-145",
+      "on_request": true
     },
     {
       "id": "1c-146-c632c60f64",
@@ -23337,11 +23448,13 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 866.0
+          "price": 866,
+          "on_request": true
         }
       ],
       "category": "other",
-      "price_source_1c": "СИР-146"
+      "price_source_1c": "СИР-146",
+      "on_request": true
     },
     {
       "id": "1c-147-a94433d3cf",
@@ -23353,11 +23466,13 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 866.0
+          "price": 866,
+          "on_request": true
         }
       ],
       "category": "other",
-      "price_source_1c": "СИР-147"
+      "price_source_1c": "СИР-147",
+      "on_request": true
     },
     {
       "id": "1c-148-e77040dcb7",
@@ -23369,11 +23484,13 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 803.0
+          "price": 803,
+          "on_request": true
         }
       ],
       "category": "other",
-      "price_source_1c": "СИР-148"
+      "price_source_1c": "СИР-148",
+      "on_request": true
     },
     {
       "id": "1c-article-0e7ff722e5",
