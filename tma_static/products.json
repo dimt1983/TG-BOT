@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 99.0,
+      "stock": 98.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -2189,7 +2189,7 @@
           "on_request": false
         }
       ],
-      "stock": 21.0,
+      "stock": 20.0,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5595,7 +5595,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 90.0,
+      "stock": 88.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7940,7 +7940,7 @@
           "on_request": false
         }
       ],
-      "stock": 21.0,
+      "stock": 18.0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -15785,9 +15785,9 @@
       "name": "Колумбия Катимор натур. - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 2.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "F",
       "photo": "photos/products/filter_micro_колумбия_катимор_натур_1_кг_filter.jpg",
       "fasovka": [
@@ -15801,7 +15801,9 @@
       "created_at": "2026-07-03T07:32:17+00:00",
       "created_by": "sync_catalog_v2",
       "on_request": false,
-      "article_1c": "КОФ-069"
+      "article_1c": "КОФ-069",
+      "quarantined_at": "2026-09-04T11:15:02+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "filter_micro_колумбия_катуррон_натур_1_кг_filter",
@@ -16272,7 +16274,7 @@
           "on_request": false
         }
       ],
-      "stock": 13.0,
+      "stock": 12.0,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false,
@@ -21936,7 +21938,7 @@
           "on_request": false
         }
       ],
-      "stock": 8.0,
+      "stock": 6.0,
       "tags": [],
       "photo": null,
       "pair_id": "эфиопия_конга_гр_1_сухой_filter_-_1_кг",
@@ -22115,7 +22117,7 @@
       "name": "Кофе \"Roastberry BORЩ \"Эфиопия Гедеб\" инфюз с ананасом 200 г",
       "category": "borshch",
       "subcategory": null,
-      "stock": 10.0,
+      "stock": 9.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-101",
@@ -22527,7 +22529,7 @@
       "name": "Колумбия Арбуз инфьюз Декаф . - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 2.0,
+      "stock": 1.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-119",
@@ -22561,7 +22563,7 @@
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Арбуз инфьюз декаф\" 200 г",
       "category": "borshch",
       "subcategory": null,
-      "stock": 19.0,
+      "stock": 15.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-118",
