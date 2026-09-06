@@ -1089,7 +1089,7 @@
           "on_request": false
         }
       ],
-      "stock": 22.0,
+      "stock": 20.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1562,7 +1562,7 @@
           "on_request": false
         }
       ],
-      "stock": 20.0,
+      "stock": 16.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 98.0,
+      "stock": 88.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1647,7 +1647,7 @@
           "on_request": false
         }
       ],
-      "stock": 34.0,
+      "stock": 24.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -5595,7 +5595,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 88.0,
+      "stock": 86.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5669,7 +5669,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 179.0,
+      "stock": 169.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6765,7 +6765,7 @@
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2.0,
+      "stock": 1.0,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -14680,7 +14680,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 99.0,
+      "stock": 54.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
