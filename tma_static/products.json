@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 109.0,
+      "stock": 107.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 26.0,
+      "stock": 19.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -5595,7 +5595,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 64.0,
+      "stock": 60.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7229,7 +7229,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 11.0,
+      "stock": 9.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7940,7 +7940,7 @@
           "on_request": false
         }
       ],
-      "stock": 18.0,
+      "stock": 14.0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -22575,7 +22575,7 @@
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Арбуз инфьюз декаф\" 200 г",
       "category": "borshch",
       "subcategory": null,
-      "stock": 15.0,
+      "stock": 5.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-118",
