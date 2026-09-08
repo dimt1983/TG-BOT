@@ -1282,7 +1282,7 @@
           "on_request": false
         }
       ],
-      "stock": 24.0,
+      "stock": 23.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1647,7 +1647,7 @@
           "on_request": false
         }
       ],
-      "stock": 42.0,
+      "stock": 41.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -5632,7 +5632,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6.0,
+      "stock": 7.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5669,7 +5669,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 118.0,
+      "stock": 116.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5706,7 +5706,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 1.0,
+      "stock": 21.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
