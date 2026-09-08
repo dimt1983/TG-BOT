@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 97.0,
+      "stock": 92.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1874,7 +1874,7 @@
           "on_request": false
         }
       ],
-      "stock": 14.0,
+      "stock": 13.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -5669,7 +5669,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 120.0,
+      "stock": 118.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14685,7 +14685,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 65.0,
+      "stock": 60.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -15134,7 +15134,7 @@
       "name": "Гондурас Сан Николас темная обжарка - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 10.0,
+      "stock": 7.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -22227,9 +22227,9 @@
       "name": "F \"Roastberry\" Колумбия Рисаральда декаф - 1 кг",
       "category": "retail",
       "subcategory": "retail_filter",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 5.0,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "КОФ-106",
       "fasovka": [
         {
@@ -22242,15 +22242,15 @@
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-106",
       "on_request": false,
-      "quarantined_at": "2026-09-06T11:15:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "retail_filter_f_roastberry_колумбия_рисаральда_декаф_200_г",
       "name": "F \"Roastberry\" Колумбия Рисаральда декаф - 200 г",
       "category": "retail",
       "subcategory": "retail_filter",
-      "stock": 9.0,
+      "stock": 10.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-107",
