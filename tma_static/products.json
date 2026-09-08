@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 104.0,
+      "stock": 97.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 104.0,
+      "stock": 97.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1874,7 +1874,7 @@
           "on_request": false
         }
       ],
-      "stock": 15.0,
+      "stock": 14.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -15134,9 +15134,9 @@
       "name": "Гондурас Сан Николас темная обжарка - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 10.0,
+      "hidden": false,
+      "quarantined": false,
       "roast": "E",
       "photo": "photos/products/espresso_mono_гондурас_сан_николас_темная_обжарка_1_кг.jpg",
       "fasovka": [
@@ -15152,11 +15152,11 @@
       "description": "Гондурас. Шоколад, орех, карамель, низкая кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-09-07T15:15:02+00:00",
+      "quarantined_at": null,
       "article_1c": "КОФ-058",
       "price_source_1c": "КОФ-058",
       "on_request": false,
-      "quarantine_reason": "no_in_1c_vedomost_coffee"
+      "quarantine_reason": null
     },
     {
       "id": "espresso_mono_колумбия_супремо_эспрессо_1_кг",
@@ -15746,7 +15746,7 @@
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 15.0,
+      "stock": 13.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15820,7 +15820,7 @@
       "name": "Колумбия Катуррон натур. - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4.0,
+      "stock": 7.0,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -16285,7 +16285,7 @@
           "on_request": false
         }
       ],
-      "stock": 11.0,
+      "stock": 21.0,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false,
