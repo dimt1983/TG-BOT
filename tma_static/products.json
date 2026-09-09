@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 116.0,
+      "stock": 133.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -5671,7 +5671,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 227.0,
+      "stock": 248.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6702,7 +6702,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 15.0,
+      "stock": 14.0,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6767,7 +6767,7 @@
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4.0,
+      "stock": 3.0,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -7370,7 +7370,7 @@
       "name": "Колумбия Кастильо мытая - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4.0,
+      "stock": 3.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7739,7 +7739,7 @@
           "on_request": false
         }
       ],
-      "stock": 17.0,
+      "stock": 15.0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7766,7 +7766,7 @@
           "on_request": false
         }
       ],
-      "stock": 10.0,
+      "stock": 8.0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8775,7 +8775,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 10.0,
+      "stock": 12.0,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -16182,7 +16182,7 @@
           "on_request": false
         }
       ],
-      "stock": 7.0,
+      "stock": 17.0,
       "_source": "F \"Roastberry\" Руанда Мутетели упак. 200 г",
       "country": "Руанда",
       "subcategory": "retail_filter",
@@ -21653,7 +21653,7 @@
       "name": "Перу Гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 25.0,
+      "stock": 13.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -21955,7 +21955,7 @@
           "on_request": false
         }
       ],
-      "stock": 6.0,
+      "stock": 5.0,
       "tags": [],
       "photo": null,
       "pair_id": "эфиопия_конга_гр_1_сухой_filter_-_1_кг",
@@ -22090,7 +22090,7 @@
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Конга  гр.1 сухой 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 12.0,
+      "stock": 11.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-112",
@@ -22112,7 +22112,7 @@
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Банко Готити гр.1 сухой 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 16.0,
+      "stock": 14.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-113",
@@ -22548,9 +22548,9 @@
       "name": "Колумбия Арбуз инфьюз Декаф . - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 6.0,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "КОФ-119",
       "fasovka": [
         {
@@ -22564,8 +22564,8 @@
       "price_source_1c": "КОФ-119",
       "on_request": false,
       "roast": "F",
-      "quarantined_at": "2026-09-09T08:15:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "1c-article-d8dbbd8bc2",
@@ -22584,7 +22584,7 @@
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Арбуз инфьюз декаф\" 200 г",
       "category": "borshch",
       "subcategory": null,
-      "stock": 19.0,
+      "stock": 21.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-118",
