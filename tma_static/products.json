@@ -1089,7 +1089,7 @@
           "on_request": false
         }
       ],
-      "stock": 20.0,
+      "stock": 19.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 54.0,
+      "stock": 53.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -18867,7 +18867,7 @@
       "name": "E \"Roastberry\" Эфиопия Иргачиф Гр.2 упак. 200 г",
       "category": "retail",
       "subcategory": "retail_espresso",
-      "stock": 8.0,
+      "stock": 3.0,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -21655,7 +21655,7 @@
       "name": "Перу Гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 17.0,
+      "stock": 37.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
