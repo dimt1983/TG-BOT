@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 39.0,
+      "stock": 38.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1787,7 +1787,7 @@
           "on_request": false
         }
       ],
-      "stock": 19.0,
+      "stock": 17.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гватемала Уетенанго упак. 200 гр.",
@@ -1874,7 +1874,7 @@
           "on_request": false
         }
       ],
-      "stock": 8.0,
+      "stock": 6.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1994,7 +1994,7 @@
           "on_request": false
         }
       ],
-      "stock": 5.0,
+      "stock": 3.0,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -5671,7 +5671,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 203.0,
+      "stock": 198.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6704,7 +6704,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 14.0,
+      "stock": 13.0,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -6736,9 +6736,9 @@
       "name": "Кения АБ мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 1.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Кения",
       "process": null,
       "altitude": null,
@@ -6757,12 +6757,13 @@
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
-      "quarantined_at": null,
+      "quarantined_at": "2026-09-10T15:15:02+00:00",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-060",
       "price_source_1c": "КОФ-060",
-      "on_request": false
+      "on_request": false,
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "filter_mono_кения_центральная_провинция_аб_мытый_1_кг_filter",
@@ -7265,7 +7266,7 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 5.0,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -15750,7 +15751,7 @@
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 22.0,
+      "stock": 21.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
