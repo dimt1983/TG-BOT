@@ -1144,7 +1144,7 @@
           "on_request": false
         }
       ],
-      "stock": 12.0,
+      "stock": 22.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 57.0,
+      "stock": 54.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1282,7 +1282,7 @@
           "on_request": false
         }
       ],
-      "stock": 19.0,
+      "stock": 18.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -5671,7 +5671,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 228.0,
+      "stock": 200.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5853,9 +5853,9 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 1.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Гватемала",
       "process": "Мытая",
       "altitude": null,
@@ -5883,7 +5883,9 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-057",
       "price_source_1c": "КОФ-057",
-      "on_request": false
+      "on_request": false,
+      "quarantined_at": "2026-09-10T09:15:02+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "t-генмайча_райсу_100г",
@@ -14687,7 +14689,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 43.0,
+      "stock": 41.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14990,7 +14992,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 17.0,
+      "stock": 12.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -16182,7 +16184,7 @@
           "on_request": false
         }
       ],
-      "stock": 17.0,
+      "stock": 15.0,
       "_source": "F \"Roastberry\" Руанда Мутетели упак. 200 г",
       "country": "Руанда",
       "subcategory": "retail_filter",
@@ -21653,7 +21655,7 @@
       "name": "Перу Гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 25.0,
+      "stock": 17.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
