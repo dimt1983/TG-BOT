@@ -1144,7 +1144,7 @@
           "on_request": false
         }
       ],
-      "stock": 22.0,
+      "stock": 19.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 53.0,
+      "stock": 52.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1337,7 +1337,7 @@
           "on_request": false
         }
       ],
-      "stock": 5.0,
+      "stock": 2.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -5597,7 +5597,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 92.0,
+      "stock": 91.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5671,7 +5671,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 200.0,
+      "stock": 171.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5708,7 +5708,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 21.0,
+      "stock": 31.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8506,9 +8506,9 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 8.0,
+      "hidden": false,
+      "quarantined": false,
       "country": "Перу",
       "process": null,
       "altitude": null,
@@ -8532,8 +8532,8 @@
       "article_1c": "КОФ-085",
       "price_source_1c": "КОФ-085",
       "on_request": false,
-      "quarantined_at": "2026-09-10T08:15:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "s-помпа_белая_28_мм_5_мл",
@@ -14689,7 +14689,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 41.0,
+      "stock": 38.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -16184,7 +16184,7 @@
           "on_request": false
         }
       ],
-      "stock": 15.0,
+      "stock": 14.0,
       "_source": "F \"Roastberry\" Руанда Мутетели упак. 200 г",
       "country": "Руанда",
       "subcategory": "retail_filter",
