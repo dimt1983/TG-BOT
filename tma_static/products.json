@@ -6652,17 +6652,17 @@
       "fasovka": [
         {
           "size": "100 г",
-          "price": 292
+          "price": 420.0
         }
       ],
       "stock": 10.0,
-      "on_request": false,
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
       "hidden": false,
       "country": "Коста-Рика",
-      "article_1c": "ПРЧ-004"
+      "article_1c": "ПРЧ-004",
+      "price_source_1c": "ПРЧ-004"
     },
     {
       "id": "c-drip-кения_аа__drip_",
