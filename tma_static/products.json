@@ -22396,17 +22396,16 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-117",
-      "on_request": true,
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true
+          "price": 2465.0
         }
       ],
       "created_at": "2026-08-31T10:15:01+00:00",
       "created_by": "bridge_1c_qc",
-      "roast": "E"
+      "roast": "E",
+      "price_source_1c": "КОФ-117"
     },
     {
       "id": "1c-taltha-dp0099-3dde8cc7c5",
