@@ -1648,7 +1648,7 @@
           "on_request": false
         }
       ],
-      "stock": 24.0,
+      "stock": 23.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1703,7 +1703,7 @@
           "on_request": false
         }
       ],
-      "stock": 15.0,
+      "stock": 14.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Серадо Дарк  упак. 200 г",
@@ -22399,13 +22399,15 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2465.0
+          "price": 2465.0,
+          "on_request": false
         }
       ],
       "created_at": "2026-08-31T10:15:01+00:00",
       "created_by": "bridge_1c_qc",
       "roast": "E",
-      "price_source_1c": "КОФ-117"
+      "price_source_1c": "КОФ-117",
+      "on_request": false
     },
     {
       "id": "1c-taltha-dp0099-3dde8cc7c5",
@@ -22588,7 +22590,7 @@
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Арбуз инфьюз декаф\" 200 г",
       "category": "borshch",
       "subcategory": null,
-      "stock": 17.0,
+      "stock": 16.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-118",
