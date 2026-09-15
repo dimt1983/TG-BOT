@@ -1648,7 +1648,7 @@
           "on_request": false
         }
       ],
-      "stock": 19.0,
+      "stock": 39.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1676,7 +1676,7 @@
           "on_request": false
         }
       ],
-      "stock": 11.0,
+      "stock": 21.0,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2192,7 +2192,7 @@
           "on_request": false
         }
       ],
-      "stock": 23.0,
+      "stock": 22.0,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5635,7 +5635,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 13.0,
+      "stock": 10.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5672,7 +5672,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 160.0,
+      "stock": 159.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14997,7 +14997,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 36.0,
+      "stock": 26.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
