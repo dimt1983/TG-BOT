@@ -21697,14 +21697,12 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2120.0,
-          "on_request": false
+          "price": 2335.0
         }
       ],
       "created_at": "2026-08-13T08:21:47+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-098",
-      "on_request": false,
       "quarantined_at": null,
       "quarantine_reason": null
     },
