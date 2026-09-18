@@ -18879,9 +18879,9 @@
       "name": "E \"Roastberry\" Эфиопия Иргачиф Гр.2 упак. 200 г",
       "category": "retail",
       "subcategory": "retail_espresso",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 20.0,
+      "hidden": false,
+      "quarantined": false,
       "country": null,
       "process": null,
       "altitude": null,
@@ -18903,8 +18903,8 @@
       "recipe_e": null,
       "recipe_f": null,
       "article_1c": "КОФ-031",
-      "quarantined_at": "2026-09-13T09:15:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee",
+      "quarantined_at": null,
+      "quarantine_reason": null,
       "price_source_1c": "КОФ-031",
       "on_request": false
     },
@@ -21667,7 +21667,7 @@
       "name": "Перу Гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 22.0,
+      "stock": 32.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -21690,9 +21690,9 @@
       "name": "E \"Roastberry\" Эфиопия Иргачиф Гр.2 - 1 кг",
       "category": "retail",
       "subcategory": "retail_espresso",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 8.0,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "КОФ-098",
       "fasovka": [
         {
@@ -21705,8 +21705,8 @@
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-098",
       "on_request": false,
-      "quarantined_at": "2026-09-03T08:15:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "o-концентрат_фильтр_кофе_бразилия_лагуинья",
@@ -22698,6 +22698,26 @@
       "category": "other",
       "quarantine_reason": "not_in_stock_file",
       "price_source_1c": "ВЕН-003"
+    },
+    {
+      "id": "espresso_mono_эфиопия_иргачиф_гр_2_мытый_эспрессо_1_кг",
+      "name": "Эфиопия Иргачиф Гр.2 мытый эспрессо - 1 кг",
+      "category": "espresso",
+      "subcategory": "espresso_mono",
+      "stock": 8.0,
+      "hidden": false,
+      "quarantined": false,
+      "article_1c": null,
+      "on_request": true,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": null,
+          "on_request": true
+        }
+      ],
+      "created_at": "2026-09-18T14:15:02+00:00",
+      "created_by": "bridge_1c_qc"
     }
   ]
 }
