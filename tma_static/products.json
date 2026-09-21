@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 57.0,
+      "stock": 52.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1619,7 +1619,7 @@
           "on_request": false
         }
       ],
-      "stock": 4.0,
+      "stock": 92.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -2136,7 +2136,7 @@
           "stock": 19
         }
       ],
-      "stock": 5.0,
+      "stock": 16.0,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5600,7 +5600,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 128.0,
+      "stock": 123.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5674,7 +5674,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 152.0,
+      "stock": 141.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6773,9 +6773,9 @@
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 6.0,
+      "hidden": false,
+      "quarantined": false,
       "country": "Кения",
       "process": "Мытая",
       "altitude": null,
@@ -6802,10 +6802,10 @@
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-063",
-      "quarantined_at": "2026-09-20T08:15:02+00:00",
+      "quarantined_at": null,
       "price_source_1c": "КОФ-063",
       "on_request": false,
-      "quarantine_reason": "no_in_1c_vedomost_coffee"
+      "quarantine_reason": null
     },
     {
       "id": "filter_mono_китай_симао_гр_1_меллоу_мытый_1_кг_filter",
@@ -7446,7 +7446,7 @@
       "name": "Колумбия Маракуйя Хани инфьюз.- 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 14.0,
+      "stock": 13.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -8515,7 +8515,7 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 9.0,
+      "stock": 7.0,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -14865,9 +14865,9 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 8.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "E",
       "photo": "photos/products/espresso_mono_эфиопия_milk_сидамо_гр_4_эспрессо_1_кг.jpg",
       "fasovka": [
@@ -14880,14 +14880,15 @@
       ],
       "created_at": "2026-05-19T14:00:08+00:00",
       "created_by": "sync_catalog_v2",
-      "quarantined_at": null,
+      "quarantined_at": "2026-09-21T16:15:02+00:00",
       "country": "Эфиопия",
       "description": "Эфиопия Сидамо. Фруктовые и цветочные ноты, средняя кислотность.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-091",
       "price_source_1c": "КОФ-091",
-      "on_request": false
+      "on_request": false,
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "espresso_mono_эфиопия_yirgacheffe_gr_2_мытый_эспрессо_1_кг",
@@ -15005,9 +15006,9 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 20.0,
+      "hidden": false,
+      "quarantined": false,
       "roast": "E",
       "photo": "photos/products/espresso_mono_гватемала_уетенанго_мытый_1_кг_эспрессо.jpg",
       "fasovka": [
@@ -15024,8 +15025,8 @@
       "description": "Гватемала. Шоколад, цитрус, средняя кислотность, хорошая сладость.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": "2026-09-21T10:15:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee",
+      "quarantined_at": null,
+      "quarantine_reason": null,
       "article_1c": "КОФ-097",
       "price_source_1c": "КОФ-097",
       "on_request": false
@@ -15973,7 +15974,7 @@
           "on_request": false
         }
       ],
-      "stock": 5.0,
+      "stock": 26.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гватемала Уетенанго - 1 кг",
