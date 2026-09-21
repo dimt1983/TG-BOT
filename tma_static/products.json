@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 64.0,
+      "stock": 57.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -2023,7 +2023,7 @@
           "on_request": false
         }
       ],
-      "stock": 29.0,
+      "stock": 104.0,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -5600,7 +5600,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 67.0,
+      "stock": 54.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5674,7 +5674,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 168.0,
+      "stock": 167.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5711,7 +5711,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 29.0,
+      "stock": 45.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14865,7 +14865,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 9.0,
+      "stock": 8.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -16202,7 +16202,7 @@
           "on_request": false
         }
       ],
-      "stock": 18.0,
+      "stock": 15.0,
       "_source": "F \"Roastberry\" Руанда Мутетели упак. 200 г",
       "country": "Руанда",
       "subcategory": "retail_filter",
