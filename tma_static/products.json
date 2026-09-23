@@ -1144,7 +1144,7 @@
           "on_request": false
         }
       ],
-      "stock": 19.0,
+      "stock": 17.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 42.0,
+      "stock": 84.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1227,7 +1227,7 @@
           "on_request": false
         }
       ],
-      "stock": 4.0,
+      "stock": 42.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1282,7 +1282,7 @@
           "on_request": false
         }
       ],
-      "stock": 25.0,
+      "stock": 24.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1337,7 +1337,7 @@
           "on_request": false
         }
       ],
-      "stock": 8.0,
+      "stock": 7.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1563,7 +1563,7 @@
           "on_request": false
         }
       ],
-      "stock": 15.0,
+      "stock": 14.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
@@ -1591,7 +1591,7 @@
           "on_request": false
         }
       ],
-      "stock": 28.0,
+      "stock": 26.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
@@ -1619,7 +1619,7 @@
           "on_request": false
         }
       ],
-      "stock": 126.0,
+      "stock": 96.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1676,7 +1676,7 @@
           "on_request": false
         }
       ],
-      "stock": 8.0,
+      "stock": 7.0,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2079,7 +2079,7 @@
           "on_request": false
         }
       ],
-      "stock": 20.0,
+      "stock": 19.0,
       "subcategory": "retail_filter",
       "quarantined": false,
       "quarantined_at": null,
@@ -2194,7 +2194,7 @@
           "on_request": false
         }
       ],
-      "stock": 31.0,
+      "stock": 29.0,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -2247,7 +2247,7 @@
           "on_request": false
         }
       ],
-      "stock": 25.0,
+      "stock": 21.0,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Эфиопия Иргачиф Гр.2 упак. 200 г",
@@ -5600,7 +5600,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 138.0,
+      "stock": 130.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5637,7 +5637,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 19.0,
+      "stock": 13.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5674,7 +5674,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 186.0,
+      "stock": 173.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5856,9 +5856,9 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Гватемала",
       "process": "Мытая",
       "altitude": null,
@@ -5887,8 +5887,8 @@
       "article_1c": "КОФ-057",
       "price_source_1c": "КОФ-057",
       "on_request": false,
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined_at": "2026-09-23T08:15:02+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "t-генмайча_райсу_100г",
@@ -6773,9 +6773,9 @@
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Кения",
       "process": "Мытая",
       "altitude": null,
@@ -6802,17 +6802,17 @@
       "created_by": "manual_v2",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-063",
-      "quarantined_at": null,
+      "quarantined_at": "2026-09-23T08:15:02+00:00",
       "price_source_1c": "КОФ-063",
       "on_request": false,
-      "quarantine_reason": null
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "filter_mono_китай_симао_гр_1_меллоу_мытый_1_кг_filter",
       "name": "Китай Симао гр.1 Меллоу мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6.0,
+      "stock": 5.0,
       "hidden": false,
       "quarantined": false,
       "country": "Китай",
@@ -7240,7 +7240,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 16.0,
+      "stock": 11.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7775,7 +7775,7 @@
           "on_request": false
         }
       ],
-      "stock": 23.0,
+      "stock": 22.0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7951,7 +7951,7 @@
           "on_request": false
         }
       ],
-      "stock": 19.0,
+      "stock": 18.0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8515,7 +8515,7 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 7.0,
+      "stock": 2.0,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -8786,7 +8786,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 14.0,
+      "stock": 10.0,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -12696,7 +12696,7 @@
       "name": "Уганда Вугар мытый  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5.0,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
@@ -12761,7 +12761,7 @@
       "name": "Уганда Рувензори сухой -  эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 20.0,
+      "stock": 11.0,
       "hidden": false,
       "quarantined": false,
       "country": "Уганда",
@@ -14698,9 +14698,9 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 60.0,
+      "hidden": false,
+      "quarantined": false,
       "country": "Эфиопия",
       "process": "Капсула",
       "altitude": null,
@@ -14724,8 +14724,8 @@
       "article_1c": "КОФ-095",
       "price_source_1c": "КОФ-095",
       "on_request": false,
-      "quarantined_at": "2026-09-18T12:15:03+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "filter_micro_эфиопия_челелекту_гр_1_мытый_filter_1_кг",
@@ -14977,9 +14977,9 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "F",
       "photo": "photos/products/filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter.jpg",
       "fasovka": [
@@ -14995,8 +14995,8 @@
       "country": "Эфиопия",
       "description": "Эфиопия Yirgacheffe. Классический цветочно-чайный профиль с высокой кислотностью.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined_at": "2026-09-23T08:15:02+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee",
       "article_1c": "MONO FILTER",
       "price_source_1c": "MONO FILTER",
       "on_request": false
@@ -15036,7 +15036,7 @@
       "name": "Вьетнам Блю Шонла сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2.0,
+      "stock": 1.0,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -15791,7 +15791,7 @@
       "name": "Эфиопия Сидамо Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 7.0,
+      "stock": 6.0,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -16293,7 +16293,7 @@
           "on_request": false
         }
       ],
-      "stock": 16.0,
+      "stock": 15.0,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катимор нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false,
@@ -16313,7 +16313,7 @@
           "on_request": false
         }
       ],
-      "stock": 14.0,
+      "stock": 13.0,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false,
@@ -18887,7 +18887,7 @@
       "name": "E \"Roastberry\" Эфиопия Иргачиф Гр.2 упак. 200 г",
       "category": "retail",
       "subcategory": "retail_espresso",
-      "stock": 19.0,
+      "stock": 18.0,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -21675,7 +21675,7 @@
       "name": "Перу Гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 32.0,
+      "stock": 19.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -21977,14 +21977,14 @@
           "on_request": false
         }
       ],
-      "stock": 3.0,
+      "stock": 0,
       "tags": [],
       "photo": null,
       "pair_id": "эфиопия_конга_гр_1_сухой_filter_-_1_кг",
-      "hidden": false,
-      "quarantined": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-09-23T08:15:02+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee",
       "article_1c": "КОФ-110",
       "price_source_1c": "КОФ-110",
       "on_request": false
@@ -22134,7 +22134,7 @@
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Банко Готити гр.1 сухой 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 10.0,
+      "stock": 9.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-113",
