@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 79,
+      "stock": 79.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 51,
+      "stock": 51.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1964,7 +1964,7 @@
           "on_request": false
         }
       ],
-      "stock": 16,
+      "stock": 16.0,
       "tags": [],
       "photo": "assets/placeholders/ph_retail.svg",
       "tasting_notes": [
@@ -5608,7 +5608,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 94,
+      "stock": 94.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5682,7 +5682,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 214,
+      "stock": 214.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7964,7 +7964,7 @@
           "on_request": false
         }
       ],
-      "stock": 14,
+      "stock": 14.0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8758,7 +8758,7 @@
       "name": "Руанда Мутетели 15+ мытый  - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 11,
+      "stock": 11.0,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -14711,7 +14711,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 100,
+      "stock": 100.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -16206,7 +16206,7 @@
           "on_request": false
         }
       ],
-      "stock": 11,
+      "stock": 11.0,
       "_source": "F \"Roastberry\" Руанда Мутетели упак. 200 г",
       "country": "Руанда",
       "subcategory": "retail_filter",
@@ -21730,7 +21730,7 @@
       "name": "Перу Гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 5.0,
+      "stock": 33.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -22189,7 +22189,7 @@
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Банко Готити гр.1 сухой 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 8.0,
+      "stock": 6.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-113",
@@ -22211,7 +22211,7 @@
       "name": "Кофе \"Roastberry BORЩ \"Эфиопия Гедеб\" инфюз с ананасом 200 г",
       "category": "borshch",
       "subcategory": null,
-      "stock": 11.0,
+      "stock": 10.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-101",
@@ -22819,7 +22819,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-09-24T10:15:02+00:00",
+      "quarantined_at": "2026-09-24T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     }
