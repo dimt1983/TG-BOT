@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 50,
+      "stock": 49,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -2020,7 +2020,7 @@
           "on_request": false
         }
       ],
-      "stock": 90.0,
+      "stock": 47,
       "on_request": false,
       "subcategory": "retail_filter",
       "roast": "F",
@@ -2067,12 +2067,13 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 455.0,
+          "price": 455,
           "photo": "photos/products/retail_f_roastberry_гватемала_уетенанго_200_г.jpg",
-          "stock": 0
+          "stock": 0,
+          "on_request": false
         }
       ],
-      "stock": 18.0,
+      "stock": 16,
       "subcategory": "retail_filter",
       "quarantined": false,
       "quarantined_at": null,
@@ -2084,7 +2085,8 @@
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-038",
-      "price_source_1c": "КОФ-038"
+      "price_source_1c": "КОФ-038",
+      "on_request": false
     },
     {
       "id": "retail_f_roastberry_кения_аа_200_г",
@@ -5602,7 +5604,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 100.0,
+      "stock": 98,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5639,7 +5641,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 22,
+      "stock": 21,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5676,7 +5678,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 204,
+      "stock": 199,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5713,7 +5715,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 39.0,
+      "stock": 24,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7451,7 +7453,7 @@
       "name": "Колумбия Маракуйя Хани инфьюз.- 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 12.0,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -16326,7 +16328,7 @@
           "price": 166
         }
       ],
-      "stock": 503,
+      "stock": 491,
       "on_request": false,
       "_source": "Напиток на соевой основе, кокосовый \"Green Milk\"на соевой основе 1л.",
       "subcategory": "milk_main",
@@ -17030,7 +17032,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "on_request": false,
       "_source": "Сироп Имбирный Пряник 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -17094,7 +17096,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "on_request": false,
       "_source": "Сироп Карамель Соленая 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -17202,7 +17204,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "on_request": false,
       "_source": "Сироп Кокос 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -17457,7 +17459,7 @@
           "on_request": false
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "on_request": false,
       "_source": "Сироп Мята Зеленая 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -18176,7 +18178,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "on_request": false,
       "_source": "L4035 Грюн Матинэ 200г, чай Альтхаус зеленый аромат. лист",
       "subcategory": "tea_althaus_loose",
@@ -19313,7 +19315,7 @@
     {
       "id": "1c-talthl-l00197-dd35d1351c",
       "name": "L1100 Ассам Молти Кап 250г, чай Альтхаус черный лист",
-      "stock": 7,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "article_1c": "TALTHL-L00197",
@@ -19931,7 +19933,7 @@
     {
       "id": "1c-036-0eb3a9a4d6",
       "name": "RB TEA Зеленый чай с жасмином 250 г",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-036",
@@ -20086,18 +20088,20 @@
     {
       "id": "1c-054-a2726051f4",
       "name": "TS08 Мыс Целебных Трав, чайный напиток, 150 г",
-      "stock": 2,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-054",
       "fasovka": [
         {
           "size": "150 г",
-          "price": 1300.0
+          "price": 1300,
+          "on_request": false
         }
       ],
       "category": "tea",
-      "price_source_1c": "ЧАЙ-054"
+      "price_source_1c": "ЧАЙ-054",
+      "on_request": false
     },
     {
       "id": "1c-055-09c1940beb",
@@ -21560,7 +21564,7 @@
     {
       "id": "1c-211-622872efa6",
       "name": "ЧН400 Серебряный Жасмин, чай зеленый байховый 250г",
-      "stock": 5,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-211",
@@ -21679,7 +21683,7 @@
     {
       "id": "1c-220-6c850e8478",
       "name": "ЧН610 Чайна Бейсик, чай зел.байх. 600 г.",
-      "stock": 4,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-220",
