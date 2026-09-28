@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 102,
+      "stock": 102.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 7,
+      "stock": 7.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1647,7 +1647,7 @@
           "on_request": false
         }
       ],
-      "stock": 23,
+      "stock": 23.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1816,7 +1816,7 @@
           "on_request": false
         }
       ],
-      "stock": 24,
+      "stock": 24.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гондурас San Nicolas упак. 200 гр.",
@@ -2106,7 +2106,7 @@
           "on_request": false
         }
       ],
-      "stock": 16,
+      "stock": 16.0,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Кения АА упак. 200 г",
@@ -5683,7 +5683,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 200,
+      "stock": 200.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8797,7 +8797,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6,
+      "stock": 6.0,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -16014,7 +16014,7 @@
           "on_request": false
         }
       ],
-      "stock": 14,
+      "stock": 14.0,
       "_source": "E \"Roastberry\" Гондурас San Nicolas Dark - 1 кг",
       "country": "Гондурас",
       "subcategory": "retail_espresso",
@@ -21773,9 +21773,9 @@
       "name": "E \"Roastberry\" Эфиопия Иргачиф Гр.2 - 1 кг",
       "category": "retail",
       "subcategory": "retail_espresso",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 10.0,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "КОФ-098",
       "fasovka": [
         {
@@ -21787,8 +21787,8 @@
       "created_at": "2026-08-13T08:21:47+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-098",
-      "quarantined_at": "2026-09-25T08:15:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee",
+      "quarantined_at": null,
+      "quarantine_reason": null,
       "on_request": false
     },
     {
@@ -22847,7 +22847,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-09-28T08:15:02+00:00",
+      "quarantined_at": "2026-09-28T09:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     }
