@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 114,
+      "stock": 113,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1337,7 +1337,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -2022,7 +2022,7 @@
           "on_request": true
         }
       ],
-      "stock": 58,
+      "stock": 33,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -5608,7 +5608,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 148.0,
+      "stock": 147,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5682,7 +5682,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 252,
+      "stock": 245,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5719,7 +5719,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 29.0,
+      "stock": 26,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -16362,7 +16362,7 @@
           "price": 166
         }
       ],
-      "stock": 314,
+      "stock": 306,
       "on_request": false,
       "_source": "Напиток на соевой основе, миндальный \"Green Milk\" 1л.",
       "subcategory": "milk_main",
