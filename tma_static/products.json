@@ -1117,7 +1117,7 @@
           "on_request": false
         }
       ],
-      "stock": 9.0,
+      "stock": 10,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 97.0,
+      "stock": 96,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1227,7 +1227,7 @@
           "on_request": false
         }
       ],
-      "stock": 34,
+      "stock": 33,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1619,7 +1619,7 @@
           "on_request": false
         }
       ],
-      "stock": 25,
+      "stock": 19,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1676,7 +1676,7 @@
           "on_request": false
         }
       ],
-      "stock": 19.0,
+      "stock": 20,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1846,7 +1846,7 @@
           "on_request": false
         }
       ],
-      "stock": 11.0,
+      "stock": 12,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -5647,7 +5647,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 16.0,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5684,7 +5684,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 175,
+      "stock": 154,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
