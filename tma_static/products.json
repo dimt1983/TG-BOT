@@ -1227,7 +1227,7 @@
           "on_request": false
         }
       ],
-      "stock": 36.0,
+      "stock": 34,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1619,7 +1619,7 @@
           "on_request": false
         }
       ],
-      "stock": 46.0,
+      "stock": 45,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1817,7 +1817,7 @@
           "on_request": false
         }
       ],
-      "stock": 24.0,
+      "stock": 23,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гондурас San Nicolas упак. 200 гр.",
@@ -2079,7 +2079,7 @@
           "on_request": false
         }
       ],
-      "stock": 11.0,
+      "stock": 9,
       "subcategory": "retail_filter",
       "quarantined": false,
       "quarantined_at": null,
@@ -2107,7 +2107,7 @@
           "on_request": false
         }
       ],
-      "stock": 16.0,
+      "stock": 15,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Кения АА упак. 200 г",
@@ -5684,7 +5684,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 213.0,
+      "stock": 211,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -22406,18 +22406,20 @@
     {
       "id": "1c-vcf-02-100m-a19874f89c",
       "name": "Hario VCF-02-100M Фильтры бумажные 100 шт.",
-      "stock": 9,
+      "stock": 7,
       "hidden": false,
       "quarantined": false,
       "article_1c": "VCF-02-100M",
       "fasovka": [
         {
           "size": "100 шт",
-          "price": 870.0
+          "price": 870,
+          "on_request": false
         }
       ],
       "category": "other",
-      "price_source_1c": "VCF-02-100M"
+      "price_source_1c": "VCF-02-100M",
+      "on_request": false
     },
     {
       "id": "1c-001-ddd8177d70",
