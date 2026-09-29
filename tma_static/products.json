@@ -1619,7 +1619,7 @@
           "on_request": false
         }
       ],
-      "stock": 45,
+      "stock": 25,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -5610,7 +5610,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 123.0,
+      "stock": 120,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5684,7 +5684,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 211,
+      "stock": 175,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8201,17 +8201,19 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 2380.0
+          "price": 2380,
+          "on_request": false
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "tags": [],
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
       "article_1c": "ЧАЙ-116",
       "hidden": false,
-      "price_source_1c": "ЧАЙ-116"
+      "price_source_1c": "ЧАЙ-116",
+      "on_request": false
     },
     {
       "id": "m-молоко_домик_в_деревне_3_2_950г",
@@ -8843,12 +8845,13 @@
           "on_request": true
         }
       ],
-      "stock": 3,
+      "stock": 0,
       "subcategory": "other_sugar",
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "hidden": false,
-      "on_request": true
+      "hidden": true,
+      "on_request": true,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "other_сахар-стик_5г",
@@ -14717,7 +14720,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 60.0,
+      "stock": 59,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14882,7 +14885,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 26.0,
+      "stock": 25,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15779,7 +15782,7 @@
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 13.0,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -16680,7 +16683,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "on_request": false,
       "_source": "Сироп Амаретто 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -17009,7 +17012,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "on_request": false,
       "_source": "Сироп Ежевика 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -17225,14 +17228,15 @@
           "on_request": false
         }
       ],
-      "stock": 2,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп Кокос 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
-      "hidden": false,
-      "quarantined": false,
+      "hidden": true,
+      "quarantined": true,
       "quarantined_at": "2026-08-17T11:32:16+00:00",
-      "canonical_id": "s-сироп_botanika_кокос_1л"
+      "canonical_id": "s-сироп_botanika_кокос_1л",
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "сироп_корица_1_0_л_botanika",
@@ -17291,7 +17295,7 @@
           "on_request": false
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "on_request": false,
       "_source": "Сироп Лесной Орех 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -17438,7 +17442,7 @@
           "on_request": false
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "on_request": false,
       "_source": "Сироп Миндаль 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -17480,7 +17484,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 4,
       "on_request": false,
       "_source": "Сироп Мята Зеленая 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -17522,7 +17526,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "on_request": false,
       "_source": "Сироп Попкорн 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -18354,7 +18358,7 @@
           "on_request": false
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "on_request": false,
       "_source": "ЧА6045 Лемон Минт 150 г, напиток Альтхаус травяной",
       "subcategory": "tea_althaus_loose",
@@ -18414,7 +18418,7 @@
           "on_request": true
         }
       ],
-      "stock": 22,
+      "stock": 19,
       "_source": "NR01 Кения Сапфир, чай черный пакет. 25*2г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -19904,7 +19908,7 @@
     {
       "id": "1c-012-bda9de94ca",
       "name": "NR03 Ориентал Блум, чай зеленый пакет. 25х2г",
-      "stock": 44,
+      "stock": 43,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-012",
@@ -21559,7 +21563,7 @@
     {
       "id": "1c-206-654b9cf9ca",
       "name": "ЧН205 Горный Чабрец, чай черный байховый ароматизированы 250г",
-      "stock": 7,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-206",
@@ -22732,9 +22736,9 @@
     {
       "id": "1c-09-03-007-c221416340",
       "name": "CUP 7 Жидкость для очистки молочных систем 1л",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 6,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "09.03.007",
       "fasovka": [
         {
@@ -22744,15 +22748,14 @@
         }
       ],
       "category": "tea",
-      "on_request": false,
-      "quarantine_reason": "not_in_stock_file"
+      "on_request": false
     },
     {
       "id": "1c-09-04-003-c96086f0fb",
       "name": "CUP 2 Средство для очистки жерновов кофемолок 1000 гр.",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 2,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "09.04.003",
       "fasovka": [
         {
@@ -22763,15 +22766,14 @@
       ],
       "category": "tea",
       "price_source_1c": "09.04.003",
-      "on_request": false,
-      "quarantine_reason": "not_in_stock_file"
+      "on_request": false
     },
     {
       "id": "1c-001-4fd1a90b86",
       "name": "Вендинг - Молочный топпинг TOPPING (порошок), 0,75 кг",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "ВЕН-001",
       "fasovka": [
         {
@@ -22782,15 +22784,14 @@
       ],
       "category": "other",
       "price_source_1c": "ВЕН-001",
-      "on_request": false,
-      "quarantine_reason": "not_in_stock_file"
+      "on_request": false
     },
     {
       "id": "1c-002-9c4e9a6d90",
       "name": "Вендинг - Какао-напиток растворимый HOT CHOCO RICH INSTANT COCOA DRINK",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 7,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "ВЕН-002",
       "fasovka": [
         {
@@ -22801,8 +22802,7 @@
       ],
       "category": "other",
       "price_source_1c": "ВЕН-002",
-      "on_request": false,
-      "quarantine_reason": "not_in_stock_file"
+      "on_request": false
     },
     {
       "id": "1c-003-b62f7db165",
