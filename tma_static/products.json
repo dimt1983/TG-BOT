@@ -22862,16 +22862,16 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-09-29T15:15:02+00:00",
+      "quarantined_at": "2026-09-29T16:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
     {
       "id": "1c-121-d9ef99498b",
       "name": "Эфиопия Иргачиф гр. 4 сухой эспрессо - 1 кг",
-      "stock": 30,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "КОФ-121",
       "fasovka": [
         {
@@ -22881,7 +22881,9 @@
         }
       ],
       "category": "espresso",
-      "on_request": false
+      "on_request": false,
+      "quarantined_at": "2026-09-29T16:15:02+00:00",
+      "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
       "id": "espresso_mono_эфиопия_иргачиф_гр_4_сухой_эспрессо_1_кг",
@@ -22895,12 +22897,14 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2015.0
+          "price": 2015.0,
+          "on_request": false
         }
       ],
       "created_at": "2026-09-29T15:15:02+00:00",
       "created_by": "bridge_1c_qc",
-      "price_source_1c": "КОФ-121"
+      "price_source_1c": "КОФ-121",
+      "on_request": false
     }
   ]
 }
