@@ -2019,10 +2019,10 @@
           "size": "200 г",
           "price": 450,
           "photo": "photos/products/retail_f_roastberry_бразилия_сертао_200_г_молотыи.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
-      "stock": 0,
+      "stock": 50.0,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -2030,11 +2030,12 @@
       "description": "Бразилия, натуральная обработка. Шоколад, орех, карамель.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "hidden": true,
-      "quarantined": true,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "КОФ-035",
-      "on_request": true,
-      "quarantine_reason": "not_in_stock_file"
+      "on_request": false,
+      "quarantine_reason": null,
+      "quarantined_at": null
     },
     {
       "id": "retail_f_roastberry_гватемала_уетенанго_-_1_кг",
@@ -5674,7 +5675,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 65.0,
+      "stock": 14.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14701,7 +14702,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 29.0,
+      "stock": 55.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -22786,7 +22787,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-09-30T14:15:01+00:00",
+      "quarantined_at": "2026-09-30T15:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
