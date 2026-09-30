@@ -1254,7 +1254,7 @@
           "on_request": false
         }
       ],
-      "stock": 24,
+      "stock": 24.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1562,7 +1562,7 @@
           "on_request": false
         }
       ],
-      "stock": 9,
+      "stock": 9.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
@@ -5610,7 +5610,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 69,
+      "stock": 69.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5647,7 +5647,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 21,
+      "stock": 21.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5722,7 +5722,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 22,
+      "stock": 22.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14728,7 +14728,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 39,
+      "stock": 39.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -16026,7 +16026,7 @@
           "on_request": false
         }
       ],
-      "stock": 11,
+      "stock": 11.0,
       "_source": "E \"Roastberry\" Гондурас San Nicolas Dark - 1 кг",
       "country": "Гондурас",
       "subcategory": "retail_espresso",
@@ -22680,7 +22680,7 @@
       "name": "Колумбия Арбуз инфьюз Декаф . - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 8,
+      "stock": 8.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-119",
@@ -22721,7 +22721,7 @@
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Арбуз инфьюз декаф\" 200 г",
       "category": "borshch",
       "subcategory": null,
-      "stock": 6,
+      "stock": 6.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-118",
@@ -22836,7 +22836,7 @@
       "name": "Эфиопия Иргачиф Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 4.0,
+      "stock": 3.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": null,
@@ -22865,7 +22865,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-09-30T10:15:02+00:00",
+      "quarantined_at": "2026-09-30T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
