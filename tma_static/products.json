@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 76,
+      "stock": 76.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1647,7 +1647,7 @@
           "on_request": false
         }
       ],
-      "stock": 48,
+      "stock": 48.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1930,7 +1930,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 6.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг",
@@ -2078,7 +2078,7 @@
           "on_request": false
         }
       ],
-      "stock": 8,
+      "stock": 8.0,
       "subcategory": "retail_filter",
       "quarantined": false,
       "quarantined_at": null,
@@ -2162,7 +2162,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 5.0,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Китай Симао упак. 200 г",
@@ -5610,7 +5610,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 71,
+      "stock": 71.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5684,7 +5684,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 40,
+      "stock": 40.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5705,7 +5705,7 @@
           "size": "1 кг",
           "price": 2015,
           "photo": "photos/products/espresso_mono_бразилия_серрадо_средняя_обжарка_эспрессо_1_кг.jpg",
-          "on_request": true
+          "on_request": false
         }
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
@@ -5714,7 +5714,7 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-053",
       "price_source_1c": "КОФ-053",
-      "on_request": true
+      "on_request": false
     },
     {
       "id": "filter_mono_бразилия_фазенда_сертао_сухой_молотый_1_кг_filter",
@@ -7966,7 +7966,7 @@
           "on_request": false
         }
       ],
-      "stock": 16,
+      "stock": 16.0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -15785,7 +15785,7 @@
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 5,
+      "stock": 5.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -16268,7 +16268,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 5.0,
       "_source": "Кофе \"Roastberry BLACK\" Кения Маакиоу Пиберри мытая - 200 г",
       "country": "Кения",
       "on_request": false,
@@ -21755,7 +21755,7 @@
       "name": "Перу Гр.1 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 32.0,
+      "stock": 27.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -22192,7 +22192,7 @@
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Конга  гр.1 сухой 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 19.0,
+      "stock": 18.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-112",
@@ -22214,7 +22214,7 @@
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Банко Готити гр.1 сухой 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 19.0,
+      "stock": 18.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-113",
@@ -22832,7 +22832,7 @@
       "name": "Эфиопия Иргачиф Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 8.0,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": null,
@@ -22861,7 +22861,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-09-30T09:15:02+00:00",
+      "quarantined_at": "2026-09-30T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -22889,9 +22889,9 @@
       "name": "Эфиопия Иргачиф гр. 4 сухой эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 30.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "КОФ-121",
       "fasovka": [
         {
@@ -22903,7 +22903,9 @@
       "created_at": "2026-09-29T15:15:02+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-121",
-      "on_request": false
+      "on_request": false,
+      "quarantined_at": "2026-09-30T10:15:02+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     }
   ]
 }
