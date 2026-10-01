@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 62,
+      "stock": 59,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1254,7 +1254,7 @@
           "on_request": false
         }
       ],
-      "stock": 24.0,
+      "stock": 44,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -2022,7 +2022,7 @@
           "on_request": false
         }
       ],
-      "stock": 13,
+      "stock": 21,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -5647,7 +5647,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 17,
+      "stock": 16,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14262,7 +14262,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14730,7 +14730,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 55.0,
+      "stock": 72,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -16365,7 +16365,7 @@
           "price": 166
         }
       ],
-      "stock": 355,
+      "stock": 352,
       "on_request": false,
       "_source": "Напиток на соевой основе, кокосовый \"Green Milk\"на соевой основе 1л.",
       "subcategory": "milk_main",
@@ -16779,7 +16779,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 3,
       "on_request": false,
       "_source": "Сироп Бабл Гам 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -18428,7 +18428,7 @@
           "on_request": true
         }
       ],
-      "stock": 16,
+      "stock": 14,
       "_source": "NR01 Кения Сапфир, чай черный пакет. 25*2г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -18567,7 +18567,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "on_request": false,
       "_source": "ЧН315 Молочный Улун, чай зеленый байховый  250г",
       "subcategory": "tea_китайский_чай_loose",
@@ -21608,7 +21608,7 @@
     {
       "id": "1c-211-622872efa6",
       "name": "ЧН400 Серебряный Жасмин, чай зеленый байховый 250г",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-211",
