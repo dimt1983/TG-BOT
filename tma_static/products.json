@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 108,
+      "stock": 159,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -3630,7 +3630,7 @@
           "on_request": false
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5609,7 +5609,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 67,
+      "stock": 65,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5683,7 +5683,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 63.0,
+      "stock": 110,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -13913,7 +13913,7 @@
           "on_request": false
         }
       ],
-      "stock": 8.35,
+      "stock": 7.35,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -18601,7 +18601,7 @@
           "on_request": true
         }
       ],
-      "stock": 3.818,
+      "stock": 2.818,
       "_source": "NR06-500 Фрут Маджента, напиток чайный аромат. пакет. 500*2г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
