@@ -1172,7 +1172,7 @@
           "on_request": false
         }
       ],
-      "stock": 17.0,
+      "stock": 15,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1227,7 +1227,7 @@
           "on_request": false
         }
       ],
-      "stock": 32.0,
+      "stock": 31,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1254,7 +1254,7 @@
           "on_request": false
         }
       ],
-      "stock": 44.0,
+      "stock": 43,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1282,7 +1282,7 @@
           "on_request": false
         }
       ],
-      "stock": 19.0,
+      "stock": 16,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 126,
+      "stock": 116,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1675,7 +1675,7 @@
           "on_request": false
         }
       ],
-      "stock": 18.0,
+      "stock": 17,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1697,18 +1697,17 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 435.0,
+          "price": 435,
           "photo": "photos/products/retail_e_roastberry_бразилия_серадо_дарк_200_г.jpg",
           "on_request": false
         }
       ],
-      "stock": 20.0,
+      "stock": 18,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Серадо Дарк  упак. 200 г",
       "quarantined": false,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "hidden": false,
       "country": "Бразилия",
       "description": "Бразилия, натуральная обработка. Шоколад, орех, карамель.",
@@ -1816,7 +1815,7 @@
           "on_request": false
         }
       ],
-      "stock": 20.0,
+      "stock": 19,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гондурас San Nicolas упак. 200 гр.",
@@ -1874,7 +1873,7 @@
           "on_request": false
         }
       ],
-      "stock": 21.0,
+      "stock": 18,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -2049,7 +2048,7 @@
           "on_request": false
         }
       ],
-      "stock": 8.0,
+      "stock": 7,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Гватемала Уетенанго - 1 кг",
@@ -2078,7 +2077,7 @@
           "on_request": false
         }
       ],
-      "stock": 24.0,
+      "stock": 23,
       "subcategory": "retail_filter",
       "quarantined": false,
       "quarantined_at": null,
@@ -2106,7 +2105,7 @@
           "on_request": false
         }
       ],
-      "stock": 12.0,
+      "stock": 11,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Кения АА упак. 200 г",
@@ -2191,7 +2190,7 @@
           "on_request": false
         }
       ],
-      "stock": 15.0,
+      "stock": 13,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5610,7 +5609,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 68.0,
+      "stock": 67,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7965,7 +7964,7 @@
           "on_request": false
         }
       ],
-      "stock": 9.0,
+      "stock": 8,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -14728,7 +14727,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 91.0,
+      "stock": 90,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -16077,7 +16076,7 @@
           "on_request": false
         }
       ],
-      "stock": 5.0,
+      "stock": 4,
       "_source": "F \"Roastberry\" Колумбия Андино - 1 кг",
       "country": "Колумбия",
       "subcategory": "retail_filter",
@@ -16320,7 +16319,7 @@
           "on_request": false
         }
       ],
-      "stock": 11.0,
+      "stock": 10,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катимор нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false,
@@ -16342,7 +16341,7 @@
           "on_request": false
         }
       ],
-      "stock": 9.0,
+      "stock": 8,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false,
@@ -20600,7 +20599,7 @@
     {
       "id": "1c-117-c61ed0a3a6",
       "name": "ЧА5020 Дикая вишня, напиток фруктовый аром 250г",
-      "stock": 2,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-117",
@@ -20787,9 +20786,9 @@
     {
       "id": "1c-133-c5e8618756",
       "name": "ЧА6200 Ройбуш Клубника со сливками 250 г, напиток Альтхаус аром",
-      "stock": 1,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "ЧАЙ-133",
       "fasovka": [
         {
@@ -20799,7 +20798,8 @@
         }
       ],
       "category": "tea",
-      "on_request": false
+      "on_request": false,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "1c-134-fbbcdc2ab5",
@@ -22726,7 +22726,7 @@
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Арбуз инфьюз декаф\" 200 г",
       "category": "borshch",
       "subcategory": null,
-      "stock": 5.0,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-118",
