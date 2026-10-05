@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 37,
+      "stock": 37.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1227,7 +1227,7 @@
           "on_request": false
         }
       ],
-      "stock": 29,
+      "stock": 29.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1254,7 +1254,7 @@
           "on_request": false
         }
       ],
-      "stock": 23,
+      "stock": 23.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1590,7 +1590,7 @@
           "on_request": false
         }
       ],
-      "stock": 22,
+      "stock": 22.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 186,
+      "stock": 186.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1647,7 +1647,7 @@
           "on_request": false
         }
       ],
-      "stock": 28,
+      "stock": 28.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1702,7 +1702,7 @@
           "on_request": false
         }
       ],
-      "stock": 17,
+      "stock": 17.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Серадо Дарк  упак. 200 г",
@@ -1815,7 +1815,7 @@
           "on_request": false
         }
       ],
-      "stock": 14,
+      "stock": 14.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гондурас San Nicolas упак. 200 гр.",
@@ -1873,7 +1873,7 @@
           "on_request": false
         }
       ],
-      "stock": 15,
+      "stock": 15.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -2105,7 +2105,7 @@
           "on_request": false
         }
       ],
-      "stock": 23,
+      "stock": 23.0,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Кения АА упак. 200 г",
@@ -5608,7 +5608,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 120,
+      "stock": 120.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5645,7 +5645,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 10,
+      "stock": 10.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5682,7 +5682,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 191,
+      "stock": 191.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7787,7 +7787,7 @@
           "on_request": false
         }
       ],
-      "stock": 1.0,
+      "stock": 21.0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -14744,7 +14744,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 134,
+      "stock": 134.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -14909,7 +14909,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 8,
+      "stock": 8.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -16043,7 +16043,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 5.0,
       "_source": "E \"Roastberry\" Гондурас San Nicolas Dark - 1 кг",
       "country": "Гондурас",
       "subcategory": "retail_espresso",
@@ -16242,7 +16242,7 @@
           "on_request": false
         }
       ],
-      "stock": 26,
+      "stock": 26.0,
       "_source": "F \"Roastberry\" Руанда Мутетели упак. 200 г",
       "country": "Руанда",
       "subcategory": "retail_filter",
@@ -22088,7 +22088,7 @@
           "on_request": false
         }
       ],
-      "stock": 2.0,
+      "stock": 6.0,
       "tags": [],
       "photo": null,
       "pair_id": "эфиопия_конга_гр_1_сухой_filter_-_1_кг",
@@ -22153,7 +22153,7 @@
       "name": "Эфиопия Банко Готити гр.1 сухой нат. FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 2.0,
+      "stock": 6.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-111",
@@ -22891,7 +22891,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-05T10:15:02+00:00",
+      "quarantined_at": "2026-10-05T14:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
