@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 43,
+      "stock": 41,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 199,
+      "stock": 195,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1873,7 +1873,7 @@
           "on_request": false
         }
       ],
-      "stock": 18.0,
+      "stock": 16,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -2021,7 +2021,7 @@
           "on_request": false
         }
       ],
-      "stock": 19,
+      "stock": 15,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -5608,7 +5608,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 155.0,
+      "stock": 143,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5682,7 +5682,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 248,
+      "stock": 236,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6722,7 +6722,7 @@
       "name": "Кения АА мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 10,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -12250,7 +12250,7 @@
           "on_request": false
         }
       ],
-      "stock": 390,
+      "stock": 360,
       "tags": [],
       "photo": "photos/products/t-сито_для_чая_30_шт_.jpg",
       "quarantined": false,
@@ -13928,7 +13928,7 @@
           "on_request": false
         }
       ],
-      "stock": 10.35,
+      "stock": 9.35,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -16377,7 +16377,7 @@
           "price": 166
         }
       ],
-      "stock": 346,
+      "stock": 338,
       "on_request": false,
       "_source": "Напиток на соевой основе, кокосовый \"Green Milk\"на соевой основе 1л.",
       "subcategory": "milk_main",
@@ -16417,7 +16417,7 @@
           "price": 156
         }
       ],
-      "stock": 145,
+      "stock": 140,
       "on_request": false,
       "_source": "Напиток соевый со вкусом банана \"Green Milk\" 1л.",
       "subcategory": "milk_main",
