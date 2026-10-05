@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 215,
+      "stock": 201,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -2021,7 +2021,7 @@
           "on_request": false
         }
       ],
-      "stock": 49,
+      "stock": 19,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -2105,7 +2105,7 @@
           "on_request": false
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Кения АА упак. 200 г",
@@ -5720,7 +5720,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 20,
+      "stock": 10,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -22733,9 +22733,9 @@
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Арбуз инфьюз декаф\" 200 г",
       "category": "borshch",
       "subcategory": null,
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 9,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "КОФ-118",
       "fasovka": [
         {
@@ -22749,8 +22749,7 @@
       "price_source_1c": "КОФ-118",
       "on_request": false,
       "roast": "F",
-      "quarantined_at": null,
-      "quarantine_reason": "not_in_stock_file"
+      "quarantined_at": null
     },
     {
       "id": "1c-09-03-007-c221416340",
