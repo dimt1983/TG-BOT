@@ -8843,13 +8843,12 @@
           "on_request": true
         }
       ],
-      "stock": 0,
+      "stock": 3,
       "subcategory": "other_sugar",
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "hidden": true,
-      "on_request": true,
-      "quarantine_reason": "not_in_stock_file"
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "other_сахар-стик_5г",
@@ -22782,9 +22781,9 @@
     {
       "id": "1c-09-03-007-c221416340",
       "name": "CUP 7 Жидкость для очистки молочных систем 1л",
-      "stock": 14,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "09.03.007",
       "fasovka": [
         {
@@ -22794,14 +22793,15 @@
         }
       ],
       "category": "tea",
-      "on_request": false
+      "on_request": false,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "1c-09-04-003-c96086f0fb",
       "name": "CUP 2 Средство для очистки жерновов кофемолок 1000 гр.",
-      "stock": 2,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "09.04.003",
       "fasovka": [
         {
@@ -22812,14 +22812,15 @@
       ],
       "category": "tea",
       "price_source_1c": "09.04.003",
-      "on_request": false
+      "on_request": false,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "1c-001-4fd1a90b86",
       "name": "Вендинг - Молочный топпинг TOPPING (порошок), 0,75 кг",
-      "stock": 8,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "ВЕН-001",
       "fasovka": [
         {
@@ -22830,14 +22831,15 @@
       ],
       "category": "other",
       "price_source_1c": "ВЕН-001",
-      "on_request": false
+      "on_request": false,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "1c-002-9c4e9a6d90",
       "name": "Вендинг - Какао-напиток растворимый HOT CHOCO RICH INSTANT COCOA DRINK",
-      "stock": 7,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "ВЕН-002",
       "fasovka": [
         {
@@ -22848,7 +22850,8 @@
       ],
       "category": "other",
       "price_source_1c": "ВЕН-002",
-      "on_request": false
+      "on_request": false,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "1c-003-b62f7db165",
@@ -22950,9 +22953,9 @@
     {
       "id": "1c-cimpch-000097-6c3d8bcde2",
       "name": "Натуральный какао Impassion Pure 500 г",
-      "stock": 5,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "CIMPCH-000097",
       "fasovka": [
         {
@@ -22962,7 +22965,8 @@
         }
       ],
       "category": "other",
-      "on_request": false
+      "on_request": false,
+      "quarantine_reason": "not_in_stock_file"
     }
   ]
 }
