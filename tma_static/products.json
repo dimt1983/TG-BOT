@@ -2105,7 +2105,7 @@
           "on_request": false
         }
       ],
-      "stock": 23.0,
+      "stock": 22,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Кения АА упак. 200 г",
@@ -14745,7 +14745,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 133,
+      "stock": 123,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
