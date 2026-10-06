@@ -14878,7 +14878,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 7.0,
+      "stock": 17.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15776,9 +15776,9 @@
       "name": "Эфиопия Сидамо Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 10.0,
+      "hidden": false,
+      "quarantined": false,
       "roast": "E",
       "photo": "photos/products/espresso_mono_эфиопия_сидамо_гр_2_мытый_эспрессо_1_кг.jpg",
       "fasovka": [
@@ -15795,7 +15795,7 @@
       "article_1c": "КОФ-094",
       "price_source_1c": "КОФ-094",
       "on_request": false,
-      "quarantine_reason": "not_in_stock_file"
+      "quarantine_reason": null
     },
     {
       "id": "filter_mono_эфиопия_сидамо_gr_2_мытый_1_кг_filter",
@@ -16013,7 +16013,7 @@
           "on_request": false
         }
       ],
-      "stock": 4.0,
+      "stock": 1.0,
       "_source": "E \"Roastberry\" Гондурас San Nicolas Dark - 1 кг",
       "country": "Гондурас",
       "subcategory": "retail_espresso",
@@ -22822,7 +22822,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-06T10:15:02+00:00",
+      "quarantined_at": "2026-10-06T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
