@@ -22822,7 +22822,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-06T15:15:02+00:00",
+      "quarantined_at": "2026-10-06T16:15:01+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -22885,6 +22885,46 @@
       "category": "other",
       "on_request": false,
       "quarantine_reason": "not_in_stock_file"
+    },
+    {
+      "id": "filter_micro_кения_оранж_кисии_анаэроб_1_кг_filter",
+      "name": "Кения Оранж Кисии анаэроб.1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 7.0,
+      "hidden": false,
+      "quarantined": false,
+      "article_1c": "КОФ-124",
+      "on_request": true,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": null,
+          "on_request": true
+        }
+      ],
+      "created_at": "2026-10-06T16:15:01+00:00",
+      "created_by": "bridge_1c_qc"
+    },
+    {
+      "id": "black_кофе_roastberry_black_кения_оранж_кисии_анаэроб_200_г",
+      "name": "Кофе \"Roastberry BLACK\" Кения Оранж Кисии анаэроб - 200 г",
+      "category": "black",
+      "subcategory": null,
+      "stock": 20.0,
+      "hidden": false,
+      "quarantined": false,
+      "article_1c": "КОФ-122",
+      "on_request": true,
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": null,
+          "on_request": true
+        }
+      ],
+      "created_at": "2026-10-06T16:15:01+00:00",
+      "created_by": "bridge_1c_qc"
     }
   ]
 }
