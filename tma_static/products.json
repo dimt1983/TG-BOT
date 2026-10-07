@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 69,
+      "stock": 69.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1562,7 +1562,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 3.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 197,
+      "stock": 197.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1901,7 +1901,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 6.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг",
@@ -2048,7 +2048,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 6.0,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Гватемала Уетенанго - 1 кг",
@@ -7964,7 +7964,7 @@
           "on_request": false
         }
       ],
-      "stock": 2,
+      "stock": 2.0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -16018,7 +16018,7 @@
           "on_request": false
         }
       ],
-      "stock": 8,
+      "stock": 8.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гватемала Уетенанго - 1 кг",
@@ -16121,7 +16121,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 4.0,
       "_source": "F \"Roastberry\" Эфиопия Иргачиф Гр.2 - 1 кг",
       "country": "Эфиопия",
       "subcategory": "retail_filter",
@@ -16339,7 +16339,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 6.0,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катимор нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false,
@@ -16361,7 +16361,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 4.0,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false,
@@ -21825,7 +21825,7 @@
       "name": "E \"Roastberry\" Эфиопия Иргачиф Гр.2 - 1 кг",
       "category": "retail",
       "subcategory": "retail_espresso",
-      "stock": 13.0,
+      "stock": 12.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-098",
@@ -22261,7 +22261,7 @@
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Банко Готити гр.1 сухой 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 9.0,
+      "stock": 7.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-113",
@@ -22765,7 +22765,7 @@
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Арбуз инфьюз декаф\" 200 г",
       "category": "borshch",
       "subcategory": null,
-      "stock": 7,
+      "stock": 7.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-118",
@@ -22909,7 +22909,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-07T09:15:02+00:00",
+      "quarantined_at": "2026-10-07T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23048,7 +23048,7 @@
       ],
       "category": "espresso",
       "on_request": true,
-      "quarantined_at": "2026-10-07T09:15:02+00:00",
+      "quarantined_at": "2026-10-07T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -23088,14 +23088,18 @@
           "size": "1 кг"
         }
       ],
-      "stock": 10,
+      "stock": 0,
       "tags": [
         "микролот",
         "Блэк",
         "анаэробная"
       ],
       "photo": null,
-      "pair_id": "кения_оранж_кисии"
+      "pair_id": "кения_оранж_кисии",
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-10-07T10:15:02+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "f-кения_оранж_кисии",
@@ -23114,14 +23118,18 @@
           "size": "1 кг"
         }
       ],
-      "stock": 10,
+      "stock": 0,
       "tags": [
         "микролот",
         "Блэк",
         "анаэробная"
       ],
       "photo": null,
-      "pair_id": "кения_оранж_кисии"
+      "pair_id": "кения_оранж_кисии",
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-10-07T10:15:02+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     }
   ]
 }
