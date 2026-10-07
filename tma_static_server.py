@@ -943,13 +943,26 @@ class Handler(BaseHTTPRequestHandler):
                     u_cols = {r[1] for r in con.execute("PRAGMA table_info(users)").fetchall()}
                     cols = [c for c in ("name", "phone", "email", "address", "city",
                                         "company_name", "inn", "legal_address", "user_type",
-                                        "pd_consent_at", "pd_consent_version")
+                                        "pd_consent_at", "pd_consent_version",
+                                        "price_tier")
                             if c in u_cols]
                     sel = ", ".join(cols) if cols else "user_id"
                     row = con.execute(
                         f"SELECT {sel} FROM users WHERE user_id=?", (user["id"],)
                     ).fetchone()
                     out = dict(row) if row else {}
+                    # Персональная скидка: тариф → процент, плюс сколько
+                    # точечных правил заведено. Без этого витрина показывала
+                    # только весовую скидку и клиент считал, что скидки нет.
+                    tier = (out.get("price_tier") or "standard")
+                    out["discount_pct"] = TIER_AUTO_PCT.get(tier, 0)
+                    try:
+                        _ensure_pricing_schema(con)
+                        out["pricing_rules"] = con.execute(
+                            "SELECT COUNT(*) FROM user_pricing WHERE user_id=?",
+                            (user["id"],)).fetchone()[0]
+                    except sqlite3.Error:
+                        out["pricing_rules"] = 0
                 finally:
                     con.close()
                 # Подмешаем то что в JWT/initData (имя, email-from-guest)
@@ -1182,7 +1195,7 @@ class Handler(BaseHTTPRequestHandler):
                         params = ([sf] if sf else []) + [limit, offset]
                         rows = con.execute(
                             f"SELECT o.id, o.user_id, o.name, o.phone, o.address, "
-                            f"o.total, o.status, o.created_at, u.tg_name, "
+                            f"o.total, o.discount, o.status, o.created_at, u.tg_name, "
                             f"COUNT(oi.id) as items_count "
                             f"FROM orders o "
                             f"LEFT JOIN users u ON o.user_id=u.user_id "
@@ -1216,7 +1229,7 @@ class Handler(BaseHTTPRequestHandler):
                         oid = int(m_admin.group(2))
                         o = con.execute(
                             "SELECT o.id, o.user_id, o.name, o.phone, o.address, "
-                            "o.total, o.status, o.created_at, u.tg_name, u.city "
+                            "o.total, o.discount, o.status, o.created_at, u.tg_name, u.city "
                             "FROM orders o LEFT JOIN users u ON o.user_id=u.user_id "
                             "WHERE o.id=?", (oid,)
                         ).fetchone()
@@ -1357,31 +1370,12 @@ class Handler(BaseHTTPRequestHandler):
             except Exception:
                 pass  # fallback на статику
 
-        # ── /tma/v1/* статика (старый дизайн на отдельном префиксе) ──────────
+        # ── /tma/v1/* — старый дизайн закрыт (18.08.2026) ────────────────────
+        # Это была единственная дверь, отдававшая tma_static/index.html.
+        # Саму папку tma_static/ трогать нельзя: из неё v2 берёт products.json,
+        # photos/ и assets/. Старые закладки уводим на актуальную витрину.
         if path.startswith("/tma/v1/") or path == "/tma/v1":
-            rel = path[8:] if path.startswith("/tma/v1/") else ""
-            if rel == "" or rel.endswith("/"):
-                rel = (rel + "index.html").lstrip("/")
-            full_path = os.path.normpath(os.path.join(TMA_ROOT, rel))
-            if not full_path.startswith(TMA_ROOT):
-                self._send(403, b"Forbidden", "text/plain")
-                return
-            if not os.path.isfile(full_path):
-                full_path = os.path.join(TMA_ROOT, "index.html")
-                if not os.path.isfile(full_path):
-                    self._send(404, b"Not found", "text/plain")
-                    return
-            ctype, _ = mimetypes.guess_type(full_path)
-            ctype = ctype or "application/octet-stream"
-            try:
-                with open(full_path, "rb") as f:
-                    body = f.read()
-                extra = {}
-                if any(full_path.endswith(e) for e in (".jpg", ".png", ".webp", ".svg", ".ico")):
-                    extra["Cache-Control"] = "public, max-age=3600, must-revalidate"
-                self._send(200, body, ctype, extra)
-            except Exception as e:
-                self._send(500, str(e).encode(), "text/plain")
+            self._send(302, b"", "text/plain", {"Location": "/tma/"})
             return
 
         # ── /tma/v2/* — алиас на новый дизайн (для обратной совместимости старых ссылок)
@@ -1476,6 +1470,68 @@ class Handler(BaseHTTPRequestHandler):
                            "application/json; charset=utf-8")
                 return
             self._handle_update_stock()
+            return
+
+        # ── Свести дубли по телефону (Bearer). apply=false — только показать ─
+        if path == "/admin/concierge/merge_dupes":
+            if cz is None:
+                self._send(503, _j({"error": "concierge unavailable"}),
+                           "application/json; charset=utf-8")
+                return
+            if not _check_bearer(self):
+                self._send(401, _j({"error": "unauthorized"}),
+                           "application/json; charset=utf-8")
+                return
+            body = self._read_body() or {}
+            do_apply = bool(body.get("apply"))
+            only_phone = str(body.get("phone") or "").strip()
+            pairs, done = [], []
+            try:
+                con = sqlite3.connect(DB_PATH)
+                con.row_factory = sqlite3.Row
+                try:
+                    rows = con.execute(
+                        "SELECT user_id, name, phone FROM users WHERE phone IS NOT NULL"
+                    ).fetchall()
+                    groups = {}
+                    for r in rows:
+                        key = cz.phone_key(r["phone"] or "")
+                        if len(key) < 10:
+                            continue
+                        if only_phone and key != cz.phone_key(only_phone):
+                            continue
+                        groups.setdefault(key, []).append(r)
+                    for key, rs in groups.items():
+                        real = [r for r in rs if int(r["user_id"]) > 0]
+                        stubs = [r for r in rs if int(r["user_id"]) < 0]
+                        if not (real and stubs):
+                            continue
+                        # Настоящая учётка одна — иначе решает человек.
+                        if len(real) > 1:
+                            pairs.append({"phone": key, "skip": "несколько Telegram-учёток",
+                                          "ids": [int(r["user_id"]) for r in rs]})
+                            continue
+                        target = int(real[0]["user_id"])
+                        for st in stubs:
+                            item = {"phone": key, "stub": int(st["user_id"]),
+                                    "stub_name": st["name"], "real": target,
+                                    "real_name": real[0]["name"]}
+                            if do_apply:
+                                res = cz.merge_stub_into_real(con, int(st["user_id"]), target)
+                                item["result"] = res
+                                done.append(item)
+                            else:
+                                pairs.append(item)
+                    if do_apply:
+                        con.commit()
+                finally:
+                    con.close()
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
+                return
+            self._send(200, _j({"ok": True, "applied": do_apply,
+                                "pairs": pairs, "merged": done}),
+                       "application/json; charset=utf-8")
             return
 
         # ── Concierge (Bearer, для Бишопа): ghost-клиент + claim-ссылка ──────
@@ -1642,8 +1698,11 @@ class Handler(BaseHTTPRequestHandler):
             # Стабильный отрицательный guest_id из телефона. Минусом отделяем
             # от Telegram user_id (всегда положительный) — потом в админке
             # видно по знаку, гость это или TG-клиент.
-            guest_int = int(hashlib.sha256(digits.encode()).hexdigest()[:12], 16)
-            guest_id  = -(guest_int % (10**9))  # держим в int32-range
+            # Формулу НЕ дублируем: одна на проект, в concierge. Раньше здесь
+            # хэшировались все цифры, а рядом матчилось по последним 10 — из-за
+            # расхождения один человек заводился дважды.
+            guest_id = cz.stable_ghost_id(digits)
+            digits = cz.phone_key(digits)
             user = {
                 "id":         guest_id,
                 "first_name": name,
@@ -1925,6 +1984,75 @@ class Handler(BaseHTTPRequestHandler):
             return
 
         # ── Сменить статус заказа (admin) ─────────────────────────────────────
+        # ── Скидка на открытый заказ ─────────────────────────────────────────
+        m_disc = re.match(r"^/tma/api/admin/order/(\d+)/discount$", path)
+        if m_disc:
+            user = _get_request_user(self)
+            if not (user and user.get("id") in ADMIN_IDS):
+                self._send(403, _j({"error": "Доступ запрещён"}),
+                           "application/json; charset=utf-8")
+                return
+            order_id = int(m_disc.group(1))
+            payload = self._read_body() or {}
+            try:
+                pct = float(payload.get("discount_pct"))
+            except (TypeError, ValueError):
+                self._send(400, _j({"error": "Укажите скидку в процентах"}),
+                           "application/json; charset=utf-8")
+                return
+            if not (0 <= pct <= 100):
+                self._send(400, _j({"error": "Скидка должна быть от 0 до 100%"}),
+                           "application/json; charset=utf-8")
+                return
+            try:
+                con = sqlite3.connect(DB_PATH)
+                con.row_factory = sqlite3.Row
+                try:
+                    o = con.execute("SELECT id, user_id, total FROM orders WHERE id=?",
+                                    (order_id,)).fetchone()
+                    if not o:
+                        self._send(404, _j({"error": "Заказ не найден"}),
+                                   "application/json; charset=utf-8")
+                        return
+                    # Считаем от позиций: повторная правка скидки не должна
+                    # накручиваться на уже уменьшенный итог.
+                    row = con.execute(
+                        "SELECT COALESCE(SUM(price * quantity), 0) FROM order_items "
+                        "WHERE order_id=?", (order_id,)).fetchone()
+                    subtotal = round(float(row[0] or 0), 2)
+                    if subtotal <= 0:
+                        self._send(400, _j({"error": "У заказа нет позиций с ценой"}),
+                                   "application/json; charset=utf-8")
+                        return
+                    total = round(subtotal * (1 - pct / 100.0), 2)
+                    discount_amt = round(subtotal - total)
+                    con.execute("UPDATE orders SET total=?, discount=? WHERE id=?",
+                                (total, discount_amt, order_id))
+                    con.commit()
+                    client_uid = o["user_id"]
+                finally:
+                    con.close()
+            except Exception as e:
+                self._send(500, _j({"error": str(e)}), "application/json; charset=utf-8")
+                return
+            if _TMA_CTX and client_uid:
+                msg_text = (
+                    f"💰 <b>Заказ №{order_id}: пересчитали сумму</b>\n\n"
+                    f"Скидка {pct:g}% — {discount_amt:,.0f} ₽\n"
+                    f"К оплате: <b>{total:,.0f} ₽</b>".replace(",", " ")
+                )
+                async def _notify_discount():
+                    try:
+                        await _TMA_CTX["bot"].send_message(
+                            client_uid, msg_text, parse_mode="HTML")
+                    except Exception:
+                        pass
+                asyncio.run_coroutine_threadsafe(_notify_discount(), _TMA_CTX["loop"])
+            self._send(200, _j({"ok": True, "discount_pct": pct, "subtotal": subtotal,
+                                "discount": discount_amt, "total": total}),
+                       "application/json; charset=utf-8")
+            return
+
         m_status = re.match(r"^/tma/api/admin/order/(\d+)/status$", path)
         if m_status:
             user = _get_request_user(self)
