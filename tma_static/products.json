@@ -23068,6 +23068,58 @@
       ],
       "created_at": "2026-10-07T08:15:01+00:00",
       "created_by": "bridge_1c_qc"
+    },
+    {
+      "id": "e-кения_оранж_кисии",
+      "category": "espresso",
+      "subcategory": "espresso_micro",
+      "name": "Кения Оранж Кисии",
+      "country": "Кения",
+      "roast": "E",
+      "process": "Анаэробный",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "price": 2067.5,
+          "size": "1 кг"
+        }
+      ],
+      "stock": 10,
+      "tags": [
+        "микролот",
+        "Блэк",
+        "анаэробная"
+      ],
+      "photo": null,
+      "pair_id": "кения_оранж_кисии"
+    },
+    {
+      "id": "f-кения_оранж_кисии",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "name": "Кения Оранж Кисии",
+      "country": "Кения",
+      "roast": "F",
+      "process": "Анаэробный",
+      "description": "",
+      "recipe_e": "",
+      "recipe_f": "",
+      "fasovka": [
+        {
+          "price": 2067.5,
+          "size": "1 кг"
+        }
+      ],
+      "stock": 10,
+      "tags": [
+        "микролот",
+        "Блэк",
+        "анаэробная"
+      ],
+      "photo": null,
+      "pair_id": "кения_оранж_кисии"
     }
   ]
 }
