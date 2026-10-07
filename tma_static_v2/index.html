@@ -93,7 +93,7 @@ function toast(msg, ms = 1600) {
   toast._t = setTimeout(() => el.classList.remove('show'), ms);
 }
 
-const RB_CLIENT_SHOP_URL = 'https://t.me/RCR_BtB_bot?startapp=shop';
+const RB_CLIENT_SHOP_URL = 'https://tg-bot-production-ae5c.up.railway.app/tma/';
 const RB_CLIENT_SHOP_TITLE = 'Магазин Roastberry';
 const RB_CLIENT_SHOP_MESSAGE = 'Roastberry B2B: каталог, актуальные остатки и быстрый заказ.';
 
@@ -412,9 +412,6 @@ function applyUserProfile(p) {
     if (p[k] && !STATE.contact[k]) STATE.contact[k] = p[k];
   });
   if (p.address && !STATE.contact.delivery.address) STATE.contact.delivery.address = p.address;
-  // Личный тариф клиента: приходит процентом (0 / 10 / 20).
-  if (typeof p.discount_pct === 'number') STATE.personalPct = p.discount_pct;
-  if (typeof p.pricing_rules === 'number') STATE.pricingRules = p.pricing_rules;
   if (p.pd_consent_at) {
     STATE.contact.consent_granted = true;
     STATE.contact.consent_signed_at = p.pd_consent_at;
@@ -573,14 +570,8 @@ const TIERS = [
   { min: 10, d: 0.10 },
   { min: 0,  d: 0.00 },
 ];
-// Личная скидка клиента и весовая НЕ складываются — берём выгодную,
-// ровно как считает сервер при оформлении заказа.
-function personalTier() {
-  const pct = Number(STATE && STATE.personalPct) || 0;
-  return pct > 0 ? pct / 100 : 0;
-}
 function tierFor(kg) {
-  for (const t of TIERS) if (kg >= t.min) return Math.max(t.d, personalTier());
+  for (const t of TIERS) if (kg >= t.min) return t.d;
   return 0;
 }
 
@@ -895,10 +886,11 @@ function screenHome() {
   return `
 ${appHeader({ logo: true })}
 
-<div style="padding:6px 16px 0; display:flex; justify-content:flex-start; align-items:center;">
+<div style="padding:6px 16px 0; display:flex; justify-content:space-between; align-items:center;">
   <button onclick="rbShareWebLink()" style="font-family:var(--f-mono); font-size:10px; letter-spacing:0.04em; color:var(--ink-soft); background:none; border:1px solid var(--line); border-radius:999px; padding:4px 10px; cursor:pointer; display:flex; align-items:center; gap:5px; -webkit-tap-highlight-color:transparent;">
     ${icon('link', 13, 1.8)} Ссылка для клиента →
   </button>
+  <a href="/tma/v1/" style="font-family:var(--f-mono); font-size:10px; letter-spacing:0.04em; color:var(--ink-soft); text-decoration:none; opacity:0.6; padding:4px 8px; border:1px solid var(--line); border-radius:999px;">старая версия →</a>
 </div>
 
 <!-- HERO carousel: обжарка / лимонады / аренда / академия (стили — _brand/palettes/COLORS.md + v1 рабочие плашки) -->
