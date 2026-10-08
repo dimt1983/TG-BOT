@@ -1618,7 +1618,7 @@
           "on_request": false
         }
       ],
-      "stock": 190.0,
+      "stock": 211,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1647,7 +1647,7 @@
           "on_request": false
         }
       ],
-      "stock": 34.0,
+      "stock": 54,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -5682,7 +5682,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 329,
+      "stock": 380,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6788,7 +6788,7 @@
       "name": "Кения Центральная Провинция АБ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 2.0,
+      "stock": 1,
       "hidden": false,
       "quarantined": false,
       "country": "Кения",
@@ -13932,7 +13932,7 @@
           "on_request": false
         }
       ],
-      "stock": 8.95,
+      "stock": 7.95,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -18327,7 +18327,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "on_request": false,
       "_source": "ЧА3435 Молочный Улун 250г, чай Альтхаус зеленый листовой",
       "subcategory": "tea_althaus_loose",
@@ -18347,7 +18347,7 @@
           "on_request": false
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "on_request": false,
       "_source": "ЧА3600 Сенча Сенпай 250 г, чай Альтаус зеленый листовой",
       "subcategory": "tea_китайский_чай_loose",
@@ -18367,7 +18367,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 2,
       "on_request": false,
       "_source": "ЧА6030 Японская Липа 75 г, напиток Альтхаус травяной",
       "subcategory": "tea_althaus_loose",
@@ -20551,7 +20551,7 @@
     {
       "id": "1c-111-2b425d8abf",
       "name": "ЧА4005 Жасмин Тинг Юань 250г, чай Альтхаус зеленый аромат. лист",
-      "stock": 3,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-111",
