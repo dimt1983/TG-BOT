@@ -2021,7 +2021,7 @@
           "on_request": false
         }
       ],
-      "stock": 81,
+      "stock": 43,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -5719,7 +5719,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 25,
+      "stock": 8,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8388,7 +8388,7 @@
           "on_request": false
         }
       ],
-      "stock": 84,
+      "stock": 83,
       "tags": [],
       "photo": null,
       "quarantined": false,
