@@ -1254,7 +1254,7 @@
           "on_request": false
         }
       ],
-      "stock": 21,
+      "stock": 30,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -2021,7 +2021,7 @@
           "on_request": false
         }
       ],
-      "stock": 43.0,
+      "stock": 41,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -7964,7 +7964,7 @@
           "on_request": false
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
