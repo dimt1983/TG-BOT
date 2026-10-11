@@ -22904,7 +22904,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-11T10:15:03+00:00",
+      "quarantined_at": "2026-10-11T11:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -22973,7 +22973,7 @@
       "name": "Кения Оранж Кисии анаэроб.1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 3.0,
+      "stock": 2.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-124",
@@ -23044,7 +23044,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-11T10:15:03+00:00",
+      "quarantined_at": "2026-10-11T11:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
