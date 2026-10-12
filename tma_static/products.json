@@ -5685,7 +5685,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 318,
+      "stock": 290,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -16051,7 +16051,7 @@
           "on_request": false
         }
       ],
-      "stock": 10.0,
+      "stock": 8,
       "_source": "E \"Roastberry\" Гондурас San Nicolas Dark - 1 кг",
       "country": "Гондурас",
       "subcategory": "retail_espresso",
