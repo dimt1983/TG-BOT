@@ -21560,12 +21560,11 @@
       "fasovka": [
         {
           "size": "250 г",
-          "price": 1710,
-          "on_request": false
+          "price": 1750.0
         }
       ],
       "category": "tea",
-      "on_request": false
+      "price_source_1c": "ЧАЙ-207"
     },
     {
       "id": "1c-211-622872efa6",
