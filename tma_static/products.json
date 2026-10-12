@@ -1200,7 +1200,7 @@
           "on_request": false
         }
       ],
-      "stock": 52.0,
+      "stock": 50.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1648,7 +1648,7 @@
           "on_request": false
         }
       ],
-      "stock": 19.0,
+      "stock": 39.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -5673,7 +5673,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 241.0,
+      "stock": 237.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -14719,7 +14719,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 108.0,
+      "stock": 105.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -22798,7 +22798,7 @@
       "name": "Эфиопия Иргачиф Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 36.0,
+      "stock": 34.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": null,
@@ -22827,7 +22827,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-12T10:15:23+00:00",
+      "quarantined_at": "2026-10-12T11:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -22967,7 +22967,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-12T10:15:23+00:00",
+      "quarantined_at": "2026-10-12T11:15:04+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
