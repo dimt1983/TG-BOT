@@ -1144,7 +1144,7 @@
           "on_request": false
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1200,7 +1200,7 @@
           "on_request": false
         }
       ],
-      "stock": 56,
+      "stock": 54,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1619,7 +1619,7 @@
           "on_request": false
         }
       ],
-      "stock": 189,
+      "stock": 186,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -2024,7 +2024,7 @@
           "on_request": false
         }
       ],
-      "stock": 91.0,
+      "stock": 35,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -5611,7 +5611,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 115,
+      "stock": 112,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5685,7 +5685,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 323,
+      "stock": 318,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5722,7 +5722,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 28.0,
+      "stock": 16,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -10426,7 +10426,7 @@
           "on_request": false
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": "photos/products/s-сироп_herbarista_вишня_с_виноградной_косточкой_0_7.jpg",
       "_source": "herbarista_pdf",
@@ -10843,17 +10843,19 @@
       "fasovka": [
         {
           "size": "0.7 л",
-          "price": 810.0
+          "price": 810,
+          "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "quarantined": false,
       "quarantined_at": "2026-05-19T13:00:08+00:00",
       "_source": "Сироп Макадамия 0,7 л. Гербариста",
       "article_1c": "СИР-094",
       "hidden": false,
-      "price_source_1c": "СИР-094"
+      "price_source_1c": "СИР-094",
+      "on_request": false
     },
     {
       "id": "s-сироп_herbarista_малина_с_листьями_0_7л",
@@ -13205,7 +13207,7 @@
           "on_request": false
         }
       ],
-      "stock": 65,
+      "stock": 62,
       "tags": [],
       "photo": "photos/products/t-чай_tasteabrew_togo_350_гун_тин_и_саган_дайля_100_.jpg",
       "quarantined": false,
@@ -16386,7 +16388,7 @@
           "price": 166
         }
       ],
-      "stock": 208,
+      "stock": 196,
       "on_request": false,
       "_source": "Напиток на соевой основе, кокосовый \"Green Milk\"на соевой основе 1л.",
       "subcategory": "milk_main",
@@ -16406,7 +16408,7 @@
           "price": 166
         }
       ],
-      "stock": 202,
+      "stock": 190,
       "on_request": false,
       "_source": "Напиток на соевой основе, миндальный \"Green Milk\" 1л.",
       "subcategory": "milk_main",
@@ -20979,7 +20981,7 @@
     {
       "id": "1c-145-bcc2ba064b",
       "name": "Чай Tasteabrew RESTA-650 для чайника \"Апельсин Ройбуш\" (30)",
-      "stock": 30,
+      "stock": 27,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-145",
@@ -21013,7 +21015,7 @@
     {
       "id": "1c-147-5bbbcc6258",
       "name": "Чай Tasteabrew RESTA-650 для чайника \"Иммунный\" (30)",
-      "stock": 8,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-147",
@@ -21064,7 +21066,7 @@
     {
       "id": "1c-150-0b1f211ee8",
       "name": "Чай Tasteabrew RESTA-650 для чайника \"Лесные ягоды\" (30)",
-      "stock": 30,
+      "stock": 27,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-150",
@@ -21149,7 +21151,7 @@
     {
       "id": "1c-156-bc5c423843",
       "name": "Чай Tasteabrew RESTA-650 для чайника \"Смородиновый черныйг\" (30)",
-      "stock": 36,
+      "stock": 33,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-156",
@@ -21268,7 +21270,7 @@
     {
       "id": "1c-167-d501d08e16",
       "name": "Чай Tasteabrew TOGO-350 \"Кедровый с чагой\" (30)",
-      "stock": 52,
+      "stock": 50,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-167",
@@ -21337,7 +21339,7 @@
     {
       "id": "1c-171-a9011d18a1",
       "name": "Чай Tasteabrew TOGO-350 \"Манго с апельсином\" (60)",
-      "stock": 117,
+      "stock": 114,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-171",
@@ -21422,7 +21424,7 @@
     {
       "id": "1c-177-5af17e37d1",
       "name": "Чай Tasteabrew TOGO-350 \"Черный чай со смородиной\" (30)",
-      "stock": 99,
+      "stock": 96,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-177",
