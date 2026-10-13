@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 44.0,
+      "stock": 84.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -5597,7 +5597,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 81.0,
+      "stock": 78.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5671,7 +5671,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 269.0,
+      "stock": 265.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -22327,7 +22327,7 @@
       "name": "F \"Roastberry\" Колумбия Рисаральда декаф - 200 г",
       "category": "retail",
       "subcategory": "retail_filter",
-      "stock": 3.0,
+      "stock": 2.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-107",
@@ -22829,7 +22829,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-13T09:15:04+00:00",
+      "quarantined_at": "2026-10-13T10:15:35+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
