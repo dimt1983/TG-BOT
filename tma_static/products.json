@@ -1199,7 +1199,7 @@
           "on_request": false
         }
       ],
-      "stock": 68,
+      "stock": 68.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1227,7 +1227,7 @@
           "on_request": false
         }
       ],
-      "stock": 28,
+      "stock": 28.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1254,7 +1254,7 @@
           "on_request": false
         }
       ],
-      "stock": 24,
+      "stock": 24.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1282,7 +1282,7 @@
           "on_request": false
         }
       ],
-      "stock": 16,
+      "stock": 16.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -5609,7 +5609,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 146,
+      "stock": 146.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5683,7 +5683,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 315,
+      "stock": 315.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7393,7 +7393,7 @@
       "name": "Колумбия Кастильо мытая - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4.0,
+      "stock": 3.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -16052,7 +16052,7 @@
           "on_request": false
         }
       ],
-      "stock": 21,
+      "stock": 21.0,
       "_source": "E \"Roastberry\" Гондурас San Nicolas Dark - 1 кг",
       "country": "Гондурас",
       "subcategory": "retail_espresso",
@@ -22175,7 +22175,7 @@
       "name": "Эфиопия Банко Готити гр.1 сухой нат. FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 7.0,
+      "stock": 6.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-111",
@@ -22917,7 +22917,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-14T09:15:02+00:00",
+      "quarantined_at": "2026-10-14T11:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23057,7 +23057,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-14T09:15:02+00:00",
+      "quarantined_at": "2026-10-14T11:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
