@@ -1590,7 +1590,7 @@
           "on_request": false
         }
       ],
-      "stock": 41,
+      "stock": 40,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
@@ -1647,7 +1647,7 @@
           "on_request": false
         }
       ],
-      "stock": 33,
+      "stock": 32,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -2191,7 +2191,7 @@
           "on_request": false
         }
       ],
-      "stock": 16,
+      "stock": 15,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5683,7 +5683,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 368,
+      "stock": 340,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -11106,7 +11106,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -15704,9 +15704,9 @@
       "name": "Кения Маакиоу Пиберри мытая 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 1,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "F",
       "photo": "photos/products/filter_micro_кения_маакиоу_пиберри_мытая_1_кг_filter.jpg",
       "fasovka": [
@@ -15720,7 +15720,8 @@
       "created_at": "2026-06-03T11:33:47+00:00",
       "created_by": "sync_catalog_v2",
       "on_request": false,
-      "article_1c": "КОФ-062"
+      "article_1c": "КОФ-062",
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "espresso_mono_мексика_чьяпас_мытый_эспрессо_1_кг",
@@ -16364,7 +16365,7 @@
           "on_request": false
         }
       ],
-      "stock": 22,
+      "stock": 21,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false,
@@ -16864,7 +16865,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "on_request": false,
       "_source": "Сироп Ваниль 1,0 л. BOTANIKA",
       "subcategory": "syr_botanika",
@@ -19821,7 +19822,7 @@
     {
       "id": "1c-066-8a6083d8f5",
       "name": "Сироп Имбирный пряник 0,7 л. Гербариста",
-      "stock": 7,
+      "stock": 6,
       "hidden": false,
       "quarantined": false,
       "article_1c": "СИР-066",
@@ -19839,7 +19840,7 @@
     {
       "id": "1c-087-93fcb7af61",
       "name": "Сироп Лайм  (Sour Mix) 1,0 л. BOTANIKA",
-      "stock": 3,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "article_1c": "СИР-087",
@@ -22751,7 +22752,7 @@
     {
       "id": "1c-article-d8dbbd8bc2",
       "name": "ДП \"CHOCOLATE RB\" БРАЗИЛИЯ СЕРТАО ЖЕЛТЫЙ БУРБОН молотый, 8 фильтр-пакетов",
-      "stock": 15,
+      "stock": 14,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ШОКОЛАД",
