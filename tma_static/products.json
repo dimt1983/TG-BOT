@@ -1254,7 +1254,7 @@
           "on_request": false
         }
       ],
-      "stock": 25,
+      "stock": 25.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1562,7 +1562,7 @@
           "on_request": false
         }
       ],
-      "stock": 19,
+      "stock": 19.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
@@ -1873,7 +1873,7 @@
           "on_request": false
         }
       ],
-      "stock": 22,
+      "stock": 22.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -2022,7 +2022,7 @@
           "on_request": false
         }
       ],
-      "stock": 18,
+      "stock": 13.0,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -5683,7 +5683,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 231,
+      "stock": 231.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7287,7 +7287,7 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 18,
+      "stock": 18.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -7790,7 +7790,7 @@
           "on_request": false
         }
       ],
-      "stock": 21.0,
+      "stock": 22.0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -7966,7 +7966,7 @@
           "on_request": false
         }
       ],
-      "stock": 21,
+      "stock": 21.0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -14754,7 +14754,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 81,
+      "stock": 81.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -15088,7 +15088,7 @@
       "name": "Вьетнам Блю Шонла сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3.0,
+      "stock": 2.0,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -22250,7 +22250,7 @@
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Конга  гр.1 сухой 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 3.0,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-112",
@@ -22923,7 +22923,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-15T08:15:05+00:00",
+      "quarantined_at": "2026-10-15T09:15:07+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23013,7 +23013,7 @@
       "name": "Кофе \"Roastberry BLACK\" Кения Оранж Кисии анаэроб - 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 26.0,
+      "stock": 27.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-122",
@@ -23063,7 +23063,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-15T08:15:05+00:00",
+      "quarantined_at": "2026-10-15T09:15:07+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
