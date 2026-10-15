@@ -1303,7 +1303,8 @@ function migrateProductRedirectState(cartValue, favoriteValue, currentId, redire
     const fasovka = String(line.fasovka || line.size || '');
     const product = Array.isArray(products) ? products.find(p => String(p.id) === id) : null;
     const pack = product && (product.fasovka || []).find(f => String(f.size) === fasovka);
-    if (Array.isArray(products) && (!product || !pack)) return;
+    if (Array.isArray(products) && !product) return;
+    const unitReview = Boolean(product && !pack);
     const choices = ['roast_choice', 'grind', 'variant'];
     const key = [id, fasovka, ...choices.map(k => String(line[k] || ''))].join('\u0000');
     const safeQty = Math.min(Number.MAX_SAFE_INTEGER, Math.floor(qty));
@@ -1312,8 +1313,9 @@ function migrateProductRedirectState(cartValue, favoriteValue, currentId, redire
       merged.get(key).qty = Math.min(Number.MAX_SAFE_INTEGER, merged.get(key).qty + safeQty);
     } else {
       const rebuilt = product ? {
-        id, name: product.name, fasovka, price: pack.price, qty: safeQty,
-        photo: pack.photo || product.photo || null, category: product.category,
+        id, name: product.name, fasovka, price: unitReview ? null : pack.price, qty: safeQty,
+        ...(unitReview ? {on_request:true, unit_review:true} : {}),
+        photo: (pack && pack.photo) || product.photo || null, category: product.category,
       } : Object.assign({}, line, { id, fasovka, qty: safeQty });
       choices.forEach(k => { if (line[k] !== undefined) rebuilt[k] = line[k]; });
       merged.set(key, rebuilt);
@@ -1488,6 +1490,7 @@ async function load() {
   DATA = nextData;
   PRODUCT_REDIRECTS = nextRedirects;
   cart = migration.cart;
+  if (migration.cart.some(x => x.unit_review)) alert('Фасовка товара изменилась. Удалите отмеченные позиции и добавьте заново в нужных единицах.');
   favorites = migration.favorites;
   currentProduct = migration.currentId
     ? (DATA.products || []).find(p => String(p.id) === migration.currentId) || null : null;
@@ -2252,9 +2255,11 @@ function renderCart() {
     c.innerHTML = `<div class="cart-empty"><div class="big">🛒</div><h3>Корзина пуста</h3><p>Время выбрать что-то вкусное!</p><button class="btn-primary" style="margin-top:16px;max-width:240px" onclick="goTo('home')">К каталогу</button></div>`;
     return;
   }
-  let subtotal = 0, totalKg = 0;
+  let subtotal = 0, totalKg = 0, discountable = 0;
   cart.forEach(it => {
     subtotal += it.price * it.qty;
+    if ((DATA.products || []).find(p => p.id === it.id)?._price_owner === 'rbo') return;
+    discountable += it.price * it.qty;
     const m = /(\d+(?:\.\d+)?)\s*(кг|г)/i.exec(it.fasovka);
     if (m) {
       let v = parseFloat(m[1]);
@@ -2263,7 +2268,7 @@ function renderCart() {
     }
   });
   const discount = totalKg >= 25 ? 0.20 : totalKg >= 10 ? 0.10 : 0;
-  const saved = Math.round(subtotal * discount);
+  const saved = Math.round(discountable * discount);
   const total = subtotal - saved;
 
   let progress = '';
@@ -2397,9 +2402,11 @@ function setDelivery(method) {
 }
 
 function calcTotals() {
-  let subtotal = 0, totalKg = 0;
+  let subtotal = 0, totalKg = 0, discountable = 0;
   cart.forEach(it => {
     subtotal += it.price * it.qty;
+    if ((DATA.products || []).find(p => p.id === it.id)?._price_owner === 'rbo') return;
+    discountable += it.price * it.qty;
     const m = /(\d+(?:\.\d+)?)\s*(кг|г)/i.exec(it.fasovka);
     if (m) {
       let v = parseFloat(m[1]);
@@ -2408,7 +2415,7 @@ function calcTotals() {
     }
   });
   const pct = totalKg >= 25 ? 0.20 : totalKg >= 10 ? 0.10 : 0;
-  const saved = Math.round(subtotal * pct);
+  const saved = Math.round(discountable * pct);
   const total = subtotal - saved;
   return { subtotal, totalKg, pct, saved, total };
 }

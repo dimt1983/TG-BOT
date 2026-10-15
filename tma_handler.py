@@ -176,9 +176,6 @@ def _ensure_user_profile_columns(con) -> None:
     if "user_type"      not in cols: add.append("ALTER TABLE users ADD COLUMN user_type TEXT")
     if "pd_consent_at"  not in cols: add.append("ALTER TABLE users ADD COLUMN pd_consent_at TEXT")
     if "pd_consent_version" not in cols: add.append("ALTER TABLE users ADD COLUMN pd_consent_version TEXT")
-    if "city"            not in cols: add.append("ALTER TABLE users ADD COLUMN city TEXT")
-    if "recipient_name"  not in cols: add.append("ALTER TABLE users ADD COLUMN recipient_name TEXT")
-    if "recipient_phone" not in cols: add.append("ALTER TABLE users ADD COLUMN recipient_phone TEXT")
     for sql in add:
         con.execute(sql)
     if add:
@@ -206,15 +203,11 @@ def _upsert_user_profile(con, user_id: int, payload: dict) -> None:
     _ensure_user_profile_columns(con)
     contact = payload.get("contact") or {}
     user_type = contact.get("type") or "individual"
-    delivery = contact.get("delivery") or {}
     fields = {
-        "name":            contact.get("name") or contact.get("recipient_name") or "",
-        "phone":           contact.get("phone") or "",
-        "address":         contact.get("address") or contact.get("delivery_address") or "",
-        "city":            delivery.get("city") or "",
-        "recipient_name":  delivery.get("recipient_name") or "",
-        "recipient_phone": delivery.get("recipient_phone") or "",
-        "user_type":       user_type,
+        "name":          contact.get("name") or contact.get("recipient_name") or "",
+        "phone":         contact.get("phone") or "",
+        "address":       contact.get("address") or contact.get("delivery_address") or "",
+        "user_type":     user_type,
     }
     if user_type == "company":
         fields["company_name"]  = contact.get("company") or ""
@@ -254,35 +247,6 @@ def _upsert_user_profile(con, user_id: int, payload: dict) -> None:
     con.commit()
 
 
-def _apply_tier_prices(con, user_id: int, items: list) -> None:
-    """Подставляет цены прайса клиента (пока это только СТМ).
-
-    Позиции помечаем как персональные: их цена уже льготная, поэтому общие
-    скидки к ним не применяются и вес в объём не идёт — так же считает витрина."""
-    if not user_id or not items:
-        return
-    try:
-        from tma_static_server import _user_tier, tier_price_map
-        tier = _user_tier(con, user_id)
-        prices = tier_price_map(tier)
-        if not prices:
-            return
-        for it in items:
-            sizes = prices.get(it.get("id") or "")
-            if not sizes:
-                continue
-            new_price = sizes.get(it.get("fasovka") or "")
-            if new_price is None:
-                continue
-            base = float(it.get("price") or 0)
-            if new_price < base - 0.01:
-                it["price"] = float(new_price)
-                it["_personal_priced"] = True
-                it["_tier_priced"] = tier
-    except Exception as e:
-        log.warning(f"_apply_tier_prices failed: {e}")
-
-
 def _apply_personal_pricing(con, user_id: int, items: list) -> None:
     """Пересчитывает price у каждой позиции с учётом user_pricing-правил клиента.
     Меняет items in-place. Правила НЕ суммируются — берётся самое выгодное
@@ -294,7 +258,7 @@ def _apply_personal_pricing(con, user_id: int, items: list) -> None:
     # отрицательный, но правила в user_pricing заведены именно на этот id.
     # Раньше здесь стояло user_id <= 0, и назначенная таким карточкам
     # скидка молча не применялась.
-    if not user_id or not items:
+    if not user_id or not items or all(it.get("_rbo_base") for it in items):
         return
     try:
         from tma_static_server import (
@@ -322,6 +286,8 @@ def _apply_personal_pricing(con, user_id: int, items: list) -> None:
         except Exception:
             pass
         for it in items:
+            if it.get("_rbo_base"):
+                continue
             tma_id = it.get("id") or ""
             meta = prod_meta.get(tma_id, {})
             category = meta.get("category") or it.get("category") or ""
@@ -346,26 +312,17 @@ def _apply_personal_pricing(con, user_id: int, items: list) -> None:
         log.warning(f"_apply_personal_pricing failed: {e}")
 
 
-# Разделы, которые считаются кофе для объёмной скидки. Тот же список лежит
-# в витрине (COFFEE_CATS в tma_static_v2/index.html) — расходиться им нельзя,
-# иначе клиент увидит одну сумму, а в заказе окажется другая.
-VOLUME_CATEGORIES = frozenset({
-    "espresso", "filter", "retail", "black", "borshch", "drip", "cascara", "sets",
-})
-
-
 def _compute_order_discount(con, user_id: int, items: list) -> tuple[float, float, dict]:
-    """Считает скидку на ОБЩИЕ позиции (без user_pricing).
+    """Считает скидку на ОБЩИЕ позиции (без user_pricing). Скидки НЕ суммируются —
+    берётся max(tier_pct, volume_pct).
 
     Возвращает (subtotal_personal, subtotal_general_after_discount, breakdown).
+      - subtotal_personal: сумма позиций с user_pricing (цена уже снижена)
+      - subtotal_general_after_discount: сумма позиций без user_pricing после max-скидки
 
-    Правила (заданы владельцем 18.08.2026):
-      • у позиции есть личная цена — никакие общие скидки к ней больше не идут,
-        и её вес не считается в объёме;
-      • прайс клиента нестандартный (опт/СТМ) — объёмной скидки нет вообще,
-        работает только процент тарифа, и он идёт на весь остальной заказ;
-      • прайс стандартный — объём считается по весу КОФЕ и снижает только кофе.
-        Чай, сиропы и прочее ни веса не добавляют, ни скидки не получают."""
+    Логика: позиции с персональной скидкой уже получили выгодную цену — общая
+    оптовая (tier/volume) к ним НЕ применяется. К остальным — max(tier, volume).
+    Так клиент не получает «двойную» скидку."""
     tier_pct = 0.0
     tier_name = "standard"
     try:
@@ -375,51 +332,30 @@ def _compute_order_discount(con, user_id: int, items: list) -> tuple[float, floa
     except Exception:
         pass
 
-    cats = _build_roast_map()
     subtotal_personal = 0.0
-    subtotal_coffee = 0.0
-    subtotal_other = 0.0
-    kg_coffee = 0.0
+    subtotal_general = 0.0
+    total_kg_general = 0.0
     for it in items:
         line = float(it.get("price") or 0) * float(it.get("qty") or 0)
+        kg = (parse_kg(it.get("fasovka", "")) or 0) * float(it.get("qty") or 0)
         if it.get("_personal_priced"):
             subtotal_personal += line
-            continue
-        cat = (cats.get(it.get("id") or "", {}).get("category")
-               or it.get("category") or "").lower()
-        if cat in VOLUME_CATEGORIES:
-            subtotal_coffee += line
-            kg_coffee += (parse_kg(it.get("fasovka", "")) or 0) * float(it.get("qty") or 0)
         else:
-            subtotal_other += line
+            subtotal_general += line
+            total_kg_general += kg
 
-    if tier_name != "standard":
-        # Оптовый или СТМ-прайс уже учитывает объём — второй раз не даём.
-        volume_pct = 0.0
-        coffee_pct = other_pct = tier_pct
-    else:
-        volume_pct = 20.0 if kg_coffee >= 25 else (10.0 if kg_coffee >= 10 else 0.0)
-        coffee_pct = volume_pct
-        other_pct = 0.0
-
-    subtotal_general = subtotal_coffee + subtotal_other
-    subtotal_general_after = round(subtotal_coffee * (1 - coffee_pct / 100)
-                                   + subtotal_other * (1 - other_pct / 100), 2)
-    saved = subtotal_general - subtotal_general_after
-    final_pct = round(saved / subtotal_general * 100, 2) if subtotal_general else 0.0
+    volume_pct = 20.0 if total_kg_general >= 25 else (10.0 if total_kg_general >= 10 else 0.0)
+    # НЕ суммируем — берём максимум (бизнес-правило: одна скидка на позицию).
+    general_pct = max(tier_pct, volume_pct)
+    subtotal_general_after = round(subtotal_general * (1 - general_pct / 100), 2)
 
     return subtotal_personal, subtotal_general_after, {
         "tier_pct": tier_pct,
         "tier_name": tier_name,
         "volume_pct": volume_pct,
-        "coffee_pct": coffee_pct,
-        "other_pct": other_pct,
-        "general_pct": coffee_pct,
-        "final_pct": final_pct,
-        "total_kg": kg_coffee,
+        "general_pct": general_pct,
+        "total_kg": total_kg_general,
         "subtotal_personal": subtotal_personal,
-        "subtotal_coffee": subtotal_coffee,
-        "subtotal_other": subtotal_other,
         "subtotal_general": subtotal_general,
         "subtotal_general_after": subtotal_general_after,
     }
@@ -449,6 +385,33 @@ def _absorb_phone_stub(con, user_id: int, phone: str | None) -> None:
 
 
 def create_order_from_tma(con, user_id: int, payload: dict) -> int:
+    from rbo_cart import CATALOG, current_policy, prepare_payload
+    from rbo_guard import catalog_lock
+    if not current_policy().enabled:
+        payload['items'] = [{k:v for k,v in it.items() if not k.startswith('_')}
+                            if isinstance(it, dict) else it for it in payload.get('items', [])]
+        return _create_order_from_tma(con, user_id, payload)
+    with catalog_lock(CATALOG):
+        checked = prepare_payload(payload)
+        from rbo_db import reserve_items, DeferredCommit
+        try:
+            con.execute('BEGIN IMMEDIATE')
+            reserve_items(con, checked.get('items', []), checked['_rbo_catalog_digest'])
+        except Exception:
+            con.rollback()
+            raise
+        payload.clear()
+        payload.update(checked)
+        try:
+            result = _create_order_from_tma(DeferredCommit(con), user_id, payload)
+            con.commit()
+            return result
+        except Exception:
+            con.rollback()
+            raise
+
+
+def _create_order_from_tma(con, user_id: int, payload: dict) -> int:
     """
     Создаёт заказ из payload, который пришёл из TMA.
     Возвращает order_id.
@@ -480,7 +443,6 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
             + (f" и ещё {len(no_price)-5}" if len(no_price) > 5 else "")
             + ". Уберите их из корзины или напишите менеджеру — оформим вручную."
         )
-    _apply_tier_prices(con, user_id, items)
     _apply_personal_pricing(con, user_id, items)
     subtotal = sum((it.get("price") or 0) * it["qty"] for it in items)
     sub_personal, sub_general_after, breakdown = _compute_order_discount(con, user_id, items)
@@ -509,7 +471,10 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
     # Позиции
     _ensure_tma_id_column(con)
     for it in items:
-        pid = find_product_id(con, it["name"], it.get("fasovka", ""))
+        pid = it.get("_rbo_db_id") if it.get("_rbo_base") else find_product_id(con, it["name"], it.get("fasovka", ""))
+        if pid is not None and not it.get('_rbo_base'):
+            from rbo_cart import require_legacy_db_access
+            require_legacy_db_access([pid], con)
         if pid is None:
             # фоллбек: создаём «заглушку»-товар чтобы FK не падал
             cur2 = con.execute(
@@ -530,7 +495,8 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
         )
         # Списание остатка (если есть колонка)
         try:
-            con.execute("UPDATE products SET stock = stock - ? WHERE id = ?", (it["qty"], pid))
+            if not it.get("_rbo_base"):
+                con.execute("UPDATE products SET stock = stock - ? WHERE id = ?", (it["qty"], pid))
         except Exception:
             pass
 
@@ -546,12 +512,10 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
 
 def parse_kg(fasovka_str: str) -> float | None:
     import re
-    # Запятая в «1,75 г» и «0,5 кг» — иначе число читается с середины
-    # и граммы превращаются в килограммы.
-    m = re.search(r"(\d+(?:[.,]\d+)?)\s*(кг|г)", fasovka_str.lower())
+    m = re.search(r"(\d+(?:\.\d+)?)\s*(кг|г)", fasovka_str.lower())
     if not m:
         return None
-    v = float(m.group(1).replace(",", "."))
+    v = float(m.group(1))
     if m.group(2) == "г":
         v /= 1000
     return v
@@ -622,6 +586,7 @@ async def process_tma_order(
     # Создаём заказ
     con = get_db()
     order_id = create_order_from_tma(con, user_id, payload)
+    items = payload["items"]
     con.close()
 
     bd = payload.get("_discount_breakdown") or {}
@@ -648,13 +613,10 @@ async def process_tma_order(
     lines.append(f"\n💰 Сумма: {subtotal:.0f} ₽")
     if sub_personal:
         lines.append(f"⭐ С вашими персональными ценами: {sub_personal:.0f} ₽")
-    lines.append(f"⚖️ Вес кофе: {kg:.2f} кг")
+    lines.append(f"⚖️ Вес: {kg:.2f} кг")
     if general_pct:
-        if tier_name != "standard":
-            lines.append(f"📦 Скидка −{general_pct:.0f}% "
-                         f"(тариф «{TIER_LABEL.get(tier_name, tier_name)}»)")
-        else:
-            lines.append(f"📦 Скидка на кофе −{general_pct:.0f}% за объём ({kg:.1f} кг)")
+        why = f"тариф «{TIER_LABEL.get(tier_name, tier_name)}»" if tier_pct >= vol_pct else f"за объём ({kg:.1f} кг)"
+        lines.append(f"📦 Скидка на остальное −{general_pct:.0f}% ({why})")
     if saved:
         lines.append(f"🎁 <b>Экономия: −{saved} ₽</b>")
     lines.append(f"\n💳 <b>К оплате: {total:.0f} ₽</b>")

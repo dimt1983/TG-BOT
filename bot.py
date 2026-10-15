@@ -17,6 +17,7 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
 
 from admin import register_admin_handlers, notify_new_order
+from llm_config import anthropic_api_key, anthropic_messages_url
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 DB_PATH = os.environ.get("DB_PATH", "/app/data/shop.db")
@@ -1380,8 +1381,11 @@ def calc_cart_totals(user_id: int):
         FROM cart c JOIN products p ON c.product_id = p.id
         WHERE c.user_id = ?
     """, (user_id,)).fetchall()
-    con.close()
-
+    from rbo_cart import require_legacy_db_access
+    try:
+        require_legacy_db_access([it["product_id"] for it in items], con)
+    finally:
+        con.close()
     subtotal = 0.0
     total_kg = 0.0
     items_with_price = []
@@ -1943,7 +1947,7 @@ async def load_stock_handler(message: Message):
 
 # ─── Загрузка остатков из Excel-файла (с Claude-сопоставлением) ─────────────
 
-_CLAUDE_URL = "https://api.proxyapi.ru/anthropic/v1/messages"
+_CLAUDE_URL = anthropic_messages_url()
 _CLAUDE_MODEL = "claude-haiku-4-5-20251001"
 
 
@@ -1955,7 +1959,7 @@ async def _claude_match(rows: list, db_names: list) -> list:
     Возвращает список matches: [{"source_name":"...","bot_name":"...","stock":N,"price":P}]
     """
     import aiohttp
-    api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    api_key = anthropic_api_key().strip()
     if not api_key:
         return []
 
@@ -2342,6 +2346,12 @@ async def main():
     global _MAIN_LOOP
     _MAIN_LOOP = asyncio.get_running_loop()
     init_db()
+    from rbo_db import stage_current_database
+    rbo_connection = get_db()
+    try:
+        stage_current_database(rbo_connection)
+    finally:
+        rbo_connection.close()
     register_admin_handlers(dp, bot)
     # TMA: команда /shop, обработка web_app_data, Telegram Payments
     try:

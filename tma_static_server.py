@@ -652,7 +652,9 @@ _SYNC_CACHE_TTL = 30.0  # секунд
 def _read_sync_snapshot() -> dict:
     import time
     now = time.monotonic()
-    if _SYNC_CACHE["data"] is not None and (now - _SYNC_CACHE["ts"]) < _SYNC_CACHE_TTL:
+    from rbo_cart import current_policy, CATALOG
+    policy = current_policy()
+    if not policy.enabled and _SYNC_CACHE["data"] is not None and (now - _SYNC_CACHE["ts"]) < _SYNC_CACHE_TTL:
         return _SYNC_CACHE["data"]
     con = sqlite3.connect(DB_PATH)
     con.row_factory = sqlite3.Row
@@ -665,9 +667,15 @@ def _read_sync_snapshot() -> dict:
             "SELECT user_id,tg_name,user_type,name,phone,company_name,created_at "
             "FROM users ORDER BY user_id DESC LIMIT 500"
         ).fetchall()
-        products = con.execute(
-            "SELECT name,price,stock FROM products ORDER BY name"
-        ).fetchall()
+        if policy.enabled:
+            from rbo_guard import read_catalog
+            from rbo_db import sync_products, projection_digest
+            catalog, digest = read_catalog(CATALOG)
+            products = sync_products(con, catalog['products'], policy, projection_digest(catalog, policy))
+        else:
+            products = con.execute(
+                "SELECT name,price,stock FROM products ORDER BY name"
+            ).fetchall()
     finally:
         con.close()
     snapshot = {
@@ -2583,17 +2591,20 @@ class Handler(BaseHTTPRequestHandler):
     def _handle_update_stock(self):
         payload = self._read_body()
         items = payload.get("items") or []
+        from rbo_cart import current_policy
         fuzzy = bool(payload.get("fuzzy", True))
         if not isinstance(items, list) or not items:
             self._send(400, _j({"error": "items required"}),
                        "application/json; charset=utf-8")
             return
+        con = None
         try:
             con = sqlite3.connect(DB_PATH)
             con.row_factory = sqlite3.Row
             updated_stock = 0
             updated_price = 0
             not_found = []
+            protected = []
             for it in items:
                 name = str(it.get("product_name", "")).strip()
                 if not name:
@@ -2614,6 +2625,12 @@ class Handler(BaseHTTPRequestHandler):
                     not_found.append(name)
                     continue
                 pid = row["id"]
+                from rbo_cart import require_legacy_db_access
+                try:
+                    require_legacy_db_access([pid], con)
+                except ValueError as exc:
+                    protected.append({'product_id': pid, 'error': str(exc)})
+                    continue
                 if stock is not None:
                     try:
                         con.execute(
@@ -2638,19 +2655,31 @@ class Handler(BaseHTTPRequestHandler):
             con.commit()
             con.close()
             _invalidate_sync_cache()
-            self._send(200, _j({
-                "status": "ok",
+            self._send(207 if protected else 200, _j({
+                "status": "partial" if protected else "ok",
+                "protected": protected,
                 "updated_stock": updated_stock,
                 "updated_price": updated_price,
                 "not_found_count": len(not_found),
                 "not_found_sample": not_found[:20],
             }), "application/json; charset=utf-8")
         except Exception as e:
+            if con is not None:
+                con.rollback()
+                con.close()
             self._send(500, _j({"error": str(e)}),
                        "application/json; charset=utf-8")
 
     # ── Внешний POST /orders (Девид / wahelp-agent / 1С — в будущем) ────────
     def _handle_external_order(self):
+        from rbo_cart import CATALOG, current_policy
+        from rbo_guard import catalog_lock
+        if current_policy().enabled:
+            with catalog_lock(CATALOG):
+                return self._handle_external_order_unlocked()
+        return self._handle_external_order_unlocked()
+
+    def _handle_external_order_unlocked(self):
         if _TMA_CTX is None:
             self._send(503, _j({"error": "TMA context not initialized"}),
                        "application/json; charset=utf-8")
@@ -2694,6 +2723,15 @@ class Handler(BaseHTTPRequestHandler):
                 print(f"[idempotency] lookup failed: {e}")
 
         try:
+            _ensure_pricing_schema()
+            from rbo_cart import current_policy, prepare_payload, external_identity, CATALOG
+            from rbo_db import resolve, reserve_items
+            policy = current_policy()
+            rbo_catalog = []
+            if policy.enabled:
+                from rbo_guard import read_catalog
+                rbo_catalog = read_catalog(CATALOG)[0]['products']
+            rbo_digest = None
             con = sqlite3.connect(DB_PATH)
             con.row_factory = sqlite3.Row
             try:
@@ -2733,6 +2771,20 @@ class Handler(BaseHTTPRequestHandler):
                 resolved_items = []
                 missing = []
                 for it in items:
+                    rbo_identity = external_identity(it, rbo_catalog, policy)
+                    if rbo_identity:
+                        canonical, unit = rbo_identity
+                        checked = prepare_payload({'items': [{
+                            'id': canonical, 'fasovka': unit,
+                            'qty': it.get('quantity'),
+                        }]})
+                        line = checked['items'][0]
+                        rbo_digest = checked['_rbo_catalog_digest']
+                        db_row = resolve(con, line['id'], rbo_digest)
+                        total += line['price'] * line['qty']
+                        resolved_items.append({**line, 'product_id': db_row['product_id'],
+                            'product_name': line['name'], 'quantity': line['qty']})
+                        continue
                     name = str(it.get("product_name", "")).strip()
                     try:
                         qty = float(it.get("quantity", 0) or 0)
@@ -2746,6 +2798,8 @@ class Handler(BaseHTTPRequestHandler):
                     if prod is None:
                         missing.append(name)
                         continue
+                    from rbo_cart import require_legacy_db_access
+                    require_legacy_db_access([prod["id"]], con)
                     line_price = (prod["price"] or 0) * qty
                     total += line_price
                     resolved_items.append({
@@ -2775,6 +2829,7 @@ class Handler(BaseHTTPRequestHandler):
                 weight_re = re.compile(r"(\d+(?:[\.,]\d+)?)\s*(кг|г)\b", re.IGNORECASE)
                 total_kg = 0.0
                 for ri in resolved_items:
+                    if ri.get('_rbo_base'): continue
                     m = weight_re.search(ri["product_name"].lower())
                     if m:
                         v = float(m.group(1).replace(",", "."))
@@ -2782,7 +2837,6 @@ class Handler(BaseHTTPRequestHandler):
                             v /= 1000
                         total_kg += v * ri["quantity"]
                 # Применяем tier клиента (если есть в БД).
-                _ensure_pricing_schema()
                 tier_name = _user_tier(con, user_id)
                 tier_pct = TIER_AUTO_PCT.get(tier_name, 0.0)
                 # Auto-volume скидка (старая логика, через get_discount от bot.py).
@@ -2791,7 +2845,13 @@ class Handler(BaseHTTPRequestHandler):
                 # НЕ суммируем — берём max (бизнес-правило: одна скидка на заказ).
                 final_pct = max(tier_pct, auto_pct)
                 discount_pct = final_pct / 100.0
-                total_after = total * (1 - discount_pct)
+                rbo_total = sum(ri['price'] * ri['quantity'] for ri in resolved_items if ri.get('_rbo_base'))
+                total_after = rbo_total + (total - rbo_total) * (1 - discount_pct)
+                if rbo_total:
+                    discount_pct = (total - total_after) / total if total else 0.0
+                if rbo_digest:
+                    if not con.in_transaction: con.execute('BEGIN IMMEDIATE')
+                    reserve_items(con, resolved_items, rbo_digest)
 
                 cur = con.execute(
                     "INSERT INTO orders "
@@ -2836,6 +2896,8 @@ class Handler(BaseHTTPRequestHandler):
                 "discount_pct": discount_pct,
                 "items_count": len(resolved_items),
             }), "application/json; charset=utf-8")
+        except ValueError as e:
+            self._send(400, _j({"error": str(e)}), "application/json; charset=utf-8")
         except Exception as e:
             self._send(500, _j({"error": str(e)}),
                        "application/json; charset=utf-8")

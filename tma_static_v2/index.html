@@ -320,7 +320,8 @@ function migrateProductRedirectState(cartValue, favoriteValue, currentId, redire
     const fasovka = String(line.fasovka || line.size || '');
     const product = Array.isArray(products) ? products.find(p => String(p.id) === id) : null;
     const pack = product && (product.fasovka || []).find(f => String(f.size) === fasovka);
-    if (Array.isArray(products) && (!product || !pack)) return;
+    if (Array.isArray(products) && !product) return;
+    const unitReview = Boolean(product && !pack);
     const choices = ['roast_choice', 'grind', 'variant'];
     const key = [id, fasovka, ...choices.map(k => String(line[k] || ''))].join('\u0000');
     const safeQty = Math.min(Number.MAX_SAFE_INTEGER, Math.floor(qty));
@@ -329,8 +330,9 @@ function migrateProductRedirectState(cartValue, favoriteValue, currentId, redire
       merged.get(key).qty = Math.min(Number.MAX_SAFE_INTEGER, merged.get(key).qty + safeQty);
     } else {
       const rebuilt = product ? {
-        id, name: product.name, fasovka, price: pack.price, qty: safeQty,
-        photo: pack.photo || product.photo || null, category: product.category,
+        id, name: product.name, fasovka, price: unitReview ? null : pack.price, qty: safeQty,
+        ...(unitReview ? {on_request:true, unit_review:true} : {}),
+        photo: (pack && pack.photo) || product.photo || null, category: product.category,
       } : Object.assign({}, line, { id, fasovka, qty: safeQty });
       choices.forEach(k => { if (line[k] !== undefined) rebuilt[k] = line[k]; });
       merged.set(key, rebuilt);
@@ -605,16 +607,17 @@ function cartWeightKg() {
   for (const it of STATE.cart) {
     const p = STATE.data?.products.find(x => x.id === it.id);
     if (!p) continue;
-    if (!COFFEE_CATS.includes(p.category)) continue;
+    if (!COFFEE_CATS.includes(p.category) || p._price_owner === 'rbo') continue;
     kg += sizeToKg(it.fasovka) * (it.qty || 1);
   }
   return kg;
 }
-function cartSubtotal() {
+function cartSubtotal(discountableOnly = false) {
   let s = 0;
   for (const it of STATE.cart) {
     const p = STATE.data?.products.find(x => x.id === it.id);
     if (!p) continue;
+    if (discountableOnly && p._price_owner === 'rbo') continue;
     const f = (p.fasovka || []).find(x => x.size === it.fasovka);
     if (!f || f.on_request || typeof f.price !== 'number') continue;
     s += f.price * (it.qty || 1);
@@ -1452,7 +1455,7 @@ function screenProduct() {
   const kg = isCoffeeKg ? Math.max(1, STATE.productKg || 1) : 1;
   const basePrice = curFas.on_request ? 0 : (curFas.price || 0);
   const subtotal = basePrice * kg;
-  const tier = isCoffeeKg ? tierFor(kg) : 0;
+  const tier = isCoffeeKg && p._price_owner !== 'rbo' ? tierFor(kg) : 0;
   const total = subtotal * (1 - tier);
   const save = subtotal - total;
   const tasteNotes = tastingForProduct(p);
@@ -1632,7 +1635,7 @@ function screenCart() {
   const totalKg = cartWeightKg();
   const subtotal = cartSubtotal();
   const tier = tierFor(totalKg);
-  const save = subtotal * tier;
+  const save = cartSubtotal(true) * tier;
   const total = subtotal - save;
   const toNext = totalKg < 10 ? 10 - totalKg : totalKg < 25 ? 25 - totalKg : 0;
   const nextLabel = totalKg < 10 ? '−10%' : totalKg < 25 ? '−20%' : 'максимум';
@@ -1731,7 +1734,7 @@ function screenCheckout() {
   const totalKg = cartWeightKg();
   const subtotal = cartSubtotal();
   const tier = tierFor(totalKg);
-  const total = subtotal * (1 - tier);
+  const total = subtotal - cartSubtotal(true) * tier;
   const itemsCount = STATE.cart.reduce((s, i) => s + (i.qty || 1), 0);
 
   // Базовый input
@@ -3518,7 +3521,7 @@ const rb = {
     const totalKg = cartWeightKg();
     const subtotal = cartSubtotal();
     const tier = tierFor(totalKg);
-    const total = subtotal * (1 - tier);
+    const total = subtotal - cartSubtotal(true) * tier;
 
     const contactPayload = {
       type: c.type,
@@ -4422,6 +4425,7 @@ async function init() {
   const migration = migrateProductRedirectState(STATE.cart, STATE.favorites, STATE.productId,
     PRODUCT_REDIRECTS, validProductIds, roleVisibleProducts);
   STATE.cart = migration.cart;
+  if (migration.cart.some(x => x.unit_review)) alert('Фасовка товара изменилась. Удалите отмеченные позиции и добавьте заново в нужных единицах.');
   STATE.favorites = migration.favorites;
   STATE.productId = migration.currentId;
   if (STATE.screen === 'product' && !STATE.productId) STATE.screen = 'home';

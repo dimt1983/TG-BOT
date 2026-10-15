@@ -1,0 +1,4630 @@
+{
+  "schema": 1,
+  "enabled": true,
+  "publish": true,
+  "approval": {
+    "by": "owner",
+    "at": "2026-10-15T12:54:31.716563+00:00",
+    "scope": "222 approved cards; Main warehouse; Base price; publication approved"
+  },
+  "source_cards": 222,
+  "canonical_products": 219,
+  "snapshot_sha256": "41112889b396861574beca6a45aaa7b11db17d443355194c3ca33e0d86e840f6",
+  "blocked_reasons": [
+    "Защита старых писателей и DB ID mapping ещё не внедрены",
+    "Не проверены ссылки/корзина при объединении дублей"
+  ],
+  "excluded_courses": true,
+  "excluded_codes": [
+    "ЦБ-00003304"
+  ],
+  "mappings": [
+    {
+      "code_1c": "ЦБ-00004790",
+      "primary_id": "t-rbr_tea_гречишный_чай_250г",
+      "selected_ids": [
+        "t-rbr_tea_гречишный_чай_250г"
+      ],
+      "alias_ids": [
+        "t-rb_tea_гречишный_чай_250_г_чай_из_семян_гречихи_ку"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "RB TEA Гречишный чай 250 г (чай из семян гречихи Ку Цяо)",
+        "RBR TEA Гречишный чай 250г"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00004890",
+      "primary_id": "t-rbr_tea_екатерина_великая_чёрн_250г",
+      "selected_ids": [
+        "t-rbr_tea_екатерина_великая_чёрн_250г"
+      ],
+      "alias_ids": [
+        "t-rb_tea_екатерина_великая_250_г_черный_чай_суданска"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "RB TEA Екатерина Великая 250 г (черный чай, суданская роза, лист черной смородины)",
+        "RBR TEA Екатерина Великая чёрн 250г"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00004793",
+      "primary_id": "t-rbr_tea_масала_чёрн_индийский_250г",
+      "selected_ids": [
+        "t-rbr_tea_масала_чёрн_индийский_250г"
+      ],
+      "alias_ids": [
+        "t-rb_tea_масала_250_г_черный_индийский_чай_бадьян_ко"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "RB TEA Масала 250 г (черный индийский чай, Бадьян, корица, лемонграс, роза, шиповник, апельсин)",
+        "RBR TEA Масала чёрн индийский 250г"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002337",
+      "primary_id": "t-ts12_черный_купаж_со_специями_чай_черн_крупн",
+      "selected_ids": [
+        "t-ts12_черный_купаж_со_специями_чай_черн_крупн"
+      ],
+      "alias_ids": [
+        "t-ts12_черный_купаж_со_специями_чай_черн_крупн_имбир"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "TS12 Черный купаж со специями (чай черн.крупн",
+        "TS12 Черный купаж со специями (чай черн.крупн,имбирь,корица,черн.перец,кардамон,цедра апел) 250г"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002756",
+      "primary_id": "t-зеленый_моли_хуа_ча_с_жасмином_200_г",
+      "selected_ids": [
+        "t-зеленый_моли_хуа_ча_с_жасмином_200_г"
+      ],
+      "alias_ids": [
+        "t-зеленый_-_моли_хуа_ча_с_жасмином_200_г_аромат_трав"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Зеленый - МОЛИ ХУА ЧА (с Жасмином) 200 г",
+        "Зеленый - МОЛИ ХУА ЧА (с Жасмином) 200 г, Аромат: трава, цветы, Вкус: трава, жасмин, гвоздик"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002764",
+      "primary_id": "t-китайский_чай_тропический_микс_200г",
+      "selected_ids": [
+        "t-китайский_чай_тропический_микс_200г"
+      ],
+      "alias_ids": [
+        "t-фруктовый_-тропический_микс_200_г_гибискус_суш_ябл"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Китайский чай Тропический Микс 200г",
+        "Фруктовый -ТРОПИЧЕСКИЙ МИКС 200 г (гибискус,суш.яблоко,клубника,лепест василька,календула, шиповник)"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005646",
+      "primary_id": "m-green_milk_соевый_напиток_1л",
+      "selected_ids": [
+        "m-green_milk_соевый_напиток_1л"
+      ],
+      "alias_ids": [
+        "напиток_соевый_обогащенный_кальцием_и_витаминами_green_milk_1л"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Green Milk Соевый напиток 1л",
+        "Напиток Соевый, обогащенный кальцием и витаминами \"Green Milk\" 1л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00003142",
+      "primary_id": "s-сироп_barline_земляника_1л",
+      "selected_ids": [
+        "s-сироп_barline_земляника_1л"
+      ],
+      "alias_ids": [
+        "сироп_земляника_barline_1_0_л"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BARLINE Земляника 1л",
+        "Сироп Земляника BARLINE 1,0 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00003062",
+      "primary_id": "s-сироп_barline_макадамия_1л",
+      "selected_ids": [
+        "s-сироп_barline_макадамия_1л"
+      ],
+      "alias_ids": [
+        "сироп_макадамия_barline_1_0_л"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BARLINE Макадамия 1л",
+        "Сироп Макадамия BARLINE 1,0 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005553",
+      "primary_id": "s-сироп_barline_можжевельник_1л",
+      "selected_ids": [
+        "s-сироп_barline_можжевельник_1л"
+      ],
+      "alias_ids": [
+        "сироп_можжевельник_barline_1_0_л"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BARLINE Можжевельник 1л",
+        "Сироп Можжевельник BARLINE 1,0 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00003383",
+      "primary_id": "s-сироп_barline_тирамису_1л",
+      "selected_ids": [
+        "s-сироп_barline_тирамису_1л"
+      ],
+      "alias_ids": [
+        "сироп_тирамису_barline_1_0_л"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BARLINE Тирамису 1л",
+        "Сироп Тирамису BARLINE 1,0 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002505",
+      "primary_id": "s-сироп_botanika_айриш_крем_1л",
+      "selected_ids": [
+        "s-сироп_botanika_айриш_крем_1л"
+      ],
+      "alias_ids": [
+        "сироп_айриш_крем_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Айриш Крем 1л",
+        "Сироп Айриш Крем 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002628",
+      "primary_id": "s-сироп_botanika_амаретто_1л",
+      "selected_ids": [
+        "s-сироп_botanika_амаретто_1л"
+      ],
+      "alias_ids": [
+        "сироп_амаретто_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Амаретто 1л",
+        "Сироп Амаретто 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00003197",
+      "primary_id": "s-сироп_ананас_1",
+      "selected_ids": [
+        "s-сироп_ананас_1"
+      ],
+      "alias_ids": [
+        "сироп_ананас_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп Ананас 1",
+        "Сироп Ананас 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002554",
+      "primary_id": "s-сироп_botanika_апельсин_1л",
+      "selected_ids": [
+        "s-сироп_botanika_апельсин_1л"
+      ],
+      "alias_ids": [
+        "сироп_апельсин_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Апельсин 1л",
+        "Сироп Апельсин 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002555",
+      "primary_id": "s-сироп_botanika_арбуз_1л",
+      "selected_ids": [
+        "s-сироп_botanika_арбуз_1л"
+      ],
+      "alias_ids": [
+        "сироп_арбуз_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Арбуз 1л",
+        "Сироп Арбуз 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002645",
+      "primary_id": "s-сироп_botanika_бабл_гам_1л",
+      "selected_ids": [
+        "s-сироп_botanika_бабл_гам_1л"
+      ],
+      "alias_ids": [
+        "сироп_бабл_гам_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Бабл Гам 1л",
+        "Сироп Бабл Гам 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002507",
+      "primary_id": "s-сироп_botanika_банан_желтый_1л",
+      "selected_ids": [
+        "s-сироп_botanika_банан_желтый_1л"
+      ],
+      "alias_ids": [
+        "сироп_банан_желтый_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Банан Желтый 1л",
+        "Сироп Банан Желтый 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002537",
+      "primary_id": "s-сироп_botanika_ваниль_1л",
+      "selected_ids": [
+        "s-сироп_botanika_ваниль_1л"
+      ],
+      "alias_ids": [
+        "сироп_ваниль_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Ваниль 1л",
+        "Сироп Ваниль 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002508",
+      "primary_id": "s-сироп_botanika_вишня_1л",
+      "selected_ids": [
+        "s-сироп_botanika_вишня_1л"
+      ],
+      "alias_ids": [
+        "сироп_вишня_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Вишня 1л",
+        "Сироп Вишня 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002510",
+      "primary_id": "s-сироп_botanika_грейпфрут_розовый_1л",
+      "selected_ids": [
+        "s-сироп_botanika_грейпфрут_розовый_1л"
+      ],
+      "alias_ids": [
+        "сироп_грейпфрут_розовый_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Грейпфрут Розовый 1л",
+        "Сироп Грейпфрут Розовый 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002596",
+      "primary_id": "s-сироп_botanika_дыня_1л",
+      "selected_ids": [
+        "s-сироп_botanika_дыня_1л"
+      ],
+      "alias_ids": [
+        "сироп_дыня_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Дыня 1л",
+        "Сироп Дыня 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005490",
+      "primary_id": "s-сироп_botanika_дыня_зеленая_1л",
+      "selected_ids": [
+        "s-сироп_botanika_дыня_зеленая_1л"
+      ],
+      "alias_ids": [
+        "сироп_дыня_зеленая_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Дыня Зеленая 1л",
+        "Сироп Дыня ЗЕЛЕНАЯ 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00003165",
+      "primary_id": "s-сироп_botanika_ежевика_1л",
+      "selected_ids": [
+        "s-сироп_botanika_ежевика_1л"
+      ],
+      "alias_ids": [
+        "сироп_ежевика_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Ежевика 1л",
+        "Сироп Ежевика 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002513",
+      "primary_id": "s-сироп_botanika_зеленое_яблоко_1л",
+      "selected_ids": [
+        "s-сироп_botanika_зеленое_яблоко_1л"
+      ],
+      "alias_ids": [
+        "сироп_зеленое_яблоко_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Зеленое Яблоко 1л",
+        "Сироп Зеленое Яблоко 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002514",
+      "primary_id": "s-сироп_botanika_имбирный_пряник_1л",
+      "selected_ids": [
+        "s-сироп_botanika_имбирный_пряник_1л"
+      ],
+      "alias_ids": [
+        "сироп_имбирный_пряник_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Имбирный Пряник 1л",
+        "Сироп Имбирный Пряник 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002597",
+      "primary_id": "s-сироп_botanika_имбирь_1л",
+      "selected_ids": [
+        "s-сироп_botanika_имбирь_1л"
+      ],
+      "alias_ids": [
+        "сироп_имбирь_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Имбирь 1л",
+        "Сироп Имбирь 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002538",
+      "primary_id": "s-сироп_botanika_карамель_1л",
+      "selected_ids": [
+        "s-сироп_botanika_карамель_1л"
+      ],
+      "alias_ids": [
+        "сироп_карамель_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Карамель 1л",
+        "Сироп Карамель 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002528",
+      "primary_id": "s-сироп_botanika_карамель_соленая_1л",
+      "selected_ids": [
+        "s-сироп_botanika_карамель_соленая_1л"
+      ],
+      "alias_ids": [
+        "сироп_карамель_соленая_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Карамель Соленая 1л",
+        "Сироп Карамель Соленая 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00003881",
+      "primary_id": "s-сироп_botanika_киви_1л",
+      "selected_ids": [
+        "s-сироп_botanika_киви_1л"
+      ],
+      "alias_ids": [
+        "сироп_киви_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Киви 1л",
+        "Сироп Киви 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00003199",
+      "primary_id": "s-сироп_botanika_кленовый_1л",
+      "selected_ids": [
+        "s-сироп_botanika_кленовый_1л"
+      ],
+      "alias_ids": [
+        "сироп_кленовый_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Кленовый 1л",
+        "Сироп Кленовый 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002515",
+      "primary_id": "s-сироп_botanika_клубника_1л",
+      "selected_ids": [
+        "s-сироп_botanika_клубника_1л"
+      ],
+      "alias_ids": [
+        "сироп_клубника_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Клубника 1л",
+        "Сироп Клубника 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002516",
+      "primary_id": "s-сироп_botanika_клюква_1л",
+      "selected_ids": [
+        "s-сироп_botanika_клюква_1л"
+      ],
+      "alias_ids": [
+        "сироп_клюква_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Клюква 1л",
+        "Сироп Клюква 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002557",
+      "primary_id": "s-сироп_botanika_кокос_1л",
+      "selected_ids": [
+        "s-сироп_botanika_кокос_1л"
+      ],
+      "alias_ids": [
+        "сироп_кокос_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Кокос 1л",
+        "Сироп Кокос 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002558",
+      "primary_id": "s-сироп_botanika_корица_1л",
+      "selected_ids": [
+        "s-сироп_botanika_корица_1л"
+      ],
+      "alias_ids": [
+        "сироп_корица_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Корица 1л",
+        "Сироп Корица 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002517",
+      "primary_id": "s-сироп_botanika_лаванда_1л",
+      "selected_ids": [
+        "s-сироп_botanika_лаванда_1л"
+      ],
+      "alias_ids": [
+        "сироп_лаванда_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Лаванда 1л",
+        "Сироп Лаванда 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002518",
+      "primary_id": "s-сироп_botanika_лесной_орех_1л",
+      "selected_ids": [
+        "s-сироп_botanika_лесной_орех_1л"
+      ],
+      "alias_ids": [
+        "сироп_лесной_орех_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Лесной Орех 1л",
+        "Сироп Лесной Орех 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002539",
+      "primary_id": "s-сироп_botanika_лимон_1л",
+      "selected_ids": [
+        "s-сироп_botanika_лимон_1л"
+      ],
+      "alias_ids": [
+        "сироп_лимон_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Лимон 1л",
+        "Сироп Лимон 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002519",
+      "primary_id": "s-сироп_botanika_малина_1л",
+      "selected_ids": [
+        "s-сироп_botanika_малина_1л"
+      ],
+      "alias_ids": [
+        "сироп_малина_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Малина 1л",
+        "Сироп Малина 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002520",
+      "primary_id": "s-сироп_botanika_манго_1л",
+      "selected_ids": [
+        "s-сироп_botanika_манго_1л"
+      ],
+      "alias_ids": [
+        "сироп_манго_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Манго 1л",
+        "Сироп Манго 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002523",
+      "primary_id": "s-сироп_botanika_мед_1л",
+      "selected_ids": [
+        "s-сироп_botanika_мед_1л"
+      ],
+      "alias_ids": [
+        "сироп_мед_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Мед 1л",
+        "Сироп Мед 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002524",
+      "primary_id": "s-сироп_botanika_миндаль_1л",
+      "selected_ids": [
+        "s-сироп_botanika_миндаль_1л"
+      ],
+      "alias_ids": [
+        "сироп_миндаль_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Миндаль 1л",
+        "Сироп Миндаль 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00004021",
+      "primary_id": "s-сироп_botanika_мята_зеленая_1л",
+      "selected_ids": [
+        "s-сироп_botanika_мята_зеленая_1л"
+      ],
+      "alias_ids": [
+        "сироп_мята_зеленая_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Мята Зеленая 1л",
+        "Сироп Мята Зеленая 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002526",
+      "primary_id": "s-сироп_botanika_персик_1л",
+      "selected_ids": [
+        "s-сироп_botanika_персик_1л"
+      ],
+      "alias_ids": [
+        "сироп_персик_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Персик 1л",
+        "Сироп Персик 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002541",
+      "primary_id": "s-сироп_botanika_попкорн_1л",
+      "selected_ids": [
+        "s-сироп_botanika_попкорн_1л"
+      ],
+      "alias_ids": [
+        "сироп_попкорн_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Попкорн 1л",
+        "Сироп Попкорн 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002614",
+      "primary_id": "s-сироп_botanika_тархун_1л",
+      "selected_ids": [
+        "s-сироп_botanika_тархун_1л"
+      ],
+      "alias_ids": [
+        "сироп_тархун_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Тархун 1л",
+        "Сироп Тархун 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002531",
+      "primary_id": "s-сироп_botanika_черная_смородина_1л",
+      "selected_ids": [
+        "s-сироп_botanika_черная_смородина_1л"
+      ],
+      "alias_ids": [
+        "сироп_черная_смородина_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Черная Смородина 1л",
+        "Сироп Черная Смородина 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002532",
+      "primary_id": "s-сироп_botanika_шоколад_1л",
+      "selected_ids": [
+        "s-сироп_botanika_шоколад_1л"
+      ],
+      "alias_ids": [
+        "сироп_шоколад_1_0_л_botanika"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Шоколад 1л",
+        "Сироп Шоколад 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00000233",
+      "primary_id": "s-топпинг_icedream_груша_1200мл",
+      "selected_ids": [
+        "s-топпинг_icedream_груша_1200мл"
+      ],
+      "alias_ids": [
+        "сироп_топпинг_груша_1200мл"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп \"Топпинг \"Груша\" 1200мл",
+        "Топпинг Icedream Груша 1200мл"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "00002550",
+      "primary_id": "t-пу_эр_ан_бао_250_г",
+      "selected_ids": [
+        "t-пу_эр_ан_бао_250_г"
+      ],
+      "alias_ids": [
+        "ча1400_пу_эр_ан_бао_250_г_чай_альтхаус_черный_листовой"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Пу Эр Ан Бао 250 г",
+        "ЧА1400 Пу Эр Ан Бао 250 г, чай Альтхаус черный листовой"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "00002562",
+      "primary_id": "t-althaus_горные_травы_чёрн_лист_250г",
+      "selected_ids": [
+        "t-althaus_горные_травы_чёрн_лист_250г"
+      ],
+      "alias_ids": [
+        "ча2050_горные_травы_250г_чай_альтхаус_черный_аромат_лист"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ALTHAUS Горные Травы чёрн лист 250г",
+        "ЧА2050 Горные Травы 250г, чай Альтхаус черный аромат. лист."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "00002569",
+      "primary_id": "t-ганпаудер_жу_ча",
+      "selected_ids": [
+        "t-ганпаудер_жу_ча"
+      ],
+      "alias_ids": [
+        "ча3415_ганпаудер_жу_ча_чай_зеленый_байховый_250г"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Ганпаудер Жу Ча",
+        "ЧА3415 Ганпаудер Жу Ча, чай зеленый байховый 250г"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "00002331",
+      "primary_id": "t-althaus_молочный_улун_зел_лист_250г",
+      "selected_ids": [
+        "t-althaus_молочный_улун_зел_лист_250г"
+      ],
+      "alias_ids": [
+        "ча3435_молочный_улун_250г_чай_альтхаус_зеленый_листовой"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ALTHAUS Молочный Улун зел лист 250г",
+        "ЧА3435 Молочный Улун 250г, чай Альтхаус зеленый листовой"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "00002514",
+      "primary_id": "t-althaus_сенча_сенпай_зел_лист_250г",
+      "selected_ids": [
+        "t-althaus_сенча_сенпай_зел_лист_250г"
+      ],
+      "alias_ids": [
+        "ча3600_сенча_сенпай_250_г_чай_альтаус_зеленый_листовой"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ALTHAUS Сенча Сенпай зел лист 250г",
+        "ЧА3600 Сенча Сенпай 250 г, чай Альтаус зеленый листовой"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "00002424",
+      "primary_id": "t-althaus_японская_липа_трав_75г",
+      "selected_ids": [
+        "t-althaus_японская_липа_трав_75г"
+      ],
+      "alias_ids": [
+        "ча6030_японская_липа_75_г_напиток_альтхаус_травяной"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ALTHAUS Японская Липа трав 75г",
+        "ЧА6030 Японская Липа 75 г, напиток Альтхаус травяной"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00001971",
+      "primary_id": "t-althaus_лемон_минт_трав_150г",
+      "selected_ids": [
+        "t-althaus_лемон_минт_трав_150г"
+      ],
+      "alias_ids": [
+        "ча6045_лемон_минт_150_г_напиток_альтхаус_травяной"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ALTHAUS Лемон Минт трав 150г",
+        "ЧА6045 Лемон Минт 150 г, напиток Альтхаус травяной"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005890",
+      "primary_id": "t-нет_nr06_фрут_маджента",
+      "selected_ids": [
+        "t-нет_nr06_фрут_маджента"
+      ],
+      "alias_ids": [
+        "nr06_фрут_маджента_нап_чайный_аромат_пакет_25_2г"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "NR06 Фрут Маджента, нап. чайный аромат. пакет. 25*2г",
+        "нет NR06 Фрут Маджента"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00004191",
+      "primary_id": "s-сироп_sweetshot_личи_1л",
+      "selected_ids": [
+        "s-сироп_sweetshot_личи_1л"
+      ],
+      "alias_ids": [
+        "1c-sswsh0-000030-ae1b0bb3c9"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп SweetShot Личи 1 л.",
+        "Сироп SweetShot Личи 1л"
+      ],
+      "source_identities": [
+        "SSWSH0-000030"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005302",
+      "primary_id": "s-кордиал_barbacks_голубика_васильки_черёмуха_0_75л",
+      "selected_ids": [
+        "s-кордиал_barbacks_голубика_васильки_черёмуха_0_75л"
+      ],
+      "alias_ids": [
+        "1c-001-ec295f7f51"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Кордиал BARBACKS Голубика Васильки Черёмуха 0.75л",
+        "Кордиал BARBAСKS Голубика, Васильки, Черёмуха ст.0,75 л."
+      ],
+      "source_identities": [
+        "СИР-001"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005301",
+      "primary_id": "s-кордиал_barbacks_роза_ревень_грейпфрут_0_75л",
+      "selected_ids": [
+        "s-кордиал_barbacks_роза_ревень_грейпфрут_0_75л"
+      ],
+      "alias_ids": [
+        "1c-002-25d328432a"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Кордиал BARBACKS Роза Ревень Грейпфрут 0.75л",
+        "Кордиал BARBAСKS Роза, Ревень, Грейпфрут ст.0,75 л."
+      ],
+      "source_identities": [
+        "СИР-002"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005267",
+      "primary_id": "s-кордиал_clavis_персик_ханибуш_лайм_0_75л",
+      "selected_ids": [
+        "s-кордиал_clavis_персик_ханибуш_лайм_0_75л"
+      ],
+      "alias_ids": [
+        "1c-003-c46dfc2413"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Кордиал CLAVIS Персик Ханибуш Лайм 0.75л",
+        "Кордиал CLAVIS Персик, Ханибуш, Каффирский лайм. Эстрагон, ст.0,75 л."
+      ],
+      "source_identities": [
+        "СИР-003"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005256",
+      "primary_id": "s-кордиал_clavis_юдзу_бамбук_лемонграсс_0_75л",
+      "selected_ids": [
+        "s-кордиал_clavis_юдзу_бамбук_лемонграсс_0_75л"
+      ],
+      "alias_ids": [
+        "1c-004-afe639c7e0"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Кордиал CLAVIS Юдзу Бамбук Лемонграсс 0.75л",
+        "Кордиал CLAVIS Юдзу, Бамбук, Лемонграсс, стекло, 0,75л"
+      ],
+      "source_identities": [
+        "СИР-004"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005234",
+      "primary_id": "s-парфюм_clavis_апельсиновая_цедра",
+      "selected_ids": [
+        "s-парфюм_clavis_апельсиновая_цедра"
+      ],
+      "alias_ids": [
+        "1c-006-810b6ad7f7"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Парфюм CLAVIS Апельсиновая цедра",
+        "Парфюм CLAVIS Апельсиновая цедра, ст.0,03 л."
+      ],
+      "source_identities": [
+        "СИР-006"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00001381",
+      "primary_id": "s-сироп_нап_ль_десерт_барбарис_бут_0",
+      "selected_ids": [
+        "s-сироп_нап_ль_десерт_барбарис_бут_0"
+      ],
+      "alias_ids": [
+        "1c-008-a5da9cc5dd"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп \"Нап-ль десерт. \"Барбарис\" бут. 0",
+        "Сироп \"Нап-ль десерт. \"Барбарис\" бут. 0,75 л."
+      ],
+      "source_identities": [
+        "СИР-008"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00000221",
+      "primary_id": "s-сироп_нап_ль_десерт_корица_",
+      "selected_ids": [
+        "s-сироп_нап_ль_десерт_корица_"
+      ],
+      "alias_ids": [
+        "1c-009-137bd738d4"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп \"Нап-ль десерт. \"Корица\"",
+        "Сироп \"Нап-ль десерт. \"Корица\", 1л стекл.бут."
+      ],
+      "source_identities": [
+        "СИР-009"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00001821",
+      "primary_id": "s-сироп_vedrenne_персик_1л",
+      "selected_ids": [
+        "s-сироп_vedrenne_персик_1л"
+      ],
+      "alias_ids": [
+        "1c-010-3f2f767be7"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп \"Персик\" 1.0 л VEDRENNE",
+        "Сироп VEDRENNE Персик 1л"
+      ],
+      "source_identities": [
+        "СИР-010"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005221",
+      "primary_id": "s-сироп_sweetshot_бабл_гам_1л",
+      "selected_ids": [
+        "s-сироп_sweetshot_бабл_гам_1л"
+      ],
+      "alias_ids": [
+        "1c-014-29ea7377d5"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп SweetShot Бабл Гам , 1л стекл бут",
+        "Сироп SweetShot Бабл Гам 1л"
+      ],
+      "source_identities": [
+        "СИР-014"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005222",
+      "primary_id": "s-сироп_sweetshot_блю_курасао_1л",
+      "selected_ids": [
+        "s-сироп_sweetshot_блю_курасао_1л"
+      ],
+      "alias_ids": [
+        "1c-015-25b4a2d3b2"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп SweetShot Блю Курасао 1л",
+        "Сироп SweetShot Блю Курасао, 1л стекл бут"
+      ],
+      "source_identities": [
+        "СИР-015"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00004169",
+      "primary_id": "s-сироп_sweetshot_желтый_банан_1л",
+      "selected_ids": [
+        "s-сироп_sweetshot_желтый_банан_1л"
+      ],
+      "alias_ids": [
+        "1c-020-3b1413cb6e"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп SweetShot Желтый Банан 1 л.",
+        "Сироп SweetShot Желтый Банан 1л"
+      ],
+      "source_identities": [
+        "СИР-020"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005653",
+      "primary_id": "s-сироп_sweetshot_имбирный_пряник_1л",
+      "selected_ids": [
+        "s-сироп_sweetshot_имбирный_пряник_1л"
+      ],
+      "alias_ids": [
+        "1c-022-e458d94a04"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп SweetShot Имбирный пряник 1 л.",
+        "Сироп SweetShot Имбирный пряник 1л"
+      ],
+      "source_identities": [
+        "СИР-022"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00004058",
+      "primary_id": "s-сироп_sweetshot_лесной_орех_1л",
+      "selected_ids": [
+        "s-сироп_sweetshot_лесной_орех_1л"
+      ],
+      "alias_ids": [
+        "1c-028-d533ad0bf9"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп SweetShot Лесной Орех 1 л.",
+        "Сироп SweetShot Лесной Орех 1л"
+      ],
+      "source_identities": [
+        "СИР-028"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005223",
+      "primary_id": "s-сироп_sweetshot_пина_колада",
+      "selected_ids": [
+        "s-сироп_sweetshot_пина_колада"
+      ],
+      "alias_ids": [
+        "1c-033-185e10a433"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп SweetShot Пина Колада",
+        "Сироп SweetShot Пина Колада, 1л стекл бут"
+      ],
+      "source_identities": [
+        "СИР-033"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00004059",
+      "primary_id": "s-сироп_sweetshot_соленая_карамель_1л",
+      "selected_ids": [
+        "s-сироп_sweetshot_соленая_карамель_1л"
+      ],
+      "alias_ids": [
+        "1c-034-4d249586b4"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп SweetShot Соленая Карамель 1 л.",
+        "Сироп SweetShot Соленая Карамель 1л"
+      ],
+      "source_identities": [
+        "СИР-034"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005792",
+      "primary_id": "s-сироп_herbarista_арахисовое_масло_0_7л",
+      "selected_ids": [
+        "s-сироп_herbarista_арахисовое_масло_0_7л"
+      ],
+      "alias_ids": [
+        "1c-041-ff017e4339"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп Herbarista Арахисовое Масло 0.7л",
+        "Сироп Арахисовое Масло 0,7 л. Гербариста"
+      ],
+      "source_identities": [
+        "СИР-041"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005796",
+      "primary_id": "s-сироп_herbarista_бурбонская_ваниль_0_7л",
+      "selected_ids": [
+        "s-сироп_herbarista_бурбонская_ваниль_0_7л"
+      ],
+      "alias_ids": [
+        "1c-048-2e8809f5b3"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп Herbarista Бурбонская Ваниль 0.7л",
+        "Сироп Бурбонская Ваниль 0,7 л. Гербариста"
+      ],
+      "source_identities": [
+        "СИР-048"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005801",
+      "primary_id": "s-сироп_herbarista_имбирный_пряник_0_7л",
+      "selected_ids": [
+        "s-сироп_herbarista_имбирный_пряник_0_7л"
+      ],
+      "alias_ids": [
+        "1c-066-8a6083d8f5"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп Herbarista Имбирный пряник 0.7л",
+        "Сироп Имбирный пряник 0,7 л. Гербариста"
+      ],
+      "source_identities": [
+        "СИР-066"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00002599",
+      "primary_id": "s-сироп_botanika_лайм_1л",
+      "selected_ids": [
+        "s-сироп_botanika_лайм_1л",
+        "s-сироп_лайм_sour_mix_1"
+      ],
+      "alias_ids": [
+        "1c-087-93fcb7af61",
+        "s-сироп_лайм_sour_mix_1"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Лайм 1л",
+        "Сироп Лайм  (Sour Mix) 1",
+        "Сироп Лайм  (Sour Mix) 1,0 л. BOTANIKA"
+      ],
+      "source_identities": [
+        "СИР-087"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00002522",
+      "primary_id": "s-сироп_маракуйя_гавайская_1",
+      "selected_ids": [
+        "s-сироп_маракуйя_гавайская_1"
+      ],
+      "alias_ids": [
+        "1c-102-8b07d51d82"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп Маракуйя Гавайская 1",
+        "Сироп Маракуйя Гавайская 1,0 л. BOTANIKA"
+      ],
+      "source_identities": [
+        "СИР-102"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00002533",
+      "primary_id": "s-сироп_цветы_бузины_1",
+      "selected_ids": [
+        "s-сироп_цветы_бузины_1"
+      ],
+      "alias_ids": [
+        "1c-127-b5074b430b"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп Цветы Бузины 1",
+        "Сироп Цветы Бузины 1,0 л. BOTANIKA"
+      ],
+      "source_identities": [
+        "СИР-127"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00002559",
+      "primary_id": "s-сироп_шоколадное_печенье_1",
+      "selected_ids": [
+        "s-сироп_шоколадное_печенье_1"
+      ],
+      "alias_ids": [
+        "1c-131-d3313372b1"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп Шоколадное печенье 1",
+        "Сироп Шоколадное печенье 1,0 л. BOTANIKA"
+      ],
+      "source_identities": [
+        "СИР-131"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005597",
+      "primary_id": "s-сироп_шприц_апероль_1",
+      "selected_ids": [
+        "s-сироп_шприц_апероль_1"
+      ],
+      "alias_ids": [
+        "1c-133-3b41fe0925"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп Шприц (Апероль) 1",
+        "Сироп Шприц (Апероль) 1,0 л. BOTANIKA"
+      ],
+      "source_identities": [
+        "СИР-133"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00004792",
+      "primary_id": "t-rbr_tea_зеленый_с_жасмином_250г",
+      "selected_ids": [
+        "t-rbr_tea_зеленый_с_жасмином_250г"
+      ],
+      "alias_ids": [
+        "1c-036-0eb3a9a4d6"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "RB TEA Зеленый чай с жасмином 250 г",
+        "RBR TEA Зеленый с жасмином 250г"
+      ],
+      "source_identities": [
+        "ЧАЙ-036"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00004891",
+      "primary_id": "t-rbr_tea_лунный_сад_250г",
+      "selected_ids": [
+        "t-rbr_tea_лунный_сад_250г"
+      ],
+      "alias_ids": [
+        "1c-039-82c53cc434"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "RB TEA Лунный сад 250 г",
+        "RBR TEA Лунный сад 250г"
+      ],
+      "source_identities": [
+        "ЧАЙ-039"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00004787",
+      "primary_id": "t-rbr_tea_облепиховый_сбор_иван-чай_250г",
+      "selected_ids": [
+        "t-rbr_tea_облепиховый_сбор_иван-чай_250г"
+      ],
+      "alias_ids": [
+        "1c-042-dd291b7c2a"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "RB TEA Облепиховый сбор на иван-чае 250 г (ферментированный иван-чай с облепихой)",
+        "RBR TEA Облепиховый сбор иван-чай 250г"
+      ],
+      "source_identities": [
+        "ЧАЙ-042"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00004796",
+      "primary_id": "t-rbr_tea_сенча_250г",
+      "selected_ids": [
+        "t-rbr_tea_сенча_250г"
+      ],
+      "alias_ids": [
+        "1c-045-74f304c786"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "RB TEA Сенча 250 г",
+        "RBR TEA Сенча 250г"
+      ],
+      "source_identities": [
+        "ЧАЙ-045"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00004799",
+      "primary_id": "t-rbr_tea_фруктовая_смесь_наглый_фрукт_250г",
+      "selected_ids": [
+        "t-rbr_tea_фруктовая_смесь_наглый_фрукт_250г"
+      ],
+      "alias_ids": [
+        "1c-047-a1e1694d27"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "RB TEA Фруктовая смесь (Наглый фрукт) 250 г (каркаде с фруктами)",
+        "RBR TEA Фруктовая смесь Наглый фрукт 250г"
+      ],
+      "source_identities": [
+        "ЧАЙ-047"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00004798",
+      "primary_id": "t-rb_tea_черный_чай_с_чабрецом_250_г_ассам",
+      "selected_ids": [
+        "t-rb_tea_черный_чай_с_чабрецом_250_г_ассам"
+      ],
+      "alias_ids": [
+        "1c-049-67b097f2d2"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "RB TEA Черный чай с чабрецом 250 г (ассам",
+        "RB TEA Черный чай с чабрецом 250 г (ассам, чабрец)"
+      ],
+      "source_identities": [
+        "ЧАЙ-049"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00004801",
+      "primary_id": "t-rb_tea_эрл_грей_250_г_черный_чай",
+      "selected_ids": [
+        "t-rb_tea_эрл_грей_250_г_черный_чай"
+      ],
+      "alias_ids": [
+        "1c-050-0aae3bd1a8"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "RB TEA Эрл Грей 250 г (черный чай",
+        "RB TEA Эрл Грей 250 г (черный чай, цедра цитрусовых, аромат бергамота)"
+      ],
+      "source_identities": [
+        "ЧАЙ-050"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00001520",
+      "primary_id": "t-ts07_сбитень_монастырский",
+      "selected_ids": [
+        "t-ts07_сбитень_монастырский"
+      ],
+      "alias_ids": [
+        "1c-053-d22e6991bc"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "TS07 Сбитень Монастырский",
+        "TS07 Сбитень Монастырский, чайный напиток, 150 г"
+      ],
+      "source_identities": [
+        "ЧАЙ-053"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00001519",
+      "primary_id": "t-ts08_мыс_целебных_трав",
+      "selected_ids": [
+        "t-ts08_мыс_целебных_трав"
+      ],
+      "alias_ids": [
+        "1c-054-a2726051f4"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "TS08 Мыс Целебных Трав",
+        "TS08 Мыс Целебных Трав, чайный напиток, 150 г"
+      ],
+      "source_identities": [
+        "ЧАЙ-054"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005573",
+      "primary_id": "t-ts10_сливочный_улун",
+      "selected_ids": [
+        "t-ts10_сливочный_улун"
+      ],
+      "alias_ids": [
+        "1c-055-09c1940beb"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "TS10 Сливочный улун",
+        "TS10 Сливочный улун, зеленый 250 г"
+      ],
+      "source_identities": [
+        "ЧАЙ-055"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00002770",
+      "primary_id": "t-травяной_иван_чай_214_г_аромат_виноград",
+      "selected_ids": [
+        "t-травяной_иван_чай_214_г_аромат_виноград"
+      ],
+      "alias_ids": [
+        "1c-070-12c6c7a364"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Травяной - ИВАН-ЧАЙ 214 г Аромат: Виноград",
+        "Травяной - ИВАН-ЧАЙ 214 г Аромат: Виноград, Арбуз, травы, Вкус:Виноград, арбуз, Травы"
+      ],
+      "source_identities": [
+        "ЧАЙ-070"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003861",
+      "primary_id": "t-фруктовый_лань_мей_шень_200_г_аромат_гибискус",
+      "selected_ids": [
+        "t-фруктовый_лань_мей_шень_200_г_аромат_гибискус"
+      ],
+      "alias_ids": [
+        "1c-075-60fbf502f5"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Фруктовый - ЛАНЬ МЕЙ ШЕНЬ 200 г Аромат: гибискус",
+        "Фруктовый - ЛАНЬ МЕЙ ШЕНЬ 200 г Аромат: гибискус, изюм, Вкус: гибискус, изюм"
+      ],
+      "source_identities": [
+        "ЧАЙ-075"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00004168",
+      "primary_id": "t-ройал_эрл_грэй",
+      "selected_ids": [
+        "t-ройал_эрл_грэй"
+      ],
+      "alias_ids": [
+        "1c-088-ebe262553e"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Ройал Эрл Грэй",
+        "ЧА020 Ройал Эрл Грэй, чай черн. аромат д/чайника 15х4г"
+      ],
+      "source_identities": [
+        "ЧАЙ-088"
+      ]
+    },
+    {
+      "code_1c": "00002329",
+      "primary_id": "t-блю_эрл_грей_250_г",
+      "selected_ids": [
+        "t-блю_эрл_грей_250_г"
+      ],
+      "alias_ids": [
+        "1c-101-263e4a6dfc"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Блю Эрл Грей 250 г",
+        "ЧА2010 Блю Эрл Грей 250 г, чай Альтхаус черный аромат. лист."
+      ],
+      "source_identities": [
+        "ЧАЙ-101"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00001202",
+      "primary_id": "t-эрл_грей_золотая_карамель_200_г",
+      "selected_ids": [
+        "t-эрл_грей_золотая_карамель_200_г"
+      ],
+      "alias_ids": [
+        "1c-102-43cf0a8f80"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧА2017 Эрл Грей Золотая Карамель 200 г, чай Альтхаус черный аромат. лист.",
+        "Эрл Грей Золотая Карамель 200 г"
+      ],
+      "source_identities": [
+        "ЧАЙ-102"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00000080",
+      "primary_id": "t-грин_гималайан_250г",
+      "selected_ids": [
+        "t-грин_гималайан_250г"
+      ],
+      "alias_ids": [
+        "1c-105-bebc1c354a"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Грин Гималайан 250г",
+        "ЧА3200 Грин Гималайан 250г, чай Альтхаус зеленый листовой"
+      ],
+      "source_identities": [
+        "ЧАЙ-105"
+      ]
+    },
+    {
+      "code_1c": "00002566",
+      "primary_id": "t-супериор_жу_бао_белый_70г",
+      "selected_ids": [
+        "t-супериор_жу_бао_белый_70г"
+      ],
+      "alias_ids": [
+        "1c-106-cae9a00fff"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Супериор Жу Бао Белый 70г",
+        "ЧА3400 Супериор Жу Бао Белый 70г, чай Альтхаус зеленый лист"
+      ],
+      "source_identities": [
+        "ЧАЙ-106"
+      ]
+    },
+    {
+      "code_1c": "00002575",
+      "primary_id": "t-жасмин_тинг_юань_250г",
+      "selected_ids": [
+        "t-жасмин_тинг_юань_250г"
+      ],
+      "alias_ids": [
+        "1c-111-2b425d8abf"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Жасмин Тинг Юань 250г",
+        "ЧА4005 Жасмин Тинг Юань 250г, чай Альтхаус зеленый аромат. лист"
+      ],
+      "source_identities": [
+        "ЧАЙ-111"
+      ]
+    },
+    {
+      "code_1c": "00002332",
+      "primary_id": "t-спринг_тоник_250_гр_",
+      "selected_ids": [
+        "t-спринг_тоник_250_гр_"
+      ],
+      "alias_ids": [
+        "1c-112-67dfb2acd7"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Спринг Тоник 250 гр.",
+        "ЧА4030 Спринг Тоник 250 гр., чай зел.аромат."
+      ],
+      "source_identities": [
+        "ЧАЙ-112"
+      ]
+    },
+    {
+      "code_1c": "00002419",
+      "primary_id": "t-женьшень_полет_дракона_200г",
+      "selected_ids": [
+        "t-женьшень_полет_дракона_200г"
+      ],
+      "alias_ids": [
+        "1c-113-2c71616cb4"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Женьшень Полет Дракона 200г",
+        "ЧА4045 Женьшень Полет Дракона 200г, чай Альтхаус зелен. аром"
+      ],
+      "source_identities": [
+        "ЧАЙ-113"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00002221",
+      "primary_id": "t-арабишер_шейх_200г",
+      "selected_ids": [
+        "t-арабишер_шейх_200г"
+      ],
+      "alias_ids": [
+        "1c-114-1eebd8e2f8"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Арабишер Шейх 200г",
+        "ЧА4050 Арабишер Шейх 200г, чай Альтхаус зелен. аром"
+      ],
+      "source_identities": [
+        "ЧАЙ-114"
+      ]
+    },
+    {
+      "code_1c": "00002334",
+      "primary_id": "t-althaus_ред_фрут_флаш_фрукт_лист_250г",
+      "selected_ids": [
+        "t-althaus_ред_фрут_флаш_фрукт_лист_250г"
+      ],
+      "alias_ids": [
+        "1c-115-d5741d0c52"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ALTHAUS Ред Фрут Флаш фрукт лист 250г",
+        "ЧА5000 Ред Фрут Флаш 250 г, напиток Альтхаус фрукт. аромат."
+      ],
+      "source_identities": [
+        "ЧАЙ-115"
+      ]
+    },
+    {
+      "code_1c": "00002581",
+      "primary_id": "t-сицилийский_апельсин_250_г",
+      "selected_ids": [
+        "t-сицилийский_апельсин_250_г"
+      ],
+      "alias_ids": [
+        "1c-118-60a60933d9"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сицилийский Апельсин 250 г",
+        "ЧА5025 Сицилийский Апельсин 250 г, напиток Альтхаус фрукт. аромат."
+      ],
+      "source_identities": [
+        "ЧАЙ-118"
+      ]
+    },
+    {
+      "code_1c": "00002337",
+      "primary_id": "t-гуарана_хит_250_г",
+      "selected_ids": [
+        "t-гуарана_хит_250_г"
+      ],
+      "alias_ids": [
+        "1c-120-4598804cc9"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Гуарана Хит 250 г",
+        "ЧА5045 Гуарана Хит 250 г, напиток фруктовый аромат"
+      ],
+      "source_identities": [
+        "ЧАЙ-120"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00001970",
+      "primary_id": "t-эсенс_оф_фрут_250_г_л_",
+      "selected_ids": [
+        "t-эсенс_оф_фрут_250_г_л_"
+      ],
+      "alias_ids": [
+        "1c-123-ab31afee0f"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧА5090 Эсенс оф Фрут 250 г(Л), напиток Альтхаус травяной",
+        "Эсенс оф Фрут 250 г(Л)"
+      ],
+      "source_identities": [
+        "ЧАЙ-123"
+      ]
+    },
+    {
+      "code_1c": "00002590",
+      "primary_id": "t-женьшеневая_долина_200_г",
+      "selected_ids": [
+        "t-женьшеневая_долина_200_г"
+      ],
+      "alias_ids": [
+        "1c-125-7ac389cb10"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Женьшеневая долина 200 г",
+        "ЧА6005 Женьшеневая долина 200 г, напиток Альтхаус травяной"
+      ],
+      "source_identities": [
+        "ЧАЙ-125"
+      ]
+    },
+    {
+      "code_1c": "00002591",
+      "primary_id": "t-ромашковый_луг_75_г",
+      "selected_ids": [
+        "t-ромашковый_луг_75_г"
+      ],
+      "alias_ids": [
+        "1c-126-c46a32e323"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Ромашковый Луг 75 г",
+        "ЧА6010 Ромашковый Луг 75 г, напиток Альтхаус травяной"
+      ],
+      "source_identities": [
+        "ЧАЙ-126"
+      ]
+    },
+    {
+      "code_1c": "00002340",
+      "primary_id": "t-баварская_мята_75_г",
+      "selected_ids": [
+        "t-баварская_мята_75_г"
+      ],
+      "alias_ids": [
+        "1c-127-7026556be2"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Баварская Мята 75 г",
+        "ЧА6015 Баварская Мята 75 г, напиток Альтхаус травяной"
+      ],
+      "source_identities": [
+        "ЧАЙ-127"
+      ]
+    },
+    {
+      "code_1c": "00002592",
+      "primary_id": "t-французская_роза_125г",
+      "selected_ids": [
+        "t-французская_роза_125г"
+      ],
+      "alias_ids": [
+        "1c-128-4313178554"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Французская Роза 125г",
+        "ЧА6020 Французская Роза 125г, напиток Альтхаус травяной"
+      ],
+      "source_identities": [
+        "ЧАЙ-128"
+      ]
+    },
+    {
+      "code_1c": "1532",
+      "primary_id": "t-джинжер_бриз_250г",
+      "selected_ids": [
+        "t-джинжер_бриз_250г"
+      ],
+      "alias_ids": [
+        "1c-130-ba6c1c6b47"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Джинжер Бриз 250г",
+        "ЧА6035 Джинжер Бриз 250г, напиток Альтхаус травяной"
+      ],
+      "source_identities": [
+        "ЧАЙ-130"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00001972",
+      "primary_id": "t-хербал_темптейшн_175_г_л_",
+      "selected_ids": [
+        "t-хербал_темптейшн_175_г_л_"
+      ],
+      "alias_ids": [
+        "1c-132-17ec067a88"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Хербал Темптейшн 175 г(Л)",
+        "ЧА6050 Хербал Темптейшн 175 г(Л), напиток Альтхаус травяной"
+      ],
+      "source_identities": [
+        "ЧАЙ-132"
+      ]
+    },
+    {
+      "code_1c": "00002585",
+      "primary_id": "t-althaus_ройбуш_ванильная_карамель_лист_250г",
+      "selected_ids": [
+        "t-althaus_ройбуш_ванильная_карамель_лист_250г"
+      ],
+      "alias_ids": [
+        "1c-134-fbbcdc2ab5"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ALTHAUS Ройбуш Ванильная Карамель лист 250г",
+        "ЧА6205 Ройбуш Ванильная Карамель 250 г, напиток Альтхаус аром."
+      ],
+      "source_identities": [
+        "ЧАЙ-134"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00002015",
+      "primary_id": "t-ройбуш_сладкий_апельсин_250г",
+      "selected_ids": [
+        "t-ройбуш_сладкий_апельсин_250г"
+      ],
+      "alias_ids": [
+        "1c-135-d246f7f797"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Ройбуш Сладкий Апельсин  250г",
+        "ЧА6215 Ройбуш Сладкий Апельсин  250г, напиток Альтхаус аромат"
+      ],
+      "source_identities": [
+        "ЧАЙ-135"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003817",
+      "primary_id": "t-restoranica_icedtea_клубника_и_киви_50пак",
+      "selected_ids": [
+        "t-restoranica_icedtea_клубника_и_киви_50пак"
+      ],
+      "alias_ids": [
+        "1c-139-40f72ef4f3"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew ICEDTEA Клубника и киви 50пак",
+        "Чай Tasteabrew ICEDTEA-400 \"Клубника и киви\" (50)"
+      ],
+      "source_identities": [
+        "ЧАЙ-139"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003818",
+      "primary_id": "t-restoranica_icedtea_малиновый_мохито_50пак",
+      "selected_ids": [
+        "t-restoranica_icedtea_малиновый_мохито_50пак"
+      ],
+      "alias_ids": [
+        "1c-140-524bf30b90"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew ICEDTEA Малиновый мохито 50пак",
+        "Чай Tasteabrew ICEDTEA-400 \"Малиновый мохито\" (50)"
+      ],
+      "source_identities": [
+        "ЧАЙ-140"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005127",
+      "primary_id": "t-restoranica_icedtea_манго_и_апельсин_50пак",
+      "selected_ids": [
+        "t-restoranica_icedtea_манго_и_апельсин_50пак"
+      ],
+      "alias_ids": [
+        "1c-141-9218af7556"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew ICEDTEA Манго и апельсин 50пак",
+        "Чай Tasteabrew ICEDTEA-400 \"Манго и апельсин\" (50)"
+      ],
+      "source_identities": [
+        "ЧАЙ-141"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005160",
+      "primary_id": "t-restoranica_icedtea_маракуйя_тропик_50пак",
+      "selected_ids": [
+        "t-restoranica_icedtea_маракуйя_тропик_50пак"
+      ],
+      "alias_ids": [
+        "1c-142-e9d303c7bb"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew ICEDTEA Маракуйя Тропик 50пак",
+        "Чай Tasteabrew ICEDTEA-400 \"Маракуйя Тропик\" (50)"
+      ],
+      "source_identities": [
+        "ЧАЙ-142"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003820",
+      "primary_id": "t-restoranica_icedtea_спелая_смородина_50пак",
+      "selected_ids": [
+        "t-restoranica_icedtea_спелая_смородина_50пак"
+      ],
+      "alias_ids": [
+        "1c-143-38428d9f1a"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew ICEDTEA Спелая смородина 50пак",
+        "Чай Tasteabrew ICEDTEA-400 \"Спелая смородина\" (50)"
+      ],
+      "source_identities": [
+        "ЧАЙ-143"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005465",
+      "primary_id": "t-restoranica_resta_апельсин_манго_30пак",
+      "selected_ids": [
+        "t-restoranica_resta_апельсин_манго_30пак"
+      ],
+      "alias_ids": [
+        "1c-144-67efc29978"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew RESTA Апельсин Манго 30пак",
+        "Чай Tasteabrew RESTA-650 для чайника \"Апельсин Манго\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-144"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005469",
+      "primary_id": "t-restoranica_resta_апельсин_ройбуш_30пак",
+      "selected_ids": [
+        "t-restoranica_resta_апельсин_ройбуш_30пак"
+      ],
+      "alias_ids": [
+        "1c-145-bcc2ba064b"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew RESTA Апельсин Ройбуш 30пак",
+        "Чай Tasteabrew RESTA-650 для чайника \"Апельсин Ройбуш\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-145"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005471",
+      "primary_id": "t-restoranica_resta_голубая_масала_30пак",
+      "selected_ids": [
+        "t-restoranica_resta_голубая_масала_30пак"
+      ],
+      "alias_ids": [
+        "1c-146-cae938c8b4"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew RESTA Голубая масала 30пак",
+        "Чай Tasteabrew RESTA-650 для чайника \"Голубая масала\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-146"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005460",
+      "primary_id": "t-restoranica_resta_иммунный_30пак",
+      "selected_ids": [
+        "t-restoranica_resta_иммунный_30пак"
+      ],
+      "alias_ids": [
+        "1c-147-5bbbcc6258"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew RESTA Иммунный 30пак",
+        "Чай Tasteabrew RESTA-650 для чайника \"Иммунный\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-147"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005462",
+      "primary_id": "t-restoranica_resta_кедровый_с_чагой_30пак",
+      "selected_ids": [
+        "t-restoranica_resta_кедровый_с_чагой_30пак"
+      ],
+      "alias_ids": [
+        "1c-148-91c2476bce"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew RESTA Кедровый с чагой 30пак",
+        "Чай Tasteabrew RESTA-650 для чайника \"Кедровый с чагой\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-148"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005464",
+      "primary_id": "t-restoranica_resta_киви_клубника_30пак",
+      "selected_ids": [
+        "t-restoranica_resta_киви_клубника_30пак"
+      ],
+      "alias_ids": [
+        "1c-149-a71954bcae"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew RESTA Киви Клубника 30пак",
+        "Чай Tasteabrew RESTA-650 для чайника \"Киви Клубника\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-149"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005466",
+      "primary_id": "t-restoranica_resta_лесные_ягоды_30пак",
+      "selected_ids": [
+        "t-restoranica_resta_лесные_ягоды_30пак"
+      ],
+      "alias_ids": [
+        "1c-150-0b1f211ee8"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew RESTA Лесные ягоды 30пак",
+        "Чай Tasteabrew RESTA-650 для чайника \"Лесные ягоды\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-150"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005461",
+      "primary_id": "t-restoranica_resta_мята_малина_30пак",
+      "selected_ids": [
+        "t-restoranica_resta_мята_малина_30пак"
+      ],
+      "alias_ids": [
+        "1c-152-d49bc3d952"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew RESTA Мята Малина 30пак",
+        "Чай Tasteabrew RESTA-650 для чайника \"Мята Малина\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-152"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005470",
+      "primary_id": "t-restoranica_resta_пряный_глинтвейн_30пак",
+      "selected_ids": [
+        "t-restoranica_resta_пряный_глинтвейн_30пак"
+      ],
+      "alias_ids": [
+        "1c-153-7b3d993c0c"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew RESTA Пряный глинтвейн 30пак",
+        "Чай Tasteabrew RESTA-650 для чайника \"Пряный глинтвейн\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-153"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005468",
+      "primary_id": "t-restoranica_resta_пуэр_саган_дайля_30пак",
+      "selected_ids": [
+        "t-restoranica_resta_пуэр_саган_дайля_30пак"
+      ],
+      "alias_ids": [
+        "1c-154-f795be7f70"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew RESTA Пуэр Саган дайля 30пак",
+        "Чай Tasteabrew RESTA-650 для чайника \"Пуэр Саган дайля\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-154"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005459",
+      "primary_id": "t-restoranica_resta_сладкая_клубника_30пак",
+      "selected_ids": [
+        "t-restoranica_resta_сладкая_клубника_30пак"
+      ],
+      "alias_ids": [
+        "1c-155-6e50f03dc8"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew RESTA Сладкая клубника 30пак",
+        "Чай Tasteabrew RESTA-650 для чайника \"Сладкая клубника\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-155"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005457",
+      "primary_id": "t-restoranica_resta_смородиновый_черный_30пак",
+      "selected_ids": [
+        "t-restoranica_resta_смородиновый_черный_30пак"
+      ],
+      "alias_ids": [
+        "1c-156-bc5c423843"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew RESTA Смородиновый черный 30пак",
+        "Чай Tasteabrew RESTA-650 для чайника \"Смородиновый черныйг\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-156"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005463",
+      "primary_id": "t-restoranica_resta_шиповник_чабрец_30пак",
+      "selected_ids": [
+        "t-restoranica_resta_шиповник_чабрец_30пак"
+      ],
+      "alias_ids": [
+        "1c-157-e5c5f72905"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew RESTA Шиповник Чабрец 30пак",
+        "Чай Tasteabrew RESTA-650 для чайника \"Шиповник Чабрец\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-157"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005456",
+      "primary_id": "t-restoranica_resta_эрлберг_30пак",
+      "selected_ids": [
+        "t-restoranica_resta_эрлберг_30пак"
+      ],
+      "alias_ids": [
+        "1c-158-2410238dbb"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew RESTA Эрлберг 30пак",
+        "Чай Tasteabrew RESTA-650 для чайника \"Эрлберг\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-158"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005458",
+      "primary_id": "t-restoranica_resta_яблоко_можжевельник_30пак",
+      "selected_ids": [
+        "t-restoranica_resta_яблоко_можжевельник_30пак"
+      ],
+      "alias_ids": [
+        "1c-159-1ff5ec6c56"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew RESTA Яблоко Можжевельник 30пак",
+        "Чай Tasteabrew RESTA-650 для чайника \"Яблоко Можжевельник\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-159"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003581",
+      "primary_id": "t-restoranica_togo_ассам_с_шиповником_36пак",
+      "selected_ids": [
+        "t-restoranica_togo_ассам_с_шиповником_36пак"
+      ],
+      "alias_ids": [
+        "1c-162-15a751a0f2"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew TOGO Ассам с шиповником 36пак",
+        "Чай Tasteabrew TOGO-350 \"Ассам с шиповником и чабрецом\" (36)"
+      ],
+      "source_identities": [
+        "ЧАЙ-162"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003864",
+      "primary_id": "t-restoranica_togo_голубая_масала_36пак",
+      "selected_ids": [
+        "t-restoranica_togo_голубая_масала_36пак"
+      ],
+      "alias_ids": [
+        "1c-163-406f1522b6"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew TOGO Голубая Масала 36пак",
+        "Чай Tasteabrew TOGO-350 \"Голубая Масала\" (36)"
+      ],
+      "source_identities": [
+        "ЧАЙ-163"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005380",
+      "primary_id": "t-restoranica_togo_иван-чай_с_малиной_36пак",
+      "selected_ids": [
+        "t-restoranica_togo_иван-чай_с_малиной_36пак"
+      ],
+      "alias_ids": [
+        "1c-165-2e2d6ae389"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew TOGO Иван-Чай с малиной 36пак",
+        "Чай Tasteabrew TOGO-350 \"Иван-Чай с малиной и травами\" (36)"
+      ],
+      "source_identities": [
+        "ЧАЙ-165"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003822",
+      "primary_id": "t-restoranica_togo_китайский_улун_с_земляникой_30пак",
+      "selected_ids": [
+        "t-restoranica_togo_китайский_улун_с_земляникой_30пак"
+      ],
+      "alias_ids": [
+        "1c-168-f79b843ab9"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew TOGO Китайский улун с земляникой 30пак",
+        "Чай Tasteabrew TOGO-350 \"Китайский улун с земляникой\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-168"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003823",
+      "primary_id": "t-restoranica_togo_королевский_бергамот_60пак",
+      "selected_ids": [
+        "t-restoranica_togo_королевский_бергамот_60пак"
+      ],
+      "alias_ids": [
+        "1c-169-fe7b6d7e65"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew TOGO Королевский бергамот 60пак",
+        "Чай Tasteabrew TOGO-350 \"Королевский бергамот с апельсином\" (60)"
+      ],
+      "source_identities": [
+        "ЧАЙ-169"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005379",
+      "primary_id": "t-restoranica_togo_малина_с_мятой_36пак",
+      "selected_ids": [
+        "t-restoranica_togo_малина_с_мятой_36пак"
+      ],
+      "alias_ids": [
+        "1c-170-1037204ffa"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew TOGO Малина с мятой 36пак",
+        "Чай Tasteabrew TOGO-350 \"Малина с мятой\" (36)"
+      ],
+      "source_identities": [
+        "ЧАЙ-170"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003819",
+      "primary_id": "t-restoranica_togo_манго_с_апельсином_60пак",
+      "selected_ids": [
+        "t-restoranica_togo_манго_с_апельсином_60пак"
+      ],
+      "alias_ids": [
+        "1c-171-a9011d18a1"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew TOGO Манго с апельсином 60пак",
+        "Чай Tasteabrew TOGO-350 \"Манго с апельсином\" (60)"
+      ],
+      "source_identities": [
+        "ЧАЙ-171"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003584",
+      "primary_id": "t-restoranica_togo_медовое_яблоко_с_имбирем_30пак",
+      "selected_ids": [
+        "t-restoranica_togo_медовое_яблоко_с_имбирем_30пак"
+      ],
+      "alias_ids": [
+        "1c-172-e816716cc4"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew TOGO Медовое яблоко с имбирем 30пак",
+        "Чай Tasteabrew TOGO-350 \"Медовое яблоко с имбирем\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-172"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003585",
+      "primary_id": "t-restoranica_togo_ройбуш_с_апельсином_60пак",
+      "selected_ids": [
+        "t-restoranica_togo_ройбуш_с_апельсином_60пак"
+      ],
+      "alias_ids": [
+        "1c-173-a8265ed583"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew TOGO Ройбуш с апельсином 60пак",
+        "Чай Tasteabrew TOGO-350 \"Ройбуш с апельсином и липой\" (60)"
+      ],
+      "source_identities": [
+        "ЧАЙ-173"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003586",
+      "primary_id": "t-restoranica_togo_цейлон_с_клубникой_60пак",
+      "selected_ids": [
+        "t-restoranica_togo_цейлон_с_клубникой_60пак"
+      ],
+      "alias_ids": [
+        "1c-175-6f18f4b34c"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew TOGO Цейлон с клубникой 60пак",
+        "Чай Tasteabrew TOGO-350 \"Цейлон с клубникой и хризантемой\" (60)"
+      ],
+      "source_identities": [
+        "ЧАЙ-175"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003587",
+      "primary_id": "t-restoranica_togo_чайный_глинтвейн_30пак",
+      "selected_ids": [
+        "t-restoranica_togo_чайный_глинтвейн_30пак"
+      ],
+      "alias_ids": [
+        "1c-176-cde081f8e1"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew TOGO Чайный Глинтвейн 30пак",
+        "Чай Tasteabrew TOGO-350 \"Чайный Глинтвейн с фруктами и специями\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-176"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003826",
+      "primary_id": "t-restoranica_togo_черный_со_смородиной_30пак",
+      "selected_ids": [
+        "t-restoranica_togo_черный_со_смородиной_30пак"
+      ],
+      "alias_ids": [
+        "1c-177-5af17e37d1"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew TOGO Черный со смородиной 30пак",
+        "Чай Tasteabrew TOGO-350 \"Черный чай со смородиной\" (30)"
+      ],
+      "source_identities": [
+        "ЧАЙ-177"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003827",
+      "primary_id": "t-restoranica_togo_яблоко_с_можжевельником_60пак",
+      "selected_ids": [
+        "t-restoranica_togo_яблоко_с_можжевельником_60пак"
+      ],
+      "alias_ids": [
+        "1c-178-3c06641f12"
+      ],
+      "state": "proposed_piece_sale",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "sale_unit": "шт",
+      "display_pack": "1 шт.",
+      "unit_approval": "Владелец: по шт, 2026-10-15",
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Tasteabrew TOGO Яблоко с можжевельником 60пак",
+        "Чай Tasteabrew TOGO-350 \"Яблоко с можжевельником\" (60)"
+      ],
+      "source_identities": [
+        "ЧАЙ-178"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00002766",
+      "primary_id": "t-черный_с_доб_с_васильком_200_г_чайный_лист",
+      "selected_ids": [
+        "t-черный_с_доб_с_васильком_200_г_чайный_лист"
+      ],
+      "alias_ids": [
+        "1c-189-704fb76c24"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Черный с доб - С ВАСИЛЬКОМ 200 г (чайный лист",
+        "Черный с доб - С ВАСИЛЬКОМ 200 г (чайный лист, лепестки василька)"
+      ],
+      "source_identities": [
+        "ЧАЙ-189"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00002767",
+      "primary_id": "t-черный_с_доб_со_специями_200_г_ассам",
+      "selected_ids": [
+        "t-черный_с_доб_со_специями_200_г_ассам"
+      ],
+      "alias_ids": [
+        "1c-190-175769fba7"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Черный с доб - СО СПЕЦИЯМИ 200 г (ассам",
+        "Черный с доб - СО СПЕЦИЯМИ 200 г (ассам, имбирь, корица, перец черный, цедра апельсина, кардамон)"
+      ],
+      "source_identities": [
+        "ЧАЙ-190"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00002760",
+      "primary_id": "t-черный_с_доб_чабрец_200_г_аромат_дерево",
+      "selected_ids": [
+        "t-черный_с_доб_чабрец_200_г_аромат_дерево"
+      ],
+      "alias_ids": [
+        "1c-191-d74a4ad30e"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Черный с доб - ЧАБРЕЦ 200 г Аромат: Дерево",
+        "Черный с доб - ЧАБРЕЦ 200 г Аромат: Дерево, сдоба, чабрец Вкус:сдоба, хлеб, дерево, мед,чабрец"
+      ],
+      "source_identities": [
+        "ЧАЙ-191"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00002761",
+      "primary_id": "t-черный_с_доб_эрл_грей_с_бергамотом_200_г_аромат_де",
+      "selected_ids": [
+        "t-черный_с_доб_эрл_грей_с_бергамотом_200_г_аромат_де"
+      ],
+      "alias_ids": [
+        "1c-192-a96717f61a"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Черный с доб - ЭРЛ ГРЕЙ(с бергамотом) 200 г Аромат: Дерево",
+        "Черный с доб - ЭРЛ ГРЕЙ(с бергамотом) 200 г Аромат: Дерево, бергамот Вкус:дерево,бергамот,Терпкий"
+      ],
+      "source_identities": [
+        "ЧАЙ-192"
+      ]
+    },
+    {
+      "code_1c": "1713",
+      "primary_id": "t-чн100_цейлон_высококгорный",
+      "selected_ids": [
+        "t-чн100_цейлон_высококгорный"
+      ],
+      "alias_ids": [
+        "1c-202-d91a0aca2d"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧН100 Цейлон Высококгорный",
+        "ЧН100 Цейлон Высококгорный, чай черный байховый 250г"
+      ],
+      "source_identities": [
+        "ЧАЙ-202"
+      ]
+    },
+    {
+      "code_1c": "1714",
+      "primary_id": "t-чн105_ассам_суприм_блэк",
+      "selected_ids": [
+        "t-чн105_ассам_суприм_блэк"
+      ],
+      "alias_ids": [
+        "1c-203-bd096fbce6"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧН105 Ассам Суприм Блэк",
+        "ЧН105 Ассам Суприм Блэк, чай черный байховый 250г Niktea"
+      ],
+      "source_identities": [
+        "ЧАЙ-203"
+      ]
+    },
+    {
+      "code_1c": "1715",
+      "primary_id": "t-чн110_юньнань_пуэр",
+      "selected_ids": [
+        "t-чн110_юньнань_пуэр"
+      ],
+      "alias_ids": [
+        "1c-204-57e0dcbdae"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧН110 Юньнань Пуэр",
+        "ЧН110 Юньнань Пуэр, чай черный байховый 250г"
+      ],
+      "source_identities": [
+        "ЧАЙ-204"
+      ]
+    },
+    {
+      "code_1c": "1716",
+      "primary_id": "t-чн200_эрл_грей_особый",
+      "selected_ids": [
+        "t-чн200_эрл_грей_особый"
+      ],
+      "alias_ids": [
+        "1c-205-cd790c0c22"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧН200 Эрл Грей Особый",
+        "ЧН200 Эрл Грей Особый, чай черный байховый ароматизиров 250г"
+      ],
+      "source_identities": [
+        "ЧАЙ-205"
+      ]
+    },
+    {
+      "code_1c": "1717",
+      "primary_id": "t-чн205_горный_чабрец",
+      "selected_ids": [
+        "t-чн205_горный_чабрец"
+      ],
+      "alias_ids": [
+        "1c-206-654b9cf9ca"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧН205 Горный Чабрец",
+        "ЧН205 Горный Чабрец, чай черный байховый ароматизированы 250г"
+      ],
+      "source_identities": [
+        "ЧАЙ-206"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003384",
+      "primary_id": "t-чн225_таежный_сбор",
+      "selected_ids": [
+        "t-чн225_таежный_сбор"
+      ],
+      "alias_ids": [
+        "1c-207-69c3254a3e"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧН225 Таежный Сбор",
+        "ЧН225 Таежный Сбор, чай черный байховый аромат. 250 г"
+      ],
+      "source_identities": [
+        "ЧАЙ-207"
+      ]
+    },
+    {
+      "code_1c": "1725",
+      "primary_id": "t-чн400_серебряный_жасмин",
+      "selected_ids": [
+        "t-чн400_серебряный_жасмин"
+      ],
+      "alias_ids": [
+        "1c-211-622872efa6"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧН400 Серебряный Жасмин",
+        "ЧН400 Серебряный Жасмин, чай зеленый байховый 250г"
+      ],
+      "source_identities": [
+        "ЧАЙ-211"
+      ]
+    },
+    {
+      "code_1c": "1729",
+      "primary_id": "t-чн420_марракеш_найт",
+      "selected_ids": [
+        "t-чн420_марракеш_найт"
+      ],
+      "alias_ids": [
+        "1c-212-cfbe66a62e"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧН420 Марракеш Найт",
+        "ЧН420 Марракеш Найт, чай зеленый байховый аромат. 500г"
+      ],
+      "source_identities": [
+        "ЧАЙ-212"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00002279",
+      "primary_id": "t-чн435_цветочная_сенча",
+      "selected_ids": [
+        "t-чн435_цветочная_сенча"
+      ],
+      "alias_ids": [
+        "1c-213-089dfb422e"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧН435 Цветочная сенча",
+        "ЧН435 Цветочная сенча, чай зеленый байховый 150г"
+      ],
+      "source_identities": [
+        "ЧАЙ-213"
+      ]
+    },
+    {
+      "code_1c": "1731",
+      "primary_id": "t-чн500_золотая_лагуна",
+      "selected_ids": [
+        "t-чн500_золотая_лагуна"
+      ],
+      "alias_ids": [
+        "1c-214-2a8e95958f"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧН500 Золотая Лагуна",
+        "ЧН500 Золотая Лагуна, напиток чайный ароматизированный 250 г"
+      ],
+      "source_identities": [
+        "ЧАЙ-214"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00004276",
+      "primary_id": "t-чн525_сила_природы_rooibush_mix_250_г_яблоко",
+      "selected_ids": [
+        "t-чн525_сила_природы_rooibush_mix_250_г_яблоко"
+      ],
+      "alias_ids": [
+        "1c-218-f95083a97d"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧН525 Сила Природы/ Rooibush Mix 250 г. (яблоко",
+        "ЧН525 Сила Природы/ Rooibush Mix 250 г. (яблоко, лист клубники, ройбуш, гибискус, лемонграсс, мята)"
+      ],
+      "source_identities": [
+        "ЧАЙ-218"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003362",
+      "primary_id": "t-чн600_ассам_бейсик",
+      "selected_ids": [
+        "t-чн600_ассам_бейсик"
+      ],
+      "alias_ids": [
+        "1c-219-27559427fd"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧН600 Ассам Бейсик",
+        "ЧН600 Ассам Бейсик, 600 г."
+      ],
+      "source_identities": [
+        "ЧАЙ-219"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00003363",
+      "primary_id": "t-чн610_чайна_бейсик",
+      "selected_ids": [
+        "t-чн610_чайна_бейсик"
+      ],
+      "alias_ids": [
+        "1c-220-6c850e8478"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧН610 Чайна Бейсик",
+        "ЧН610 Чайна Бейсик, чай зел.байх. 600 г."
+      ],
+      "source_identities": [
+        "ЧАЙ-220"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00004580",
+      "primary_id": "t-чн630_жасмин_бейсик",
+      "selected_ids": [
+        "t-чн630_жасмин_бейсик"
+      ],
+      "alias_ids": [
+        "1c-221-24aee85d0b"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧН630 Жасмин Бейсик",
+        "ЧН630 Жасмин Бейсик, 600 г."
+      ],
+      "source_identities": [
+        "ЧАЙ-221"
+      ]
+    },
+    {
+      "code_1c": "00002589",
+      "primary_id": "t-велнес_кап_75_г",
+      "selected_ids": [
+        "t-велнес_кап_75_г"
+      ],
+      "alias_ids": [
+        "1c-124-3e00efaae6"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Велнес Кап 75 г",
+        "ЧА6000 Велнес Кап 75 г, напиток Альтхаус травяной"
+      ],
+      "source_identities": [
+        "ЧАЙ-124"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005868",
+      "primary_id": "t-nr10_горный_чабрец",
+      "selected_ids": [
+        "t-nr10_горный_чабрец",
+        "t-нетnr10_горный_чабрец"
+      ],
+      "alias_ids": [
+        "t-нетnr10_горный_чабрец"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "NR10 Горный Чабрец",
+        "NR10 Горный Чабрец, чай черный пак. 25*2г Niktea",
+        "нетNR10 Горный Чабрец"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005733",
+      "primary_id": "t-rbr_tea_фруктовая_смесь_банан_бамбук_250г",
+      "selected_ids": [
+        "t-rbr_tea_фруктовая_смесь_банан_бамбук_250г",
+        "1c-046-f058c775cd"
+      ],
+      "alias_ids": [
+        "1c-046-f058c775cd"
+      ],
+      "state": "proposed_duplicate",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "RB TEA Фруктовая смесь (Банан Бамбук) 250 г",
+        "RBR TEA Фруктовая смесь Банан Бамбук 250г"
+      ],
+      "source_identities": [
+        "ЧАЙ-046"
+      ]
+    },
+    {
+      "code_1c": "00002328",
+      "primary_id": "t-althaus_ассам_меленг_чёрн_лист_250г",
+      "selected_ids": [
+        "t-althaus_ассам_меленг_чёрн_лист_250г"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ALTHAUS Ассам Меленг чёрн лист 250г",
+        "ЧА1100 Ассам Меленг 250 г, чай Альтхаус черный листовой"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002569",
+      "primary_id": "o-cafetto_capsule_clean_для_капсульных_кофемашин_25_г_6",
+      "selected_ids": [
+        "o-cafetto_capsule_clean_для_капсульных_кофемашин_25_г_6"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Cafetto Capsule Clean для капсульных кофемашин (2,5 г × 6)",
+        "Cafetto Capsule Clean средство для чистки капсульных кофемашин (2,5*6 шт)"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00003401",
+      "primary_id": "o-cup_5_таблетки_для_удаления_кофейных_масел_2_г_100_шт",
+      "selected_ids": [
+        "o-cup_5_таблетки_для_удаления_кофейных_масел_2_г_100_шт"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "CUP 5 Таблетки для удаления кофейных масел (2гр*100 шт)",
+        "CUP 5 Таблетки для удаления кофейных масел 2 г × 100 шт"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00003293",
+      "primary_id": "o-cup_6_порошок_для_удаления_кофейных_масел_1_кг",
+      "selected_ids": [
+        "o-cup_6_порошок_для_удаления_кофейных_масел_1_кг"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "CUP 6 Порошок для удаления кофейных масел 1 кг",
+        "CUP 6 Порошок для удаления кофейных масел 1кг"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00003294",
+      "primary_id": "o-cup_7_жидкость_для_очистки_молочных_систем_1_л",
+      "selected_ids": [
+        "o-cup_7_жидкость_для_очистки_молочных_систем_1_л"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "CUP 7 Жидкость для очистки молочных систем 1 л",
+        "CUP 7 Жидкость для очистки молочных систем 1л"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00004800",
+      "primary_id": "t-rbr_tea_вишневый_сад_250г",
+      "selected_ids": [
+        "t-rbr_tea_вишневый_сад_250г"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "RB TEA Вишневый сад 250 г ( каркаде, ягоды вишни, шиповник, изюм, папайя)",
+        "RBR TEA Вишневый сад 250г"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00001575",
+      "primary_id": "t-ts04_узбекский_чай_95",
+      "selected_ids": [
+        "t-ts04_узбекский_чай_95"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "TS04 Узбекский чай № 95",
+        "TS04 Узбекский чай № 95, зеленый 250 г"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00001522",
+      "primary_id": "t-ts05_свежая_роса_грузинский_36",
+      "selected_ids": [
+        "t-ts05_свежая_роса_грузинский_36"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "TS05 Свежая Роса (Грузинский № 36",
+        "TS05 Свежая Роса (Грузинский № 36, зеленый), 250 г"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00004758",
+      "primary_id": "t-ts32_каркаде",
+      "selected_ids": [
+        "t-ts32_каркаде"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "TS32 Каркаде",
+        "TS32 Каркаде, чайн.нап. 150 г"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005454",
+      "primary_id": "t-ts33_габа_улун",
+      "selected_ids": [
+        "t-ts33_габа_улун"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "TS33 Габа Улун",
+        "TS33 Габа Улун, чай черн байх крупнолист, 250г"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005455",
+      "primary_id": "t-ts34_тибетская_снежная_ромашка",
+      "selected_ids": [
+        "t-ts34_тибетская_снежная_ромашка"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "TS34 Тибетская Снежная Ромашка",
+        "TS34 Тибетская Снежная Ромашка, чайный напиток, листовой, 100 г"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "00002788",
+      "primary_id": "t-генмайча_райсу_100г",
+      "selected_ids": [
+        "t-генмайча_райсу_100г"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Генмайча Райсу 100г",
+        "ЧА3615 Генмайча Райсу 100г, чай Альтхаус зеленый листовой"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "00002578",
+      "primary_id": "t-грюн_матинэ_250г",
+      "selected_ids": [
+        "t-грюн_матинэ_250г"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Грюн Матинэ 250г",
+        "ЧА4035 Грюн Матинэ 250г, чай Альтхаус зеленый аромат. лист"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "00002415",
+      "primary_id": "t-дикая_вишня",
+      "selected_ids": [
+        "t-дикая_вишня"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Дикая вишня",
+        "ЧА2025 Сладкая Дикая Вишня 250г, чай Альтхаус черный аромат."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "00002413",
+      "primary_id": "t-инглиш_брэкфаст_сент_эндрюс_250г",
+      "selected_ids": [
+        "t-инглиш_брэкфаст_сент_эндрюс_250г"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Инглиш Брэкфаст Сент Эндрюс 250г",
+        "ЧА1305 Инглиш Брэкфаст Сент Эндрюс 250г, чай Альтхаус черн."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005334",
+      "primary_id": "cascara_каскара_коста-рико_уп_100_г",
+      "selected_ids": [
+        "cascara_каскара_коста-рико_уп_100_г"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Каскара Коста-Рико уп. 100 гр"
+      ],
+      "source_identities": [
+        "ПРЧ-004"
+      ]
+    },
+    {
+      "code_1c": "00002584",
+      "primary_id": "t-ройбуш_клубника_со_сливками_250_г",
+      "selected_ids": [
+        "t-ройбуш_клубника_со_сливками_250_г"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Ройбуш Клубника со сливками 250 г",
+        "ЧА6200 Ройбуш Клубника со сливками 250 г, напиток Альтхаус аром"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00004939",
+      "primary_id": "s-сироп_barline_базилик_1л",
+      "selected_ids": [
+        "s-сироп_barline_базилик_1л"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BARLINE Базилик 1л",
+        "Сироп Базилик BARLINE 1,0 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00004854",
+      "primary_id": "s-сироп_barline_мандарин_1л",
+      "selected_ids": [
+        "s-сироп_barline_мандарин_1л"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BARLINE Мандарин 1л",
+        "Сироп Мандарин BARLINE 1,0 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00003099",
+      "primary_id": "s-сироп_barline_сангрия_1л",
+      "selected_ids": [
+        "s-сироп_barline_сангрия_1л"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BARLINE Сангрия 1л",
+        "Сироп Сангрия BARLINE 1,0 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00004117",
+      "primary_id": "s-сироп_barline_фундук_1л",
+      "selected_ids": [
+        "s-сироп_barline_фундук_1л"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BARLINE Фундук 1л",
+        "Сироп Фундук BARLINE 1,0 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002509",
+      "primary_id": "s-сироп_botanika_гранат_1л",
+      "selected_ids": [
+        "s-сироп_botanika_гранат_1л"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Гранат 1л",
+        "Сироп Гранат 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002556",
+      "primary_id": "s-сироп_botanika_гренадин_1л",
+      "selected_ids": [
+        "s-сироп_botanika_гренадин_1л"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Гренадин 1л",
+        "Сироп Гренадин 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002511",
+      "primary_id": "s-сироп_botanika_груша_сортовая_1л",
+      "selected_ids": [
+        "s-сироп_botanika_груша_сортовая_1л"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Груша Сортовая 1л",
+        "Сироп Груша Сортовая 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002525",
+      "primary_id": "s-сироп_botanika_облепиха_1л",
+      "selected_ids": [
+        "s-сироп_botanika_облепиха_1л"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп BOTANIKA Облепиха 1л",
+        "Сироп Облепиха 1,0 л. BOTANIKA"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005806",
+      "primary_id": "s-сироп_herbarista_кокос_с_мякотью_0_7л",
+      "selected_ids": [
+        "s-сироп_herbarista_кокос_с_мякотью_0_7л"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп Herbarista Кокос с мякотью 0.7л",
+        "Сироп Кокос с мякотью 0,7 л. Гербариста"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00004465",
+      "primary_id": "s-сироп_sweetshot_зеленое_яблоко_1л",
+      "selected_ids": [
+        "s-сироп_sweetshot_зеленое_яблоко_1л"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Сироп SweetShot Зеленое яблоко 1 л.",
+        "Сироп SweetShot Зеленое яблоко 1л"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00001713",
+      "primary_id": "t-спайс_панч_250_г",
+      "selected_ids": [
+        "t-спайс_панч_250_г"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Спайс Панч 250 г",
+        "ЧА2030 Спайс Панч 250 г, чай Альтхаус черный аромат. лист."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005052",
+      "primary_id": "o-таблетки_expert-cm_для_чистки_от_кофейных_масел_100_шт_",
+      "selected_ids": [
+        "o-таблетки_expert-cm_для_чистки_от_кофейных_масел_100_шт_"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Таблетки EXPERT-CM для чистки от кофейных масел (100 шт х 2г.)",
+        "Таблетки EXPERT-CM для чистки от кофейных масел 100 шт × 2 г"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002757",
+      "primary_id": "t-улун_лань_гуй_жень_женьшень_200_г_аромат_травы",
+      "selected_ids": [
+        "t-улун_лань_гуй_жень_женьшень_200_г_аромат_травы"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Улун - ЛАНЬ ГУЙ ЖЕНЬ  (ЖЕНЬШЕНЬ) 200 г Аромат:травы",
+        "Улун - ЛАНЬ ГУЙ ЖЕНЬ  (ЖЕНЬШЕНЬ) 200 г Аромат:травы, женьшень, Вкус: травы, женьшень, солодка"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002758",
+      "primary_id": "t-улун_най_сян_дун_дин_80_200_г_молочный_улун_аромат",
+      "selected_ids": [
+        "t-улун_най_сян_дун_дин_80_200_г_молочный_улун_аромат"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Улун - НАЙ СЯН ДУН ДИН № 80 200 г (молочный улун)Аромат:сливки",
+        "Улун - НАЙ СЯН ДУН ДИН № 80 200 г (молочный улун)Аромат:сливки, ваниль, Вкус:карамель,ваниль,печенье"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "00001385",
+      "primary_id": "o-фильтр-пакеты_niktea_1_уп_100шт",
+      "selected_ids": [
+        "o-фильтр-пакеты_niktea_1_уп_100шт"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Фильтр-пакеты Niktea 1 уп=100шт"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00001300",
+      "primary_id": "t-цейлон_ор1_каннелия_250г",
+      "selected_ids": [
+        "t-цейлон_ор1_каннелия_250г"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Цейлон ОР1 Каннелия 250г",
+        "ЧА1300 Цейлон ОР1 Каннелия 250г, чай Альтхаус черный лист."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002769",
+      "primary_id": "t-черный_кангаита_кеннийский_черный_200_г_аромат_дер",
+      "selected_ids": [
+        "t-черный_кангаита_кеннийский_черный_200_г_аромат_дер"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Черный - КАНГАИТА (кеннийский черный) 200 г Аромат: Дерево",
+        "Черный - КАНГАИТА (кеннийский черный) 200 г Аромат: Дерево, сдоба, Вкус: сдоба, дерево, мед"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "1732",
+      "primary_id": "t-чн505_пина_колада",
+      "selected_ids": [
+        "t-чн505_пина_колада"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЧН505 Пина Колада",
+        "ЧН505 Пина Колада, напиток чайный ароматизивроаный 250г"
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00002265",
+      "primary_id": "filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter",
+      "selected_ids": [
+        "filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
+        "Эфиопия Иргачиф Гр.2 мытый - 1 кг FILTER"
+      ],
+      "source_identities": [
+        "MONO FILTER"
+      ]
+    },
+    {
+      "code_1c": "ЦБ-00005928",
+      "primary_id": "lemonade_bakunin_organic_cola",
+      "selected_ids": [
+        "lemonade_bakunin_organic_cola"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ORGANIC COLA",
+        "ОРГАНИК КОЛА напиток безалк сильногаз \"Ботаникалс кола\" 0,33 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005929",
+      "primary_id": "lemonade_bakunin_greypfrut",
+      "selected_ids": [
+        "lemonade_bakunin_greypfrut"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ГРЕЙПФРУТ",
+        "ГРЕЙПФРУТ напиток безалк сильногаз \"Ботаникалс грейпфрут\" 0,33 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005930",
+      "primary_id": "lemonade_bakunin_grinkel_vovel",
+      "selected_ids": [
+        "lemonade_bakunin_grinkel_vovel"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ГРИНКЕЛЬ ВОВЕЛЬ",
+        "ГРИНКЕЛЬ ВОВЕЛЬ (Имбирный) напиток безалк сильногаз \"Ботаникалс гринкель вовель\" 0,33 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005931",
+      "primary_id": "lemonade_bakunin_grusha_i_zhasmin",
+      "selected_ids": [
+        "lemonade_bakunin_grusha_i_zhasmin"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ГРУША И ЖАСМИН",
+        "ГРУША И ЖАСМИН напиток безалк сильногаз \"Ботаникалс груша и жасмин\" 0,33 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005932",
+      "primary_id": "lemonade_bakunin_grusha_rozmarin_i_perec",
+      "selected_ids": [
+        "lemonade_bakunin_grusha_rozmarin_i_perec"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ГРУША, РОЗМАРИН И ПЕРЕЦ",
+        "ГРУША, РОЗМАРИН И ПЕРЕЦ напиток безалк сильногаз \"Ботаникалс груша, розмарин и перец\" 0,33 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005933",
+      "primary_id": "lemonade_bakunin_guava_i_bergamot",
+      "selected_ids": [
+        "lemonade_bakunin_guava_i_bergamot"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ГУАВА И БЕРГАМОТ",
+        "ГУАВА И БЕРГАМОТ напиток безалк сильногаз \"Ботаникалс гуава и бергамот\" 0,33 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005934",
+      "primary_id": "lemonade_bakunin_ezhevika_i_karkade",
+      "selected_ids": [
+        "lemonade_bakunin_ezhevika_i_karkade"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЕЖЕВИКА И КАРКАДЕ",
+        "ЕЖЕВИКА И КАРКАДЕ напиток безалк сильногаз \"Ботаникалс ежевика и каркаде\" 0,33 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005935",
+      "primary_id": "lemonade_bakunin_ivanchay_i_myata",
+      "selected_ids": [
+        "lemonade_bakunin_ivanchay_i_myata"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ИВАНЧАЙ И МЯТА",
+        "ИВАНЧАЙ И МЯТА напиток безалк сильногаз \"Ботаникалс иван-чай и мята\" 0,33 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005936",
+      "primary_id": "lemonade_bakunin_marakuyya_i_persik",
+      "selected_ids": [
+        "lemonade_bakunin_marakuyya_i_persik"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "МАРАКУЙЯ И ПЕРСИК",
+        "МАРАКУЙЯ И ПЕРСИК напиток безалк сильногаз \"Ботаникалс маракуйя и персик\" 0,33 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005937",
+      "primary_id": "lemonade_bakunin_portovyy_gleg",
+      "selected_ids": [
+        "lemonade_bakunin_portovyy_gleg"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ПОРТОВЫЙ ГЛЁГ",
+        "ПОРТОВЫЙ ГЛЁГ напиток безалк сильногаз \"Ботаникалс портовый глёг\" 0,33 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005938",
+      "primary_id": "lemonade_bakunin_tonik",
+      "selected_ids": [
+        "lemonade_bakunin_tonik"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ТОНИК",
+        "ТОНИК напиток безалк сильногаз \"Ботаникалс тоник\" 0,33 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005939",
+      "primary_id": "lemonade_bakunin_tonik_ilang_ilang",
+      "selected_ids": [
+        "lemonade_bakunin_tonik_ilang_ilang"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ТОНИК ИЛАНГ-ИЛАНГ",
+        "ТОНИК ИЛАНГ-ИЛАНГ напиток безалк сильногаз \"Ботаникалс тоник иланг-иланг\" 0,33 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005940",
+      "primary_id": "lemonade_bakunin_tonik_yudzu",
+      "selected_ids": [
+        "lemonade_bakunin_tonik_yudzu"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ТОНИК ЮДЗУ",
+        "ТОНИК ЮДЗУ напиток безалк сильногаз \"Ботаникалс тоник юдзу\" 0,33 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005941",
+      "primary_id": "lemonade_bakunin_yagody_i_elki",
+      "selected_ids": [
+        "lemonade_bakunin_yagody_i_elki"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ЯГОДЫ И ЁЛКИ",
+        "ЯГОДЫ И ЁЛКИ напиток безалк сильногаз \"Ботаникалс ягоды и ёлки\" 0,33 л."
+      ],
+      "source_identities": []
+    },
+    {
+      "code_1c": "ЦБ-00005706",
+      "primary_id": "1c-article-d8dbbd8bc2",
+      "selected_ids": [
+        "1c-article-d8dbbd8bc2"
+      ],
+      "alias_ids": [],
+      "state": "proposed_single",
+      "stock_source": "Основной склад",
+      "price_source": "1.Базовый прайс-лист",
+      "unit_conversion": 1,
+      "expected_source_unit": "шт",
+      "source_names": [
+        "ДП \"CHOCOLATE RB\" БРАЗИЛИЯ СЕРТАО ЖЕЛТЫЙ БУРБОН молотый, 8 фильтр-пакетов"
+      ],
+      "source_identities": [
+        "ШОКОЛАД"
+      ]
+    }
+  ],
+  "tasteabrew_unit_approved": true
+}
