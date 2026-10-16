@@ -305,12 +305,13 @@
       "tags": [],
       "photo": "photos/products/t-althaus_ассам_меленг_чёрн_лист_250г.jpg",
       "_source": "alephtrade",
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "00002328",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "t-althaus_ассам_меленг_чёрн_пакет_20х1_75г",
@@ -3455,12 +3456,13 @@
       "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "ЦБ-00005868",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "t-nr21_эрл_грей_особый_20_4г_для_чайника_чай_черный_",
@@ -3822,12 +3824,13 @@
       "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "ЦБ-00004800",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "t-rbr_tea_габа_алишань_улун_250г",
@@ -3875,13 +3878,13 @@
       ],
       "stock": 0,
       "tags": [],
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
-      "hidden": false,
+      "hidden": true,
       "article_1c": "ЦБ-00004790",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "t-rbr_tea_екатерина_великая_чёрн_250г",
@@ -5297,12 +5300,13 @@
       "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "ЦБ-00001575",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "t-ts05_свежая_роса_грузинский_36",
@@ -5325,12 +5329,13 @@
       "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "ЦБ-00001522",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "t-ts07_сбитень_монастырский",
@@ -5581,12 +5586,13 @@
       "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "ЦБ-00004758",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "t-ts33_габа_улун",
@@ -5609,12 +5615,13 @@
       "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "ЦБ-00005454",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "t-ts34_тибетская_снежная_ромашка",
@@ -6210,12 +6217,13 @@
       "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "00002788",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "o-горячий_шоколад_cocaya_classic_brown_1_кг",
@@ -6312,12 +6320,13 @@
       "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "00002578",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "t-гуарана_хит_250_г",
@@ -6396,13 +6405,13 @@
       "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
-      "hidden": false,
+      "hidden": true,
       "article_1c": "00002415",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "c-дп_chocolate_rb_гватемала_уеуетенанго_молотый_8_фи",
@@ -6970,12 +6979,13 @@
       "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "00002413",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "c-каскара_коста-рика_100г",
@@ -9080,12 +9090,13 @@
       "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "00002584",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "t-ройбуш_сладкий_апельсин_250г",
@@ -9380,13 +9391,14 @@
       ],
       "stock": 0,
       "tags": [],
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "photo": "photos/products/s-сироп_barline_базилик_1л.jpg",
       "article_1c": "ЦБ-00004939",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "s-сироп_barline_земляника_1л",
@@ -9468,14 +9480,14 @@
       ],
       "stock": 0,
       "tags": [],
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
-      "hidden": false,
+      "hidden": true,
       "photo": "photos/products/s-сироп_barline_мандарин_1л.jpg",
       "article_1c": "ЦБ-00004854",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "s-сироп_barline_можжевельник_1л",
@@ -9551,13 +9563,14 @@
       ],
       "stock": 0,
       "tags": [],
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "photo": "photos/products/s-сироп_barline_сангрия_1л.jpg",
       "article_1c": "ЦБ-00003099",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "s-сироп_barline_тирамису_1л",
@@ -9609,13 +9622,14 @@
       ],
       "stock": 0,
       "tags": [],
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "photo": "photos/products/s-сироп_barline_фундук_1л.jpg",
       "article_1c": "ЦБ-00004117",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "s-сироп_botanika_айриш_крем_1л",
@@ -10740,13 +10754,14 @@
       ],
       "stock": 0,
       "tags": [],
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "photo": "photos/products/s-сироп_botanika_облепиха_1л.jpg",
       "article_1c": "ЦБ-00002525",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "s-сироп_botanika_персик_1л",
@@ -12125,13 +12140,13 @@
       ],
       "stock": 0,
       "tags": [],
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
-      "hidden": false,
+      "hidden": true,
       "article_1c": "ЦБ-00004465",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "s-сироп_sweetshot_имбирный_пряник_1л",
@@ -12984,12 +12999,13 @@
       "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "ЦБ-00001713",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "t-спринг_тоник_250_гр_",
@@ -13109,9 +13125,8 @@
       "stock": 0,
       "on_request": false,
       "price": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "keep_visible": true,
       "photo": "",
       "fasovka": [
@@ -13122,7 +13137,9 @@
         }
       ],
       "article_1c": "ЦБ-00005052",
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "filter_mono_танзания_аа_мытый_1_кг_filter",
@@ -13589,12 +13606,13 @@
       "stock": 0,
       "tags": [],
       "photo": "photos/products/t-улун_лань_гуй_жень_женьшень_200_г_аромат_травы.jpg",
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "ЦБ-00002757",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "t-улун_най_сян_дун_дин_80_200_г_молочный_улун_аромат",
@@ -13618,12 +13636,13 @@
       "stock": 0,
       "tags": [],
       "photo": "photos/products/t-улун_най_сян_дун_дин_80_200_г_молочный_улун_аромат.jpg",
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "ЦБ-00002758",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "t-улун_те_гуанинь_70_200_г_железная_бодхисаттва_гуан",
@@ -13877,12 +13896,13 @@
       "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "ЦБ-00001300",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "t-чай_tasteabrew_resta_650_для_чайника_молочный_улун",
@@ -14192,12 +14212,13 @@
       "stock": 0,
       "tags": [],
       "photo": "photos/products/t-черный_кангаита_кеннийский_черный_200_г_аромат_дер.jpg",
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "ЦБ-00002769",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "t-черный_-_цейлон_200_г_аромат_дерево_мед_вкус_дерев",
@@ -15044,12 +15065,13 @@
       "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
       "article_1c": "1732",
       "on_request": false,
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "hidden": true,
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "t-чн515_краснополянский_сбор_нап_травяной_200_г_лист",
@@ -16155,11 +16177,12 @@
         "ротация"
       ],
       "on_request": false,
-      "quarantined": false,
-      "hidden": false,
+      "quarantined": true,
+      "hidden": true,
       "photo": "assets/lemonades/grinkel_vovel.jpg",
       "article_1c": "ЦБ-00005930",
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "lemonade_bakunin_grusha_i_zhasmin",
@@ -16187,11 +16210,12 @@
         "постоянный ассортимент"
       ],
       "on_request": false,
-      "quarantined": false,
-      "hidden": false,
+      "quarantined": true,
+      "hidden": true,
       "photo": "assets/lemonades/grusha_i_zhasmin.jpg",
       "article_1c": "ЦБ-00005931",
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "lemonade_bakunin_grusha_rozmarin_i_perec",
@@ -16379,11 +16403,12 @@
         "сезонный"
       ],
       "on_request": false,
-      "quarantined": false,
-      "hidden": false,
+      "quarantined": true,
+      "hidden": true,
       "photo": "assets/lemonades/portovy_gleg.jpg",
       "article_1c": "ЦБ-00005937",
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "lemonade_bakunin_tonik",
@@ -23003,7 +23028,7 @@
       "on_request": false,
       "quarantined_at": "2026-09-17T08:15:02+00:00",
       "roast": "F",
-      "quarantine_reason": "zero_stock"
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "filter_micro_эфиопия_ворка_челчелле_гр_1_анаэроб_filter_1_кг",
@@ -23027,7 +23052,7 @@
       "on_request": false,
       "quarantined_at": "2026-09-07T08:15:02+00:00",
       "roast": "F",
-      "quarantine_reason": "zero_stock"
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "filter_micro_эфиопия_банко_готити_гр_1_сухой_нат_filter_1_кг",
@@ -23165,7 +23190,7 @@
       "on_request": false,
       "quarantined_at": "2026-10-02T08:15:02+00:00",
       "roast": "F",
-      "quarantine_reason": "zero_stock"
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "borshch_кофе_roastberry_borщ_эфиопия_ворка_челчеле_гр1_анароб_200_г",
@@ -23189,7 +23214,7 @@
       "on_request": false,
       "roast": "F",
       "quarantined_at": "2026-09-21T08:15:02+00:00",
-      "quarantine_reason": "zero_stock"
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "f-эфиопия_банко_готити_гр_1_сухой",
@@ -23242,7 +23267,7 @@
       "on_request": false,
       "quarantined_at": "2026-08-31T10:15:01+00:00",
       "roast": "E",
-      "quarantine_reason": "zero_stock"
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "retail_filter_f_roastberry_колумбия_рисаральда_декаф_1_кг",
