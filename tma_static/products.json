@@ -5961,7 +5961,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 341.0,
+      "stock": 368.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7627,7 +7627,7 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 9.0,
+      "stock": 6.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -15560,7 +15560,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 124.0,
+      "stock": 118.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -23748,7 +23748,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-16T09:15:08+00:00",
+      "quarantined_at": "2026-10-16T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23888,7 +23888,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-16T09:15:08+00:00",
+      "quarantined_at": "2026-10-16T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
