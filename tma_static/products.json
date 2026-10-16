@@ -14638,10 +14638,11 @@
       "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
-      "hidden": true
+      "hidden": true,
+      "article_1c": "ЦБ-00004114",
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "t-чн008_500_молочный_улун",
