@@ -25,6 +25,12 @@ class RBOGuardError(ValueError):
 METADATA_FIELDS = frozenset({'description', 'photo', 'photos', 'image', 'images', 'photo_source', 'photo_updated_at'})
 STOCK_LIFECYCLE_FIELDS = frozenset({
     'stock', 'hidden', 'quarantined', 'quarantine_reason', 'quarantined_at',
+    'article_1c',
+})
+# Owner-verified exact zero-stock links for RBO-owned legacy cards. Each pair
+# was matched to a unique 1C nomenclature row before being added here.
+VERIFIED_ZERO_STOCK_LINKS = frozenset({
+    ('t-нетnr10_горный_чабрец', 'ЦБ-00001980'),
 })
 IDENTITY_FIELDS = ('article_1c', 'code_1c', 'article', 'art', 'guid_1c', 'ref_1c')
 _local = threading.local()
@@ -89,7 +95,14 @@ class Policy:
             return (
                 action.stock == 0
                 and isinstance(action.article, str)
-                and product.get('article_1c') == action.article
+                and (
+                    product.get('article_1c') == action.article
+                    or (
+                        (action.product_id, action.article)
+                        in VERIFIED_ZERO_STOCK_LINKS
+                        and not product.get('article_1c')
+                    )
+                )
             )
 
         entries = getattr(registry, 'entries', {})

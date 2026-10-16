@@ -8836,13 +8836,14 @@
           "price": 190.0
         }
       ],
-      "stock": -4,
+      "stock": 0,
       "tags": [],
       "photo": null,
-      "quarantined": false,
+      "quarantined": true,
       "quarantined_at": null,
-      "quarantine_reason": null,
-      "hidden": true
+      "hidden": true,
+      "article_1c": "ЦБ-00001980",
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "s-парфюм_clavis_апельсиновая_цедра",
