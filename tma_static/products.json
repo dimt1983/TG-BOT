@@ -5899,7 +5899,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 132,
+      "stock": 132.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5973,7 +5973,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 422,
+      "stock": 422.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -15837,7 +15837,7 @@
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 10,
+      "stock": 10.0,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -23301,7 +23301,7 @@
       "name": "F \"Roastberry\" Колумбия Рисаральда декаф - 200 г",
       "category": "retail",
       "subcategory": "retail_filter",
-      "stock": 2.0,
+      "stock": 1.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-107",
@@ -23807,7 +23807,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-16T11:15:02+00:00",
+      "quarantined_at": "2026-10-16T12:15:22+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23947,7 +23947,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-16T11:15:02+00:00",
+      "quarantined_at": "2026-10-16T12:15:22+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24037,9 +24037,9 @@
     {
       "id": "1c-126-f634413506",
       "name": "Уганда Momo Beat анаэроб.1 кг FILTER",
-      "stock": 7,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "КОФ-126",
       "fasovka": [
         {
@@ -24048,7 +24048,9 @@
         }
       ],
       "category": "filter",
-      "on_request": true
+      "on_request": true,
+      "quarantined_at": "2026-10-16T12:15:22+00:00",
+      "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
       "id": "filter_micro_уганда_momo_beat_анаэроб_1_кг_filter",
