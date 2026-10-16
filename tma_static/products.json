@@ -3712,7 +3712,7 @@
           "on_request": false
         }
       ],
-      "stock": 14,
+      "stock": 20,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -9188,7 +9188,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 10.0,
+      "stock": 9,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -17159,7 +17159,7 @@
           "on_request": false
         }
       ],
-      "stock": 18.0,
+      "stock": 17,
       "_source": "Кофе \"Roastberry BLACK\" Кения Маакиоу Пиберри мытая - 200 г",
       "country": "Кения",
       "on_request": false,
@@ -19504,7 +19504,7 @@
           "on_request": false
         }
       ],
-      "stock": 44,
+      "stock": 42,
       "_source": "RB TEA Ассам 250 г",
       "subcategory": "tea_rbr_tea_loose",
       "hidden": false,
