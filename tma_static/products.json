@@ -1662,7 +1662,7 @@
           "on_request": false
         }
       ],
-      "stock": 149,
+      "stock": 138,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -2066,7 +2066,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 112,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -3480,7 +3480,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -6003,7 +6003,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5.0,
+      "stock": 25,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -16699,7 +16699,7 @@
       "name": "Эфиопия Сидамо Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6.0,
+      "stock": 5,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -19663,7 +19663,7 @@
           "on_request": false
         }
       ],
-      "stock": 31,
+      "stock": 30,
       "on_request": false,
       "_source": "Чай Tasteabrew SITO-350 \"Вишня в шоколаде\" (60)",
       "subcategory": "tea_tasteabrew_loose",
@@ -19683,7 +19683,7 @@
           "on_request": false
         }
       ],
-      "stock": 21,
+      "stock": 20,
       "on_request": false,
       "_source": "Чай Tasteabrew SITO-350 \"Клубника с дыней\" (60)",
       "subcategory": "tea_tasteabrew_loose",
@@ -20218,7 +20218,7 @@
     {
       "id": "1c-taltha-gp0005-e08cd00312",
       "name": "NR20 Королевский Завтрак 20*4 ГП для чайника черный цейлон",
-      "stock": 5,
+      "stock": 4,
       "hidden": false,
       "quarantined": false,
       "article_1c": "TALTHA-GP0005",
@@ -21059,7 +21059,7 @@
     {
       "id": "1c-058-12671e29bd",
       "name": "TS23 Япония-Матча Традиционная чай зеленый байховый (порошковый), 150 г",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-058",
@@ -23002,8 +23002,8 @@
       "price_source_1c": "КОФ-103",
       "on_request": false,
       "quarantined_at": "2026-09-17T08:15:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee",
-      "roast": "F"
+      "roast": "F",
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "filter_micro_эфиопия_ворка_челчелле_гр_1_анаэроб_filter_1_кг",
@@ -23026,8 +23026,8 @@
       "price_source_1c": "КОФ-104",
       "on_request": false,
       "quarantined_at": "2026-09-07T08:15:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee",
-      "roast": "F"
+      "roast": "F",
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "filter_micro_эфиопия_банко_готити_гр_1_сухой_нат_filter_1_кг",
@@ -23164,8 +23164,8 @@
       "price_source_1c": "КОФ-101",
       "on_request": false,
       "quarantined_at": "2026-10-02T08:15:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee",
-      "roast": "F"
+      "roast": "F",
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "borshch_кофе_roastberry_borщ_эфиопия_ворка_челчеле_гр1_анароб_200_г",
@@ -23189,7 +23189,7 @@
       "on_request": false,
       "roast": "F",
       "quarantined_at": "2026-09-21T08:15:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee"
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "f-эфиопия_банко_готити_гр_1_сухой",
@@ -23241,8 +23241,8 @@
       "price_source_1c": "КОФ-109",
       "on_request": false,
       "quarantined_at": "2026-08-31T10:15:01+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee",
-      "roast": "E"
+      "roast": "E",
+      "quarantine_reason": "zero_stock"
     },
     {
       "id": "retail_filter_f_roastberry_колумбия_рисаральда_декаф_1_кг",
