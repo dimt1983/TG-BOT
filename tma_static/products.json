@@ -1850,7 +1850,7 @@
       "id": "retail_e_roastberry_гондурас_san_nicolas_200_г",
       "name": "E \"Roastberry\" Гондурас San Nicolas",
       "category": "retail",
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/coffee-4e9af6a86a66ef25-20261016.jpg",
       "fasovka": [
         {
           "size": "200 г",
@@ -2010,7 +2010,7 @@
       ],
       "stock": 20.0,
       "tags": [],
-      "photo": "assets/placeholders/ph_retail.svg",
+      "photo": "photos/products/coffee-b272aaa41ff1b8ba-20261016.jpg",
       "tasting_notes": [
         "молочный шоколад",
         "сухофрукты",
@@ -16902,7 +16902,7 @@
       "id": "retail_e_roastberry_гватемала_уетенанго_-_1_кг",
       "name": "E \"Roastberry\" Гватемала Уетенанго",
       "category": "retail",
-      "photo": "assets/placeholders/pack_roastberry_1kg.png",
+      "photo": "photos/products/coffee-8e904c9a5f52408e-20261016.jpg",
       "fasovka": [
         {
           "size": "1 кг",
@@ -16930,7 +16930,7 @@
       "id": "e_roastberry_гондурас_san_nicolas_dark_1_кг",
       "name": "E \"Roastberry\" Гондурас San Nicolas Dark",
       "category": "retail",
-      "photo": "assets/placeholders/pack_roastberry_1kg.png",
+      "photo": "photos/products/coffee-180d4f29522dc4dd-20261016.jpg",
       "fasovka": [
         {
           "size": "1 кг",
@@ -16955,7 +16955,7 @@
       "id": "e_roastberry_эфиопия_сидамо_гр_2_1_кг",
       "name": "E \"Roastberry\" Эфиопия Сидамо Гр.2",
       "category": "retail",
-      "photo": "assets/placeholders/pack_roastberry_1kg.png",
+      "photo": "photos/products/coffee-d4387a1f64a9d2e1-20261016.jpg",
       "fasovka": [
         {
           "size": "1 кг",
@@ -16980,7 +16980,7 @@
       "id": "f_roastberry_колумбия_андино_1_кг",
       "name": "F \"Roastberry\" Колумбия Андино",
       "category": "retail",
-      "photo": "assets/placeholders/pack_roastberry_1kg.png",
+      "photo": "photos/products/coffee-121efc540b91eeb0-20261016.jpg",
       "fasovka": [
         {
           "size": "1 кг",
@@ -17005,7 +17005,7 @@
       "id": "f_roastberry_эфиопия_иргачиф_гр_2_1_кг",
       "name": "F \"Roastberry\" Эфиопия Иргачиф Гр.2",
       "category": "retail",
-      "photo": "assets/placeholders/pack_roastberry_1kg.png",
+      "photo": "photos/products/coffee-43233f8de87f4531-20261016.jpg",
       "fasovka": [
         {
           "size": "1 кг",
@@ -17030,7 +17030,7 @@
       "id": "e_roastberry_мексика_чьяпас_200_г",
       "name": "E \"Roastberry\" Мексика Чьяпас",
       "category": "retail",
-      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "photo": "photos/products/coffee-83c0d8fff1ebef81-20261016.jpg",
       "fasovka": [
         {
           "size": "200 г",
@@ -17081,7 +17081,7 @@
       "id": "e_roastberry_эфиопия_сидамо_гр_2_200_г",
       "name": "E \"Roastberry\" Эфиопия Сидамо Гр.2",
       "category": "retail",
-      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "photo": "photos/products/coffee-c35d835999d9d7a8-20261016.jpg",
       "fasovka": [
         {
           "size": "200 г",
@@ -17106,7 +17106,7 @@
       "id": "f_roastberry_вьетнам_блю_сонал_сухой_200_г",
       "name": "F \"Roastberry\" Вьетнам Блю Сонал сухой",
       "category": "retail",
-      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "photo": "photos/products/coffee-949397a4af388004-20261016.jpg",
       "fasovka": [
         {
           "size": "200 г",
@@ -17129,7 +17129,7 @@
       "id": "f_roastberry_руанда_мутетели_200_г",
       "name": "F \"Roastberry\" Руанда Мутетели",
       "category": "retail",
-      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "photo": "photos/products/coffee-29171bf8fd46563b-20261016.jpg",
       "fasovka": [
         {
           "size": "200 г",
@@ -17178,7 +17178,7 @@
       "id": "кофе_roastberry_black_кения_маакиоу_пиберри_мытая_200_г",
       "name": "Кофе \"Roastberry BLACK\" Кения Маакиоу Пиберри мытая",
       "category": "black",
-      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "photo": "photos/products/coffee-620a5289939da75f-20261016.jpg",
       "fasovka": [
         {
           "size": "200 г",
@@ -17223,7 +17223,7 @@
       "id": "кофе_roastberry_borщ_колумбия_катимор_нат_200_г",
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Катимор нат.\"",
       "category": "borshch",
-      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "photo": "photos/products/coffee-5f7f7384dc5a5143-20261016.jpg",
       "fasovka": [
         {
           "size": "200 г",
@@ -17245,7 +17245,7 @@
       "id": "кофе_roastberry_borщ_колумбия_катуррон_нат_200_г",
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\"",
       "category": "borshch",
-      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "photo": "photos/products/coffee-b696abc0eaef7f97-20261016.jpg",
       "fasovka": [
         {
           "size": "200 г",
@@ -19849,7 +19849,7 @@
       "roast": "E",
       "description": null,
       "tasting_notes": null,
-      "photo": null,
+      "photo": "photos/products/coffee-4329caa8cf700880-20261016.jpg",
       "fasovka": [
         {
           "size": "200 г",
@@ -22700,7 +22700,7 @@
       "hidden": false,
       "quarantined": false,
       "roast": "E",
-      "photo": "assets/placeholders/ph_espresso.svg",
+      "photo": "photos/products/coffee-81b3e2aea6c0341c-20261016.jpg",
       "on_request": false,
       "fasovka": [
         {
@@ -22735,7 +22735,8 @@
       "price_source_1c": "КОФ-098",
       "quarantined_at": null,
       "quarantine_reason": null,
-      "on_request": false
+      "on_request": false,
+      "photo": "photos/products/coffee-56e0f6179eedfea0-20261016.jpg"
     },
     {
       "id": "o-концентрат_фильтр_кофе_бразилия_лагуинья",
@@ -23000,7 +23001,7 @@
       ],
       "stock": 5.0,
       "tags": [],
-      "photo": null,
+      "photo": "photos/products/coffee-8b630672844979dc-20261016.jpg",
       "pair_id": "эфиопия_конга_гр_1_сухой_filter_-_1_кг",
       "hidden": false,
       "quarantined": false,
@@ -23080,7 +23081,8 @@
       "on_request": false,
       "quarantined_at": null,
       "quarantine_reason": null,
-      "roast": "F"
+      "roast": "F",
+      "photo": "photos/products/coffee-1af7034f43ae92e9-20261016.jpg"
     },
     {
       "id": "retail_espresso_e_roastberry_колумбия_рисаральда_декаф_1_кг",
@@ -23103,7 +23105,8 @@
       "price_source_1c": "КОФ-105",
       "on_request": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/coffee-0f30cbf71a5b7f2f-20261016.jpg"
     },
     {
       "id": "retail_espresso_e_roastberry_колумбия_рисаральда_декаф_200_г",
@@ -23126,7 +23129,8 @@
       "price_source_1c": "КОФ-108",
       "on_request": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/coffee-54ae7ed86272562b-20261016.jpg"
     },
     {
       "id": "black_кофе_roastberry_black_эфиопия_конга_гр_1_сухой_200_г",
@@ -23148,7 +23152,8 @@
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-112",
       "on_request": false,
-      "roast": "F"
+      "roast": "F",
+      "photo": "photos/products/coffee-9f7633d4ca4d913f-20261016.jpg"
     },
     {
       "id": "black_кофе_roastberry_black_эфиопия_банко_готити_гр_1_сухой_200_г",
@@ -23170,7 +23175,8 @@
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-113",
       "on_request": false,
-      "roast": "F"
+      "roast": "F",
+      "photo": "photos/products/coffee-80f1cc334fd2c63f-20261016.jpg"
     },
     {
       "id": "borshch_кофе_roastberry_borщ_эфиопия_гедеб_инфюз_с_ананасом_200_г",
@@ -23294,7 +23300,8 @@
       "price_source_1c": "КОФ-106",
       "on_request": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/coffee-da4ae1e354590c2c-20261016.jpg"
     },
     {
       "id": "retail_filter_f_roastberry_колумбия_рисаральда_декаф_200_г",
@@ -23315,7 +23322,8 @@
       "created_at": "2026-08-24T16:15:02+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-107",
-      "on_request": false
+      "on_request": false,
+      "photo": "photos/products/coffee-24f68dd4b1a88d64-20261016.jpg"
     },
     {
       "id": "1c-sswcho-000016-606d3b7577",
@@ -23457,7 +23465,8 @@
       "created_by": "bridge_1c_qc",
       "roast": "E",
       "price_source_1c": "КОФ-117",
-      "on_request": false
+      "on_request": false,
+      "photo": "photos/products/coffee-bc2ee15f5ac54439-20261016.jpg"
     },
     {
       "id": "1c-taltha-dp0099-3dde8cc7c5",
@@ -23614,7 +23623,8 @@
       "category": "filter",
       "roast": "F",
       "price_source_1c": "ФАНКИ",
-      "on_request": true
+      "on_request": true,
+      "photo": "photos/products/coffee-4d474f7fe677b29e-20261016.jpg"
     },
     {
       "id": "filter_micro_колумбия_арбуз_инфьюз_декаф_1_кг_filter",
@@ -23637,7 +23647,8 @@
       "price_source_1c": "КОФ-119",
       "on_request": false,
       "roast": "F",
-      "quarantined_at": null
+      "quarantined_at": null,
+      "photo": "photos/products/coffee-969b00752f9081c8-20261016.jpg"
     },
     {
       "id": "1c-article-d8dbbd8bc2",
@@ -23656,7 +23667,8 @@
       "category": "filter",
       "on_request": false,
       "roast": "F",
-      "_price_owner": "rbo"
+      "_price_owner": "rbo",
+      "photo": "photos/products/coffee-c0def410c5d0e375-20261016.jpg"
     },
     {
       "id": "borshch_кофе_roastberry_borщ_колумбия_арбуз_инфьюз_декаф_200_г",
@@ -23679,7 +23691,8 @@
       "price_source_1c": "КОФ-118",
       "on_request": false,
       "roast": "F",
-      "quarantined_at": null
+      "quarantined_at": null,
+      "photo": "photos/products/coffee-bfa8421032d904af-20261016.jpg"
     },
     {
       "id": "1c-09-03-007-c221416340",
@@ -23791,7 +23804,8 @@
         }
       ],
       "created_at": "2026-09-18T14:15:02+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "photo": "photos/products/coffee-c2a3e12a3ac62df2-20261016.jpg"
     },
     {
       "id": "1c-097-892180c922",
@@ -23890,7 +23904,8 @@
       "created_at": "2026-10-06T16:15:01+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-124",
-      "on_request": false
+      "on_request": false,
+      "photo": "photos/products/coffee-f7d9a0b1f3f58a03-20261016.jpg"
     },
     {
       "id": "black_кофе_roastberry_black_кения_оранж_кисии_анаэроб_200_г",
@@ -23911,7 +23926,8 @@
       "created_at": "2026-10-06T16:15:01+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-122",
-      "on_request": false
+      "on_request": false,
+      "photo": "photos/products/coffee-7031d9f8085905e2-20261016.jpg"
     },
     {
       "id": "espresso_micro_уганда_momo_beat_анаэроб_эспрессо_1_кг",
@@ -23931,7 +23947,8 @@
         }
       ],
       "created_at": "2026-10-06T17:15:02+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "photo": "photos/products/coffee-02888431e5705a44-20261016.jpg"
     },
     {
       "id": "1c-123-0498b7f23a",
@@ -23972,7 +23989,8 @@
       "price_source_1c": "КОФ-123",
       "on_request": false,
       "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantine_reason": null,
+      "photo": "photos/products/coffee-87f19e948fd4338f-20261016.jpg"
     },
     {
       "id": "e-кения_оранж_кисии",
