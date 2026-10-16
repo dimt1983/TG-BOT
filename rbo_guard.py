@@ -1,9 +1,11 @@
-"""Legacy-writer boundary for RBO-owned catalog rows. No privileged write bypass.
+"""Legacy-writer boundary for RBO-owned catalog rows.
 
 Activation uses RBO_POLICY_PATH or the explicitly installed shared sidecar.
 Missing policy is inert only for catalogs without an accepted RBO snapshot.
 Configured invalid/missing policy fails closed. All catalog writers must
 use the shared lock and optimistic snapshot digest to prevent lost updates.
+The 1C catalog sync may change stock/quarantine fields only through an exact
+confirmed registry lifecycle action; prices and product content stay protected.
 """
 from contextlib import contextmanager
 from dataclasses import dataclass
@@ -21,6 +23,9 @@ class RBOGuardError(ValueError):
 
 
 METADATA_FIELDS = frozenset({'description', 'photo', 'photos', 'image', 'images', 'photo_source', 'photo_updated_at'})
+STOCK_LIFECYCLE_FIELDS = frozenset({
+    'stock', 'hidden', 'quarantined', 'quarantine_reason', 'quarantined_at',
+})
 IDENTITY_FIELDS = ('article_1c', 'code_1c', 'article', 'art', 'guid_1c', 'ref_1c')
 _local = threading.local()
 DEFAULT_POLICY_PATH = Path(__file__).resolve().parent / 'catalog_sync' / 'rbo_policy.json'
@@ -70,18 +75,57 @@ class Policy:
                 return True
         return False
 
-    def guard_catalog(self, old, new):
+    def allows_stock_lifecycle_action(self, action, product, registry=None):
+        """Allow exact 1C stock quarantine and positive-stock return for owned cards."""
+        if (
+            not self.enabled
+            or not isinstance(product, dict)
+            or not self.owns(product)
+            or not action.product_id
+            or str(product.get('id') or '') != action.product_id
+        ):
+            return False
+        if action.kind == 'link':
+            return (
+                action.stock == 0
+                and isinstance(action.article, str)
+                and product.get('article_1c') == action.article
+            )
+
+        entries = getattr(registry, 'entries', {})
+        owner = entries.get(action.article)
+        if (
+            owner is None
+            or owner.product_id != action.product_id
+            or product.get('article_1c') != action.article
+        ):
+            return False
+        if action.kind == 'quarantine':
+            return (
+                action.stock in (None, 0)
+                and action.reason in {'zero_stock', 'not_in_stock_file'}
+            )
+        if action.kind == 'activate':
+            return action.stock is not None and action.stock > 0 and owner.status == 'quarantined'
+        return False
+
+    def guard_catalog(self, old, new, stock_lifecycle_ids=()):
         if not self.enabled:
             return
         if old.get("_rbo_snapshot") != new.get("_rbo_snapshot"):
             raise RBOGuardError("RBO source snapshot metadata is read-only")
         before, after = _rows(old), _rows(new)
+        stock_lifecycle_ids = set(stock_lifecycle_ids)
         for pid, row in before.items():
             if self.owns(row):
                 if pid not in after:
                     raise RBOGuardError(f'RBO-owned product cannot be deleted: {pid}')
                 left = {k:v for k,v in row.items() if k not in METADATA_FIELDS}
                 right = {k:v for k,v in after[pid].items() if k not in METADATA_FIELDS}
+                if pid in stock_lifecycle_ids:
+                    for field in STOCK_LIFECYCLE_FIELDS:
+                        left.pop(field, None)
+                        right.pop(field, None)
                 if left != right:
                     raise RBOGuardError(f'RBO-owned fields are read-only: {pid}')
         for pid, row in after.items():
