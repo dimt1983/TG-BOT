@@ -1176,7 +1176,7 @@
           "on_request": false
         }
       ],
-      "stock": 14.0,
+      "stock": 12,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1204,7 +1204,7 @@
           "on_request": false
         }
       ],
-      "stock": 22.0,
+      "stock": 21,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1231,7 +1231,7 @@
           "on_request": false
         }
       ],
-      "stock": 58.0,
+      "stock": 52,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1259,7 +1259,7 @@
           "on_request": false
         }
       ],
-      "stock": 26.0,
+      "stock": 21,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1719,7 +1719,7 @@
           "on_request": false
         }
       ],
-      "stock": 23.0,
+      "stock": 21,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1859,7 +1859,7 @@
           "on_request": false
         }
       ],
-      "stock": 29.0,
+      "stock": 28,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гондурас San Nicolas упак. 200 гр.",
@@ -1917,7 +1917,7 @@
           "on_request": false
         }
       ],
-      "stock": 22.0,
+      "stock": 21,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -2066,7 +2066,7 @@
           "on_request": false
         }
       ],
-      "stock": 13.0,
+      "stock": 5,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -2235,7 +2235,7 @@
           "on_request": false
         }
       ],
-      "stock": 23.0,
+      "stock": 21,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -3154,7 +3154,8 @@
         {
           "size": "1 шт",
           "price": 300.0,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
       "stock": 12,
@@ -3162,7 +3163,8 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "t-np05_молочный_улун_чай_пакет_с_ароматом_молока_pyr",
@@ -3179,7 +3181,8 @@
         {
           "size": "1 шт",
           "price": 280.0,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
       "stock": 11,
@@ -3187,7 +3190,8 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "t-np06_имбирный_тропик_чай_пакет_с_ароматом_манго_ма",
@@ -3204,7 +3208,8 @@
         {
           "size": "1 шт",
           "price": 300.0,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
       "stock": 10,
@@ -3212,7 +3217,8 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "t-nr01_русский_завтрак_чай_черный_пакет_pyra_pack_15",
@@ -3229,7 +3235,8 @@
         {
           "size": "1 шт",
           "price": 330.0,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
       "stock": 4,
@@ -3237,7 +3244,8 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "t-nr02_500_эрл_грей_ультрамарин",
@@ -3321,7 +3329,8 @@
         {
           "size": "1 шт",
           "price": 300.0,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
       "stock": 11,
@@ -3329,7 +3338,8 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "t-nr08_ассорти_брайт",
@@ -3378,7 +3388,8 @@
         {
           "size": "1 шт",
           "price": 360.0,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
       "stock": 14,
@@ -3386,7 +3397,8 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "t-nr09_жасмин_эмеральд",
@@ -5917,7 +5929,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 25.0,
+      "stock": 23,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5954,7 +5966,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 351.0,
+      "stock": 347,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -9217,14 +9229,16 @@
       "fasovka": [
         {
           "size": "шт",
-          "price": 2400
+          "price": 2400,
+          "on_request": true
         }
       ],
       "stock": 1,
       "subcategory": "other_sugar",
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "other_сахар-стик_5г",
@@ -9333,7 +9347,8 @@
       "fasovka": [
         {
           "size": "1200 мл",
-          "price": 635
+          "price": 635,
+          "on_request": true
         }
       ],
       "stock": 1,
@@ -9341,7 +9356,8 @@
       "photo": null,
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "s-сироп_barline_базилик_1л",
@@ -12738,7 +12754,8 @@
         {
           "size": "1 шт",
           "price": 721,
-          "photo": "photos/products/s-сироп_легендарная_кола_0_7_л_гербариста.jpg"
+          "photo": "photos/products/s-сироп_легендарная_кола_0_7_л_гербариста.jpg",
+          "on_request": true
         }
       ],
       "stock": 32,
@@ -12746,7 +12763,8 @@
       "photo": "photos/products/s-сироп_легендарная_кола_0_7_л_гербариста.jpg",
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "s-сироп_маракуйя_гавайская_1",
@@ -12792,7 +12810,8 @@
         {
           "size": "1 шт",
           "price": 777,
-          "photo": "photos/products/s-сироп_фейхоа_0_7_л_гербариста.jpg"
+          "photo": "photos/products/s-сироп_фейхоа_0_7_л_гербариста.jpg",
+          "on_request": true
         }
       ],
       "stock": 5,
@@ -12800,7 +12819,8 @@
       "photo": "photos/products/s-сироп_фейхоа_0_7_л_гербариста.jpg",
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "s-сироп_цветы_бузины_1",
@@ -13014,7 +13034,8 @@
         {
           "size": "350 мл",
           "price": 12,
-          "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg"
+          "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg",
+          "on_request": true
         }
       ],
       "stock": 275,
@@ -13022,7 +13043,8 @@
       "photo": "photos/products/t-стакан_двухслойный_tasteabrew_350_мл_25_400_мл_25_.jpg",
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_",
@@ -13039,7 +13061,8 @@
         {
           "size": "500 мл",
           "price": 11,
-          "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg"
+          "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg",
+          "on_request": true
         }
       ],
       "stock": 495,
@@ -13047,7 +13070,8 @@
       "photo": "photos/products/t-стакан_прозрачный_tasteabrew_400_500_мл_45_шт_.jpg",
       "quarantined": false,
       "quarantined_at": null,
-      "hidden": false
+      "hidden": false,
+      "on_request": true
     },
     {
       "id": "t-супериор_жу_бао_белый_70г",
@@ -13667,11 +13691,13 @@
         {
           "size": "1 шт",
           "price": 400,
-          "photo": "photos/products/o-фильтры_bonomat_50шт.webp"
+          "photo": "photos/products/o-фильтры_bonomat_50шт.webp",
+          "on_request": true
         }
       ],
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "on_request": true
     },
     {
       "id": "o-фильтры_лехехе_большие_50шт",
@@ -13684,11 +13710,13 @@
       "fasovka": [
         {
           "size": "1 шт",
-          "price": 440
+          "price": 440,
+          "on_request": true
         }
       ],
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "on_request": true
     },
     {
       "id": "t-французская_роза_125г",
@@ -14078,7 +14106,8 @@
         {
           "size": "1 кг",
           "price": 1300,
-          "photo": null
+          "photo": null,
+          "on_request": true
         }
       ],
       "stock": 2,
@@ -14087,7 +14116,8 @@
       "quarantined": false,
       "quarantined_at": null,
       "hidden": false,
-      "article_1c": "TEMP-NAME-0F30C542BD7C5E84150AC6FC93CC7854A60F7C9526EC85DFC976984F8CA1BBA7"
+      "article_1c": "TEMP-NAME-0F30C542BD7C5E84150AC6FC93CC7854A60F7C9526EC85DFC976984F8CA1BBA7",
+      "on_request": true
     },
     {
       "id": "t-черный_-_ассам_200_г_аромат_дерево_чернослив_вкус_",
@@ -18831,14 +18861,16 @@
         {
           "size": "1 л",
           "photo": "",
-          "price": 741
+          "price": 741,
+          "on_request": true
         }
       ],
       "stock": 1,
       "_source": "Сироп Розовый Грейпфрут 1 л. МОНИН",
       "subcategory": "syr_other",
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "on_request": true
     },
     {
       "id": "чай_для_чайников_15х4",
@@ -18884,14 +18916,16 @@
         {
           "size": "4г",
           "photo": "",
-          "price": 998
+          "price": 998,
+          "on_request": true
         }
       ],
       "stock": 5,
       "_source": "ЧА024 NEW Грюн Матинэ, чай зелен аромат д/чаника 15х4г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "on_request": true
     },
     {
       "id": "ча030_благородная_ромашка_напиток_трав_д_чайника_15х3_5г",
@@ -18902,14 +18936,16 @@
         {
           "size": "3,5г",
           "photo": "",
-          "price": 1220
+          "price": 1220,
+          "on_request": true
         }
       ],
       "stock": 4,
       "_source": "ЧА030 Благородная Ромашка,напиток трав д/чайника 15х3,5г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "on_request": true
     },
     {
       "id": "ча032_new_горные_травы_чай_черный_с_чабрецом_д_чайника_15х4г",
@@ -18920,14 +18956,16 @@
         {
           "size": "4г",
           "photo": "",
-          "price": 998
+          "price": 998,
+          "on_request": true
         }
       ],
       "stock": 6,
       "_source": "ЧА032 NEW Горные травы, чай черный с чабрецом д/чайника 15х4г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "on_request": true
     },
     {
       "id": "ча036_ройбуш_ванильная_карамель_напиток_чайн_аром_для_чайников_15х4г",
@@ -18938,14 +18976,16 @@
         {
           "size": "4г",
           "photo": "",
-          "price": 1200
+          "price": 1200,
+          "on_request": true
         }
       ],
       "stock": 4,
       "_source": "ЧА036 Ройбуш Ванильная Карамель, напиток чайн аром для чайников 15х4г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "on_request": true
     },
     {
       "id": "ча007_жасмин_тинг_юань_чай_зелен_аромат_пакетир_20х1_75",
@@ -19221,14 +19261,16 @@
         {
           "size": "4г",
           "photo": "",
-          "price": 890
+          "price": 890,
+          "on_request": true
         }
       ],
       "stock": 6,
       "_source": "NR24 Молочный Улун 20*4г для чайника чай зеленый аромат",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "on_request": true
     },
     {
       "id": "nr27_горный_чабрец_чай_черный_с_чабрецом_пакет_для_чайника_20х4г",
@@ -19239,14 +19281,16 @@
         {
           "size": "4г",
           "photo": "",
-          "price": 670
+          "price": 670,
+          "on_request": true
         }
       ],
       "stock": 8,
       "_source": "NR27 Горный Чабрец, чай черный с чабрецом пакет для чайника 20х4г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "on_request": true
     },
     {
       "id": "nr01_кения_сапфир_чай_черный_пакет_25_2г",
@@ -19257,14 +19301,16 @@
         {
           "size": "2г",
           "photo": "",
-          "price": 190
+          "price": 190,
+          "on_request": true
         }
       ],
       "stock": 7,
       "_source": "NR01 Кения Сапфир, чай черный пакет. 25*2г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "on_request": true
     },
     {
       "id": "nr04_молочный_улун_чай_зеленый_аромат_пакет_25_2г",
@@ -19275,14 +19321,16 @@
         {
           "size": "2г",
           "photo": "",
-          "price": 190
+          "price": 190,
+          "on_request": true
         }
       ],
       "stock": 34,
       "_source": "NR04 Молочный Улун, чай зеленый аромат. пакет 25*2г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "on_request": true
     },
     {
       "id": "nr05_красная_поляна_чай_пакет_25_1_75г",
@@ -19293,14 +19341,16 @@
         {
           "size": "1,75г",
           "photo": "",
-          "price": 185
+          "price": 185,
+          "on_request": true
         }
       ],
       "stock": 15,
       "_source": "NR05 Красная поляна, чай пакет. 25*1,75г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "on_request": true
     },
     {
       "id": "nr06_фрут_маджента_нап_чайный_аромат_пакет_25_2г",
@@ -19331,14 +19381,16 @@
         {
           "size": "2г",
           "photo": "",
-          "price": 215
+          "price": 215,
+          "on_request": true
         }
       ],
       "stock": 5,
       "_source": "NR07 Ройбуш Оранж, напиток чайный аромат. пакет. 25*2г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "on_request": true
     },
     {
       "id": "ts22_гречишный_чай_чайн_нап_250_г",
@@ -19426,14 +19478,16 @@
         {
           "size": "2г",
           "photo": "",
-          "price": 3600
+          "price": 3600,
+          "on_request": true
         }
       ],
       "stock": 1.818,
       "_source": "NR06-500 Фрут Маджента, напиток чайный аромат. пакет. 500*2г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
-      "quarantined": false
+      "quarantined": false,
+      "on_request": true
     },
     {
       "id": "rb_tea_ассам_250_г",
@@ -19662,7 +19716,8 @@
         {
           "size": "1кг",
           "photo": "",
-          "price": 1300
+          "price": 1300,
+          "on_request": true
         }
       ],
       "stock": 1.5,
@@ -19670,7 +19725,8 @@
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
       "quarantined": false,
-      "article_1c": "TEMP-NAME-47354574AA93244E0092600C5AC2D2B5FE2D2F646913226F2FDA3F4D8CD851F2"
+      "article_1c": "TEMP-NAME-47354574AA93244E0092600C5AC2D2B5FE2D2F646913226F2FDA3F4D8CD851F2",
+      "on_request": true
     },
     {
       "id": "чай_мессмер_для_чайника_ассам_20_4_г",
@@ -20252,10 +20308,12 @@
       "fasovka": [
         {
           "size": "",
-          "price": 777
+          "price": 777,
+          "on_request": true
         }
       ],
-      "category": "tea"
+      "category": "tea",
+      "on_request": true
     },
     {
       "id": "1c-temp-name-e269c9ccb31d81bcddfa857f3646fc-e84cd2aeaf",
@@ -23518,12 +23576,14 @@
       "fasovka": [
         {
           "size": "",
-          "price": 820.0
+          "price": 820,
+          "on_request": true
         }
       ],
       "category": "filter",
       "roast": "F",
-      "price_source_1c": "ФАНКИ"
+      "price_source_1c": "ФАНКИ",
+      "on_request": true
     },
     {
       "id": "filter_micro_колумбия_арбуз_инфьюз_декаф_1_кг_filter",
