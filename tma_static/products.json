@@ -1232,7 +1232,7 @@
           "on_request": false
         }
       ],
-      "stock": 120,
+      "stock": 120.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1607,7 +1607,7 @@
           "on_request": false
         }
       ],
-      "stock": 22,
+      "stock": 22.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
@@ -1720,7 +1720,7 @@
           "on_request": false
         }
       ],
-      "stock": 24,
+      "stock": 24.0,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -2236,7 +2236,7 @@
           "on_request": false
         }
       ],
-      "stock": 26,
+      "stock": 26.0,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5899,7 +5899,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 129,
+      "stock": 129.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5973,7 +5973,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 425,
+      "stock": 425.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7607,7 +7607,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 10.0,
+      "stock": 15.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -19839,7 +19839,7 @@
       "name": "E \"Roastberry\" Эфиопия Иргачиф Гр.2 упак. 200 г",
       "category": "retail",
       "subcategory": "retail_espresso",
-      "stock": 28.0,
+      "stock": 27.0,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -23137,7 +23137,7 @@
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Конга  гр.1 сухой 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 19.0,
+      "stock": 18.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-112",
@@ -23791,7 +23791,7 @@
       "name": "Эфиопия Иргачиф Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 19.0,
+      "stock": 22.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": null,
@@ -23821,7 +23821,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-16T13:15:06+00:00",
+      "quarantined_at": "2026-10-17T08:15:15+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23964,7 +23964,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-16T13:15:06+00:00",
+      "quarantined_at": "2026-10-17T08:15:15+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24067,7 +24067,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-16T13:15:06+00:00",
+      "quarantined_at": "2026-10-17T08:15:15+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
