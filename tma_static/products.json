@@ -5901,7 +5901,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 115,
+      "stock": 115.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5975,7 +5975,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 412,
+      "stock": 412.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6165,7 +6165,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6,
+      "stock": 6.0,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -8910,7 +8910,7 @@
       "name": "Перу Монте Верде гр.1 сухой. эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 11,
+      "stock": 11.0,
       "hidden": false,
       "quarantined": false,
       "country": "Перу",
@@ -9201,7 +9201,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 8,
+      "stock": 8.0,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -15591,7 +15591,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 112,
+      "stock": 112.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -17189,7 +17189,7 @@
           "on_request": false
         }
       ],
-      "stock": 15,
+      "stock": 15.0,
       "_source": "Кофе \"Roastberry BLACK\" Кения Маакиоу Пиберри мытая - 200 г",
       "country": "Кения",
       "on_request": false,
@@ -17234,7 +17234,7 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 1.0,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катимор нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false,
@@ -23001,7 +23001,7 @@
           "on_request": false
         }
       ],
-      "stock": 5.0,
+      "stock": 4.0,
       "tags": [],
       "photo": "photos/products/coffee-8b630672844979dc-20261016.jpg",
       "pair_id": "эфиопия_конга_гр_1_сухой_filter_-_1_кг",
@@ -23139,7 +23139,7 @@
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Конга  гр.1 сухой 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 18.0,
+      "stock": 16.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-112",
@@ -23162,7 +23162,7 @@
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Банко Готити гр.1 сухой 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 12.0,
+      "stock": 10.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-113",
@@ -23823,7 +23823,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-17T08:15:15+00:00",
+      "quarantined_at": "2026-10-18T08:15:08+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23914,7 +23914,7 @@
       "name": "Кофе \"Roastberry BLACK\" Кения Оранж Кисии анаэроб - 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 27.0,
+      "stock": 25.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-122",
@@ -23966,7 +23966,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-17T08:15:15+00:00",
+      "quarantined_at": "2026-10-18T08:15:08+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24069,7 +24069,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-17T08:15:15+00:00",
+      "quarantined_at": "2026-10-18T08:15:08+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
