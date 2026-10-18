@@ -5901,7 +5901,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 129.0,
+      "stock": 115,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5975,7 +5975,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 420,
+      "stock": 417,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -17278,7 +17278,7 @@
           "price": 166
         }
       ],
-      "stock": 95,
+      "stock": 84,
       "on_request": false,
       "_source": "Напиток на соевой основе, кокосовый \"Green Milk\"на соевой основе 1л.",
       "subcategory": "milk_main",
@@ -17298,7 +17298,7 @@
           "price": 166
         }
       ],
-      "stock": 157,
+      "stock": 148,
       "on_request": false,
       "_source": "Напиток на соевой основе, миндальный \"Green Milk\" 1л.",
       "subcategory": "milk_main",
