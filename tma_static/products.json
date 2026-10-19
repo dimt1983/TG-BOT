@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 148,
+      "stock": 148.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -7610,7 +7610,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 15.0,
+      "stock": 10.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -23820,7 +23820,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-19T15:15:25+00:00",
+      "quarantined_at": "2026-10-19T16:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -24066,7 +24066,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-19T15:15:25+00:00",
+      "quarantined_at": "2026-10-19T16:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
