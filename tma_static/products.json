@@ -1232,7 +1232,7 @@
           "on_request": false
         }
       ],
-      "stock": 107,
+      "stock": 106,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1287,7 +1287,7 @@
           "on_request": false
         }
       ],
-      "stock": 23,
+      "stock": 15,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 113,
+      "stock": 110,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -2066,7 +2066,7 @@
           "on_request": false
         }
       ],
-      "stock": 81,
+      "stock": 58,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -2150,7 +2150,7 @@
           "on_request": false
         }
       ],
-      "stock": 18,
+      "stock": 13,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Кения АА упак. 200 г",
@@ -3122,15 +3122,17 @@
       "fasovka": [
         {
           "size": "15х2.7г",
-          "price": 280
+          "price": 280,
+          "on_request": false
         },
         {
           "size": "1 шт",
           "price": 280.0,
-          "photo": null
+          "photo": null,
+          "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 17,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3239,7 +3241,7 @@
           "on_request": true
         }
       ],
-      "stock": 3,
+      "stock": 15,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3483,7 +3485,7 @@
           "on_request": false
         }
       ],
-      "stock": 2,
+      "stock": 8,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3509,7 +3511,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 13,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -5900,7 +5902,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 114,
+      "stock": 106,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5974,7 +5976,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 364,
+      "stock": 334,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6011,7 +6013,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 25.0,
+      "stock": 20,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -9245,7 +9247,7 @@
           "on_request": true
         }
       ],
-      "stock": 1,
+      "stock": 6,
       "subcategory": "other_sugar",
       "quarantined": false,
       "quarantined_at": null,
@@ -14578,7 +14580,7 @@
           "on_request": false
         }
       ],
-      "stock": 0.87,
+      "stock": 1.87,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14706,7 +14708,7 @@
           "on_request": false
         }
       ],
-      "stock": 0.85,
+      "stock": 4.85,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -15097,14 +15099,13 @@
           "on_request": false
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "tags": [],
       "photo": null,
-      "quarantined": true,
+      "quarantined": false,
       "quarantined_at": null,
-      "hidden": true,
-      "on_request": false,
-      "quarantine_reason": "not_in_stock_file"
+      "hidden": false,
+      "on_request": false
     },
     {
       "id": "t-чн520_дикие_травы_raspberry_mint_250_г_",
@@ -19123,13 +19124,12 @@
           "on_request": false
         }
       ],
-      "stock": 0,
+      "stock": 6,
       "on_request": false,
       "_source": "L4035 Грюн Матинэ 200г, чай Альтхаус зеленый аромат. лист",
       "subcategory": "tea_althaus_loose",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "not_in_stock_file"
+      "hidden": false,
+      "quarantined": false
     },
     {
       "id": "ча1105_голден_ассам_санкар_250г_чай_альтхаус_черный_лист",
@@ -19338,7 +19338,7 @@
           "on_request": true
         }
       ],
-      "stock": 3,
+      "stock": 27,
       "_source": "NR01 Кения Сапфир, чай черный пакет. 25*2г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -19478,13 +19478,12 @@
           "on_request": false
         }
       ],
-      "stock": 0,
+      "stock": 5,
       "on_request": false,
       "_source": "ЧН315 Молочный Улун, чай зеленый байховый  250г",
       "subcategory": "tea_китайский_чай_loose",
-      "hidden": true,
-      "quarantined": true,
-      "quarantine_reason": "not_in_stock_file"
+      "hidden": false,
+      "quarantined": false
     },
     {
       "id": "niktia_пакетированный_500_пак",
@@ -20215,9 +20214,9 @@
     {
       "id": "1c-taltha-dp0055-c26a61f95a",
       "name": "NR10 Горный Чабрец, чай черный пак. 25*2г Niktea",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 24,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "TALTHA-DP0055",
       "fasovka": [
         {
@@ -20226,8 +20225,7 @@
         }
       ],
       "category": "tea",
-      "price_source_1c": "TALTHA-DP0055",
-      "quarantine_reason": "not_in_stock_file"
+      "price_source_1c": "TALTHA-DP0055"
     },
     {
       "id": "1c-taltha-gp0004-223e458a94",
@@ -20249,9 +20247,9 @@
     {
       "id": "1c-taltha-gp0005-e08cd00312",
       "name": "NR20 Королевский Завтрак 20*4 ГП для чайника черный цейлон",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 9,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "TALTHA-GP0005",
       "fasovka": [
         {
@@ -20261,13 +20259,12 @@
         }
       ],
       "category": "tea",
-      "on_request": false,
-      "quarantine_reason": "not_in_stock_file"
+      "on_request": false
     },
     {
       "id": "1c-talthl-l00197-dd35d1351c",
       "name": "L1100 Ассам Молти Кап 250г, чай Альтхаус черный лист",
-      "stock": 5,
+      "stock": 11,
       "hidden": false,
       "quarantined": false,
       "article_1c": "TALTHL-L00197",
@@ -20591,9 +20588,9 @@
     {
       "id": "1c-021-b47b43d89b",
       "name": "Сироп SweetShot Зеленое яблоко 1 л.",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 6,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "СИР-021",
       "fasovka": [
         {
@@ -20604,8 +20601,7 @@
       ],
       "category": "other",
       "price_source_1c": "СИР-021",
-      "on_request": false,
-      "quarantine_reason": "not_in_stock_file"
+      "on_request": false
     },
     {
       "id": "1c-022-e458d94a04",
@@ -21108,9 +21104,9 @@
     {
       "id": "1c-060-6a7360585b",
       "name": "TS32 Каркаде, чайн.нап. 150 г",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 5,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "ЧАЙ-060",
       "fasovka": [
         {
@@ -21120,15 +21116,14 @@
         }
       ],
       "category": "tea",
-      "on_request": false,
-      "quarantine_reason": "not_in_stock_file"
+      "on_request": false
     },
     {
       "id": "1c-061-f46afd4518",
       "name": "TS33 Габа Улун, чай черн байх крупнолист, 250г",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 2,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "ЧАЙ-061",
       "fasovka": [
         {
@@ -21138,8 +21133,7 @@
         }
       ],
       "category": "tea",
-      "on_request": false,
-      "quarantine_reason": "not_in_stock_file"
+      "on_request": false
     },
     {
       "id": "1c-070-12c6c7a364",
@@ -21330,9 +21324,9 @@
     {
       "id": "1c-092-1b762c46af",
       "name": "ЧА029 NEW Ред Фрут Фраш, напиток фрут д/чайника 15х4г",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 6,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "ЧАЙ-092",
       "fasovka": [
         {
@@ -21342,8 +21336,7 @@
         }
       ],
       "category": "tea",
-      "on_request": false,
-      "quarantine_reason": "not_in_stock_file"
+      "on_request": false
     },
     {
       "id": "1c-094-00ecb39177",
@@ -21535,9 +21528,9 @@
     {
       "id": "1c-117-c61ed0a3a6",
       "name": "ЧА5020 Дикая вишня, напиток фруктовый аром 250г",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 3,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "ЧАЙ-117",
       "fasovka": [
         {
@@ -21547,8 +21540,7 @@
         }
       ],
       "category": "tea",
-      "on_request": false,
-      "quarantine_reason": "not_in_stock_file"
+      "on_request": false
     },
     {
       "id": "1c-118-60a60933d9",
