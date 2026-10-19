@@ -1232,7 +1232,7 @@
           "on_request": false
         }
       ],
-      "stock": 105,
+      "stock": 105.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1260,7 +1260,7 @@
           "on_request": false
         }
       ],
-      "stock": 43,
+      "stock": 43.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -5976,7 +5976,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 312,
+      "stock": 312.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -16044,7 +16044,7 @@
       "name": "Гондурас Сан Николас темная обжарка - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 10,
+      "stock": 10.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -16913,7 +16913,7 @@
           "on_request": false
         }
       ],
-      "stock": 12,
+      "stock": 12.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гватемала Уетенанго - 1 кг",
@@ -23303,9 +23303,9 @@
       "name": "F \"Roastberry\" Колумбия Рисаральда декаф - 200 г",
       "category": "retail",
       "subcategory": "retail_filter",
-      "stock": 1.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "КОФ-107",
       "fasovka": [
         {
@@ -23318,7 +23318,9 @@
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-107",
       "on_request": false,
-      "photo": "photos/products/coffee-24f68dd4b1a88d64-20261016.jpg"
+      "photo": "photos/products/coffee-24f68dd4b1a88d64-20261016.jpg",
+      "quarantined_at": "2026-10-19T12:15:03+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "1c-sswcho-000016-606d3b7577",
@@ -23816,7 +23818,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-19T11:15:03+00:00",
+      "quarantined_at": "2026-10-19T12:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -24062,7 +24064,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-19T11:15:03+00:00",
+      "quarantined_at": "2026-10-19T12:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
