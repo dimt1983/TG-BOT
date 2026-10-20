@@ -23820,7 +23820,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-20T12:15:05+00:00",
+      "quarantined_at": "2026-10-20T13:15:01+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23963,7 +23963,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-20T12:15:05+00:00",
+      "quarantined_at": "2026-10-20T13:15:01+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24066,7 +24066,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-20T12:15:05+00:00",
+      "quarantined_at": "2026-10-20T13:15:01+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24092,9 +24092,9 @@
     {
       "id": "1c-128-27a1a5c325",
       "name": "Колумбия Нувио Гомес сухой - 1 кг FILTER",
-      "stock": 4,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "КОФ-128",
       "fasovka": [
         {
@@ -24103,7 +24103,9 @@
         }
       ],
       "category": "filter",
-      "on_request": true
+      "on_request": true,
+      "quarantined_at": "2026-10-20T13:15:01+00:00",
+      "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
       "id": "filter_micro_колумбия_нувио_гомес_сухой_1_кг_filter",
