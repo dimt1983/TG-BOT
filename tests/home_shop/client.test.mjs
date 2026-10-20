@@ -24,3 +24,26 @@ test('service worker bypasses API before any cache strategy',()=>{const sw=fs.re
 test('revoked Home context remains bound after token removal and reload',()=>{assert.ok(html.includes("_shopHasHomeContext()"),'Home context must survive cleared credential');assert.ok(html.includes("params.set('home', '1')"),'Home context marker must be retained without putting token in HTTP URL');});
 test('storage event clears A even when browser storage already contains B',()=>{const f=fixture();let handler;let reloads=0;f.c.window={addEventListener:(name,fn)=>handler=fn};f.c.location.reload=()=>reloads++;const listener=html.match(/window.addEventListener\('storage', event => \{[\s\S]*?\n\}\);/)[0];f.run(listener);const next='h.'+Buffer.from(JSON.stringify({id:1002,home_entitlement:true})).toString('base64url')+'.s';f.storage.set('rb_v2_jwt',next);handler({key:'rb_v2_jwt',newValue:next});assert.equal(f.state.myOrders.length,0);assert.equal(reloads,1);});
 test('Home marker prevents legacy storage reload after credential removal',()=>{const f=fixture();f.storage.delete('rb_v2_jwt');f.c.URLSearchParams=URLSearchParams;f.c.location.search='?home=1';f.run('_shopHomeMode=_shopHasHomeContext()');assert.deepEqual(JSON.parse(f.run('JSON.stringify(_shopReadJson("rb-v2-state-1",{}))')),{});});
+test('actual Home profile renders verified account without reading unsafe Telegram identity',()=>{
+ const code=html.slice(html.indexOf('function screenProfile()'),html.indexOf('function screenMyOrder()'));
+ for(const verified of ['Verified Native Customer','']){
+  const c=vm.createContext({_shopHomeMode:true,IS_TG:true,tg:{get initDataUnsafe(){throw Error('unsafe Telegram identity read');}},
+   STATE:{contact:{name:verified},boughtBefore:[],myOrders:[],data:{},isAdmin:false},
+   appHeader:()=>'',icon:()=>'',tabBar:()=>'',esc:v=>String(v),fmt:String});
+  vm.runInContext(code+';this.output=screenProfile();',c);
+  assert.ok(c.output.includes(verified||'Аккаунт'));assert.ok(c.output.includes('>Аккаунт</span>'));
+  assert.ok(!c.output.includes('>Гость</span>'));
+ }
+});
+test('actual legacy profile keeps Telegram name and badge',()=>{
+ const code=html.slice(html.indexOf('function screenProfile()'),html.indexOf('function screenMyOrder()'));
+ const c=vm.createContext({_shopHomeMode:false,IS_TG:true,tg:{initDataUnsafe:{user:{first_name:'Legacy',last_name:'Telegram'}}},
+  STATE:{contact:{name:'Unrelated'},boughtBefore:[],myOrders:[],data:{},isAdmin:false},
+  appHeader:()=>'',icon:()=>'',tabBar:()=>'',esc:v=>String(v),fmt:String});
+ vm.runInContext(code+';this.output=screenProfile();',c);assert.ok(c.output.includes('Legacy Telegram'));assert.ok(c.output.includes('>Telegram</span>'));
+});
+test('Home checkout cannot fill an empty verified name from unsafe Telegram identity',()=>{
+ const code=html.slice(html.indexOf('  checkout() {'),html.indexOf('  updateContact(key, value)'));
+ const c=vm.createContext({_shopHomeMode:true,tg:{get initDataUnsafe(){throw Error('unsafe Telegram identity read');}},STATE:{cart:[1],contact:{name:''}},haptic:()=>{},rb:{go:()=>{}}});
+ vm.runInContext('const actions={'+code+'};actions.checkout();',c);assert.equal(c.STATE.contact.name,'');
+});

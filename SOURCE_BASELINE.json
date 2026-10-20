@@ -20,7 +20,7 @@
     {
       "path": "tma_static_v2/index.html",
       "before_sha256": "45a8a597a6496112567c8351047cb9a8dbbe36a6674b6fff6f985269b62d4421",
-      "after_sha256": "5c191b9f6f330fcd0352d2c294cdd5593c9492eec4ca9690c852235b788d2140"
+      "after_sha256": "3474f40af4fd1dd29b081f19467abe401418e0114c685149aca649e8af054018"
     },
     {
       "path": "tma_static_v2/sw.js",
@@ -32,5 +32,13 @@
       "before_sha256": null,
       "after_sha256": "cb74b365370754945432fdc185bcf1feef4e679863c6f3f953b0eb0484867ab7"
     }
-  ]
+  ],
+  "profile_followup": {
+    "base_commit": "a29b4876953a2e16ebf3503488b9ac7a37aa2166",
+    "verified_identity_source": "STATE.contact.name from /tma/api/user/me",
+    "js_tests": 17,
+    "red_log": "/tmp/shop-profile-red.log",
+    "green_log": "/tmp/shop-profile-green.log"
+  },
+  "latest_upstream_inspected": "c47afdbecacfbafd5400ae1f248e548e3076e86d"
 }

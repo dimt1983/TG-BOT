@@ -40,3 +40,9 @@ Synthetic A/B с одинаковым телефоном, own/foreign/negative g
 - Source freeze:6 production afterSHA в SOURCE_BASELINE; до независимого review не коммитить и не публиковать. Root отдельно перепроверяет deployment и SHA из-за параллельных обновлений stock/catalog.
 
 Независимый Astra final PASS/GO:19Python +14JS +12legacy, все6 afterSHA exact. Root разрешил точный source commit и готовит config/deploy отдельно после повторной сверки latest runtime.
+
+## Profile display follow-up and upstream stock integration
+
+Root CUA found Home profile showing Telegram unsafe display identity/guest badge. Home screenProfile now reads verified STATE.contact.name with neutral Аккаунт fallback and badge; Home checkout cannot fill an empty name from initDataUnsafe. Legacy Telegram names/badges/checkout behavior preserved. Actual rendered profile tested with a throwing initDataUnsafe getter, plus legacy rendering and actual checkout path: two new failures observed before fix,17JS GREEN after (14existing+3new). No production accounts/orders/messages/payments.
+
+Fetched GitHub origin/main: c47afdb, descendant of ba1dc32. Only upstream changed path is tma_static/products.json (60 additions120 deletions); all six Home source paths are unchanged upstream. Do not push the old-base Home branch over main. Prepare clean sparse integration from exact latest origin/main, cherry-pick a29b487 and this UI follow-up; verify latest main is still the parent baseline before authorized fast-forward push. This preserves upstream catalog as Git objects without reading/copying old catalog/photos/DB into deployment inputs. Recheck remote main and runtime deployment immediately before release because stock sync may advance it again. No push or deploy performed here.

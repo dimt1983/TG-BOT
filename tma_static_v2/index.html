@@ -2070,8 +2070,9 @@ function wasBought(p) {
   return ids.indexOf(String(p.id)) !== -1 || (p.tma_id != null && ids.indexOf(String(p.tma_id)) !== -1);
 }
 function screenProfile() {
-  const tgUser = tg?.initDataUnsafe?.user;
-  const name = tgUser ? (tgUser.first_name || '') + (tgUser.last_name ? ' ' + tgUser.last_name : '') : 'Гость';
+  const tgUser = _shopHomeMode ? null : tg?.initDataUnsafe?.user;
+  const name = _shopHomeMode ? (String(STATE.contact?.name || '').trim() || 'Аккаунт')
+    : tgUser ? (tgUser.first_name || '') + (tgUser.last_name ? ' ' + tgUser.last_name : '') : 'Гость';
   const initials = name.split(/\s+/).map(w => w[0]).slice(0,2).join('').toUpperCase() || 'РО';
 
   return `
@@ -2097,7 +2098,7 @@ ${STATE.paymentNotice ? `
     <div style="flex:1;">
       <div style="font-family:var(--f-display); font-weight:800; font-size:22px; line-height:1.1;">${esc(name)}</div>
       <div style="margin-top:4px; display:flex; align-items:center; gap:6px;">
-        <span class="chip chip--ink" style="height:20px; font-size:10px; padding:0 8px;">${IS_TG ? 'Telegram' : 'Гость'}</span>
+        <span class="chip chip--ink" style="height:20px; font-size:10px; padding:0 8px;">${_shopHomeMode ? 'Аккаунт' : IS_TG ? 'Telegram' : 'Гость'}</span>
         ${STATE.isAdmin ? `<span class="chip chip--copper" style="height:20px; font-size:10px; padding:0 8px;">Админ</span>` : ''}
       </div>
     </div>
@@ -3509,7 +3510,7 @@ const rb = {
     if (!STATE.cart.length) { toast('Корзина пустая'); return; }
     haptic('light');
     // Pre-fill имени из Telegram если ещё пусто
-    if (!STATE.contact.name && tg?.initDataUnsafe?.user) {
+    if (!_shopHomeMode && !STATE.contact.name && tg?.initDataUnsafe?.user) {
       const u = tg.initDataUnsafe.user;
       const nm = [u.first_name, u.last_name].filter(Boolean).join(' ');
       if (nm) STATE.contact.name = nm;
