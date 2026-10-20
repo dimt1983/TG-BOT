@@ -35,7 +35,6 @@ from urllib.parse import unquote, parse_qsl, urlparse, parse_qs, quote
 import urllib.request
 import urllib.error
 import customer_account
-import shop_home_access
 try:
     import concierge as cz
 except Exception:  # concierge.py может отсутствовать в деплое — магазин обязан подняться
@@ -809,62 +808,11 @@ def jwt_verify(token: str) -> dict | None:
         return None
 
 
-def _is_admin_user(user):
-    if not user:
-        return False
-    if user.get('home_entitlement'):
-        return user.get('home_owner') is True
-    return user.get('id') in ADMIN_IDS
-
-
-def _home_signing_configured():
-    return bool(os.environ.get('JWT_SECRET') or (_TMA_CTX and _TMA_CTX.get('bot_token')))
-
-
-def _existing_shop_user(telegram_id):
-    with sqlite3.connect(DB_PATH) as con:
-        return con.execute('SELECT 1 FROM users WHERE user_id=?', (telegram_id,)).fetchone() is not None
-
-
-def _home_owner(telegram_id):
-    value = os.environ.get('OWNER_TG_ID', '')
-    return value.isdecimal() and int(value) > 0 and int(value) == telegram_id
-
-
-def _gate_home_request(handler):
-    handler._home_user = None
-    auth = handler.headers.get('Authorization', '')
-    payload = jwt_verify(auth[7:].strip()) if auth.startswith('Bearer ') else None
-    if not payload or 'home_entitlement' not in payload:
-        return True
-    uid = payload.get('id')
-    if not _home_signing_configured() or payload.get('home_entitlement') is not True or payload.get('aud') != 'rb_home_shop' or isinstance(uid, bool) or not isinstance(uid, int) or not 0 < uid <= 2**53 - 1:
-        handler._send(403, _j({'error': 'invalid Home session'}), 'application/json')
-        return False
-    try:
-        authorized = _existing_shop_user(uid) and shop_home_access.allowed(uid)
-    except Exception:
-        authorized = False
-    if not authorized:
-        handler._send(403, _j({'error': 'access denied'}), 'application/json')
-        return False
-    handler._home_user = {'id': uid, 'first_name': payload.get('first_name', ''), 'last_name': '', 'username': '', 'photo_url': '', 'home_entitlement': True, 'home_owner': _home_owner(uid)}
-    path = unquote(handler.path.split('?', 1)[0])
-    if path.startswith('/tma/api/') and not handler._home_user['home_owner']:
-        allowed = {'/tma/api/user/me', '/tma/api/my_orders', '/tma/api/my_products', '/tma/api/favorites', '/tma/api/admin/check', '/tma/api/user/type', '/tma/api/favorites/toggle', '/tma/api/favorites/merge', '/tma/api/order', '/tma/api/send_kp'}
-        if path not in allowed and not re.fullmatch(r'/tma/api/(?:chat/[0-9]+|order/[0-9]+/pay)', path):
-            handler._send(403, _j({'error': 'section unavailable for Home session'}), 'application/json')
-            return False
-    return True
-
-
 def _get_request_user(handler) -> dict | None:
     """Верифицирует пользователя по одному из источников:
     1) X-Tma-InitData (Telegram Mini App, основной канал)
     2) Authorization: Bearer <JWT> (browser-mode после Telegram Login Widget)
     Возвращает user-dict {id, first_name, ...} или None."""
-    if getattr(handler, '_home_user', None):
-        return handler._home_user
     if _TMA_CTX is None:
         return None
     # Mini App
@@ -936,8 +884,6 @@ def _proxy_shop_admin(method: str, sub_path: str, body: bytes = b"",
 class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
-        if not _gate_home_request(self):
-            return
         path = unquote(self.path.split("?", 1)[0])
         query = parse_qs(urlparse(self.path).query, keep_blank_values=True)
 
@@ -1019,7 +965,7 @@ class Handler(BaseHTTPRequestHandler):
                     tier = (out.get("price_tier") or "standard")
                     out["discount_pct"] = TIER_AUTO_PCT.get(tier, 0)
                     try:
-                        _ensure_pricing_schema()
+                        _ensure_pricing_schema(con)
                         out["pricing_rules"] = con.execute(
                             "SELECT COUNT(*) FROM user_pricing WHERE user_id=?",
                             (user["id"],)).fetchone()[0]
@@ -1053,7 +999,7 @@ class Handler(BaseHTTPRequestHandler):
                 try:
                     ord_cols = {r[1] for r in con.execute("PRAGMA table_info(orders)")}
                     it_cols  = {r[1] for r in con.execute("PRAGMA table_info(order_items)")}
-                    order_ids = customer_account.resolve_customer_order_ids(con, uid, strict_identity=bool(user.get("home_entitlement")))[:50]
+                    order_ids = customer_account.resolve_customer_order_ids(con, uid)[:50]
                     extra = [c for c in (
                         "total_kg", "discount", "comment", "payment_method", "paid_at"
                     ) if c in ord_cols]
@@ -1100,7 +1046,7 @@ class Handler(BaseHTTPRequestHandler):
                 con = sqlite3.connect(DB_PATH)
                 con.row_factory = sqlite3.Row
                 try:
-                    tma_ids = customer_account.get_purchased_tma_ids(con, int(user["id"]), strict_identity=bool(user.get("home_entitlement")))
+                    tma_ids = customer_account.get_purchased_tma_ids(con, int(user["id"]))
                 finally:
                     con.close()
                 tma_ids = _canonicalize_product_ids(tma_ids)
@@ -1133,7 +1079,7 @@ class Handler(BaseHTTPRequestHandler):
         # ── /tma/api/admin/check ─────────────────────────────────────────────
         if path == "/tma/api/admin/check":
             user = _get_request_user(self)
-            is_adm = bool(user and _is_admin_user(user))
+            is_adm = bool(user and user.get("id") in ADMIN_IDS)
             self._send(200, _j({"is_admin": is_adm, "user_id": user.get("id") if user else None}),
                        "application/json; charset=utf-8", {"Cache-Control": "no-cache"})
             return
@@ -1141,7 +1087,7 @@ class Handler(BaseHTTPRequestHandler):
         # ── /tma/api/admin/products → прокси в VPS Shop Admin API ────────────
         if path == "/tma/api/admin/products":
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -1153,7 +1099,7 @@ class Handler(BaseHTTPRequestHandler):
         m_pr_get = re.match(r"^/tma/api/admin/user/(-?\d+)/pricing$", path)
         if m_pr_get:
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -1176,7 +1122,7 @@ class Handler(BaseHTTPRequestHandler):
         #     для select-фильтров в редакторах. Без полной products.json (легче).
         if path == "/tma/api/admin/catalog_meta":
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -1214,7 +1160,7 @@ class Handler(BaseHTTPRequestHandler):
         # ── /tma/api/admin/quarantine → прокси на VPS ─────────────────────────
         if path == "/tma/api/admin/quarantine":
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -1225,7 +1171,7 @@ class Handler(BaseHTTPRequestHandler):
         # ── /tma/api/admin/pending → прокси на VPS ────────────────────────────
         if path == "/tma/api/admin/pending":
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -1239,7 +1185,7 @@ class Handler(BaseHTTPRequestHandler):
         )
         if m_admin:
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -1359,7 +1305,7 @@ class Handler(BaseHTTPRequestHandler):
                 return
             order_id = int(m_chat.group(1))
             user_id  = user.get("id")
-            is_adm   = _is_admin_user(user)
+            is_adm   = user_id in ADMIN_IDS
             qs       = parse_qs(urlparse(self.path).query)
             since_id = int(qs.get("since", ["0"])[0])
             try:
@@ -1510,14 +1456,10 @@ class Handler(BaseHTTPRequestHandler):
         self._send(404, b"Not found", "text/plain")
 
     def do_HEAD(self):
-        if not _gate_home_request(self):
-            return
         self.send_response(200)
         self.end_headers()
 
     def do_POST(self):
-        if not _gate_home_request(self):
-            return
         path = unquote(self.path.split("?", 1)[0])
 
         # ── Внешние интеграции (Bearer): создание заказа, обновление остатков ─
@@ -1712,38 +1654,6 @@ class Handler(BaseHTTPRequestHandler):
             return
 
         # ── Авторизация из Panel (внутренний токен) → JWT ───────────────────
-        if path == '/tma/api/auth/home_token':
-            auth = self.headers.get('Authorization', '')
-            supplied = auth[7:].strip() if auth.startswith('Bearer ') else ''
-            expected = [os.environ.get(key, '') for key in ('PANEL_INTERNAL_TOKEN', 'SHOP_ADMIN_TOKEN', 'SHOP_INTERNAL_TOKEN')]
-            if not supplied or not any(token and hmac.compare_digest(token, supplied) for token in expected):
-                self._send(403, _j({'error': 'forbidden'}), 'application/json')
-                return
-            body = self._read_body()
-            uid = body.get('tg_id') if isinstance(body, dict) else None
-            if isinstance(uid, bool) or not isinstance(uid, int) or not 0 < uid <= 2**53 - 1:
-                self._send(400, _j({'error': 'invalid telegram identity'}), 'application/json')
-                return
-            try:
-                linked = _existing_shop_user(uid)
-            except Exception:
-                self._send(503, _j({'error': 'native account unavailable'}), 'application/json')
-                return
-            if not linked:
-                self._send(403, _j({'error': 'Native account is not linked', 'code': 'unlinked'}), 'application/json')
-                return
-            try:
-                entitled = _home_signing_configured() and shop_home_access.allowed(uid)
-            except Exception:
-                entitled = False
-            if not entitled:
-                self._send(403, _j({'error': 'access denied'}), 'application/json')
-                return
-            user = {'id': uid, 'first_name': '', 'home_entitlement': True, 'aud': 'rb_home_shop'}
-            token = jwt_sign(user)
-            self._send(200, _j({'token': token, 'user': user}), 'application/json', {'Cache-Control': 'no-store'})
-            return
-
         if path == "/tma/api/auth/panel_token":
             auth_hdr = self.headers.get("Authorization", "")
             auth_token = auth_hdr[7:].strip() if auth_hdr.startswith("Bearer ") else ""
@@ -1963,7 +1873,7 @@ class Handler(BaseHTTPRequestHandler):
         m_photo = re.match(r"^/tma/api/admin/product/([^/]+)/photo$", path)
         if m_photo:
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -1996,7 +1906,7 @@ class Handler(BaseHTTPRequestHandler):
         m_del = re.match(r"^/tma/api/admin/product/([^/]+)/delete$", path)
         if m_del:
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -2018,7 +1928,7 @@ class Handler(BaseHTTPRequestHandler):
         # ── Создать карточку из pending (admin) → прокси на VPS ─────────────
         if path == "/tma/api/admin/pending/create":
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -2037,7 +1947,7 @@ class Handler(BaseHTTPRequestHandler):
         # ── Убрать позицию из pending без создания (admin) ──────────────────
         if path == "/tma/api/admin/pending/discard":
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -2057,7 +1967,7 @@ class Handler(BaseHTTPRequestHandler):
         m_prod = re.match(r"^/tma/api/admin/product/([^/]+)$", path)
         if m_prod:
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -2086,7 +1996,7 @@ class Handler(BaseHTTPRequestHandler):
         m_disc = re.match(r"^/tma/api/admin/order/(\d+)/discount$", path)
         if m_disc:
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -2154,7 +2064,7 @@ class Handler(BaseHTTPRequestHandler):
         m_status = re.match(r"^/tma/api/admin/order/(\d+)/status$", path)
         if m_status:
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -2229,7 +2139,7 @@ class Handler(BaseHTTPRequestHandler):
                 return
             order_id  = int(m_chat.group(1))
             user_id   = user.get("id")
-            is_adm    = _is_admin_user(user)
+            is_adm    = user_id in ADMIN_IDS
             full_name = " ".join(
                 filter(None, [user.get("first_name"), user.get("last_name")])
             ) or user.get("username") or "Клиент"
@@ -2295,7 +2205,7 @@ class Handler(BaseHTTPRequestHandler):
         m_user_upd = re.match(r"^/tma/api/admin/user/(-?\d+)$", path)
         if m_user_upd:
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -2352,7 +2262,7 @@ class Handler(BaseHTTPRequestHandler):
         m_pr_add = re.match(r"^/tma/api/admin/user/(-?\d+)/pricing$", path)
         if m_pr_add:
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -2441,7 +2351,7 @@ class Handler(BaseHTTPRequestHandler):
         m_pr_del = re.match(r"^/tma/api/admin/pricing/(\d+)/delete$", path)
         if m_pr_del:
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -2463,7 +2373,7 @@ class Handler(BaseHTTPRequestHandler):
         m_dm = re.match(r"^/tma/api/admin/dm/(\d+)$", path)
         if m_dm:
             user = _get_request_user(self)
-            if not (user and _is_admin_user(user)):
+            if not (user and user.get("id") in ADMIN_IDS):
                 self._send(403, _j({"error": "Доступ запрещён"}),
                            "application/json; charset=utf-8")
                 return
@@ -2540,12 +2450,8 @@ class Handler(BaseHTTPRequestHandler):
             con.row_factory = sqlite3.Row
             try:
                 _ensure_order_payment_columns(con)
-                if user.get('home_entitlement'):
-                    row = con.execute('SELECT user_id FROM orders WHERE id=?', (order_id,)).fetchone()
-                    owns_order = bool(row and row['user_id'] == uid)
-                else:
-                    owns_order = int(order_id) in {int(x) for x in customer_account.resolve_customer_order_ids(con, uid)[:200]}
-                if not owns_order:
+                order_ids = {int(x) for x in customer_account.resolve_customer_order_ids(con, uid)[:200]}
+                if int(order_id) not in order_ids:
                     self._send(403, _j({"ok": False, "error": "Заказ не найден в вашем профиле"}),
                                "application/json; charset=utf-8")
                     return
@@ -2654,8 +2560,7 @@ class Handler(BaseHTTPRequestHandler):
             fut = asyncio.run_coroutine_threadsafe(
                 process_tma_order(
                     payload, int(user["id"]), full_name,
-                    _TMA_CTX["get_db"], _TMA_CTX["bot"], _TMA_CTX["notify_new_order"],
-                    strict_identity=bool(user.get("home_entitlement")),
+                    _TMA_CTX["get_db"], _TMA_CTX["bot"], _TMA_CTX["notify_new_order"]
                 ),
                 _TMA_CTX["loop"]
             )
@@ -3011,15 +2916,6 @@ class Handler(BaseHTTPRequestHandler):
         pass
 
     def _send(self, status, body, ctype, extra_headers=None):
-        extra_headers = dict(extra_headers or {})
-        if self.path.split('?', 1)[0].startswith('/tma/api/'):
-            extra_headers['Cache-Control'] = 'no-store'
-            extra_headers['Referrer-Policy'] = 'no-referrer'
-        home_user = getattr(self, '_home_user', None)
-        if home_user:
-            extra_headers['X-Home-Principal'] = str(home_user['id'])
-            if status >= 500:
-                body = _j({'error': 'service unavailable'})
         self.send_response(status)
         self.send_header("Content-Type", ctype)
         self.send_header("Content-Length", str(len(body)))
