@@ -1602,12 +1602,12 @@
       "fasovka": [
         {
           "size": "1 кг",
-          "price": 2045,
+          "price": 2070,
           "photo": "photos/products/retail_e_roastberry_бразилия_паже_-_1_кг.jpg",
           "on_request": false
         }
       ],
-      "stock": 18.0,
+      "stock": 18,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 160,
+      "stock": 157,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -5902,7 +5902,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 69,
+      "stock": 94,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -12282,7 +12282,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 2,
       "tags": [],
       "photo": "photos/products/s-сироп_sweetshot_кокос_1л.jpg",
       "quarantined": false,
@@ -15729,9 +15729,9 @@
       "name": "Китай Симао гр.1 Меллоу мытый эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 4,
+      "hidden": false,
+      "quarantined": false,
       "roast": "E",
       "photo": "photos/products/espresso_mono_китай_симао_гр_1_меллоу_мытый_эспрессо_1_кг.jpg",
       "fasovka": [
@@ -15751,8 +15751,7 @@
       "quarantined_at": null,
       "article_1c": "КОФ-065",
       "price_source_1c": "КОФ-065",
-      "on_request": false,
-      "quarantine_reason": "not_in_stock_file"
+      "on_request": false
     },
     {
       "id": "espresso_mono_эфиопия_milk_сидамо_гр_4_эспрессо_1_кг",
@@ -18845,12 +18844,13 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 0,
       "on_request": false,
       "_source": "Сироп SweetShot Клубника 1 л.",
       "subcategory": "syr_sweetshot",
-      "hidden": false,
-      "quarantined": false
+      "hidden": true,
+      "quarantined": true,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "миллер_миллер_1л",
@@ -19460,7 +19460,7 @@
           "on_request": false
         }
       ],
-      "stock": 8,
+      "stock": 3,
       "_source": "ЧН300 Сенча Классик, чай зеленый байховый 250г",
       "subcategory": "tea_китайский_чай_loose",
       "hidden": false,
@@ -20659,9 +20659,9 @@
     {
       "id": "1c-034-4d249586b4",
       "name": "Сироп SweetShot Соленая Карамель 1 л.",
-      "stock": 1,
+      "stock": 0,
       "hidden": true,
-      "quarantined": false,
+      "quarantined": true,
       "article_1c": "СИР-034",
       "fasovka": [
         {
@@ -20672,7 +20672,8 @@
       ],
       "category": "other",
       "price_source_1c": "СИР-034",
-      "on_request": false
+      "on_request": false,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "1c-041-ff017e4339",
@@ -21174,7 +21175,7 @@
     {
       "id": "1c-077-ef0cf26a06",
       "name": "ЧА002 Ассам Меленг, чай черн. пакетир 20х1,75",
-      "stock": 18,
+      "stock": 16,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЧАЙ-077",
