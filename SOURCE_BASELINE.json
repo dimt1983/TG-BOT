@@ -1,0 +1,36 @@
+{
+  "commit": "ba1dc322627908e36a51573d0b3cd3e205afda0e",
+  "deployment": "9e20f678-7a44-46f2-9dc9-628cf10094de",
+  "files": [
+    {
+      "path": "tma_static_server.py",
+      "before_sha256": "70f13c3192c2a1d8245cdd036aa5e3e9ca2b68fcd2f796c19bf68efb2c56e4ce",
+      "after_sha256": "737f1cbef26956f8739ecd6b0b77925436f6735bb7226312c8e5409869f87a77"
+    },
+    {
+      "path": "customer_account.py",
+      "before_sha256": "c233bfdfe254443627af345ea5dd569e2d35cf02af4eb3a3f33a8b588b8a327a",
+      "after_sha256": "0125ddd103d76c3a67a3eaddd4859e987c1e6207889fbf6a4d927ae21ea654e8"
+    },
+    {
+      "path": "tma_handler.py",
+      "before_sha256": "a85aa7716e4308e338707bc02b30930ea94ce02ab843ff276fc823d0e7046d39",
+      "after_sha256": "01fb42490dfe12e12f3c4069621a9685c7aea7d287161f602aef5310b43fd8c2"
+    },
+    {
+      "path": "tma_static_v2/index.html",
+      "before_sha256": "45a8a597a6496112567c8351047cb9a8dbbe36a6674b6fff6f985269b62d4421",
+      "after_sha256": "5c191b9f6f330fcd0352d2c294cdd5593c9492eec4ca9690c852235b788d2140"
+    },
+    {
+      "path": "tma_static_v2/sw.js",
+      "before_sha256": "352fb2860328fae8aaf7a5a91e41013edf4fd485150e4f484ad65555c2314757",
+      "after_sha256": "723c399e2c8c92e55c31e7ab7e62f37145f39b03dd616ddd8c3286ca250fca22"
+    },
+    {
+      "path": "shop_home_access.py",
+      "before_sha256": null,
+      "after_sha256": "cb74b365370754945432fdc185bcf1feef4e679863c6f3f953b0eb0484867ab7"
+    }
+  ]
+}

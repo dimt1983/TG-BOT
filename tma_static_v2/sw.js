@@ -6,7 +6,7 @@
  *  Bump CACHE_VERSION whenever the shell ships.
  */
 
-const CACHE_VERSION = '2026-05-28.account.v1';
+const CACHE_VERSION = '2026-10-20.home-private';
 const SHELL_CACHE   = `rb-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `rb-runtime-${CACHE_VERSION}`;
 const IMG_CACHE     = `rb-img-${CACHE_VERSION}`;
@@ -44,6 +44,7 @@ self.addEventListener('fetch', (e) => {
   if (req.method !== 'GET') return;
 
   const url = new URL(req.url);
+  if (url.pathname.startsWith('/tma/api/')) return;
   const accept = req.headers.get('accept') || '';
 
   // 1. HTML navigations & .html / .json — network-first

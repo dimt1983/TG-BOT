@@ -17,9 +17,11 @@ def ensure_favorites_table(con) -> None:
     con.commit()
 
 
-def resolve_customer_order_ids(con, uid: int) -> list:
+def resolve_customer_order_ids(con, uid: int, *, strict_identity: bool = False) -> list:
     """id заказов клиента: по user_id ИЛИ по совпадению телефона (последние 10 цифр).
     Телефон берётся из users.phone по uid. Возвращает id по убыванию."""
+    if strict_identity:
+        return [row['id'] for row in con.execute('SELECT id FROM orders WHERE user_id=? ORDER BY id DESC', (uid,))]
     row = con.execute("SELECT phone FROM users WHERE user_id=?", (uid,)).fetchone()
     phone = _digits(row["phone"]) if row else ""
     tail = phone[-10:] if len(phone) >= 10 else ""
@@ -44,9 +46,9 @@ def set_user_type(con, uid: int, user_type: str) -> None:
     con.commit()
 
 
-def get_purchased_tma_ids(con, uid: int) -> list:
+def get_purchased_tma_ids(con, uid: int, *, strict_identity: bool = False) -> list:
     """Уникальные непустые tma_id из заказов клиента (по убыванию свежести)."""
-    order_ids = resolve_customer_order_ids(con, uid)
+    order_ids = resolve_customer_order_ids(con, uid, strict_identity=strict_identity)
     if not order_ids:
         return []
     qmarks = ",".join("?" * len(order_ids))

@@ -384,13 +384,13 @@ def _absorb_phone_stub(con, user_id: int, phone: str | None) -> None:
         log.warning("tma: склейка заглушки не удалась: %s", e)
 
 
-def create_order_from_tma(con, user_id: int, payload: dict) -> int:
+def create_order_from_tma(con, user_id: int, payload: dict, *, strict_identity: bool = False) -> int:
     from rbo_cart import CATALOG, current_policy, prepare_payload
     from rbo_guard import catalog_lock
     if not current_policy().enabled:
         payload['items'] = [{k:v for k,v in it.items() if not k.startswith('_')}
                             if isinstance(it, dict) else it for it in payload.get('items', [])]
-        return _create_order_from_tma(con, user_id, payload)
+        return _create_order_from_tma(con, user_id, payload, strict_identity=strict_identity)
     with catalog_lock(CATALOG):
         checked = prepare_payload(payload)
         from rbo_db import reserve_items, DeferredCommit
@@ -403,7 +403,7 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
         payload.clear()
         payload.update(checked)
         try:
-            result = _create_order_from_tma(DeferredCommit(con), user_id, payload)
+            result = _create_order_from_tma(DeferredCommit(con), user_id, payload, strict_identity=strict_identity)
             con.commit()
             return result
         except Exception:
@@ -411,7 +411,7 @@ def create_order_from_tma(con, user_id: int, payload: dict) -> int:
             raise
 
 
-def _create_order_from_tma(con, user_id: int, payload: dict) -> int:
+def _create_order_from_tma(con, user_id: int, payload: dict, *, strict_identity: bool = False) -> int:
     """
     Создаёт заказ из payload, который пришёл из TMA.
     Возвращает order_id.
@@ -429,7 +429,8 @@ def _create_order_from_tma(con, user_id: int, payload: dict) -> int:
     contact = payload.get("contact") or {}
     _normalize_personal_data_consent(payload)
     _ensure_order_payment_columns(con)
-    _absorb_phone_stub(con, user_id, contact.get("phone"))
+    if not strict_identity:
+        _absorb_phone_stub(con, user_id, contact.get("phone"))
     no_price = []
     for it in items:
         if it.get("price") is None or it.get("on_request"):
@@ -558,6 +559,7 @@ async def process_tma_order(
     get_db,
     bot: Bot,
     notify_new_order=None,
+    *, strict_identity: bool = False,
 ) -> dict:
     """Создаёт заказ из payload (формат как в web_app_data), пишет в БД,
     шлёт подтверждение пользователю и уведомления админам.
@@ -585,7 +587,7 @@ async def process_tma_order(
 
     # Создаём заказ
     con = get_db()
-    order_id = create_order_from_tma(con, user_id, payload)
+    order_id = create_order_from_tma(con, user_id, payload, strict_identity=strict_identity)
     items = payload["items"]
     con.close()
 
