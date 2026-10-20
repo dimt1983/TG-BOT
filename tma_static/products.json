@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 143,
+      "stock": 143.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -5939,7 +5939,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 11,
+      "stock": 11.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -9203,7 +9203,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -17138,7 +17138,7 @@
           "on_request": false
         }
       ],
-      "stock": 24,
+      "stock": 24.0,
       "_source": "F \"Roastberry\" Руанда Мутетели упак. 200 г",
       "country": "Руанда",
       "subcategory": "retail_filter",
@@ -23084,9 +23084,9 @@
       "name": "E \"Roastberry\" Колумбия Рисаральда декаф - 1 кг",
       "category": "retail",
       "subcategory": "retail_espresso",
-      "stock": 4.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "КОФ-105",
       "fasovka": [
         {
@@ -23099,8 +23099,8 @@
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-105",
       "on_request": false,
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined_at": "2026-10-20T14:15:02+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee",
       "photo": "photos/products/coffee-0f30cbf71a5b7f2f-20261016.jpg"
     },
     {
@@ -23788,7 +23788,7 @@
       "name": "Эфиопия Иргачиф Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 10.0,
+      "stock": 14.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": null,
@@ -23820,7 +23820,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-20T13:15:01+00:00",
+      "quarantined_at": "2026-10-20T14:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23889,7 +23889,7 @@
       "name": "Кения Оранж Кисии анаэроб.1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 1.0,
+      "stock": 3.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-124",
@@ -23963,7 +23963,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-20T13:15:01+00:00",
+      "quarantined_at": "2026-10-20T14:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24066,7 +24066,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-20T13:15:01+00:00",
+      "quarantined_at": "2026-10-20T14:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24104,7 +24104,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-20T13:15:01+00:00",
+      "quarantined_at": "2026-10-20T14:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
