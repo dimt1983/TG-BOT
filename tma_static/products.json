@@ -5976,7 +5976,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 344,
+      "stock": 344.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -23820,7 +23820,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-21T11:15:39+00:00",
+      "quarantined_at": "2026-10-21T12:15:11+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23889,7 +23889,7 @@
       "name": "Кения Оранж Кисии анаэроб.1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 2.0,
+      "stock": 5.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-124",
@@ -23911,7 +23911,7 @@
       "name": "Кофе \"Roastberry BLACK\" Кения Оранж Кисии анаэроб - 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 19.0,
+      "stock": 20.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-122",
@@ -23963,7 +23963,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-21T11:15:39+00:00",
+      "quarantined_at": "2026-10-21T12:15:11+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -23972,7 +23972,7 @@
       "name": "Кения Оранж Кисии анаэроб эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_micro",
-      "stock": 2.0,
+      "stock": 9.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-123",
@@ -24066,7 +24066,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-21T11:15:39+00:00",
+      "quarantined_at": "2026-10-21T12:15:11+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24104,7 +24104,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-21T11:15:39+00:00",
+      "quarantined_at": "2026-10-21T12:15:11+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24130,9 +24130,9 @@
     {
       "id": "1c-130-1b9d324d44",
       "name": "Эфиопия Сакаро натуральный - 1 кг FILTER",
-      "stock": 4,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "КОФ-130",
       "fasovka": [
         {
@@ -24141,14 +24141,16 @@
         }
       ],
       "category": "filter",
-      "on_request": true
+      "on_request": true,
+      "quarantined_at": "2026-10-21T12:15:11+00:00",
+      "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
       "id": "1c-132-3a4643aee6",
       "name": "Эфиопия Гелана Абайя мытый - 1 кг FILTER",
-      "stock": 4,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "КОФ-132",
       "fasovka": [
         {
@@ -24157,7 +24159,9 @@
         }
       ],
       "category": "filter",
-      "on_request": true
+      "on_request": true,
+      "quarantined_at": "2026-10-21T12:15:11+00:00",
+      "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
       "id": "filter_micro_эфиопия_сакаро_натуральный_1_кг_filter",
