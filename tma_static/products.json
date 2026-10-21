@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 101,
+      "stock": 101.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -5976,7 +5976,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 349,
+      "stock": 349.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -19840,7 +19840,7 @@
       "name": "E \"Roastberry\" Эфиопия Иргачиф Гр.2 упак. 200 г",
       "category": "retail",
       "subcategory": "retail_espresso",
-      "stock": 21.0,
+      "stock": 20.0,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -23820,7 +23820,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-21T10:15:28+00:00",
+      "quarantined_at": "2026-10-21T11:15:39+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23963,7 +23963,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-21T10:15:28+00:00",
+      "quarantined_at": "2026-10-21T11:15:39+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24066,7 +24066,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-21T10:15:28+00:00",
+      "quarantined_at": "2026-10-21T11:15:39+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24104,7 +24104,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-21T10:15:28+00:00",
+      "quarantined_at": "2026-10-21T11:15:39+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24158,6 +24158,46 @@
       ],
       "category": "filter",
       "on_request": true
+    },
+    {
+      "id": "filter_micro_эфиопия_сакаро_натуральный_1_кг_filter",
+      "name": "Эфиопия Сакаро натуральный - 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 4.0,
+      "hidden": false,
+      "quarantined": false,
+      "article_1c": "КОФ-130",
+      "on_request": true,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": null,
+          "on_request": true
+        }
+      ],
+      "created_at": "2026-10-21T11:15:39+00:00",
+      "created_by": "bridge_1c_qc"
+    },
+    {
+      "id": "filter_micro_эфиопия_гелана_абайя_мытый_1_кг_filter",
+      "name": "Эфиопия Гелана Абайя мытый - 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 4.0,
+      "hidden": false,
+      "quarantined": false,
+      "article_1c": "КОФ-132",
+      "on_request": true,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": null,
+          "on_request": true
+        }
+      ],
+      "created_at": "2026-10-21T11:15:39+00:00",
+      "created_by": "bridge_1c_qc"
     }
   ],
   "_rbo_snapshot": {
