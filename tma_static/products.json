@@ -1287,7 +1287,7 @@
           "on_request": false
         }
       ],
-      "stock": 22,
+      "stock": 17,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 82,
+      "stock": 75,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -5977,7 +5977,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 259,
+      "stock": 258,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -15595,9 +15595,9 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 10.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Эфиопия",
       "process": "Капсула",
       "altitude": null,
@@ -15621,7 +15621,8 @@
       "article_1c": "КОФ-095",
       "price_source_1c": "КОФ-095",
       "on_request": false,
-      "quarantined_at": null
+      "quarantined_at": null,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "filter_micro_эфиопия_челелекту_гр_1_мытый_filter_1_кг",
@@ -17302,7 +17303,7 @@
           "price": 166
         }
       ],
-      "stock": 102,
+      "stock": 90,
       "on_request": false,
       "_source": "Напиток на соевой основе, миндальный \"Green Milk\" 1л.",
       "subcategory": "milk_main",
@@ -17322,7 +17323,7 @@
           "price": 156
         }
       ],
-      "stock": 116,
+      "stock": 104,
       "on_request": false,
       "_source": "Напиток соевый со вкусом банана \"Green Milk\" 1л.",
       "subcategory": "milk_main",
@@ -23678,7 +23679,7 @@
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Арбуз инфьюз декаф\" 200 г",
       "category": "borshch",
       "subcategory": null,
-      "stock": 13.0,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-118",
