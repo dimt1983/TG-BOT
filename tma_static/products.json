@@ -1398,7 +1398,7 @@
           "on_request": false
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -2067,7 +2067,7 @@
           "on_request": false
         }
       ],
-      "stock": 107,
+      "stock": 103,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -2207,7 +2207,7 @@
           "on_request": false
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Китай Симао упак. 200 г",
@@ -5903,7 +5903,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 125.0,
+      "stock": 124,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5977,7 +5977,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 258,
+      "stock": 288,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -13499,9 +13499,9 @@
       "name": "Уганда Вугар мытый -  эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 1.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Уганда",
       "process": null,
       "altitude": null,
@@ -13525,7 +13525,8 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-089",
       "price_source_1c": "КОФ-089",
-      "on_request": false
+      "on_request": false,
+      "quarantine_reason": "not_in_stock_file"
     },
     {
       "id": "espresso_mono_уганда_рувензори_сухой_эспрессо_1_кг",
@@ -15732,7 +15733,7 @@
       "name": "Китай Симао гр.1 Меллоу мытый эспрессо 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 3.0,
+      "stock": 2,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
