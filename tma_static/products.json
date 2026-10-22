@@ -1232,7 +1232,7 @@
           "on_request": false
         }
       ],
-      "stock": 78.0,
+      "stock": 72,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 85,
+      "stock": 82,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -2067,7 +2067,7 @@
           "on_request": false
         }
       ],
-      "stock": 156.0,
+      "stock": 152,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -5977,7 +5977,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 262,
+      "stock": 259,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6014,7 +6014,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 44.0,
+      "stock": 39,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
