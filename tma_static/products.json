@@ -5375,7 +5375,7 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -24158,8 +24158,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "1a3bbb752c3bdb668ac21c6b37c026af85c2ff128d88d7c23c7162e21c4d8c9e",
-    "captured_at": "2026-10-23T02:12:03.939853+00:00",
+    "source_id": "a7546ff9859a7a111159954ee0daf78c219a55c6c4e471899142892a6124fb39",
+    "captured_at": "2026-10-23T03:12:03.797548+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
