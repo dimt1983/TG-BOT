@@ -1232,7 +1232,7 @@
           "on_request": false
         }
       ],
-      "stock": 62.0,
+      "stock": 96.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 124.0,
+      "stock": 187.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1692,7 +1692,7 @@
           "on_request": false
         }
       ],
-      "stock": 26.0,
+      "stock": 56.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -5965,7 +5965,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 433.0,
+      "stock": 425.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7739,7 +7739,7 @@
       "name": "Колумбия Кастильо мытая - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 2.0,
+      "stock": 6.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -15817,7 +15817,7 @@
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 8.0,
+      "stock": 7.0,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -23234,7 +23234,7 @@
       "name": "F \"Roastberry\" Колумбия Рисаральда декаф - 1 кг",
       "category": "retail",
       "subcategory": "retail_filter",
-      "stock": 4.0,
+      "stock": 6.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-106",
@@ -23258,9 +23258,9 @@
       "name": "F \"Roastberry\" Колумбия Рисаральда декаф - 200 г",
       "category": "retail",
       "subcategory": "retail_filter",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 15.0,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "КОФ-107",
       "fasovka": [
         {
@@ -23274,8 +23274,8 @@
       "price_source_1c": "КОФ-107",
       "on_request": false,
       "photo": "photos/products/coffee-24f68dd4b1a88d64-20261016.jpg",
-      "quarantined_at": "2026-10-19T12:15:03+00:00",
-      "quarantine_reason": "not_in_stock_file"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "1c-sswcho-000016-606d3b7577",
@@ -23741,9 +23741,9 @@
       "name": "Эфиопия Иргачиф Гр.2 мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 8.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": null,
       "on_request": true,
       "fasovka": [
@@ -23756,8 +23756,8 @@
       "created_at": "2026-09-18T14:15:02+00:00",
       "created_by": "bridge_1c_qc",
       "photo": "photos/products/coffee-c2a3e12a3ac62df2-20261016.jpg",
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined_at": "2026-10-23T11:15:11+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "1c-097-892180c922",
@@ -23773,7 +23773,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-23T10:15:02+00:00",
+      "quarantined_at": "2026-10-23T11:15:11+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23916,7 +23916,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-23T10:15:02+00:00",
+      "quarantined_at": "2026-10-23T11:15:11+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24019,7 +24019,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-23T10:15:02+00:00",
+      "quarantined_at": "2026-10-23T11:15:11+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24057,7 +24057,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-23T10:15:02+00:00",
+      "quarantined_at": "2026-10-23T11:15:11+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24095,7 +24095,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-23T10:15:02+00:00",
+      "quarantined_at": "2026-10-23T11:15:11+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24113,7 +24113,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-23T10:15:02+00:00",
+      "quarantined_at": "2026-10-23T11:15:11+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
