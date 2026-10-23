@@ -9840,7 +9840,7 @@
           "on_request": false
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10195,7 +10195,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [
         "Хит"
       ],
@@ -10226,7 +10226,7 @@
           "on_request": false
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "tags": [
         "Хит"
       ],
@@ -10374,7 +10374,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10432,7 +10432,7 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10490,7 +10490,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg",
       "_source": "https://botanikastories.ru/product/lesnoj-oreh/",
@@ -13675,7 +13675,7 @@
           "on_request": false
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "tags": [],
       "photo": "",
       "quarantined": false,
@@ -24158,8 +24158,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "92a856c5bad485ec06a8c2b49580533cc1b663f80cab79d13ba66388b11852c9",
-    "captured_at": "2026-10-23T05:12:04.075859+00:00",
+    "source_id": "c972b6c3cb01f98da71b73b74b6ca0fa6eb7b660c995c1d6931805018ee325b5",
+    "captured_at": "2026-10-23T06:12:04.111569+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
