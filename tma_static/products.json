@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 178.0,
+      "stock": 170.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -23402,9 +23402,9 @@
       "name": "Индонезия Суматра  Гайо Беланги гр.1 - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_micro",
-      "stock": 3.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "КОФ-117",
       "fasovka": [
         {
@@ -23418,7 +23418,9 @@
       "roast": "E",
       "price_source_1c": "КОФ-117",
       "on_request": false,
-      "photo": "photos/products/coffee-bc2ee15f5ac54439-20261016.jpg"
+      "photo": "photos/products/coffee-bc2ee15f5ac54439-20261016.jpg",
+      "quarantined_at": "2026-10-25T15:15:03+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "1c-taltha-dp0099-3dde8cc7c5",
@@ -23773,7 +23775,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-25T14:15:12+00:00",
+      "quarantined_at": "2026-10-25T15:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23916,7 +23918,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-25T14:15:12+00:00",
+      "quarantined_at": "2026-10-25T15:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24019,7 +24021,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-25T14:15:12+00:00",
+      "quarantined_at": "2026-10-25T15:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24057,7 +24059,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-25T14:15:12+00:00",
+      "quarantined_at": "2026-10-25T15:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24095,7 +24097,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-25T14:15:12+00:00",
+      "quarantined_at": "2026-10-25T15:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24113,7 +24115,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-25T14:15:12+00:00",
+      "quarantined_at": "2026-10-25T15:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
