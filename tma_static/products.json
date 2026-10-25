@@ -1574,7 +1574,7 @@
       "name": "CUP 7 Жидкость для очистки молочных систем 1 л",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 7,
+      "stock": 6,
       "on_request": false,
       "price": null,
       "quarantined": false,
@@ -24158,8 +24158,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "ece97049a6a942e1112de6c5b3da39f9aaf7dc06fdf2156b33e17a0bddc0bdc3",
-    "captured_at": "2026-10-25T12:12:04.053557+00:00",
+    "source_id": "254bbe6494271602e615bff91f8d507f124ce1c6fb1e643bc2f1815ba8b3a9e6",
+    "captured_at": "2026-10-25T13:12:04.149793+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
