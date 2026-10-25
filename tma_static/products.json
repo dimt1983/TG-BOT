@@ -15845,7 +15845,7 @@
       "name": "Эфиопия Yirgacheffe Gr 2 мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4,
+      "stock": 3,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -24158,8 +24158,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "3d23ad51aefd96ef114d464dc4f1f8347768abefd99381e30e73c8d49d97d0ce",
-    "captured_at": "2026-10-25T14:12:04.251807+00:00",
+    "source_id": "3ab78df379676275bb2617d1b0d41718bd23cc38854d30b50ea16699dce9918e",
+    "captured_at": "2026-10-25T15:12:04.150232+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
