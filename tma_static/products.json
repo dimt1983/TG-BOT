@@ -5965,7 +5965,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 389.0,
+      "stock": 372.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -23775,7 +23775,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-25T15:15:03+00:00",
+      "quarantined_at": "2026-10-25T16:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23918,7 +23918,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-25T15:15:03+00:00",
+      "quarantined_at": "2026-10-25T16:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24021,7 +24021,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-25T15:15:03+00:00",
+      "quarantined_at": "2026-10-25T16:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24059,7 +24059,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-25T15:15:03+00:00",
+      "quarantined_at": "2026-10-25T16:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24097,7 +24097,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-25T15:15:03+00:00",
+      "quarantined_at": "2026-10-25T16:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24115,7 +24115,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-25T15:15:03+00:00",
+      "quarantined_at": "2026-10-25T16:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
