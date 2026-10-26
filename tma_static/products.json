@@ -1287,7 +1287,7 @@
           "on_request": false
         }
       ],
-      "stock": 17.0,
+      "stock": 16.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1692,7 +1692,7 @@
           "on_request": false
         }
       ],
-      "stock": 47.0,
+      "stock": 46.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1747,7 +1747,7 @@
           "on_request": false
         }
       ],
-      "stock": 21.0,
+      "stock": 20.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Серадо Дарк  упак. 200 г",
@@ -5891,7 +5891,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 150.0,
+      "stock": 110.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5965,7 +5965,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 284.0,
+      "stock": 244.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7632,7 +7632,7 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 13.0,
+      "stock": 8.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -23778,7 +23778,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-26T09:15:06+00:00",
+      "quarantined_at": "2026-10-26T10:15:27+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23921,7 +23921,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-26T09:15:06+00:00",
+      "quarantined_at": "2026-10-26T10:15:27+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24024,7 +24024,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-26T09:15:06+00:00",
+      "quarantined_at": "2026-10-26T10:15:27+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24062,7 +24062,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-26T09:15:06+00:00",
+      "quarantined_at": "2026-10-26T10:15:27+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24100,7 +24100,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-26T09:15:06+00:00",
+      "quarantined_at": "2026-10-26T10:15:27+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24118,7 +24118,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-26T09:15:06+00:00",
+      "quarantined_at": "2026-10-26T10:15:27+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
