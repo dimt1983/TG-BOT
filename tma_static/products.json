@@ -23610,7 +23610,7 @@
     {
       "id": "1c-article-d8dbbd8bc2",
       "name": "ДП \"CHOCOLATE RB\" БРАЗИЛИЯ СЕРТАО ЖЕЛТЫЙ БУРБОН молотый, 8 фильтр-пакетов",
-      "stock": 14,
+      "stock": 0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "ЦБ-00005706",
@@ -24165,8 +24165,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "9b6c9be877d31bb36a5fb698caef252c51518d024d89ddf854ca20d8f86d90d1",
-    "captured_at": "2026-10-26T15:12:04.114822+00:00",
+    "source_id": "75aa4897cd0cdfffbc5511f26c0e0692d3c0772bfbb5f853afed7f6efe51d8d8",
+    "captured_at": "2026-10-26T16:12:04.310989+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
