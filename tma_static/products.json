@@ -8773,7 +8773,7 @@
       "fasovka": [
         {
           "size": "25х2г",
-          "price": 240,
+          "price": 280,
           "on_request": false
         }
       ],
@@ -24160,8 +24160,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "68c2d6c1f817bbe9d4e7c5e5e620ea349caf8934d2cc3d7a01e1f2b459610580",
-    "captured_at": "2026-10-26T07:12:04.392211+00:00",
+    "source_id": "3642a09f1ce479d77faff68be991c4a218b89d45fd3661899865a532c5f91f99",
+    "captured_at": "2026-10-26T08:12:04.194851+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
