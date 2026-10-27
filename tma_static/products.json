@@ -5891,7 +5891,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 71.0,
+      "stock": 69.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -23780,7 +23780,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-27T09:15:02+00:00",
+      "quarantined_at": "2026-10-27T10:15:13+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23923,7 +23923,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-27T09:15:02+00:00",
+      "quarantined_at": "2026-10-27T10:15:13+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24026,7 +24026,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-27T09:15:02+00:00",
+      "quarantined_at": "2026-10-27T10:15:13+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24064,7 +24064,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-27T09:15:02+00:00",
+      "quarantined_at": "2026-10-27T10:15:13+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24102,7 +24102,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-27T09:15:02+00:00",
+      "quarantined_at": "2026-10-27T10:15:13+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24120,7 +24120,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-27T09:15:02+00:00",
+      "quarantined_at": "2026-10-27T10:15:13+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
