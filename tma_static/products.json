@@ -4196,7 +4196,7 @@
           "on_request": false
         }
       ],
-      "stock": 74,
+      "stock": 54,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_клубника_и_киви_50пак.jpg",
       "quarantined": false,
@@ -4998,7 +4998,7 @@
           "on_request": false
         }
       ],
-      "stock": 81,
+      "stock": 61,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -5230,7 +5230,7 @@
           "on_request": false
         }
       ],
-      "stock": 89,
+      "stock": 79,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -24165,8 +24165,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "b2c2d11019456a37154ea15e98e79c1717df8895e788a00c45b6f48b3eaf53ef",
-    "captured_at": "2026-10-27T05:12:04.034718+00:00",
+    "source_id": "2eda48ed7fed07cb660bfcca5a32a99a117275a3e162a7d5dd13c0770184ab5c",
+    "captured_at": "2026-10-27T06:12:03.954405+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
