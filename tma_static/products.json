@@ -2236,7 +2236,7 @@
           "on_request": false
         }
       ],
-      "stock": 14.0,
+      "stock": 13.0,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5928,7 +5928,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 9.0,
+      "stock": 8.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -23780,7 +23780,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-27T10:15:13+00:00",
+      "quarantined_at": "2026-10-27T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23923,7 +23923,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-27T10:15:13+00:00",
+      "quarantined_at": "2026-10-27T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24026,7 +24026,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-27T10:15:13+00:00",
+      "quarantined_at": "2026-10-27T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24064,7 +24064,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-27T10:15:13+00:00",
+      "quarantined_at": "2026-10-27T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24102,7 +24102,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-27T10:15:13+00:00",
+      "quarantined_at": "2026-10-27T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24120,7 +24120,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-27T10:15:13+00:00",
+      "quarantined_at": "2026-10-27T11:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
