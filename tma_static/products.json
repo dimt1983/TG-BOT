@@ -1177,7 +1177,7 @@
           "on_request": false
         }
       ],
-      "stock": 8.0,
+      "stock": 18.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1232,7 +1232,7 @@
           "on_request": false
         }
       ],
-      "stock": 89.0,
+      "stock": 84.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1287,7 +1287,7 @@
           "on_request": false
         }
       ],
-      "stock": 6.0,
+      "stock": 26.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -5965,7 +5965,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 277.0,
+      "stock": 298.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -23780,7 +23780,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-27T08:15:03+00:00",
+      "quarantined_at": "2026-10-27T09:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23923,7 +23923,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-27T08:15:03+00:00",
+      "quarantined_at": "2026-10-27T09:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24026,7 +24026,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-27T08:15:03+00:00",
+      "quarantined_at": "2026-10-27T09:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24064,7 +24064,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-27T08:15:03+00:00",
+      "quarantined_at": "2026-10-27T09:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24102,7 +24102,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-27T08:15:03+00:00",
+      "quarantined_at": "2026-10-27T09:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24120,7 +24120,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-27T08:15:03+00:00",
+      "quarantined_at": "2026-10-27T09:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
