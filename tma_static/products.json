@@ -1232,7 +1232,7 @@
           "on_request": false
         }
       ],
-      "stock": 84.0,
+      "stock": 80.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 95.0,
+      "stock": 133.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1974,13 +1974,13 @@
           "on_request": false
         }
       ],
-      "stock": 0,
+      "stock": 10.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг",
-      "quarantined": true,
-      "quarantined_at": "2026-05-19T03:35:48+00:00",
-      "hidden": true,
+      "quarantined": false,
+      "quarantined_at": null,
+      "hidden": false,
       "country": "Коста-Рика",
       "description": "Коста-Рика. Чистый вкус, цитрус, карамель.",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
@@ -1988,7 +1988,7 @@
       "article_1c": "КОФ-028",
       "price_source_1c": "КОФ-028",
       "on_request": false,
-      "quarantine_reason": "not_in_stock_file"
+      "quarantine_reason": null
     },
     {
       "id": "c-e_roastberry_перу_схг_упак_200_г",
@@ -5965,7 +5965,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 298.0,
+      "stock": 297.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -8079,7 +8079,7 @@
       "name": "Коста-Рика Тарразу Ла Пастора эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 7.0,
+      "stock": 5.0,
       "hidden": false,
       "quarantined": false,
       "country": "Коста-Рика",
@@ -16595,7 +16595,7 @@
       "name": "Мексика Чьяпас мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 8.0,
+      "stock": 6.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -17019,18 +17019,18 @@
           "on_request": false
         }
       ],
-      "stock": 0,
+      "stock": 10.0,
       "_source": "E \"Roastberry\" Мексика Чьяпас упак. 200 гр.",
       "country": "Мексика",
       "subcategory": "retail_espresso",
       "roast": "E",
       "article_1c": "КОФ-029",
-      "hidden": true,
-      "quarantined": true,
-      "quarantined_at": "2026-10-26T08:15:02+00:00",
+      "hidden": false,
+      "quarantined": false,
+      "quarantined_at": null,
       "price_source_1c": "КОФ-029",
       "on_request": false,
-      "quarantine_reason": "no_in_1c_vedomost_coffee"
+      "quarantine_reason": null
     },
     {
       "id": "e_roastberry_эфиопия_сидамо_gr_4_200_г",
@@ -23780,7 +23780,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-27T11:15:02+00:00",
+      "quarantined_at": "2026-10-27T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23923,7 +23923,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-27T11:15:02+00:00",
+      "quarantined_at": "2026-10-27T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24026,7 +24026,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-27T11:15:02+00:00",
+      "quarantined_at": "2026-10-27T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24064,7 +24064,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-27T11:15:02+00:00",
+      "quarantined_at": "2026-10-27T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24102,7 +24102,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-27T11:15:02+00:00",
+      "quarantined_at": "2026-10-27T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24120,7 +24120,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-27T11:15:02+00:00",
+      "quarantined_at": "2026-10-27T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
