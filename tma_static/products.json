@@ -12876,7 +12876,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": "photos/products/s-сироп_шоколадное_печенье_1.jpg",
       "quarantined": false,
@@ -24165,8 +24165,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "2528c160fc460b10f4d67ab4f4c644e2cc9bdcea583a36078d53d6f78eec62aa",
-    "captured_at": "2026-10-28T04:12:03.850789+00:00",
+    "source_id": "aee23df500cc6ff120b76fe9927fc83fbfbfb0ad015ace6a3be4ada6e6d91aea",
+    "captured_at": "2026-10-28T05:12:04.751124+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
