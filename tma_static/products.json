@@ -4938,7 +4938,7 @@
           "on_request": false
         }
       ],
-      "stock": 114,
+      "stock": 111,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg",
       "quarantined": false,
@@ -4968,7 +4968,7 @@
           "on_request": false
         }
       ],
-      "stock": 114,
+      "stock": 111,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_королевский_бергамот_60пак.jpg",
       "quarantined": false,
@@ -4998,7 +4998,7 @@
           "on_request": false
         }
       ],
-      "stock": 133,
+      "stock": 114,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -5058,7 +5058,7 @@
           "on_request": false
         }
       ],
-      "stock": 90,
+      "stock": 75,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_медовое_яблоко_с_имбирем_30пак.jpg",
       "quarantined": false,
@@ -5200,7 +5200,7 @@
           "on_request": false
         }
       ],
-      "stock": 135,
+      "stock": 120,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg",
       "quarantined": false,
@@ -5230,7 +5230,7 @@
           "on_request": false
         }
       ],
-      "stock": 139,
+      "stock": 130,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -24166,8 +24166,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "5abbfda1d39f1ad0d0a68e2fb2c91836d56050581dde212e4dd871690ba8d86b",
-    "captured_at": "2026-10-28T12:12:04.168897+00:00",
+    "source_id": "a839ad26d2d731cab98f231accb3db4f015c0a8d2b45b37523907ae9ece46fff",
+    "captured_at": "2026-10-28T13:12:03.942531+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
