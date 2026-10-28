@@ -1232,7 +1232,7 @@
           "on_request": false
         }
       ],
-      "stock": 73.0,
+      "stock": 69.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1287,7 +1287,7 @@
           "on_request": false
         }
       ],
-      "stock": 26.0,
+      "stock": 15.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1315,7 +1315,7 @@
           "on_request": false
         }
       ],
-      "stock": 11.0,
+      "stock": 10.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 171.0,
+      "stock": 165.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1831,7 +1831,7 @@
           "on_request": false
         }
       ],
-      "stock": 13.0,
+      "stock": 12.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гватемала Уетенанго упак. 200 гр.",
@@ -1889,7 +1889,7 @@
           "on_request": false
         }
       ],
-      "stock": 4.0,
+      "stock": 2.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1918,7 +1918,7 @@
           "on_request": false
         }
       ],
-      "stock": 4.0,
+      "stock": 3.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -2067,7 +2067,7 @@
           "on_request": false
         }
       ],
-      "stock": 24.0,
+      "stock": 84.0,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -5891,7 +5891,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 136.0,
+      "stock": 128.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5928,7 +5928,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 8.0,
+      "stock": 11.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5965,7 +5965,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 335.0,
+      "stock": 321.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6002,7 +6002,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 15.0,
+      "stock": 25.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6155,7 +6155,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 4.0,
+      "stock": 3.0,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -7632,9 +7632,9 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 3.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Колумбия",
       "process": "Мытая",
       "altitude": null,
@@ -7658,12 +7658,13 @@
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
-      "quarantined_at": null,
+      "quarantined_at": "2026-10-28T10:15:06+00:00",
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-067",
       "price_source_1c": "КОФ-067",
-      "on_request": false
+      "on_request": false,
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "filter_micro_колумбия_гонзало_кармана_катура_сухой_1_кг_filter",
@@ -15818,7 +15819,7 @@
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6.0,
+      "stock": 5.0,
       "hidden": false,
       "quarantined": false,
       "roast": "F",
@@ -15906,9 +15907,9 @@
       "name": "Вьетнам Блю Шонла сухой FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 1.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "F",
       "photo": "photos/products/filter_micro_вьетнам_блю_сонал_сухой_filter_1_кг.jpg",
       "fasovka": [
@@ -15922,8 +15923,8 @@
       "created_at": "2026-05-20T11:00:09+00:00",
       "created_by": "sync_catalog_v2",
       "country": "Вьетнам",
-      "quarantined_at": null,
-      "quarantine_reason": null,
+      "quarantined_at": "2026-10-28T10:15:06+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee",
       "description": "Вьетнам Блю Шонла. Шоколад, орех, низкая кислотность.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-056",
@@ -19799,7 +19800,7 @@
       "name": "E \"Roastberry\" Эфиопия Иргачиф Гр.2 упак. 200 г",
       "category": "retail",
       "subcategory": "retail_espresso",
-      "stock": 10.0,
+      "stock": 9.0,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -23780,7 +23781,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-28T08:15:03+00:00",
+      "quarantined_at": "2026-10-28T10:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23849,7 +23850,7 @@
       "name": "Кения Оранж Кисии анаэроб.1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4.0,
+      "stock": 3.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-124",
@@ -23923,7 +23924,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-28T08:15:03+00:00",
+      "quarantined_at": "2026-10-28T10:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24026,7 +24027,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-28T08:15:03+00:00",
+      "quarantined_at": "2026-10-28T10:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24064,7 +24065,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-28T08:15:03+00:00",
+      "quarantined_at": "2026-10-28T10:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24102,7 +24103,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-28T08:15:03+00:00",
+      "quarantined_at": "2026-10-28T10:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24120,7 +24121,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-28T08:15:03+00:00",
+      "quarantined_at": "2026-10-28T10:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
