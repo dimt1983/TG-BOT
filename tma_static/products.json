@@ -3445,7 +3445,7 @@
           "on_request": false
         }
       ],
-      "stock": 21,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": true,
@@ -4376,7 +4376,7 @@
           "on_request": false
         }
       ],
-      "stock": 22,
+      "stock": 19,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_апельсин_ройбуш_30пак.jpg",
       "quarantined": false,
@@ -4466,7 +4466,7 @@
           "on_request": false
         }
       ],
-      "stock": 38,
+      "stock": 36,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_кедровый_с_чагой_30пак.jpg",
       "quarantined": false,
@@ -4526,7 +4526,7 @@
           "on_request": false
         }
       ],
-      "stock": 23,
+      "stock": 21,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_лесные_ягоды_30пак.jpg",
       "quarantined": false,
@@ -4998,7 +4998,7 @@
           "on_request": false
         }
       ],
-      "stock": 109,
+      "stock": 107,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -5028,7 +5028,7 @@
           "on_request": false
         }
       ],
-      "stock": 114,
+      "stock": 112,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_манго_с_апельсином_60пак.jpg",
       "quarantined": false,
@@ -5058,7 +5058,7 @@
           "on_request": false
         }
       ],
-      "stock": 75,
+      "stock": 73,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_медовое_яблоко_с_имбирем_30пак.jpg",
       "quarantined": false,
@@ -5230,7 +5230,7 @@
           "on_request": false
         }
       ],
-      "stock": 127,
+      "stock": 125,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -8778,7 +8778,7 @@
           "on_request": false
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -24167,8 +24167,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "75bd5be8e9f7bba30c022f8eab1dbafeef293ceee41b3fcbfec4890b6fd3794d",
-    "captured_at": "2026-10-29T10:12:03.915441+00:00",
+    "source_id": "c423c96ea2f2b3bfb899c80fd2a954eb2dd710367224bd39d4bb0b4499c72a17",
+    "captured_at": "2026-10-29T11:12:03.921944+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
