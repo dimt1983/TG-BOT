@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 111.0,
+      "stock": 108.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -2067,7 +2067,7 @@
           "on_request": false
         }
       ],
-      "stock": 55.0,
+      "stock": 49.0,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -6002,7 +6002,7 @@
       "name": "Бразилия Фазенда Сертао сухой МОЛОТЫЙ - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 19.0,
+      "stock": 17.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -15877,7 +15877,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 2.0,
+      "stock": 22.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -16023,7 +16023,7 @@
       "name": "Гондурас Сан Николас темная обжарка - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 11.0,
+      "stock": 10.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -23092,7 +23092,7 @@
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Конга  гр.1 сухой 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 5.0,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-112",
@@ -23782,7 +23782,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-29T08:15:02+00:00",
+      "quarantined_at": "2026-10-29T09:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23873,7 +23873,7 @@
       "name": "Кофе \"Roastberry BLACK\" Кения Оранж Кисии анаэроб - 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 7.0,
+      "stock": 6.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-122",
@@ -23925,7 +23925,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-29T08:15:02+00:00",
+      "quarantined_at": "2026-10-29T09:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24028,7 +24028,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-29T08:15:02+00:00",
+      "quarantined_at": "2026-10-29T09:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24066,7 +24066,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-29T08:15:02+00:00",
+      "quarantined_at": "2026-10-29T09:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24104,7 +24104,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-29T08:15:02+00:00",
+      "quarantined_at": "2026-10-29T09:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24122,7 +24122,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-29T08:15:02+00:00",
+      "quarantined_at": "2026-10-29T09:15:06+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
