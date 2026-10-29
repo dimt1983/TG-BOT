@@ -1607,7 +1607,7 @@
           "on_request": false
         }
       ],
-      "stock": 15.0,
+      "stock": 14.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Бразилия Паже - 1 кг",
@@ -5891,7 +5891,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 118.0,
+      "stock": 108.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5928,7 +5928,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 15.0,
+      "stock": 14.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5965,7 +5965,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 360.0,
+      "stock": 345.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7632,9 +7632,9 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "stock": 20.0,
+      "hidden": false,
+      "quarantined": false,
       "country": "Колумбия",
       "process": "Мытая",
       "altitude": null,
@@ -7658,13 +7658,13 @@
       ],
       "created_at": "2026-05-19T13:15:29+00:00",
       "created_by": "manual_v2",
-      "quarantined_at": "2026-10-29T08:15:02+00:00",
+      "quarantined_at": null,
       "recipe_e": "Эспрессо: 18 г → 36 г за 25–28 сек. Температура 92–94°C.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-067",
       "price_source_1c": "КОФ-067",
       "on_request": false,
-      "quarantine_reason": "no_in_1c_vedomost_coffee"
+      "quarantine_reason": null
     },
     {
       "id": "filter_micro_колумбия_гонзало_кармана_катура_сухой_1_кг_filter",
@@ -9155,7 +9155,7 @@
       "name": "Руанда Мутетели 15+ мытый  - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 2.0,
+      "stock": 13.0,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -16920,7 +16920,7 @@
           "on_request": false
         }
       ],
-      "stock": 9.0,
+      "stock": 8.0,
       "_source": "E \"Roastberry\" Гондурас San Nicolas Dark - 1 кг",
       "country": "Гондурас",
       "subcategory": "retail_espresso",
@@ -23782,7 +23782,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-29T09:15:06+00:00",
+      "quarantined_at": "2026-10-29T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23925,7 +23925,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-29T09:15:06+00:00",
+      "quarantined_at": "2026-10-29T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24028,7 +24028,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-29T09:15:06+00:00",
+      "quarantined_at": "2026-10-29T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24066,7 +24066,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-29T09:15:06+00:00",
+      "quarantined_at": "2026-10-29T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24104,7 +24104,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-29T09:15:06+00:00",
+      "quarantined_at": "2026-10-29T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24122,7 +24122,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-29T09:15:06+00:00",
+      "quarantined_at": "2026-10-29T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
