@@ -1232,7 +1232,7 @@
           "on_request": false
         }
       ],
-      "stock": 82.0,
+      "stock": 76.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 89.0,
+      "stock": 129.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -5891,7 +5891,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 159.0,
+      "stock": 158.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -15737,7 +15737,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 20.0,
+      "stock": 10.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -23782,7 +23782,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-30T10:15:18+00:00",
+      "quarantined_at": "2026-10-30T11:15:25+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23925,7 +23925,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-10-30T10:15:18+00:00",
+      "quarantined_at": "2026-10-30T11:15:25+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24028,7 +24028,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-30T10:15:18+00:00",
+      "quarantined_at": "2026-10-30T11:15:25+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24066,7 +24066,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-30T10:15:18+00:00",
+      "quarantined_at": "2026-10-30T11:15:25+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24104,7 +24104,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-30T10:15:18+00:00",
+      "quarantined_at": "2026-10-30T11:15:25+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24122,7 +24122,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-10-30T10:15:18+00:00",
+      "quarantined_at": "2026-10-30T11:15:25+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
