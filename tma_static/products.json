@@ -9672,7 +9672,7 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 4,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -9753,7 +9753,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 8,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -9812,7 +9812,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 7,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg",
       "_source": "https://botanikastories.ru/product/zhyoltyj-banan/",
@@ -9842,7 +9842,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 11,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -9871,7 +9871,7 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 4,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -9959,7 +9959,7 @@
           "on_request": false
         }
       ],
-      "stock": 9,
+      "stock": 15,
       "tags": [
         "Хит"
       ],
@@ -10197,7 +10197,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 9,
       "tags": [
         "Хит"
       ],
@@ -10228,7 +10228,7 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 13,
       "tags": [
         "Хит"
       ],
@@ -10318,7 +10318,7 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 5,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10376,7 +10376,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 8,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10492,7 +10492,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 7,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg",
       "_source": "https://botanikastories.ru/product/lesnoj-oreh/",
@@ -10863,7 +10863,7 @@
           "on_request": false
         }
       ],
-      "stock": 0,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_черная_смородина_1л.jpg",
       "_source": "https://botanikastories.ru/product/chernaya-smorodina-2/",
@@ -12690,7 +12690,7 @@
           "on_request": false
         }
       ],
-      "stock": 0,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/s-сироп_ананас_1.jpg",
       "quarantined": false,
@@ -12905,7 +12905,7 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 4,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -24187,8 +24187,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "f592e02761a2a6941ae088964113ec1b7e8405bcd2a964f708840ca62f0dd47c",
-    "captured_at": "2026-10-30T09:12:04.235724+00:00",
+    "source_id": "74f2d4fb6c3d3b56db18c7f0a2b5656906647f3bb5e91e06275a157bed682388",
+    "captured_at": "2026-10-30T10:12:04.015565+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
