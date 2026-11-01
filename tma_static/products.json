@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 194.0,
+      "stock": 184.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1692,7 +1692,7 @@
           "on_request": false
         }
       ],
-      "stock": 28.0,
+      "stock": 18.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1831,7 +1831,7 @@
           "on_request": false
         }
       ],
-      "stock": 17.0,
+      "stock": 15.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гватемала Уетенанго упак. 200 гр.",
@@ -1860,7 +1860,7 @@
           "on_request": false
         }
       ],
-      "stock": 25.0,
+      "stock": 22.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гондурас San Nicolas упак. 200 гр.",
@@ -2009,7 +2009,7 @@
           "on_request": false
         }
       ],
-      "stock": 2.0,
+      "stock": 0,
       "tags": [],
       "photo": "photos/products/coffee-b272aaa41ff1b8ba-20261016.jpg",
       "tasting_notes": [
@@ -2018,13 +2018,14 @@
         "цитрус",
         "карамель"
       ],
-      "quarantined": false,
-      "quarantined_at": null,
-      "hidden": false,
+      "quarantined": true,
+      "quarantined_at": "2026-11-01T15:16:05+00:00",
+      "hidden": true,
       "archived_reason": "not in xlsx 19.05.2026",
       "article_1c": "КОФ-099",
       "price_source_1c": "КОФ-099",
-      "on_request": false
+      "on_request": false,
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "retail_e_roastberry_уганада_рувензор_200_г",
@@ -2123,7 +2124,7 @@
           "on_request": false
         }
       ],
-      "stock": 15.0,
+      "stock": 13.0,
       "subcategory": "retail_filter",
       "quarantined": false,
       "quarantined_at": null,
@@ -2151,7 +2152,7 @@
           "on_request": false
         }
       ],
-      "stock": 21.0,
+      "stock": 19.0,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Кения АА упак. 200 г",
@@ -2207,7 +2208,7 @@
           "on_request": false
         }
       ],
-      "stock": 14.0,
+      "stock": 12.0,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Китай Симао упак. 200 г",
@@ -5928,7 +5929,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 14.0,
+      "stock": 13.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -6155,7 +6156,7 @@
       "name": "Гватемала Уеуетенанго мытый - 1 кг  FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 5.0,
+      "stock": 4.0,
       "hidden": false,
       "quarantined": false,
       "country": "Гватемала",
@@ -7168,7 +7169,7 @@
       "name": "Китай Симао гр.1 Меллоу мытый 1 кг - FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 6.0,
+      "stock": 5.0,
       "hidden": false,
       "quarantined": false,
       "country": "Китай",
@@ -7600,7 +7601,7 @@
       "name": "Колумбия Андино мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 8.0,
+      "stock": 7.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -9195,7 +9196,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 8.0,
+      "stock": 7.0,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -13446,9 +13447,9 @@
       "name": "Уганда Вугар мытый  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 1.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "country": "Уганда",
       "process": null,
       "altitude": null,
@@ -13470,8 +13471,8 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "on_request": false,
       "article_1c": "КОФ-088",
-      "quarantined_at": null,
-      "quarantine_reason": null
+      "quarantined_at": "2026-11-01T15:16:05+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "espresso_mono_уганда_вугар_мытый_эспрессо_1_кг",
@@ -15819,9 +15820,9 @@
       "name": "Перу Монте Верде гр.1 сухой  - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 1.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "roast": "F",
       "photo": "photos/products/filter_mono_перу_монте_верде_гр_1_сухой_1_кг_filter.jpg",
       "fasovka": [
@@ -15837,10 +15838,11 @@
       "country": "Перу",
       "description": "Перу. Шоколад, сухофрукты, лёгкая кислотность, чистый профиль.",
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
-      "quarantined_at": null,
+      "quarantined_at": "2026-11-01T15:16:05+00:00",
       "article_1c": "КОФ-084",
       "price_source_1c": "КОФ-084",
-      "on_request": false
+      "on_request": false,
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "filter_mono_эфиопия_yirgacheffe_gr_2_мытый_1_кг_filter",
@@ -17022,7 +17024,7 @@
           "on_request": false
         }
       ],
-      "stock": 10.0,
+      "stock": 4.0,
       "_source": "E \"Roastberry\" Мексика Чьяпас упак. 200 гр.",
       "country": "Мексика",
       "subcategory": "retail_espresso",
@@ -17242,7 +17244,7 @@
           "on_request": false
         }
       ],
-      "stock": 14.0,
+      "stock": 13.0,
       "_source": "Кофе \"Roastberry BORЩ \"Колумбия Катуррон нат.\" 200 г",
       "country": "Колумбия",
       "on_request": false,
@@ -22955,7 +22957,7 @@
           "on_request": false
         }
       ],
-      "stock": 5.0,
+      "stock": 4.0,
       "tags": [],
       "photo": "photos/products/coffee-8b630672844979dc-20261016.jpg",
       "pair_id": "эфиопия_конга_гр_1_сухой_filter_-_1_кг",
@@ -23020,7 +23022,7 @@
       "name": "Эфиопия Банко Готити гр.1 сухой нат. FILTER - 1 кг",
       "category": "filter",
       "subcategory": "filter_micro",
-      "stock": 4.0,
+      "stock": 3.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-111",
@@ -23783,7 +23785,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-01T10:15:02+00:00",
+      "quarantined_at": "2026-11-01T15:16:05+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23926,7 +23928,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-01T10:15:02+00:00",
+      "quarantined_at": "2026-11-01T15:16:05+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24029,7 +24031,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-01T10:15:02+00:00",
+      "quarantined_at": "2026-11-01T15:16:05+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24067,7 +24069,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-01T10:15:02+00:00",
+      "quarantined_at": "2026-11-01T15:16:05+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24105,7 +24107,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-01T10:15:02+00:00",
+      "quarantined_at": "2026-11-01T15:16:05+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24123,7 +24125,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-01T10:15:02+00:00",
+      "quarantined_at": "2026-11-01T15:16:05+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
