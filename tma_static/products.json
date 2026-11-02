@@ -1574,7 +1574,7 @@
       "name": "CUP 7 Жидкость для очистки молочных систем 1 л",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 3,
+      "stock": 2,
       "on_request": false,
       "price": null,
       "quarantined": false,
@@ -4857,7 +4857,7 @@
           "on_request": false
         }
       ],
-      "stock": 79,
+      "stock": 64,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_иван-чай_с_малиной_36пак.jpg",
       "quarantined": false,
@@ -4939,7 +4939,7 @@
           "on_request": false
         }
       ],
-      "stock": 91,
+      "stock": 76,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg",
       "quarantined": false,
@@ -4999,7 +4999,7 @@
           "on_request": false
         }
       ],
-      "stock": 107,
+      "stock": 82,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -5059,7 +5059,7 @@
           "on_request": false
         }
       ],
-      "stock": 68,
+      "stock": 58,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_медовое_яблоко_с_имбирем_30пак.jpg",
       "quarantined": false,
@@ -5201,7 +5201,7 @@
           "on_request": false
         }
       ],
-      "stock": 115,
+      "stock": 105,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg",
       "quarantined": false,
@@ -5231,7 +5231,7 @@
           "on_request": false
         }
       ],
-      "stock": 125,
+      "stock": 110,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -10806,7 +10806,7 @@
           "on_request": false
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -24190,8 +24190,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "777b2e42df1d1a7da155ea1eb58bbab1d073e3791bed5c04249d7c7d0024f293",
-    "captured_at": "2026-11-02T03:12:03.698829+00:00",
+    "source_id": "be8647a19000392cdc10a89a3b4ee819f5d0709d87b5b870cc40f32a3f80cd5c",
+    "captured_at": "2026-11-02T04:12:03.812874+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
