@@ -438,7 +438,7 @@
           "on_request": false
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [],
       "photo": "photos/products/t-althaus_горные_травы_чёрн_лист_250г.jpg",
       "_source": "alephtrade",
@@ -602,7 +602,7 @@
           "on_request": false
         }
       ],
-      "stock": 7,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/t-althaus_лемон_минт_трав_150г.jpg",
       "_source": "alephtrade",
@@ -658,7 +658,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/t-althaus_молочный_улун_зел_лист_250г.jpg",
       "_source": "alephtrade",
@@ -960,7 +960,7 @@
           "on_request": false
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [],
       "photo": "photos/products/t-althaus_сенча_сенпай_зел_лист_250г.jpg",
       "_source": "alephtrade",
@@ -1068,7 +1068,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 4,
       "tags": [],
       "photo": "photos/products/t-althaus_японская_липа_трав_75г.jpg",
       "_source": "alephtrade",
@@ -3446,7 +3446,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 0,
       "tags": [],
       "photo": null,
       "quarantined": true,
@@ -5605,7 +5605,7 @@
           "on_request": false
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": true,
@@ -6310,7 +6310,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "photo": null,
       "quarantined": true,
@@ -6969,7 +6969,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": null,
       "quarantined": true,
@@ -9783,7 +9783,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 1,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_бабл_гам_1л.jpg",
       "_source": "https://botanikastories.ru/product/babl-gam/",
@@ -9813,7 +9813,7 @@
           "on_request": false
         }
       ],
-      "stock": 7,
+      "stock": 5,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg",
       "_source": "https://botanikastories.ru/product/zhyoltyj-banan/",
@@ -10080,7 +10080,7 @@
           "on_request": false
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10377,7 +10377,7 @@
           "on_request": false
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10435,7 +10435,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10493,7 +10493,7 @@
           "on_request": false
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg",
       "_source": "https://botanikastories.ru/product/lesnoj-oreh/",
@@ -10552,7 +10552,7 @@
           "on_request": false
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10717,7 +10717,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg",
       "_source": "https://botanikastories.ru/product/zelyonaya-myata/",
@@ -15159,7 +15159,7 @@
           "on_request": false
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -15187,7 +15187,7 @@
           "on_request": false
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -24190,8 +24190,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "779e58acd95cf30462dc330be3ad7d02be6d3a37d0a047c7ceee912ce9b9e5a8",
-    "captured_at": "2026-11-02T10:12:03.980177+00:00",
+    "source_id": "d3de487f504cda33d537a80b90ece4ee9ef5edd59f9b9233f9a8c49b01b73d2b",
+    "captured_at": "2026-11-02T11:12:04.022094+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
