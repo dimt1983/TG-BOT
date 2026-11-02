@@ -5931,7 +5931,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3.0,
+      "stock": 2.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5968,7 +5968,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 344.0,
+      "stock": 452.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -15574,7 +15574,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 129.0,
+      "stock": 127.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -23787,7 +23787,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-02T14:15:02+00:00",
+      "quarantined_at": "2026-11-02T15:15:08+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23930,7 +23930,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-02T14:15:02+00:00",
+      "quarantined_at": "2026-11-02T15:15:08+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24033,7 +24033,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-02T14:15:02+00:00",
+      "quarantined_at": "2026-11-02T15:15:08+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24071,7 +24071,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-02T14:15:02+00:00",
+      "quarantined_at": "2026-11-02T15:15:08+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24109,7 +24109,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-02T14:15:02+00:00",
+      "quarantined_at": "2026-11-02T15:15:08+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24127,7 +24127,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-02T14:15:02+00:00",
+      "quarantined_at": "2026-11-02T15:15:08+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24188,6 +24188,46 @@
         }
       ],
       "created_at": "2026-10-30T08:15:03+00:00",
+      "created_by": "bridge_1c_qc"
+    },
+    {
+      "id": "filter_micro_китай_хуангуан_анаэробный_1_кг_filter",
+      "name": "Китай Хуангуан анаэробный 1 кг FILTER",
+      "category": "filter",
+      "subcategory": "filter_micro",
+      "stock": 3.0,
+      "hidden": false,
+      "quarantined": false,
+      "article_1c": "КОФ-147",
+      "on_request": true,
+      "fasovka": [
+        {
+          "size": "1 кг",
+          "price": null,
+          "on_request": true
+        }
+      ],
+      "created_at": "2026-11-02T15:15:08+00:00",
+      "created_by": "bridge_1c_qc"
+    },
+    {
+      "id": "borshch_кофе_roastberry_borщ_китай_хуангуан_анаэробный_200_г",
+      "name": "Кофе \"Roastberry BORЩ \"Китай Хуангуан анаэробный\" 200 г",
+      "category": "borshch",
+      "subcategory": null,
+      "stock": 20.0,
+      "hidden": false,
+      "quarantined": false,
+      "article_1c": "КОФ-148",
+      "on_request": true,
+      "fasovka": [
+        {
+          "size": "200 г",
+          "price": null,
+          "on_request": true
+        }
+      ],
+      "created_at": "2026-11-02T15:15:08+00:00",
       "created_by": "bridge_1c_qc"
     }
   ],
