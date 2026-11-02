@@ -1177,7 +1177,7 @@
           "on_request": false
         }
       ],
-      "stock": 14.0,
+      "stock": 9.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1232,7 +1232,7 @@
           "on_request": false
         }
       ],
-      "stock": 64.0,
+      "stock": 61.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1260,7 +1260,7 @@
           "on_request": false
         }
       ],
-      "stock": 33.0,
+      "stock": 30.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 184.0,
+      "stock": 177.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1720,7 +1720,7 @@
           "on_request": false
         }
       ],
-      "stock": 12.0,
+      "stock": 8.0,
       "on_request": false,
       "subcategory": "retail_espresso",
       "roast": "E",
@@ -1860,7 +1860,7 @@
           "on_request": false
         }
       ],
-      "stock": 21.0,
+      "stock": 19.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гондурас San Nicolas упак. 200 гр.",
@@ -2068,7 +2068,7 @@
           "on_request": false
         }
       ],
-      "stock": 88.0,
+      "stock": 83.0,
       "subcategory": "retail_filter",
       "roast": "F",
       "_source": "F \"Roastberry\" Бразилия Сертао упак. 200 г МОЛОТЫЙ",
@@ -5892,7 +5892,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 112.0,
+      "stock": 99.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5929,7 +5929,7 @@
       "name": "Бразилия Серрадо желтый бурбон",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 13.0,
+      "stock": 7.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5966,7 +5966,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 383.0,
+      "stock": 365.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -17024,18 +17024,18 @@
           "on_request": false
         }
       ],
-      "stock": 1.0,
+      "stock": 0,
       "_source": "E \"Roastberry\" Мексика Чьяпас упак. 200 гр.",
       "country": "Мексика",
       "subcategory": "retail_espresso",
       "roast": "E",
       "article_1c": "КОФ-029",
-      "hidden": false,
-      "quarantined": false,
-      "quarantined_at": null,
+      "hidden": true,
+      "quarantined": true,
+      "quarantined_at": "2026-11-02T09:15:09+00:00",
       "price_source_1c": "КОФ-029",
       "on_request": false,
-      "quarantine_reason": null
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "e_roastberry_эфиопия_сидамо_gr_4_200_г",
@@ -23785,7 +23785,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-02T08:15:05+00:00",
+      "quarantined_at": "2026-11-02T09:15:09+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23928,7 +23928,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-02T08:15:05+00:00",
+      "quarantined_at": "2026-11-02T09:15:09+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24031,7 +24031,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-02T08:15:05+00:00",
+      "quarantined_at": "2026-11-02T09:15:09+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24069,7 +24069,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-02T08:15:05+00:00",
+      "quarantined_at": "2026-11-02T09:15:09+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24107,7 +24107,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-02T08:15:05+00:00",
+      "quarantined_at": "2026-11-02T09:15:09+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24125,7 +24125,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-02T08:15:05+00:00",
+      "quarantined_at": "2026-11-02T09:15:09+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
