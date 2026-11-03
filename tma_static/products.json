@@ -1549,7 +1549,7 @@
       "name": "CUP 6 Порошок для удаления кофейных масел 1 кг",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 8,
+      "stock": 7,
       "on_request": false,
       "price": null,
       "quarantined": false,
@@ -5203,7 +5203,7 @@
           "on_request": false
         }
       ],
-      "stock": 102,
+      "stock": 42,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg",
       "quarantined": false,
@@ -24252,8 +24252,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "382f2b869202987a9d3c8f66f6284258a6c6d1fc782f1e176a4d84f3999a5c82",
-    "captured_at": "2026-11-03T10:12:04.209616+00:00",
+    "source_id": "52bdd49b12fe28b9448e695652c8862dda85f68ac4cac02dac1a5f7bd48bae6b",
+    "captured_at": "2026-11-03T11:12:03.974902+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
