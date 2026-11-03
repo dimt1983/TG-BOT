@@ -1946,7 +1946,7 @@
           "on_request": false
         }
       ],
-      "stock": 0,
+      "stock": 8.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг",
@@ -1956,11 +1956,11 @@
       "recipe_f": "Фильтр: 15 г на 250 мл воды, 92–94°C, время 3:00–3:30.",
       "article_1c": "КОФ-027",
       "price_source_1c": "КОФ-027",
-      "hidden": true,
-      "quarantined": true,
+      "hidden": false,
+      "quarantined": false,
       "on_request": false,
-      "quarantined_at": "2026-11-02T14:15:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee"
+      "quarantined_at": null,
+      "quarantine_reason": null
     },
     {
       "id": "retail_e_roastberry_коста-рика_тарразу_ла_пастора_200_г",
@@ -1976,7 +1976,7 @@
           "on_request": false
         }
       ],
-      "stock": 5.0,
+      "stock": 15.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг",
@@ -5894,7 +5894,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 142.0,
+      "stock": 141.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5968,7 +5968,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 427.0,
+      "stock": 426.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -15574,7 +15574,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 128.0,
+      "stock": 122.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -16027,7 +16027,7 @@
       "name": "Гондурас Сан Николас темная обжарка - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 6.0,
+      "stock": 5.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -23787,7 +23787,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-03T10:15:02+00:00",
+      "quarantined_at": "2026-11-03T11:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23930,7 +23930,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-03T10:15:02+00:00",
+      "quarantined_at": "2026-11-03T11:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24033,7 +24033,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-03T10:15:02+00:00",
+      "quarantined_at": "2026-11-03T11:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24071,7 +24071,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-03T10:15:02+00:00",
+      "quarantined_at": "2026-11-03T11:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24109,7 +24109,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-03T10:15:02+00:00",
+      "quarantined_at": "2026-11-03T11:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24127,7 +24127,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-03T10:15:02+00:00",
+      "quarantined_at": "2026-11-03T11:15:03+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
