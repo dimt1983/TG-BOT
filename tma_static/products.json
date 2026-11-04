@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 208.0,
+      "stock": 158.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -5968,7 +5968,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 428.0,
+      "stock": 416.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -23787,7 +23787,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-04T16:15:02+00:00",
+      "quarantined_at": "2026-11-04T17:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23932,7 +23932,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-04T16:15:02+00:00",
+      "quarantined_at": "2026-11-04T17:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24035,7 +24035,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-04T16:15:02+00:00",
+      "quarantined_at": "2026-11-04T17:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24073,7 +24073,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-04T16:15:02+00:00",
+      "quarantined_at": "2026-11-04T17:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24111,7 +24111,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-04T16:15:02+00:00",
+      "quarantined_at": "2026-11-04T17:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24129,7 +24129,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-04T16:15:02+00:00",
+      "quarantined_at": "2026-11-04T17:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
