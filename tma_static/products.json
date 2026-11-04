@@ -5968,7 +5968,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 429.0,
+      "stock": 428.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7635,7 +7635,7 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 23.0,
+      "stock": 16.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -8155,7 +8155,7 @@
           "on_request": false
         }
       ],
-      "stock": 8.0,
+      "stock": 6.0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -8331,7 +8331,7 @@
           "on_request": false
         }
       ],
-      "stock": 19.0,
+      "stock": 18.0,
       "on_request": false,
       "roast": "F",
       "subcategory": null,
@@ -23120,7 +23120,7 @@
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Банко Готити гр.1 сухой 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 9.0,
+      "stock": 7.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-113",
@@ -23639,7 +23639,7 @@
       "name": "Кофе \"Roastberry BORЩ \"Колумбия Арбуз инфьюз декаф\" 200 г",
       "category": "borshch",
       "subcategory": null,
-      "stock": 12.0,
+      "stock": 11.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-118",
@@ -23787,7 +23787,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-04T14:15:07+00:00",
+      "quarantined_at": "2026-11-04T16:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23878,9 +23878,9 @@
       "name": "Кофе \"Roastberry BLACK\" Кения Оранж Кисии анаэроб - 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 2.0,
-      "hidden": false,
-      "quarantined": false,
+      "stock": 0,
+      "hidden": true,
+      "quarantined": true,
       "article_1c": "КОФ-122",
       "fasovka": [
         {
@@ -23893,7 +23893,9 @@
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-122",
       "photo": "photos/products/coffee-7031d9f8085905e2-20261016.jpg",
-      "on_request": false
+      "on_request": false,
+      "quarantined_at": "2026-11-04T16:15:02+00:00",
+      "quarantine_reason": "no_in_1c_vedomost_coffee"
     },
     {
       "id": "espresso_micro_уганда_momo_beat_анаэроб_эспрессо_1_кг",
@@ -23930,7 +23932,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-04T14:15:07+00:00",
+      "quarantined_at": "2026-11-04T16:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24033,7 +24035,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-04T14:15:07+00:00",
+      "quarantined_at": "2026-11-04T16:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24071,7 +24073,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-04T14:15:07+00:00",
+      "quarantined_at": "2026-11-04T16:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24109,7 +24111,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-04T14:15:07+00:00",
+      "quarantined_at": "2026-11-04T16:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24127,7 +24129,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-04T14:15:07+00:00",
+      "quarantined_at": "2026-11-04T16:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
