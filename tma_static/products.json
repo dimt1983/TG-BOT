@@ -19806,7 +19806,7 @@
       "name": "E \"Roastberry\" Эфиопия Иргачиф Гр.2 упак. 200 г",
       "category": "retail",
       "subcategory": "retail_espresso",
-      "stock": 6.0,
+      "stock": 1.0,
       "hidden": false,
       "quarantined": false,
       "country": null,
@@ -23787,7 +23787,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-04T08:15:02+00:00",
+      "quarantined_at": "2026-11-04T14:15:07+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23930,7 +23930,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-04T08:15:02+00:00",
+      "quarantined_at": "2026-11-04T14:15:07+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24033,7 +24033,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-04T08:15:02+00:00",
+      "quarantined_at": "2026-11-04T14:15:07+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24071,7 +24071,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-04T08:15:02+00:00",
+      "quarantined_at": "2026-11-04T14:15:07+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24109,7 +24109,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-04T08:15:02+00:00",
+      "quarantined_at": "2026-11-04T14:15:07+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24127,7 +24127,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-04T08:15:02+00:00",
+      "quarantined_at": "2026-11-04T14:15:07+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
