@@ -3759,7 +3759,7 @@
           "on_request": false
         }
       ],
-      "stock": 25,
+      "stock": 21,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -4116,7 +4116,7 @@
           "on_request": false
         }
       ],
-      "stock": 14,
+      "stock": 11,
       "tags": [],
       "photo": "photos/products/t-rbr_tea_сенча_250г.jpg",
       "quarantined": false,
@@ -5378,7 +5378,7 @@
           "on_request": false
         }
       ],
-      "stock": 10,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -10666,7 +10666,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -14744,7 +14744,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 3,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -14772,7 +14772,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": true,
@@ -14829,7 +14829,7 @@
           "on_request": false
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "tags": [],
       "photo": null,
       "quarantined": true,
@@ -14912,7 +14912,7 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -15023,7 +15023,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -24275,8 +24275,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "aafb5fd110b3ac80cd8bc92ea3aa77eb345005e516c7278b43f717a93b73e5c6",
-    "captured_at": "2026-11-05T07:12:04.679028+00:00",
+    "source_id": "3add86bfff7375625c80162c11ad86d58fc66b16abb7a15bd844ffedc66c507c",
+    "captured_at": "2026-11-05T08:12:04.438117+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
