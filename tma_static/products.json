@@ -7016,7 +7016,7 @@
           "on_request": false
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "quarantined": false,
       "quarantined_at": null,
       "quarantine_reason": null,
@@ -10200,7 +10200,7 @@
           "on_request": false
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [
         "Хит"
       ],
@@ -10231,7 +10231,7 @@
           "on_request": false
         }
       ],
-      "stock": 13,
+      "stock": 12,
       "tags": [
         "Хит"
       ],
@@ -24275,8 +24275,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "9a6f96e1b83ac083abc666eda3e9cddb0dbf0c09518287e4727bbbe6cbb5843c",
-    "captured_at": "2026-11-05T05:12:04.091810+00:00",
+    "source_id": "83979bc17ff040b1ea51323659ce3d58e986c6e77c9e8f778c261bf1c087df60",
+    "captured_at": "2026-11-05T06:12:04.559519+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
