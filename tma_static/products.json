@@ -24328,16 +24328,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-129",
-      "on_request": true,
       "fasovka": [
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true
+          "price": 745.0
         }
       ],
       "created_at": "2026-11-06T11:15:02+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-129"
     },
     {
       "id": "black_кофе_roastberry_black_эфиопия_гелана_абайя_мытый_200г",
@@ -24348,16 +24347,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-133",
-      "on_request": true,
       "fasovka": [
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true
+          "price": 685.0
         }
       ],
       "created_at": "2026-11-06T11:15:02+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-133"
     }
   ],
   "_rbo_snapshot": {
