@@ -1663,7 +1663,7 @@
           "on_request": false
         }
       ],
-      "stock": 104.0,
+      "stock": 97.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": null,
@@ -1692,7 +1692,7 @@
           "on_request": false
         }
       ],
-      "stock": 50.0,
+      "stock": 49.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -7635,7 +7635,7 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 14.0,
+      "stock": 12.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -23788,7 +23788,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-06T11:15:02+00:00",
+      "quarantined_at": "2026-11-06T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23936,7 +23936,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-06T11:15:02+00:00",
+      "quarantined_at": "2026-11-06T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24039,7 +24039,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-06T11:15:02+00:00",
+      "quarantined_at": "2026-11-06T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24077,7 +24077,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-06T11:15:02+00:00",
+      "quarantined_at": "2026-11-06T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24115,7 +24115,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-06T11:15:02+00:00",
+      "quarantined_at": "2026-11-06T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24133,7 +24133,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-06T11:15:02+00:00",
+      "quarantined_at": "2026-11-06T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24331,12 +24331,14 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 745.0
+          "price": 745.0,
+          "on_request": false
         }
       ],
       "created_at": "2026-11-06T11:15:02+00:00",
       "created_by": "bridge_1c_qc",
-      "price_source_1c": "КОФ-129"
+      "price_source_1c": "КОФ-129",
+      "on_request": false
     },
     {
       "id": "black_кофе_roastberry_black_эфиопия_гелана_абайя_мытый_200г",
@@ -24350,12 +24352,14 @@
       "fasovka": [
         {
           "size": "200 г",
-          "price": 685.0
+          "price": 685.0,
+          "on_request": false
         }
       ],
       "created_at": "2026-11-06T11:15:02+00:00",
       "created_by": "bridge_1c_qc",
-      "price_source_1c": "КОФ-133"
+      "price_source_1c": "КОФ-133",
+      "on_request": false
     }
   ],
   "_rbo_snapshot": {
