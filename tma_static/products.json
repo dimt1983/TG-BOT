@@ -9815,7 +9815,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 4,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg",
       "_source": "https://botanikastories.ru/product/zhyoltyj-banan/",
@@ -24315,8 +24315,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "7ceef2cc4c7bb19af4bea1d255d94af59822a17435460bcfee896d0f2752a706",
-    "captured_at": "2026-11-06T05:12:05.100725+00:00",
+    "source_id": "77edcba2ec5caac0b5f1773c2f5d4ca637abd553f8a99b00aaf943b2c499e43a",
+    "captured_at": "2026-11-06T06:12:04.174693+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
