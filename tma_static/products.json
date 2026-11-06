@@ -23909,17 +23909,16 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-127",
-      "on_request": true,
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true
+          "price": 3657.5
         }
       ],
       "created_at": "2026-10-06T17:15:02+00:00",
       "created_by": "bridge_1c_qc",
-      "photo": "photos/products/coffee-02888431e5705a44-20261016.jpg"
+      "photo": "photos/products/coffee-02888431e5705a44-20261016.jpg",
+      "price_source_1c": "КОФ-127"
     },
     {
       "id": "1c-123-0498b7f23a",
@@ -24244,16 +24243,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-131",
-      "on_request": true,
       "fasovka": [
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true
+          "price": 685.0
         }
       ],
       "created_at": "2026-11-02T16:15:01+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-131"
     },
     {
       "id": "retail_espresso_e_roastberry_мексика_чьяпас_мытый_1_кг",
@@ -24285,16 +24283,15 @@
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-149",
-      "on_request": true,
       "fasovka": [
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true
+          "price": 810.0
         }
       ],
       "created_at": "2026-11-05T09:15:04+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "price_source_1c": "КОФ-149"
     },
     {
       "id": "retail_filter_f_roastberry_уганда_momo_beat_анаэробный_200_г",
