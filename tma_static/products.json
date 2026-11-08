@@ -2431,7 +2431,7 @@
           "on_request": false
         }
       ],
-      "stock": 48,
+      "stock": 36,
       "tags": [
         "Растительное"
       ],
@@ -24363,8 +24363,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "f00432a242ae4b9c33c7333dc6c3289f31ba43fcb5ee3a460535e5c24dd97c72",
-    "captured_at": "2026-11-08T06:12:03.888539+00:00",
+    "source_id": "b2dc835abc81c22e3025c4761e06651a37f1c82b1e432e8eb3b9bf5d0b016f53",
+    "captured_at": "2026-11-08T07:12:03.871554+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
