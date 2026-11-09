@@ -9815,7 +9815,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 2,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg",
       "_source": "https://botanikastories.ru/product/zhyoltyj-banan/",
@@ -9845,7 +9845,7 @@
           "on_request": false
         }
       ],
-      "stock": 10,
+      "stock": 9,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10082,7 +10082,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10379,7 +10379,7 @@
           "on_request": false
         }
       ],
-      "stock": 7,
+      "stock": 5,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10554,7 +10554,7 @@
           "on_request": false
         }
       ],
-      "stock": 12,
+      "stock": 11,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10666,7 +10666,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 2,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10719,7 +10719,7 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg",
       "_source": "https://botanikastories.ru/product/zelyonaya-myata/",
@@ -10808,7 +10808,7 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -24364,8 +24364,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "97a5b325ea49dc3e7f152f677a360fe6a36e6b7942d59b952291f46f227820f3",
-    "captured_at": "2026-11-09T09:12:04.220247+00:00",
+    "source_id": "90f693024556f73e3d25f243bbcbdac46f706dedd1a3e7d4a9b8567a43a1fbe8",
+    "captured_at": "2026-11-09T10:12:04.520773+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
