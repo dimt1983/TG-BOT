@@ -4499,7 +4499,7 @@
           "on_request": false
         }
       ],
-      "stock": 23,
+      "stock": 13,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_киви_клубника_30пак.jpg",
       "quarantined": false,
@@ -5001,7 +5001,7 @@
           "on_request": false
         }
       ],
-      "stock": 213,
+      "stock": 203,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -5061,7 +5061,7 @@
           "on_request": false
         }
       ],
-      "stock": 137,
+      "stock": 132,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_медовое_яблоко_с_имбирем_30пак.jpg",
       "quarantined": false,
@@ -5233,7 +5233,7 @@
           "on_request": false
         }
       ],
-      "stock": 144,
+      "stock": 134,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_черный_со_смородиной_30пак.jpg",
       "quarantined": false,
@@ -24364,8 +24364,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "f6d749f6a4d4cbf9a5be5f5093f71d589820a5d1361196201f93834e05e9c0d0",
-    "captured_at": "2026-11-09T06:12:04.579039+00:00",
+    "source_id": "e667556738955397bec7f1d25585a9b9832ae92aeccf802d7a64cfbc4b911d61",
+    "captured_at": "2026-11-09T07:12:04.055680+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
