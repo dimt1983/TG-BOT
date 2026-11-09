@@ -1232,7 +1232,7 @@
           "on_request": false
         }
       ],
-      "stock": 81.0,
+      "stock": 79.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1918,7 +1918,7 @@
           "on_request": false
         }
       ],
-      "stock": 8.0,
+      "stock": 18.0,
       "subcategory": "retail_espresso",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -5968,7 +5968,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 305.0,
+      "stock": 252.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7635,7 +7635,7 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 10.0,
+      "stock": 38.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -9198,7 +9198,7 @@
       "name": "Руанда Мутетели 15+ мытый - 1 кг FILTER",
       "category": "filter",
       "subcategory": "filter_mono",
-      "stock": 3.0,
+      "stock": 11.0,
       "hidden": false,
       "quarantined": false,
       "country": "Руанда",
@@ -15574,7 +15574,7 @@
       "name": "Эфиопия Сидамо Гр.4 сухой эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 113.0,
+      "stock": 108.0,
       "hidden": false,
       "quarantined": false,
       "country": "Эфиопия",
@@ -15740,7 +15740,7 @@
       "name": "Эфиопия Milk Сидамо Гр.4 эспрессо -1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 29.0,
+      "stock": 27.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -15881,7 +15881,7 @@
       "name": "Гватемала Уетенанго мытый - 1 кг эспрессо",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 7.0,
+      "stock": 2.0,
       "hidden": false,
       "quarantined": false,
       "roast": "E",
@@ -16925,7 +16925,7 @@
           "on_request": false
         }
       ],
-      "stock": 6.0,
+      "stock": 16.0,
       "_source": "E \"Roastberry\" Гондурас San Nicolas Dark - 1 кг",
       "country": "Гондурас",
       "subcategory": "retail_espresso",
@@ -17131,7 +17131,7 @@
           "on_request": false
         }
       ],
-      "stock": 12.0,
+      "stock": 22.0,
       "_source": "F \"Roastberry\" Руанда Мутетели упак. 200 г",
       "country": "Руанда",
       "subcategory": "retail_filter",
@@ -23789,7 +23789,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-09T09:15:02+00:00",
+      "quarantined_at": "2026-11-09T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23937,7 +23937,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-09T09:15:02+00:00",
+      "quarantined_at": "2026-11-09T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24040,7 +24040,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-09T09:15:02+00:00",
+      "quarantined_at": "2026-11-09T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24078,7 +24078,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-09T09:15:02+00:00",
+      "quarantined_at": "2026-11-09T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24116,7 +24116,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-09T09:15:02+00:00",
+      "quarantined_at": "2026-11-09T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24134,7 +24134,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-09T09:15:02+00:00",
+      "quarantined_at": "2026-11-09T10:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
