@@ -4941,7 +4941,7 @@
           "on_request": false
         }
       ],
-      "stock": 150,
+      "stock": 147,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_китайский_улун_с_земляникой_30пак.jpg",
       "quarantined": false,
@@ -4971,7 +4971,7 @@
           "on_request": false
         }
       ],
-      "stock": 100,
+      "stock": 96,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_королевский_бергамот_60пак.jpg",
       "quarantined": false,
@@ -24364,8 +24364,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "734395f7716b775c40e4c83b8f11547f7a16a782508813b662810b6e30ac6ea5",
-    "captured_at": "2026-11-09T14:12:03.972264+00:00",
+    "source_id": "da320b222a08799a926855fe36e70e8aaecf1403c5d94a91ad725e2019b65e06",
+    "captured_at": "2026-11-09T15:12:04.051732+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
