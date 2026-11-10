@@ -3759,7 +3759,7 @@
           "on_request": false
         }
       ],
-      "stock": 20,
+      "stock": 19,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -3788,7 +3788,7 @@
           "on_request": false
         }
       ],
-      "stock": 11,
+      "stock": 10,
       "tags": [],
       "photo": "photos/products/t-rb_tea_эрл_грей_250_г_черный_чай.jpg",
       "quarantined": false,
@@ -3927,7 +3927,7 @@
           "on_request": false
         }
       ],
-      "stock": 7,
+      "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -4116,7 +4116,7 @@
           "on_request": false
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [],
       "photo": "photos/products/t-rbr_tea_сенча_250г.jpg",
       "quarantined": false,
@@ -24364,8 +24364,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "970388a9a05ea86429a42ebb16fc09344602dd511707cb384a98e2eea3df9696",
-    "captured_at": "2026-11-10T04:12:04.458129+00:00",
+    "source_id": "69ef23cba8999de3e7a371402f25b756681dc5c8320b352954a1804781e78740",
+    "captured_at": "2026-11-10T05:12:04.535925+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
