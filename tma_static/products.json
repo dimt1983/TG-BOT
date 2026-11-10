@@ -4349,7 +4349,7 @@
           "on_request": false
         }
       ],
-      "stock": 24,
+      "stock": 22,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_апельсин_манго_30пак.jpg",
       "quarantined": false,
@@ -4379,7 +4379,7 @@
           "on_request": false
         }
       ],
-      "stock": 19,
+      "stock": 17,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_апельсин_ройбуш_30пак.jpg",
       "quarantined": false,
@@ -4409,7 +4409,7 @@
           "on_request": false
         }
       ],
-      "stock": 36,
+      "stock": 34,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_голубая_масала_30пак.jpg",
       "quarantined": false,
@@ -4439,7 +4439,7 @@
           "on_request": false
         }
       ],
-      "stock": 20,
+      "stock": 18,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_иммунный_30пак.jpg",
       "quarantined": false,
@@ -4469,7 +4469,7 @@
           "on_request": false
         }
       ],
-      "stock": 36,
+      "stock": 34,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_кедровый_с_чагой_30пак.jpg",
       "quarantined": false,
@@ -4499,7 +4499,7 @@
           "on_request": false
         }
       ],
-      "stock": 13,
+      "stock": 11,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_киви_клубника_30пак.jpg",
       "quarantined": false,
@@ -4529,7 +4529,7 @@
           "on_request": false
         }
       ],
-      "stock": 21,
+      "stock": 19,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_лесные_ягоды_30пак.jpg",
       "quarantined": false,
@@ -4559,7 +4559,7 @@
           "on_request": false
         }
       ],
-      "stock": 38,
+      "stock": 36,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_мята_малина_30пак.jpg",
       "quarantined": false,
@@ -4589,7 +4589,7 @@
           "on_request": false
         }
       ],
-      "stock": 24,
+      "stock": 22,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_пряный_глинтвейн_30пак.jpg",
       "quarantined": false,
@@ -4619,7 +4619,7 @@
           "on_request": false
         }
       ],
-      "stock": 31,
+      "stock": 29,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_пуэр_саган_дайля_30пак.jpg",
       "quarantined": false,
@@ -4649,7 +4649,7 @@
           "on_request": false
         }
       ],
-      "stock": 35,
+      "stock": 33,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_сладкая_клубника_30пак.jpg",
       "quarantined": false,
@@ -4679,7 +4679,7 @@
           "on_request": false
         }
       ],
-      "stock": 18,
+      "stock": 16,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_смородиновый_черный_30пак.jpg",
       "quarantined": false,
@@ -4709,7 +4709,7 @@
           "on_request": false
         }
       ],
-      "stock": 37,
+      "stock": 35,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_шиповник_чабрец_30пак.jpg",
       "quarantined": false,
@@ -4739,7 +4739,7 @@
           "on_request": false
         }
       ],
-      "stock": 18,
+      "stock": 16,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_эрлберг_30пак.jpg",
       "quarantined": false,
@@ -4769,7 +4769,7 @@
           "on_request": false
         }
       ],
-      "stock": 25,
+      "stock": 23,
       "tags": [],
       "photo": "photos/products/t-restoranica_resta_яблоко_можжевельник_30пак.jpg",
       "quarantined": false,
@@ -4799,7 +4799,7 @@
           "on_request": false
         }
       ],
-      "stock": 128,
+      "stock": 115,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_ассам_с_шиповником_36пак.jpg",
       "quarantined": false,
@@ -24364,8 +24364,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "7a504aed2a128f632f18df0c91fa3d30299b18a0a73709ba6d8004a36ac68afa",
-    "captured_at": "2026-11-10T07:12:04.365151+00:00",
+    "source_id": "d05356d4f6bd800a28a60fbd26cceed2fe3077ec793e1090ea1f9673887b28ea",
+    "captured_at": "2026-11-10T08:12:04.488047+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
