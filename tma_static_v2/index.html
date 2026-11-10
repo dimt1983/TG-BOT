@@ -888,6 +888,7 @@ function screenHome() {
     { t: 'Эспрессо',    n: cntCat('espresso') + ' SKU', bg: '#3A2A1F', fg: '#F5EBDD', accent: '#C9A66B', cat: 'espresso' },
     { t: 'Фильтр',      n: cntCat('filter')   + ' SKU', bg: '#5E7A4F', fg: '#F5EBDD', accent: '#C5D4A7', cat: 'filter' },
     { t: 'ROASTBERRY\nRetail', n: cntCat('retail') + ' SKU', bg: '#6F4E37', fg: '#F5EBDD', accent: '#C9A66B', cat: 'retail' },
+    ...(cntCat('bochka') ? [{ t: 'БОЧКА edition', n: cntCat('bochka') + ' SKU', bg: '#6F4E37', fg: '#F5EBDD', accent: '#C9A66B', cat: 'bochka' }] : []),
     { t: 'BLACK\nEdition', n: cntCat('black') + ' SKU',  bg: '#0F0B08', fg: '#F5EBDD', accent: '#C9A66B', cat: 'black' },
     { t: 'BORЩ\nEdition',  n: cntCat('borshch') + ' SKU', bg: '#A05060', fg: '#F5EBDD', accent: '#F5C77E', cat: 'borshch' },
     { t: 'Дрипы',       n: cntCat('drip') + ' SKU',     bg: '#7A5538', fg: '#F5EBDD', accent: '#C9A66B', cat: 'drip' },
@@ -990,7 +991,7 @@ ${appHeader({ logo: true })}
   ${cats.map(c => `
     <div onclick="rb.openCat('${esc(c.cat)}')" style="background:${c.bg}; color:${c.fg}; border-radius:var(--r-md); aspect-ratio:1.1; padding:14px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; ${c.bg === '#FAF7F2' ? 'border:1px solid var(--line);' : ''} cursor:pointer;">
       <div class="meta" style="color:${c.fg}; opacity:0.5;">${esc(c.n)}</div>
-      <div style="font-family:var(--f-display); font-weight:900; font-size:20px; line-height:0.95; letter-spacing:-0.02em; text-transform:uppercase; white-space:pre-line;">${esc(c.t)}</div>
+      <div style="font-family:var(--f-display); font-weight:900; font-size:20px; line-height:0.95; letter-spacing:-0.02em; text-transform:${c.cat === 'bochka' ? 'none' : 'uppercase'}; white-space:pre-line;">${esc(c.t)}</div>
       <div style="position:absolute; top:12px; right:14px; width:8px; height:8px; border-radius:999px; background:${c.accent};"></div>
     </div>
   `).join('')}
@@ -1114,7 +1115,7 @@ function activeFilterCount() {
 }
 
 /* Кофейные категории v2 — те что считаются «кофе» (для фильтров на главной, hero, и т.д.) */
-const COFFEE_CATS = ['espresso','filter','retail','black','borshch','drip','cascara','sets'];
+const COFFEE_CATS = ['espresso','filter','retail','bochka','black','borshch','drip','cascara','sets'];
 /* Подкатегории, где навигация — выбор фасовки (1 кг / 200 г) до списка товаров.
    Только Roastberry Retail и его 3 подгруппы: Эспрессо / Фильтр / Купажи. */
 const SPLIT_BY_FASOVKA_SUB = ['retail_espresso','retail_filter','retail_blend'];
@@ -1130,6 +1131,7 @@ const TILE_THEME = {
   espresso:               { bg:'#3A2A1F', fg:'#F5EBDD', accent:'#C9A66B' },
   filter:                 { bg:'#5E7A4F', fg:'#F5EBDD', accent:'#C5D4A7' },
   retail:                 { bg:'#6F4E37', fg:'#F5EBDD', accent:'#C9A66B' },
+  bochka:                 { bg:'#6F4E37', fg:'#F5EBDD', accent:'#C9A66B' },
   black:                  { bg:'#0F0B08', fg:'#F5EBDD', accent:'#C9A66B' },
   borshch:                { bg:'#A05060', fg:'#F5EBDD', accent:'#F5C77E' },
   drip:                   { bg:'#7A5538', fg:'#F5EBDD', accent:'#C9A66B' },
@@ -1244,7 +1246,7 @@ function screenCatalog() {
           return `
             <div onclick="rb.openCat('${esc(c.id)}')" style="background:${t.bg}; color:${t.fg}; border-radius:var(--r-md); aspect-ratio:1.1; padding:14px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; ${t.bg==='#FAF7F2'?'border:1px solid var(--line);':''} cursor:pointer;">
               <div class="meta" style="color:${t.fg}; opacity:0.5;">${n} SKU</div>
-              <div style="font-family:var(--f-display); font-weight:900; font-size:20px; line-height:0.95; letter-spacing:-0.02em; text-transform:uppercase; white-space:pre-line;">${esc(c.name)}</div>
+              <div style="font-family:var(--f-display); font-weight:900; font-size:20px; line-height:0.95; letter-spacing:-0.02em; text-transform:${c.id === 'bochka' ? 'none' : 'uppercase'}; white-space:pre-line;">${esc(c.name)}</div>
               <div style="position:absolute; top:12px; right:14px; width:8px; height:8px; border-radius:999px; background:${t.accent};"></div>
             </div>`;
         }).join('')}

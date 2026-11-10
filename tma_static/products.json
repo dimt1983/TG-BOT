@@ -22,6 +22,11 @@
       "tile": "assets/tile_retail.jpg"
     },
     {
+      "id": "bochka",
+      "name": "БОЧКА edition",
+      "color": "#6f4e37"
+    },
+    {
       "id": "black",
       "icon": "🖤",
       "name": "BLACK Edition",
@@ -4171,7 +4176,7 @@
           "on_request": false
         }
       ],
-      "stock": 11,
+      "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -5378,7 +5383,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 1,
       "tags": [],
       "photo": null,
       "quarantined": false,
@@ -23903,12 +23908,12 @@
     },
     {
       "id": "espresso_micro_уганда_momo_beat_анаэроб_эспрессо_1_кг",
-      "name": "Уганда Momo Beat анаэроб. эспрессо 1 кг",
-      "category": "espresso",
-      "subcategory": "espresso_micro",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "name": "Espresso бочка Уганда Momo Beat анаэробный 1кг",
+      "category": "bochka",
+      "subcategory": null,
+      "stock": 3,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "КОФ-127",
       "fasovka": [
         {
@@ -23919,11 +23924,19 @@
       ],
       "created_at": "2026-10-06T17:15:02+00:00",
       "created_by": "bridge_1c_qc",
-      "photo": "photos/products/coffee-02888431e5705a44-20261016.jpg",
+      "photo": "photos/products/bochka-espresso-1kg.png",
       "price_source_1c": "КОФ-127",
       "on_request": false,
-      "quarantined_at": "2026-11-10T13:15:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee"
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "_price_tiers_1c": {
+        "25kg": 2930,
+        "10kg": 3290,
+        "base": 3657.5,
+        "stm": 2605
+      },
+      "code_1c": "ЦБ-00006067",
+      "roast": "E"
     },
     {
       "id": "1c-123-0498b7f23a",
@@ -24047,25 +24060,35 @@
     },
     {
       "id": "filter_micro_уганда_momo_beat_анаэроб_1_кг_filter",
-      "name": "Уганда Momo Beat анаэроб.1 кг FILTER",
-      "category": "filter",
-      "subcategory": "filter_micro",
+      "name": "Filter бочка Уганда Momo Beat анаэробный 1 кг",
+      "category": "bochka",
+      "subcategory": null,
       "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "КОФ-126",
-      "on_request": true,
+      "on_request": false,
       "fasovka": [
         {
           "size": "1 кг",
-          "price": null,
-          "on_request": true
+          "price": 3657.5,
+          "on_request": false
         }
       ],
       "created_at": "2026-10-16T11:15:02+00:00",
       "created_by": "bridge_1c_qc",
-      "quarantined_at": "2026-11-10T13:15:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee"
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "price_source_1c": "КОФ-126",
+      "_price_tiers_1c": {
+        "25kg": 2930,
+        "10kg": 3290,
+        "base": 3657.5,
+        "stm": 0
+      },
+      "photo": "photos/products/bochka-filter-1kg.png",
+      "code_1c": "ЦБ-00006066",
+      "roast": "F"
     },
     {
       "id": "1c-128-27a1a5c325",
@@ -24285,17 +24308,17 @@
     },
     {
       "id": "retail_espresso_e_roastberry_уганда_momo_beat_анаэробный_200_г",
-      "name": "E \"Roastberry\" Уганда Momo Beat анаэробный 200 г",
-      "category": "retail",
-      "subcategory": "retail_espresso",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "name": "Espresso бочка Уганда Momo Beat анаэробный 200 г",
+      "category": "bochka",
+      "subcategory": null,
+      "stock": 5,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "КОФ-149",
       "fasovka": [
         {
           "size": "200 г",
-          "price": 810.0,
+          "price": 810,
           "on_request": false
         }
       ],
@@ -24303,30 +24326,49 @@
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-149",
       "on_request": false,
-      "quarantined_at": "2026-11-10T13:15:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee"
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "_price_tiers_1c": {
+        "25kg": 650,
+        "10kg": 730,
+        "base": 810,
+        "stm": 600
+      },
+      "photo": "photos/products/bochka-espresso-200g.png",
+      "code_1c": "ЦБ-00006095",
+      "roast": "E"
     },
     {
       "id": "retail_filter_f_roastberry_уганда_momo_beat_анаэробный_200_г",
-      "name": "F \"Roastberry\" Уганда Momo Beat анаэробный 200 г",
-      "category": "retail",
-      "subcategory": "retail_filter",
-      "stock": 0,
-      "hidden": true,
-      "quarantined": true,
+      "name": "Filter бочка Уганда Momo Beat анаэробный 200 г",
+      "category": "bochka",
+      "subcategory": null,
+      "stock": 8,
+      "hidden": false,
+      "quarantined": false,
       "article_1c": "КОФ-153",
-      "on_request": true,
+      "on_request": false,
       "fasovka": [
         {
           "size": "200 г",
-          "price": null,
-          "on_request": true
+          "price": 810,
+          "on_request": false
         }
       ],
       "created_at": "2026-11-05T09:15:04+00:00",
       "created_by": "bridge_1c_qc",
-      "quarantined_at": "2026-11-10T13:15:02+00:00",
-      "quarantine_reason": "no_in_1c_vedomost_coffee"
+      "quarantined_at": null,
+      "quarantine_reason": null,
+      "price_source_1c": "КОФ-153",
+      "_price_tiers_1c": {
+        "25kg": 650,
+        "10kg": 730,
+        "base": 810,
+        "stm": 0
+      },
+      "photo": "photos/products/bochka-filter-200g.png",
+      "code_1c": "ЦБ-00006098",
+      "roast": "F"
     },
     {
       "id": "black_кофе_roastberry_black_колумбия_нувио_гомес_сухой_200_г",
@@ -24372,8 +24414,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "53142d1822a71914566cdb689c86dc4ee8f53f5db432413da831557f3c2ef2ea",
-    "captured_at": "2026-11-10T13:12:04.576357+00:00",
+    "source_id": "2e67b99c911d740640159341f5772e674356a6b557a66fdebcf7bee2b7552d2e",
+    "captured_at": "2026-11-10T14:12:04.278124+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
