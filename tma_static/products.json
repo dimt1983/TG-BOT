@@ -17150,11 +17150,11 @@
       "id": "f_roastberry_эфиопия_сидамо_гр_2_200_г",
       "name": "F \"Roastberry\" Эфиопия Сидамо Гр.2.",
       "category": "retail",
-      "photo": "assets/placeholders/pack_roastberry_200g.png",
+      "photo": "photos/products/coffee-kof-047-qc-20261110.png",
       "fasovka": [
         {
           "size": "200 г",
-          "photo": "assets/placeholders/pack_roastberry_200g.png",
+          "photo": "photos/products/coffee-kof-047-qc-20261110.png",
           "price": 475,
           "on_request": false
         }
@@ -24122,11 +24122,13 @@
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "photos/products/coffee-kof-128-qc-20261110.png"
         }
       ],
       "created_at": "2026-10-20T12:15:05+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "photo": "photos/products/coffee-kof-128-qc-20261110.png"
     },
     {
       "id": "1c-130-1b9d324d44",
@@ -24178,11 +24180,13 @@
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "photos/products/coffee-kof-130-qc-20261110.png"
         }
       ],
       "created_at": "2026-10-21T11:15:39+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "photo": "photos/products/coffee-kof-130-qc-20261110.png"
     },
     {
       "id": "filter_micro_эфиопия_гелана_абайя_мытый_1_кг_filter",
@@ -24198,11 +24202,13 @@
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "photos/products/coffee-kof-132-qc-20261110.png"
         }
       ],
       "created_at": "2026-10-21T11:15:39+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "photo": "photos/products/coffee-kof-132-qc-20261110.png"
     },
     {
       "id": "espresso_micro_китай_хуангуан_анаэроб_эспрессо_1_кг",
@@ -24218,11 +24224,13 @@
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "photos/products/coffee-kof-125-qc-20261110.png"
         }
       ],
       "created_at": "2026-10-30T08:15:03+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "photo": "photos/products/coffee-kof-125-qc-20261110.png"
     },
     {
       "id": "filter_micro_китай_хуангуан_анаэробный_1_кг_filter",
@@ -24238,11 +24246,13 @@
         {
           "size": "1 кг",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "photos/products/coffee-kof-147-qc-20261110.png"
         }
       ],
       "created_at": "2026-11-02T15:15:08+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "photo": "photos/products/coffee-kof-147-qc-20261110.png"
     },
     {
       "id": "borshch_кофе_roastberry_borщ_китай_хуангуан_анаэробный_200_г",
@@ -24258,11 +24268,13 @@
         {
           "size": "200 г",
           "price": null,
-          "on_request": true
+          "on_request": true,
+          "photo": "photos/products/coffee-kof-148-qc-20261110.png"
         }
       ],
       "created_at": "2026-11-02T15:15:08+00:00",
-      "created_by": "bridge_1c_qc"
+      "created_by": "bridge_1c_qc",
+      "photo": "photos/products/coffee-kof-148-qc-20261110.png"
     },
     {
       "id": "black_кофе_roastberry_black_эфиопия_сакаро_натуральный_200гр",
@@ -24277,13 +24289,15 @@
         {
           "size": "200 г",
           "price": 685.0,
-          "on_request": false
+          "on_request": false,
+          "photo": "photos/products/coffee-kof-131-qc-20261110.png"
         }
       ],
       "created_at": "2026-11-02T16:15:01+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-131",
-      "on_request": false
+      "on_request": false,
+      "photo": "photos/products/coffee-kof-131-qc-20261110.png"
     },
     {
       "id": "retail_espresso_e_roastberry_мексика_чьяпас_мытый_1_кг",
@@ -24298,13 +24312,15 @@
         {
           "size": "1 кг",
           "price": 2175.0,
-          "on_request": false
+          "on_request": false,
+          "photo": "photos/products/coffee-kof-152-qc-20261110.png"
         }
       ],
       "created_at": "2026-11-03T14:15:09+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-152",
-      "on_request": false
+      "on_request": false,
+      "photo": "photos/products/coffee-kof-152-qc-20261110.png"
     },
     {
       "id": "retail_espresso_e_roastberry_уганда_momo_beat_анаэробный_200_г",
@@ -24383,13 +24399,15 @@
         {
           "size": "200 г",
           "price": 745.0,
-          "on_request": false
+          "on_request": false,
+          "photo": "photos/products/coffee-kof-129-qc-20261110.png"
         }
       ],
       "created_at": "2026-11-06T11:15:02+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-129",
-      "on_request": false
+      "on_request": false,
+      "photo": "photos/products/coffee-kof-129-qc-20261110.png"
     },
     {
       "id": "black_кофе_roastberry_black_эфиопия_гелана_абайя_мытый_200г",
@@ -24404,18 +24422,20 @@
         {
           "size": "200 г",
           "price": 685.0,
-          "on_request": false
+          "on_request": false,
+          "photo": "photos/products/coffee-kof-133-qc-20261110.png"
         }
       ],
       "created_at": "2026-11-06T11:15:02+00:00",
       "created_by": "bridge_1c_qc",
       "price_source_1c": "КОФ-133",
-      "on_request": false
+      "on_request": false,
+      "photo": "photos/products/coffee-kof-133-qc-20261110.png"
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "35584ebf7bbdf718544fe1d1a3402f8b7253d2ff966943879f5dfd67c25c655f",
-    "captured_at": "2026-11-10T17:12:04.324896+00:00",
+    "source_id": "7d4e45a96779db5d73d98884fe1097dc14574d0f502df57ad1026181b766bdc6",
+    "captured_at": "2026-11-10T18:12:04.241425+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
