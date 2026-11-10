@@ -1122,7 +1122,7 @@
           "on_request": false
         }
       ],
-      "stock": 2.0,
+      "stock": 15.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1287,7 +1287,7 @@
           "on_request": false
         }
       ],
-      "stock": 9.0,
+      "stock": 30.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -1831,7 +1831,7 @@
           "on_request": false
         }
       ],
-      "stock": 25.0,
+      "stock": 24.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Гватемала Уетенанго упак. 200 гр.",
@@ -1976,7 +1976,7 @@
           "on_request": false
         }
       ],
-      "stock": 12.0,
+      "stock": 11.0,
       "subcategory": "retail_espresso",
       "roast": "E",
       "_source": "E \"Roastberry\" Коста-Рика Тарразу Ла Пастора - 1кг",
@@ -5968,7 +5968,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 252.0,
+      "stock": 242.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -23789,7 +23789,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-10T08:15:02+00:00",
+      "quarantined_at": "2026-11-10T09:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23937,7 +23937,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-10T08:15:02+00:00",
+      "quarantined_at": "2026-11-10T09:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24040,7 +24040,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-10T08:15:02+00:00",
+      "quarantined_at": "2026-11-10T09:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24078,7 +24078,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-10T08:15:02+00:00",
+      "quarantined_at": "2026-11-10T09:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24116,7 +24116,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-10T08:15:02+00:00",
+      "quarantined_at": "2026-11-10T09:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24134,7 +24134,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-10T08:15:02+00:00",
+      "quarantined_at": "2026-11-10T09:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24284,7 +24284,7 @@
       "name": "E \"Roastberry\" Уганда Momo Beat анаэробный 200 г",
       "category": "retail",
       "subcategory": "retail_espresso",
-      "stock": 12.0,
+      "stock": 11.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-149",
@@ -24325,7 +24325,7 @@
       "name": "Кофе \"Roastberry BLACK\" Колумбия Нувио Гомес сухой 200 г",
       "category": "black",
       "subcategory": null,
-      "stock": 10.0,
+      "stock": 9.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-129",
