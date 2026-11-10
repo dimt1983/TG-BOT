@@ -1574,7 +1574,7 @@
       "name": "CUP 7 Жидкость для очистки молочных систем 1 л",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 1,
+      "stock": 0,
       "on_request": false,
       "price": null,
       "quarantined": false,
@@ -9675,7 +9675,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -9785,7 +9785,7 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_бабл_гам_1л.jpg",
       "_source": "https://botanikastories.ru/product/babl-gam/",
@@ -9845,7 +9845,7 @@
           "on_request": false
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10141,7 +10141,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_имбирный_пряник_1л.jpg",
       "_source": "https://botanikastories.ru/product/imbirnyj-pryanik-2/",
@@ -10231,7 +10231,7 @@
           "on_request": false
         }
       ],
-      "stock": 9,
+      "stock": 8,
       "tags": [
         "Хит"
       ],
@@ -10379,7 +10379,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10408,7 +10408,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10666,7 +10666,7 @@
           "on_request": false
         }
       ],
-      "stock": 2,
+      "stock": 1,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10924,7 +10924,7 @@
           "on_request": false
         }
       ],
-      "stock": 6,
+      "stock": 5,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -12880,7 +12880,7 @@
           "on_request": false
         }
       ],
-      "stock": 4,
+      "stock": 3,
       "tags": [],
       "photo": "photos/products/s-сироп_шоколадное_печенье_1.jpg",
       "quarantined": false,
@@ -14772,7 +14772,7 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 0,
       "tags": [],
       "photo": null,
       "quarantined": true,
@@ -14829,7 +14829,7 @@
           "on_request": false
         }
       ],
-      "stock": 8,
+      "stock": 7,
       "tags": [],
       "photo": null,
       "quarantined": true,
@@ -24364,8 +24364,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "d05356d4f6bd800a28a60fbd26cceed2fe3077ec793e1090ea1f9673887b28ea",
-    "captured_at": "2026-11-10T08:12:04.488047+00:00",
+    "source_id": "64699a27fec7ba3efcdc8f91943b2b26d25503d89666580e80b2c8950b08fd80",
+    "captured_at": "2026-11-10T09:12:04.050160+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
