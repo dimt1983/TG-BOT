@@ -16256,7 +16256,7 @@
           "on_request": false
         }
       ],
-      "stock": 72,
+      "stock": 71,
       "tags": [
         "лимонад",
         "Bakunin",
@@ -24364,8 +24364,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "0fa0f696a33b2f52801858ebf72e14f02c9dfc4655a8899b0dfda4f15fcd723e",
-    "captured_at": "2026-11-10T10:12:04.584451+00:00",
+    "source_id": "d1bfa2166f1efab54209b1847206b6119cdf2e2773cfd22bf2af2512c6a99599",
+    "captured_at": "2026-11-10T11:12:04.739573+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
