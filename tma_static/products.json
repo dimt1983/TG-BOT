@@ -23075,7 +23075,7 @@
       "name": "E \"Roastberry\" Колумбия Рисаральда декаф - 200 г",
       "category": "retail",
       "subcategory": "retail_espresso",
-      "stock": 3.0,
+      "stock": 1.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-108",
@@ -23272,7 +23272,7 @@
       "name": "F \"Roastberry\" Колумбия Рисаральда декаф - 200 г",
       "category": "retail",
       "subcategory": "retail_filter",
-      "stock": 9.0,
+      "stock": 11.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-107",
@@ -23789,7 +23789,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-10T11:15:05+00:00",
+      "quarantined_at": "2026-11-10T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-097"
     },
@@ -23937,7 +23937,7 @@
         }
       ],
       "category": "espresso",
-      "quarantined_at": "2026-11-10T11:15:05+00:00",
+      "quarantined_at": "2026-11-10T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc",
       "price_source_1c": "КОФ-123"
     },
@@ -24040,7 +24040,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-10T11:15:05+00:00",
+      "quarantined_at": "2026-11-10T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24078,7 +24078,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-10T11:15:05+00:00",
+      "quarantined_at": "2026-11-10T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24116,7 +24116,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-10T11:15:05+00:00",
+      "quarantined_at": "2026-11-10T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
@@ -24134,7 +24134,7 @@
       ],
       "category": "filter",
       "on_request": true,
-      "quarantined_at": "2026-11-10T11:15:05+00:00",
+      "quarantined_at": "2026-11-10T12:15:02+00:00",
       "quarantine_reason": "merged_via_bridge_1c_qc"
     },
     {
