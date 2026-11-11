@@ -1210,7 +1210,7 @@
           "on_request": false
         }
       ],
-      "stock": 14.0,
+      "stock": 13.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": "2026-05-18T20:00:07+00:00",
@@ -1237,7 +1237,7 @@
           "on_request": false
         }
       ],
-      "stock": 93.0,
+      "stock": 86.0,
       "subcategory": "retail_blend",
       "quarantined": false,
       "quarantined_at": null,
@@ -2131,7 +2131,7 @@
           "on_request": false
         }
       ],
-      "stock": 19.0,
+      "stock": 18.0,
       "subcategory": "retail_filter",
       "quarantined": false,
       "quarantined_at": null,
@@ -2245,7 +2245,7 @@
           "on_request": false
         }
       ],
-      "stock": 19.0,
+      "stock": 18.0,
       "on_request": false,
       "subcategory": "retail_filter",
       "quarantined": false,
@@ -5900,7 +5900,7 @@
       "name": "Бразилия СЕРРАДО Дарк темная обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 105.0,
+      "stock": 103.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -5974,7 +5974,7 @@
       "name": "Бразилия СЕРРАДО средняя обжарка эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 413.0,
+      "stock": 412.0,
       "hidden": false,
       "quarantined": false,
       "country": "Бразилия",
@@ -7641,7 +7641,7 @@
       "name": "Колумбия Андино мытый эспрессо - 1 кг",
       "category": "espresso",
       "subcategory": "espresso_mono",
-      "stock": 27.0,
+      "stock": 18.0,
       "hidden": false,
       "quarantined": false,
       "country": "Колумбия",
@@ -23914,7 +23914,7 @@
       "name": "Espresso бочка Уганда Momo Beat анаэробный 1кг",
       "category": "bochka",
       "subcategory": null,
-      "stock": 3,
+      "stock": 13,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-127",
@@ -24284,7 +24284,7 @@
       "name": "Кофе \"Roastberry BLACK\" Эфиопия Сакаро натуральный 200гр",
       "category": "black",
       "subcategory": null,
-      "stock": 15.0,
+      "stock": 14.0,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-131",
@@ -24330,7 +24330,7 @@
       "name": "Espresso бочка Уганда Momo Beat анаэробный 200 г",
       "category": "bochka",
       "subcategory": null,
-      "stock": 2,
+      "stock": 12,
       "hidden": false,
       "quarantined": false,
       "article_1c": "КОФ-149",
