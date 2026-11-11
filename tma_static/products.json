@@ -1554,7 +1554,7 @@
       "name": "CUP 6 Порошок для удаления кофейных масел 1 кг",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 7,
+      "stock": 19,
       "on_request": false,
       "price": null,
       "quarantined": false,
@@ -1579,7 +1579,7 @@
       "name": "CUP 7 Жидкость для очистки молочных систем 1 л",
       "category": "other",
       "subcategory": "other_chemistry",
-      "stock": 0,
+      "stock": 16,
       "on_request": false,
       "price": null,
       "quarantined": false,
@@ -4294,7 +4294,7 @@
           "on_request": false
         }
       ],
-      "stock": 44,
+      "stock": 0,
       "tags": [],
       "photo": "photos/products/t-restoranica_icedtea_маракуйя_тропик_50пак.jpg",
       "quarantined": false,
@@ -4804,7 +4804,7 @@
           "on_request": false
         }
       ],
-      "stock": 115,
+      "stock": 65,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_ассам_с_шиповником_36пак.jpg",
       "quarantined": false,
@@ -4864,7 +4864,7 @@
           "on_request": false
         }
       ],
-      "stock": 163,
+      "stock": 113,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_иван-чай_с_малиной_36пак.jpg",
       "quarantined": false,
@@ -5006,7 +5006,7 @@
           "on_request": false
         }
       ],
-      "stock": 200,
+      "stock": 150,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_малина_с_мятой_36пак.jpg",
       "quarantined": false,
@@ -5208,7 +5208,7 @@
           "on_request": false
         }
       ],
-      "stock": 196,
+      "stock": 146,
       "tags": [],
       "photo": "photos/products/t-restoranica_togo_чайный_глинтвейн_30пак.jpg",
       "quarantined": false,
@@ -9790,7 +9790,7 @@
           "on_request": false
         }
       ],
-      "stock": 0,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_бабл_гам_1л.jpg",
       "_source": "https://botanikastories.ru/product/babl-gam/",
@@ -9820,7 +9820,7 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 6,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_банан_желтый_1л.jpg",
       "_source": "https://botanikastories.ru/product/zhyoltyj-banan/",
@@ -9850,7 +9850,7 @@
           "on_request": false
         }
       ],
-      "stock": 8,
+      "stock": 14,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10205,7 +10205,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 17,
       "tags": [
         "Хит"
       ],
@@ -10236,7 +10236,7 @@
           "on_request": false
         }
       ],
-      "stock": 8,
+      "stock": 14,
       "tags": [
         "Хит"
       ],
@@ -10326,7 +10326,7 @@
           "on_request": false
         }
       ],
-      "stock": 3,
+      "stock": 9,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10384,7 +10384,7 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 4,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10500,7 +10500,7 @@
           "on_request": false
         }
       ],
-      "stock": 5,
+      "stock": 11,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_лесной_орех_1л.jpg",
       "_source": "https://botanikastories.ru/product/lesnoj-oreh/",
@@ -10671,7 +10671,7 @@
           "on_request": false
         }
       ],
-      "stock": 1,
+      "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -10724,7 +10724,7 @@
           "on_request": false
         }
       ],
-      "stock": 0,
+      "stock": 11,
       "tags": [],
       "photo": "photos/products/s-сироп_botanika_мята_зеленая_1л.jpg",
       "_source": "https://botanikastories.ru/product/zelyonaya-myata/",
@@ -10813,7 +10813,7 @@
           "on_request": false
         }
       ],
-      "stock": 0,
+      "stock": 6,
       "tags": [],
       "quarantined": false,
       "quarantined_at": null,
@@ -24434,8 +24434,8 @@
     }
   ],
   "_rbo_snapshot": {
-    "source_id": "cacf2c616cf4228e6e0aea8e57d48d36714acee6564ea81e27f6870ad227753b",
-    "captured_at": "2026-11-11T08:12:05.814386+00:00",
+    "source_id": "548dbb9cf83573a0240451f8a105438be69f6fd7985cf9d8b6fda6a493b83eb0",
+    "captured_at": "2026-11-11T09:12:05.034287+00:00",
     "warehouse": "Основной склад",
     "price_type": "1.Базовый прайс-лист"
   }
